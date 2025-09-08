@@ -710,6 +710,142 @@ def export_to_optimized_json(df, output_path="app_outputs/contratos_paa_output/p
         "records_count": len(data_records)
     }
 
+def generate_emprestito_filtered_json():
+    """
+    Genera un archivo JSON filtrado que contiene solo los registros 
+    donde emprestito = "SI" basado en el archivo paa_data.json existente
+    """
+    print("\n=== GENERACIÓN DE ARCHIVO FILTRADO EMPRÉSTITO ===")
+    
+    # Ruta del archivo fuente
+    source_file = "app_outputs/contratos_paa_output/paa_data.json"
+    # Ruta del archivo de salida
+    output_file = "app_outputs/contratos_paa_output/paa_procesos_emprestito.json"
+    
+    if not os.path.exists(source_file):
+        print(f"❌ Archivo fuente no encontrado: {source_file}")
+        return None
+    
+    print(f"📂 Cargando datos desde: {source_file}")
+    
+    try:
+        # Cargar el archivo JSON completo
+        with open(source_file, 'r', encoding='utf-8') as f:
+            full_data = json.load(f)
+        
+        # Verificar estructura del JSON
+        if 'data' not in full_data:
+            print("❌ Estructura JSON inválida: falta clave 'data'")
+            return None
+        
+        total_records = len(full_data['data'])
+        print(f"📊 Total de registros en el archivo fuente: {total_records}")
+        
+        # Filtrar registros donde emprestito = "SI"
+        print("🔍 Filtrando registros donde emprestito = 'SI'...")
+        
+        filtered_records = []
+        emprestito_count = 0
+        
+        for record in full_data['data']:
+            if record.get('emprestito') == 'SI':
+                filtered_records.append(record)
+                emprestito_count += 1
+        
+        print(f"✅ Registros filtrados: {emprestito_count}")
+        print(f"📈 Porcentaje de registros con empréstito: {(emprestito_count/total_records)*100:.2f}%")
+        
+        if emprestito_count == 0:
+            print("⚠️ No se encontraron registros con emprestito = 'SI'")
+            return None
+        
+        # Crear estructura JSON para el archivo filtrado
+        filtered_data = {
+            "metadata": {
+                "title": "Procesos PAA - Empréstito",
+                "description": "Registros PAA filtrados donde emprestito = SI",
+                "total_records": emprestito_count,
+                "filter_applied": "emprestito = 'SI'",
+                "source_file": "paa_data.json",
+                "source_total_records": total_records,
+                "columns": full_data['metadata']['columns'],
+                "data_types": full_data['metadata']['data_types'],
+                "generation_date": pd.Timestamp.now().isoformat(),
+                "generated_by": "data_transformation_paa.py - generate_emprestito_filtered_json()"
+            },
+            "statistics": {
+                "total_source_records": total_records,
+                "filtered_records": emprestito_count,
+                "filter_percentage": round((emprestito_count/total_records)*100, 2)
+            },
+            "data": filtered_records
+        }
+        
+        # Crear directorio de salida si no existe
+        output_dir = Path(output_file).parent
+        output_dir.mkdir(parents=True, exist_ok=True)
+        
+        # Guardar archivo filtrado
+        print(f"💾 Guardando archivo filtrado en: {output_file}")
+        
+        with open(output_file, 'w', encoding='utf-8') as f:
+            json.dump(filtered_data, f, ensure_ascii=False, indent=2, cls=JSONEncoder)
+        
+        # Mostrar estadísticas del archivo generado
+        file_size = os.path.getsize(output_file)
+        
+        print(f"\n=== ARCHIVO EMPRÉSTITO GENERADO ===")
+        print(f"📁 Archivo: {output_file}")
+        print(f"📏 Tamaño: {file_size:,} bytes ({file_size/1024/1024:.2f} MB)")
+        print(f"📊 Registros: {emprestito_count}")
+        print(f"🔢 Porcentaje del total: {(emprestito_count/total_records)*100:.2f}%")
+        
+        # Mostrar muestra de registros filtrados
+        if emprestito_count > 0:
+            print(f"\n📋 Muestra de registros filtrados (primeros 3):")
+            for i, record in enumerate(filtered_records[:3]):
+                print(f"   Registro {i+1}:")
+                print(f"     - Centro gestor: {record.get('centro_gestor', 'N/A')}")
+                print(f"     - Descripción: {record.get('descripcion_contrato', 'N/A')[:80]}...")
+                print(f"     - Empréstito: {record.get('emprestito', 'N/A')}")
+                print(f"     - BP: {record.get('bp', 'N/A')}")
+                print(f"     - BPIN: {record.get('bpin', 'N/A')}")
+        
+        return {
+            "output_file": output_file,
+            "file_size": file_size,
+            "total_records": emprestito_count,
+            "filter_percentage": (emprestito_count/total_records)*100
+        }
+        
+    except Exception as e:
+        print(f"❌ Error al procesar archivo: {e}")
+        return None
+
+def generate_emprestito_only():
+    """
+    Función independiente para generar únicamente el archivo filtrado de empréstito
+    sin ejecutar todo el procesamiento PAA
+    """
+    print("=== GENERACIÓN INDEPENDIENTE - ARCHIVO EMPRÉSTITO ===")
+    
+    # Cambiar al directorio del script
+    script_dir = Path(__file__).parent
+    os.chdir(script_dir)
+    
+    # Generar solo el archivo filtrado
+    emprestito_result = generate_emprestito_filtered_json()
+    
+    if emprestito_result:
+        print(f"\n✅ Proceso completado exitosamente")
+        print(f"📁 Archivo generado: {emprestito_result['output_file']}")
+        print(f"📊 Total de registros: {emprestito_result['total_records']}")
+        print(f"📏 Tamaño del archivo: {emprestito_result['file_size']/1024:.2f} KB")
+        return emprestito_result
+    else:
+        print(f"\n❌ Error en la generación del archivo")
+        return None
+
 def main():
     """
     Función principal para ejecutar el procesamiento de datos PAA
@@ -745,12 +881,19 @@ def main():
                 print(f"\n📤 Exportando datos PAA a JSON...")
                 json_files = export_to_optimized_json(df_enriched)
                 
+                # Generar archivo filtrado de empréstito
+                print(f"\n📤 Generando archivo filtrado de empréstito...")
+                emprestito_result = generate_emprestito_filtered_json()
+                
                 # Mostrar resumen final
                 print(f"\n=== RESUMEN FINAL ===")
                 print(f"Total de registros procesados: {len(df_enriched)}")
                 print(f"Total de columnas finales: {len(df_enriched.columns)}")
                 if json_files:
-                    print(f"Archivo JSON generado: {json_files['main_file']}")
+                    print(f"Archivo JSON principal: {json_files['main_file']}")
+                if emprestito_result:
+                    print(f"Archivo filtrado empréstito: {emprestito_result['output_file']}")
+                    print(f"Registros empréstito: {emprestito_result['total_records']}")
                 
                 # Mostrar las primeras filas como muestra
                 print(f"\nPrimeras 3 filas del dataset final:")
@@ -778,4 +921,10 @@ def main():
         return None
 
 if __name__ == "__main__":
-    main()
+    import sys
+    
+    # Verificar si se pasa un argumento específico para generar solo empréstito
+    if len(sys.argv) > 1 and sys.argv[1] == "--emprestito-only":
+        generate_emprestito_only()
+    else:
+        main()
