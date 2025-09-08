@@ -1,3 +1,26 @@
+"""
+Módulo de transformación de datos PAA (Plan Anual de Adquisiciones)
+
+Este módulo contiene funciones para procesar y transformar datos del Plan Anual de Adquisiciones
+de la Alcaldía de Santiago de Cali.
+
+Funciones principales:
+- main(): Ejecuta el procesamiento completo de datos PAA
+- generate_emprestito_filtered_json(): Genera archivo filtrado con registros donde emprestito = "SI"
+- generate_emprestito_only(): Función independiente para generar solo el archivo de empréstito
+
+Uso:
+1. Para ejecutar el procesamiento completo:
+   python data_transformation_paa.py
+
+2. Para generar solo el archivo filtrado de empréstito:
+   python data_transformation_paa.py --emprestito-only
+
+Archivos generados:
+- app_outputs/contratos_paa_output/paa_data.json (archivo principal)
+- app_outputs/contratos_paa_output/paa_procesos_emprestito.json (archivo filtrado)
+"""
+
 import pandas as pd
 import os
 import glob
