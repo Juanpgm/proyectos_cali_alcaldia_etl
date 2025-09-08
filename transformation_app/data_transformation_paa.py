@@ -5,20 +5,18 @@ Este módulo contiene funciones para procesar y transformar datos del Plan Anual
 de la Alcaldía de Santiago de Cali.
 
 Funciones principales:
-- main(): Ejecuta el procesamiento completo de datos PAA
-- generate_emprestito_filtered_json(): Genera archivo filtrado con registros donde emprestito = "SI"
-- generate_emprestito_only(): Función independiente para generar solo el archivo de empréstito
+- main(): Ejecuta el procesamiento completo de datos PAA y genera emp_foundational_dims.json
+- export_emp_foundational_dims(): Genera el archivo emp_foundational_dims.json con datos de empréstito
 
 Uso:
-1. Para ejecutar el procesamiento completo:
    python data_transformation_paa.py
 
-2. Para generar solo el archivo filtrado de empréstito:
-   python data_transformation_paa.py --emprestito-only
+Archivo generado:
+- app_outputs/emprestito_output/emp_foundational_dims.json (archivo filtrado con emprestito = "SI")
 
-Archivos generados:
-- app_outputs/contratos_paa_output/paa_data.json (archivo principal)
-- app_outputs/contratos_paa_output/paa_procesos_emprestito.json (archivo filtrado)
+Características especiales:
+- La variable "bpin" es siempre un número entero sin decimales
+- Solo produce el archivo emp_foundational_dims.json en la carpeta emprestito_output
 """
 
 import pandas as pd
@@ -450,7 +448,12 @@ def enrich_with_bpin_data(df):
                 bp_value = record['bp']
                 bpin_value = record['bpin']
                 if bp_value and bpin_value:
-                    bp_to_bpin[bp_value] = bpin_value
+                    # Asegurar que bpin sea un entero sin decimales
+                    try:
+                        bpin_int = int(float(bpin_value))
+                        bp_to_bpin[bp_value] = bpin_int
+                    except (ValueError, TypeError):
+                        print(f"⚠️ BPIN inválido para BP {bp_value}: {bpin_value}")
         
         print(f"📊 Mapeo BP -> BPIN creado: {len(bp_to_bpin)} registros")
         
@@ -468,7 +471,7 @@ def enrich_with_bpin_data(df):
         print(f"   Registros sin BPIN: {not_enriched}")
         print(f"   Porcentaje de éxito: {(enriched_records/total_records)*100:.1f}%")
         
-        # Llenar valores nulos con 0 o None según preferencia
+        # Llenar valores nulos con 0 y asegurar que sean enteros
         df['bpin'] = df['bpin'].fillna(0).astype('int64')
         
         return df
@@ -622,82 +625,121 @@ class JSONEncoder(json.JSONEncoder):
         else:
             return obj
 
-def export_to_optimized_json(df, output_path="app_outputs/contratos_paa_output/paa_data.json"):
+def export_emp_foundational_dims(df, output_path="app_outputs/emprestito_output/emp_foundational_dims.json"):
     """
-    Exporta el DataFrame a JSON optimizado - solo archivo principal
+    Exporta únicamente el archivo emp_foundational_dims.json con datos de empréstito
     """
     if df is None:
         print("No hay datos para exportar")
         return None
     
-    print("\n=== EXPORTACIÓN JSON OPTIMIZADA ===")
+    print("\n=== EXPORTACIÓN EMP_FOUNDATIONAL_DIMS.JSON ===")
     
     # Crear la carpeta de salida si no existe
     output_dir = Path(output_path).parent
     output_dir.mkdir(parents=True, exist_ok=True)
     
-    # Optimizar DataFrame
-    df_optimized = optimize_dataframe_for_json(df)
+    # Filtrar solo registros donde emprestito = "SI"
+    print("🔍 Filtrando registros donde emprestito = 'SI'...")
+    
+    emprestito_df = df[df.get('emprestito', '') == 'SI'].copy()
+    
+    if emprestito_df.empty:
+        print("⚠️ No se encontraron registros con emprestito = 'SI'")
+        return None
+    
+    print(f"✅ Registros filtrados: {len(emprestito_df)}")
+    
+    # Filtrar solo las columnas 'bpin' e 'id'
+    print("🔍 Seleccionando solo columnas 'bpin' e 'id'...")
+    
+    required_columns = ['bpin', 'id']
+    available_columns = []
+    
+    for col in required_columns:
+        if col in emprestito_df.columns:
+            available_columns.append(col)
+            print(f"   ✅ Columna '{col}' encontrada")
+        else:
+            print(f"   ⚠️ Columna '{col}' no encontrada en el DataFrame")
+    
+    if not available_columns:
+        print("❌ No se encontraron las columnas requeridas ('bpin', 'id')")
+        return None
+    
+    # Seleccionar solo las columnas disponibles
+    emprestito_df = emprestito_df[available_columns].copy()
+    print(f"📊 DataFrame reducido a {len(available_columns)} columnas: {available_columns}")
+    
+    # Optimizar DataFrame para JSON
+    df_optimized = optimize_dataframe_for_json(emprestito_df)
     
     # Convertir a diccionario optimizado
     print("1. Convirtiendo a estructura JSON optimizada...")
     
-    # Estrategia 1: Formato compacto con registros - con limpieza adicional de NaN
-    print("   Aplicando limpieza final de NaN antes de serialización...")
-    
     def clean_record(record):
-        """Limpia un registro individual de valores NaN"""
+        """Limpia un registro individual de valores NaN - solo para bpin e id"""
         cleaned = {}
         for key, value in record.items():
-            if pd.isna(value) or str(value) == 'nan' or str(value) == 'NaN':
-                cleaned[key] = None
-            elif isinstance(value, np.floating) and np.isnan(value):
-                cleaned[key] = None
+            if key == 'bpin':
+                # Asegurar que bpin sea un entero
+                if pd.isna(value) or str(value) == 'nan' or str(value) == 'NaN':
+                    cleaned[key] = 0
+                elif isinstance(value, np.floating) and np.isnan(value):
+                    cleaned[key] = 0
+                else:
+                    try:
+                        cleaned[key] = int(float(value))
+                    except (ValueError, TypeError):
+                        cleaned[key] = 0
+            elif key == 'id':
+                # Manejar la columna id
+                if pd.isna(value) or str(value) == 'nan' or str(value) == 'NaN':
+                    cleaned[key] = None
+                elif isinstance(value, np.floating) and np.isnan(value):
+                    cleaned[key] = None
+                else:
+                    cleaned[key] = value
             else:
-                cleaned[key] = value
+                # Para cualquier otra columna que pueda existir
+                if pd.isna(value) or str(value) == 'nan' or str(value) == 'NaN':
+                    cleaned[key] = None
+                elif isinstance(value, np.floating) and np.isnan(value):
+                    cleaned[key] = None
+                else:
+                    cleaned[key] = value
         return cleaned
     
     # Aplicar limpieza a cada registro
     data_records = [clean_record(record) for record in df_optimized.to_dict('records')]
     
-    # Estrategia 2: Crear metadata para reducir redundancia
+    # Crear metadata específica para emp_foundational_dims
     metadata = {
-        "total_records": len(df_optimized),
+        "title": "Empréstito - Dimensiones Fundamentales",
+        "description": "Datos fundamentales de proyectos PAA con empréstito = SI (solo bpin e id)",
+        "total_records": len(data_records),
+        "filter_applied": "emprestito = 'SI'",
+        "columns_included": available_columns,
         "columns": list(df_optimized.columns),
         "data_types": {col: str(df_optimized[col].dtype) for col in df_optimized.columns},
         "export_date": pd.Timestamp.now().isoformat(),
-        "source": "PAA Database - Santiago de Cali"
+        "source": "PAA Database - Santiago de Cali",
+        "generated_by": "data_transformation_paa.py - export_emp_foundational_dims()"
     }
     
-    # Estrategia 3: Separar datos categóricos para reducir redundancia
-    categorical_data = {}
-    
-    # Identificar columnas con valores repetitivos
-    for col in df_optimized.columns:
-        if hasattr(df_optimized[col], 'cat') or (
-            df_optimized[col].dtype == 'object' and 
-            df_optimized[col].nunique() < len(df_optimized) * 0.3
-        ):
-            unique_values = df_optimized[col].dropna().unique().tolist()
-            if len(unique_values) < 100:  # Solo para categorías pequeñas
-                categorical_data[col] = unique_values
-    
-    print(f"2. Categorías identificadas para optimización: {len(categorical_data)}")
-    
-    # Crear estructura JSON final optimizada
+    # Crear estructura JSON final
     json_structure = {
         "metadata": metadata,
-        "categorical_mappings": categorical_data,
         "data": data_records
     }
     
-    # Exportar JSON principal con formato legible
-    print("3. Exportando JSON principal...")
+    # Exportar JSON
+    print("2. Exportando JSON...")
     with open(output_path, 'w', encoding='utf-8') as f:
         json.dump(json_structure, f, ensure_ascii=False, indent=2, cls=JSONEncoder)
     
     # Post-procesamiento para eliminar cualquier NaN restante
-    print("4. Post-procesamiento para eliminar NaN restantes...")
+    print("3. Post-procesamiento para eliminar NaN restantes...")
     
     def post_process_json_file(file_path):
         """Post-procesa un archivo JSON para eliminar NaN restantes"""
@@ -706,7 +748,6 @@ def export_to_optimized_json(df, output_path="app_outputs/contratos_paa_output/p
         
         # Reemplazar valores NaN con null
         import re
-        # Patrón para encontrar ": NaN," o ": NaN}"
         content = re.sub(r':\s*NaN\s*([,}])', r': null\1', content)
         
         # Escribir el contenido corregido
@@ -722,158 +763,32 @@ def export_to_optimized_json(df, output_path="app_outputs/contratos_paa_output/p
     # Mostrar estadísticas del archivo
     file_size = os.path.getsize(output_path)
     
-    print(f"\n=== ARCHIVO JSON GENERADO ===")
+    print(f"\n=== ARCHIVO EMP_FOUNDATIONAL_DIMS.JSON GENERADO ===")
     print(f"Archivo: {output_path}")
     print(f"Tamaño: {file_size:,} bytes ({file_size/1024/1024:.2f} MB)")
     print(f"Registros: {len(data_records)}")
     
+    # Mostrar muestra de registros con BPIN e ID
+    if data_records:
+        print(f"\n📋 Muestra de registros (primeros 5):")
+        for i, record in enumerate(data_records[:5]):
+            print(f"   Registro {i+1}:")
+            print(f"     - ID: {record.get('id', 'N/A')}")
+            print(f"     - BPIN: {record.get('bpin', 'N/A')} (tipo: {type(record.get('bpin', 'N/A'))})")
+    
     return {
-        "main_file": output_path,
-        "main_size": file_size,
-        "records_count": len(data_records)
+        "output_file": output_path,
+        "file_size": file_size,
+        "records_count": len(data_records),
+        "columns_included": available_columns
     }
-
-def generate_emprestito_filtered_json():
-    """
-    Genera un archivo JSON filtrado que contiene solo los registros 
-    donde emprestito = "SI" basado en el archivo paa_data.json existente
-    """
-    print("\n=== GENERACIÓN DE ARCHIVO FILTRADO EMPRÉSTITO ===")
-    
-    # Ruta del archivo fuente
-    source_file = "app_outputs/contratos_paa_output/paa_data.json"
-    # Ruta del archivo de salida
-    output_file = "app_outputs/contratos_paa_output/paa_procesos_emprestito.json"
-    
-    if not os.path.exists(source_file):
-        print(f"❌ Archivo fuente no encontrado: {source_file}")
-        return None
-    
-    print(f"📂 Cargando datos desde: {source_file}")
-    
-    try:
-        # Cargar el archivo JSON completo
-        with open(source_file, 'r', encoding='utf-8') as f:
-            full_data = json.load(f)
-        
-        # Verificar estructura del JSON
-        if 'data' not in full_data:
-            print("❌ Estructura JSON inválida: falta clave 'data'")
-            return None
-        
-        total_records = len(full_data['data'])
-        print(f"📊 Total de registros en el archivo fuente: {total_records}")
-        
-        # Filtrar registros donde emprestito = "SI"
-        print("🔍 Filtrando registros donde emprestito = 'SI'...")
-        
-        filtered_records = []
-        emprestito_count = 0
-        
-        for record in full_data['data']:
-            if record.get('emprestito') == 'SI':
-                filtered_records.append(record)
-                emprestito_count += 1
-        
-        print(f"✅ Registros filtrados: {emprestito_count}")
-        print(f"📈 Porcentaje de registros con empréstito: {(emprestito_count/total_records)*100:.2f}%")
-        
-        if emprestito_count == 0:
-            print("⚠️ No se encontraron registros con emprestito = 'SI'")
-            return None
-        
-        # Crear estructura JSON para el archivo filtrado
-        filtered_data = {
-            "metadata": {
-                "title": "Procesos PAA - Empréstito",
-                "description": "Registros PAA filtrados donde emprestito = SI",
-                "total_records": emprestito_count,
-                "filter_applied": "emprestito = 'SI'",
-                "source_file": "paa_data.json",
-                "source_total_records": total_records,
-                "columns": full_data['metadata']['columns'],
-                "data_types": full_data['metadata']['data_types'],
-                "generation_date": pd.Timestamp.now().isoformat(),
-                "generated_by": "data_transformation_paa.py - generate_emprestito_filtered_json()"
-            },
-            "statistics": {
-                "total_source_records": total_records,
-                "filtered_records": emprestito_count,
-                "filter_percentage": round((emprestito_count/total_records)*100, 2)
-            },
-            "data": filtered_records
-        }
-        
-        # Crear directorio de salida si no existe
-        output_dir = Path(output_file).parent
-        output_dir.mkdir(parents=True, exist_ok=True)
-        
-        # Guardar archivo filtrado
-        print(f"💾 Guardando archivo filtrado en: {output_file}")
-        
-        with open(output_file, 'w', encoding='utf-8') as f:
-            json.dump(filtered_data, f, ensure_ascii=False, indent=2, cls=JSONEncoder)
-        
-        # Mostrar estadísticas del archivo generado
-        file_size = os.path.getsize(output_file)
-        
-        print(f"\n=== ARCHIVO EMPRÉSTITO GENERADO ===")
-        print(f"📁 Archivo: {output_file}")
-        print(f"📏 Tamaño: {file_size:,} bytes ({file_size/1024/1024:.2f} MB)")
-        print(f"📊 Registros: {emprestito_count}")
-        print(f"🔢 Porcentaje del total: {(emprestito_count/total_records)*100:.2f}%")
-        
-        # Mostrar muestra de registros filtrados
-        if emprestito_count > 0:
-            print(f"\n📋 Muestra de registros filtrados (primeros 3):")
-            for i, record in enumerate(filtered_records[:3]):
-                print(f"   Registro {i+1}:")
-                print(f"     - Centro gestor: {record.get('centro_gestor', 'N/A')}")
-                print(f"     - Descripción: {record.get('descripcion_contrato', 'N/A')[:80]}...")
-                print(f"     - Empréstito: {record.get('emprestito', 'N/A')}")
-                print(f"     - BP: {record.get('bp', 'N/A')}")
-                print(f"     - BPIN: {record.get('bpin', 'N/A')}")
-        
-        return {
-            "output_file": output_file,
-            "file_size": file_size,
-            "total_records": emprestito_count,
-            "filter_percentage": (emprestito_count/total_records)*100
-        }
-        
-    except Exception as e:
-        print(f"❌ Error al procesar archivo: {e}")
-        return None
-
-def generate_emprestito_only():
-    """
-    Función independiente para generar únicamente el archivo filtrado de empréstito
-    sin ejecutar todo el procesamiento PAA
-    """
-    print("=== GENERACIÓN INDEPENDIENTE - ARCHIVO EMPRÉSTITO ===")
-    
-    # Cambiar al directorio del script
-    script_dir = Path(__file__).parent
-    os.chdir(script_dir)
-    
-    # Generar solo el archivo filtrado
-    emprestito_result = generate_emprestito_filtered_json()
-    
-    if emprestito_result:
-        print(f"\n✅ Proceso completado exitosamente")
-        print(f"📁 Archivo generado: {emprestito_result['output_file']}")
-        print(f"📊 Total de registros: {emprestito_result['total_records']}")
-        print(f"📏 Tamaño del archivo: {emprestito_result['file_size']/1024:.2f} KB")
-        return emprestito_result
-    else:
-        print(f"\n❌ Error en la generación del archivo")
-        return None
 
 def main():
     """
     Función principal para ejecutar el procesamiento de datos PAA
+    y generar únicamente el archivo emp_foundational_dims.json
     """
-    print("=== PROCESAMIENTO DE DATOS PAA ===")
+    print("=== PROCESAMIENTO DE DATOS PAA - EMPRÉSTITO FOUNDATIONAL DIMS ===")
     
     # Cambiar al directorio del script
     script_dir = Path(__file__).parent
@@ -897,40 +812,24 @@ def main():
                 # Enriquecer con datos BPIN
                 df_enriched = enrich_with_bpin_data(df_for_export)
                 
-                # Guardar los datos procesados y estandarizados (comentado para no generar Excel)
-                # output_file = save_processed_data(df_enriched)
-                
-                # Exportar a JSON optimizado
-                print(f"\n📤 Exportando datos PAA a JSON...")
-                json_files = export_to_optimized_json(df_enriched)
-                
-                # Generar archivo filtrado de empréstito
-                print(f"\n📤 Generando archivo filtrado de empréstito...")
-                emprestito_result = generate_emprestito_filtered_json()
+                # Exportar únicamente emp_foundational_dims.json
+                print(f"\n📤 Exportando archivo emp_foundational_dims.json...")
+                result = export_emp_foundational_dims(df_enriched)
                 
                 # Mostrar resumen final
                 print(f"\n=== RESUMEN FINAL ===")
                 print(f"Total de registros procesados: {len(df_enriched)}")
                 print(f"Total de columnas finales: {len(df_enriched.columns)}")
-                if json_files:
-                    print(f"Archivo JSON principal: {json_files['main_file']}")
-                if emprestito_result:
-                    print(f"Archivo filtrado empréstito: {emprestito_result['output_file']}")
-                    print(f"Registros empréstito: {emprestito_result['total_records']}")
+                if result:
+                    print(f"Archivo generado: {result['output_file']}")
+                    print(f"Registros de empréstito: {result['records_count']}")
+                    print(f"Columnas incluidas: {result['columns_included']}")
+                    print(f"Tamaño del archivo: {result['file_size']/1024:.2f} KB")
                 
-                # Mostrar las primeras filas como muestra
-                print(f"\nPrimeras 3 filas del dataset final:")
-                print(df_enriched.head(3))
-                
-                # Mostrar tipos de datos de columnas monetarias
-                monetary_cols = [col for col in df_enriched.columns 
-                               if any(keyword in col.lower() for keyword in 
-                                    ['valor', 'precio', 'costo', 'monto', 'presupuesto', 'ppto'])]
-                
-                if monetary_cols:
-                    print(f"\nTipos de datos de columnas monetarias:")
-                    for col in monetary_cols[:10]:  # Mostrar primeras 10
-                        print(f"  {col}: {df_enriched[col].dtype}")
+                # Verificar que la columna BPIN sea de tipo entero
+                if 'bpin' in df_enriched.columns:
+                    print(f"\nTipo de datos de columna BPIN: {df_enriched['bpin'].dtype}")
+                    print(f"Muestra de valores BPIN: {df_enriched['bpin'].head().tolist()}")
                 
                 return df_enriched
             else:
@@ -944,10 +843,4 @@ def main():
         return None
 
 if __name__ == "__main__":
-    import sys
-    
-    # Verificar si se pasa un argumento específico para generar solo empréstito
-    if len(sys.argv) > 1 and sys.argv[1] == "--emprestito-only":
-        generate_emprestito_only()
-    else:
-        main()
+    main()
