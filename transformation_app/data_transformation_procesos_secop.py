@@ -5,6 +5,105 @@ import re
 import numpy as np
 from datetime import datetime
 from collections import defaultdict
+from tqdm import tqdm
+
+def load_all_procesos_secop_files():
+    """
+    Lee todos los archivos de datos de procesos SECOP desde la carpeta de entrada
+    detectando automáticamente las extensiones.
+    
+    Returns:
+        pd.DataFrame: DataFrame con todos los archivos combinados
+    """
+    
+    # Ruta de la carpeta de entrada
+    input_folder = "transformation_app/app_inputs/procesos_secop_input"
+    
+    # Verificar que la carpeta existe
+    if not os.path.exists(input_folder):
+        raise FileNotFoundError(f"No se encontró la carpeta: {input_folder}")
+    
+    # Obtener todos los archivos de la carpeta
+    all_files = [f for f in os.listdir(input_folder) if os.path.isfile(os.path.join(input_folder, f))]
+    
+    if not all_files:
+        raise FileNotFoundError(f"No se encontraron archivos en la carpeta: {input_folder}")
+    
+    print(f"🔄 Archivos encontrados en la carpeta: {len(all_files)}")
+    for file in all_files:
+        file_size = os.path.getsize(os.path.join(input_folder, file)) / (1024 * 1024)  # MB
+        print(f"  📄 {file} ({file_size:.1f} MB)")
+    
+    # Lista para almacenar todos los DataFrames
+    all_dataframes = []
+    
+    # Procesar cada archivo según su extensión
+    for file in all_files:
+        file_path = os.path.join(input_folder, file)
+        file_extension = os.path.splitext(file)[1].lower()
+        
+        print(f"\n🔄 Procesando archivo: {file}")
+        print(f"📋 Extensión detectada: {file_extension}")
+        
+        try:
+            if file_extension == '.csv':
+                print("📊 Leyendo archivo CSV...")
+                # Intentar diferentes encodings para CSV
+                encodings = ['utf-8', 'latin-1', 'cp1252', 'iso-8859-1']
+                df_temp = None
+                
+                for encoding in encodings:
+                    try:
+                        df_temp = pd.read_csv(file_path, low_memory=False, encoding=encoding)
+                        print(f"✅ CSV leído exitosamente con encoding: {encoding}")
+                        break
+                    except UnicodeDecodeError:
+                        continue
+                
+                if df_temp is None:
+                    raise ValueError(f"No se pudo leer el archivo CSV con ningún encoding probado")
+                
+            elif file_extension in ['.xlsx', '.xls']:
+                print("📊 Leyendo archivo Excel...")
+                df_temp = pd.read_excel(file_path)
+                
+            elif file_extension == '.json':
+                print("📊 Leyendo archivo JSON...")
+                df_temp = pd.read_json(file_path)
+                
+            elif file_extension == '.parquet':
+                print("📊 Leyendo archivo Parquet...")
+                df_temp = pd.read_parquet(file_path)
+                
+            elif file_extension in ['.txt', '.tsv']:
+                print("📊 Leyendo archivo de texto delimitado...")
+                # Detectar delimitador
+                delimiter = '\t' if file_extension == '.tsv' else ','
+                df_temp = pd.read_csv(file_path, delimiter=delimiter, low_memory=False)
+                
+            else:
+                print(f"⚠️ Extensión {file_extension} no soportada. Archivo omitido: {file}")
+                print("📋 Extensiones soportadas: .csv, .xlsx, .xls, .json, .parquet, .txt, .tsv")
+                continue
+            
+            print(f"✅ Archivo leído: {len(df_temp):,} registros, {len(df_temp.columns)} columnas")
+            all_dataframes.append(df_temp)
+            
+        except Exception as e:
+            print(f"❌ Error leyendo archivo {file}: {str(e)}")
+            continue
+    
+    # Verificar que se leyeron archivos
+    if not all_dataframes:
+        raise ValueError("No se pudo leer ningún archivo de la carpeta")
+    
+    # Combinar todos los DataFrames
+    print(f"\n🔄 Combinando {len(all_dataframes)} archivos...")
+    df = pd.concat(all_dataframes, ignore_index=True, sort=False)
+    
+    print(f"✅ Datos combinados: {len(df):,} registros totales")
+    
+    return df
 
 def clean_column_names(df):
     """
@@ -54,22 +153,9 @@ def clean_column_names(df):
     print(f"✅ Nombres de columnas limpiados: {len(new_columns)} columnas")
     
     # Mostrar algunos ejemplos de cambios
-    print("📋 Ejemplos de cambios en nombres de columnas:")
-    try:
-        # Intentar con la ruta desde el directorio de trabajo actual
-        csv_path = "transformation_app/app_inputs/procesos_input/SECOP_II_-_Procesos_de_Contratación_20250909.csv"
-        if not os.path.exists(csv_path):
-            # Intentar con ruta relativa desde el script
-            csv_path = "app_inputs/procesos_input/SECOP_II_-_Procesos_de_Contratación_20250909.csv"
-        
-        if os.path.exists(csv_path):
-            original_cols = list(pd.read_csv(csv_path, nrows=0).columns)
-            for i in range(min(5, len(original_cols))):
-                print(f"   '{original_cols[i]}' → '{new_columns[i]}'")
-        else:
-            print("   (No se pudo cargar archivo para mostrar ejemplos)")
-    except Exception as e:
-        print(f"   (Error mostrando ejemplos: {e})")
+    print("📋 Ejemplos de nombres de columnas procesadas:")
+    for i in range(min(5, len(new_columns))):
+        print(f"   Columna {i+1}: '{new_columns[i]}'")
     
     return df
 
@@ -170,8 +256,8 @@ def create_procesos_proyectos_index(cleaned_data):
     print("=" * 60)
     
     # Ruta del índice de contratos
-    contratos_index_path = "transformation_app/app_outputs/contratos_secop_output/contratos_proyectos_index.json"
-    output_path = "transformation_app/app_outputs/procesos_secop_output/procesos_proyectos_index.json"
+    contratos_index_path = "transformation_app/app_outputs/contratos_secop_outputs/contratos_proyectos_index.json"
+    output_path = "transformation_app/app_outputs/procesos_secop_outputs/procesos_proyectos_index.json"
     
     # Verificar que exista el archivo de contratos
     if not os.path.exists(contratos_index_path):
@@ -278,26 +364,26 @@ def create_procesos_proyectos_index(cleaned_data):
 
 def main():
     """
-    Convierte datos CSV de procesos SECOP a JSON, 
+    Convierte datos de procesos SECOP a JSON, 
     excluyendo registros con tipo_contrato = 'Prestación de servicios'
     y filtrando por proceso_compra que existan en contratos_proyectos_index.json
     """
     print("🚀 Iniciando conversión de datos de procesos SECOP a JSON")
     print("=" * 60)
     
-    # Ruta del archivo de entrada
-    input_path = "transformation_app/app_inputs/procesos_input/SECOP_II_-_Procesos_de_Contratación_20250909.csv"
-    contratos_index_path = "transformation_app/app_outputs/contratos_secop_output/contratos_proyectos_index.json"
-    
-    if not os.path.exists(input_path):
-        print(f"❌ No se encontró el archivo: {input_path}")
-        return
+    # Ruta del índice de contratos
+    contratos_index_path = "transformation_app/app_outputs/contratos_secop_outputs/contratos_proyectos_index.json"
     
     if not os.path.exists(contratos_index_path):
         print(f"❌ No se encontró el archivo de índice de contratos: {contratos_index_path}")
         return
     
     try:
+        # Cargar todos los archivos de procesos automáticamente
+        print("🔄 Cargando datos de procesos desde la carpeta de entrada...")
+        df = load_all_procesos_secop_files()
+        print(f"✅ Datos cargados: {len(df):,} registros, {len(df.columns)} columnas")
+        
         # Cargar el índice de contratos para obtener los proceso_compra válidos
         print("🔄 Cargando índice de contratos...")
         with open(contratos_index_path, 'r', encoding='utf-8') as f:
@@ -312,11 +398,6 @@ def main():
         
         print(f"✅ Índice de contratos cargado: {len(valid_proceso_compras):,} proceso_compra únicos")
         
-        # Cargar el CSV
-        print("🔄 Cargando datos desde CSV...")
-        df = pd.read_csv(input_path, encoding='utf-8')
-        print(f"✅ Datos cargados: {len(df):,} registros, {len(df.columns)} columnas")
-        
         # Limpiar nombres de columnas
         df = clean_column_names(df)
         
@@ -327,6 +408,19 @@ def main():
         else:
             print(f"⚠️ No se encontró la columna 'id_portafolio'")
             print(f"📋 Columnas disponibles: {list(df.columns)}")
+        
+        # Verificar que las columnas necesarias existen después de la limpieza
+        required_columns_check = ['proceso_compra']
+        missing_columns = [col for col in required_columns_check if col not in df.columns]
+        
+        if missing_columns:
+            print(f"⚠️ Columnas críticas faltantes después de la limpieza: {missing_columns}")
+            print("📋 Columnas disponibles:")
+            for col in df.columns[:10]:  # Mostrar primeras 10 columnas
+                print(f"  - {col}")
+            if len(df.columns) > 10:
+                print(f"  ... y {len(df.columns) - 10} más")
+            return
         
         # Aplicar transformaciones de calidad de datos
         print(f"\n🔄 Aplicando transformaciones de calidad de datos...")
@@ -428,7 +522,7 @@ def main():
             cleaned_data.append(cleaned_record)
         
         # Crear directorio de salida si no existe
-        output_dir = "transformation_app/app_outputs/procesos_secop_output"
+        output_dir = "transformation_app/app_outputs/procesos_secop_outputs"
         os.makedirs(output_dir, exist_ok=True)
         
         # Guardar como procesos_secop.json en el directorio de salida
