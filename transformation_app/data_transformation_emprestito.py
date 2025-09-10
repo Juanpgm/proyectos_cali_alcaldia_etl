@@ -15,6 +15,124 @@ import unicodedata
 import json
 from typing import Union
 from datetime import datetime
+from tqdm import tqdm
+
+
+def load_all_emprestito_files():
+    """
+    Lee todos los archivos de datos de empréstito desde la carpeta de entrada
+    detectando automáticamente las extensiones.
+    
+    Returns:
+        pd.DataFrame: DataFrame con todos los archivos combinados
+    """
+    
+    # Ruta de la carpeta de entrada
+    input_folder = "transformation_app/app_inputs/emprestito_input"
+    
+    # Verificar que la carpeta existe
+    if not os.path.exists(input_folder):
+        raise FileNotFoundError(f"No se encontró la carpeta: {input_folder}")
+    
+    # Obtener todos los archivos de la carpeta
+    all_files = [f for f in os.listdir(input_folder) if os.path.isfile(os.path.join(input_folder, f))]
+    
+    if not all_files:
+        raise FileNotFoundError(f"No se encontraron archivos en la carpeta: {input_folder}")
+    
+    print(f"🔄 Archivos encontrados en la carpeta: {len(all_files)}")
+    for file in all_files:
+        file_size = os.path.getsize(os.path.join(input_folder, file)) / (1024 * 1024)  # MB
+        print(f"  📄 {file} ({file_size:.1f} MB)")
+    
+    # Lista para almacenar todos los DataFrames
+    all_dataframes = []
+    
+    # Procesar cada archivo según su extensión
+    for file in all_files:
+        file_path = os.path.join(input_folder, file)
+        file_extension = os.path.splitext(file)[1].lower()
+        
+        print(f"\n🔄 Procesando archivo: {file}")
+        print(f"📋 Extensión detectada: {file_extension}")
+        
+        try:
+            if file_extension == '.csv':
+                print("📊 Leyendo archivo CSV...")
+                # Intentar diferentes encodings para CSV
+                encodings = ['utf-8', 'latin-1', 'cp1252', 'iso-8859-1']
+                df_temp = None
+                
+                for encoding in encodings:
+                    try:
+                        df_temp = pd.read_csv(file_path, low_memory=False, encoding=encoding)
+                        print(f"✅ CSV leído exitosamente con encoding: {encoding}")
+                        break
+                    except UnicodeDecodeError:
+                        continue
+                
+                if df_temp is None:
+                    raise ValueError(f"No se pudo leer el archivo CSV con ningún encoding probado")
+                
+            elif file_extension in ['.xlsx', '.xls']:
+                print("📊 Leyendo archivo Excel...")
+                
+                # Para archivos Excel, intentar detectar las hojas disponibles
+                excel_file = pd.ExcelFile(file_path)
+                sheet_names = excel_file.sheet_names
+                print(f"📋 Hojas detectadas: {sheet_names}")
+                
+                # Buscar hoja 'foundational' o usar la primera hoja
+                target_sheet = None
+                if 'foundational' in sheet_names:
+                    target_sheet = 'foundational'
+                    print(f"✅ Usando hoja 'foundational'")
+                else:
+                    target_sheet = sheet_names[0]
+                    print(f"✅ Usando primera hoja: '{target_sheet}'")
+                
+                df_temp = pd.read_excel(file_path, sheet_name=target_sheet)
+                
+            elif file_extension == '.json':
+                print("📊 Leyendo archivo JSON...")
+                df_temp = pd.read_json(file_path)
+                
+            elif file_extension == '.parquet':
+                print("📊 Leyendo archivo Parquet...")
+                df_temp = pd.read_parquet(file_path)
+                
+            elif file_extension in ['.txt', '.tsv']:
+                print("📊 Leyendo archivo de texto delimitado...")
+                # Detectar delimitador
+                delimiter = '\t' if file_extension == '.tsv' else ','
+                df_temp = pd.read_csv(file_path, delimiter=delimiter, low_memory=False)
+                
+            else:
+                print(f"⚠️ Extensión {file_extension} no soportada. Archivo omitido: {file}")
+                print("📋 Extensiones soportadas: .csv, .xlsx, .xls, .json, .parquet, .txt, .tsv")
+                continue
+            
+            print(f"✅ Archivo leído: {len(df_temp):,} registros, {len(df_temp.columns)} columnas")
+            
+            # Añadir información del archivo origen
+            df_temp['archivo_origen'] = file
+            all_dataframes.append(df_temp)
+            
+        except Exception as e:
+            print(f"❌ Error leyendo archivo {file}: {str(e)}")
+            continue
+    
+    # Verificar que se leyeron archivos
+    if not all_dataframes:
+        raise ValueError("No se pudo leer ningún archivo de la carpeta")
+    
+    # Combinar todos los DataFrames
+    print(f"\n🔄 Combinando {len(all_dataframes)} archivos...")
+    df = pd.concat(all_dataframes, ignore_index=True, sort=False)
+    
+    print(f"✅ Datos combinados: {len(df):,} registros totales")
+    
+    return df
 
 
 def normalize_column_names(columns):
@@ -151,42 +269,93 @@ def normalize_bp_value(bp_value):
 
 
 def load_foundational_emprestito_data() -> pd.DataFrame:
-    """Carga los datos foundational de empréstito desde el directorio foundational_emprestito"""
-    print("Cargando datos foundational de empréstito...")
-    
-    # Definir ruta del archivo foundational
-    current_dir = os.path.dirname(os.path.abspath(__file__))
-    file_path = os.path.join(
-        current_dir, 
-        "app_inputs", 
-        "emprestito_input", 
-        "foundational_emprestito",
-        "04-09-25 10-12 AM Base Emprestito - DASHBOARD.xlsx"
-    )
-    
-    print(f"Archivo: {file_path}")
-    
-    if not os.path.exists(file_path):
-        raise FileNotFoundError(f"No se encontró el archivo: {file_path}")
+    """Carga los datos de empréstito desde la carpeta de entrada usando carga automática"""
+    print("Cargando datos de empréstito desde la carpeta de entrada...")
     
     try:
-        # Cargar solo la hoja foundational
-        df_foundational = pd.read_excel(file_path, sheet_name='foundational')
-        print(f"  - foundational: {df_foundational.shape[0]} filas, {df_foundational.shape[1]} columnas")
+        # Usar la nueva función de carga automática
+        df_foundational = load_all_emprestito_files()
+        
+        print(f"  - Datos cargados: {df_foundational.shape[0]} filas, {df_foundational.shape[1]} columnas")
+        
+        # Mapeo automático de columnas
+        column_mapping = {
+            'bp': ['bp', 'BP Proyecto', 'BP_Proyecto', 'proyecto_bp', 'bp_proyecto'],
+            'banco': ['banco', 'Banco', 'entidad_bancaria', 'institucion_financiera'],
+            'nombre_comercial': ['nombre_comercial', 'Nombre Comercial', 'nombre_entidad'],
+            'bpin': ['bpin', 'BPIN', 'codigo_bpin', 'Codigo BPIN', 'código_bpin']
+        }
+        
+        # Buscar y mapear columnas
+        print(f"  - Mapeando columnas automáticamente...")
+        mapped_columns = {}
+        for target_col, possible_names in column_mapping.items():
+            found = False
+            for possible_name in possible_names:
+                if possible_name in df_foundational.columns:
+                    mapped_columns[target_col] = possible_name
+                    found = True
+                    break
+            if not found:
+                mapped_columns[target_col] = None
+        
+        print(f"  - Mapeo de columnas encontrado:")
+        for target, source in mapped_columns.items():
+            if source:
+                print(f"    '{target}' -> '{source}' ✓")
+            else:
+                print(f"    '{target}' -> No encontrada ❌")
+        
+        # Renombrar columnas según el mapeo
+        rename_dict = {source: target for target, source in mapped_columns.items() if source}
+        if rename_dict:
+            df_foundational = df_foundational.rename(columns=rename_dict)
+            print(f"  ✓ Columnas renombradas correctamente")
+        
+        # Verificar que tenemos las columnas básicas necesarias
+        required_base_columns = ['bp', 'banco']  # Columnas mínimas requeridas
+        optional_columns = ['nombre_comercial', 'bpin']  # Columnas opcionales
+        available_columns = [col.lower() for col in df_foundational.columns]
+        
+        print(f"  - Verificando columnas requeridas...")
+        missing_required = []
+        missing_optional = []
+        
+        for col in required_base_columns:
+            if col not in available_columns:
+                missing_required.append(col)
+        
+        for col in optional_columns:
+            if col not in available_columns:
+                missing_optional.append(col)
+        
+        if missing_required:
+            print(f"  ❌ Columnas críticas faltantes: {missing_required}")
+            print(f"  📋 Columnas disponibles (primeras 15):")
+            for i, col in enumerate(df_foundational.columns[:15]):
+                print(f"    {i+1:2d}. {col}")
+            if len(df_foundational.columns) > 15:
+                print(f"    ... y {len(df_foundational.columns) - 15} más")
+            raise ValueError(f"Faltan columnas críticas: {missing_required}")
+        
+        if missing_optional:
+            print(f"  ⚠️ Columnas opcionales faltantes: {missing_optional}")
+        
+        print(f"  ✅ Columnas críticas verificadas correctamente")
         
         return df_foundational
         
     except Exception as e:
-        print(f"Error cargando archivo foundational: {e}")
+        print(f"Error cargando archivos de empréstito: {e}")
         raise
 
 
 def create_emp_proyectos_json(output_dir: str) -> None:
-    """Crea el archivo emp_proyectos.json con solo bp, banco, nombre_comercial desde datos foundational"""
-    print("Creando emp_proyectos.json desde datos foundational...")
+    """Crea el archivo emp_proyectos.json con solo bp, banco, nombre_comercial desde datos de empréstito"""
+    print("Creando emp_proyectos.json desde datos de empréstito...")
     
     try:
-        # 1. Cargar datos foundational
+        # 1. Cargar datos de empréstito
         df_foundational = load_foundational_emprestito_data()
         
         # 2. Normalizar nombres de columnas
@@ -212,34 +381,39 @@ def create_emp_proyectos_json(output_dir: str) -> None:
         # 6. Añadir columna BPIN usando el mapeo
         df_foundational = add_bpin_to_dataframe(df_foundational, bp_to_bpin)
         
-        # 7. Seleccionar solo las columnas requeridas (ahora incluyendo bpin)
-        required_columns = ['bp', 'banco', 'nombre_comercial', 'bpin']
-        available_columns = [col for col in required_columns if col in df_foundational.columns]
-        missing_columns = [col for col in required_columns if col not in df_foundational.columns]
+        # 7. Seleccionar solo las columnas que existan (ahora incluyendo bpin)
+        desired_columns = ['bp', 'banco', 'nombre_comercial', 'bpin']
+        available_columns = [col for col in desired_columns if col in df_foundational.columns]
+        missing_columns = [col for col in desired_columns if col not in df_foundational.columns]
         
         if missing_columns:
-            print(f"  - Columnas faltantes: {missing_columns}")
+            print(f"  - Columnas no disponibles: {missing_columns}")
         
         print(f"  - Columnas seleccionadas: {available_columns}")
         
         # 8. Crear DataFrame con solo las columnas requeridas
         df_selected = df_foundational[available_columns].copy()
         
-        # 9. Limpiar datos de texto
-        for col in ['banco', 'nombre_comercial']:
+        # 9. Limpiar datos de texto para todas las columnas de texto disponibles
+        text_columns = ['banco', 'nombre_comercial']
+        for col in text_columns:
             if col in df_selected.columns:
                 df_selected[col] = df_selected[col].apply(clean_text_value)
         
-        # 10. Eliminar filas con valores nulos en todas las columnas seleccionadas principales
+        # 10. Eliminar filas con valores nulos en las columnas principales disponibles
         initial_rows = len(df_selected)
-        # No incluir bpin en la verificación de filas vacías ya que puede ser None
-        main_columns = ['bp', 'banco', 'nombre_comercial']
-        available_main = [col for col in main_columns if col in df_selected.columns]
-        df_selected = df_selected.dropna(subset=available_main, how='all')
-        final_rows = len(df_selected)
+        # Usar solo las columnas críticas que están disponibles para verificar filas vacías
+        critical_columns = ['bp', 'banco']
+        available_critical = [col for col in critical_columns if col in df_selected.columns]
         
-        if initial_rows != final_rows:
-            print(f"  - Filas vacías eliminadas: {initial_rows} -> {final_rows}")
+        if available_critical:
+            df_selected = df_selected.dropna(subset=available_critical, how='all')
+            final_rows = len(df_selected)
+            
+            if initial_rows != final_rows:
+                print(f"  - Filas vacías eliminadas: {initial_rows} -> {final_rows}")
+        else:
+            print(f"  ⚠️ No se pudieron verificar filas vacías (columnas críticas no disponibles)")
         
         # 11. Crear registros únicos por BP
         if 'bp' in df_selected.columns:
@@ -248,8 +422,8 @@ def create_emp_proyectos_json(output_dir: str) -> None:
             final_unique = len(df_selected)
             print(f"  - Registros únicos por BP: {initial_unique} -> {final_unique}")
         
-        # 12. Agregar metadatos
-        df_selected['archivo_origen'] = 'foundational_emprestito'
+        # 12. Agregar metadatos (archivo_origen ya fue añadido en load_all_emprestito_files)
+        # Solo actualizar fecha de procesamiento
         df_selected['fecha_procesamiento'] = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         
         # 13. Resetear índice
@@ -296,7 +470,7 @@ def main():
     
     # Configurar directorios
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    output_dir = os.path.join(current_dir, "app_outputs", "emprestito_output")
+    output_dir = os.path.join(current_dir, "app_outputs", "emprestito_outputs")
     
     try:
         # Crear emp_proyectos.json desde datos foundational
