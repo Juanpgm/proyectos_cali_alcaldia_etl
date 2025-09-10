@@ -24,3 +24,7 @@ node_modules/
 # Ignore build artifacts
 dist/
 build/
+
+# Ignore transformation app input and output folders (heavy files)
+transformation_app/app_inputs/
+transformation_app/app_outputs/
