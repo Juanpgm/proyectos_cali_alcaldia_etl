@@ -282,7 +282,7 @@ def load_foundational_emprestito_data() -> pd.DataFrame:
         column_mapping = {
             'bp': ['bp', 'BP Proyecto', 'BP_Proyecto', 'proyecto_bp', 'bp_proyecto'],
             'banco': ['banco', 'Banco', 'entidad_bancaria', 'institucion_financiera'],
-            'nombre_comercial': ['nombre_comercial', 'Nombre Comercial', 'nombre_entidad'],
+            'nombre_comercial': ['nombre_comercial', 'Nombre Comercial', 'nombre_entidad', 'Banco'],
             'bpin': ['bpin', 'BPIN', 'codigo_bpin', 'Codigo BPIN', 'código_bpin']
         }
         
@@ -306,8 +306,28 @@ def load_foundational_emprestito_data() -> pd.DataFrame:
             else:
                 print(f"    '{target}' -> No encontrada ❌")
         
-        # Renombrar columnas según el mapeo
-        rename_dict = {source: target for target, source in mapped_columns.items() if source}
+        # Manejar caso especial donde banco y nombre_comercial mapean a la misma columna
+        if (mapped_columns.get('banco') == 'Banco' and 
+            mapped_columns.get('nombre_comercial') == 'Banco'):
+            print(f"  - Detectado mapeo compartido: banco y nombre_comercial usan 'Banco'")
+            # Crear una copia de la columna Banco para nombre_comercial
+            df_foundational['nombre_comercial_temp'] = df_foundational['Banco']
+            mapped_columns['nombre_comercial'] = 'nombre_comercial_temp'
+            print(f"    Creada copia temporal para nombre_comercial")
+        
+        # Renombrar columnas según el mapeo (excluyendo duplicados)
+        rename_dict = {}
+        used_sources = set()
+        
+        for target, source in mapped_columns.items():
+            if source and source not in used_sources:
+                rename_dict[source] = target
+                used_sources.add(source)
+            elif source and source in used_sources:
+                # Para columnas ya usadas, mantener el nombre original y crear alias
+                if source == 'nombre_comercial_temp':
+                    rename_dict[source] = target
+        
         if rename_dict:
             df_foundational = df_foundational.rename(columns=rename_dict)
             print(f"  ✓ Columnas renombradas correctamente")
