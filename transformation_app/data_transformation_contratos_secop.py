@@ -424,8 +424,8 @@ def load_and_filter_contratos_secop():
     """
     
     # Ruta del archivo de datos
-    input_path = "app_inputs/contratos_input/SECOP/SECOP_II_-_Contratos_Electrónicos_20250906.csv"
-    
+    input_path = "transformation_app/app_inputs/contratos_input/SECOP/SECOP_II_-_Contratos_Electrónicos_20250909.csv"
+
     # Verificar que el archivo existe
     if not os.path.exists(input_path):
         raise FileNotFoundError(f"No se encontró el archivo: {input_path}")

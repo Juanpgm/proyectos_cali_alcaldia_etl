@@ -55,9 +55,21 @@ def clean_column_names(df):
     
     # Mostrar algunos ejemplos de cambios
     print("📋 Ejemplos de cambios en nombres de columnas:")
-    original_cols = list(pd.read_csv("app_inputs/procesos_input/SECOP_II_-_Procesos_de_Contratación_20250906.csv", nrows=0).columns)
-    for i in range(min(5, len(original_cols))):
-        print(f"   '{original_cols[i]}' → '{new_columns[i]}'")
+    try:
+        # Intentar con la ruta desde el directorio de trabajo actual
+        csv_path = "transformation_app/app_inputs/procesos_input/SECOP_II_-_Procesos_de_Contratación_20250909.csv"
+        if not os.path.exists(csv_path):
+            # Intentar con ruta relativa desde el script
+            csv_path = "app_inputs/procesos_input/SECOP_II_-_Procesos_de_Contratación_20250909.csv"
+        
+        if os.path.exists(csv_path):
+            original_cols = list(pd.read_csv(csv_path, nrows=0).columns)
+            for i in range(min(5, len(original_cols))):
+                print(f"   '{original_cols[i]}' → '{new_columns[i]}'")
+        else:
+            print("   (No se pudo cargar archivo para mostrar ejemplos)")
+    except Exception as e:
+        print(f"   (Error mostrando ejemplos: {e})")
     
     return df
 
@@ -158,8 +170,8 @@ def create_procesos_proyectos_index(cleaned_data):
     print("=" * 60)
     
     # Ruta del índice de contratos
-    contratos_index_path = "app_outputs/contratos_secop_output/contratos_proyectos_index.json"
-    output_path = "app_outputs/procesos_secop_output/procesos_proyectos_index.json"
+    contratos_index_path = "transformation_app/app_outputs/contratos_secop_output/contratos_proyectos_index.json"
+    output_path = "transformation_app/app_outputs/procesos_secop_output/procesos_proyectos_index.json"
     
     # Verificar que exista el archivo de contratos
     if not os.path.exists(contratos_index_path):
@@ -274,8 +286,8 @@ def main():
     print("=" * 60)
     
     # Ruta del archivo de entrada
-    input_path = "app_inputs/procesos_input/SECOP_II_-_Procesos_de_Contratación_20250906.csv"
-    contratos_index_path = "app_outputs/contratos_secop_output/contratos_proyectos_index.json"
+    input_path = "transformation_app/app_inputs/procesos_input/SECOP_II_-_Procesos_de_Contratación_20250909.csv"
+    contratos_index_path = "transformation_app/app_outputs/contratos_secop_output/contratos_proyectos_index.json"
     
     if not os.path.exists(input_path):
         print(f"❌ No se encontró el archivo: {input_path}")
@@ -416,7 +428,7 @@ def main():
             cleaned_data.append(cleaned_record)
         
         # Crear directorio de salida si no existe
-        output_dir = "app_outputs/procesos_secop_output"
+        output_dir = "transformation_app/app_outputs/procesos_secop_output"
         os.makedirs(output_dir, exist_ok=True)
         
         # Guardar como procesos_secop.json en el directorio de salida
