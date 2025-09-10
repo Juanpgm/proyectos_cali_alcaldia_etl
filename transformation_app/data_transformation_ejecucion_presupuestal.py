@@ -67,44 +67,76 @@ def is_program_column(column: pd.Series) -> bool:
     return first_value is not None and (str(first_value) == '4599' or (isinstance(first_value, (int, float)) and first_value == 4599))
 
 
-def load_csv_files(input_dir: str) -> Dict[str, pd.DataFrame]:
-    """Carga todos los archivos CSV del directorio de entrada"""
-    print(f"Cargando archivos CSV desde {input_dir}")
+def load_excel_files(input_dir: str) -> Dict[str, pd.DataFrame]:
+    """Carga todos los archivos Excel del directorio de entrada, específicamente la pestaña DEFINITIVO"""
+    print(f"Cargando archivos Excel desde {input_dir}")
     
-    files = [f for f in os.listdir(input_dir) if f.endswith('.csv')]
+    # Detectar archivos Excel y CSV
+    excel_files = [f for f in os.listdir(input_dir) if f.endswith(('.xlsx', '.xls'))]
+    csv_files = [f for f in os.listdir(input_dir) if f.endswith('.csv')]
+    
+    all_files = excel_files + csv_files
     dfs = {}
     
-    for file_name in tqdm(files, desc="Cargando archivos CSV"):
+    if not all_files:
+        print("No se encontraron archivos Excel (.xlsx, .xls) o CSV (.csv) en el directorio")
+        return dfs
+    
+    print(f"Archivos encontrados: {len(excel_files)} Excel, {len(csv_files)} CSV")
+    
+    for file_name in tqdm(all_files, desc="Cargando archivos"):
         file_path = os.path.join(input_dir, file_name)
         try:
-            # Try different separators and encodings
             df = None
-            separators = [',', ';', '\t']
-            encodings = ['utf-8', 'latin-1', 'cp1252']
             
-            for encoding in encodings:
-                for sep in separators:
-                    try:
-                        df = pd.read_csv(file_path, sep=sep, encoding=encoding, on_bad_lines='skip')
-                        if df.shape[1] > 1:  # Check if we have multiple columns
-                            break
-                    except:
-                        continue
-                if df is not None and df.shape[1] > 1:
-                    break
+            # Procesar archivos Excel
+            if file_name.endswith(('.xlsx', '.xls')):
+                # Verificar si existe la pestaña DEFINITIVO
+                xl_file = pd.ExcelFile(file_path)
+                
+                if 'DEFINITIVO' in xl_file.sheet_names:
+                    df = pd.read_excel(file_path, sheet_name='DEFINITIVO')
+                    print(f"Cargado desde pestaña 'DEFINITIVO' de '{file_name}' con forma {df.shape}")
+                else:
+                    # Si no existe DEFINITIVO, usar la primera pestaña
+                    first_sheet = xl_file.sheet_names[0]
+                    df = pd.read_excel(file_path, sheet_name=first_sheet)
+                    print(f"Pestaña 'DEFINITIVO' no encontrada en '{file_name}', usando '{first_sheet}' con forma {df.shape}")
             
-            if df is None or df.shape[1] == 1:
-                # Last resort: try automatic detection
-                df = pd.read_csv(file_path, sep=None, engine='python', encoding='utf-8', on_bad_lines='skip')
+            # Procesar archivos CSV (código original)
+            elif file_name.endswith('.csv'):
+                # Try different separators and encodings
+                separators = [',', ';', '\t']
+                encodings = ['utf-8', 'latin-1', 'cp1252']
+                
+                for encoding in encodings:
+                    for sep in separators:
+                        try:
+                            df = pd.read_csv(file_path, sep=sep, encoding=encoding, on_bad_lines='skip')
+                            if df.shape[1] > 1:  # Check if we have multiple columns
+                                break
+                        except:
+                            continue
+                    if df is not None and df.shape[1] > 1:
+                        break
+                
+                if df is None or df.shape[1] == 1:
+                    # Last resort: try automatic detection
+                    df = pd.read_csv(file_path, sep=None, engine='python', encoding='utf-8', on_bad_lines='skip')
+                
+                print(f"Cargado CSV '{file_name}' con forma {df.shape}")
             
-            df_name = os.path.splitext(file_name)[0]
-            dfs[df_name] = df
-            print(f"Cargado exitosamente '{file_name}' con forma {df.shape}")
-            print(f"Columnas originales en '{file_name}': {df.columns.tolist()[:10]}...")  # Show first 10 columns
-            
+            if df is not None and not df.empty:
+                df_name = os.path.splitext(file_name)[0]
+                dfs[df_name] = df
+                print(f"Columnas originales en '{file_name}': {df.columns.tolist()[:10]}...")  # Show first 10 columns
+            else:
+                print(f"Advertencia: El archivo '{file_name}' está vacío o no se pudo cargar correctamente")
+                
         except Exception as e:
             print(f"Error cargando '{file_name}': {e}")
     
+    print(f"Total de archivos cargados exitosamente: {len(dfs)}")
     return dfs
 
 
@@ -282,25 +314,56 @@ def add_operational_data(dfs: Dict[str, pd.DataFrame]) -> Dict[str, pd.DataFrame
     """Añade datos operacionales (año, origen, período)"""
     print("Añadiendo datos operacionales...")
     
-    # Mapear años basado en el nombre del archivo
-    year_mapping = {
-        'EJECUCION_ENERO_2024': 2024, 'EJECUCION_FEBRERO_2024': 2024, 'EJECUCION_MARZO_2024': 2024,
-        'EJECUCION_ABRIL_2024': 2024, 'EJECUCION_MAYO_2024': 2024, 'EJECUCION_JUNIO_2024': 2024,
-        'EJECUCION_JULIO_2024': 2024, 'EJECUCION_AGOSTO_2024': 2024, 'EJECUCION_SEPTIEMBRE_2024': 2024,
-        'EJECUCION_OCTUBRE_2024': 2024, 'EJECUCION_NOVIEMBRE_2024': 2024, 'EJECUCION_DICIEMBRE_2024': 2024,
-        'EJECUCION_ENERO_2025': 2025, 'EJECUCION_FEBRERO_2025': 2025, 'EJECUCION_MARZO_2025': 2025,
-        'EJECUCION_ABRIL_2025': 2025, 'EJECUCION_MAYO_2025': 2025, 'EJECUCION_JUNIO_2025': 2025
-    }
+    def extract_year_from_filename(filename: str) -> Optional[int]:
+        """Extrae el año del nombre del archivo"""
+        # Buscar patrones de año (2024, 2025, etc.)
+        year_match = re.search(r'20\d{2}', filename)
+        if year_match:
+            return int(year_match.group())
+        return None
+    
+    def extract_month_from_filename(filename: str) -> Optional[str]:
+        """Extrae el mes del nombre del archivo"""
+        filename_upper = filename.upper()
+        months = {
+            'ENERO': 'ENERO', 'FEBRERO': 'FEBRERO', 'MARZO': 'MARZO', 'ABRIL': 'ABRIL',
+            'MAYO': 'MAYO', 'JUNIO': 'JUNIO', 'JULIO': 'JULIO', 'AGOSTO': 'AGOSTO',
+            'SEPTIEMBRE': 'SEPTIEMBRE', 'OCTUBRE': 'OCTUBRE', 'NOVIEMBRE': 'NOVIEMBRE', 'DICIEMBRE': 'DICIEMBRE',
+            'ENE': 'ENERO', 'FEB': 'FEBRERO', 'MAR': 'MARZO', 'ABR': 'ABRIL',
+            'JUN': 'JUNIO', 'JUL': 'JULIO', 'AGO': 'AGOSTO', 'SEP': 'SEPTIEMBRE',
+            'OCT': 'OCTUBRE', 'NOV': 'NOVIEMBRE', 'DIC': 'DICIEMBRE'
+        }
+        
+        for month_key, month_full in months.items():
+            if month_key in filename_upper:
+                return month_full
+        return None
     
     for df_name in tqdm(dfs.keys(), desc="Añadiendo datos operacionales"):
         df = dfs[df_name]
-        # Añadir año
-        if df_name in year_mapping:
-            df['anio'] = year_mapping[df_name]
         
-        # Añadir dataframe_origen
-        df['dataframe_origen'] = df_name
-        df['archivo_origen'] = f"{df_name}.csv"
+        # Extraer año del nombre del archivo
+        year = extract_year_from_filename(df_name)
+        if year:
+            df['anio'] = year
+            print(f"Año {year} extraído para '{df_name}'")
+        else:
+            # Si no se puede extraer, usar año por defecto
+            df['anio'] = 2024
+            print(f"No se pudo extraer año de '{df_name}', usando año por defecto: 2024")
+        
+        # Extraer mes del nombre del archivo para crear dataframe_origen
+        month = extract_month_from_filename(df_name)
+        if month:
+            df_origen = f"EJECUCION_{month}_{df['anio'].iloc[0]}"
+        else:
+            df_origen = f"EJECUCION_GENERAL_{df['anio'].iloc[0]}"
+        
+        # Añadir información de origen
+        df['dataframe_origen'] = df_origen
+        df['archivo_origen'] = f"{df_name}.xlsx"
+        
+        print(f"Archivo '{df_name}' -> Origen: '{df_origen}', Año: {df['anio'].iloc[0]}")
         
         dfs[df_name] = df
     
@@ -705,8 +768,8 @@ def main():
     output_dir = os.path.join(current_dir, "app_outputs", "ejecucion_presupuestal_outputs")
     
     try:
-        # 1. Cargar archivos CSV
-        dfs = load_csv_files(input_dir)
+        # 1. Cargar archivos Excel y CSV
+        dfs = load_excel_files(input_dir)
         
         # 2. Preprocesar DataFrames
         dfs = preprocess_dataframes(dfs)

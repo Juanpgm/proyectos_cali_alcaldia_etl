@@ -12,7 +12,7 @@ def clean_column_names(df):
     - Eliminar conectores: por, para, de, las, los, con, etc.
     """
     print("🔄 Limpiando nombres de columnas...")
-    0
+    
     # Lista de conectores a eliminar
     conectores = ['de', 'del', 'la', 'las', 'el', 'los', 'con', 'para', 'por', 'en', 'a', 'y', 'o', 'un', 'una']
     
@@ -413,33 +413,118 @@ def export_optimized_json(grouped_data, output_path):
 
 def load_and_filter_contratos_secop():
     """
-    Lee los datos de contratos SECOP y aplica filtros específicos.
+    Lee todos los archivos de datos de contratos SECOP desde la carpeta de entrada
+    y aplica filtros específicos, detectando automáticamente las extensiones.
     
     Elimina todas las filas donde:
     - Tipo de Contrato = "Prestación de servicios" O
     - Código BPIN = "No Definido"
     
     Returns:
-        pd.DataFrame: DataFrame filtrado
+        pd.DataFrame: DataFrame filtrado con todos los archivos combinados
     """
     
-    # Ruta del archivo de datos
-    input_path = "transformation_app/app_inputs/contratos_input/SECOP/SECOP_II_-_Contratos_Electrónicos_20250909.csv"
-
-    # Verificar que el archivo existe
-    if not os.path.exists(input_path):
-        raise FileNotFoundError(f"No se encontró el archivo: {input_path}")
+    # Ruta de la carpeta de entrada
+    input_folder = "transformation_app/app_inputs/contratos_secop_input"
     
-    print("🔄 Leyendo datos de contratos SECOP...")
+    # Verificar que la carpeta existe
+    if not os.path.exists(input_folder):
+        raise FileNotFoundError(f"No se encontró la carpeta: {input_folder}")
     
-    # Leer el archivo CSV con barra de progreso
-    tqdm.pandas(desc="Cargando CSV")
-    df = pd.read_csv(input_path, low_memory=False)
+    # Obtener todos los archivos de la carpeta
+    all_files = [f for f in os.listdir(input_folder) if os.path.isfile(os.path.join(input_folder, f))]
     
-    print(f"✅ Datos cargados: {len(df):,} registros")
+    if not all_files:
+        raise FileNotFoundError(f"No se encontraron archivos en la carpeta: {input_folder}")
+    
+    print(f"🔄 Archivos encontrados en la carpeta: {len(all_files)}")
+    for file in all_files:
+        print(f"  � {file}")
+    
+    # Lista para almacenar todos los DataFrames
+    all_dataframes = []
+    
+    # Procesar cada archivo según su extensión
+    for file in all_files:
+        file_path = os.path.join(input_folder, file)
+        file_extension = os.path.splitext(file)[1].lower()
+        
+        print(f"\n🔄 Procesando archivo: {file}")
+        print(f"📋 Extensión detectada: {file_extension}")
+        
+        try:
+            if file_extension == '.csv':
+                print("📊 Leyendo archivo CSV...")
+                # Intentar diferentes encodings para CSV
+                encodings = ['utf-8', 'latin-1', 'cp1252', 'iso-8859-1']
+                df_temp = None
+                
+                for encoding in encodings:
+                    try:
+                        df_temp = pd.read_csv(file_path, low_memory=False, encoding=encoding)
+                        print(f"✅ CSV leído exitosamente con encoding: {encoding}")
+                        break
+                    except UnicodeDecodeError:
+                        continue
+                
+                if df_temp is None:
+                    raise ValueError(f"No se pudo leer el archivo CSV con ningún encoding probado")
+                
+            elif file_extension in ['.xlsx', '.xls']:
+                print("📊 Leyendo archivo Excel...")
+                df_temp = pd.read_excel(file_path)
+                
+            elif file_extension == '.json':
+                print("📊 Leyendo archivo JSON...")
+                df_temp = pd.read_json(file_path)
+                
+            elif file_extension == '.parquet':
+                print("📊 Leyendo archivo Parquet...")
+                df_temp = pd.read_parquet(file_path)
+                
+            elif file_extension in ['.txt', '.tsv']:
+                print("📊 Leyendo archivo de texto delimitado...")
+                # Detectar delimitador
+                delimiter = '\t' if file_extension == '.tsv' else ','
+                df_temp = pd.read_csv(file_path, delimiter=delimiter, low_memory=False)
+                
+            else:
+                print(f"⚠️ Extensión {file_extension} no soportada. Archivo omitido: {file}")
+                print("📋 Extensiones soportadas: .csv, .xlsx, .xls, .json, .parquet, .txt, .tsv")
+                continue
+            
+            print(f"✅ Archivo leído: {len(df_temp):,} registros")
+            all_dataframes.append(df_temp)
+            
+        except Exception as e:
+            print(f"❌ Error leyendo archivo {file}: {str(e)}")
+            continue
+    
+    # Verificar que se leyeron archivos
+    if not all_dataframes:
+        raise ValueError("No se pudo leer ningún archivo de la carpeta")
+    
+    # Combinar todos los DataFrames
+    print(f"\n🔄 Combinando {len(all_dataframes)} archivos...")
+    df = pd.concat(all_dataframes, ignore_index=True, sort=False)
+    
+    print(f"✅ Datos combinados: {len(df):,} registros totales")
     
     # Aplicar el filtro con barra de progreso
     print("🔄 Aplicando filtros...")
+    
+    # Verificar que las columnas necesarias existen
+    required_columns = ['Tipo de Contrato', 'Código BPIN']
+    missing_columns = [col for col in required_columns if col not in df.columns]
+    
+    if missing_columns:
+        print(f"⚠️ Columnas faltantes para filtrado: {missing_columns}")
+        print("📋 Columnas disponibles:")
+        for col in df.columns[:10]:  # Mostrar primeras 10 columnas
+            print(f"  - {col}")
+        if len(df.columns) > 10:
+            print(f"  ... y {len(df.columns) - 10} más")
+        return df  # Retornar sin filtrar si faltan columnas
     
     # Mostrar información antes del filtrado
     prestacion_servicios = df[df['Tipo de Contrato'] == 'Prestación de servicios']
@@ -543,7 +628,7 @@ def main():
         df_contratos = transform_dataframe(df_contratos)
         
         # Exportar JSON normal (individual records)
-        output_path = "app_outputs/contratos_secop_output/contratos_proyectos.json"
+        output_path = "transformation_app/app_outputs/contratos_secop_outputs/contratos_proyectos.json"
         export_to_json(df_contratos, output_path)
         
         # Crear resumen optimizado por BPIN
@@ -551,7 +636,7 @@ def main():
         bpin_summary = create_bpin_summary(df_contratos)
         
         # Exportar resumen JSON
-        summary_path = "app_outputs/contratos_secop_output/contratos_proyectos_index.json"
+        summary_path = "transformation_app/app_outputs/contratos_secop_outputs/contratos_proyectos_index.json"
         os.makedirs(os.path.dirname(summary_path), exist_ok=True)
         
         import json
