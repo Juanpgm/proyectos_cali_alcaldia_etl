@@ -611,8 +611,6 @@ def create_emp_procesos_json(output_dir: str) -> None:
             "Plazo", 
             "ENTREGA REAL", 
             "CONTACTO", 
-            "Link Estado real SECOP II ", 
-            "LINK DEL PROCESO"
         ]
         
         print(f"  - Columnas a excluir: {len(columns_to_exclude)}")
@@ -642,8 +640,16 @@ def create_emp_procesos_json(output_dir: str) -> None:
             print(f"  - Columna 'numero' renombrada a 'numero_contacto'")
         
         if 'nro_de_proceso' in df_filtered.columns:
-            df_filtered = df_filtered.rename(columns={'nro_de_proceso': 'n_proceso'})
-            print(f"  - Columna 'nro_de_proceso' renombrada a 'n_proceso'")
+            df_filtered = df_filtered.rename(columns={'nro_de_proceso': 'referencia_proceso'})
+            print(f"  - Columna 'nro_de_proceso' renombrada a 'referencia_proceso'")
+        
+        if 'link_del_proceso' in df_filtered.columns:
+            df_filtered = df_filtered.rename(columns={'link_del_proceso': 'urlProceso'})
+            print(f"  - Columna 'link_del_proceso' renombrada a 'urlProceso'")
+        
+        if 'link_estado_real_secop_ii' in df_filtered.columns:
+            df_filtered = df_filtered.rename(columns={'link_estado_real_secop_ii': 'urlEstadoRealProceso'})
+            print(f"  - Columna 'link_estado_real_secop_ii' renombrada a 'urlEstadoRealProceso'")
         
         # 7. Limpiar datos de texto para todas las columnas de tipo objeto
         text_columns = df_filtered.select_dtypes(include=['object']).columns
@@ -739,112 +745,335 @@ def create_emp_procesos_json(output_dir: str) -> None:
         raise
 
 
-def create_emp_proceso_index_json(output_dir: str) -> None:
+def load_secop_indexes():
+    """Carga los archivos de índices SECOP para hacer cruces de datos"""
+    contratos_file = "transformation_app/app_outputs/contratos_secop_outputs/contratos_proyectos_index.json"
+    procesos_file = "transformation_app/app_outputs/procesos_secop_outputs/procesos_proyectos_index.json"
+    
+    contratos_data = {}
+    procesos_data = {}
+    
+    # Cargar contratos SECOP
+    try:
+        if os.path.exists(contratos_file):
+            with open(contratos_file, 'r', encoding='utf-8') as f:
+                contratos_data = json.load(f)
+            print(f"  ✓ Contratos SECOP cargados: {len(contratos_data)} BPINs")
+        else:
+            print(f"  ⚠️ Archivo de contratos no encontrado: {contratos_file}")
+    except Exception as e:
+        print(f"  ❌ Error cargando contratos: {e}")
+    
+    # Cargar procesos SECOP
+    try:
+        if os.path.exists(procesos_file):
+            with open(procesos_file, 'r', encoding='utf-8') as f:
+                procesos_data = json.load(f)
+            print(f"  ✓ Procesos SECOP cargados: {len(procesos_data)} BPINs")
+        else:
+            print(f"  ⚠️ Archivo de procesos no encontrado: {procesos_file}")
+    except Exception as e:
+        print(f"  ❌ Error cargando procesos: {e}")
+    
+    return contratos_data, procesos_data
+
+
+def find_secop_matches(n_proceso: str, contratos_data: dict, procesos_data: dict) -> list:
+    """Busca coincidencias de n_proceso en los datos SECOP"""
+    matches = []
+    
+    # Buscar en contratos
+    for bpin, proyecto in contratos_data.items():
+        for contrato in proyecto.get('contratos', []):
+            ref_contrato = contrato.get('referencia_contrato', '')
+            if n_proceso in ref_contrato:
+                matches.append({
+                    'tipo': 'contrato',
+                    'bpin': bpin,
+                    'referencia_contrato': ref_contrato,
+                    'proceso_compra': contrato.get('proceso_compra', ''),
+                    'id_contrato': contrato.get('id_contrato', ''),
+                    'urlproceso': contrato.get('urlproceso', '')
+                })
+    
+    # Buscar en procesos
+    for bpin, proyecto in procesos_data.items():
+        for proceso in proyecto.get('procesos', []):
+            ref_proceso = proceso.get('referencia_proceso', '')
+            if n_proceso in ref_proceso:
+                matches.append({
+                    'tipo': 'proceso',
+                    'bpin': bpin,
+                    'referencia_contrato': ref_proceso,  # Usar referencia_proceso como referencia_contrato
+                    'proceso_compra': proceso.get('proceso_compra', ''),
+                    'urlproceso': proceso.get('urlproceso', '')
+                })
+    
+    return matches
+
+
+def create_emp_procesos_index_json(output_dir: str) -> None:
     """
-    Crea el archivo emp_proceso_index.json con solo las columnas banco, id, n_proceso
-    desde los datos de seguimiento de contratos de empréstito
+    Crea el archivo emp_procesos_index.json leyendo desde emp_procesos.json
+    con las variables: banco, id, referencia_proceso, fecha_procesamiento, urlEstadoRealProceso, proceso_compra
     """
-    print("Creando emp_proceso_index.json desde datos de seguimiento...")
+    print("Creando emp_procesos_index.json desde emp_procesos.json...")
     
     try:
-        # 1. Cargar datos de seguimiento de contratos
-        df_seguimiento = load_seguimiento_contratos_data()
+        # 1. Cargar el archivo emp_procesos.json
+        emp_procesos_file = os.path.join(output_dir, "emp_procesos.json")
         
-        # 2. Definir columnas a excluir (las mismas que en emp_procesos.json)
-        columns_to_exclude = [
-            "Item", 
-            "NOMBRE ABREVIADO", 
-            "TIPO DE ACTIVIDAD", 
-            "EMPRESTITO", 
-            "Plazo", 
-            "ENTREGA REAL", 
-            "CONTACTO", 
-            "Link Estado real SECOP II ", 
-            "LINK DEL PROCESO"
-        ]
+        if not os.path.exists(emp_procesos_file):
+            print(f"  ⚠️ Archivo emp_procesos.json no encontrado: {emp_procesos_file}")
+            return
         
-        # 3. Filtrar columnas (mantener solo las que NO están en la lista de exclusión)
-        columns_to_keep = [col for col in df_seguimiento.columns if col not in columns_to_exclude]
-        df_filtered = df_seguimiento[columns_to_keep].copy()
+        with open(emp_procesos_file, 'r', encoding='utf-8') as f:
+            emp_procesos_data = json.load(f)
         
-        # 4. Normalizar nombres de columnas
-        df_filtered.columns = normalize_column_names(df_filtered.columns)
+        print(f"  - Archivo emp_procesos.json cargado: {len(emp_procesos_data)} registros")
         
-        # 5. Renombrar columnas específicas
-        if 'numero' in df_filtered.columns:
-            df_filtered = df_filtered.rename(columns={'numero': 'numero_contacto'})
+        # 1.1. Cargar datos SECOP para cruzar con referencia_proceso
+        print("  - Cargando datos SECOP para cruzar referencias...")
+        procesos_secop_file = "transformation_app/app_outputs/procesos_secop_outputs/procesos_proyectos_index.json"
         
-        if 'nro_de_proceso' in df_filtered.columns:
-            df_filtered = df_filtered.rename(columns={'nro_de_proceso': 'n_proceso'})
+        secop_referencias = {}
+        if os.path.exists(procesos_secop_file):
+            with open(procesos_secop_file, 'r', encoding='utf-8') as f:
+                secop_data = json.load(f)
+            
+            # Crear índice de referencia_proceso -> proceso_compra
+            for bpin, proyecto in secop_data.items():
+                for proceso in proyecto.get('procesos', []):
+                    ref_proceso = proceso.get('referencia_proceso', '')
+                    proceso_compra = proceso.get('proceso_compra', '')
+                    if ref_proceso and proceso_compra:
+                        secop_referencias[ref_proceso] = proceso_compra
+            
+            print(f"    ✓ SECOP referencias cargadas: {len(secop_referencias)} procesos")
+        else:
+            print(f"    ⚠️ Archivo SECOP no encontrado: {procesos_secop_file}")
+            print(f"    Continuando sin datos SECOP...")
         
-        # 6. Seleccionar solo las columnas requeridas para el índice
-        required_columns = ['banco', 'id', 'n_proceso']
-        available_columns = [col for col in required_columns if col in df_filtered.columns]
-        missing_columns = [col for col in required_columns if col not in df_filtered.columns]
+        # 2. Definir las columnas que necesitamos extraer
+        required_columns = ['banco', 'id', 'referencia_proceso', 'fecha_procesamiento', 'urlEstadoRealProceso', 'proceso_compra']
         
-        if missing_columns:
-            print(f"  ⚠️ Columnas faltantes: {missing_columns}")
-            raise ValueError(f"Faltan columnas requeridas: {missing_columns}")
+        # 3. Extraer las columnas requeridas y buscar proceso_compra en SECOP
+        resultados = []
+        cruces_encontrados = 0
         
-        print(f"  - Columnas seleccionadas: {available_columns}")
+        for registro in emp_procesos_data:
+            # Verificar que el registro tenga las columnas críticas
+            if all(col in registro for col in ['banco', 'id', 'referencia_proceso']):
+                referencia_proceso = registro.get('referencia_proceso', '')
+                
+                # Buscar proceso_compra en datos SECOP
+                proceso_compra = secop_referencias.get(referencia_proceso, '')
+                if proceso_compra:
+                    cruces_encontrados += 1
+                
+                resultado = {
+                    'banco': registro.get('banco', ''),
+                    'id': registro.get('id', ''),
+                    'referencia_proceso': referencia_proceso,
+                    'fecha_procesamiento': registro.get('fecha_procesamiento', ''),
+                    'urlEstadoRealProceso': registro.get('urlEstadoRealProceso', ''),
+                    'proceso_compra': proceso_compra
+                }
+                resultados.append(resultado)
+            else:
+                print(f"  ⚠️ Registro omitido por falta de columnas críticas: {registro.get('id', 'ID desconocido')}")
         
-        # 7. Crear DataFrame con solo las columnas del índice
-        df_index = df_filtered[available_columns].copy()
+        print(f"  - Registros procesados: {len(resultados)}")
+        print(f"  - Cruces SECOP encontrados: {cruces_encontrados}/{len(resultados)}")
         
-        # 8. Limpiar datos de texto
-        if 'banco' in df_index.columns:
-            df_index['banco'] = df_index['banco'].apply(clean_text_value)
-        
-        if 'n_proceso' in df_index.columns:
-            df_index['n_proceso'] = df_index['n_proceso'].apply(clean_text_value)
-        
-        # 9. Eliminar filas con valores nulos en columnas críticas
-        initial_rows = len(df_index)
-        df_index = df_index.dropna(subset=available_columns, how='any')
-        final_rows = len(df_index)
-        
-        if initial_rows != final_rows:
-            print(f"  - Filas con datos faltantes eliminadas: {initial_rows} -> {final_rows}")
-        
-        # 10. Agregar metadatos
-        df_index['fecha_procesamiento'] = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-        
-        # 11. Resetear índice
-        df_index = df_index.reset_index(drop=True)
-        
-        # 12. Guardar archivo JSON
-        os.makedirs(output_dir, exist_ok=True)
-        output_file = os.path.join(output_dir, "emp_proceso_index.json")
-        
-        # Convertir a JSON usando json.dump para mantener consistencia
-        data_records = df_index.to_dict('records')
-        with open(output_file, 'w', encoding='utf-8') as f:
-            json.dump(data_records, f, indent=2, ensure_ascii=False, separators=(',', ':'))
-        
-        # Calcular tamaño del archivo
-        file_size_mb = os.path.getsize(output_file) / (1024 * 1024)
-        
-        print(f"  ✓ Archivo guardado: emp_proceso_index.json")
-        print(f"  ✓ Registros: {len(df_index)}")
-        print(f"  ✓ Columnas: {len(df_index.columns)}")
-        print(f"  ✓ Tamaño: {file_size_mb:.3f} MB")
-        
-        # Mostrar resumen de datos
-        print(f"\nResumen emp_proceso_index.json:")
-        for col in available_columns:
-            non_null_count = df_index[col].notna().sum()
-            print(f"  - {col}: {non_null_count}/{len(df_index)} valores válidos")
-        
-        # Mostrar algunos ejemplos
-        print(f"\nEjemplos de registros en emp_proceso_index.json:")
-        for i in range(min(3, len(df_index))):
-            record = df_index.iloc[i]
-            print(f"  Registro {i+1}: banco='{record['banco']}', id={record['id']}, n_proceso='{record['n_proceso']}'")
-        
-        return output_file
-        
+        # 4. Convertir a DataFrame para facilitar validaciones
+        if resultados:
+            df_final = pd.DataFrame(resultados)
+            
+            # 5. Filtrar solo registros que tienen proceso_compra (eliminar los vacíos)
+            initial_rows = len(df_final)
+            df_final = df_final[df_final['proceso_compra'] != '']
+            final_rows = len(df_final)
+            
+            if initial_rows != final_rows:
+                print(f"  - Registros sin proceso_compra eliminados: {initial_rows} -> {final_rows}")
+            
+            # 6. Validar datos críticos restantes
+            if len(df_final) > 0:
+                df_final = df_final.dropna(subset=['banco', 'id', 'referencia_proceso'], how='any')
+                print(f"  - Registros después de validación: {len(df_final)}")
+            
+            # 7. Resetear índice
+            df_final = df_final.reset_index(drop=True)
+            
+            # 7. Guardar archivo JSON
+            os.makedirs(output_dir, exist_ok=True)
+            output_file = os.path.join(output_dir, "emp_procesos_index.json")
+            
+            # Convertir a JSON usando json.dump para mantener consistencia
+            data_records = df_final.to_dict('records')
+            with open(output_file, 'w', encoding='utf-8') as f:
+                json.dump(data_records, f, indent=2, ensure_ascii=False, separators=(',', ':'))
+            
+            # Calcular tamaño del archivo
+            file_size_mb = os.path.getsize(output_file) / (1024 * 1024)
+            
+            print(f"  ✓ Archivo guardado: emp_procesos_index.json")
+            print(f"  ✓ Registros: {len(df_final)}")
+            print(f"  ✓ Columnas: {len(df_final.columns)}")
+            print(f"  ✓ Tamaño: {file_size_mb:.3f} MB")
+            
+            # Mostrar resumen de datos
+            print(f"\nResumen emp_procesos_index.json:")
+            for col in required_columns:
+                if col in df_final.columns:
+                    non_null_count = df_final[col].notna().sum()
+                    print(f"  - {col}: {non_null_count}/{len(df_final)} valores válidos")
+            
+            # Mostrar algunos ejemplos de registros
+            if len(df_final) > 0:
+                print(f"\nEjemplos de registros extraídos:")
+                for i, (_, row) in enumerate(df_final.head(3).iterrows()):
+                    proceso_compra_display = row['proceso_compra'] if row['proceso_compra'] else '(sin cruce)'
+                    print(f"  Registro {i+1}: banco='{row['banco']}', id={row['id']}, referencia_proceso='{row['referencia_proceso']}', proceso_compra='{proceso_compra_display}'")
+            
+            return output_file
+        else:
+            print("  ⚠️ No se encontraron registros válidos para procesar")
+            return None
+            
     except Exception as e:
-        print(f"Error creando emp_proceso_index.json: {e}")
+        print(f"Error creando emp_procesos_index.json: {e}")
+        import traceback
+        traceback.print_exc()
+        raise
+
+
+def create_emp_contratos_index_json(output_dir: str) -> None:
+    """
+    Crea el archivo emp_contratos_index.json usando proceso_compra para buscar referencia_contrato
+    en los datos de contratos SECOP, manteniendo banco, id, referencia_proceso, proceso_compra
+    """
+    print("Creando emp_contratos_index.json desde emp_procesos_index.json y contratos SECOP...")
+    
+    try:
+        # 1. Cargar el archivo emp_procesos_index.json (solo registros con proceso_compra)
+        emp_procesos_file = os.path.join(output_dir, "emp_procesos_index.json")
+        
+        if not os.path.exists(emp_procesos_file):
+            print(f"  ⚠️ Archivo emp_procesos_index.json no encontrado: {emp_procesos_file}")
+            return
+        
+        with open(emp_procesos_file, 'r', encoding='utf-8') as f:
+            emp_procesos_data = json.load(f)
+        
+        print(f"  - Archivo emp_procesos_index.json cargado: {len(emp_procesos_data)} registros")
+        
+        # 2. Cargar datos de contratos SECOP para buscar referencia_contrato
+        print("  - Cargando datos de contratos SECOP...")
+        contratos_secop_file = "transformation_app/app_outputs/contratos_secop_outputs/contratos_proyectos_index.json"
+        
+        proceso_to_contratos = {}
+        if os.path.exists(contratos_secop_file):
+            with open(contratos_secop_file, 'r', encoding='utf-8') as f:
+                contratos_data = json.load(f)
+            
+            # Crear índice de proceso_compra -> lista de referencia_contrato
+            for bpin, proyecto in contratos_data.items():
+                for contrato in proyecto.get('contratos', []):
+                    proceso_compra = contrato.get('proceso_compra', '')
+                    referencia_contrato = contrato.get('referencia_contrato', '')
+                    if proceso_compra and referencia_contrato:
+                        if proceso_compra not in proceso_to_contratos:
+                            proceso_to_contratos[proceso_compra] = []
+                        proceso_to_contratos[proceso_compra].append(referencia_contrato)
+            
+            print(f"    ✓ Contratos SECOP cargados: {len(proceso_to_contratos)} procesos_compra únicos")
+        else:
+            print(f"    ⚠️ Archivo de contratos no encontrado: {contratos_secop_file}")
+            print(f"    Continuando sin datos de contratos...")
+        
+        # 3. Crear registros de contratos expandiendo por referencia_contrato
+        resultados = []
+        contratos_encontrados = 0
+        total_contratos = 0
+        
+        for registro in emp_procesos_data:
+            proceso_compra = registro.get('proceso_compra', '')
+            
+            if proceso_compra and proceso_compra in proceso_to_contratos:
+                # Expandir: crear un registro por cada referencia_contrato encontrada
+                referencias_contrato = proceso_to_contratos[proceso_compra]
+                contratos_encontrados += 1
+                total_contratos += len(referencias_contrato)
+                
+                for referencia_contrato in referencias_contrato:
+                    resultado = {
+                        'banco': registro.get('banco', ''),
+                        'id': registro.get('id', ''),
+                        'referencia_proceso': registro.get('referencia_proceso', ''),
+                        'proceso_compra': proceso_compra,
+                        'referencia_contrato': referencia_contrato
+                    }
+                    resultados.append(resultado)
+            else:
+                # Si no se encuentran contratos, crear un registro sin referencia_contrato
+                resultado = {
+                    'banco': registro.get('banco', ''),
+                    'id': registro.get('id', ''),
+                    'referencia_proceso': registro.get('referencia_proceso', ''),
+                    'proceso_compra': proceso_compra,
+                    'referencia_contrato': ''
+                }
+                resultados.append(resultado)
+        
+        print(f"  - Registros procesados: {len(emp_procesos_data)}")
+        print(f"  - Procesos con contratos encontrados: {contratos_encontrados}/{len(emp_procesos_data)}")
+        print(f"  - Total contratos expandidos: {total_contratos}")
+        print(f"  - Registros finales: {len(resultados)}")
+        
+        # 4. Guardar archivo JSON
+        if resultados:
+            os.makedirs(output_dir, exist_ok=True)
+            output_file = os.path.join(output_dir, "emp_contratos_index.json")
+            
+            # Convertir a JSON usando json.dump para mantener consistencia
+            with open(output_file, 'w', encoding='utf-8') as f:
+                json.dump(resultados, f, indent=2, ensure_ascii=False, separators=(',', ':'))
+            
+            # Calcular tamaño del archivo
+            file_size_mb = os.path.getsize(output_file) / (1024 * 1024)
+            
+            print(f"  ✓ Archivo guardado: emp_contratos_index.json")
+            print(f"  ✓ Registros: {len(resultados)}")
+            print(f"  ✓ Columnas: 5 (banco, id, referencia_proceso, proceso_compra, referencia_contrato)")
+            print(f"  ✓ Tamaño: {file_size_mb:.3f} MB")
+            
+            # Mostrar resumen de datos
+            df_final = pd.DataFrame(resultados)
+            print(f"\nResumen emp_contratos_index.json:")
+            for col in ['banco', 'id', 'referencia_proceso', 'proceso_compra', 'referencia_contrato']:
+                if col in df_final.columns:
+                    non_null_count = df_final[col].notna().sum()
+                    non_empty_count = sum(1 for val in df_final[col] if str(val).strip() != '')
+                    print(f"  - {col}: {non_empty_count}/{len(df_final)} valores válidos")
+            
+            # Mostrar algunos ejemplos de registros
+            if len(resultados) > 0:
+                print(f"\nEjemplos de registros expandidos:")
+                for i, record in enumerate(resultados[:3]):
+                    ref_contrato_display = record['referencia_contrato'] if record['referencia_contrato'] else '(sin contrato)'
+                    print(f"  Registro {i+1}: ID={record['id']}, proceso_compra='{record['proceso_compra']}', referencia_contrato='{ref_contrato_display}'")
+            
+            return output_file
+        else:
+            print("  ⚠️ No se encontraron registros válidos para procesar")
+            return None
+            
+    except Exception as e:
+        print(f"Error creando emp_contratos_index.json: {e}")
+        import traceback
+        traceback.print_exc()
         raise
 
 
@@ -983,18 +1212,25 @@ def main():
         print("="*60)
         create_emp_procesos_json(output_dir)
         
-        # Crear emp_proceso_index.json desde datos de seguimiento de contratos
+        # Crear emp_procesos_index.json desde emp_procesos.json
         print("\n" + "="*60)
-        print("CREANDO EMP_PROCESO_INDEX.JSON")
+        print("CREANDO EMP_PROCESOS_INDEX.JSON")
         print("="*60)
-        create_emp_proceso_index_json(output_dir)
+        create_emp_procesos_index_json(output_dir)
+        
+        # Crear emp_contratos_index.json desde emp_procesos_index.json y contratos SECOP
+        print("\n" + "="*60)
+        print("CREANDO EMP_CONTRATOS_INDEX.JSON")
+        print("="*60)
+        create_emp_contratos_index_json(output_dir)
         
         print(f"\n¡Transformación de empréstito completada exitosamente!")
         print(f"Archivos guardados en: {output_dir}")
         print("\nArchivos creados:")
         print("  - emp_proyectos.json (bp, banco, nombre_comercial, bpin)")
         print("  - emp_procesos.json (datos de seguimiento sin columnas excluidas)")
-        print("  - emp_proceso_index.json (banco, id, n_proceso)")
+        print("  - emp_procesos_index.json (solo registros con proceso_compra válido)")
+        print("  - emp_contratos_index.json (banco, id, referencia_proceso, proceso_compra, referencia_contrato)")
         
     except Exception as e:
         print(f"Error durante la transformación: {e}")
