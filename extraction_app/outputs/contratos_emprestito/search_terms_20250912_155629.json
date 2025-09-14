@@ -1,0 +1,46 @@
+{
+  "referencias_proceso": [
+    "4151.010.32.1.0577- 2025",
+    "4173.010.32.1.843-2025",
+    "4162.010.32.1.1299-2025",
+    "4151.010.32.1.0575-2025",
+    "4134.010.32.1.0156-2025",
+    "4173.010.32.1.1246-2025",
+    "4134.010.32.1.0145-2025",
+    "4134.010.32.1.0158-2025",
+    "4162.010.32.1.1058-2025",
+    "4173.010.32.1.839-2025",
+    "4143.010.32.0876-2025",
+    "4151.010.32.1.0811-2025",
+    "4151.010.32.1.0809-2025",
+    "4162.010.32.1.1059-2025",
+    "4151.010.32.1.0574-2025",
+    "4148.010.32.1.1064-2025",
+    "4148.010.32.1.0979-2025"
+  ],
+  "procesos_compra": [
+    "CO1.BDOS.8335234",
+    "CO1.BDOS.8429038",
+    "CO1.BDOS.8335654"
+  ],
+  "objetos_keywords": [
+    "equipamiento",
+    "mantenimiento",
+    "cultura"
+  ],
+  "modalidades": [
+    "Concurso de meritos Abierto- CMA",
+    "Licitacion publica",
+    "Selección abreviada menor cuantía- SAMC",
+    "Selección abreviada subasta inversa",
+    "Minima cuantia",
+    "Licitacion publica - LP",
+    "Contratación directa (con ofertas)",
+    "Concurso de meritos"
+  ],
+  "entidades": [
+    "SANTIAGO DE CALI",
+    "DISTRITO DE SANTIAGO DE CALI",
+    "SECRETARIA DE CULTURA"
+  ]
+}
