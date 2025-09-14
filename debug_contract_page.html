@@ -1,0 +1,288 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head id="Head"><meta http-equiv="origin-trial" content="A7vZI3v+Gz7JfuRolKNM4Aff6zaGuT7X0mf3wtoZTnKv6497cVMnhy03KDqX7kBz/q/iidW7srW31oQbBt4VhgoAAACUeyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGUuY29tOjQ0MyIsImZlYXR1cmUiOiJEaXNhYmxlVGhpcmRQYXJ0eVN0b3JhZ2VQYXJ0aXRpb25pbmczIiwiZXhwaXJ5IjoxNzU3OTgwODAwLCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><title>
+	
+    ReCaptcha
+
+</title><meta name="TemplateName" content="PublicDefault">
+    <style type="text/css">
+    /*
+    ToolTip Helper
+    */
+    
+    .ui-tooltip 
+    {
+        background: #CCE3FA;
+	    border: 2px solid #0083EF;
+	    /*max-width: 300px;*/
+	    padding: 5px;	    
+	    position: absolute;
+	    width: 300px;
+    }
+    
+    .ui-tooltip:after, .ui-tooltip:before {
+	    border: solid transparent;
+	    content: '';
+	    height: 0;
+	    position: absolute;
+	    right: 100%;
+	    top: 50%;
+	    width: 0;	    
+    }
+
+    .ui-tooltip:after {
+	    border-right-color: #CCE3FA;
+	    border-width: 5px;
+	    margin-top: -5px;
+    }
+    
+    .ui-tooltip:before {
+	    border-right-color: #0083EF;
+	    border-width: 8px;
+	    margin-top: -8px;
+    }
+</style>
+
+<link href="https://community.secop.gov.co/StaticContent/Styles/jquery-ui-1.8.2.custom.min.css_v636994732580000000" rel="stylesheet" type="text/css">
+<link href="https://community.secop.gov.co/StaticContent/Styles/jquery.ui.dialog.min.css_v636994732580000000" rel="stylesheet" type="text/css">
+<link href="https://community.secop.gov.co/StaticContent/Styles/VortalControls.min.css_v638711562270000000" rel="stylesheet" type="text/css">
+<link href="https://community.secop.gov.co/StaticContent/Styles/cb.min.css_v636994732570000000" rel="stylesheet" type="text/css">
+<link href="https://community.secop.gov.co/StaticContent/Styles/DataSheetStyles.min.css_v638404000580000000" rel="stylesheet" type="text/css">
+<link href="https://community.secop.gov.co/StaticContent/Styles/fullcalendar.min.css_v636994732580000000" rel="stylesheet" type="text/css">
+<link href="https://community.secop.gov.co/StaticContent/Styles/cropper.min.css_v636994732570000000" rel="stylesheet" type="text/css">
+<link href="https://community.secop.gov.co/StaticContent/Skins/VortalSkin1/Styles.min.css_v638808143420000000" rel="stylesheet" type="text/css">
+<link href="https://community.secop.gov.co/StaticContent/Skins/CCE/Styles.min.css_v638808143350000000" rel="stylesheet" type="text/css">
+<script type="text/javascript" async="" charset="utf-8" src="https://www.gstatic.com/recaptcha/releases/44LqIOwVrGhp2lJ3fODa493O/recaptcha__es_419.js" crossorigin="anonymous" integrity="sha384-oM0LCf8QFf+SalE1s7Uqf/T+/8+ttAccZQH42l/LVCabe4ie+WnSNmcWebwkKKMr"></script><script type="text/javascript" language="javascript" src="https://community.secop.gov.co/StaticContent/Scripts/CryptoJS.min.js_v636994731550000000"></script>
+<script type="text/javascript" language="javascript" src="https://community.secop.gov.co/StaticContent/Scripts/jquery-1.11.0.min.js_v638711560780000000"></script>
+<script type="text/javascript" language="javascript" src="https://community.secop.gov.co/StaticContent/Scripts/jquery-migrate-1.2.1.min.js_v636994731700000000"></script>
+<script type="text/javascript" language="javascript" src="https://community.secop.gov.co/StaticContent/Scripts/jquery-slide-divs.min.js_v636994731720000000"></script>
+<script type="text/javascript" language="javascript" src="https://community.secop.gov.co/StaticContent/Scripts/jquery.jstree.min.js_v636994731900000000"></script>
+<script type="text/javascript" language="javascript" src="https://community.secop.gov.co/StaticContent/Scripts/jquery.metadata.min.js_v636994731930000000"></script>
+<script type="text/javascript" language="javascript" src="https://community.secop.gov.co/StaticContent/Scripts/jquery.validate.min.js_v636994732050000000"></script>
+<script type="text/javascript" language="javascript" src="https://community.secop.gov.co/StaticContent/Scripts/date.min.js_v636994731560000000"></script>
+<script type="text/javascript" language="javascript" src="https://community.secop.gov.co/StaticContent/Scripts/jquery-ui-1.9.2.custom.min.js_v636994731760000000"></script>
+<script type="text/javascript" language="javascript" src="https://community.secop.gov.co/StaticContent/Scripts/jquery.filestyle.min.js_v636994731840000000"></script>
+<script type="text/javascript" language="javascript" src="https://community.secop.gov.co/StaticContent/Scripts/jquery.popupWindow.min.js_v636994731970000000"></script>
+<script type="text/javascript" language="javascript" src="https://community.secop.gov.co/StaticContent/Scripts/jquery.blockUI.min.js_v636994731790000000"></script>
+<script type="text/javascript" language="javascript" src="https://community.secop.gov.co/StaticContent/Scripts/vortal.ui.datetimebox.min.js_v638711561630000000"></script>
+<script type="text/javascript" language="javascript" src="https://community.secop.gov.co/StaticContent/Scripts/jquery.iframe-post-form.min.js_v636994731880000000"></script>
+<script type="text/javascript" language="javascript" src="https://community.secop.gov.co/StaticContent/Scripts/VortalScripts.min.js_v638711561910000000"></script>
+<script type="text/javascript" language="javascript" src="https://community.secop.gov.co/StaticContent/Scripts/DragDrop.min.js_v636994731570000000"></script>
+<script type="text/javascript" language="javascript" src="https://community.secop.gov.co/StaticContent/Scripts/FlatTree.min.js_v638711560100000000"></script>
+<script type="text/javascript" language="javascript" src="https://community.secop.gov.co/StaticContent/Scripts/jquery.MultiFile.min.js_v636994731940000000"></script>
+<script type="text/javascript" language="javascript" src="https://community.secop.gov.co/StaticContent/Scripts/jquery.selectboxes.min.js_v636994731980000000"></script>
+<script type="text/javascript" language="javascript" src="https://community.secop.gov.co/StaticContent/Scripts/jquery.form.min.js_v636994731850000000"></script>
+<script type="text/javascript" language="javascript" src="https://community.secop.gov.co/StaticContent/Scripts/vortal.autocomplete.min.js_v638711561060000000"></script>
+<script type="text/javascript" language="javascript" src="https://community.secop.gov.co/StaticContent/Scripts/jquery.dd.min.js_v636994731820000000"></script>
+<script type="text/javascript" language="javascript" src="https://community.secop.gov.co/StaticContent/Scripts/cb.min.js_v638711560030000000"></script>
+<script type="text/javascript" language="javascript" src="https://community.secop.gov.co/StaticContent/Scripts/misc.min.js_v636994732090000000"></script>
+<script type="text/javascript" language="javascript" src="https://community.secop.gov.co/StaticContent/Scripts/swfobject.min.js_v636994732170000000"></script>
+<script type="text/javascript" language="javascript" src="https://community.secop.gov.co/StaticContent/Scripts/vortal.ajax.min.js_v638711561000000000"></script>
+<script type="text/javascript" language="javascript" src="https://community.secop.gov.co/StaticContent/Scripts/MathContext.min.js_v636994732080000000"></script>
+<script type="text/javascript" language="javascript" src="https://community.secop.gov.co/StaticContent/Scripts/BigDecimal.min.js_v636994731520000000"></script>
+<script type="text/javascript" language="javascript" src="https://community.secop.gov.co/StaticContent/Scripts/vortal.jquery.glob.min.js_v638711561170000000"></script>
+<script type="text/javascript" language="javascript" src="https://community.secop.gov.co/StaticContent/Scripts/vortal.viewModel.min.js_v638711561680000000"></script>
+<script type="text/javascript" language="javascript" src="https://community.secop.gov.co/StaticContent/Scripts/json2.min.js_v636994732070000000"></script>
+<script type="text/javascript" language="javascript" src="https://community.secop.gov.co/StaticContent/Scripts/StringBuilderEx.min.js_v636994732160000000"></script>
+<script type="text/javascript" language="javascript" src="https://community.secop.gov.co/StaticContent/Scripts/Vortal.Budget.min.js_v636994732210000000"></script>
+<script type="text/javascript" language="javascript" src="https://community.secop.gov.co/StaticContent/Scripts/autoNumeric-1.7.1.min.js_v638711559960000000"></script>
+<script type="text/javascript" language="javascript" src="https://community.secop.gov.co/StaticContent/Scripts/jquery.maxlength.min.js_v636994731920000000"></script>
+<script type="text/javascript" language="javascript" src="https://community.secop.gov.co/StaticContent/Scripts/jquery.countdown.min.js_v638711560920000000"></script>
+<script type="text/javascript" language="javascript" src="https://community.secop.gov.co/StaticContent/Scripts/globinfo/jQuery.glob.es-CO.min.js_v636994726030000000"></script>
+<script type="text/javascript" language="javascript" src="https://community.secop.gov.co/StaticContent/Scripts/vortal.scripts.min.js_v638711561420000000"></script>
+<script type="text/javascript" language="javascript" src="https://community.secop.gov.co/StaticContent/Scripts/SandBox.min.js_v636994732130000000"></script>
+<script type="text/javascript" language="javascript" src="https://community.secop.gov.co/StaticContent/Scripts/BusinessItemConfigurations/GeneralPriceListItemProperties_ItemScript.min.js_v638711558310000000"></script>
+<script type="text/javascript" language="javascript" src="https://community.secop.gov.co/StaticContent/Scripts/jquery.watermark.vortal.min.js_v636994732060000000"></script>
+<script type="text/javascript" language="javascript" src="https://community.secop.gov.co/StaticContent/Scripts/jquery.bpopup-0.6.0.min.js_v638711560850000000"></script>
+<script type="text/javascript" language="javascript" src="https://community.secop.gov.co/StaticContent/Scripts/VortalPlugins.min.js_v638711561740000000"></script>
+<script type="text/javascript" language="javascript" src="https://community.secop.gov.co/StaticContent/Scripts/jquery.ba-throttle-debounce.min.js_v636994731770000000"></script>
+<script type="text/javascript" language="javascript" src="https://community.secop.gov.co/StaticContent/Scripts/scroll.split.divs.min.js_v636994732140000000"></script>
+<script type="text/javascript" language="javascript" src="https://community.secop.gov.co/StaticContent/Scripts/CryptoJS.min.js_v636994731550000000"></script>
+<script type="text/javascript" language="javascript" src="https://community.secop.gov.co/StaticContent/Scripts/ProcedureProfileMathEngine/MathProfileEngine.min.js_v638711559510000000"></script>
+<script type="text/javascript" language="javascript" src="https://community.secop.gov.co/StaticContent/Scripts/ProcedureProfileMathEngine/ProcedureProfileEngine.min.js_v638711559620000000"></script>
+<script type="text/javascript" language="javascript" src="https://community.secop.gov.co/StaticContent/Scripts/ProcedureProfileMathEngine/ProcedureTeams.min.js_v638711559680000000"></script>
+<script type="text/javascript" language="javascript" src="https://community.secop.gov.co/StaticContent/Scripts/Raphael.min.js_v636994732120000000"></script>
+<script type="text/javascript" language="javascript" src="https://community.secop.gov.co/StaticContent/Scripts/fullcalendar.min.js_v636994731610000000"></script>
+<script type="text/javascript" language="javascript" src="https://community.secop.gov.co/StaticContent/Scripts/jquery.dotdotdot.min.js_v636994731830000000"></script>
+<script type="text/javascript" language="javascript" src="https://community.secop.gov.co/StaticContent/Scripts/jquery.placeholder.min.js_v636994731960000000"></script>
+<script type="text/javascript" language="javascript" src="https://community.secop.gov.co/StaticContent/Scripts/jquery.lockfixed.min.js_v636994731910000000"></script>
+<script type="text/javascript" language="javascript" src="https://community.secop.gov.co/StaticContent/Scripts/jquery-scrolltofixed.min.js_v636994731710000000"></script>
+<script type="text/javascript" language="javascript" src="https://community.secop.gov.co/StaticContent/Scripts/VortalCertificateRequest.min.js_v636994732320000000"></script>
+<script type="text/javascript" language="javascript" src="https://community.secop.gov.co/StaticContent/Scripts/vortal.mask.plugin.min.js_v638711561360000000"></script>
+<script type="text/javascript" language="javascript" src="https://community.secop.gov.co/StaticContent/Scripts/SystemRequirementsValidator/PluginDetect.min.js_v636994729010000000"></script>
+<script type="text/javascript" language="javascript" src="https://community.secop.gov.co/StaticContent/Scripts/SystemRequirementsValidator/ua-parser.min.js_v636994729030000000"></script>
+<script type="text/javascript" language="javascript" src="https://community.secop.gov.co/StaticContent/Scripts/SystemRequirementsValidator/SystemRequirementsValidator.min.js_v638711559790000000"></script>
+<script type="text/javascript" language="javascript" src="https://community.secop.gov.co/StaticContent/Scripts/jscolor-1.4.4/jscolor.min.js_v636994728640000000"></script>
+<script type="text/javascript" language="javascript" src="https://community.secop.gov.co/StaticContent/Scripts/SystemRequirementsValidator/SystemRequirementsValidator.min.js_v638711559790000000"></script>
+<script type="text/javascript" language="javascript" src="https://community.secop.gov.co/StaticContent/Scripts/vortal.translator.min.js_v638711561480000000"></script>
+<script type="text/javascript" language="javascript" src="https://community.secop.gov.co/StaticContent/Scripts/vortal.translator.preloader.min.js_v638711561530000000"></script>
+<script type="text/javascript" language="javascript" src="https://community.secop.gov.co/StaticContent/Scripts/highcharts.min.js_v638711560350000000"></script><style> #ui-datepicker-div{ display:none } </style><script type="text/javascript" async="" src="https://www.google.com/recaptcha/api.js"></script><style type="text/css" id="vakata-stylesheet">#vakata-dragged { display:block; margin:0 0 0 0; padding:4px 4px 4px 24px; position:absolute; top:-2000px; line-height:16px; z-index:10000; } #vakata-contextmenu { display:block; visibility:hidden; left:0; top:-200px; position:absolute; margin:0; padding:0; min-width:180px; background:#ebebeb; border:1px solid silver; z-index:10000; *width:180px; } #vakata-contextmenu ul { min-width:180px; *width:180px; } #vakata-contextmenu ul, #vakata-contextmenu li { margin:0; padding:0; list-style-type:none; display:block; } #vakata-contextmenu li { line-height:20px; min-height:20px; position:relative; padding:0px; } #vakata-contextmenu li a { padding:1px 6px; line-height:17px; display:block; text-decoration:none; margin:1px 1px 0 1px; } #vakata-contextmenu li ins { float:left; width:16px; height:16px; text-decoration:none; margin-right:2px; } #vakata-contextmenu li a:hover, #vakata-contextmenu li.vakata-hover > a { background:gray; color:white; } #vakata-contextmenu li ul { display:none; position:absolute; top:-2px; left:100%; background:#ebebeb; border:1px solid gray; } #vakata-contextmenu .right { right:100%; left:auto; } #vakata-contextmenu .bottom { bottom:-1px; top:auto; } #vakata-contextmenu li.vakata-separator { min-height:0; height:1px; line-height:1px; font-size:1px; overflow:hidden; margin:0 2px; background:silver; /* border-top:1px solid #fefefe; */ padding:0; } </style><style type="text/css" id="jstree-stylesheet">.jstree ul, .jstree li { display:block; margin:0 0 0 0; padding:0 0 0 0; list-style-type:none; } .jstree li { display:block; min-height:18px; line-height:18px; white-space:nowrap; margin-left:18px; min-width:18px; } .jstree-rtl li { margin-left:0; margin-right:18px; } .jstree > ul > li { margin-left:0px; } .jstree-rtl > ul > li { margin-right:0px; } .jstree ins { display:inline-block; text-decoration:none; width:18px; height:18px; margin:0 0 0 0; padding:0; } .jstree a { display:inline-block; line-height:16px; height:16px; color:black; white-space:nowrap; text-decoration:none; padding:1px 2px; margin:0; } .jstree a:focus { outline: none; } .jstree a > ins { height:16px; width:16px; } .jstree a > .jstree-icon { margin-right:3px; } .jstree-rtl a > .jstree-icon { margin-left:3px; margin-right:0; } li.jstree-open > ul { display:block; } li.jstree-closed > ul { display:none; } #vakata-dragged ins { display:block; text-decoration:none; width:16px; height:16px; margin:0 0 0 0; padding:0; position:absolute; top:4px; left:4px;  -moz-border-radius:4px; border-radius:4px; -webkit-border-radius:4px; } #vakata-dragged .jstree-ok { background:green; } #vakata-dragged .jstree-invalid { background:red; } #jstree-marker { padding:0; margin:0; font-size:12px; overflow:hidden; height:12px; width:8px; position:absolute; top:-30px; z-index:10001; background-repeat:no-repeat; display:none; background-color:transparent; text-shadow:1px 1px 1px white; color:black; line-height:10px; } #jstree-marker-line { padding:0; margin:0; line-height:0%; font-size:1px; overflow:hidden; height:1px; width:100px; position:absolute; top:-30px; z-index:10000; background-repeat:no-repeat; display:none; background-color:#456c43;  cursor:pointer; border:1px solid #eeeeee; border-left:0; -moz-box-shadow: 0px 0px 2px #666; -webkit-box-shadow: 0px 0px 2px #666; box-shadow: 0px 0px 2px #666;  -moz-border-radius:1px; border-radius:1px; -webkit-border-radius:1px; }.jstree .jstree-real-checkbox { display:none; } .jstree-themeroller .ui-icon { overflow:visible; } .jstree-themeroller a { padding:0 2px; } .jstree-themeroller .jstree-no-icon { display:none; }.jstree .jstree-wholerow-real { position:relative; z-index:1; } .jstree .jstree-wholerow-real li { cursor:pointer; } .jstree .jstree-wholerow-real a { border-left-color:transparent !important; border-right-color:transparent !important; } .jstree .jstree-wholerow { position:relative; z-index:0; height:0; } .jstree .jstree-wholerow ul, .jstree .jstree-wholerow li { width:100%; } .jstree .jstree-wholerow, .jstree .jstree-wholerow ul, .jstree .jstree-wholerow li, .jstree .jstree-wholerow a { margin:0 !important; padding:0 !important; } .jstree .jstree-wholerow, .jstree .jstree-wholerow ul, .jstree .jstree-wholerow li { background:transparent !important; }.jstree .jstree-wholerow ins, .jstree .jstree-wholerow span, .jstree .jstree-wholerow input { display:none !important; }.jstree .jstree-wholerow a, .jstree .jstree-wholerow a:hover { text-indent:-9999px; !important; width:100%; padding:0 !important; border-right-width:0px !important; border-left-width:0px !important; } .jstree .jstree-wholerow-span { position:absolute; left:0; margin:0px; padding:0; height:18px; border-width:0; padding:0; z-index:0; }</style></head>
+
+<body onload="start(); if ($('#ContentLeft').children().length&gt;0){$('.NavigationBarColumn').show();$('#LeftSeparator').show()}" style="">
+    
+<style>.vortal-preloader { position: fixed; top: 0px; left: 0px; width: 100%; height: 100%; background-color: white; z-index: 999999; }</style>
+<div class="vortal-preloader" style="display: none;"></div>
+<script type="text/javascript"> 
+
+    var S_day = '12';
+    var S_month ='9';
+    var S_year = '2025';
+    var S_hour = '8';
+    var S_minute = '35';
+    var S_second = '7';
+    var S_miliseconds = '7';
+    var ServerDatetime = new Date(S_year ,S_month-1, S_day, S_hour, S_minute, S_second, S_miliseconds);
+
+    var root = '/Public/';
+    var currentDomain = 'https://community.secop.gov.co/Public/';
+
+    var NextWay = {
+        Localization: {
+            buttonText: 'Calendario',
+            dateFormat: 'dd/mm/yy',
+            dateTimeFormat: 'dd/mm/yy hh:ii',
+            viewModelDateFormat: 'dd/mm/yyyy',
+            viewModelDateTimeFormat: 'dd/MM/yyyy HH:mm',
+            closeText: 'Cerrar',
+            prevText: 'Anterior',
+            nextText: 'Siguiente',
+            currentText: 'Hoy',
+            monthNames: ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'],
+            monthNamesShort: ['Ene','Feb','Mar','Abr','Mayo','Jun','Jul','Ago','Sep','Oct','Nov','Dic'],
+            dayNames: ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'],
+            dayNamesShort: ['Dom','Ma','Ma','Mi','Jue','Vie','Sab'],
+            dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','Sá'],
+            weekHeader: 'Semana',
+            firstDay: 1,
+            twoLetterISOLanguageName: 'es',
+            shortDatePattern: 'd/MM/yyyy',
+            dateTimePattern: 'd/MM/yyyy h:mm tt',
+            today: 'Hoy',
+            pleaseWaitText: 'Por favor, espere . ',
+			SessionTimeoutTextFirstPart: 'Alerta',
+            SessionTimeoutTextSecondPart: 'Advertencia',
+            SessionTimeoutTextThirdPart: 'La sesión ha expirado',
+            SessionTimeoutTextFourthPart: 'La sesión ha expirado por inactividad.',
+            SessionTimeoutTextFifthPart: 'Por razones de seguridad la sesión ha terminado. ',
+            SessionTimeoutTextSixthPart: 'Para iniciar la sesión hacer clic ',
+            SessionTimeoutTextSeventhPart: 'Aquí',
+            SessionTimeoutTextEighthPart: '.',
+            JavascriptOverflowErrorText: 'El resultado del cálculo entre cantidad y precio unitario excede el máximo permitido por el SECOP. Por favor revisar los valores introducidos.',
+            CheckBoxAsButtonSelect: 'Seleccionar',
+            CheckBoxAsButtonSelected: 'Seleccionado'
+        },
+        Images: {
+            buttonImage: 'https://community.secop.gov.co/StaticContent/Images/calendar.gif_v636994704321371472',
+            closeImage: 'https://community.secop.gov.co/StaticContent/Images/calendar_close.gif_v636994704321391563',
+            fileStyleImage: 'https://community.secop.gov.co/StaticContent/Images/choose-file.gif_v636994704321561476',
+			SessionTimeoutSmartyImage: 'https://community.secop.gov.co/StaticContent/Images/mascote_ui_cce.png_v638381748772666140',
+            SessionTimeoutMoreOptionsImage: 'https://community.secop.gov.co/StaticContent/Images/moreoptions.png_v636994704324331597'
+        },
+        RegexExpressions: {
+            PhoneNumber: '^[0-9,\+,\-,\(,\),\s]{7,15}$',
+            Email: '^(?(")(".+?"@)|(([0-9a-zA-Z]((\.(?!\.))|[-!#\$%&\'\*\+/=\?\^\`\{\}\|~\w])*)(?<=[0-9a-zA-Z_])@))(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-zA-Z][-\w]*\.)+[a-zA-Z]{2,6}))$',
+            Password: '^((?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])|(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%&\/=?_.,:;\\-])|(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%&\/=?_.,:;\\-])|(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%&\/=?_.,:;\\-])).{8,}$'
+        }
+    };
+	
+	/*
+		
+    */
+
+    initializePlugins();
+    
+    //Set current culture globalization variable.
+    if($.preferCulture)
+        $.preferCulture("es-CO");
+   
+</script>
+
+<script type="text/javascript">$.settings.setDecimalSettings({DefaultFormat: {  Int: 18, Dec: 6 }, Overflows: { Int: 22, Dec: 6 }});</script><style type="text/css">.ShortValue { min-width:150px; max-width:150px; }.IntegerValue { min-width:150px; max-width:150px; }.LongValue { min-width:150px; max-width:150px; }.FloatValue { min-width:150px; max-width:150px; }.DoubleValue { min-width:150px; max-width:210px; }.DecimalValue { min-width:150px; max-width:210px; }</style>
+
+<input type="hidden" id="hdnIsOnRequest" value="false"><style>.LogoContainer, #divLogoContainer, .SessionBarContainer{background-color:transparent;background-image:none;position:relative;width:100%;width:100%;max-width:100%;z-index:1;padding-right:0px;padding-left:0px;}.HeaderContainer{background-color:#FEFAFB;}.RightArea .MenuItem{border:none !important;}.MainMenuBarContainer .MenuItem{border-top:1px solid;border-left:1px solid;border-right:1px solid;border-color:#3D3D3D;}.MainMenuBarContainer{background-color:#3D3D3D;}.MainMenuBarContainer .MenuItemCell a, .MainMenuBarContainer .MenuItemCellPublic a{color:#EFEFEF;}</style><form id="ReloadPostBackForm" action="/Public/Common/GoogleReCaptcha/Index" method="post" style="display:none;">
+
+</form>
+    <div class="PageContainer" style="padding-bottom: 0px;">
+        <div class="Banner">
+            <div class="HeaderContainer">
+				<div class="LogoContainer"><img id="LogoWidgetImage" style="cursor:pointer" title="Homepage" onclick="javascript:window.location.href = 'https://community.secop.gov.co/STS/Users/Login/Index?SkinName=CCE'" src="https://community.secop.gov.co/Public/Areas/Archive/RetrieveFile.aspx?key=8F7876EDFDFE7FBBB6A37249190FC48863F5E294A76F0FB387EE7F73CADD7B94&amp;filename=aHR0cHM6Ly9jb21tdW5pdHkuc2Vjb3AuZ292LmNvL1B1YmxpYy9BcmVhcy9BcmNoaXZlL1JldHJpZXZlRmlsZS5hc3B4P2tleT04Rjc4NzZFREZERkU3RkJCQjZBMzcyNDkxOTBGQzQ4ODYzRjVFMjk0QTc2RjBGQjM4N0VFN0Y3M0NBREQ3Qjk0JmZpbGVuYW1lPVRHOW5iMTl1ZFdWMmJ5NXdibWM9JnN0b3JhZ2U9UHVibGlj&amp;storage=Public&amp;IsUserImage=true&amp;UserImageCropData={&quot;x1&quot;:0,&quot;y1&quot;:0,&quot;width&quot;:112,&quot;height&quot;:40,&quot;x2&quot;:112,&quot;y2&quot;:40}"></div><div class="HighContrastSwitch"><a id="HighContrastSwitchLink" class="VortalBlueButton" onclick="javascript:window.location.href = '/Public/Common/GoogleReCaptcha/ToggleHighContrastMode' + '?mkey=2a63eb3a_301d_42e4_9d79_d0017c8d7d00'" name="HighContrastSwitchLink" href="javascript:void(0);">Aumentar el contraste</a></div><div class="MainMenuBarContainer"><div class="Area CenterArea MenuBackground"><div class="MenuItem MenuBackground Hoverable  MenuItem " style="float:left"><div class="MenuItemCellPublic "><a title="Inicio" name="" href="https://community.secop.gov.co/STS/Users/Login/Index?SkinName=CCE&amp;currentLanguage=es-CO&amp;Page=login&amp;Country=CO">Inicio</a></div></div><div class="MenuItem MenuBackground Hoverable  MenuItem " style="float:left"><div class="MenuItemCellPublic "><a title="Registro" name="" href="https://community.secop.gov.co/Public/Users/UserRegister/Index?currentLanguage=es-CO&amp;Page=login&amp;Country=CO&amp;SkinName=CCE">Registro</a></div></div><div class="MenuItem MenuBackground Hoverable  MenuItem " style="float:left"><div class="MenuItemCellPublic "><a title="Buscar Proceso de Contratación" name="" href="https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&amp;Page=login&amp;Country=CO&amp;SkinName=CCE">Buscar Proceso de Contratación</a></div></div><div class="MenuItem MenuBackground Hoverable  MenuItem " style="float:left"><div class="MenuItemCellPublic "><a title="Plan anual de adquisiciones (PAA)" name="" href="https://community.secop.gov.co/Public/App/AnnualPurchasingPlanManagementPublic/Index?currentLanguage=es-CO&amp;Page=login&amp;Country=CO&amp;SkinName=CCE">Plan anual de adquisiciones (PAA)</a></div></div><div id="containerMainMenuDiv" class="ContainerMainMenuDiv" align="left"></div></div><div class="Area RightArea"><div class="MenuItem MenuBackground  MenuItem "><div class="MenuItemCellPublic "><img style="visibility:hidden;cursor:default" width="150" height="0" src="https://community.secop.gov.co/StaticContent/Images/px.gif_v636994704324933474"></div></div></div><div class="Area AdminArea"></div></div>
+            </div>
+        </div>
+        <table class="TopMainContent">
+            <tbody><tr>
+                <td class="TopMainContentItem BreadcrumbsContainer">
+                    <div id="breadcrumb"></div>
+                </td>
+                <td class="TopMainContentItem HiperlinkContainer Separator">
+                    <label id="pageIdLabel" style="display:none"></label>
+                </td>
+                <td class="TopMainContentItem HiperlinkContainer Separator">
+                    <a id="pageIdRedirect" style="display:none"></a>
+                </td>
+                <td class="TopMainContentItem HelpContainer Separator">
+                    &nbsp;
+                </td>
+                <td class="TopMainContentItem HelpContainer Separator">
+                    <a id="HelpText" style="display:none"></a>
+                </td>
+                <td class="TopMainContentItem HelpContainer Separator">
+                    <img id="HelpIcon" style="display:none">
+                </td>
+                <td class="TopMainContentItem HelpContainer Separator">
+                    
+                </td>
+            </tr>
+            <tr>
+                <td class="TopMainContentItem" colspan="9">
+                    
+                </td>
+            </tr>
+        </tbody></table>
+        <div class="MainContentContainer">
+            <table class="FullWidthTable" cellpadding="0" cellspacing="0">
+                <tbody><tr>
+                    <td class="NavigationBarColumn" style="display: none">
+                        <div id="ContentLeft" class="Content">
+                            
+                        </div>
+                        
+                        
+                    </td>
+                    <td id="LeftSeparator" class="Separator" style="display: none">
+                        &nbsp;
+                    </td>
+                    <td class="ContentColumn">
+                        <table cellpadding="0" cellspacing="0" class="AlertMessagesContainer" id="msgMessagesPanel"></table><div id="validationSummary" class="VortalValidationSummaryHidden" align="left"></div>
+    <div id="divmainDiv" align="left"><div id="divmainDiv_divRecaptchaSpan" align="center"><span id="spnRecaptchaTitle" class="VortalSpan" data-sentencecode="CommonLibrary.Common.GoogleReCaptcha.spnRecaptchaTitle" title="Por favor, complete la validación para acceder a la página. " data-translated="true">Por favor, complete la validación para acceder a la página. </span><script type="text/javascript">translator.loadFileAndTranslateElement($('#spnRecaptchaTitle'),'https://community.secop.gov.co/StaticContent/Translations/CommonLibrary/Common/GoogleReCaptcha/es-CO.json_v638931472394550062')</script><br id="divmainDiv_divRecaptchaSpan_brkSpanBreakLine"></div><script language="javascript">function onSubmit(){document.getElementById('txaresponseKey').value = document.getElementById('g-recaptcha-response').value; document.getElementById('btnCaptchaCheckButton').click(); }</script><script language="javascript">(function(d, script) { script = d.createElement('script'); script.type = 'text/javascript'; script.async = true; script.onload = function(){ /*remote script has loaded*/ }; script.src = 'https://www.google.com/recaptcha/api.js'; d.getElementsByTagName('head')[0].appendChild(script); }(document));</script><textarea id="txaresponseKey" class="VortalTextArea" data-sentencecode="CommonLibrary.Common.GoogleReCaptcha.txaresponseKey" style="display:none;" name="null" type="text" data-translated="false"></textarea><form id="divmainDiv_frmCaptcha" align="center" action="CaptchaCheck" method="post" enctype="multipart/form-data"><input id="divmainDiv_frmCaptcha_actName" name="Post_Back_Action_Name_Hidden" type="hidden"><input id="divmainDiv_frmCaptcha_args" name="Post_Back_Arguments_Hidden" type="hidden"><div id="divGoogleReCaptcha" style="transform:scale(1.0);" align="center" class="g-recaptcha" data-sitekey="6LcMmakZAAAAAB157Q90hORUGtNd790TCws4vBNw" data-callback="onSubmit"><div style="width: 304px; height: 78px;"><div><iframe title="reCAPTCHA" width="304" height="78" role="presentation" name="a-tmoz8gl1gqek" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation" src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LcMmakZAAAAAB157Q90hORUGtNd790TCws4vBNw&amp;co=aHR0cHM6Ly9jb21tdW5pdHkuc2Vjb3AuZ292LmNvOjQ0Mw..&amp;hl=es-419&amp;v=44LqIOwVrGhp2lJ3fODa493O&amp;size=normal&amp;anchor-ms=20000&amp;execute-ms=15000&amp;cb=ag1hmbw7vl9d"></iframe></div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div><iframe style="display: none;"></iframe></div><input id="btnCaptchaCheckButton" class="btn btn-secondary btn-sm" data-sentencecode="CommonLibrary.Common.GoogleReCaptcha.btnCaptchaCheckButton" style="display:none;" title="Verificar" onclick="javascript:window.location.href = '/Public/Common/GoogleReCaptcha/CaptchaCheck' + '?' + 'responseKey=' + $.getURIVal('txaresponseKey') + '&amp;mkey=2a63eb3a_301d_42e4_9d79_d0017c8d7d00'" name="btnCaptchaCheckButton" type="button" value="Verificar" data-translated="true"></form></div>
+                    </td>
+                </tr>
+            </tbody></table>
+        </div>
+    </div>
+    <div class="FooterContainer" style="height: 35px;"><div class="FooterLeftContainer pull-left" align="left"><ul><li>© VORTAL 2019</li><li><a name="" href="https://community.secop.gov.co/Public/Administration/TermsOfUseVersionDisplay/Public?LatestUserTermsOfUse=true&amp;SkinName=CCE&amp;currentLanguage=es" target="_blank">Términos de uso</a></li><li><a name="" href="http://colombiacompra.gov.co/es/normativa" target="_blank">Normativa</a></li><li><a name="" href="https://secure.logmeinrescue.com/Customer/Code.aspx" target="_blank">Soporte Remoto</a></li><li><a name="" href="https://wiki.secop.gov.co/vhpublic/index.php/Main_Page/es-CO" target="_blank">Ayuda</a></li><li><select size="1" id="languageSelector" class="VortalDropDown" style="width:120px" onchange="getAction('/Public/Common/GoogleReCaptcha/SetFavoriteLanguage' + '?' + 'languageCode=' + $.getVal('languageSelector') + '&amp;' + 'currentUrl=' + 'https%3a%2f%2fcommunity.secop.gov.co%2fPublic%2fCommon%2fGoogleReCaptcha%2fIndex%3fpreviousUrl%3dhttps%3a%2f%2fcommunity.secop.gov.co%2fPublic%2fTendering%2fContractNoticeManagement%2fIndex%3fcurrentLanguage%3des-CO%26Page%3dlogin%26Country%3dCO%26SkinName%3dCCE' + '&amp;mkey=2a63eb3a_301d_42e4_9d79_d0017c8d7d00',true);" name="languageSelector"><option value="en">English</option><option value="es-CO" selected="true">Español (Colombia)</option></select></li></ul></div><div class="FooterRightContainer pull-right TextAlignRight" align="left"><span class="VortalSpan" style="font-weight: bold">018000-52-0808</span><a name="" href="mailto:www.colombiacompra.gov.co/soporte ">www.colombiacompra.gov.co/soporte </a><span class="VortalSpan">Lunes a Viernes  7:00  a.m. a 7:00 p.m.</span></div></div>
+    <div id="AjaxChildScript" style="display: none">
+    </div>
+    <div id="AjaxScriptContainer" style="display: none">
+    </div>
+    
+
+<script type="text/javascript">
+	var TranslationFiles = ["https:\/\/community.secop.gov.co\/StaticContent\/Translations\/CommonLibrary\/Common\/GoogleReCaptcha\/es-CO.json_v638931472394550062"]
+</script>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $("input[type=text], input[type=password], select").tooltip(
+        {
+            position: {
+                //my: "right-10 center-10"
+                my: "left center",
+                at: "right+15 center",
+                collision: "none none"
+            }
+        });
+
+    });
+</script>
+
+<div id="jstree-marker" style="display: none;">»</div><div id="jstree-marker-line" style="display: none;"></div><div id="vakata-contextmenu"></div><div style="background-color: rgb(255, 255, 255); border: 1px solid rgb(204, 204, 204); box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 3px; position: absolute; transition: visibility linear 0.3s, opacity 0.3s linear; opacity: 0; visibility: hidden; z-index: 2000000000; left: 0px; top: -10000px;"><div style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; z-index: 2000000000; background-color: rgb(255, 255, 255); opacity: 0.05;"></div><div class="g-recaptcha-bubble-arrow" style="border: 11px solid transparent; width: 0px; height: 0px; position: absolute; pointer-events: none; margin-top: -11px; z-index: 2000000000;"></div><div class="g-recaptcha-bubble-arrow" style="border: 10px solid transparent; width: 0px; height: 0px; position: absolute; pointer-events: none; margin-top: -10px; z-index: 2000000000;"></div><div style="z-index: 2000000000; position: relative;"><iframe title="el desafío de recaptcha caduca dentro de dos minutos" name="c-tmoz8gl1gqek" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation" src="https://www.google.com/recaptcha/api2/bframe?hl=es-419&amp;v=44LqIOwVrGhp2lJ3fODa493O&amp;k=6LcMmakZAAAAAB157Q90hORUGtNd790TCws4vBNw&amp;bft=0dAFcWeA60QIiq53q6zE4Fg7_oB-UJ4T5wOoFLZFjRtgN5VWQLe3SGrgKMpo-KoM57pf-HIk0cfHQTyzbcNj3l2YH8tbi3i5btRA" style="width: 100%; height: 100%;"></iframe></div></div></body></html>
