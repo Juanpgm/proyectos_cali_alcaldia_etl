@@ -1,35 +1,54 @@
-# 🏛️ API Dashboard Alcaldía de Santiago de Cali - v2.6.0
+# 🏛️ ETL Inteligente - Alcaldía de Santiago de Cali - v3.0.0
 
-Sistema integral de gestión de datos presupuestales, proyectos y contratos para la Alcaldía de Santiago de Cali. Proporciona una API robusta y eficiente para el manejo de información gubernamental con capacidades avanzadas de transformación y análisis de datos.
+Sistema integral de gestión de datos presupuestales, proyectos y contratos para la Alcaldía de Santiago de Cali. Nueva arquitectura funcional sin dependencias de API con capacidades de autodiagnóstico y autoreparación.
 
-## 🎯 Novedades Versión 2.6.0
+## 🎯 Novedades Versión 3.0.0
 
-### ✅ Optimización Completa de la API
+### ✅ Sistema ETL Completamente Refactorizado
 
-- **Modelos y Esquemas Alineados**: Consistencia perfecta entre SQLAlchemy models, Pydantic schemas y estructura PostgreSQL
-- **Campos Nullable Corregidos**: Todos los campos críticos con `nullable=False` para garantizar integridad
-- **Nombres Unificados**: `periodo_corte` consistente en todas las tablas y endpoints
-- **Endpoints Verificados**: Funcionamiento 100% comprobado de todos los endpoints principales
-- **Contratos Optimizados**: JOIN simplificado con `contratos_valores` para mejor rendimiento
+- **Programación Funcional**: Arquitectura completamente rediseñada usando principios funcionales
+- **Sin Dependencias de API**: Carga directa desde archivos JSON/GeoJSON sin necesidad de APIs
+- **Autodiagnóstico Inteligente**: Sistema que detecta y repara problemas automáticamente
+- **Generación Automática de Esquemas**: Creación inteligente de tablas basada en datos
+- **Soporte PostGIS Completo**: Manejo automatizado de datos geoespaciales
+- **Gestión Eficiente de Memoria**: Procesamiento en lotes optimizado para grandes volúmenes
 
 ## 📋 Descripción del Proyecto
 
-Este sistema está diseñado para centralizar y gestionar la información presupuestal, contractual y de seguimiento de proyectos de la Alcaldía de Santiago de Cali. Ofrece una arquitectura escalable que integra múltiples fuentes de datos y proporciona endpoints especializados para diferentes tipos de consultas y operaciones.
+Este sistema está diseñado para centralizar y gestionar automáticamente la información presupuestal, contractual y de seguimiento de proyectos de la Alcaldía de Santiago de Cali. La nueva arquitectura funcional elimina dependencias externas y proporciona un sistema completamente autónomo de gestión de datos.
 
 ### Funcionalidades Principales
 
-- **Gestión Presupuestal**: Manejo de movimientos y ejecución presupuestal con datos históricos
-- **Contratos SECOP**: Sistema optimizado para gestión de contratos con arquitectura BPIN-centric
-- **Seguimiento de Proyectos**: Monitoreo del Plan de Acción con métricas de avance y productos
-- **Infraestructura**: Gestión de unidades de proyecto, equipamientos e infraestructura vial
-- **Transformación de Datos**: Procesamiento automatizado de archivos Excel a formatos estandarizados
-- **API RESTful**: Endpoints especializados para consultas, cargas masivas y administración
+- **ETL Inteligente**: Sistema automatizado de extracción, transformación y carga de datos
+- **Base de Datos Autogestionada**: Creación y mantenimiento automático de esquemas
+- **Procesamiento Geoespacial**: Soporte nativo para datos con geometrías (PostGIS)
+- **Autodiagnóstico**: Detección y reparación automática de problemas del sistema
+- **Carga Masiva Eficiente**: Procesamiento optimizado de grandes volúmenes de datos
+- **CLI Intuitivo**: Interfaz de línea de comandos fácil de usar
 
-## 🏗️ Arquitectura del Sistema
+## 🏗️ Nueva Arquitectura del Sistema
 
 ### Componentes Principales
 
 ```
+proyectos_cali_alcaldia_etl/
+├── database_management/           # 🆕 Sistema ETL Inteligente
+│   ├── core/                     # Módulos funcionales principales
+│   │   ├── config.py            # Configuración inmutable
+│   │   ├── database_manager.py  # Gestión inteligente de BD
+│   │   ├── schema_generator.py  # Generación automática de esquemas
+│   │   ├── data_loader.py       # Carga eficiente de datos
+│   │   ├── model_generator.py   # Generación de modelos SQLAlchemy
+│   │   └── etl_system.py        # Orquestador principal
+│   ├── main.py                  # Script principal
+│   ├── etl_cli.py              # CLI interactivo
+│   └── README.md               # Documentación detallada
+├── transformation_app/           # Sistema de transformación de datos
+│   ├── app_outputs/             # Datos transformados (JSON/GeoJSON)
+│   └── [módulos de transformación]
+├── extraction_app/              # Extracción de datos fuente
+├── orchestrator/                # Orquestación de procesos
+└── scripts/                     # Scripts de utilidad
 api-dashboard-db/
 ├── fastapi_project/           # Aplicación principal FastAPI
 │   ├── main.py               # Endpoints y configuración API
@@ -121,11 +140,111 @@ pip install -r requirements.txt
 # 5. Configurar variables de entorno
 # Editar archivo .env con las credenciales correctas
 
+# 6. ¡NUEVO! Sistema ETL Inteligente (Recomendado)
+cd database_management
+python main.py --run
+
+# 7. Alternativo: Método tradicional con API
+python database_initializer.py
+uvicorn fastapi_project.main:app --reload
+```
+
+## 🆕 Sistema ETL Inteligente (v3.0.0)
+
+### 🎯 ¿Por qué usar el nuevo sistema ETL?
+
+El nuevo sistema ETL representa una evolución completa del proyecto con las siguientes ventajas:
+
+✅ **Sin Dependencias de API**: Carga directa desde archivos locales  
+✅ **Autodiagnóstico**: Detecta y repara problemas automáticamente  
+✅ **Generación Automática**: Crea esquemas basado en datos reales  
+✅ **Soporte PostGIS**: Manejo completo de datos geoespaciales  
+✅ **Programación Funcional**: Arquitectura más robusta y mantenible  
+✅ **Procesamiento Eficiente**: Optimizado para grandes volúmenes de datos
+
+### 🚀 Uso del Sistema ETL
+
+#### Comandos Rápidos
+
+```bash
+# Navegar al directorio ETL
+cd database_management
+
+# Verificar sistema
+python main.py --diagnose
+
+# Inicializar base de datos
+python main.py --init
+
+# Cargar todos los datos
+python main.py --run
+
+# Ver estado del sistema
+python main.py --status
+```
+
+#### CLI Interactivo
+
+```bash
+# Usar interfaz interactiva
+python etl_cli.py diagnose --verbose
+python etl_cli.py load --data-dir ../transformation_app/app_outputs
+python etl_cli.py run
+```
+
+### 📊 Datos Procesados Automáticamente
+
+El sistema ETL procesa automáticamente todos los archivos en `transformation_app/app_outputs/`:
+
+- **📋 Contratos SECOP**: `contratos_secop_outputs/*.json`
+- **💰 Ejecución Presupuestal**: `ejecucion_presupuestal_outputs/*.json`
+- **🏗️ Unidades de Proyecto**: `unidades_proyecto_outputs/*.json/*.geojson`
+- **📈 Empréstitos**: `emprestito_outputs/*.json`
+- **🎯 Procesos SECOP**: `procesos_secop_outputs/*.json`
+
+### 🔧 Configuración ETL
+
+Crear archivo `.env` en `database_management/`:
+
+```env
+# Base de datos
+DB_HOST=localhost
+DB_PORT=5432
+DB_NAME=etl_proyectos_cali
+DB_USER=postgres
+DB_PASSWORD=tu_password
+
+# PostGIS (datos geoespaciales)
+ENABLE_POSTGIS=true
+
+# Configuración de rendimiento
+BATCH_SIZE=1000
+```
+
+### 📈 Ventajas del Sistema ETL vs Método Tradicional
+
+| Característica | ETL Inteligente       | Método Tradicional      |
+| -------------- | --------------------- | ----------------------- |
+| Dependencias   | ❌ Sin APIs           | ⚠️ Requiere FastAPI     |
+| Configuración  | 🟢 Automática         | 🟡 Manual               |
+| Esquemas BD    | 🟢 Auto-generados     | 🟡 Predefinidos         |
+| Datos Geo      | 🟢 PostGIS automático | 🟡 Configuración manual |
+| Diagnóstico    | 🟢 Auto-diagnóstico   | ❌ Manual               |
+| Reparación     | 🟢 Auto-reparación    | ❌ Manual               |
+| Rendimiento    | 🟢 Optimizado         | 🟡 Estándar             |
+
+### 5. Configurar variables de entorno
+
+# Editar archivo .env con las credenciales correctas
+
 # 6. ¡PASO CRÍTICO! Inicializar base de datos
+
 python database_initializer.py
 
 # 7. Ejecutar servidor
+
 uvicorn fastapi_project.main:app --reload
+
 ```
 
 ## 🏗️ Database Initializer - Guía Completa Paso a Paso
@@ -166,23 +285,25 @@ El `database_initializer.py` es el corazón del sistema de inicialización de la
 Asegúrate de tener esta estructura de directorios:
 
 ```
+
 transformation_app/
 ├── app_outputs/
-│   ├── contratos_secop_output/
-│   │   ├── contratos.json
-│   │   └── contratos_valores.json
-│   ├── ejecucion_presupuestal_outputs/
-│   │   ├── movimientos_presupuestales.json
-│   │   ├── ejecucion_presupuestal.json
-│   │   └── datos_caracteristicos_proyectos.json
-│   ├── seguimiento_pa_outputs/
-│   │   ├── seguimiento_pa.json
-│   │   ├── seguimiento_productos_pa.json
-│   │   └── seguimiento_actividades_pa.json
-│   └── unidades_proyecto_outputs/
-│       ├── unidad_proyecto_infraestructura_equipamientos.json
-│       └── unidad_proyecto_infraestructura_vial.json
-```
+│ ├── contratos_secop_output/
+│ │ ├── contratos.json
+│ │ └── contratos_valores.json
+│ ├── ejecucion_presupuestal_outputs/
+│ │ ├── movimientos_presupuestales.json
+│ │ ├── ejecucion_presupuestal.json
+│ │ └── datos_caracteristicos_proyectos.json
+│ ├── seguimiento_pa_outputs/
+│ │ ├── seguimiento_pa.json
+│ │ ├── seguimiento_productos_pa.json
+│ │ └── seguimiento_actividades_pa.json
+│ └── unidades_proyecto_outputs/
+│ ├── unidad_proyecto_infraestructura_equipamientos.json
+│ └── unidad_proyecto_infraestructura_vial.json
+
+````
 
 #### Paso 2: Verificar Conexión a Base de Datos
 
@@ -192,7 +313,7 @@ psql -h localhost -U api_user -d api_dashboard_cali
 
 # O verificar variables de entorno
 cat .env
-```
+````
 
 #### Paso 3: Activar Entorno Virtual
 

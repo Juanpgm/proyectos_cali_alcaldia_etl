@@ -1,0 +1,54 @@
+{
+  "timestamp": "2025-09-19T13:25:25.376377",
+  "duration_seconds": 2.744913,
+  "total_tests": 5,
+  "successful_tests": 4,
+  "success_rate": 80.0,
+  "test_results": {
+    "Conectividad PostgreSQL": {
+      "success": true,
+      "details": "Estado de conexion: healthy",
+      "data_count": 0,
+      "timestamp": "2025-09-19T13:25:23.745952"
+    },
+    "Conteo de tablas": {
+      "success": true,
+      "details": "Tablas encontradas: 16",
+      "data_count": 16,
+      "timestamp": "2025-09-19T13:25:23.788826"
+    },
+    "Insercion de contrato de prueba": {
+      "success": true,
+      "details": "Contrato insertado: TEST-20250919132523",
+      "data_count": 1,
+      "timestamp": "2025-09-19T13:25:23.845226"
+    },
+    "Conteo de contratos": {
+      "success": true,
+      "details": "Total de contratos: 1",
+      "data_count": 1,
+      "timestamp": "2025-09-19T13:25:23.888281"
+    },
+    "Agrupacion por estado": {
+      "success": true,
+      "details": "Estados encontrados: 1",
+      "data_count": 1,
+      "timestamp": "2025-09-19T13:25:23.889281"
+    },
+    "Workflow ETL": {
+      "success": false,
+      "details": "Error: ETLOrchestrator.__init__() got an unexpected keyword argument 'config_file'",
+      "data_count": 0,
+      "timestamp": "2025-09-19T13:25:23.889281"
+    },
+    "Analisis comprehensive": {
+      "success": true,
+      "details": "Estado del sistema: unknown",
+      "data_count": 1,
+      "timestamp": "2025-09-19T13:25:25.375375"
+    }
+  },
+  "summary": {
+    "status": "functional"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "started_at": "2025-09-19T14:06:25.095519",
+  "config": {
+    "project_root": "A:\\programing_workspace\\proyectos_cali_alcaldia_etl",
+    "dry_run": true,
+    "days_old": 7,
+    "keep_latest": 2,
+    "excluded_dirs": [
+      "env",
+      ".git",
+      "node_modules",
+      ".vscode",
+      "__pycache__",
+      ".pytest_cache"
+    ]
+  },
+  "analysis": {
+    "categorized_files": {
+      "test_temp_files": 12,
+      "project_logs": 16,
+      "project_reports": 12,
+      "project_cache": 0
+    },
+    "duplicate_groups": 15,
+    "old_timestamped": 0,
+    "total_files_to_remove": 43,
+    "critical_files_protected": 2
+  },
+  "cleanup_results": {
+    "removed": 43,
+    "skipped": 0,
+    "errors": 0,
+    "empty_dirs_removed": 3
+  },
+  "files_processed": 43,
+  "success": true
+}
