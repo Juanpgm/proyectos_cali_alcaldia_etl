@@ -1,0 +1,32 @@
+{
+  "execution_id": "20250919_015021",
+  "start_time": "2025-09-19T01:50:15.542824",
+  "end_time": "2025-09-19T01:50:20.241465",
+  "total_duration": 4.698641,
+  "execution_order": [
+    "test_extraction_basic",
+    "test_transformation_basic"
+  ],
+  "results": {
+    "test_extraction_basic": {
+      "task_id": "test_extraction_basic",
+      "status": "completed",
+      "start_time": "2025-09-19T01:50:19.713750",
+      "end_time": "2025-09-19T01:50:19.935459",
+      "duration": 0.221709,
+      "output": "{'records': [{'id': 1, 'nombre': 'Proyecto A', 'valor': 100000}, {'id': 2, 'nombre': 'Proyecto B', 'valor': 200000}, {'id': 3, 'nombre': 'Proyecto C', 'valor': 150000}], 'metadata': {'total_records': 3, 'extraction_time': 1758264619.9353526, 'source': 'test_database'}}",
+      "error": null,
+      "metadata": {}
+    },
+    "test_transformation_basic": {
+      "task_id": "test_transformation_basic",
+      "status": "completed",
+      "start_time": "2025-09-19T01:50:19.935459",
+      "end_time": "2025-09-19T01:50:20.241465",
+      "duration": 0.306006,
+      "output": "{'transformed_records': [{'project_id': 1, 'project_name': 'DEFAULT', 'budget_amount': 50000, 'status': 'PROCESSED', 'category': 'TEST'}], 'transformation_metadata': {'original_count': 1, 'transformed_count': 1, 'transformation_time': 1758264620.2388375, 'success_rate': 100.0}}",
+      "error": null,
+      "metadata": {}
+    }
+  }
+}

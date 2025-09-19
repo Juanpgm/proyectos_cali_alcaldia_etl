@@ -1,0 +1,3573 @@
+{
+  "started_at": "2025-09-19T14:00:50.684835",
+  "config": {
+    "project_root": "A:\\programing_workspace\\proyectos_cali_alcaldia_etl",
+    "data_dir": "A:\\programing_workspace\\proyectos_cali_alcaldia_etl\\transformation_app\\app_outputs",
+    "output_dir": "A:\\programing_workspace\\proyectos_cali_alcaldia_etl\\database_management\\generated_schemas",
+    "models_dir": "A:\\programing_workspace\\proyectos_cali_alcaldia_etl\\database_management\\generated_models",
+    "sql_dir": "A:\\programing_workspace\\proyectos_cali_alcaldia_etl\\database_management\\generated_sql",
+    "backup_dir": "A:\\programing_workspace\\proyectos_cali_alcaldia_etl\\database_management\\backups",
+    "max_workers": 4,
+    "enable_backup": true,
+    "enable_models": true,
+    "enable_sql": true,
+    "log_level": "INFO"
+  },
+  "schemas": [
+    {
+      "name": "contratos_proyectos",
+      "fields": [
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 27,
+          "null_count": 0,
+          "max_length": 118,
+          "type_distribution": {
+            "varchar": 2931
+          },
+          "name": "nombre_entidad",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 15,
+          "null_count": 0,
+          "max_length": 50,
+          "type_distribution": {
+            "varchar": 2931
+          },
+          "name": "sector",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 2,
+          "null_count": 0,
+          "max_length": 15,
+          "type_distribution": {
+            "varchar": 2931
+          },
+          "name": "entidad_centralizada",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 1855,
+          "null_count": 0,
+          "max_length": 16,
+          "type_distribution": {
+            "varchar": 2931
+          },
+          "name": "proceso_compra",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "datetime",
+          "nullable": false,
+          "unique_values": 2009,
+          "null_count": 0,
+          "max_length": 18,
+          "type_distribution": {
+            "datetime": 2931
+          },
+          "name": "id_contrato",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 1974,
+          "null_count": 0,
+          "max_length": 36,
+          "type_distribution": {
+            "datetime": 421,
+            "varchar": 2506,
+            "timestamp": 4
+          },
+          "name": "referencia_contrato",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 11,
+          "null_count": 0,
+          "max_length": 17,
+          "type_distribution": {
+            "varchar": 2931
+          },
+          "name": "estado_contrato",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 506,
+          "null_count": 0,
+          "max_length": 11,
+          "type_distribution": {
+            "varchar": 2931
+          },
+          "name": "codigo_categoria_principal",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "datetime",
+          "nullable": false,
+          "unique_values": 1807,
+          "null_count": 0,
+          "max_length": 300,
+          "type_distribution": {
+            "varchar": 630,
+            "text": 1062,
+            "datetime": 1239
+          },
+          "name": "descripcion_proceso",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 13,
+          "null_count": 0,
+          "max_length": 30,
+          "type_distribution": {
+            "varchar": 2434,
+            "datetime": 497
+          },
+          "name": "tipo_contrato",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 11,
+          "null_count": 0,
+          "max_length": 59,
+          "type_distribution": {
+            "varchar": 2931
+          },
+          "name": "modalidad_contratacion",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "datetime",
+          "nullable": false,
+          "unique_values": 20,
+          "null_count": 0,
+          "max_length": 90,
+          "type_distribution": {
+            "datetime": 1644,
+            "varchar": 1287
+          },
+          "name": "justificacion_modalidad_contratacion",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "date",
+          "nullable": true,
+          "unique_values": 632,
+          "null_count": 223,
+          "max_length": 10,
+          "type_distribution": {
+            "date": 2708
+          },
+          "name": "fecha_firma",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "date",
+          "nullable": true,
+          "unique_values": 601,
+          "null_count": 287,
+          "max_length": 10,
+          "type_distribution": {
+            "date": 2644
+          },
+          "name": "fecha_inicio_contrato",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "date",
+          "nullable": true,
+          "unique_values": 437,
+          "null_count": 8,
+          "max_length": 10,
+          "type_distribution": {
+            "date": 2923
+          },
+          "name": "fecha_fin_contrato",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "unknown",
+          "nullable": true,
+          "unique_values": 0,
+          "null_count": 2931,
+          "max_length": 0,
+          "name": "fecha_inicio_ejecucion",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "unknown",
+          "nullable": true,
+          "unique_values": 0,
+          "null_count": 2931,
+          "max_length": 0,
+          "name": "fecha_fin_ejecucion",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 5,
+          "null_count": 0,
+          "max_length": 21,
+          "type_distribution": {
+            "varchar": 2931
+          },
+          "name": "tipodocproveedor",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "integer",
+          "nullable": false,
+          "unique_values": 725,
+          "null_count": 0,
+          "max_length": 12,
+          "type_distribution": {
+            "timestamp": 176,
+            "integer": 2458,
+            "varchar": 290,
+            "numeric": 5,
+            "boolean": 2
+          },
+          "min_value": 0.0,
+          "max_value": 9021129992.0,
+          "avg_value": 1160675537.8066263,
+          "name": "documento_proveedor",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 888,
+          "null_count": 0,
+          "max_length": 119,
+          "type_distribution": {
+            "varchar": 2758,
+            "datetime": 173
+          },
+          "name": "proveedor_adjudicado",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "boolean",
+          "nullable": false,
+          "unique_values": 2,
+          "null_count": 0,
+          "max_length": 2,
+          "type_distribution": {
+            "boolean": 2588,
+            "varchar": 343
+          },
+          "name": "es_grupo",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 2,
+          "null_count": 0,
+          "max_length": 2,
+          "type_distribution": {
+            "varchar": 1589,
+            "boolean": 1342
+          },
+          "name": "es_pyme",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "boolean",
+          "nullable": false,
+          "unique_values": 1,
+          "null_count": 0,
+          "max_length": 1,
+          "type_distribution": {
+            "boolean": 2931
+          },
+          "name": "habilita_pago_adelantado",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "boolean",
+          "nullable": false,
+          "unique_values": 2,
+          "null_count": 0,
+          "max_length": 2,
+          "type_distribution": {
+            "boolean": 1734,
+            "varchar": 1197
+          },
+          "name": "liquidación",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "boolean",
+          "nullable": false,
+          "unique_values": 2,
+          "null_count": 0,
+          "max_length": 2,
+          "type_distribution": {
+            "boolean": 2917,
+            "varchar": 14
+          },
+          "name": "obligación_ambiental",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "boolean",
+          "nullable": false,
+          "unique_values": 2,
+          "null_count": 0,
+          "max_length": 2,
+          "type_distribution": {
+            "boolean": 2930,
+            "varchar": 1
+          },
+          "name": "obligaciones_postconsumo",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "boolean",
+          "nullable": false,
+          "unique_values": 1,
+          "null_count": 0,
+          "max_length": 2,
+          "type_distribution": {
+            "boolean": 2931
+          },
+          "name": "reversion",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 1,
+          "null_count": 0,
+          "max_length": 11,
+          "type_distribution": {
+            "varchar": 2931
+          },
+          "name": "origen_recursos",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 3,
+          "null_count": 0,
+          "max_length": 14,
+          "type_distribution": {
+            "varchar": 2931
+          },
+          "name": "destino_gasto",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "integer",
+          "nullable": false,
+          "unique_values": 1841,
+          "null_count": 0,
+          "max_length": 13,
+          "type_distribution": {
+            "integer": 2075,
+            "timestamp": 838,
+            "boolean": 18
+          },
+          "min_value": 0.0,
+          "max_value": 1392300000000.0,
+          "avg_value": 2412794278.0102353,
+          "name": "valor_contrato",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "boolean",
+          "nullable": false,
+          "unique_values": 1,
+          "null_count": 0,
+          "max_length": 1,
+          "type_distribution": {
+            "boolean": 2931
+          },
+          "name": "valor_pago_adelantado",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "boolean",
+          "nullable": false,
+          "unique_values": 2,
+          "null_count": 0,
+          "max_length": 8,
+          "type_distribution": {
+            "boolean": 2930,
+            "integer": 1
+          },
+          "name": "valor_facturado",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "integer",
+          "nullable": false,
+          "unique_values": 1840,
+          "null_count": 0,
+          "max_length": 15,
+          "type_distribution": {
+            "integer": 2073,
+            "timestamp": 838,
+            "boolean": 20
+          },
+          "min_value": 0.0,
+          "max_value": 533610023100000.0,
+          "avg_value": 184469333416.76834,
+          "name": "valor_pendiente_pago",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "boolean",
+          "nullable": false,
+          "unique_values": 2,
+          "null_count": 0,
+          "max_length": 8,
+          "type_distribution": {
+            "boolean": 2930,
+            "integer": 1
+          },
+          "name": "valor_pagado",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "boolean",
+          "nullable": false,
+          "unique_values": 1,
+          "null_count": 0,
+          "max_length": 1,
+          "type_distribution": {
+            "boolean": 2931
+          },
+          "name": "valor_amortizado",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "boolean",
+          "nullable": false,
+          "unique_values": 1,
+          "null_count": 0,
+          "max_length": 1,
+          "type_distribution": {
+            "boolean": 2931
+          },
+          "name": "valor_pendiente_amortizacion",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "integer",
+          "nullable": false,
+          "unique_values": 1838,
+          "null_count": 0,
+          "max_length": 12,
+          "type_distribution": {
+            "integer": 2073,
+            "timestamp": 835,
+            "boolean": 23
+          },
+          "min_value": 0.0,
+          "max_value": 335950924000.0,
+          "avg_value": 1461956037.034459,
+          "name": "valor_pendiente_ejecucion",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 1,
+          "null_count": 0,
+          "max_length": 6,
+          "type_distribution": {
+            "varchar": 2931
+          },
+          "name": "estado_bpin",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "timestamp",
+          "nullable": false,
+          "unique_values": 1157,
+          "null_count": 0,
+          "max_length": 15,
+          "type_distribution": {
+            "timestamp": 2931
+          },
+          "name": "bpin",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "integer",
+          "nullable": false,
+          "unique_values": 6,
+          "null_count": 0,
+          "max_length": 4,
+          "type_distribution": {
+            "integer": 2931
+          },
+          "min_value": 2020.0,
+          "max_value": 2025.0,
+          "avg_value": 2023.4199931763903,
+          "name": "anno_bpin",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "integer",
+          "nullable": false,
+          "unique_values": 1088,
+          "null_count": 0,
+          "max_length": 11,
+          "type_distribution": {
+            "boolean": 1051,
+            "integer": 1303,
+            "timestamp": 577
+          },
+          "min_value": 0.0,
+          "max_value": 40907866173.0,
+          "avg_value": 931149161.1579666,
+          "name": "saldo_cdp",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "boolean",
+          "nullable": false,
+          "unique_values": 6,
+          "null_count": 0,
+          "max_length": 11,
+          "type_distribution": {
+            "boolean": 2925,
+            "timestamp": 5,
+            "integer": 1
+          },
+          "name": "saldo_vigencia",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "boolean",
+          "nullable": false,
+          "unique_values": 1,
+          "null_count": 0,
+          "max_length": 2,
+          "type_distribution": {
+            "boolean": 2931
+          },
+          "name": "espostconflicto",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "boolean",
+          "nullable": false,
+          "unique_values": 94,
+          "null_count": 0,
+          "max_length": 3,
+          "type_distribution": {
+            "boolean": 2296,
+            "integer": 635
+          },
+          "name": "dias_adicionados",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 1,
+          "null_count": 0,
+          "max_length": 9,
+          "type_distribution": {
+            "varchar": 2931
+          },
+          "name": "puntos_acuerdo",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 1,
+          "null_count": 0,
+          "max_length": 9,
+          "type_distribution": {
+            "varchar": 2931
+          },
+          "name": "pilares_acuerdo",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "url",
+          "nullable": false,
+          "unique_values": 1855,
+          "null_count": 0,
+          "max_length": 149,
+          "type_distribution": {
+            "url": 2931
+          },
+          "name": "urlproceso",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 783,
+          "null_count": 0,
+          "max_length": 80,
+          "type_distribution": {
+            "varchar": 2921,
+            "datetime": 10
+          },
+          "name": "nombre_representante_legal",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 3,
+          "null_count": 0,
+          "max_length": 11,
+          "type_distribution": {
+            "varchar": 2931
+          },
+          "name": "nacionalidad_representante_legal",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 365,
+          "null_count": 0,
+          "max_length": 85,
+          "type_distribution": {
+            "varchar": 1585,
+            "datetime": 1346
+          },
+          "name": "domicilio_representante_legal",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 6,
+          "null_count": 0,
+          "max_length": 21,
+          "type_distribution": {
+            "varchar": 2931
+          },
+          "name": "tipo_identificación_representante_legal",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 418,
+          "null_count": 0,
+          "max_length": 17,
+          "type_distribution": {
+            "timestamp": 282,
+            "integer": 1036,
+            "varchar": 1573,
+            "numeric": 36,
+            "datetime": 4
+          },
+          "name": "identificación_representante_legal",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 4,
+          "null_count": 0,
+          "max_length": 11,
+          "type_distribution": {
+            "varchar": 2931
+          },
+          "name": "género_representante_legal",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "boolean",
+          "nullable": false,
+          "unique_values": 8,
+          "null_count": 0,
+          "max_length": 10,
+          "type_distribution": {
+            "boolean": 2918,
+            "timestamp": 11,
+            "integer": 2
+          },
+          "name": "presupuesto_general_nacion_pgn",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "boolean",
+          "nullable": false,
+          "unique_values": 120,
+          "null_count": 0,
+          "max_length": 10,
+          "type_distribution": {
+            "integer": 116,
+            "boolean": 2772,
+            "timestamp": 43
+          },
+          "name": "sistema_general_participaciones",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "boolean",
+          "nullable": false,
+          "unique_values": 11,
+          "null_count": 0,
+          "max_length": 10,
+          "type_distribution": {
+            "boolean": 2910,
+            "integer": 12,
+            "timestamp": 9
+          },
+          "name": "sistema_general_regalías",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "integer",
+          "nullable": false,
+          "unique_values": 1661,
+          "null_count": 0,
+          "max_length": 11,
+          "type_distribution": {
+            "boolean": 200,
+            "integer": 2007,
+            "timestamp": 724
+          },
+          "min_value": 0.0,
+          "max_value": 40907778322.0,
+          "avg_value": 1174186443.799727,
+          "name": "recursos_propios_alcaldías_gobernaciones_resguardos_indígenas",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "boolean",
+          "nullable": false,
+          "unique_values": 7,
+          "null_count": 0,
+          "max_length": 10,
+          "type_distribution": {
+            "boolean": 2924,
+            "integer": 6,
+            "timestamp": 1
+          },
+          "name": "recursos_credito",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "boolean",
+          "nullable": false,
+          "unique_values": 381,
+          "null_count": 0,
+          "max_length": 11,
+          "type_distribution": {
+            "boolean": 2241,
+            "integer": 660,
+            "timestamp": 30
+          },
+          "name": "recursos_propios",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "datetime",
+          "nullable": true,
+          "unique_values": 452,
+          "null_count": 1184,
+          "max_length": 23,
+          "type_distribution": {
+            "datetime": 1747
+          },
+          "name": "ultima_actualizacion",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 27,
+          "null_count": 0,
+          "max_length": 11,
+          "type_distribution": {
+            "varchar": 2931
+          },
+          "name": "codigo_entidad",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "integer",
+          "nullable": false,
+          "unique_values": 890,
+          "null_count": 0,
+          "max_length": 9,
+          "type_distribution": {
+            "integer": 2913,
+            "boolean": 18
+          },
+          "min_value": 0.0,
+          "max_value": 732986617.0,
+          "avg_value": 704745510.7287616,
+          "name": "codigo_proveedor",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "date",
+          "nullable": true,
+          "unique_values": 287,
+          "null_count": 1729,
+          "max_length": 10,
+          "type_distribution": {
+            "date": 1202
+          },
+          "name": "fecha_inicio_liquidacion",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "date",
+          "nullable": true,
+          "unique_values": 388,
+          "null_count": 1729,
+          "max_length": 10,
+          "type_distribution": {
+            "date": 1202
+          },
+          "name": "fecha_fin_liquidacion",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "datetime",
+          "nullable": false,
+          "unique_values": 1860,
+          "null_count": 0,
+          "max_length": 500,
+          "type_distribution": {
+            "varchar": 630,
+            "text": 600,
+            "datetime": 1701
+          },
+          "name": "objeto_contrato",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "datetime",
+          "nullable": false,
+          "unique_values": 271,
+          "null_count": 0,
+          "max_length": 12,
+          "type_distribution": {
+            "datetime": 2924,
+            "varchar": 7
+          },
+          "name": "duración_contrato",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 50,
+          "null_count": 0,
+          "max_length": 43,
+          "type_distribution": {
+            "varchar": 2931
+          },
+          "name": "nombre_banco",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 3,
+          "null_count": 0,
+          "max_length": 11,
+          "type_distribution": {
+            "varchar": 2931
+          },
+          "name": "tipo_cuenta",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 328,
+          "null_count": 0,
+          "max_length": 45,
+          "type_distribution": {
+            "varchar": 2177,
+            "timestamp": 421,
+            "integer": 333
+          },
+          "name": "número_cuenta",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "boolean",
+          "nullable": false,
+          "unique_values": 2,
+          "null_count": 0,
+          "max_length": 2,
+          "type_distribution": {
+            "boolean": 2569,
+            "varchar": 362
+          },
+          "name": "contrato_puede_ser_prorrogado",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "date",
+          "nullable": true,
+          "unique_values": 100,
+          "null_count": 2627,
+          "max_length": 10,
+          "type_distribution": {
+            "date": 304
+          },
+          "name": "fecha_notificación_prorrogación",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 87,
+          "null_count": 0,
+          "max_length": 34,
+          "type_distribution": {
+            "varchar": 2931
+          },
+          "name": "nombre_ordenador_gasto",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 2,
+          "null_count": 0,
+          "max_length": 20,
+          "type_distribution": {
+            "varchar": 2931
+          },
+          "name": "tipo_documento_ordenador_gasto",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "integer",
+          "nullable": false,
+          "unique_values": 87,
+          "null_count": 0,
+          "max_length": 12,
+          "type_distribution": {
+            "varchar": 1214,
+            "integer": 1491,
+            "timestamp": 224,
+            "numeric": 2
+          },
+          "min_value": 3103843.0,
+          "max_value": 1234189398.0,
+          "avg_value": 196417535.26732674,
+          "name": "número_documento_ordenador_gasto",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 179,
+          "null_count": 0,
+          "max_length": 38,
+          "type_distribution": {
+            "varchar": 2931
+          },
+          "name": "nombre_supervisor",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 3,
+          "null_count": 0,
+          "max_length": 20,
+          "type_distribution": {
+            "varchar": 2931
+          },
+          "name": "tipo_documento_supervisor",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 176,
+          "null_count": 0,
+          "max_length": 13,
+          "type_distribution": {
+            "varchar": 1739,
+            "timestamp": 289,
+            "integer": 903
+          },
+          "name": "número_documento_supervisor",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "boolean",
+          "nullable": false,
+          "unique_values": 1,
+          "null_count": 0,
+          "max_length": 1,
+          "type_distribution": {
+            "boolean": 2931
+          },
+          "name": "nombre_ordenador_pago",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "boolean",
+          "nullable": false,
+          "unique_values": 1,
+          "null_count": 0,
+          "max_length": 1,
+          "type_distribution": {
+            "boolean": 2931
+          },
+          "name": "tipo_documento_ordenador_pago",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "boolean",
+          "nullable": false,
+          "unique_values": 60,
+          "null_count": 0,
+          "max_length": 10,
+          "type_distribution": {
+            "boolean": 2724,
+            "integer": 179,
+            "timestamp": 28
+          },
+          "name": "número_documento_ordenador_pago",
+          "is_primary_key": false
+        }
+      ],
+      "record_count": 2931,
+      "description": "Tabla generada automáticamente desde contratos_proyectos.json",
+      "source_file": "A:\\programing_workspace\\proyectos_cali_alcaldia_etl\\transformation_app\\app_outputs\\contratos_secop_outputs\\contratos_proyectos.json",
+      "analyzed_at": "2025-09-19T14:01:58.908728"
+    },
+    {
+      "name": "datos_caracteristicos_proyectos",
+      "fields": [
+        {
+          "data_type": "timestamp",
+          "nullable": false,
+          "unique_values": 1254,
+          "null_count": 0,
+          "max_length": 15,
+          "type_distribution": {
+            "timestamp": 1254
+          },
+          "name": "bpin",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 1254,
+          "null_count": 0,
+          "max_length": 10,
+          "type_distribution": {
+            "varchar": 1254
+          },
+          "name": "bp",
+          "is_primary_key": true
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 1253,
+          "null_count": 0,
+          "max_length": 264,
+          "type_distribution": {
+            "varchar": 901,
+            "datetime": 352,
+            "text": 1
+          },
+          "name": "nombre_proyecto",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 1183,
+          "null_count": 0,
+          "max_length": 294,
+          "type_distribution": {
+            "varchar": 996,
+            "datetime": 256,
+            "text": 2
+          },
+          "name": "nombre_actividad",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 662,
+          "null_count": 0,
+          "max_length": 17,
+          "type_distribution": {
+            "integer": 613,
+            "varchar": 641
+          },
+          "name": "programa_presupuestal",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 28,
+          "null_count": 0,
+          "max_length": 81,
+          "type_distribution": {
+            "varchar": 1254
+          },
+          "name": "nombre_centro_gestor",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 650,
+          "null_count": 0,
+          "max_length": 271,
+          "type_distribution": {
+            "varchar": 1236,
+            "datetime": 16,
+            "text": 2
+          },
+          "name": "nombre_area_funcional",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 74,
+          "null_count": 0,
+          "max_length": 111,
+          "type_distribution": {
+            "varchar": 1142,
+            "datetime": 112
+          },
+          "name": "nombre_fondo",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 9,
+          "null_count": 0,
+          "max_length": 43,
+          "type_distribution": {
+            "varchar": 1254
+          },
+          "name": "clasificacion_fondo",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 39,
+          "null_count": 0,
+          "max_length": 152,
+          "type_distribution": {
+            "varchar": 1254
+          },
+          "name": "nombre_pospre",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": true,
+          "unique_values": 4,
+          "null_count": 633,
+          "max_length": 30,
+          "type_distribution": {
+            "varchar": 621
+          },
+          "name": "nombre_dimension",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": true,
+          "unique_values": 18,
+          "null_count": 633,
+          "max_length": 54,
+          "type_distribution": {
+            "varchar": 621
+          },
+          "name": "nombre_linea_estrategica",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 90,
+          "null_count": 0,
+          "max_length": 95,
+          "type_distribution": {
+            "varchar": 1254
+          },
+          "name": "nombre_programa",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 39,
+          "null_count": 0,
+          "max_length": 16,
+          "type_distribution": {
+            "varchar": 942,
+            "datetime": 312
+          },
+          "name": "comuna",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 3,
+          "null_count": 0,
+          "max_length": 22,
+          "type_distribution": {
+            "varchar": 1254
+          },
+          "name": "origen",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "integer",
+          "nullable": false,
+          "unique_values": 2,
+          "null_count": 0,
+          "max_length": 4,
+          "type_distribution": {
+            "integer": 1254
+          },
+          "min_value": 2024.0,
+          "max_value": 2025.0,
+          "avg_value": 2024.4888357256777,
+          "name": "anio",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 1,
+          "null_count": 0,
+          "max_length": 9,
+          "type_distribution": {
+            "varchar": 1254
+          },
+          "name": "tipo_gasto",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "integer",
+          "nullable": true,
+          "unique_values": 17,
+          "null_count": 778,
+          "max_length": 2,
+          "type_distribution": {
+            "integer": 476
+          },
+          "min_value": 12.0,
+          "max_value": 45.0,
+          "avg_value": 34.470588235294116,
+          "name": "cod_sector",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "integer",
+          "nullable": true,
+          "unique_values": 270,
+          "null_count": 778,
+          "max_length": 7,
+          "type_distribution": {
+            "integer": 476
+          },
+          "min_value": 1202020.0,
+          "max_value": 4599033.0,
+          "avg_value": 3462115.649159664,
+          "name": "cod_producto",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "unknown",
+          "nullable": true,
+          "unique_values": 0,
+          "null_count": 1254,
+          "max_length": 0,
+          "name": "validador_cuipo",
+          "is_primary_key": false
+        }
+      ],
+      "record_count": 1254,
+      "description": "Tabla generada automáticamente desde datos_caracteristicos_proyectos.json",
+      "source_file": "A:\\programing_workspace\\proyectos_cali_alcaldia_etl\\transformation_app\\app_outputs\\ejecucion_presupuestal_outputs\\datos_caracteristicos_proyectos.json",
+      "analyzed_at": "2025-09-19T14:01:03.530509"
+    },
+    {
+      "name": "ejecucion_presupuestal",
+      "fields": [
+        {
+          "data_type": "timestamp",
+          "nullable": false,
+          "unique_values": 1254,
+          "null_count": 0,
+          "max_length": 15,
+          "type_distribution": {
+            "timestamp": 13833
+          },
+          "name": "bpin",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "date",
+          "nullable": false,
+          "unique_values": 20,
+          "null_count": 0,
+          "max_length": 10,
+          "type_distribution": {
+            "date": 13833
+          },
+          "name": "periodo_corte",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "integer",
+          "nullable": false,
+          "unique_values": 4831,
+          "null_count": 0,
+          "max_length": 12,
+          "type_distribution": {
+            "timestamp": 2710,
+            "integer": 7062,
+            "boolean": 4061
+          },
+          "min_value": 0.0,
+          "max_value": 963417368257.0,
+          "avg_value": 3384788253.9658065,
+          "name": "ejecucion",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "boolean",
+          "nullable": false,
+          "unique_values": 5923,
+          "null_count": 0,
+          "max_length": 12,
+          "type_distribution": {
+            "boolean": 6303,
+            "integer": 5901,
+            "timestamp": 1629
+          },
+          "name": "pagos",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "integer",
+          "nullable": false,
+          "unique_values": 5507,
+          "null_count": 0,
+          "max_length": 12,
+          "type_distribution": {
+            "boolean": 4441,
+            "timestamp": 2264,
+            "integer": 7128
+          },
+          "min_value": 0.0,
+          "max_value": 728643432962.0,
+          "avg_value": 2206717960.2659583,
+          "name": "ppto_disponible",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "boolean",
+          "nullable": false,
+          "unique_values": 4093,
+          "null_count": 0,
+          "max_length": 13,
+          "type_distribution": {
+            "boolean": 7709,
+            "integer": 5108,
+            "timestamp": 1016
+          },
+          "name": "saldos_cdp",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "integer",
+          "nullable": false,
+          "unique_values": 6179,
+          "null_count": 0,
+          "max_length": 12,
+          "type_distribution": {
+            "boolean": 6028,
+            "integer": 6107,
+            "timestamp": 1698
+          },
+          "min_value": 0.0,
+          "max_value": 963245840257.0,
+          "avg_value": 2492158449.6710763,
+          "name": "total_acumul_obligac",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "integer",
+          "nullable": false,
+          "unique_values": 5306,
+          "null_count": 0,
+          "max_length": 13,
+          "type_distribution": {
+            "timestamp": 3365,
+            "integer": 8060,
+            "boolean": 2408
+          },
+          "min_value": 0.0,
+          "max_value": 1604843095100.0,
+          "avg_value": 4829165132.67874,
+          "name": "total_acumulado_cdp",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "integer",
+          "nullable": false,
+          "unique_values": 4831,
+          "null_count": 0,
+          "max_length": 12,
+          "type_distribution": {
+            "timestamp": 2710,
+            "integer": 7062,
+            "boolean": 4061
+          },
+          "min_value": 0.0,
+          "max_value": 963417368257.0,
+          "avg_value": 3384788253.9658065,
+          "name": "total_acumulado_rpc",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 20,
+          "null_count": 0,
+          "max_length": 25,
+          "type_distribution": {
+            "varchar": 10787,
+            "datetime": 3046
+          },
+          "name": "dataframe_origen",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "datetime",
+          "nullable": false,
+          "unique_values": 20,
+          "null_count": 0,
+          "max_length": 52,
+          "type_distribution": {
+            "datetime": 7099,
+            "varchar": 6734
+          },
+          "name": "archivo_origen",
+          "is_primary_key": false
+        }
+      ],
+      "record_count": 13833,
+      "description": "Tabla generada automáticamente desde ejecucion_presupuestal.json",
+      "source_file": "A:\\programing_workspace\\proyectos_cali_alcaldia_etl\\transformation_app\\app_outputs\\ejecucion_presupuestal_outputs\\ejecucion_presupuestal.json",
+      "analyzed_at": "2025-09-19T14:01:57.642166"
+    },
+    {
+      "name": "movimientos_presupuestales",
+      "fields": [
+        {
+          "data_type": "timestamp",
+          "nullable": false,
+          "unique_values": 1254,
+          "null_count": 0,
+          "max_length": 15,
+          "type_distribution": {
+            "timestamp": 14016
+          },
+          "name": "bpin",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "date",
+          "nullable": false,
+          "unique_values": 20,
+          "null_count": 0,
+          "max_length": 10,
+          "type_distribution": {
+            "date": 14016
+          },
+          "name": "periodo_corte",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "boolean",
+          "nullable": false,
+          "unique_values": 627,
+          "null_count": 0,
+          "max_length": 12,
+          "type_distribution": {
+            "timestamp": 1500,
+            "boolean": 10180,
+            "integer": 2336
+          },
+          "name": "adiciones",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "boolean",
+          "nullable": false,
+          "unique_values": 1,
+          "null_count": 0,
+          "max_length": 1,
+          "type_distribution": {
+            "boolean": 14016
+          },
+          "name": "aplazamiento",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "boolean",
+          "nullable": false,
+          "unique_values": 1095,
+          "null_count": 0,
+          "max_length": 13,
+          "type_distribution": {
+            "boolean": 10251,
+            "integer": 3765
+          },
+          "name": "contracreditos",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "boolean",
+          "nullable": false,
+          "unique_values": 1030,
+          "null_count": 0,
+          "max_length": 12,
+          "type_distribution": {
+            "boolean": 10234,
+            "timestamp": 1258,
+            "integer": 2524
+          },
+          "name": "creditos",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "boolean",
+          "nullable": false,
+          "unique_values": 1,
+          "null_count": 0,
+          "max_length": 1,
+          "type_distribution": {
+            "boolean": 14016
+          },
+          "name": "desaplazamiento",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "integer",
+          "nullable": false,
+          "unique_values": 1018,
+          "null_count": 0,
+          "max_length": 13,
+          "type_distribution": {
+            "boolean": 2272,
+            "integer": 7888,
+            "timestamp": 3856
+          },
+          "min_value": 0.0,
+          "max_value": 1606862621100.0,
+          "avg_value": 5821418235.976598,
+          "name": "ppto_inicial",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "integer",
+          "nullable": false,
+          "unique_values": 2626,
+          "null_count": 0,
+          "max_length": 13,
+          "type_distribution": {
+            "timestamp": 4834,
+            "integer": 8991,
+            "boolean": 191
+          },
+          "min_value": 0.0,
+          "max_value": 1606862621100.0,
+          "avg_value": 6944019037.150685,
+          "name": "ppto_modificado",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "boolean",
+          "nullable": false,
+          "unique_values": 12,
+          "null_count": 0,
+          "max_length": 12,
+          "type_distribution": {
+            "boolean": 13985,
+            "integer": 31
+          },
+          "name": "reducciones",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 20,
+          "null_count": 0,
+          "max_length": 25,
+          "type_distribution": {
+            "varchar": 10884,
+            "datetime": 3132
+          },
+          "name": "dataframe_origen",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "datetime",
+          "nullable": false,
+          "unique_values": 20,
+          "null_count": 0,
+          "max_length": 52,
+          "type_distribution": {
+            "datetime": 7145,
+            "varchar": 6871
+          },
+          "name": "archivo_origen",
+          "is_primary_key": false
+        }
+      ],
+      "record_count": 14016,
+      "description": "Tabla generada automáticamente desde movimientos_presupuestales.json",
+      "source_file": "A:\\programing_workspace\\proyectos_cali_alcaldia_etl\\transformation_app\\app_outputs\\ejecucion_presupuestal_outputs\\movimientos_presupuestales.json",
+      "analyzed_at": "2025-09-19T14:01:37.841156"
+    },
+    {
+      "name": "emp_contratos_index",
+      "fields": [
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 2,
+          "null_count": 0,
+          "max_length": 11,
+          "type_distribution": {
+            "varchar": 17
+          },
+          "name": "banco",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "integer",
+          "nullable": false,
+          "unique_values": 17,
+          "null_count": 0,
+          "max_length": 5,
+          "type_distribution": {
+            "integer": 17
+          },
+          "min_value": 18472.0,
+          "max_value": 19383.0,
+          "avg_value": 18975.882352941175,
+          "name": "id",
+          "is_primary_key": true
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 17,
+          "null_count": 0,
+          "max_length": 24,
+          "type_distribution": {
+            "varchar": 16,
+            "datetime": 1
+          },
+          "name": "referencia_proceso",
+          "is_primary_key": true
+        },
+        {
+          "data_type": "varchar",
+          "nullable": true,
+          "unique_values": 11,
+          "null_count": 6,
+          "max_length": 50,
+          "type_distribution": {
+            "varchar": 9,
+            "datetime": 2
+          },
+          "name": "referencia_contrato",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "date",
+          "nullable": false,
+          "unique_values": 1,
+          "null_count": 0,
+          "max_length": 19,
+          "type_distribution": {
+            "date": 17
+          },
+          "name": "fecha_extraccion",
+          "is_primary_key": false
+        }
+      ],
+      "record_count": 17,
+      "description": "Tabla generada automáticamente desde emp_contratos_index.json",
+      "source_file": "A:\\programing_workspace\\proyectos_cali_alcaldia_etl\\transformation_app\\app_outputs\\emprestito_outputs\\emp_contratos_index.json",
+      "analyzed_at": "2025-09-19T14:01:03.592046"
+    },
+    {
+      "name": "emp_procesos",
+      "fields": [
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 2,
+          "null_count": 0,
+          "max_length": 11,
+          "type_distribution": {
+            "varchar": 17
+          },
+          "name": "banco",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 17,
+          "null_count": 0,
+          "max_length": 1342,
+          "type_distribution": {
+            "varchar": 9,
+            "datetime": 7,
+            "text": 1
+          },
+          "name": "descripcion",
+          "is_primary_key": true
+        },
+        {
+          "data_type": "integer",
+          "nullable": false,
+          "unique_values": 17,
+          "null_count": 0,
+          "max_length": 5,
+          "type_distribution": {
+            "integer": 17
+          },
+          "min_value": 18472.0,
+          "max_value": 19383.0,
+          "avg_value": 18975.882352941175,
+          "name": "id",
+          "is_primary_key": true
+        },
+        {
+          "data_type": "url",
+          "nullable": false,
+          "unique_values": 17,
+          "null_count": 0,
+          "max_length": 238,
+          "type_distribution": {
+            "url": 17
+          },
+          "name": "urlProceso",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "timestamp",
+          "nullable": false,
+          "unique_values": 17,
+          "null_count": 0,
+          "max_length": 11,
+          "type_distribution": {
+            "timestamp": 12,
+            "integer": 5
+          },
+          "name": "valor_total",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 17,
+          "null_count": 0,
+          "max_length": 370,
+          "type_distribution": {
+            "text": 3,
+            "varchar": 8,
+            "datetime": 6
+          },
+          "name": "objeto",
+          "is_primary_key": true
+        },
+        {
+          "data_type": "timestamp",
+          "nullable": false,
+          "unique_values": 17,
+          "null_count": 0,
+          "max_length": 11,
+          "type_distribution": {
+            "timestamp": 12,
+            "integer": 5
+          },
+          "name": "valor_plataforma",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 8,
+          "null_count": 0,
+          "max_length": 39,
+          "type_distribution": {
+            "varchar": 17
+          },
+          "name": "modalidad",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 17,
+          "null_count": 0,
+          "max_length": 24,
+          "type_distribution": {
+            "varchar": 16,
+            "datetime": 1
+          },
+          "name": "referencia_proceso",
+          "is_primary_key": true
+        },
+        {
+          "data_type": "varchar",
+          "nullable": true,
+          "unique_values": 11,
+          "null_count": 6,
+          "max_length": 50,
+          "type_distribution": {
+            "varchar": 9,
+            "datetime": 2
+          },
+          "name": "referencia_contato",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "date",
+          "nullable": false,
+          "unique_values": 12,
+          "null_count": 0,
+          "max_length": 10,
+          "type_distribution": {
+            "date": 17
+          },
+          "name": "planeado",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 5,
+          "null_count": 0,
+          "max_length": 19,
+          "type_distribution": {
+            "varchar": 17
+          },
+          "name": "estado_proceso_secop",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "datetime",
+          "nullable": false,
+          "unique_values": 17,
+          "null_count": 0,
+          "max_length": 397,
+          "type_distribution": {
+            "datetime": 13,
+            "varchar": 4
+          },
+          "name": "observaciones",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "timestamp",
+          "nullable": true,
+          "unique_values": 1,
+          "null_count": 15,
+          "max_length": 10,
+          "type_distribution": {
+            "timestamp": 2
+          },
+          "name": "numero_contacto",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "url",
+          "nullable": false,
+          "unique_values": 17,
+          "null_count": 0,
+          "max_length": 98,
+          "type_distribution": {
+            "url": 17
+          },
+          "name": "urlEstadoRealProceso",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 1,
+          "null_count": 0,
+          "max_length": 37,
+          "type_distribution": {
+            "varchar": 17
+          },
+          "name": "archivo_origen",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "date",
+          "nullable": false,
+          "unique_values": 1,
+          "null_count": 0,
+          "max_length": 19,
+          "type_distribution": {
+            "date": 17
+          },
+          "name": "fecha_procesamiento",
+          "is_primary_key": false
+        }
+      ],
+      "record_count": 17,
+      "description": "Tabla generada automáticamente desde emp_procesos.json",
+      "source_file": "A:\\programing_workspace\\proyectos_cali_alcaldia_etl\\transformation_app\\app_outputs\\emprestito_outputs\\emp_procesos.json",
+      "analyzed_at": "2025-09-19T14:01:03.730319"
+    },
+    {
+      "name": "emp_procesos_index",
+      "fields": [
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 2,
+          "null_count": 0,
+          "max_length": 11,
+          "type_distribution": {
+            "varchar": 17
+          },
+          "name": "banco",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "integer",
+          "nullable": false,
+          "unique_values": 17,
+          "null_count": 0,
+          "max_length": 5,
+          "type_distribution": {
+            "integer": 17
+          },
+          "min_value": 18472.0,
+          "max_value": 19383.0,
+          "avg_value": 18975.882352941175,
+          "name": "id",
+          "is_primary_key": true
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 17,
+          "null_count": 0,
+          "max_length": 24,
+          "type_distribution": {
+            "varchar": 16,
+            "datetime": 1
+          },
+          "name": "referencia_proceso",
+          "is_primary_key": true
+        },
+        {
+          "data_type": "date",
+          "nullable": false,
+          "unique_values": 1,
+          "null_count": 0,
+          "max_length": 19,
+          "type_distribution": {
+            "date": 17
+          },
+          "name": "fecha_procesamiento",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "url",
+          "nullable": false,
+          "unique_values": 17,
+          "null_count": 0,
+          "max_length": 98,
+          "type_distribution": {
+            "url": 17
+          },
+          "name": "urlEstadoRealProceso",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": true,
+          "unique_values": 3,
+          "null_count": 14,
+          "max_length": 16,
+          "type_distribution": {
+            "varchar": 3
+          },
+          "name": "proceso_compra",
+          "is_primary_key": false
+        }
+      ],
+      "record_count": 17,
+      "description": "Tabla generada automáticamente desde emp_procesos_index.json",
+      "source_file": "A:\\programing_workspace\\proyectos_cali_alcaldia_etl\\transformation_app\\app_outputs\\emprestito_outputs\\emp_procesos_index.json",
+      "analyzed_at": "2025-09-19T14:01:03.775273"
+    },
+    {
+      "name": "emp_proyectos",
+      "fields": [
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 34,
+          "null_count": 0,
+          "max_length": 11,
+          "type_distribution": {
+            "varchar": 34
+          },
+          "name": "bp",
+          "is_primary_key": true
+        },
+        {
+          "data_type": "varchar",
+          "nullable": true,
+          "unique_values": 6,
+          "null_count": 1,
+          "max_length": 18,
+          "type_distribution": {
+            "varchar": 33
+          },
+          "name": "banco",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 33,
+          "null_count": 0,
+          "max_length": 53,
+          "type_distribution": {
+            "varchar": 32,
+            "datetime": 2
+          },
+          "name": "nombre_comercial",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "timestamp",
+          "nullable": true,
+          "unique_values": 27,
+          "null_count": 7,
+          "max_length": 13,
+          "type_distribution": {
+            "timestamp": 27
+          },
+          "name": "bpin",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "date",
+          "nullable": false,
+          "unique_values": 1,
+          "null_count": 0,
+          "max_length": 19,
+          "type_distribution": {
+            "date": 34
+          },
+          "name": "fecha_procesamiento",
+          "is_primary_key": false
+        }
+      ],
+      "record_count": 34,
+      "description": "Tabla generada automáticamente desde emp_proyectos.json",
+      "source_file": "A:\\programing_workspace\\proyectos_cali_alcaldia_etl\\transformation_app\\app_outputs\\emprestito_outputs\\emp_proyectos.json",
+      "analyzed_at": "2025-09-19T14:01:03.855295"
+    },
+    {
+      "name": "procesos_secop",
+      "fields": [
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 27,
+          "null_count": 0,
+          "max_length": 118,
+          "type_distribution": {
+            "varchar": 2896
+          },
+          "name": "entidad",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 2,
+          "null_count": 0,
+          "max_length": 15,
+          "type_distribution": {
+            "varchar": 2896
+          },
+          "name": "entidad_centralizada",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 2546,
+          "null_count": 0,
+          "max_length": 15,
+          "type_distribution": {
+            "varchar": 2896
+          },
+          "name": "id_proceso",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 2546,
+          "null_count": 0,
+          "max_length": 117,
+          "type_distribution": {
+            "varchar": 1745,
+            "datetime": 1151
+          },
+          "name": "referencia_proceso",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "integer",
+          "nullable": false,
+          "unique_values": 27,
+          "null_count": 0,
+          "max_length": 9,
+          "type_distribution": {
+            "integer": 2896
+          },
+          "min_value": 701462152.0,
+          "max_value": 705320893.0,
+          "avg_value": 702737786.081837,
+          "name": "pci",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 1849,
+          "null_count": 0,
+          "max_length": 16,
+          "type_distribution": {
+            "varchar": 2896
+          },
+          "name": "proceso_compra",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 2334,
+          "null_count": 0,
+          "max_length": 200,
+          "type_distribution": {
+            "varchar": 2109,
+            "datetime": 787
+          },
+          "name": "nombre_procedimiento",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "datetime",
+          "nullable": false,
+          "unique_values": 1799,
+          "null_count": 0,
+          "max_length": 500,
+          "type_distribution": {
+            "varchar": 819,
+            "datetime": 1679,
+            "text": 398
+          },
+          "name": "descripción_procedimiento",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": true,
+          "unique_values": 9,
+          "null_count": 1,
+          "max_length": 43,
+          "type_distribution": {
+            "varchar": 2895
+          },
+          "name": "fase",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "date",
+          "nullable": true,
+          "unique_values": 584,
+          "null_count": 1,
+          "max_length": 10,
+          "type_distribution": {
+            "date": 2895
+          },
+          "name": "fecha_publicacion_proceso",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "date",
+          "nullable": true,
+          "unique_values": 584,
+          "null_count": 1,
+          "max_length": 10,
+          "type_distribution": {
+            "date": 2895
+          },
+          "name": "fecha_ultima_publicación",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "unknown",
+          "nullable": true,
+          "unique_values": 0,
+          "null_count": 2896,
+          "max_length": 0,
+          "name": "fecha_publicacion_fase_planeacion_precalificacion",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "unknown",
+          "nullable": true,
+          "unique_values": 0,
+          "null_count": 2896,
+          "max_length": 0,
+          "name": "fecha_publicacion_fase_seleccion_precalificacion",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "date",
+          "nullable": true,
+          "unique_values": 70,
+          "null_count": 2773,
+          "max_length": 10,
+          "type_distribution": {
+            "date": 123
+          },
+          "name": "fecha_publicacion_manifestacion_interes",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "date",
+          "nullable": true,
+          "unique_values": 26,
+          "null_count": 2860,
+          "max_length": 10,
+          "type_distribution": {
+            "date": 36
+          },
+          "name": "fecha_publicacion_fase_borrador",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "date",
+          "nullable": true,
+          "unique_values": 541,
+          "null_count": 697,
+          "max_length": 10,
+          "type_distribution": {
+            "date": 2199
+          },
+          "name": "fecha_publicacion_fase_seleccion",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "integer",
+          "nullable": false,
+          "unique_values": 1687,
+          "null_count": 0,
+          "max_length": 11,
+          "type_distribution": {
+            "integer": 2217,
+            "timestamp": 678,
+            "boolean": 1
+          },
+          "min_value": 1.0,
+          "max_value": 35744029764.0,
+          "avg_value": 1771756329.0742404,
+          "name": "precio_base",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 11,
+          "null_count": 0,
+          "max_length": 59,
+          "type_distribution": {
+            "varchar": 2896
+          },
+          "name": "modalidad_contratacion",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "datetime",
+          "nullable": false,
+          "unique_values": 18,
+          "null_count": 0,
+          "max_length": 90,
+          "type_distribution": {
+            "datetime": 1777,
+            "varchar": 1119
+          },
+          "name": "justificación_modalidad_contratación",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "integer",
+          "nullable": false,
+          "unique_values": 200,
+          "null_count": 0,
+          "max_length": 3,
+          "type_distribution": {
+            "integer": 2556,
+            "boolean": 340
+          },
+          "min_value": 0.0,
+          "max_value": 368.0,
+          "avg_value": 47.31077348066298,
+          "name": "duracion",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 5,
+          "null_count": 0,
+          "max_length": 9,
+          "type_distribution": {
+            "varchar": 2896
+          },
+          "name": "unidad_duracion",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "date",
+          "nullable": true,
+          "unique_values": 549,
+          "null_count": 468,
+          "max_length": 10,
+          "type_distribution": {
+            "date": 2428
+          },
+          "name": "fecha_recepcion_respuestas",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "date",
+          "nullable": true,
+          "unique_values": 514,
+          "null_count": 777,
+          "max_length": 10,
+          "type_distribution": {
+            "date": 2119
+          },
+          "name": "fecha_apertura_respuesta",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "date",
+          "nullable": true,
+          "unique_values": 562,
+          "null_count": 473,
+          "max_length": 10,
+          "type_distribution": {
+            "date": 2423
+          },
+          "name": "fecha_apertura_efectiva",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 2,
+          "null_count": 0,
+          "max_length": 9,
+          "type_distribution": {
+            "varchar": 2896
+          },
+          "name": "ciudad_unidad_contratación",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 42,
+          "null_count": 0,
+          "max_length": 67,
+          "type_distribution": {
+            "varchar": 2880,
+            "datetime": 16
+          },
+          "name": "nombre_unidad_contratación",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "boolean",
+          "nullable": false,
+          "unique_values": 147,
+          "null_count": 0,
+          "max_length": 5,
+          "type_distribution": {
+            "boolean": 2481,
+            "integer": 363,
+            "varchar": 52
+          },
+          "name": "proveedores_invitados",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "boolean",
+          "nullable": false,
+          "unique_values": 61,
+          "null_count": 0,
+          "max_length": 3,
+          "type_distribution": {
+            "boolean": 2598,
+            "integer": 298
+          },
+          "name": "proveedores_invitacion_directa",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "integer",
+          "nullable": false,
+          "unique_values": 173,
+          "null_count": 0,
+          "max_length": 3,
+          "type_distribution": {
+            "integer": 2223,
+            "boolean": 673
+          },
+          "min_value": 0.0,
+          "max_value": 297.0,
+          "avg_value": 51.75276243093923,
+          "name": "visualizaciones_procedimiento",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "boolean",
+          "nullable": false,
+          "unique_values": 1,
+          "null_count": 0,
+          "max_length": 1,
+          "type_distribution": {
+            "boolean": 2896
+          },
+          "name": "proveedores_que_manifestaron_interes",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "boolean",
+          "nullable": false,
+          "unique_values": 1,
+          "null_count": 0,
+          "max_length": 1,
+          "type_distribution": {
+            "boolean": 2896
+          },
+          "name": "respuestas_al_procedimiento",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "boolean",
+          "nullable": false,
+          "unique_values": 1,
+          "null_count": 0,
+          "max_length": 1,
+          "type_distribution": {
+            "boolean": 2896
+          },
+          "name": "respuestas_externas",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "boolean",
+          "nullable": false,
+          "unique_values": 1,
+          "null_count": 0,
+          "max_length": 1,
+          "type_distribution": {
+            "boolean": 2896
+          },
+          "name": "conteo_respuestas_ofertas",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "boolean",
+          "nullable": false,
+          "unique_values": 38,
+          "null_count": 0,
+          "max_length": 3,
+          "type_distribution": {
+            "boolean": 1893,
+            "integer": 1003
+          },
+          "name": "proveedores_unicos_respuestas",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "boolean",
+          "nullable": false,
+          "unique_values": 7,
+          "null_count": 0,
+          "max_length": 1,
+          "type_distribution": {
+            "boolean": 2641,
+            "integer": 255
+          },
+          "name": "numero_lotes",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 6,
+          "null_count": 0,
+          "max_length": 12,
+          "type_distribution": {
+            "varchar": 2896
+          },
+          "name": "estado_procedimiento",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "integer",
+          "nullable": false,
+          "unique_values": 5,
+          "null_count": 0,
+          "max_length": 3,
+          "type_distribution": {
+            "integer": 2895,
+            "boolean": 1
+          },
+          "min_value": 0.0,
+          "max_value": 100.0,
+          "avg_value": 67.5621546961326,
+          "name": "id_estado_procedimiento",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 2,
+          "null_count": 0,
+          "max_length": 2,
+          "type_distribution": {
+            "boolean": 1165,
+            "varchar": 1731
+          },
+          "name": "adjudicado",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 1506,
+          "null_count": 0,
+          "max_length": 15,
+          "type_distribution": {
+            "varchar": 2896
+          },
+          "name": "id_adjudicacion",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "integer",
+          "nullable": false,
+          "unique_values": 889,
+          "null_count": 0,
+          "max_length": 11,
+          "type_distribution": {
+            "varchar": 714,
+            "integer": 2182
+          },
+          "min_value": 700009046.0,
+          "max_value": 732986617.0,
+          "avg_value": 709349156.2451879,
+          "name": "codigoproveedor",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 23,
+          "null_count": 0,
+          "max_length": 26,
+          "type_distribution": {
+            "varchar": 2896
+          },
+          "name": "departamento_proveedor",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 52,
+          "null_count": 0,
+          "max_length": 22,
+          "type_distribution": {
+            "varchar": 2896
+          },
+          "name": "ciudad_proveedor",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "date",
+          "nullable": true,
+          "unique_values": 551,
+          "null_count": 1250,
+          "max_length": 10,
+          "type_distribution": {
+            "date": 1646
+          },
+          "name": "fecha_adjudicacion",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "integer",
+          "nullable": false,
+          "unique_values": 1457,
+          "null_count": 0,
+          "max_length": 15,
+          "type_distribution": {
+            "boolean": 1165,
+            "integer": 1347,
+            "timestamp": 384
+          },
+          "min_value": 0.0,
+          "max_value": 533610023100000.0,
+          "avg_value": 186348680361.86914,
+          "name": "valor_total_adjudicacion",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 271,
+          "null_count": 0,
+          "max_length": 46,
+          "type_distribution": {
+            "varchar": 2896
+          },
+          "name": "nombre_adjudicador",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 887,
+          "null_count": 0,
+          "max_length": 119,
+          "type_distribution": {
+            "varchar": 2728,
+            "datetime": 168
+          },
+          "name": "nombre_proveedor_adjudicado",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "integer",
+          "nullable": false,
+          "unique_values": 724,
+          "null_count": 0,
+          "max_length": 12,
+          "type_distribution": {
+            "varchar": 944,
+            "integer": 1798,
+            "timestamp": 149,
+            "numeric": 3,
+            "boolean": 2
+          },
+          "min_value": 0.0,
+          "max_value": 9021129992.0,
+          "avg_value": 1213409968.9237194,
+          "name": "nit_proveedor_adjudicado",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 591,
+          "null_count": 0,
+          "max_length": 11,
+          "type_distribution": {
+            "varchar": 2896
+          },
+          "name": "codigo_principal_categoria",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 2,
+          "null_count": 0,
+          "max_length": 7,
+          "type_distribution": {
+            "varchar": 2896
+          },
+          "name": "estado_apertura_proceso",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 13,
+          "null_count": 0,
+          "max_length": 30,
+          "type_distribution": {
+            "varchar": 2562,
+            "datetime": 334
+          },
+          "name": "tipo_contrato",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 1,
+          "null_count": 0,
+          "max_length": 11,
+          "type_distribution": {
+            "varchar": 2896
+          },
+          "name": "subtipo_contrato",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "url",
+          "nullable": false,
+          "unique_values": 2546,
+          "null_count": 0,
+          "max_length": 97,
+          "type_distribution": {
+            "url": 2896
+          },
+          "name": "urlproceso",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 8,
+          "null_count": 0,
+          "max_length": 40,
+          "type_distribution": {
+            "varchar": 2896
+          },
+          "name": "estado_resumen",
+          "is_primary_key": false
+        }
+      ],
+      "record_count": 2896,
+      "description": "Tabla generada automáticamente desde procesos_secop.json",
+      "source_file": "A:\\programing_workspace\\proyectos_cali_alcaldia_etl\\transformation_app\\app_outputs\\procesos_secop_outputs\\procesos_secop.json",
+      "analyzed_at": "2025-09-19T14:01:57.569313"
+    },
+    {
+      "name": "unidad_proyecto_infraestructura_equipamientos",
+      "fields": [
+        {
+          "data_type": "timestamp",
+          "nullable": false,
+          "unique_values": 24,
+          "null_count": 0,
+          "max_length": 15,
+          "type_distribution": {
+            "timestamp": 237,
+            "boolean": 88
+          },
+          "name": "bpin",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "datetime",
+          "nullable": false,
+          "unique_values": 101,
+          "null_count": 0,
+          "max_length": 70,
+          "type_distribution": {
+            "datetime": 230,
+            "varchar": 7,
+            "boolean": 1,
+            "integer": 87
+          },
+          "name": "identificador",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": true,
+          "unique_values": 13,
+          "null_count": 37,
+          "max_length": 48,
+          "type_distribution": {
+            "varchar": 182,
+            "datetime": 106
+          },
+          "name": "cod_fuente_financiamiento",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "numeric",
+          "nullable": false,
+          "unique_values": 63,
+          "null_count": 0,
+          "max_length": 6,
+          "type_distribution": {
+            "numeric": 325
+          },
+          "min_value": 0.0,
+          "max_value": 5168.0,
+          "avg_value": 491.6369230769231,
+          "scale": 1,
+          "precision": 6,
+          "name": "usuarios_beneficiarios",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "datetime",
+          "nullable": false,
+          "unique_values": 2,
+          "null_count": 0,
+          "max_length": 72,
+          "type_distribution": {
+            "datetime": 237,
+            "varchar": 88
+          },
+          "name": "dataframe",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 222,
+          "null_count": 0,
+          "max_length": 51,
+          "type_distribution": {
+            "varchar": 313,
+            "datetime": 12
+          },
+          "name": "nickname",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": true,
+          "unique_values": 144,
+          "null_count": 89,
+          "max_length": 27,
+          "type_distribution": {
+            "varchar": 235,
+            "datetime": 1
+          },
+          "name": "nickname_detalle",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "datetime",
+          "nullable": false,
+          "unique_values": 37,
+          "null_count": 0,
+          "max_length": 13,
+          "type_distribution": {
+            "datetime": 287,
+            "varchar": 38
+          },
+          "name": "comuna_corregimiento",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 221,
+          "null_count": 0,
+          "max_length": 36,
+          "type_distribution": {
+            "varchar": 317,
+            "datetime": 7,
+            "integer": 1
+          },
+          "name": "barrio_vereda",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "datetime",
+          "nullable": false,
+          "unique_values": 290,
+          "null_count": 0,
+          "max_length": 69,
+          "type_distribution": {
+            "datetime": 295,
+            "varchar": 30
+          },
+          "name": "direccion",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 2,
+          "null_count": 0,
+          "max_length": 25,
+          "type_distribution": {
+            "varchar": 325
+          },
+          "name": "clase_obra",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": true,
+          "unique_values": 6,
+          "null_count": 88,
+          "max_length": 48,
+          "type_distribution": {
+            "varchar": 237
+          },
+          "name": "subclase_obra",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 5,
+          "null_count": 0,
+          "max_length": 13,
+          "type_distribution": {
+            "varchar": 325
+          },
+          "name": "tipo_intervencion",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": true,
+          "unique_values": 216,
+          "null_count": 1,
+          "max_length": 408,
+          "type_distribution": {
+            "varchar": 313,
+            "datetime": 8,
+            "text": 3
+          },
+          "name": "descripcion_intervencion",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 1,
+          "null_count": 0,
+          "max_length": 12,
+          "type_distribution": {
+            "varchar": 325
+          },
+          "name": "estado_unidad_proyecto",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "unknown",
+          "nullable": true,
+          "unique_values": 0,
+          "null_count": 325,
+          "max_length": 0,
+          "name": "fecha_inicio_planeado",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "unknown",
+          "nullable": true,
+          "unique_values": 0,
+          "null_count": 325,
+          "max_length": 0,
+          "name": "fecha_fin_planeado",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "unknown",
+          "nullable": true,
+          "unique_values": 0,
+          "null_count": 325,
+          "max_length": 0,
+          "name": "fecha_inicio_real",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "unknown",
+          "nullable": true,
+          "unique_values": 0,
+          "null_count": 325,
+          "max_length": 0,
+          "name": "fecha_fin_real",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "boolean",
+          "nullable": false,
+          "unique_values": 1,
+          "null_count": 0,
+          "max_length": 5,
+          "type_distribution": {
+            "boolean": 325
+          },
+          "name": "es_centro_gravedad",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "numeric",
+          "nullable": false,
+          "unique_values": 151,
+          "null_count": 0,
+          "max_length": 13,
+          "type_distribution": {
+            "numeric": 325
+          },
+          "min_value": 0.0,
+          "max_value": 33600000000.0,
+          "avg_value": 972398393.3443078,
+          "scale": 1,
+          "precision": 13,
+          "name": "ppto_base",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "numeric",
+          "nullable": false,
+          "unique_values": 1,
+          "null_count": 0,
+          "max_length": 3,
+          "type_distribution": {
+            "numeric": 325
+          },
+          "min_value": 0.0,
+          "max_value": 0.0,
+          "avg_value": 0.0,
+          "scale": 1,
+          "precision": 3,
+          "name": "pagos_realizados",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "numeric",
+          "nullable": false,
+          "unique_values": 10,
+          "null_count": 0,
+          "max_length": 4,
+          "type_distribution": {
+            "numeric": 325
+          },
+          "min_value": 0.0,
+          "max_value": 0.99,
+          "avg_value": 0.04449230769230769,
+          "scale": 2,
+          "precision": 4,
+          "name": "avance_físico_obra",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "numeric",
+          "nullable": false,
+          "unique_values": 1,
+          "null_count": 0,
+          "max_length": 3,
+          "type_distribution": {
+            "numeric": 325
+          },
+          "min_value": 0.0,
+          "max_value": 0.0,
+          "avg_value": 0.0,
+          "scale": 1,
+          "precision": 3,
+          "name": "ejecucion_financiera_obra",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "datetime",
+          "nullable": false,
+          "unique_values": 304,
+          "null_count": 0,
+          "max_length": 74,
+          "type_distribution": {
+            "datetime": 325
+          },
+          "name": "geom",
+          "is_primary_key": false
+        }
+      ],
+      "record_count": 325,
+      "description": "Tabla generada automáticamente desde unidad_proyecto_infraestructura_equipamientos.json",
+      "source_file": "A:\\programing_workspace\\proyectos_cali_alcaldia_etl\\transformation_app\\app_outputs\\unidades_proyecto_outputs\\unidad_proyecto_infraestructura_equipamientos.json",
+      "analyzed_at": "2025-09-19T14:01:41.547424"
+    },
+    {
+      "name": "unidad_proyecto_infraestructura_vial",
+      "fields": [
+        {
+          "data_type": "timestamp",
+          "nullable": false,
+          "unique_values": 21,
+          "null_count": 0,
+          "max_length": 13,
+          "type_distribution": {
+            "timestamp": 103
+          },
+          "name": "bpin",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "datetime",
+          "nullable": false,
+          "unique_values": 85,
+          "null_count": 0,
+          "max_length": 7,
+          "type_distribution": {
+            "datetime": 103
+          },
+          "name": "identificador",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "datetime",
+          "nullable": false,
+          "unique_values": 85,
+          "null_count": 0,
+          "max_length": 7,
+          "type_distribution": {
+            "datetime": 103
+          },
+          "name": "id_via",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 2,
+          "null_count": 0,
+          "max_length": 10,
+          "type_distribution": {
+            "varchar": 54,
+            "datetime": 49
+          },
+          "name": "cod_fuente_financiamiento",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "numeric",
+          "nullable": false,
+          "unique_values": 1,
+          "null_count": 0,
+          "max_length": 3,
+          "type_distribution": {
+            "numeric": 103
+          },
+          "min_value": 0.0,
+          "max_value": 0.0,
+          "avg_value": 0.0,
+          "scale": 1,
+          "precision": 3,
+          "name": "usuarios_beneficiarios",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 2,
+          "null_count": 0,
+          "max_length": 30,
+          "type_distribution": {
+            "varchar": 54,
+            "datetime": 49
+          },
+          "name": "dataframe",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "datetime",
+          "nullable": false,
+          "unique_values": 101,
+          "null_count": 0,
+          "max_length": 65,
+          "type_distribution": {
+            "varchar": 29,
+            "datetime": 74
+          },
+          "name": "nickname",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "unknown",
+          "nullable": true,
+          "unique_values": 0,
+          "null_count": 103,
+          "max_length": 0,
+          "name": "nickname_detalle",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "datetime",
+          "nullable": false,
+          "unique_values": 34,
+          "null_count": 0,
+          "max_length": 16,
+          "type_distribution": {
+            "varchar": 31,
+            "datetime": 72
+          },
+          "name": "comuna_corregimiento",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 7,
+          "null_count": 0,
+          "max_length": 16,
+          "type_distribution": {
+            "varchar": 103
+          },
+          "name": "barrio_vereda",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "unknown",
+          "nullable": true,
+          "unique_values": 0,
+          "null_count": 103,
+          "max_length": 0,
+          "name": "direccion",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 1,
+          "null_count": 0,
+          "max_length": 29,
+          "type_distribution": {
+            "varchar": 103
+          },
+          "name": "clase_obra",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "unknown",
+          "nullable": true,
+          "unique_values": 0,
+          "null_count": 103,
+          "max_length": 0,
+          "name": "subclase_obra",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 6,
+          "null_count": 0,
+          "max_length": 38,
+          "type_distribution": {
+            "varchar": 103
+          },
+          "name": "tipo_intervencion",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": true,
+          "unique_values": 24,
+          "null_count": 78,
+          "max_length": 57,
+          "type_distribution": {
+            "varchar": 23,
+            "datetime": 2
+          },
+          "name": "descripcion_intervencion",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 1,
+          "null_count": 0,
+          "max_length": 12,
+          "type_distribution": {
+            "varchar": 103
+          },
+          "name": "estado_unidad_proyecto",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "varchar",
+          "nullable": false,
+          "unique_values": 1,
+          "null_count": 0,
+          "max_length": 1,
+          "type_distribution": {
+            "varchar": 103
+          },
+          "name": "unidad_medicion",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "unknown",
+          "nullable": true,
+          "unique_values": 0,
+          "null_count": 103,
+          "max_length": 0,
+          "name": "fecha_inicio_planeado",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "unknown",
+          "nullable": true,
+          "unique_values": 0,
+          "null_count": 103,
+          "max_length": 0,
+          "name": "fecha_fin_planeado",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "unknown",
+          "nullable": true,
+          "unique_values": 0,
+          "null_count": 103,
+          "max_length": 0,
+          "name": "fecha_inicio_real",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "unknown",
+          "nullable": true,
+          "unique_values": 0,
+          "null_count": 103,
+          "max_length": 0,
+          "name": "fecha_fin_real",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "boolean",
+          "nullable": false,
+          "unique_values": 1,
+          "null_count": 0,
+          "max_length": 5,
+          "type_distribution": {
+            "boolean": 103
+          },
+          "name": "es_centro_gravedad",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "numeric",
+          "nullable": false,
+          "unique_values": 70,
+          "null_count": 0,
+          "max_length": 7,
+          "type_distribution": {
+            "numeric": 103
+          },
+          "min_value": 0.0,
+          "max_value": 6218.89,
+          "avg_value": 258.09941747572816,
+          "scale": 2,
+          "precision": 7,
+          "name": "longitud_proyectada",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "numeric",
+          "nullable": false,
+          "unique_values": 1,
+          "null_count": 0,
+          "max_length": 3,
+          "type_distribution": {
+            "numeric": 103
+          },
+          "min_value": 0.0,
+          "max_value": 0.0,
+          "avg_value": 0.0,
+          "scale": 1,
+          "precision": 3,
+          "name": "longitud_ejecutada",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "numeric",
+          "nullable": false,
+          "unique_values": 103,
+          "null_count": 0,
+          "max_length": 12,
+          "type_distribution": {
+            "numeric": 103
+          },
+          "min_value": 4746820.0,
+          "max_value": 2611920783.0,
+          "avg_value": 381618845.01941746,
+          "scale": 1,
+          "precision": 12,
+          "name": "ppto_base",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "numeric",
+          "nullable": false,
+          "unique_values": 1,
+          "null_count": 0,
+          "max_length": 3,
+          "type_distribution": {
+            "numeric": 103
+          },
+          "min_value": 0.0,
+          "max_value": 0.0,
+          "avg_value": 0.0,
+          "scale": 1,
+          "precision": 3,
+          "name": "pagos_realizados",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "numeric",
+          "nullable": false,
+          "unique_values": 1,
+          "null_count": 0,
+          "max_length": 3,
+          "type_distribution": {
+            "numeric": 103
+          },
+          "min_value": 0.0,
+          "max_value": 0.0,
+          "avg_value": 0.0,
+          "scale": 1,
+          "precision": 3,
+          "name": "avance_físico_obra",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "numeric",
+          "nullable": false,
+          "unique_values": 1,
+          "null_count": 0,
+          "max_length": 3,
+          "type_distribution": {
+            "numeric": 103
+          },
+          "min_value": 0.0,
+          "max_value": 0.0,
+          "avg_value": 0.0,
+          "scale": 1,
+          "precision": 3,
+          "name": "ejecucion_financiera_obra",
+          "is_primary_key": false
+        },
+        {
+          "data_type": "datetime",
+          "nullable": false,
+          "unique_values": 100,
+          "null_count": 0,
+          "max_length": 9143,
+          "type_distribution": {
+            "datetime": 103
+          },
+          "name": "geom",
+          "is_primary_key": false
+        }
+      ],
+      "record_count": 103,
+      "description": "Tabla generada automáticamente desde unidad_proyecto_infraestructura_vial.json",
+      "source_file": "A:\\programing_workspace\\proyectos_cali_alcaldia_etl\\transformation_app\\app_outputs\\unidades_proyecto_outputs\\unidad_proyecto_infraestructura_vial.json",
+      "analyzed_at": "2025-09-19T14:01:42.749613"
+    }
+  ],
+  "models_generated": true,
+  "sql_generated": true,
+  "errors": [
+    {
+      "name": "contratos_proyectos_index",
+      "fields": [],
+      "record_count": 0,
+      "error": "No data or invalid format"
+    },
+    {
+      "name": "emp_contratos",
+      "fields": [],
+      "record_count": 0,
+      "error": "No data or invalid format"
+    },
+    {
+      "name": "flujo_caja",
+      "fields": [],
+      "record_count": 0,
+      "error": "No data or invalid format"
+    },
+    {
+      "name": "procesos_proyectos_index",
+      "fields": [],
+      "record_count": 0,
+      "error": "No data or invalid format"
+    },
+    {
+      "name": "data_summary",
+      "fields": [],
+      "record_count": 0,
+      "error": "No data or invalid format"
+    },
+    {
+      "name": "spatial_index",
+      "fields": [],
+      "record_count": 0,
+      "error": "No data or invalid format"
+    }
+  ],
+  "completed_at": "2025-09-19T14:01:59.097602",
+  "success": true
+}

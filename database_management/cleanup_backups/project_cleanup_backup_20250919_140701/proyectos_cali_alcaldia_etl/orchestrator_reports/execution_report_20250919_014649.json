@@ -1,0 +1,34 @@
+{
+  "execution_id": "20250919_014649",
+  "start_time": "2025-09-19T01:46:44.300904",
+  "end_time": "2025-09-19T01:46:48.540160",
+  "total_duration": 4.239256,
+  "execution_order": [
+    "test_extraction_basic",
+    "test_transformation_basic"
+  ],
+  "results": {
+    "test_extraction_basic": {
+      "task_id": "test_extraction_basic",
+      "status": "failed",
+      "start_time": "2025-09-19T01:46:48.535164",
+      "end_time": "2025-09-19T01:46:48.538164",
+      "duration": 0.003,
+      "output": null,
+      "error": "len() takes exactly one argument (0 given)",
+      "metadata": {
+        "error_trace": "Traceback (most recent call last):\n  File \"A:\\programing_workspace\\proyectos_cali_alcaldia_etl\\orchestrator\\etl_orchestrator.py\", line 190, in _import_and_execute_task\n    output = function()\n             ^^^^^^^^^^\nTypeError: len() takes exactly one argument (0 given)\n"
+      }
+    },
+    "test_transformation_basic": {
+      "task_id": "test_transformation_basic",
+      "status": "skipped",
+      "start_time": null,
+      "end_time": null,
+      "duration": null,
+      "output": null,
+      "error": "Dependencias fallaron",
+      "metadata": {}
+    }
+  }
+}

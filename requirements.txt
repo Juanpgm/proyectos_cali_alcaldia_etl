@@ -47,6 +47,16 @@ webdriver-manager==4.0.1
 pytest==7.4.4
 
 # =========================================================================
+# DATABASE MANAGEMENT Y ETL SYSTEM (Nuevas dependencias)
+# =========================================================================
+sqlalchemy>=2.0.0
+geoalchemy2>=0.18.0
+psycopg2-binary>=2.9.0
+click>=8.0.0
+rich>=13.0.0
+pydantic>=2.0.0
+
+# =========================================================================
 # NOTAS DE DEPENDENCIAS BUILT-IN DE PYTHON (NO REQUIEREN INSTALACIÓN)
 # =========================================================================
 # os, sys, time, json, logging, re, glob, unicodedata, datetime, decimal
