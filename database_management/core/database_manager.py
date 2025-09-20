@@ -17,7 +17,7 @@ from sqlalchemy.pool import QueuePool
 from sqlalchemy.exc import OperationalError, ProgrammingError
 
 from .config import DatabaseConfig
-from .schema_generator import TableSchema
+# from .schema_generator import TableSchema  # Commented out as module doesn't exist
 
 logger = logging.getLogger(__name__)
 
@@ -226,34 +226,34 @@ class DatabaseManager:
             logger.error(f"Error getting table info for {table_name}: {e}")
             return {"exists": False, "error": str(e)}
     
-    def create_table_from_schema(self, schema: TableSchema) -> bool:
-        """
-        Create table from schema definition.
-        
-        Args:
-            schema: Table schema to create
-            
-        Returns:
-            bool: True if successful
-        """
-        try:
-            # Create table
-            create_sql = schema.to_create_sql()
-            self.execute_sql(create_sql)
-            logger.info(f"Created table: {schema.name}")
-            
-            # Create indexes
-            for index_sql in schema.to_index_sql():
-                try:
-                    self.execute_sql(index_sql)
-                except Exception as e:
-                    logger.warning(f"Index creation failed: {e}")
-            
-            return True
-            
-        except Exception as e:
-            logger.error(f"Failed to create table {schema.name}: {e}")
-            return False
+    # def create_table_from_schema(self, schema: TableSchema) -> bool:
+    #     """
+    #     Create table from schema definition.
+    #     
+    #     Args:
+    #         schema: Table schema to create
+    #         
+    #     Returns:
+    #         bool: True if successful
+    #     """
+    #     try:
+    #         # Create table
+    #         create_sql = schema.to_create_sql()
+    #         self.execute_sql(create_sql)
+    #         logger.info(f"Created table: {schema.name}")
+    #         
+    #         # Create indexes
+    #         for index_sql in schema.to_index_sql():
+    #             try:
+    #                 self.execute_sql(index_sql)
+    #             except Exception as e:
+    #                 logger.warning(f"Index creation failed: {e}")
+    #         
+    #         return True
+    #         
+    #     except Exception as e:
+    #         logger.error(f"Failed to create table {schema.name}: {e}")
+    #         return False
     
     def setup_postgis(self) -> bool:
         """

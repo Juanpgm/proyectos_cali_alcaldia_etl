@@ -17,7 +17,7 @@ from itertools import islice
 from sqlalchemy import text
 
 from .database_manager import DatabaseManager
-from .schema_generator import TableSchema, generate_schema_from_data
+# from .schema_generator import TableSchema, generate_schema_from_data  # Commented out as module doesn't exist
 
 logger = logging.getLogger(__name__)
 
