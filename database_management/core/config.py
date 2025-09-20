@@ -101,36 +101,51 @@ def get_database_config() -> DatabaseConfig:
     Get database configuration from environment variables.
     
     Busca variables en este orden de prioridad:
-    1. Variables específicas del ETL (DB_*)
-    2. Variables estándar PostgreSQL (POSTGRES_*)
-    3. Valores por defecto
+    1. Variables específicas del entorno seleccionado (DB_ENVIRONMENT)
+    2. Variables específicas del ETL (DB_*)
+    3. Variables estándar PostgreSQL (POSTGRES_*)
+    4. Valores por defecto
     
     Returns:
         DatabaseConfig: Immutable configuration object
     """
-    # Buscar variables específicas del ETL primero, luego las estándar PostgreSQL
-    host = (os.getenv("DB_HOST") or 
-            os.getenv("POSTGRES_SERVER") or 
-            "localhost")  # Valor por defecto genérico
+    # Obtener el entorno seleccionado (local por defecto)
+    environment = os.getenv("DB_ENVIRONMENT", "local").lower()
     
-    port = int(os.getenv("DB_PORT") or 
-               os.getenv("POSTGRES_PORT") or 
-               "5432")
-    
-    database = (os.getenv("DB_NAME") or 
-                os.getenv("POSTGRES_DB") or 
-                "postgres")  # Valor por defecto genérico
-    
-    user = (os.getenv("DB_USER") or 
-            os.getenv("POSTGRES_USER") or 
-            "postgres")
-    
-    password = (os.getenv("DB_PASSWORD") or 
-                os.getenv("POSTGRES_PASSWORD") or 
-                "postgres")  # Valor por defecto genérico
+    if environment == "railway":
+        # Usar variables específicas de Railway
+        host = os.getenv("RAILWAY_POSTGRES_SERVER", "localhost")
+        port = int(os.getenv("RAILWAY_POSTGRES_PORT", "5432"))
+        database = os.getenv("RAILWAY_POSTGRES_DB", "railway")
+        user = os.getenv("RAILWAY_POSTGRES_USER", "postgres")
+        password = os.getenv("RAILWAY_POSTGRES_PASSWORD", "")
+        print(f"🚂 Configuración Railway seleccionada")
+    else:
+        # Usar variables locales (comportamiento original)
+        host = (os.getenv("DB_HOST") or 
+                os.getenv("POSTGRES_SERVER") or 
+                "localhost")
+        
+        port = int(os.getenv("DB_PORT") or 
+                   os.getenv("POSTGRES_PORT") or 
+                   "5432")
+        
+        database = (os.getenv("DB_NAME") or 
+                    os.getenv("POSTGRES_DB") or 
+                    "postgres")
+        
+        user = (os.getenv("DB_USER") or 
+                os.getenv("POSTGRES_USER") or 
+                "postgres")
+        
+        password = (os.getenv("DB_PASSWORD") or 
+                    os.getenv("POSTGRES_PASSWORD") or 
+                    "postgres")
+        print(f"🏠 Configuración local seleccionada")
     
     # Mostrar configuración detectada (sin password)
     print(f"🔧 Configuración de BD detectada:")
+    print(f"   Entorno: {environment}")
     print(f"   Host: {host}")
     print(f"   Puerto: {port}")
     print(f"   Base de datos: {database}")
