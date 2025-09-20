@@ -32,6 +32,9 @@ try:
     
     Base = models.Base
     UnidadProyecto = models.UnidadProyecto
+    DatosCaracteristicosProyecto = models.DatosCaracteristicosProyecto
+    EjecucionPresupuestal = models.EjecucionPresupuestal
+    MovimientoPresupuestal = models.MovimientoPresupuestal
     get_database_config = config.get_database_config
     test_connection = config.test_connection
     
@@ -100,6 +103,30 @@ def load_geojson_file(file_path: str) -> List[Dict[str, Any]]:
     return features
 
 
+def load_json_file(file_path: str) -> List[Dict[str, Any]]:
+    """
+    Load JSON file and return data as list of dictionaries.
+    
+    Args:
+        file_path: Path to the JSON file
+        
+    Returns:
+        List of JSON records
+    """
+    if not os.path.exists(file_path):
+        raise FileNotFoundError(f"JSON file not found: {file_path}")
+    
+    with open(file_path, 'r', encoding='utf-8') as f:
+        json_data = json.load(f)
+    
+    if not isinstance(json_data, list):
+        raise ValueError(f"JSON file must contain a list of records: {file_path}")
+    
+    logger.info(f"📁 Loaded {len(json_data)} records from {file_path}")
+    
+    return json_data
+
+
 def validate_feature(feature: Dict[str, Any]) -> bool:
     """
     Validate a GeoJSON feature for required fields.
@@ -138,6 +165,131 @@ def create_model_from_feature(feature: Dict[str, Any]) -> Optional[UnidadProyect
     except Exception as e:
         logger.error(f"Error creating model from feature: {e}")
         logger.error(f"Feature data: {feature.get('properties', {}).get('key', 'unknown')}")
+        return None
+
+
+def validate_datos_caracteristicos(record: Dict[str, Any]) -> bool:
+    """
+    Validate a datos caracteristicos record for required fields.
+    
+    Args:
+        record: JSON record dictionary
+        
+    Returns:
+        True if record is valid
+    """
+    if not isinstance(record, dict):
+        return False
+    
+    # Check for required BPIN field
+    if not record.get('bpin'):
+        logger.warning(f"Record missing required 'bpin' field: {record}")
+        return False
+    
+    return True
+
+
+def validate_ejecucion_presupuestal(record: Dict[str, Any]) -> bool:
+    """
+    Validate an ejecucion presupuestal record for required fields.
+    
+    Args:
+        record: JSON record dictionary
+        
+    Returns:
+        True if record is valid
+    """
+    if not isinstance(record, dict):
+        return False
+    
+    # Check for required fields
+    if not record.get('bpin'):
+        logger.warning(f"Record missing required 'bpin' field: {record}")
+        return False
+    
+    if not record.get('periodo_corte'):
+        logger.warning(f"Record missing required 'periodo_corte' field: {record}")
+        return False
+    
+    return True
+
+
+def validate_movimiento_presupuestal(record: Dict[str, Any]) -> bool:
+    """
+    Validate a movimiento presupuestal record for required fields.
+    
+    Args:
+        record: JSON record dictionary
+        
+    Returns:
+        True if record is valid
+    """
+    if not isinstance(record, dict):
+        return False
+    
+    # Check for required fields
+    if not record.get('bpin'):
+        logger.warning(f"Record missing required 'bpin' field: {record}")
+        return False
+    
+    if not record.get('periodo_corte'):
+        logger.warning(f"Record missing required 'periodo_corte' field: {record}")
+        return False
+    
+    return True
+
+
+def create_datos_caracteristicos_model(record: Dict[str, Any]) -> Optional[DatosCaracteristicosProyecto]:
+    """
+    Create DatosCaracteristicosProyecto model instance from JSON record.
+    
+    Args:
+        record: JSON record dictionary
+        
+    Returns:
+        DatosCaracteristicosProyecto instance or None if creation fails
+    """
+    try:
+        return DatosCaracteristicosProyecto.from_json(record)
+    except Exception as e:
+        logger.error(f"Error creating datos caracteristicos model: {e}")
+        logger.error(f"Record BPIN: {record.get('bpin', 'unknown')}")
+        return None
+
+
+def create_ejecucion_presupuestal_model(record: Dict[str, Any]) -> Optional[EjecucionPresupuestal]:
+    """
+    Create EjecucionPresupuestal model instance from JSON record.
+    
+    Args:
+        record: JSON record dictionary
+        
+    Returns:
+        EjecucionPresupuestal instance or None if creation fails
+    """
+    try:
+        return EjecucionPresupuestal.from_json(record)
+    except Exception as e:
+        logger.error(f"Error creating ejecucion presupuestal model: {e}")
+        logger.error(f"Record BPIN: {record.get('bpin', 'unknown')} - Periodo: {record.get('periodo_corte', 'unknown')}")
+        return None
+
+
+def create_movimiento_presupuestal_model(record: Dict[str, Any]) -> Optional[MovimientoPresupuestal]:
+    """
+    Create MovimientoPresupuestal model instance from JSON record.
+    
+    Args:
+        record: JSON record dictionary
+        
+    Returns:
+        MovimientoPresupuestal instance or None if creation fails
+    """
+    try:
+        return MovimientoPresupuestal.from_json(record)
+    except Exception as e:
+        logger.error(f"Error creating movimiento presupuestal model: {e}")
+        logger.error(f"Record BPIN: {record.get('bpin', 'unknown')} - Periodo: {record.get('periodo_corte', 'unknown')}")
         return None
 
 
@@ -321,6 +473,330 @@ def clear_existing_data(session: Session, model_class=UnidadProyecto) -> Tuple[b
         return False, 0, error_msg
 
 
+def load_datos_caracteristicos_proyectos(
+    json_path: str,
+    batch_size: int = 100,
+    clear_existing: bool = False
+) -> Dict[str, Any]:
+    """
+    Load datos caracteristicos de proyectos data from JSON to database.
+    
+    Args:
+        json_path: Path to the JSON file
+        batch_size: Number of records to insert per batch
+        clear_existing: Whether to clear existing data first
+        
+    Returns:
+        Dictionary with loading results
+    """
+    start_time = datetime.now()
+    
+    logger.info("="*80)
+    logger.info("BULK LOADING: DATOS CARACTERISTICOS PROYECTOS")
+    logger.info("="*80)
+    
+    result = {
+        'start_time': start_time,
+        'success': False,
+        'total_records': 0,
+        'valid_records': 0,
+        'models_created': 0,
+        'successful_inserts': 0,
+        'failed_inserts': 0,
+        'errors': [],
+        'duration_seconds': 0
+    }
+    
+    try:
+        # Setup database
+        success, session, error = setup_database()
+        if not success:
+            result['errors'].append(f"Database setup failed: {error}")
+            return result
+        
+        # Clear existing data if requested
+        if clear_existing:
+            success, deleted_count, error = clear_existing_data(session, DatosCaracteristicosProyecto)
+            if not success:
+                result['errors'].append(f"Failed to clear existing data: {error}")
+                return result
+            result['deleted_records'] = deleted_count
+        
+        # Load and process data
+        records = load_json_file(json_path)
+        result['total_records'] = len(records)
+        
+        # Filter valid records
+        valid_records = list(filter(validate_datos_caracteristicos, records))
+        result['valid_records'] = len(valid_records)
+        
+        logger.info(f"📊 Valid records: {len(valid_records)}/{len(records)}")
+        
+        # Create model instances
+        models = list(filter(None, map(create_datos_caracteristicos_model, valid_records)))
+        result['models_created'] = len(models)
+        
+        logger.info(f"📊 Models created: {len(models)}")
+        
+        # Bulk insert
+        if models:
+            successful, failed, errors = bulk_insert_models(session, models, batch_size)
+            result['successful_inserts'] = successful
+            result['failed_inserts'] = failed
+            result['errors'].extend(errors)
+            
+            if successful > 0:
+                result['success'] = True
+        else:
+            result['errors'].append("No valid models created for insertion")
+        
+        session.close()
+        
+    except Exception as e:
+        error_msg = f"Unexpected error during loading: {e}"
+        logger.error(error_msg)
+        result['errors'].append(error_msg)
+        
+        if 'session' in locals():
+            session.close()
+    
+    # Calculate duration and log summary
+    end_time = datetime.now()
+    result['end_time'] = end_time
+    result['duration_seconds'] = (end_time - start_time).total_seconds()
+    
+    log_loading_summary(result)
+    
+    return result
+
+
+def load_ejecucion_presupuestal(
+    json_path: str,
+    batch_size: int = 100,
+    clear_existing: bool = False
+) -> Dict[str, Any]:
+    """
+    Load ejecucion presupuestal data from JSON to database.
+    
+    Args:
+        json_path: Path to the JSON file
+        batch_size: Number of records to insert per batch
+        clear_existing: Whether to clear existing data first
+        
+    Returns:
+        Dictionary with loading results
+    """
+    start_time = datetime.now()
+    
+    logger.info("="*80)
+    logger.info("BULK LOADING: EJECUCION PRESUPUESTAL")
+    logger.info("="*80)
+    
+    result = {
+        'start_time': start_time,
+        'success': False,
+        'total_records': 0,
+        'valid_records': 0,
+        'models_created': 0,
+        'successful_inserts': 0,
+        'failed_inserts': 0,
+        'errors': [],
+        'duration_seconds': 0
+    }
+    
+    try:
+        # Setup database
+        success, session, error = setup_database()
+        if not success:
+            result['errors'].append(f"Database setup failed: {error}")
+            return result
+        
+        # Clear existing data if requested
+        if clear_existing:
+            success, deleted_count, error = clear_existing_data(session, EjecucionPresupuestal)
+            if not success:
+                result['errors'].append(f"Failed to clear existing data: {error}")
+                return result
+            result['deleted_records'] = deleted_count
+        
+        # Load and process data
+        records = load_json_file(json_path)
+        result['total_records'] = len(records)
+        
+        # Filter valid records
+        valid_records = list(filter(validate_ejecucion_presupuestal, records))
+        result['valid_records'] = len(valid_records)
+        
+        logger.info(f"📊 Valid records: {len(valid_records)}/{len(records)}")
+        
+        # Create model instances
+        models = list(filter(None, map(create_ejecucion_presupuestal_model, valid_records)))
+        result['models_created'] = len(models)
+        
+        logger.info(f"📊 Models created: {len(models)}")
+        
+        # Bulk insert
+        if models:
+            successful, failed, errors = bulk_insert_models(session, models, batch_size)
+            result['successful_inserts'] = successful
+            result['failed_inserts'] = failed
+            result['errors'].extend(errors)
+            
+            if successful > 0:
+                result['success'] = True
+        else:
+            result['errors'].append("No valid models created for insertion")
+        
+        session.close()
+        
+    except Exception as e:
+        error_msg = f"Unexpected error during loading: {e}"
+        logger.error(error_msg)
+        result['errors'].append(error_msg)
+        
+        if 'session' in locals():
+            session.close()
+    
+    # Calculate duration and log summary
+    end_time = datetime.now()
+    result['end_time'] = end_time
+    result['duration_seconds'] = (end_time - start_time).total_seconds()
+    
+    log_loading_summary(result)
+    
+    return result
+
+
+def load_movimientos_presupuestales(
+    json_path: str,
+    batch_size: int = 100,
+    clear_existing: bool = False
+) -> Dict[str, Any]:
+    """
+    Load movimientos presupuestales data from JSON to database.
+    
+    Args:
+        json_path: Path to the JSON file
+        batch_size: Number of records to insert per batch
+        clear_existing: Whether to clear existing data first
+        
+    Returns:
+        Dictionary with loading results
+    """
+    start_time = datetime.now()
+    
+    logger.info("="*80)
+    logger.info("BULK LOADING: MOVIMIENTOS PRESUPUESTALES")
+    logger.info("="*80)
+    
+    result = {
+        'start_time': start_time,
+        'success': False,
+        'total_records': 0,
+        'valid_records': 0,
+        'models_created': 0,
+        'successful_inserts': 0,
+        'failed_inserts': 0,
+        'errors': [],
+        'duration_seconds': 0
+    }
+    
+    try:
+        # Setup database
+        success, session, error = setup_database()
+        if not success:
+            result['errors'].append(f"Database setup failed: {error}")
+            return result
+        
+        # Clear existing data if requested
+        if clear_existing:
+            success, deleted_count, error = clear_existing_data(session, MovimientoPresupuestal)
+            if not success:
+                result['errors'].append(f"Failed to clear existing data: {error}")
+                return result
+            result['deleted_records'] = deleted_count
+        
+        # Load and process data
+        records = load_json_file(json_path)
+        result['total_records'] = len(records)
+        
+        # Filter valid records
+        valid_records = list(filter(validate_movimiento_presupuestal, records))
+        result['valid_records'] = len(valid_records)
+        
+        logger.info(f"📊 Valid records: {len(valid_records)}/{len(records)}")
+        
+        # Create model instances
+        models = list(filter(None, map(create_movimiento_presupuestal_model, valid_records)))
+        result['models_created'] = len(models)
+        
+        logger.info(f"📊 Models created: {len(models)}")
+        
+        # Bulk insert
+        if models:
+            successful, failed, errors = bulk_insert_models(session, models, batch_size)
+            result['successful_inserts'] = successful
+            result['failed_inserts'] = failed
+            result['errors'].extend(errors)
+            
+            if successful > 0:
+                result['success'] = True
+        else:
+            result['errors'].append("No valid models created for insertion")
+        
+        session.close()
+        
+    except Exception as e:
+        error_msg = f"Unexpected error during loading: {e}"
+        logger.error(error_msg)
+        result['errors'].append(error_msg)
+        
+        if 'session' in locals():
+            session.close()
+    
+    # Calculate duration and log summary
+    end_time = datetime.now()
+    result['end_time'] = end_time
+    result['duration_seconds'] = (end_time - start_time).total_seconds()
+    
+    log_loading_summary(result)
+    
+    return result
+
+
+def log_loading_summary(result: Dict[str, Any]) -> None:
+    """
+    Log loading summary for any data type.
+    
+    Args:
+        result: Loading result dictionary
+    """
+    logger.info("="*80)
+    logger.info("LOADING SUMMARY")
+    logger.info("="*80)
+    
+    if 'total_features' in result:
+        logger.info(f"📊 Total features processed: {result['total_features']}")
+        logger.info(f"📊 Valid features: {result['valid_features']}")
+    else:
+        logger.info(f"📊 Total records processed: {result['total_records']}")
+        logger.info(f"📊 Valid records: {result['valid_records']}")
+    
+    logger.info(f"📊 Models created: {result['models_created']}")
+    logger.info(f"📊 Successful inserts: {result['successful_inserts']}")
+    logger.info(f"📊 Failed inserts: {result['failed_inserts']}")
+    logger.info(f"⏱️  Duration: {result['duration_seconds']:.2f} seconds")
+    
+    if result['success']:
+        logger.info("✅ LOADING COMPLETED SUCCESSFULLY")
+    else:
+        logger.error("❌ LOADING FAILED")
+        for error in result['errors']:
+            logger.error(f"   {error}")
+    
+    logger.info("="*80)
+
+
 def load_unidades_proyecto(
     geojson_path: str,
     batch_size: int = 100,
@@ -415,25 +891,8 @@ def load_unidades_proyecto(
     result['end_time'] = end_time
     result['duration_seconds'] = (end_time - start_time).total_seconds()
     
-    # Log summary
-    logger.info("="*80)
-    logger.info("LOADING SUMMARY")
-    logger.info("="*80)
-    logger.info(f"📊 Total features processed: {result['total_features']}")
-    logger.info(f"📊 Valid features: {result['valid_features']}")
-    logger.info(f"📊 Models created: {result['models_created']}")
-    logger.info(f"📊 Successful inserts: {result['successful_inserts']}")
-    logger.info(f"📊 Failed inserts: {result['failed_inserts']}")
-    logger.info(f"⏱️  Duration: {result['duration_seconds']:.2f} seconds")
-    
-    if result['success']:
-        logger.info("✅ LOADING COMPLETED SUCCESSFULLY")
-    else:
-        logger.error("❌ LOADING FAILED")
-        for error in result['errors']:
-            logger.error(f"   {error}")
-    
-    logger.info("="*80)
+    # Log summary using shared function
+    log_loading_summary(result)
     
     return result
 
@@ -459,8 +918,19 @@ def load_all_available_data(clear_existing: bool = False) -> Dict[str, Dict[str,
         'unidades_proyecto': {
             'path': 'transformation_app/app_outputs/unidades_proyecto_outputs/unidades_proyecto_equipamientos.geojson',
             'loader': load_unidades_proyecto
+        },
+        'datos_caracteristicos_proyectos': {
+            'path': 'transformation_app/app_outputs/ejecucion_presupuestal_outputs/datos_caracteristicos_proyectos.json',
+            'loader': load_datos_caracteristicos_proyectos
+        },
+        'ejecucion_presupuestal': {
+            'path': 'transformation_app/app_outputs/ejecucion_presupuestal_outputs/ejecucion_presupuestal.json',
+            'loader': load_ejecucion_presupuestal
+        },
+        'movimientos_presupuestales': {
+            'path': 'transformation_app/app_outputs/ejecucion_presupuestal_outputs/movimientos_presupuestales.json',
+            'loader': load_movimientos_presupuestales
         }
-        # Add more data sources here as they become available
     }
     
     for data_type, config in data_sources.items():
@@ -503,7 +973,10 @@ if __name__ == "__main__":
     
     parser = argparse.ArgumentParser(description='Bulk load data to database')
     parser.add_argument('--clear', action='store_true', help='Clear existing data before loading')
-    parser.add_argument('--data-type', choices=['unidades_proyecto', 'all'], default='all',
+    parser.add_argument('--data-type', 
+                       choices=['unidades_proyecto', 'datos_caracteristicos_proyectos', 
+                               'ejecucion_presupuestal', 'movimientos_presupuestales', 'all'], 
+                       default='all',
                        help='Type of data to load')
     parser.add_argument('--batch-size', type=int, default=100, help='Batch size for inserts')
     
@@ -516,8 +989,33 @@ if __name__ == "__main__":
             'transformation_app/app_outputs/unidades_proyecto_outputs/unidades_proyecto_equipamientos.geojson'
         )
         result = load_unidades_proyecto(geojson_path, args.batch_size, args.clear)
+        sys.exit(0 if result['success'] else 1)
         
-        # Exit with appropriate code
+    elif args.data_type == 'datos_caracteristicos_proyectos':
+        json_path = os.path.join(
+            os.path.dirname(__file__), 
+            '..',
+            'transformation_app/app_outputs/ejecucion_presupuestal_outputs/datos_caracteristicos_proyectos.json'
+        )
+        result = load_datos_caracteristicos_proyectos(json_path, args.batch_size, args.clear)
+        sys.exit(0 if result['success'] else 1)
+        
+    elif args.data_type == 'ejecucion_presupuestal':
+        json_path = os.path.join(
+            os.path.dirname(__file__), 
+            '..',
+            'transformation_app/app_outputs/ejecucion_presupuestal_outputs/ejecucion_presupuestal.json'
+        )
+        result = load_ejecucion_presupuestal(json_path, args.batch_size, args.clear)
+        sys.exit(0 if result['success'] else 1)
+        
+    elif args.data_type == 'movimientos_presupuestales':
+        json_path = os.path.join(
+            os.path.dirname(__file__), 
+            '..',
+            'transformation_app/app_outputs/ejecucion_presupuestal_outputs/movimientos_presupuestales.json'
+        )
+        result = load_movimientos_presupuestales(json_path, args.batch_size, args.clear)
         sys.exit(0 if result['success'] else 1)
         
     else:  # args.data_type == 'all'
