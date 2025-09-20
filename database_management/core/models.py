@@ -290,5 +290,260 @@ class UnidadProyecto(Base):
         return None
 
 
+class DatosCaracteristicosProyecto(Base):
+    """
+    Model for Project Characteristic Data (Datos Característicos de Proyectos)
+    
+    This model stores characteristic and descriptive data about municipal projects
+    including budget classifications, organizational structure, and project categorization.
+    
+    Data Source: transformation_app/app_outputs/ejecucion_presupuestal_outputs/datos_caracteristicos_proyectos.json
+    Records: ~1,254 entries
+    """
+    
+    __tablename__ = 'datos_caracteristicos_proyecto'
+    
+    # Primary Key
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    
+    # Project identifiers
+    bpin = Column(BigInteger, nullable=False, index=True,
+                  comment="Bank of Investment Projects identifier")
+    bp = Column(String(20), nullable=True, index=True,
+               comment="Budget project code (e.g., BP26005292)")
+    
+    # Project descriptive data
+    nombre_proyecto = Column(Text, nullable=True,
+                           comment="Full project name")
+    nombre_actividad = Column(Text, nullable=True,
+                            comment="Activity or component name")
+    
+    # Organizational structure
+    programa_presupuestal = Column(String(50), nullable=True, index=True,
+                                 comment="Budget program code")
+    nombre_centro_gestor = Column(String(200), nullable=True, index=True,
+                                comment="Management center name")
+    nombre_area_funcional = Column(Text, nullable=True,
+                                 comment="Functional area description")
+    
+    # Financial classification
+    nombre_fondo = Column(String(200), nullable=True, index=True,
+                        comment="Fund name")
+    clasificacion_fondo = Column(String(200), nullable=True, index=True,
+                               comment="Fund classification")
+    nombre_pospre = Column(Text, nullable=True,
+                         comment="POSPRE classification name")
+    
+    # Strategic planning
+    nombre_dimension = Column(String(200), nullable=True,
+                            comment="Strategic dimension name")
+    nombre_linea_estrategica = Column(String(200), nullable=True,
+                                    comment="Strategic line name")
+    nombre_programa = Column(String(200), nullable=True, index=True,
+                           comment="Program name")
+    
+    # Geographic and administrative
+    comuna = Column(String(100), nullable=True, index=True,
+                   comment="Municipality/commune")
+    origen = Column(String(50), nullable=True, index=True,
+                   comment="Origin classification (e.g., Organismo)")
+    anio = Column(Integer, nullable=True, index=True,
+                 comment="Project year")
+    tipo_gasto = Column(String(50), nullable=True, index=True,
+                       comment="Expense type (e.g., Inversión)")
+    
+    # Additional codes
+    cod_sector = Column(String(50), nullable=True,
+                       comment="Sector code")
+    cod_producto = Column(String(50), nullable=True,
+                         comment="Product code")
+    validador_cuipo = Column(String(50), nullable=True,
+                           comment="CUIPO validator")
+    
+    # Metadata
+    created_at = Column(DateTime, default=func.now(), nullable=False,
+                       comment="Record creation timestamp")
+    updated_at = Column(DateTime, default=func.now(), onupdate=func.now(), nullable=False,
+                       comment="Record last update timestamp")
+    
+    def __repr__(self):
+        return f"<DatosCaracteristicosProyecto(bpin={self.bpin}, bp='{self.bp}', nombre_proyecto='{self.nombre_proyecto[:50]}...')>"
+    
+    @classmethod
+    def from_json(cls, data: dict) -> 'DatosCaracteristicosProyecto':
+        """Create instance from JSON data."""
+        return cls(
+            bpin=data.get('bpin'),
+            bp=data.get('bp'),
+            nombre_proyecto=data.get('nombre_proyecto'),
+            nombre_actividad=data.get('nombre_actividad'),
+            programa_presupuestal=str(data.get('programa_presupuestal')) if data.get('programa_presupuestal') is not None else None,
+            nombre_centro_gestor=data.get('nombre_centro_gestor'),
+            nombre_area_funcional=data.get('nombre_area_funcional'),
+            nombre_fondo=data.get('nombre_fondo'),
+            clasificacion_fondo=data.get('clasificacion_fondo'),
+            nombre_pospre=data.get('nombre_pospre'),
+            nombre_dimension=data.get('nombre_dimension'),
+            nombre_linea_estrategica=data.get('nombre_linea_estrategica'),
+            nombre_programa=data.get('nombre_programa'),
+            comuna=data.get('comuna'),
+            origen=data.get('origen'),
+            anio=data.get('anio'),
+            tipo_gasto=data.get('tipo_gasto'),
+            cod_sector=data.get('cod_sector'),
+            cod_producto=data.get('cod_producto'),
+            validador_cuipo=data.get('validador_cuipo')
+        )
+
+
+class EjecucionPresupuestal(Base):
+    """
+    Model for Budget Execution Data (Ejecución Presupuestal)
+    
+    This model stores monthly budget execution information including expenses,
+    payments, available budget, and accumulated totals for project tracking.
+    
+    Data Source: transformation_app/app_outputs/ejecucion_presupuestal_outputs/ejecucion_presupuestal.json
+    Records: ~13,833 entries
+    """
+    
+    __tablename__ = 'ejecucion_presupuestal'
+    
+    # Primary Key
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    
+    # Project identifier
+    bpin = Column(BigInteger, nullable=False, index=True,
+                  comment="Bank of Investment Projects identifier")
+    
+    # Time period
+    periodo_corte = Column(String(10), nullable=False, index=True,
+                          comment="Period cut-off date (YYYY-MM-DD)")
+    
+    # Execution amounts (stored as BigInteger for large financial values)
+    ejecucion = Column(BigInteger, nullable=True,
+                      comment="Execution amount")
+    pagos = Column(BigInteger, nullable=True,
+                  comment="Payments amount")
+    ppto_disponible = Column(BigInteger, nullable=True,
+                           comment="Available budget")
+    saldos_cdp = Column(BigInteger, nullable=True,
+                       comment="CDP (Certificate of Budget Availability) balances")
+    total_acumul_obligac = Column(BigInteger, nullable=True,
+                                comment="Total accumulated obligations")
+    total_acumulado_cdp = Column(BigInteger, nullable=True,
+                               comment="Total accumulated CDP")
+    total_acumulado_rpc = Column(BigInteger, nullable=True,
+                               comment="Total accumulated RPC (Accounts Payable)")
+    
+    # Data lineage
+    dataframe_origen = Column(String(100), nullable=True, index=True,
+                            comment="Source dataframe name")
+    archivo_origen = Column(String(200), nullable=True,
+                          comment="Source file name")
+    
+    # Metadata
+    created_at = Column(DateTime, default=func.now(), nullable=False,
+                       comment="Record creation timestamp")
+    updated_at = Column(DateTime, default=func.now(), onupdate=func.now(), nullable=False,
+                       comment="Record last update timestamp")
+    
+    def __repr__(self):
+        return f"<EjecucionPresupuestal(bpin={self.bpin}, periodo='{self.periodo_corte}', ejecucion={self.ejecucion})>"
+    
+    @classmethod
+    def from_json(cls, data: dict) -> 'EjecucionPresupuestal':
+        """Create instance from JSON data."""
+        return cls(
+            bpin=data.get('bpin'),
+            periodo_corte=data.get('periodo_corte'),
+            ejecucion=data.get('ejecucion'),
+            pagos=data.get('pagos'),
+            ppto_disponible=data.get('ppto_disponible'),
+            saldos_cdp=data.get('saldos_cdp'),
+            total_acumul_obligac=data.get('total_acumul_obligac'),
+            total_acumulado_cdp=data.get('total_acumulado_cdp'),
+            total_acumulado_rpc=data.get('total_acumulado_rpc'),
+            dataframe_origen=data.get('dataframe_origen'),
+            archivo_origen=data.get('archivo_origen')
+        )
+
+
+class MovimientoPresupuestal(Base):
+    """
+    Model for Budget Movements (Movimientos Presupuestales)
+    
+    This model stores budget modification data including additions, reductions,
+    credits, and other budget adjustments throughout the project lifecycle.
+    
+    Data Source: transformation_app/app_outputs/ejecucion_presupuestal_outputs/movimientos_presupuestales.json
+    Records: ~14,016 entries
+    """
+    
+    __tablename__ = 'movimiento_presupuestal'
+    
+    # Primary Key
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    
+    # Project identifier
+    bpin = Column(BigInteger, nullable=False, index=True,
+                  comment="Bank of Investment Projects identifier")
+    
+    # Time period
+    periodo_corte = Column(String(10), nullable=False, index=True,
+                          comment="Period cut-off date (YYYY-MM-DD)")
+    
+    # Budget movement amounts (stored as BigInteger for large financial values)
+    adiciones = Column(BigInteger, nullable=True,
+                      comment="Budget additions")
+    aplazamiento = Column(BigInteger, nullable=True,
+                         comment="Budget postponements")
+    contracreditos = Column(BigInteger, nullable=True,
+                          comment="Counter-credits")
+    creditos = Column(BigInteger, nullable=True,
+                     comment="Budget credits")
+    desaplazamiento = Column(BigInteger, nullable=True,
+                           comment="Postponement reversals")
+    ppto_inicial = Column(BigInteger, nullable=True,
+                         comment="Initial budget")
+    ppto_modificado = Column(BigInteger, nullable=True,
+                           comment="Modified budget")
+    reducciones = Column(BigInteger, nullable=True,
+                        comment="Budget reductions")
+    
+    # Data lineage
+    dataframe_origen = Column(String(100), nullable=True, index=True,
+                            comment="Source dataframe name")
+    archivo_origen = Column(String(200), nullable=True,
+                          comment="Source file name")
+    
+    # Metadata
+    created_at = Column(DateTime, default=func.now(), nullable=False,
+                       comment="Record creation timestamp")
+    updated_at = Column(DateTime, default=func.now(), onupdate=func.now(), nullable=False,
+                       comment="Record last update timestamp")
+    
+    def __repr__(self):
+        return f"<MovimientoPresupuestal(bpin={self.bpin}, periodo='{self.periodo_corte}', ppto_modificado={self.ppto_modificado})>"
+    
+    @classmethod
+    def from_json(cls, data: dict) -> 'MovimientoPresupuestal':
+        """Create instance from JSON data."""
+        return cls(
+            bpin=data.get('bpin'),
+            periodo_corte=data.get('periodo_corte'),
+            adiciones=data.get('adiciones'),
+            aplazamiento=data.get('aplazamiento'),
+            contracreditos=data.get('contracreditos'),
+            creditos=data.get('creditos'),
+            desaplazamiento=data.get('desaplazamiento'),
+            ppto_inicial=data.get('ppto_inicial'),
+            ppto_modificado=data.get('ppto_modificado'),
+            reducciones=data.get('reducciones'),
+            dataframe_origen=data.get('dataframe_origen'),
+            archivo_origen=data.get('archivo_origen')
+        )
+
+
 # Export the models for easier importing
-__all__ = ['Base', 'UnidadProyecto']
+__all__ = ['Base', 'UnidadProyecto', 'DatosCaracteristicosProyecto', 'EjecucionPresupuestal', 'MovimientoPresupuestal']
