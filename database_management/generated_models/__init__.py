@@ -1,1 +1,0 @@
-"""\nModelos y esquemas generados automáticamente\nAlcaldía de Santiago de Cali ETL\nGenerado: 2025-09-19T14:11:17.718338\n"""\n\nfrom .models import *\nfrom .schemas import *

@@ -11,17 +11,13 @@ Integrates the best features from gestor_proyectos_db using pure functional prog
 # Core database configuration and connection
 from .config import DatabaseConfig, get_database_config, test_connection, validate_config
 
-# ETL system components
-from .schema_generator import SchemaGenerator, generate_schema_from_data
-from .data_loader import DataLoader, load_data_functional, create_data_loader
+# ETL system components (only existing modules)
+# from .data_loader import DataLoader, load_data_functional, create_data_loader  # Commented out due to dependencies
 from .database_manager import DatabaseManager, create_database_manager
-from .model_generator import ModelGenerator, generate_models_from_json
-from .etl_system import IntelligentETL, create_etl_system, run_etl_from_config
 
 # Integrated monitoring, reporting, and schema analysis
-from .monitoring import monitor_database, MonitoringReport, MonitoringStatus
-from .reporting import generate_database_report, ReportType, DatabaseReport
-from .schema_analysis import run_schema_analysis, SchemaAnalysisReport, TableStatus
+# from .monitoring import monitor_database, MonitoringReport, MonitoringStatus  # Commented out
+# from .reporting import generate_database_report, ReportType, DatabaseReport  # Commented out
 
 # Convenience imports for common operations
 from datetime import datetime, timedelta

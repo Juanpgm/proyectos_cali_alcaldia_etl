@@ -28,3 +28,6 @@ build/
 # Ignore transformation app input and output folders (heavy files)
 transformation_app/app_inputs/
 transformation_app/app_outputs/
+
+# Ignore Google Sheets service account secrets
+extraction_app/sheet-secrets.json
