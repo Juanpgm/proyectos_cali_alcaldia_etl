@@ -10,6 +10,65 @@ import json
 import numpy as np
 from typing import Optional, Dict, List, Any, Tuple
 from datetime import datetime
+from functools import reduce, partial
+from functools import reduce, partial
+from operator import methodcaller
+
+
+# Functional programming utilities
+def compose(*functions):
+    """Compose multiple functions into a single function."""
+    return reduce(lambda f, g: lambda x: f(g(x)), functions, lambda x: x)
+
+
+def pipe(value, *functions):
+    """Apply a sequence of functions to a value (pipe operator)."""
+    return reduce(lambda acc, func: func(acc), functions, value)
+
+
+def curry(func):
+    """Convert a function to a curried version."""
+    def curried(*args, **kwargs):
+        if len(args) + len(kwargs) >= func.__code__.co_argcount:
+            return func(*args, **kwargs)
+        return lambda *more_args, **more_kwargs: curried(*(args + more_args), **dict(kwargs, **more_kwargs))
+    return curried
+
+
+# Functional data cleaning utilities
+def clean_numeric_column(df: pd.DataFrame, column_name: str, default_value: float = 0.0) -> pd.DataFrame:
+    """Clean a numeric column using functional approach."""
+    if column_name in df.columns:
+        df = df.copy()
+        df[column_name] = pd.to_numeric(df[column_name], errors='coerce').fillna(default_value)
+    return df
+
+
+def clean_monetary_column(df: pd.DataFrame, column_name: str) -> pd.DataFrame:
+    """Clean a monetary column using functional approach."""
+    if column_name in df.columns:
+        df = df.copy()
+        df[column_name] = df[column_name].apply(
+            lambda x: clean_monetary_value(x) if pd.notna(x) else 0.00
+        )
+        # Ensure it's numeric before rounding
+        df[column_name] = pd.to_numeric(df[column_name], errors='coerce').fillna(0.0)
+    return df
+
+
+def apply_functional_cleaning(df: pd.DataFrame, monetary_cols: List[str], numeric_cols: List[str]) -> pd.DataFrame:
+    """Apply data cleaning using functional composition."""
+    result_df = df.copy()
+    
+    # Apply monetary cleaning
+    for col in monetary_cols:
+        result_df = clean_monetary_column(result_df, col)
+    
+    # Apply numeric cleaning
+    for col in numeric_cols:
+        result_df = clean_numeric_column(result_df, col)
+    
+    return result_df
 
 
 def normalize_column_names(columns):
@@ -176,6 +235,8 @@ def extract_coordinates_info(geom_obj: Dict[str, Any]) -> Tuple[Optional[float],
 def create_feature_collection(dataframe: pd.DataFrame) -> Dict[str, Any]:
     """
     Create a GeoJSON FeatureCollection from a dataframe with geometry data.
+    Preserves ALL original columns from the source data.
+    INCLUDES ALL RECORDS, using lat/lon to create geometry when geom is invalid.
     
     Args:
         dataframe: DataFrame containing geometry and properties
@@ -187,56 +248,83 @@ def create_feature_collection(dataframe: pd.DataFrame) -> Dict[str, Any]:
     
     for idx, row in dataframe.iterrows():
         try:
-            # Parse geometry
+            # Try to parse existing geometry first
             geom_obj = None
             if 'geom' in row and pd.notna(row['geom']):
                 geom_obj = parse_geojson_geometry(row['geom'])
             
+            # If no valid geometry found, try to create from lat/lon
             if not geom_obj:
-                continue
+                lat_val = None
+                lon_val = None
+                
+                # Try to get latitude
+                for lat_col in ['lat', 'latitude']:
+                    if lat_col in row and pd.notna(row[lat_col]):
+                        try:
+                            # Handle European decimal format (comma as decimal separator)
+                            lat_str = str(row[lat_col]).replace(',', '.')
+                            lat_val = float(lat_str)
+                            break
+                        except (ValueError, TypeError):
+                            continue
+                
+                # Try to get longitude  
+                for lon_col in ['lon', 'longitude']:
+                    if lon_col in row and pd.notna(row[lon_col]):
+                        try:
+                            # Handle European decimal format (comma as decimal separator)
+                            lon_str = str(row[lon_col]).replace(',', '.')
+                            lon_val = float(lon_str)
+                            break
+                        except (ValueError, TypeError):
+                            continue
+                
+                # Create Point geometry if we have both lat and lon
+                if lat_val is not None and lon_val is not None:
+                    # Validate coordinate ranges
+                    if -90 <= lat_val <= 90 and -180 <= lon_val <= 180:
+                        geom_obj = {
+                            "type": "Point",
+                            "coordinates": [lon_val, lat_val]  # GeoJSON format: [longitude, latitude]
+                        }
+                        print(f"  Created Point geometry from lat/lon for row {idx}: [{lon_val}, {lat_val}]")
+                    else:
+                        print(f"  Invalid lat/lon coordinates for row {idx}: lat={lat_val}, lon={lon_val}")
             
-            # Create properties (exclude geom and coordinate columns)
+            # Create properties - Include ALL columns except geometry columns
             properties = {}
-            exclude_cols = ['geom', 'lat', 'lon', 'longitude', 'latitude', 'key', 'origen_sheet', 'geometry_bounds', 'geometry_type']
+            geometry_columns = ['geom', 'geometry', 'geometria']  # Only exclude actual geometry columns
             
             for col, value in row.items():
-                if col not in exclude_cols:
-                    # Handle NaN or null values based on data type
+                if col not in geometry_columns:
+                    # Handle different data types for JSON serialization
                     if pd.isna(value):
-                        # Check if the column should contain numeric data
-                        if col in ['bpin', 'ppto_base', 'pagos_realizados', 'avance_físico_obra', 'ejecucion_financiera_obra', 
-                                  'longitud_proyectada', 'longitud_ejecutada', 'usuarios_beneficiarios']:
-                            properties[col] = 0.00
-                        else:
-                            properties[col] = None
-                    elif col == 'bpin':
-                        # Special handling for BPIN to ensure it's always an integer
-                        try:
-                            properties[col] = int(float(value))
-                        except (ValueError, TypeError):
-                            properties[col] = 0.00
+                        properties[col] = None
                     elif isinstance(value, (np.int64, np.int32, pd.Int64Dtype)):
                         properties[col] = int(value)
                     elif isinstance(value, (np.float64, np.float32)):
-                        # Round float values to 2 decimal places for monetary/measurement values
-                        # Keep 6 decimal places for coordinates
-                        if col in ['longitude', 'latitude']:
+                        # Round coordinates to 6 decimal places, other floats to 2
+                        if col in ['longitude', 'latitude', 'lat', 'lon']:
                             properties[col] = round(float(value), 6)
                         else:
                             properties[col] = round(float(value), 2)
                     elif isinstance(value, float):
                         # Handle regular Python floats
-                        if col in ['longitude', 'latitude']:
+                        if col in ['longitude', 'latitude', 'lat', 'lon']:
                             properties[col] = round(value, 6)
                         else:
                             properties[col] = round(value, 2)
+                    elif isinstance(value, bool):
+                        properties[col] = bool(value)
                     else:
-                        properties[col] = value
+                        # Convert to string for other types
+                        properties[col] = str(value) if value is not None else None
             
-            # Create feature
+            # Create feature (geometry can be null for records without any coordinate info)
             feature = {
-                "type": "Feature",
-                "geometry": geom_obj,
+                "type": "Feature", 
+                "geometry": geom_obj,  # Can be null if no coordinates available
                 "properties": properties
             }
             
@@ -255,16 +343,16 @@ def create_feature_collection(dataframe: pd.DataFrame) -> Dict[str, Any]:
     return feature_collection
 
 
-def unidades_proyecto_transformer(data_directory: str = "app_inputs/unidades_proyecto_input") -> Tuple[Optional[pd.DataFrame], Optional[pd.DataFrame]]:
+def unidades_proyecto_transformer(data_directory: str = "app_inputs/unidades_proyecto_input") -> Optional[pd.DataFrame]:
     """
-    Transform project units data for infrastructure equipment and road infrastructure.
-    Creates two main tables with geospatial data optimized for FastAPI and map visualization.
+    Transform project units data for infrastructure equipment.
+    Creates GeoJSON output optimized for map visualization.
     
     Args:
         data_directory (str): Path to the directory containing Excel files
         
     Returns:
-        Tuple of (unidad_proyecto_infraestructura_equipamientos, unidad_proyecto_infraestructura_vial)
+        DataFrame with equipamientos data or None if failed
     """
     
     # Get the absolute path to the data directory
@@ -276,322 +364,120 @@ def unidades_proyecto_transformer(data_directory: str = "app_inputs/unidades_pro
     
     print(f"Loading data from: {directory_path}")
     
-    # Define file paths
+    # Define file paths - only equipamientos
     equipamientos_path = os.path.join(directory_path, "obras_equipamientos.xlsx")
-    lineales_path = os.path.join(directory_path, "obras_lineales.xlsx")
     
-    # Check if files exist
+    # Check if file exists
     if not os.path.exists(equipamientos_path):
         raise FileNotFoundError(f"File not found: {equipamientos_path}")
-    if not os.path.exists(lineales_path):
-        raise FileNotFoundError(f"File not found: {lineales_path}")
     
-    # Load Excel files
+    # Load Excel file
     print("Loading obras_equipamientos.xlsx...")
     df_equipamientos = pd.read_excel(equipamientos_path)
     print(f"Loaded {len(df_equipamientos)} rows from obras_equipamientos.xlsx")
     
-    print("Loading obras_lineales.xlsx...")
-    df_lineales = pd.read_excel(lineales_path)
-    print(f"Loaded {len(df_lineales)} rows from obras_lineales.xlsx")
-    
     # ================================
-    # PROCESS EQUIPAMIENTOS DATA
+    # PROCESS EQUIPAMIENTOS DATA - PRESERVE ALL ORIGINAL COLUMNS
     # ================================
     print("\n" + "="*60)
     print("PROCESSING EQUIPAMIENTOS DATA")
     print("="*60)
     
-    # Create standardized equipamientos dataframe
-    equipamientos_standard_columns = {
-        'bpin': 'bpin',
-        'identificador': 'identificador', 
-        'fuente_financiacion': 'cod_fuente_financiamiento',
-        'usuarios': 'usuarios_beneficiarios',
-        'dataframe': 'dataframe',
-        'nickname': 'nickname',
-        'nickname_detalle': 'nickname_detalle',
-        'comuna_corregimiento': 'comuna_corregimiento',
-        'barrio_vereda': 'barrio_vereda',
-        'direccion': 'direccion',
-        'clase_obra': 'clase_obra',
-        'subclase': 'subclase_obra',
-        'tipo_intervencion': 'tipo_intervencion',
-        'descripcion_intervencion': 'descripcion_intervencion',
-        'centros_gravedad': 'es_centro_gravedad',
-        'presupuesto_base': 'ppto_base',
-        'avance_obra': 'avance_físico_obra',
-        'geom': 'geom'
-    }
+    # Work directly with the original DataFrame to preserve all columns
+    print("Preserving all original columns and adding standardized processing...")
     
-    # Create equipamientos dataframe
-    df_equipamientos_processed = df_equipamientos.copy()
+    # Create a copy to work with
+    unidad_proyecto_infraestructura_equipamientos = df_equipamientos.copy()
     
-    # Remove unnecessary columns
-    columns_to_remove = ['key', 'origen_sheet', 'lat', 'lon']
-    df_equipamientos_processed = df_equipamientos_processed.drop(columns=[col for col in columns_to_remove if col in df_equipamientos_processed.columns], errors='ignore')
+    # Add computed columns without removing originals
+    print("Adding computed coordinate and geometry information...")
     
-    # Rename columns
-    df_equipamientos_processed = df_equipamientos_processed.rename(columns=equipamientos_standard_columns)
+    # Initialize new columns for computed values
+    unidad_proyecto_infraestructura_equipamientos['longitude'] = None
+    unidad_proyecto_infraestructura_equipamientos['latitude'] = None
+    unidad_proyecto_infraestructura_equipamientos['geometry_bounds'] = None
+    unidad_proyecto_infraestructura_equipamientos['geometry_type'] = None
+    unidad_proyecto_infraestructura_equipamientos['processed_timestamp'] = datetime.now().isoformat()
     
-    # Create the final equipamientos dataframe with required columns
-    unidad_proyecto_infraestructura_equipamientos = pd.DataFrame()
+    # Clean and standardize data types while preserving original columns
+    print("Cleaning and standardizing data types...")
     
-    # Map columns to final schema
-    final_equipamientos_columns = [
-        'bpin', 'identificador', 'cod_fuente_financiamiento', 'usuarios_beneficiarios',
-        'dataframe', 'nickname', 'nickname_detalle', 'comuna_corregimiento', 
-        'barrio_vereda', 'direccion', 'clase_obra', 'subclase_obra', 
-        'tipo_intervencion', 'descripcion_intervencion', 'estado_unidad_proyecto',
-        'fecha_inicio_planeado', 'fecha_fin_planeado', 'fecha_inicio_real', 
-        'fecha_fin_real', 'es_centro_gravedad', 'ppto_base', 'pagos_realizados',
-        'avance_físico_obra', 'ejecucion_financiera_obra', 'geom'
-    ]
-    
-    for col in final_equipamientos_columns:
-        if col in df_equipamientos_processed.columns:
-            unidad_proyecto_infraestructura_equipamientos[col] = df_equipamientos_processed[col]
-        else:
-            # Set default values for missing columns
-            if col == 'estado_unidad_proyecto':
-                unidad_proyecto_infraestructura_equipamientos[col] = 'En ejecución'
-            elif col in ['fecha_inicio_planeado', 'fecha_fin_planeado', 'fecha_inicio_real', 'fecha_fin_real']:
-                unidad_proyecto_infraestructura_equipamientos[col] = None
-            elif col in ['pagos_realizados', 'ejecucion_financiera_obra']:
-                unidad_proyecto_infraestructura_equipamientos[col] = 0.00
-            else:
-                unidad_proyecto_infraestructura_equipamientos[col] = None
-    
-    # Process data types and clean values
-    print("Cleaning and processing equipamientos data...")
-    
-    # Fix columns that should be text but are mistakenly float64 due to all NaN values
-    text_columns = ['nickname_detalle', 'direccion', 'descripcion_intervencion']
+    # Clean text columns
+    text_columns = ['nickname_detalle', 'direccion', 'descripcion_intervencion', 'identificador', 'nickname']
     for col in text_columns:
         if col in unidad_proyecto_infraestructura_equipamientos.columns:
             unidad_proyecto_infraestructura_equipamientos[col] = unidad_proyecto_infraestructura_equipamientos[col].apply(
-                lambda x: None if pd.isna(x) else str(x)
+                lambda x: None if pd.isna(x) else str(x).strip()
             )
     
-    # Convert BPIN to integer (ensure no decimals, handle large numbers)
+    # Clean numeric columns (monetary and percentages)
+    numeric_columns = ['presupuesto_base', 'ppto_base', 'avance_obra', 'avance_fisico_obra', 'usuarios']
+    for col in numeric_columns:
+        if col in unidad_proyecto_infraestructura_equipamientos.columns:
+            unidad_proyecto_infraestructura_equipamientos[col] = pd.to_numeric(
+                unidad_proyecto_infraestructura_equipamientos[col], errors='coerce'
+            ).fillna(0.0)
+    
+    # Clean BPIN if present
     if 'bpin' in unidad_proyecto_infraestructura_equipamientos.columns:
-        # Handle large BPIN numbers by using int64 directly
-        def convert_bpin(value):
-            if pd.isna(value):
-                return None
-            try:
-                # Convert to float first to handle scientific notation, then to int
-                return int(float(value))
-            except (ValueError, OverflowError):
-                return None
-        
-        unidad_proyecto_infraestructura_equipamientos['bpin'] = unidad_proyecto_infraestructura_equipamientos['bpin'].apply(convert_bpin)
-        # Explicitly cast to object type to handle mixed int/None values for JSON serialization
-        unidad_proyecto_infraestructura_equipamientos['bpin'] = unidad_proyecto_infraestructura_equipamientos['bpin'].astype('object')
+        unidad_proyecto_infraestructura_equipamientos['bpin'] = unidad_proyecto_infraestructura_equipamientos['bpin'].apply(
+            lambda x: int(float(x)) if pd.notna(x) and str(x).replace('.', '').isdigit() else None
+        )
     
-    # Clean monetary values (round to 2 decimal places)
-    monetary_cols_equipamientos = ['ppto_base', 'pagos_realizados', 'ejecucion_financiera_obra']
-    for col in monetary_cols_equipamientos:
+    # Clean boolean columns
+    boolean_columns = ['centros_gravedad']
+    for col in boolean_columns:
         if col in unidad_proyecto_infraestructura_equipamientos.columns:
-            unidad_proyecto_infraestructura_equipamientos[col] = unidad_proyecto_infraestructura_equipamientos[col].apply(
-                lambda x: clean_monetary_value(x) if pd.notna(x) else 0.00
-            ).round(2)
-    
-    # Clean percentage values (avance_físico_obra) - round to 2 decimal places
-    if 'avance_físico_obra' in unidad_proyecto_infraestructura_equipamientos.columns:
-        unidad_proyecto_infraestructura_equipamientos['avance_físico_obra'] = pd.to_numeric(
-            unidad_proyecto_infraestructura_equipamientos['avance_físico_obra'], errors='coerce'
-        ).fillna(0.0).round(2)
-    
-    # Clean usuarios_beneficiarios as numeric
-    if 'usuarios_beneficiarios' in unidad_proyecto_infraestructura_equipamientos.columns:
-        unidad_proyecto_infraestructura_equipamientos['usuarios_beneficiarios'] = pd.to_numeric(
-            unidad_proyecto_infraestructura_equipamientos['usuarios_beneficiarios'], errors='coerce'
-        ).fillna(0.0).round(2)
-    
-    # Convert es_centro_gravedad to boolean
-    if 'es_centro_gravedad' in unidad_proyecto_infraestructura_equipamientos.columns:
-        unidad_proyecto_infraestructura_equipamientos['es_centro_gravedad'] = unidad_proyecto_infraestructura_equipamientos['es_centro_gravedad'].astype(bool)
-    
-    print(f"Processed equipamientos: {len(unidad_proyecto_infraestructura_equipamientos)} rows")
+            unidad_proyecto_infraestructura_equipamientos[col] = unidad_proyecto_infraestructura_equipamientos[col].astype(bool)
     
     # ================================
-    # PROCESS LINEALES/VIAL DATA  
-    # ================================
-    print("\n" + "="*60)
-    print("PROCESSING INFRAESTRUCTURA VIAL DATA")
-    print("="*60)
-    
-    # Create standardized lineales dataframe
-    lineales_standard_columns = {
-        'bpin': 'bpin',
-        'identificador': 'identificador',
-        'fuente_financiacion': 'cod_fuente_financiamiento', 
-        'usuarios': 'usuarios_beneficiarios',
-        'dataframe': 'dataframe',
-        'nickname': 'nickname',
-        'nickname_detalle': 'nickname_detalle',
-        'comuna_corregimiento': 'comuna_corregimiento',
-        'barrio_vereda': 'barrio_vereda',
-        'direccion': 'direccion',
-        'clase_obra': 'clase_obra',
-        'subclase': 'subclase_obra',
-        'tipo_intervencion': 'tipo_intervencion',
-        'descripcion_intervencion': 'descripcion_intervencion',
-        'centros_gravedad': 'es_centro_gravedad',
-        'unidad': 'unidad_medicion',
-        'cantidad': 'longitud_proyectada',
-        'presupuesto_base': 'ppto_base',
-        'avance_obra': 'avance_físico_obra',
-        'geom': 'geom'
-    }
-    
-    # Create lineales dataframe
-    df_lineales_processed = df_lineales.copy()
-    
-    # Remove unnecessary columns
-    columns_to_remove = ['key', 'origen_sheet', 'lat', 'lon']
-    df_lineales_processed = df_lineales_processed.drop(columns=[col for col in columns_to_remove if col in df_lineales_processed.columns], errors='ignore')
-    
-    # Rename columns
-    df_lineales_processed = df_lineales_processed.rename(columns=lineales_standard_columns)
-    
-    # Create the final vial dataframe with required columns
-    unidad_proyecto_infraestructura_vial = pd.DataFrame()
-    
-    # Map columns to final schema
-    final_vial_columns = [
-        'bpin', 'identificador', 'id_via', 'cod_fuente_financiamiento', 'usuarios_beneficiarios',
-        'dataframe', 'nickname', 'nickname_detalle', 'comuna_corregimiento', 
-        'barrio_vereda', 'direccion', 'clase_obra', 'subclase_obra', 
-        'tipo_intervencion', 'descripcion_intervencion', 'estado_unidad_proyecto',
-        'unidad_medicion', 'fecha_inicio_planeado', 'fecha_fin_planeado', 
-        'fecha_inicio_real', 'fecha_fin_real', 'es_centro_gravedad',
-        'longitud_proyectada', 'longitud_ejecutada', 'ppto_base', 'pagos_realizados',
-        'avance_físico_obra', 'ejecucion_financiera_obra', 'geom'
-    ]
-    
-    for col in final_vial_columns:
-        if col in df_lineales_processed.columns:
-            unidad_proyecto_infraestructura_vial[col] = df_lineales_processed[col]
-        else:
-            # Set default values for missing columns
-            if col == 'estado_unidad_proyecto':
-                unidad_proyecto_infraestructura_vial[col] = 'En ejecución'
-            elif col == 'id_via':
-                # Generate id_via from identificador or row index
-                unidad_proyecto_infraestructura_vial[col] = df_lineales_processed.get('identificador', range(len(df_lineales_processed)))
-            elif col in ['fecha_inicio_planeado', 'fecha_fin_planeado', 'fecha_inicio_real', 'fecha_fin_real']:
-                unidad_proyecto_infraestructura_vial[col] = None
-            elif col in ['longitud_ejecutada', 'pagos_realizados', 'ejecucion_financiera_obra']:
-                unidad_proyecto_infraestructura_vial[col] = 0.00
-            else:
-                unidad_proyecto_infraestructura_vial[col] = None
-    
-    # Process data types and clean values
-    print("Cleaning and processing vial data...")
-    
-    # Fix columns that should be text but are mistakenly float64 due to all NaN values
-    text_columns = ['nickname_detalle', 'direccion', 'subclase_obra', 'descripcion_intervencion']
-    for col in text_columns:
-        if col in unidad_proyecto_infraestructura_vial.columns:
-            unidad_proyecto_infraestructura_vial[col] = unidad_proyecto_infraestructura_vial[col].apply(
-                lambda x: None if pd.isna(x) else str(x)
-            )
-    
-    # Convert BPIN to integer (ensure no decimals, handle large numbers)
-    if 'bpin' in unidad_proyecto_infraestructura_vial.columns:
-        # Handle large BPIN numbers by using int64 directly
-        def convert_bpin(value):
-            if pd.isna(value):
-                return None
-            try:
-                # Convert to float first to handle scientific notation, then to int
-                return int(float(value))
-            except (ValueError, OverflowError):
-                return None
-        
-        unidad_proyecto_infraestructura_vial['bpin'] = unidad_proyecto_infraestructura_vial['bpin'].apply(convert_bpin)
-        # Explicitly cast to object type to handle mixed int/None values for JSON serialization
-        unidad_proyecto_infraestructura_vial['bpin'] = unidad_proyecto_infraestructura_vial['bpin'].astype('object')
-    
-    # Clean monetary values (round to 2 decimal places)
-    monetary_cols_vial = ['ppto_base', 'pagos_realizados', 'ejecucion_financiera_obra']
-    for col in monetary_cols_vial:
-        if col in unidad_proyecto_infraestructura_vial.columns:
-            unidad_proyecto_infraestructura_vial[col] = unidad_proyecto_infraestructura_vial[col].apply(
-                lambda x: clean_monetary_value(x) if pd.notna(x) else 0.00
-            ).round(2)
-    
-    # Clean length values (round to 2 decimal places)
-    length_cols = ['longitud_proyectada', 'longitud_ejecutada']
-    for col in length_cols:
-        if col in unidad_proyecto_infraestructura_vial.columns:
-            unidad_proyecto_infraestructura_vial[col] = pd.to_numeric(
-                unidad_proyecto_infraestructura_vial[col], errors='coerce'
-            ).fillna(0.0).round(2)
-    
-    # Clean percentage values (avance_físico_obra) - round to 2 decimal places
-    if 'avance_físico_obra' in unidad_proyecto_infraestructura_vial.columns:
-        unidad_proyecto_infraestructura_vial['avance_físico_obra'] = pd.to_numeric(
-            unidad_proyecto_infraestructura_vial['avance_físico_obra'], errors='coerce'
-        ).fillna(0.0).round(2)
-    
-    # Clean usuarios_beneficiarios as numeric
-    if 'usuarios_beneficiarios' in unidad_proyecto_infraestructura_vial.columns:
-        unidad_proyecto_infraestructura_vial['usuarios_beneficiarios'] = pd.to_numeric(
-            unidad_proyecto_infraestructura_vial['usuarios_beneficiarios'], errors='coerce'
-        ).fillna(0.0).round(2)
-    
-    # Convert es_centro_gravedad to boolean
-    if 'es_centro_gravedad' in unidad_proyecto_infraestructura_vial.columns:
-        unidad_proyecto_infraestructura_vial['es_centro_gravedad'] = unidad_proyecto_infraestructura_vial['es_centro_gravedad'].astype(bool)
-    
-    print(f"Processed vial data: {len(unidad_proyecto_infraestructura_vial)} rows")
-    
-    # ================================
-    # GEOSPATIAL PROCESSING
+    # GEOSPATIAL PROCESSING - PRESERVE ALL COLUMNS
     # ================================
     print("\n" + "="*60)
     print("PROCESSING GEOSPATIAL DATA")
     print("="*60)
     
-    # Process geometries for both dataframes
-    for df_name, df in [("equipamientos", unidad_proyecto_infraestructura_equipamientos), 
-                        ("vial", unidad_proyecto_infraestructura_vial)]:
+    # Process geometries for equipamientos
+    print(f"\nProcessing geometries for equipamientos...")
+    
+    valid_geoms = 0
+    invalid_geoms = 0
+    
+    # Process each row and extract geospatial information
+    for idx, row in unidad_proyecto_infraestructura_equipamientos.iterrows():
+        # Try different geometry column names
+        geom_value = None
+        for geom_col in ['geom', 'geometry', 'geometria']:
+            if geom_col in row and pd.notna(row[geom_col]):
+                geom_value = row[geom_col]
+                break
         
-        print(f"\nProcessing geometries for {df_name}...")
-        
-        valid_geoms = 0
-        invalid_geoms = 0
-        
-        # Extract coordinate information
-        df['longitude'] = None
-        df['latitude'] = None
-        df['geometry_bounds'] = None
-        df['geometry_type'] = None
-        
-        for idx, row in df.iterrows():
-            geom_obj = parse_geojson_geometry(row.get('geom'))
+        if geom_value:
+            geom_obj = parse_geojson_geometry(geom_value)
             
             if geom_obj:
                 valid_geoms += 1
                 
                 # Extract coordinates and bounds
                 lon, lat, bounds = extract_coordinates_info(geom_obj)
-                df.at[idx, 'longitude'] = round(lon, 6) if lon is not None else None  # 6 decimals for coordinates
-                df.at[idx, 'latitude'] = round(lat, 6) if lat is not None else None   # 6 decimals for coordinates
-                df.at[idx, 'geometry_bounds'] = json.dumps(bounds) if bounds else None
-                df.at[idx, 'geometry_type'] = geom_obj['type']
+                unidad_proyecto_infraestructura_equipamientos.at[idx, 'longitude'] = round(lon, 6) if lon is not None else None
+                unidad_proyecto_infraestructura_equipamientos.at[idx, 'latitude'] = round(lat, 6) if lat is not None else None
+                unidad_proyecto_infraestructura_equipamientos.at[idx, 'geometry_bounds'] = json.dumps(bounds) if bounds else None
+                unidad_proyecto_infraestructura_equipamientos.at[idx, 'geometry_type'] = geom_obj['type']
             else:
                 invalid_geoms += 1
-        
-        print(f"  Valid geometries: {valid_geoms}")
-        print(f"  Invalid geometries: {invalid_geoms}")
+        else:
+            invalid_geoms += 1
+    
+    print(f"  Valid geometries: {valid_geoms}")
+    print(f"  Invalid geometries: {invalid_geoms}")
+    if valid_geoms + invalid_geoms > 0:
         print(f"  Success rate: {valid_geoms/(valid_geoms+invalid_geoms)*100:.1f}%")
+    else:
+        print(f"  Success rate: N/A (no data)")
     
     # ================================
-    # DATA SUMMARY
+    # DATA SUMMARY - ALL COLUMNS PRESERVED
     # ================================
     print("\n" + "="*60)
     print("DATA TRANSFORMATION SUMMARY")
@@ -599,18 +485,60 @@ def unidades_proyecto_transformer(data_directory: str = "app_inputs/unidades_pro
     
     print(f"\nUnidad Proyecto Infraestructura Equipamientos:")
     print(f"  Rows: {len(unidad_proyecto_infraestructura_equipamientos)}")
-    print(f"  Columns: {len(unidad_proyecto_infraestructura_equipamientos.columns)}")
+    print(f"  Total columns (ALL PRESERVED): {len(unidad_proyecto_infraestructura_equipamientos.columns)}")
+    print(f"  Original columns preserved: {len([col for col in df_equipamientos.columns if col in unidad_proyecto_infraestructura_equipamientos.columns])}")
+    print(f"  New computed columns added: {len([col for col in unidad_proyecto_infraestructura_equipamientos.columns if col not in df_equipamientos.columns])}")
     print(f"  Valid geometries: {unidad_proyecto_infraestructura_equipamientos['geometry_type'].notna().sum()}")
     
-    print(f"\nUnidad Proyecto Infraestructura Vial:")
-    print(f"  Rows: {len(unidad_proyecto_infraestructura_vial)}")
-    print(f"  Columns: {len(unidad_proyecto_infraestructura_vial.columns)}")
-    print(f"  Valid geometries: {unidad_proyecto_infraestructura_vial['geometry_type'].notna().sum()}")
+    # Show column list for verification
+    print(f"\nAll columns included:")
+    for i, col in enumerate(sorted(unidad_proyecto_infraestructura_equipamientos.columns)):
+        print(f"  {i+1:2d}. {col}")
     
-    return unidad_proyecto_infraestructura_equipamientos, unidad_proyecto_infraestructura_vial
+    return unidad_proyecto_infraestructura_equipamientos
 
 
-def save_geospatial_data(df_equipamientos: pd.DataFrame, df_vial: pd.DataFrame, output_directory: str = "app_outputs/unidades_proyecto_outputs"):
+def save_equipamientos_geojson(df_equipamientos: pd.DataFrame, output_directory: str = "app_outputs/unidades_proyecto_outputs"):
+    """
+    Save the processed equipamientos data as GeoJSON file.
+    
+    Args:
+        df_equipamientos: Processed equipamientos dataframe
+        output_directory: Directory to save output files
+    """
+    
+    # Create output directory
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    output_dir = os.path.join(current_dir, output_directory)
+    os.makedirs(output_dir, exist_ok=True)
+    
+    print(f"\n" + "="*60)
+    print("SAVING GEOJSON DATA")
+    print("="*60)
+    print(f"Output directory: {output_dir}")
+    
+    try:
+        # Create GeoJSON FeatureCollection
+        feature_collection = create_feature_collection(df_equipamientos)
+        
+        # Save GeoJSON file
+        geojson_filepath = os.path.join(output_dir, "unidades_proyecto_equipamientos.geojson")
+        with open(geojson_filepath, 'w', encoding='utf-8') as f:
+            json.dump(feature_collection, f, indent=2, ensure_ascii=False)
+        
+        file_size = os.path.getsize(geojson_filepath) / 1024  # Size in KB
+        feature_count = len(feature_collection['features'])
+        
+        print(f"✓ Successfully saved: unidades_proyecto_equipamientos.geojson")
+        print(f"  - Features: {feature_count}")
+        print(f"  - File size: {file_size:.1f} KB")
+        print(f"  - Location: {geojson_filepath}")
+        
+        return True
+        
+    except Exception as e:
+        print(f"✗ Failed to save GeoJSON file: {e}")
+        return False
     """
     Save the processed data in multiple formats optimized for different use cases.
     
@@ -629,252 +557,6 @@ def save_geospatial_data(df_equipamientos: pd.DataFrame, df_vial: pd.DataFrame, 
     print("SAVING GEOSPATIAL DATA")
     print("="*60)
     print(f"Output directory: {output_dir}")
-    
-    saved_files = []
-    failed_files = []
-    
-    # ================================
-    # SAVE DATABASE-READY JSON FILES
-    # ================================
-    print("\nSaving database-ready JSON files...")
-    
-    dataframes_to_save = [
-        ("unidad_proyecto_infraestructura_equipamientos", df_equipamientos),
-        ("unidad_proyecto_infraestructura_vial", df_vial)
-    ]
-    
-    for df_name, dataframe in dataframes_to_save:
-        try:
-            # Create a copy for processing
-            df_copy = dataframe.copy()
-            
-            # Convert data types for JSON compatibility
-            for col in df_copy.columns:
-                if col == 'bpin':
-                    # Special handling for BPIN to ensure it's always an integer
-                    df_copy[col] = df_copy[col].apply(lambda x: int(x) if pd.notna(x) and x is not None else 0.00)
-                elif df_copy[col].dtype == 'Int64':
-                    # Convert Int64 to regular int, handling NaN values
-                    df_copy[col] = df_copy[col].apply(lambda x: int(x) if pd.notna(x) else 0.00)
-                elif df_copy[col].dtype in ['float64', 'float32']:
-                    # Round float values to appropriate decimal places
-                    if col in ['longitude', 'latitude']:
-                        df_copy[col] = df_copy[col].apply(lambda x: round(x, 6) if pd.notna(x) else 0.00)
-                    else:
-                        df_copy[col] = df_copy[col].apply(lambda x: round(x, 2) if pd.notna(x) else 0.00)
-                elif df_copy[col].dtype == 'object':
-                    # Handle mixed types in object columns
-                    def clean_object_value(x):
-                        if pd.isna(x):
-                            # Check if this column should contain numeric data
-                            numeric_columns = ['bpin', 'ppto_base', 'pagos_realizados', 'avance_físico_obra', 'ejecucion_financiera_obra', 
-                                              'longitud_proyectada', 'longitud_ejecutada', 'usuarios_beneficiarios']
-                            if col in numeric_columns:
-                                return 0.00
-                            else:
-                                return None
-                        elif col == 'bpin':
-                            # Force BPIN to be integer
-                            try:
-                                return int(float(x))
-                            except (ValueError, TypeError):
-                                return 0.00
-                        elif isinstance(x, (int, np.int64, np.int32)):
-                            return int(x)
-                        elif isinstance(x, (float, np.float64, np.float32)):
-                            if col in ['longitude', 'latitude']:
-                                return round(float(x), 6)
-                            else:
-                                return round(float(x), 2)
-                        else:
-                            return x
-                    df_copy[col] = df_copy[col].apply(clean_object_value)
-            
-            # Drop auxiliary coordinate columns for database storage
-            columns_to_drop = ['longitude', 'latitude', 'geometry_bounds', 'geometry_type']
-            db_df = df_copy.drop(columns=[col for col in columns_to_drop if col in df_copy.columns])
-            
-            # Save database-ready JSON
-            json_filename = f"{df_name}.json"
-            json_filepath = os.path.join(output_dir, json_filename)
-            
-            # Convert to JSON with orient='records' for API compatibility
-            # Use custom serializer to ensure BPIN values are integers
-            import json as json_module
-            
-            records = db_df.to_dict('records')
-            # Force BPIN to be integer in each record
-            for record in records:
-                if 'bpin' in record and record['bpin'] is not None:
-                    try:
-                        record['bpin'] = int(float(record['bpin']))
-                    except (ValueError, TypeError, OverflowError):
-                        record['bpin'] = 0.00
-                
-                # Handle other numeric fields that should be 0.00 if null/NaN
-                numeric_fields = ['ppto_base', 'pagos_realizados', 'avance_físico_obra', 'ejecucion_financiera_obra', 
-                                 'longitud_proyectada', 'longitud_ejecutada', 'usuarios_beneficiarios']
-                for field in numeric_fields:
-                    if field in record and record[field] is None:
-                        record[field] = 0.00
-            
-            with open(json_filepath, 'w', encoding='utf-8') as f:
-                json_module.dump(records, f, indent=2, ensure_ascii=False)
-            
-            file_size = os.path.getsize(json_filepath) / 1024  # Size in KB
-            print(f"✓ Saved {df_name}: {json_filename} ({len(dataframe)} rows, {file_size:.1f} KB)")
-            saved_files.append(json_filename)
-            
-        except Exception as e:
-            print(f"✗ Failed to save {df_name}: {e}")
-            failed_files.append(df_name)
-    
-    # ================================
-    # SAVE GEOJSON FILES FOR MAPPING
-    # ================================
-    print("\nSaving GeoJSON files for mapping...")
-    
-    geojson_files = [
-        ("equipamientos_geojson", df_equipamientos, "equipamientos.geojson"),
-        ("vial_geojson", df_vial, "infraestructura_vial.geojson")
-    ]
-    
-    for geojson_name, dataframe, filename in geojson_files:
-        try:
-            # Create GeoJSON FeatureCollection
-            feature_collection = create_feature_collection(dataframe)
-            
-            # Save GeoJSON file
-            geojson_filepath = os.path.join(output_dir, filename)
-            with open(geojson_filepath, 'w', encoding='utf-8') as f:
-                json.dump(feature_collection, f, indent=2, ensure_ascii=False)
-            
-            file_size = os.path.getsize(geojson_filepath) / 1024  # Size in KB
-            feature_count = len(feature_collection['features'])
-            print(f"✓ Saved {geojson_name}: {filename} ({feature_count} features, {file_size:.1f} KB)")
-            saved_files.append(filename)
-            
-        except Exception as e:
-            print(f"✗ Failed to save {geojson_name}: {e}")
-            failed_files.append(geojson_name)
-    
-    # ================================
-    # SAVE SUMMARY STATISTICS
-    # ================================
-    print("\nSaving summary statistics...")
-    
-    try:
-        summary_stats = {
-            "generated_at": datetime.now().isoformat(),
-            "equipamientos": {
-                "total_records": int(len(df_equipamientos)),
-                "valid_geometries": int(df_equipamientos['geometry_type'].notna().sum()),
-                "geometry_types": {k: int(v) for k, v in df_equipamientos['geometry_type'].value_counts().to_dict().items()},
-                "total_budget": float(df_equipamientos['ppto_base'].sum()),
-                "communes": int(df_equipamientos['comuna_corregimiento'].nunique())
-            },
-            "infraestructura_vial": {
-                "total_records": int(len(df_vial)),
-                "valid_geometries": int(df_vial['geometry_type'].notna().sum()),
-                "geometry_types": {k: int(v) for k, v in df_vial['geometry_type'].value_counts().to_dict().items()},
-                "total_budget": float(df_vial['ppto_base'].sum()),
-                "total_length": float(df_vial['longitud_proyectada'].sum()),
-                "communes": int(df_vial['comuna_corregimiento'].nunique())
-            }
-        }
-        
-        # Save summary
-        summary_filepath = os.path.join(output_dir, "data_summary.json")
-        with open(summary_filepath, 'w', encoding='utf-8') as f:
-            json.dump(summary_stats, f, indent=2, ensure_ascii=False)
-        
-        print(f"✓ Saved data_summary.json")
-        saved_files.append("data_summary.json")
-        
-    except Exception as e:
-        print(f"✗ Failed to save summary statistics: {e}")
-        failed_files.append("data_summary")
-    
-    # ================================
-    # SAVE COORDINATE INDEX FOR OPTIMIZATION
-    # ================================
-    print("\nSaving spatial indexes...")
-    
-    try:
-        # Create spatial index for fast geographic queries
-        equipamientos_index = []
-        vial_index = []
-        
-        # Extract coordinate info for equipamientos
-        for idx, row in df_equipamientos.iterrows():
-            if pd.notna(row.get('longitude')) and pd.notna(row.get('latitude')):
-                equipamientos_index.append({
-                    "id": int(idx),
-                    "bpin": int(row.get('bpin')) if pd.notna(row.get('bpin')) and row.get('bpin') != 0.00 else 0.00,
-                    "identificador": str(row.get('identificador')) if pd.notna(row.get('identificador')) else None,
-                    "longitude": float(row['longitude']),
-                    "latitude": float(row['latitude']),
-                    "geometry_type": str(row.get('geometry_type')) if pd.notna(row.get('geometry_type')) else None,
-                    "bounds": json.loads(row['geometry_bounds']) if row.get('geometry_bounds') else None
-                })
-        
-        # Extract coordinate info for vial
-        for idx, row in df_vial.iterrows():
-            if pd.notna(row.get('longitude')) and pd.notna(row.get('latitude')):
-                vial_index.append({
-                    "id": int(idx),
-                    "bpin": int(row.get('bpin')) if pd.notna(row.get('bpin')) and row.get('bpin') != 0.00 else 0.00,
-                    "identificador": str(row.get('identificador')) if pd.notna(row.get('identificador')) else None,
-                    "id_via": str(row.get('id_via')) if pd.notna(row.get('id_via')) else None,
-                    "longitude": float(row['longitude']),
-                    "latitude": float(row['latitude']),
-                    "geometry_type": str(row.get('geometry_type')) if pd.notna(row.get('geometry_type')) else None,
-                    "bounds": json.loads(row['geometry_bounds']) if row.get('geometry_bounds') else None
-                })
-        
-        # Save spatial indexes
-        spatial_index = {
-            "equipamientos": equipamientos_index,
-            "infraestructura_vial": vial_index
-        }
-        
-        index_filepath = os.path.join(output_dir, "spatial_index.json")
-        with open(index_filepath, 'w', encoding='utf-8') as f:
-            json.dump(spatial_index, f, indent=2, ensure_ascii=False)
-        
-        file_size = os.path.getsize(index_filepath) / 1024  # Size in KB
-        print(f"✓ Saved spatial_index.json ({len(equipamientos_index + vial_index)} indexed features, {file_size:.1f} KB)")
-        saved_files.append("spatial_index.json")
-        
-    except Exception as e:
-        print(f"✗ Failed to save spatial index: {e}")
-        failed_files.append("spatial_index")
-    
-    # ================================
-    # SAVE SUMMARY
-    # ================================
-    print(f"\n" + "="*60)
-    print("SAVE SUMMARY")
-    print("="*60)
-    print(f"Successfully saved: {len(saved_files)} files")
-    for filename in saved_files:
-        print(f"  ✓ {filename}")
-    
-    if failed_files:
-        print(f"\nFailed to save: {len(failed_files)} files")
-        for filename in failed_files:
-            print(f"  ✗ {filename}")
-    
-    print(f"\nOutput directory: {output_dir}")
-    print(f"Total files in directory: {len(os.listdir(output_dir))}")
-    
-    # Show file details
-    print(f"\nFile details:")
-    for filename in os.listdir(output_dir):
-        filepath = os.path.join(output_dir, filename)
-        file_size = os.path.getsize(filepath) / 1024  # Size in KB
-        print(f"  {filename}: {file_size:.1f} KB")
-
 
 def main():
     """Main function for testing the transformer."""
@@ -884,9 +566,9 @@ def main():
         print("="*80)
         
         # Transform the data
-        df_equipamientos, df_vial = unidades_proyecto_transformer()
+        df_equipamientos = unidades_proyecto_transformer()
         
-        if df_equipamientos is not None and df_vial is not None:
+        if df_equipamientos is not None:
             print("\n" + "="*60)
             print("TRANSFORMATION COMPLETED SUCCESSFULLY")
             print("="*60)
@@ -896,23 +578,24 @@ def main():
             print(df_equipamientos.head(3))
             print(f"\nEquipamientos columns: {list(df_equipamientos.columns)}")
             
-            print(f"\nVial sample data:")
-            print(df_vial.head(3))
-            print(f"\nVial columns: {list(df_vial.columns)}")
+            # Save the processed data as GeoJSON
+            success = save_equipamientos_geojson(df_equipamientos)
             
-            # Save the processed data
-            save_geospatial_data(df_equipamientos, df_vial)
+            if success:
+                print("\n" + "="*60)
+                print("GEOJSON FILE SAVED SUCCESSFULLY")
+                print("="*60)
             
-            return df_equipamientos, df_vial
+            return df_equipamientos
         
         else:
             print("Error: Data transformation failed")
-            return None, None
+            return None
         
     except Exception as e:
         print(f"Error in transformation: {e}")
-        return None, None
+        return None
 
 
 if __name__ == "__main__":
-    df_equipamientos, df_vial = main()
+    df_equipamientos = main()
