@@ -35,6 +35,10 @@ try:
     DatosCaracteristicosProyecto = models.DatosCaracteristicosProyecto
     EjecucionPresupuestal = models.EjecucionPresupuestal
     MovimientoPresupuestal = models.MovimientoPresupuestal
+    ProcesoContratacionDacp = models.ProcesoContratacionDacp
+    OrdenCompraDacp = models.OrdenCompraDacp
+    PaaDacp = models.PaaDacp
+    EmpPaaDacp = models.EmpPaaDacp
     get_database_config = config.get_database_config
     test_connection = config.test_connection
     
@@ -897,6 +901,468 @@ def load_unidades_proyecto(
     return result
 
 
+# ============================================================================
+# DACP DATA LOADING FUNCTIONS
+# ============================================================================
+
+def validate_proceso_contratacion_dacp(record: Dict[str, Any]) -> bool:
+    """Validate proceso contratacion DACP record."""
+    required_fields = ['plataforma', 'referencia_proceso']
+    return all(record.get(field) is not None for field in required_fields)
+
+
+def create_proceso_contratacion_dacp_model(record: Dict[str, Any]) -> Optional[ProcesoContratacionDacp]:
+    """Create ProcesoContratacionDacp model from record."""
+    try:
+        return ProcesoContratacionDacp.from_json(record)
+    except Exception as e:
+        logger.warning(f"Failed to create ProcesoContratacionDacp model: {e}")
+        return None
+
+
+def validate_orden_compra_dacp(record: Dict[str, Any]) -> bool:
+    """Validate orden compra DACP record."""
+    required_fields = ['plataforma', 'referencia_contrato']
+    return all(record.get(field) is not None for field in required_fields)
+
+
+def create_orden_compra_dacp_model(record: Dict[str, Any]) -> Optional[OrdenCompraDacp]:
+    """Create OrdenCompraDacp model from record."""
+    try:
+        return OrdenCompraDacp.from_json(record)
+    except Exception as e:
+        logger.warning(f"Failed to create OrdenCompraDacp model: {e}")
+        return None
+
+
+def validate_paa_dacp(record: Dict[str, Any]) -> bool:
+    """Validate PAA DACP record."""
+    required_fields = ['descripcion', 'vigencia']
+    return all(record.get(field) is not None for field in required_fields)
+
+
+def create_paa_dacp_model(record: Dict[str, Any]) -> Optional[PaaDacp]:
+    """Create PaaDacp model from record."""
+    try:
+        return PaaDacp.from_json(record)
+    except Exception as e:
+        logger.warning(f"Failed to create PaaDacp model: {e}")
+        return None
+
+
+def validate_emp_paa_dacp(record: Dict[str, Any]) -> bool:
+    """Validate EMP PAA DACP record."""
+    required_fields = ['descripcion', 'vigencia', 'emprestito']
+    return all(record.get(field) is not None for field in required_fields)
+
+
+def create_emp_paa_dacp_model(record: Dict[str, Any]) -> Optional[EmpPaaDacp]:
+    """Create EmpPaaDacp model from record."""
+    try:
+        return EmpPaaDacp.from_json(record)
+    except Exception as e:
+        logger.warning(f"Failed to create EmpPaaDacp model: {e}")
+        return None
+
+
+def load_proceso_contratacion_dacp(
+    json_path: str,
+    batch_size: int = 100,
+    clear_existing: bool = False
+) -> Dict[str, Any]:
+    """
+    Load proceso contratacion DACP data from JSON to database.
+    
+    Args:
+        json_path: Path to the JSON file
+        batch_size: Number of records to insert per batch
+        clear_existing: Whether to clear existing data first
+        
+    Returns:
+        Dictionary with loading results
+    """
+    start_time = datetime.now()
+    
+    logger.info("="*80)
+    logger.info("BULK LOADING: PROCESOS CONTRATACION DACP")
+    logger.info("="*80)
+    
+    result = {
+        'start_time': start_time,
+        'success': False,
+        'total_records': 0,
+        'valid_records': 0,
+        'models_created': 0,
+        'successful_inserts': 0,
+        'failed_inserts': 0,
+        'errors': [],
+        'duration_seconds': 0
+    }
+    
+    try:
+        # Setup database
+        success, session, error = setup_database()
+        if not success:
+            result['errors'].append(f"Database setup failed: {error}")
+            return result
+        
+        # Clear existing data if requested
+        if clear_existing:
+            success, deleted_count, error = clear_existing_data(session, ProcesoContratacionDacp)
+            if not success:
+                result['errors'].append(f"Failed to clear existing data: {error}")
+                return result
+            result['deleted_records'] = deleted_count
+        
+        # Load data from JSON with metadata/datos structure
+        with open(json_path, 'r', encoding='utf-8') as f:
+            json_data = json.load(f)
+        
+        records = json_data.get('datos', [])
+        result['total_records'] = len(records)
+        
+        logger.info(f"📁 Loaded {len(records)} records from {json_path}")
+        
+        # Filter valid records
+        valid_records = list(filter(validate_proceso_contratacion_dacp, records))
+        result['valid_records'] = len(valid_records)
+        
+        logger.info(f"📊 Valid records: {len(valid_records)}/{len(records)}")
+        
+        # Create model instances
+        models = list(filter(None, map(create_proceso_contratacion_dacp_model, valid_records)))
+        result['models_created'] = len(models)
+        
+        logger.info(f"📊 Models created: {len(models)}")
+        
+        # Bulk insert
+        if models:
+            successful, failed, errors = bulk_insert_models(session, models, batch_size)
+            result['successful_inserts'] = successful
+            result['failed_inserts'] = failed
+            result['errors'].extend(errors)
+            
+            if successful > 0:
+                result['success'] = True
+        else:
+            result['errors'].append("No valid models created for insertion")
+        
+        session.close()
+        
+    except Exception as e:
+        error_msg = f"Unexpected error during loading: {e}"
+        logger.error(error_msg)
+        result['errors'].append(error_msg)
+        
+        if 'session' in locals():
+            session.close()
+    
+    # Calculate duration and log summary
+    end_time = datetime.now()
+    result['end_time'] = end_time
+    result['duration_seconds'] = (end_time - start_time).total_seconds()
+    
+    log_loading_summary(result)
+    
+    return result
+
+
+def load_orden_compra_dacp(
+    json_path: str,
+    batch_size: int = 100,
+    clear_existing: bool = False
+) -> Dict[str, Any]:
+    """
+    Load orden compra DACP data from JSON to database.
+    
+    Args:
+        json_path: Path to the JSON file
+        batch_size: Number of records to insert per batch
+        clear_existing: Whether to clear existing data first
+        
+    Returns:
+        Dictionary with loading results
+    """
+    start_time = datetime.now()
+    
+    logger.info("="*80)
+    logger.info("BULK LOADING: ORDENES COMPRA DACP")
+    logger.info("="*80)
+    
+    result = {
+        'start_time': start_time,
+        'success': False,
+        'total_records': 0,
+        'valid_records': 0,
+        'models_created': 0,
+        'successful_inserts': 0,
+        'failed_inserts': 0,
+        'errors': [],
+        'duration_seconds': 0
+    }
+    
+    try:
+        # Setup database
+        success, session, error = setup_database()
+        if not success:
+            result['errors'].append(f"Database setup failed: {error}")
+            return result
+        
+        # Clear existing data if requested
+        if clear_existing:
+            success, deleted_count, error = clear_existing_data(session, OrdenCompraDacp)
+            if not success:
+                result['errors'].append(f"Failed to clear existing data: {error}")
+                return result
+            result['deleted_records'] = deleted_count
+        
+        # Load data from JSON with metadata/datos structure
+        with open(json_path, 'r', encoding='utf-8') as f:
+            json_data = json.load(f)
+        
+        records = json_data.get('datos', [])
+        result['total_records'] = len(records)
+        
+        logger.info(f"📁 Loaded {len(records)} records from {json_path}")
+        
+        # Filter valid records
+        valid_records = list(filter(validate_orden_compra_dacp, records))
+        result['valid_records'] = len(valid_records)
+        
+        logger.info(f"📊 Valid records: {len(valid_records)}/{len(records)}")
+        
+        # Create model instances
+        models = list(filter(None, map(create_orden_compra_dacp_model, valid_records)))
+        result['models_created'] = len(models)
+        
+        logger.info(f"📊 Models created: {len(models)}")
+        
+        # Bulk insert
+        if models:
+            successful, failed, errors = bulk_insert_models(session, models, batch_size)
+            result['successful_inserts'] = successful
+            result['failed_inserts'] = failed
+            result['errors'].extend(errors)
+            
+            if successful > 0:
+                result['success'] = True
+        else:
+            result['errors'].append("No valid models created for insertion")
+        
+        session.close()
+        
+    except Exception as e:
+        error_msg = f"Unexpected error during loading: {e}"
+        logger.error(error_msg)
+        result['errors'].append(error_msg)
+        
+        if 'session' in locals():
+            session.close()
+    
+    # Calculate duration and log summary
+    end_time = datetime.now()
+    result['end_time'] = end_time
+    result['duration_seconds'] = (end_time - start_time).total_seconds()
+    
+    log_loading_summary(result)
+    
+    return result
+
+
+def load_paa_dacp(
+    json_path: str,
+    batch_size: int = 100,
+    clear_existing: bool = False
+) -> Dict[str, Any]:
+    """
+    Load PAA DACP data from JSON to database.
+    
+    Args:
+        json_path: Path to the JSON file
+        batch_size: Number of records to insert per batch
+        clear_existing: Whether to clear existing data first
+        
+    Returns:
+        Dictionary with loading results
+    """
+    start_time = datetime.now()
+    
+    logger.info("="*80)
+    logger.info("BULK LOADING: PAA DACP")
+    logger.info("="*80)
+    
+    result = {
+        'start_time': start_time,
+        'success': False,
+        'total_records': 0,
+        'valid_records': 0,
+        'models_created': 0,
+        'successful_inserts': 0,
+        'failed_inserts': 0,
+        'errors': [],
+        'duration_seconds': 0
+    }
+    
+    try:
+        # Setup database
+        success, session, error = setup_database()
+        if not success:
+            result['errors'].append(f"Database setup failed: {error}")
+            return result
+        
+        # Clear existing data if requested
+        if clear_existing:
+            success, deleted_count, error = clear_existing_data(session, PaaDacp)
+            if not success:
+                result['errors'].append(f"Failed to clear existing data: {error}")
+                return result
+            result['deleted_records'] = deleted_count
+        
+        # Load data from JSON (direct array format)
+        records = load_json_file(json_path)
+        result['total_records'] = len(records)
+        
+        # Filter valid records
+        valid_records = list(filter(validate_paa_dacp, records))
+        result['valid_records'] = len(valid_records)
+        
+        logger.info(f"📊 Valid records: {len(valid_records)}/{len(records)}")
+        
+        # Create model instances
+        models = list(filter(None, map(create_paa_dacp_model, valid_records)))
+        result['models_created'] = len(models)
+        
+        logger.info(f"📊 Models created: {len(models)}")
+        
+        # Bulk insert
+        if models:
+            successful, failed, errors = bulk_insert_models(session, models, batch_size)
+            result['successful_inserts'] = successful
+            result['failed_inserts'] = failed
+            result['errors'].extend(errors)
+            
+            if successful > 0:
+                result['success'] = True
+        else:
+            result['errors'].append("No valid models created for insertion")
+        
+        session.close()
+        
+    except Exception as e:
+        error_msg = f"Unexpected error during loading: {e}"
+        logger.error(error_msg)
+        result['errors'].append(error_msg)
+        
+        if 'session' in locals():
+            session.close()
+    
+    # Calculate duration and log summary
+    end_time = datetime.now()
+    result['end_time'] = end_time
+    result['duration_seconds'] = (end_time - start_time).total_seconds()
+    
+    log_loading_summary(result)
+    
+    return result
+
+
+def load_emp_paa_dacp(
+    json_path: str,
+    batch_size: int = 100,
+    clear_existing: bool = False
+) -> Dict[str, Any]:
+    """
+    Load EMP PAA DACP data from JSON to database.
+    
+    Args:
+        json_path: Path to the JSON file
+        batch_size: Number of records to insert per batch
+        clear_existing: Whether to clear existing data first
+        
+    Returns:
+        Dictionary with loading results
+    """
+    start_time = datetime.now()
+    
+    logger.info("="*80)
+    logger.info("BULK LOADING: EMP PAA DACP")
+    logger.info("="*80)
+    
+    result = {
+        'start_time': start_time,
+        'success': False,
+        'total_records': 0,
+        'valid_records': 0,
+        'models_created': 0,
+        'successful_inserts': 0,
+        'failed_inserts': 0,
+        'errors': [],
+        'duration_seconds': 0
+    }
+    
+    try:
+        # Setup database
+        success, session, error = setup_database()
+        if not success:
+            result['errors'].append(f"Database setup failed: {error}")
+            return result
+        
+        # Clear existing data if requested
+        if clear_existing:
+            success, deleted_count, error = clear_existing_data(session, EmpPaaDacp)
+            if not success:
+                result['errors'].append(f"Failed to clear existing data: {error}")
+                return result
+            result['deleted_records'] = deleted_count
+        
+        # Load data from JSON (direct array format)
+        records = load_json_file(json_path)
+        result['total_records'] = len(records)
+        
+        # Filter valid records
+        valid_records = list(filter(validate_emp_paa_dacp, records))
+        result['valid_records'] = len(valid_records)
+        
+        logger.info(f"📊 Valid records: {len(valid_records)}/{len(records)}")
+        
+        # Create model instances
+        models = list(filter(None, map(create_emp_paa_dacp_model, valid_records)))
+        result['models_created'] = len(models)
+        
+        logger.info(f"📊 Models created: {len(models)}")
+        
+        # Bulk insert
+        if models:
+            successful, failed, errors = bulk_insert_models(session, models, batch_size)
+            result['successful_inserts'] = successful
+            result['failed_inserts'] = failed
+            result['errors'].extend(errors)
+            
+            if successful > 0:
+                result['success'] = True
+        else:
+            result['errors'].append("No valid models created for insertion")
+        
+        session.close()
+        
+    except Exception as e:
+        error_msg = f"Unexpected error during loading: {e}"
+        logger.error(error_msg)
+        result['errors'].append(error_msg)
+        
+        if 'session' in locals():
+            session.close()
+    
+    # Calculate duration and log summary
+    end_time = datetime.now()
+    result['end_time'] = end_time
+    result['duration_seconds'] = (end_time - start_time).total_seconds()
+    
+    log_loading_summary(result)
+    
+    return result
+
+
 def load_all_available_data(clear_existing: bool = False) -> Dict[str, Dict[str, Any]]:
     """
     Load all available data from transformation outputs to database.
@@ -930,6 +1396,22 @@ def load_all_available_data(clear_existing: bool = False) -> Dict[str, Dict[str,
         'movimientos_presupuestales': {
             'path': 'transformation_app/app_outputs/ejecucion_presupuestal_outputs/movimientos_presupuestales.json',
             'loader': load_movimientos_presupuestales
+        },
+        'procesos_contratacion_dacp': {
+            'path': 'transformation_app/app_outputs/contratacion_dacp/procesos_contratacion_dacp.json',
+            'loader': load_proceso_contratacion_dacp
+        },
+        'ordenes_compra_dacp': {
+            'path': 'transformation_app/app_outputs/ordenes_compra_dacp/ordenes_compra_dacp.json',
+            'loader': load_orden_compra_dacp
+        },
+        'paa_dacp': {
+            'path': 'transformation_app/app_outputs/paa_dacp/paa_dacp.json',
+            'loader': load_paa_dacp
+        },
+        'emp_paa_dacp': {
+            'path': 'transformation_app/app_outputs/paa_dacp/emp_paa_dacp.json',
+            'loader': load_emp_paa_dacp
         }
     }
     
@@ -975,7 +1457,9 @@ if __name__ == "__main__":
     parser.add_argument('--clear', action='store_true', help='Clear existing data before loading')
     parser.add_argument('--data-type', 
                        choices=['unidades_proyecto', 'datos_caracteristicos_proyectos', 
-                               'ejecucion_presupuestal', 'movimientos_presupuestales', 'all'], 
+                               'ejecucion_presupuestal', 'movimientos_presupuestales',
+                               'procesos_contratacion_dacp', 'ordenes_compra_dacp',
+                               'paa_dacp', 'emp_paa_dacp', 'all'], 
                        default='all',
                        help='Type of data to load')
     parser.add_argument('--batch-size', type=int, default=100, help='Batch size for inserts')
@@ -1016,6 +1500,42 @@ if __name__ == "__main__":
             'transformation_app/app_outputs/ejecucion_presupuestal_outputs/movimientos_presupuestales.json'
         )
         result = load_movimientos_presupuestales(json_path, args.batch_size, args.clear)
+        sys.exit(0 if result['success'] else 1)
+        
+    elif args.data_type == 'procesos_contratacion_dacp':
+        json_path = os.path.join(
+            os.path.dirname(__file__), 
+            '..',
+            'transformation_app/app_outputs/contratacion_dacp/procesos_contratacion_dacp.json'
+        )
+        result = load_proceso_contratacion_dacp(json_path, args.batch_size, args.clear)
+        sys.exit(0 if result['success'] else 1)
+        
+    elif args.data_type == 'ordenes_compra_dacp':
+        json_path = os.path.join(
+            os.path.dirname(__file__), 
+            '..',
+            'transformation_app/app_outputs/ordenes_compra_dacp/ordenes_compra_dacp.json'
+        )
+        result = load_orden_compra_dacp(json_path, args.batch_size, args.clear)
+        sys.exit(0 if result['success'] else 1)
+        
+    elif args.data_type == 'paa_dacp':
+        json_path = os.path.join(
+            os.path.dirname(__file__), 
+            '..',
+            'transformation_app/app_outputs/paa_dacp/paa_dacp.json'
+        )
+        result = load_paa_dacp(json_path, args.batch_size, args.clear)
+        sys.exit(0 if result['success'] else 1)
+        
+    elif args.data_type == 'emp_paa_dacp':
+        json_path = os.path.join(
+            os.path.dirname(__file__), 
+            '..',
+            'transformation_app/app_outputs/paa_dacp/emp_paa_dacp.json'
+        )
+        result = load_emp_paa_dacp(json_path, args.batch_size, args.clear)
         sys.exit(0 if result['success'] else 1)
         
     else:  # args.data_type == 'all'
