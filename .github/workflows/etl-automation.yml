@@ -62,7 +62,9 @@ jobs:
         env:
           DATABASE_URL: ${{ secrets.RAILWAY_DATABASE_URL }}
         run: |
-          python3 .github/scripts/test_connection.py  data-extraction:
+          python3 .github/scripts/test_connection.py
+
+  data-extraction:
     name: Data Extraction
     runs-on: ubuntu-latest
     needs: health-check
@@ -288,21 +290,13 @@ jobs:
     if: always()
 
     steps:
-      - name: Determine status
-        run: |
-          if [ "${{ needs.health-check.result }}" = "success" ] && [ "${{ needs.data-loading.result }}" = "success" ]; then
-            echo "WORKFLOW_STATUS=success" >> $GITHUB_ENV
-            echo "STATUS_EMOJI=✅" >> $GITHUB_ENV
-            echo "STATUS_MESSAGE=ETL process completed successfully" >> $GITHUB_ENV
-          else
-            echo "WORKFLOW_STATUS=failure" >> $GITHUB_ENV
-            echo "STATUS_EMOJI=❌" >> $GITHUB_ENV
-            echo "STATUS_MESSAGE=ETL process failed" >> $GITHUB_ENV
-          fi
-
       - name: Log completion status
         run: |
-          echo "${{ env.STATUS_EMOJI }} ${{ env.STATUS_MESSAGE }}"
+          if [ "${{ needs.health-check.result }}" = "success" ] && [ "${{ needs.data-loading.result }}" = "success" ]; then
+            echo "✅ ETL process completed successfully"
+          else
+            echo "❌ ETL process failed"
+          fi
           echo "Timestamp: $(date)"
           echo "Trigger: ${{ github.event_name }}"
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
