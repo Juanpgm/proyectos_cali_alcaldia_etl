@@ -39,6 +39,10 @@ try:
     OrdenCompraDacp = models.OrdenCompraDacp
     PaaDacp = models.PaaDacp
     EmpPaaDacp = models.EmpPaaDacp
+    # User management models
+    Usuario = models.Usuario
+    Rol = models.Rol
+    TokenSeguridad = models.TokenSeguridad
     get_database_config = config.get_database_config
     test_connection = config.test_connection
     
@@ -297,6 +301,41 @@ def create_movimiento_presupuestal_model(record: Dict[str, Any]) -> Optional[Mov
         return None
 
 
+def initialize_default_roles(session: Session) -> None:
+    """
+    Initialize default roles in the database if they don't exist.
+    
+    Args:
+        session: Database session
+    """
+    try:
+        # Check if roles already exist
+        existing_roles = session.query(Rol).count()
+        
+        if existing_roles == 0:
+            logger.info("👥 Initializing default user roles...")
+            
+            # Create default roles
+            default_roles = [
+                Rol(id=1, nombre="Usuario básico", descripcion="Acceso básico de lectura a proyectos", nivel=1),
+                Rol(id=2, nombre="Supervisor", descripcion="Supervisión de proyectos y equipos", nivel=2),
+                Rol(id=3, nombre="Jefe", descripcion="Gestión de departamento y proyectos", nivel=3),
+                Rol(id=4, nombre="Director", descripcion="Dirección de secretaría/dependencia", nivel=4),
+                Rol(id=5, nombre="Admin", descripcion="Administración completa del sistema", nivel=5)
+            ]
+            
+            session.add_all(default_roles)
+            session.commit()
+            
+            logger.info(f"✅ Created {len(default_roles)} default roles")
+        else:
+            logger.info(f"ℹ️  Roles already exist ({existing_roles} roles found)")
+            
+    except Exception as e:
+        logger.error(f"❌ Error initializing default roles: {e}")
+        session.rollback()
+
+
 def setup_database(config=None) -> Tuple[bool, Optional[Session], Optional[str]]:
     """
     Setup database connection and create tables if needed.
@@ -333,6 +372,9 @@ def setup_database(config=None) -> Tuple[bool, Optional[Session], Optional[str]]
         # Create session
         SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
         session = SessionLocal()
+        
+        # Initialize default roles if they don't exist
+        initialize_default_roles(session)
         
         logger.info("✅ Database setup completed successfully")
         return True, session, None
@@ -1455,6 +1497,7 @@ if __name__ == "__main__":
     
     parser = argparse.ArgumentParser(description='Bulk load data to database')
     parser.add_argument('--clear', action='store_true', help='Clear existing data before loading')
+    parser.add_argument('--init-db', action='store_true', help='Initialize database tables and default data only')
     parser.add_argument('--data-type', 
                        choices=['unidades_proyecto', 'datos_caracteristicos_proyectos', 
                                'ejecucion_presupuestal', 'movimientos_presupuestales',
@@ -1465,6 +1508,18 @@ if __name__ == "__main__":
     parser.add_argument('--batch-size', type=int, default=100, help='Batch size for inserts')
     
     args = parser.parse_args()
+    
+    # Initialize database only
+    if args.init_db:
+        logger.info("🚀 Initializing database...")
+        success, session, error = setup_database()
+        if success:
+            session.close()
+            logger.info("✅ Database initialization completed successfully")
+            sys.exit(0)
+        else:
+            logger.error(f"❌ Database initialization failed: {error}")
+            sys.exit(1)
     
     if args.data_type == 'unidades_proyecto':
         geojson_path = os.path.join(

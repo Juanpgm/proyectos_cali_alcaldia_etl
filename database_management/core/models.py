@@ -4,11 +4,13 @@ Database models for ETL pipeline - Cali Municipality Projects
 This module contains SQLAlchemy models for storing project data extracted from various sources.
 """
 
-from sqlalchemy import Column, Integer, String, Float, Boolean, DateTime, Date, Text, BigInteger
+from sqlalchemy import Column, Integer, String, Float, Boolean, DateTime, Date, Text, BigInteger, ForeignKey, SmallInteger
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.sql import func
-from datetime import datetime, date
+from sqlalchemy.orm import relationship
+from datetime import datetime, date, timedelta
 from typing import Optional
+import uuid
 
 
 def safe_parse_date(date_value):
@@ -1307,6 +1309,322 @@ class EmpPaaDacp(Base):
         )
 
 
+# User Management Models
+# These models handle user authentication, authorization and security
+
+class Rol(Base):
+    """
+    Model for User Roles
+    
+    This model defines the 5 levels of access for the municipal project management system.
+    Provides flexibility for role-based access control (RBAC).
+    
+    Levels:
+    1 = Usuario básico (Basic User)
+    2 = Supervisor 
+    3 = Jefe (Manager)
+    4 = Director
+    5 = Admin (Administrator)
+    """
+    
+    __tablename__ = 'roles'
+    
+    # Primary Key
+    id = Column(SmallInteger, primary_key=True, comment="Role level (1-5)")
+    
+    # Role information
+    nombre = Column(String(50), unique=True, nullable=False, index=True,
+                   comment="Role name (e.g., Usuario básico, Admin)")
+    descripcion = Column(Text, nullable=True,
+                        comment="Detailed role description and permissions")
+    nivel = Column(SmallInteger, nullable=False, index=True,
+                  comment="Role hierarchy level (1=lowest, 5=highest)")
+    
+    # Metadata
+    creado_en = Column(DateTime, default=func.now(), nullable=False,
+                      comment="Role creation timestamp")
+    
+    # Relationships
+    usuarios = relationship("Usuario", back_populates="rol_info")
+    
+    def __repr__(self):
+        return f"<Rol(id={self.id}, nombre='{self.nombre}', nivel={self.nivel})>"
+    
+    @classmethod
+    def crear_roles_por_defecto(cls):
+        """Create default roles for the system"""
+        roles_por_defecto = [
+            cls(id=1, nombre="Usuario básico", descripcion="Acceso básico de lectura a proyectos", nivel=1),
+            cls(id=2, nombre="Supervisor", descripcion="Supervisión de proyectos y equipos", nivel=2),
+            cls(id=3, nombre="Jefe", descripcion="Gestión de departamento y proyectos", nivel=3),
+            cls(id=4, nombre="Director", descripcion="Dirección de secretaría/dependencia", nivel=4),
+            cls(id=5, nombre="Admin", descripcion="Administración completa del sistema", nivel=5)
+        ]
+        return roles_por_defecto
+
+
+class Usuario(Base):
+    """
+    Model for System Users
+    
+    This model handles user authentication, profile information and access control
+    for the municipal project management system. Supports multiple authentication
+    methods: local (username/password), Google OAuth, and phone verification.
+    
+    Authentication types:
+    - local: Username/email + password
+    - google: Google OAuth integration
+    - telefono: Phone number verification
+    """
+    
+    __tablename__ = 'usuarios'
+    
+    # Primary Key (UUID for scalability and security)
+    id = Column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()),
+               comment="Unique user identifier (UUID)")
+    
+    # Basic identification
+    username = Column(String(50), unique=True, nullable=False, index=True,
+                     comment="Unique username for login")
+    nombre_completo = Column(String(150), nullable=False,
+                           comment="Full name of the user")
+    email = Column(String(150), unique=True, nullable=True, index=True,
+                  comment="Email address (optional for phone-only accounts)")
+    telefono = Column(String(20), unique=True, nullable=True, index=True,
+                     comment="Phone number (optional for email-only accounts)")
+    nombre_centro_gestor = Column(String(150), nullable=True, index=True,
+                                comment="Management center/department name")
+    foto_url = Column(Text, nullable=True,
+                     comment="Profile picture URL")
+    
+    # Authentication
+    password_hash = Column(Text, nullable=True,
+                          comment="Password hash (bcrypt/argon2) - only for local auth")
+    google_id = Column(String(255), unique=True, nullable=True, index=True,
+                      comment="Google OAuth identifier")
+    autenticacion_tipo = Column(String(20), default='local', nullable=False, index=True,
+                               comment="Authentication type: local|google|telefono")
+    
+    # Roles and permissions
+    rol = Column(SmallInteger, ForeignKey('roles.id'), nullable=False, default=1, index=True,
+                comment="User role level (1=Basic, 5=Admin)")
+    
+    # Security and control
+    estado = Column(Boolean, default=True, nullable=False, index=True,
+                   comment="Account status (active/inactive)")
+    verificado = Column(Boolean, default=False, nullable=False, index=True,
+                       comment="Email/phone verification status")
+    ultimo_login = Column(DateTime, nullable=True,
+                         comment="Last login timestamp")
+    
+    # Audit timestamps
+    creado_en = Column(DateTime, default=func.now(), nullable=False,
+                      comment="Account creation timestamp")
+    actualizado_en = Column(DateTime, default=func.now(), onupdate=func.now(), nullable=False,
+                           comment="Last account update timestamp")
+    
+    # Relationships
+    rol_info = relationship("Rol", back_populates="usuarios")
+    tokens_seguridad = relationship("TokenSeguridad", back_populates="usuario", cascade="all, delete-orphan")
+    
+    def __repr__(self):
+        return f"<Usuario(username='{self.username}', nombre='{self.nombre_completo}', rol={self.rol})>"
+    
+    def to_dict(self, include_sensitive=False) -> dict:
+        """
+        Convert user instance to dictionary.
+        
+        Args:
+            include_sensitive: Include sensitive fields like password_hash
+            
+        Returns:
+            Dictionary representation of user
+        """
+        user_dict = {
+            'id': self.id,
+            'username': self.username,
+            'nombre_completo': self.nombre_completo,
+            'email': self.email,
+            'telefono': self.telefono,
+            'nombre_centro_gestor': self.nombre_centro_gestor,
+            'foto_url': self.foto_url,
+            'autenticacion_tipo': self.autenticacion_tipo,
+            'rol': self.rol,
+            'estado': self.estado,
+            'verificado': self.verificado,
+            'ultimo_login': self.ultimo_login,
+            'creado_en': self.creado_en,
+            'actualizado_en': self.actualizado_en
+        }
+        
+        if include_sensitive:
+            user_dict.update({
+                'password_hash': self.password_hash,
+                'google_id': self.google_id
+            })
+            
+        return user_dict
+    
+    @classmethod
+    def from_dict(cls, data: dict) -> 'Usuario':
+        """Create user instance from dictionary data"""
+        return cls(
+            username=data.get('username'),
+            nombre_completo=data.get('nombre_completo'),
+            email=data.get('email'),
+            telefono=data.get('telefono'),
+            nombre_centro_gestor=data.get('nombre_centro_gestor'),
+            foto_url=data.get('foto_url'),
+            password_hash=data.get('password_hash'),
+            google_id=data.get('google_id'),
+            autenticacion_tipo=data.get('autenticacion_tipo', 'local'),
+            rol=data.get('rol', 1),
+            estado=data.get('estado', True),
+            verificado=data.get('verificado', False)
+        )
+    
+    @property
+    def es_activo(self) -> bool:
+        """Check if user account is active"""
+        return self.estado is True
+    
+    @property
+    def es_verificado(self) -> bool:
+        """Check if user account is verified"""
+        return self.verificado is True
+    
+    @property
+    def puede_acceder(self) -> bool:
+        """Check if user can access the system"""
+        return self.es_activo and self.es_verificado
+    
+    @property
+    def es_admin(self) -> bool:
+        """Check if user has admin privileges (level 5)"""
+        return self.rol == 5
+    
+    @property
+    def es_director(self) -> bool:
+        """Check if user has director level or higher (level 4+)"""
+        return self.rol >= 4
+    
+    @property
+    def nivel_acceso(self) -> str:
+        """Get access level description"""
+        niveles = {
+            1: "Usuario básico",
+            2: "Supervisor", 
+            3: "Jefe",
+            4: "Director",
+            5: "Admin"
+        }
+        return niveles.get(self.rol, "Desconocido")
+
+
+class TokenSeguridad(Base):
+    """
+    Model for Security Tokens
+    
+    This model handles various security tokens for password recovery, 
+    email/phone verification, and multi-factor authentication (MFA).
+    
+    Token types:
+    - reset_password: Password reset tokens
+    - verificacion_email: Email verification tokens  
+    - verificacion_telefono: Phone verification tokens
+    - mfa: Multi-factor authentication tokens
+    """
+    
+    __tablename__ = 'tokens_seguridad'
+    
+    # Primary Key (UUID for security)
+    id = Column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()),
+               comment="Unique token identifier (UUID)")
+    
+    # User reference
+    usuario_id = Column(String(36), ForeignKey('usuarios.id', ondelete='CASCADE'), 
+                       nullable=False, index=True,
+                       comment="Reference to user who owns this token")
+    
+    # Token data
+    token = Column(Text, nullable=False,
+                  comment="The actual token string (should be hashed)")
+    tipo = Column(String(50), nullable=False, index=True,
+                 comment="Token type: reset_password|verificacion_email|verificacion_telefono|mfa")
+    expiracion = Column(DateTime, nullable=False, index=True,
+                       comment="Token expiration timestamp")
+    usado = Column(Boolean, default=False, nullable=False, index=True,
+                  comment="Whether token has been used")
+    
+    # Audit timestamp
+    creado_en = Column(DateTime, default=func.now(), nullable=False,
+                      comment="Token creation timestamp")
+    
+    # Relationships
+    usuario = relationship("Usuario", back_populates="tokens_seguridad")
+    
+    def __repr__(self):
+        return f"<TokenSeguridad(tipo='{self.tipo}', usuario_id='{self.usuario_id}', usado={self.usado})>"
+    
+    @property
+    def es_valido(self) -> bool:
+        """Check if token is still valid (not used and not expired)"""
+        return not self.usado and datetime.utcnow() < self.expiracion
+    
+    @property
+    def esta_expirado(self) -> bool:
+        """Check if token has expired"""
+        return datetime.utcnow() >= self.expiracion
+    
+    def marcar_usado(self):
+        """Mark token as used"""
+        self.usado = True
+    
+    @classmethod
+    def crear_token_reset_password(cls, usuario_id: str, token: str, duracion_horas: int = 24) -> 'TokenSeguridad':
+        """Create password reset token"""
+        expiracion = datetime.utcnow() + timedelta(hours=duracion_horas)
+        return cls(
+            usuario_id=usuario_id,
+            token=token,
+            tipo='reset_password',
+            expiracion=expiracion
+        )
+    
+    @classmethod
+    def crear_token_verificacion_email(cls, usuario_id: str, token: str, duracion_horas: int = 48) -> 'TokenSeguridad':
+        """Create email verification token"""
+        expiracion = datetime.utcnow() + timedelta(hours=duracion_horas)
+        return cls(
+            usuario_id=usuario_id,
+            token=token,
+            tipo='verificacion_email',
+            expiracion=expiracion
+        )
+    
+    @classmethod
+    def crear_token_verificacion_telefono(cls, usuario_id: str, token: str, duracion_minutos: int = 10) -> 'TokenSeguridad':
+        """Create phone verification token (SMS codes are short-lived)"""
+        expiracion = datetime.utcnow() + timedelta(minutes=duracion_minutos)
+        return cls(
+            usuario_id=usuario_id,
+            token=token,
+            tipo='verificacion_telefono',
+            expiracion=expiracion
+        )
+    
+    @classmethod
+    def crear_token_mfa(cls, usuario_id: str, token: str, duracion_minutos: int = 5) -> 'TokenSeguridad':
+        """Create MFA token (very short-lived)"""
+        expiracion = datetime.utcnow() + timedelta(minutes=duracion_minutos)
+        return cls(
+            usuario_id=usuario_id,
+            token=token,
+            tipo='mfa',
+            expiracion=expiracion
+        )
+
+
 # Export the models for easier importing
 __all__ = ['Base', 'UnidadProyecto', 'DatosCaracteristicosProyecto', 'EjecucionPresupuestal', 'MovimientoPresupuestal', 
-           'ProcesoContratacionDacp', 'OrdenCompraDacp', 'PaaDacp', 'EmpPaaDacp']
+           'ProcesoContratacionDacp', 'OrdenCompraDacp', 'PaaDacp', 'EmpPaaDacp', 'Usuario', 'Rol', 'TokenSeguridad']

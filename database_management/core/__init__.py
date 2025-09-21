@@ -16,8 +16,8 @@ from .config import DatabaseConfig, get_database_config, test_connection, valida
 from .database_manager import DatabaseManager, create_database_manager
 
 # Integrated monitoring, reporting, and schema analysis
-# from .monitoring import monitor_database, MonitoringReport, MonitoringStatus  # Commented out
-# from .reporting import generate_database_report, ReportType, DatabaseReport  # Commented out
+from .monitoring import monitor_database, MonitoringReport, MonitoringStatus
+from .reporting import generate_database_report, ReportType, DatabaseReport
 
 # Convenience imports for common operations
 from datetime import datetime, timedelta
