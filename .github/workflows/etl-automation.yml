@@ -62,13 +62,12 @@ jobs:
         env:
           DATABASE_URL: ${{ secrets.RAILWAY_DATABASE_URL }}
         run: |
-          python -c "
+          # Test database connection using Python
+          python3 -c "
           import os
           import psycopg2
-          from urllib.parse import urlparse
 
           try:
-              # Test Railway database connection
               database_url = os.getenv('DATABASE_URL')
               if not database_url:
                   print('❌ DATABASE_URL not configured')
@@ -83,23 +82,19 @@ jobs:
               conn.close()
               
               print(f'✅ Database connection successful: {version[:50]}...')
-              
-              # Write to GitHub output file
-              github_output = os.getenv('GITHUB_OUTPUT')
-              if github_output:
-                  with open(github_output, 'a') as f:
-                      f.write('healthy=true\n')
+              print('Connection test passed')
               
           except Exception as e:
               print(f'❌ Database connection failed: {e}')
-              
-              # Write to GitHub output file
-              github_output = os.getenv('GITHUB_OUTPUT')
-              if github_output:
-                  with open(github_output, 'a') as f:
-                      f.write('healthy=false\n')
               exit(1)
           "
+
+          # Set output using shell command (more reliable)
+          if [ $? -eq 0 ]; then
+            echo "healthy=true" >> $GITHUB_OUTPUT
+          else
+            echo "healthy=false" >> $GITHUB_OUTPUT
+          fi
 
   data-extraction:
     name: Data Extraction
