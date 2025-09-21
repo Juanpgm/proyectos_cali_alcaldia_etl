@@ -100,28 +100,32 @@ def get_database_config() -> DatabaseConfig:
     """
     Get database configuration from environment variables.
     
-    Busca variables en este orden de prioridad:
-    1. Variables específicas del entorno seleccionado (DB_ENVIRONMENT)
-    2. Variables específicas del ETL (DB_*)
-    3. Variables estándar PostgreSQL (POSTGRES_*)
-    4. Valores por defecto
+    Prioridad de configuración:
+    1. DATABASE_URL (Railway autodeployment compatible)
+    2. Variables individuales locales (fallback)
     
     Returns:
         DatabaseConfig: Immutable configuration object
     """
-    # Obtener el entorno seleccionado (local por defecto)
-    environment = os.getenv("DB_ENVIRONMENT", "local").lower()
+    # Detectar si estamos en Railway usando DATABASE_URL
+    database_url = os.getenv("DATABASE_URL")
     
-    if environment == "railway":
-        # Usar variables específicas de Railway
-        host = os.getenv("RAILWAY_POSTGRES_SERVER", "localhost")
-        port = int(os.getenv("RAILWAY_POSTGRES_PORT", "5432"))
-        database = os.getenv("RAILWAY_POSTGRES_DB", "railway")
-        user = os.getenv("RAILWAY_POSTGRES_USER", "postgres")
-        password = os.getenv("RAILWAY_POSTGRES_PASSWORD", "")
-        print(f"🚂 Configuración Railway seleccionada")
+    if database_url:
+        print(f"🚂 Configuración Railway detectada via DATABASE_URL")
+        # Railway proporciona DATABASE_URL completa
+        return DatabaseConfig(
+            database_url=database_url,
+            schema=os.getenv("DB_SCHEMA", "public"),
+            pool_size=int(os.getenv("DB_POOL_SIZE", "5")),
+            max_overflow=int(os.getenv("DB_MAX_OVERFLOW", "10")),
+            timeout=int(os.getenv("DB_TIMEOUT", "30")),
+            enable_postgis=os.getenv("ENABLE_POSTGIS", "true").lower() == "true",
+            postgis_version=os.getenv("POSTGIS_VERSION", "3.3")
+        )
     else:
-        # Usar variables locales (comportamiento original)
+        # Configuración local usando variables individuales
+        print(f"🏠 Configuración local detectada")
+        
         host = (os.getenv("DB_HOST") or 
                 os.getenv("POSTGRES_SERVER") or 
                 "localhost")
@@ -141,33 +145,30 @@ def get_database_config() -> DatabaseConfig:
         password = (os.getenv("DB_PASSWORD") or 
                     os.getenv("POSTGRES_PASSWORD") or 
                     "postgres")
-        print(f"🏠 Configuración local seleccionada")
-    
-    # Mostrar configuración detectada (sin password)
-    print(f"🔧 Configuración de BD detectada:")
-    print(f"   Entorno: {environment}")
-    print(f"   Host: {host}")
-    print(f"   Puerto: {port}")
-    print(f"   Base de datos: {database}")
-    print(f"   Usuario: {user}")
-    print(f"   Password: {'*' * len(password) if password else '(no configurado)'}")
-    
-    return DatabaseConfig(
-        host=host,
-        port=port,
-        database=database,
-        user=user,
-        password=password,
-        schema=os.getenv("DB_SCHEMA", "public"),
-        database_url=os.getenv("DATABASE_URL"),
         
-        pool_size=int(os.getenv("DB_POOL_SIZE", "5")),
-        max_overflow=int(os.getenv("DB_MAX_OVERFLOW", "10")),
-        timeout=int(os.getenv("DB_TIMEOUT", "30")),
+        # Mostrar configuración detectada (sin password)
+        print(f"🔧 Configuración de BD local:")
+        print(f"   Host: {host}")
+        print(f"   Puerto: {port}")
+        print(f"   Base de datos: {database}")
+        print(f"   Usuario: {user}")
+        print(f"   Password: {'*' * len(password) if password else '(no configurado)'}")
         
-        enable_postgis=os.getenv("ENABLE_POSTGIS", "true").lower() == "true",
-        postgis_version=os.getenv("POSTGIS_VERSION", "3.3")
-    )
+        return DatabaseConfig(
+            host=host,
+            port=port,
+            database=database,
+            user=user,
+            password=password,
+            schema=os.getenv("DB_SCHEMA", "public"),
+            
+            pool_size=int(os.getenv("DB_POOL_SIZE", "5")),
+            max_overflow=int(os.getenv("DB_MAX_OVERFLOW", "10")),
+            timeout=int(os.getenv("DB_TIMEOUT", "30")),
+            
+            enable_postgis=os.getenv("ENABLE_POSTGIS", "true").lower() == "true",
+            postgis_version=os.getenv("POSTGIS_VERSION", "3.3")
+        )
 
 
 def validate_config(config: DatabaseConfig) -> bool:
@@ -266,18 +267,32 @@ def test_connection(config: DatabaseConfig = None) -> bool:
         import psycopg2
         
         print(f"🔍 Probando conexión a PostgreSQL...")
-        print(f"   Host: {config.host}:{config.port}")
-        print(f"   Base de datos: {config.database}")
-        print(f"   Usuario: {config.user}")
         
-        conn = psycopg2.connect(
-            host=config.host,
-            port=config.port,
-            database=config.database,
-            user=config.user,
-            password=config.password,
-            connect_timeout=10
-        )
+        if config.database_url:
+            print(f"   Usando DATABASE_URL")
+            # Parsear DATABASE_URL para mostrar info básica
+            from urllib.parse import urlparse
+            parsed = urlparse(config.database_url)
+            print(f"   Host: {parsed.hostname}:{parsed.port}")
+            print(f"   Base de datos: {parsed.path[1:] if parsed.path else 'N/A'}")
+            print(f"   Usuario: {parsed.username}")
+            
+            # Conectar usando URL completa
+            import psycopg2
+            conn = psycopg2.connect(config.database_url)
+        else:
+            print(f"   Host: {config.host}:{config.port}")
+            print(f"   Base de datos: {config.database}")
+            print(f"   Usuario: {config.user}")
+            
+            conn = psycopg2.connect(
+                host=config.host,
+                port=config.port,
+                database=config.database,
+                user=config.user,
+                password=config.password,
+                connect_timeout=10
+            )
         
         cursor = conn.cursor()
         cursor.execute("SELECT version();")
@@ -295,7 +310,10 @@ def test_connection(config: DatabaseConfig = None) -> bool:
         return False
     except Exception as e:
         print(f"❌ Error de conexión: {e}")
-        print(f"   Verifica que PostgreSQL esté ejecutándose en {config.host}:{config.port}")
-        print(f"   Verifica que la base de datos '{config.database}' exista")
-        print(f"   Verifica las credenciales del usuario '{config.user}'")
+        if config.database_url:
+            print(f"   Verifica que DATABASE_URL sea válida")
+        else:
+            print(f"   Verifica que PostgreSQL esté ejecutándose en {config.host}:{config.port}")
+            print(f"   Verifica que la base de datos '{config.database}' exista")
+            print(f"   Verifica las credenciales del usuario '{config.user}'")
         return False

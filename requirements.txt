@@ -1,5 +1,5 @@
 # Dependencias para las aplicaciones de transformación y extracción
-# Eliminadas todas las referencias a FastAPI
+# FastAPI y Railway compatible
 
 # =========================================================================
 # PROCESAMIENTO DE DATOS
@@ -47,7 +47,7 @@ webdriver-manager==4.0.1
 pytest==7.4.4
 
 # =========================================================================
-# DATABASE MANAGEMENT Y ETL SYSTEM (Nuevas dependencias)
+# DATABASE MANAGEMENT Y ETL SYSTEM
 # =========================================================================
 sqlalchemy>=2.0.0
 geoalchemy2>=0.18.0
@@ -55,6 +55,12 @@ psycopg2-binary>=2.9.0
 click>=8.0.0
 rich>=13.0.0
 pydantic>=2.0.0
+
+# =========================================================================
+# FASTAPI Y SERVIDOR WEB PARA RAILWAY
+# =========================================================================
+fastapi>=0.100.0
+uvicorn[standard]>=0.23.0
 
 # =========================================================================
 # NOTAS DE DEPENDENCIAS BUILT-IN DE PYTHON (NO REQUIEREN INSTALACIÓN)

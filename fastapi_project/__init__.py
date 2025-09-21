@@ -1,0 +1,1 @@
+# Empty __init__.py file to make fastapi_project a Python package
