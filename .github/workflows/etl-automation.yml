@@ -83,11 +83,21 @@ jobs:
               conn.close()
               
               print(f'✅ Database connection successful: {version[:50]}...')
-              print('healthy=true' >> '$GITHUB_OUTPUT')
+              
+              # Write to GitHub output file
+              github_output = os.getenv('GITHUB_OUTPUT')
+              if github_output:
+                  with open(github_output, 'a') as f:
+                      f.write('healthy=true\n')
               
           except Exception as e:
               print(f'❌ Database connection failed: {e}')
-              print('healthy=false' >> '$GITHUB_OUTPUT')
+              
+              # Write to GitHub output file
+              github_output = os.getenv('GITHUB_OUTPUT')
+              if github_output:
+                  with open(github_output, 'a') as f:
+                      f.write('healthy=false\n')
               exit(1)
           "
 
