@@ -62,41 +62,7 @@ jobs:
         env:
           DATABASE_URL: ${{ secrets.RAILWAY_DATABASE_URL }}
         run: |
-          # Test database connection using Python
-          python3 -c "
-          import os
-          import psycopg2
-
-          try:
-              database_url = os.getenv('DATABASE_URL')
-              if not database_url:
-                  print('❌ DATABASE_URL not configured')
-                  exit(1)
-              
-              conn = psycopg2.connect(database_url)
-              cursor = conn.cursor()
-              cursor.execute('SELECT version();')
-              version = cursor.fetchone()[0]
-              
-              cursor.close()
-              conn.close()
-              
-              print(f'✅ Database connection successful: {version[:50]}...')
-              print('Connection test passed')
-              
-          except Exception as e:
-              print(f'❌ Database connection failed: {e}')
-              exit(1)
-          "
-
-          # Set output using shell command (more reliable)
-          if [ $? -eq 0 ]; then
-            echo "healthy=true" >> $GITHUB_OUTPUT
-          else
-            echo "healthy=false" >> $GITHUB_OUTPUT
-          fi
-
-  data-extraction:
+          python3 .github/scripts/test_connection.py  data-extraction:
     name: Data Extraction
     runs-on: ubuntu-latest
     needs: health-check
