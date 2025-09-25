@@ -57,6 +57,11 @@ env:
   PYTHON_VERSION: "3.12"
   POETRY_VERSION: "1.7.1"
 
+# Permisos necesarios para Workload Identity Federation
+permissions:
+  contents: read
+  id-token: write
+
 jobs:
   # Job 1: Preparación y validación del ambiente
   setup-environment:
@@ -241,16 +246,14 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: 🔐 Setup Google Cloud Credentials
+      - name: 🔐 Authenticate with Google Cloud
         uses: google-github-actions/auth@v2
         with:
-          credentials_json: ${{ secrets.GOOGLE_CLOUD_SERVICE_ACCOUNT_KEY }}
-          project_id: ${{ secrets.FIREBASE_PROJECT_ID }}
+          workload_identity_provider: ${{ secrets.WIF_PROVIDER }}
+          service_account: ${{ secrets.WIF_SERVICE_ACCOUNT }}
 
       - name: ☁️ Setup Google Cloud SDK
         uses: google-github-actions/setup-gcloud@v2
-        with:
-          project_id: ${{ secrets.FIREBASE_PROJECT_ID }}
 
       - name: 🏗️ Create Output Directories
         run: |

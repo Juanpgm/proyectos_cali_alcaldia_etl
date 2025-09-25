@@ -25,6 +25,11 @@ on:
 env:
   PYTHON_VERSION: "3.12"
 
+# Permisos necesarios para Workload Identity Federation
+permissions:
+  contents: read
+  id-token: write
+
 jobs:
   unidades-proyecto-refresh:
     name: 🏗️ Refresh Unidades de Proyecto
