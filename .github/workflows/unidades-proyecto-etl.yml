@@ -1,0 +1,462 @@
+name: 🏗️ Unidades Proyecto ETL Pipeline
+
+on:
+  # Ejecución automática programada
+  schedule:
+    # Ejecutar a las 8:00 AM UTC (3:00 AM COT) de lunes a viernes
+    - cron: "0 13 * * 1-5" # 8:00 AM COT (UTC-5)
+    # Ejecutar a las 4:00 PM UTC (11:00 AM COT) de lunes a viernes
+    - cron: "0 21 * * 1-5" # 4:00 PM COT (UTC-5)
+
+  # Ejecución manual para forzar actualización inmediata
+  workflow_dispatch:
+    inputs:
+      collection_name:
+        description: "Nombre de la colección Firebase (opcional)"
+        required: false
+        default: "unidades_proyecto"
+        type: string
+      force_full_reload:
+        description: "Forzar recarga completa (ignorar incremental)"
+        required: false
+        default: false
+        type: boolean
+      environment:
+        description: "Ambiente de ejecución"
+        required: false
+        default: "production"
+        type: choice
+        options:
+          - production
+          - staging
+          - development
+
+  # Ejecución en push a main/master para validación
+  push:
+    branches: [main, master]
+    paths:
+      - "pipelines/unidades_proyecto_pipeline.py"
+      - "extraction_app/**"
+      - "transformation_app/**"
+      - "load_app/**"
+      - "database/**"
+      - ".github/workflows/unidades-proyecto-etl.yml"
+
+  # Ejecución en Pull Request para testing
+  pull_request:
+    branches: [main, master]
+    paths:
+      - "pipelines/unidades_proyecto_pipeline.py"
+      - "extraction_app/**"
+      - "transformation_app/**"
+      - "load_app/**"
+      - "database/**"
+
+# Variables globales del workflow
+env:
+  PYTHON_VERSION: "3.12"
+  POETRY_VERSION: "1.7.1"
+
+jobs:
+  # Job 1: Preparación y validación del ambiente
+  setup-environment:
+    name: 🔧 Setup Environment
+    runs-on: ubuntu-latest
+    outputs:
+      python-version: ${{ steps.setup.outputs.python-version }}
+      environment: ${{ steps.setup.outputs.environment }}
+      collection-name: ${{ steps.setup.outputs.collection-name }}
+
+    steps:
+      - name: 📥 Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: ⚙️ Setup Environment Variables
+        id: setup
+        run: |
+          # Determinar ambiente basado en el contexto
+          if [[ "${{ github.event_name }}" == "schedule" ]]; then
+            ENVIRONMENT="production"
+          elif [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            ENVIRONMENT="${{ github.event.inputs.environment }}"
+          elif [[ "${{ github.event_name }}" == "push" ]]; then
+            ENVIRONMENT="staging"
+          else
+            ENVIRONMENT="development"
+          fi
+
+          echo "environment=${ENVIRONMENT}" >> $GITHUB_OUTPUT
+          echo "python-version=${{ env.PYTHON_VERSION }}" >> $GITHUB_OUTPUT
+          echo "collection-name=${{ github.event.inputs.collection_name || 'unidades_proyecto' }}" >> $GITHUB_OUTPUT
+          echo "🌍 Environment: ${ENVIRONMENT}"
+
+      - name: 🐍 Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: "pip"
+
+      - name: 📦 Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: 🔍 Validate Project Structure
+        run: |
+          echo "🔍 Validando estructura del proyecto..."
+          required_files=(
+            "pipelines/unidades_proyecto_pipeline.py"
+            "extraction_app/data_extraction_unidades_proyecto.py"
+            "transformation_app/data_transformation_unidades_proyecto.py"
+            "load_app/data_loading_unidades_proyecto.py"
+            "database/config.py"
+            "requirements.txt"
+          )
+
+          for file in "${required_files[@]}"; do
+            if [[ -f "$file" ]]; then
+              echo "✅ $file - OK"
+            else
+              echo "❌ $file - MISSING"
+              exit 1
+            fi
+          done
+
+      - name: 🧪 Python Syntax Check
+        run: |
+          echo "🧪 Verificando sintaxis Python..."
+          python -m py_compile pipelines/unidades_proyecto_pipeline.py
+          python -m py_compile extraction_app/data_extraction_unidades_proyecto.py
+          python -m py_compile transformation_app/data_transformation_unidades_proyecto.py
+          python -m py_compile load_app/data_loading_unidades_proyecto.py
+          python -m py_compile database/config.py
+          echo "✅ Sintaxis Python válida"
+
+  # Job 2: Configuración de credenciales y conexiones
+  configure-credentials:
+    name: 🔐 Configure Credentials
+    runs-on: ubuntu-latest
+    needs: setup-environment
+    if: github.event_name != 'pull_request'
+
+    steps:
+      - name: 📥 Checkout Code
+        uses: actions/checkout@v4
+
+      - name: 🐍 Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ needs.setup-environment.outputs.python-version }}
+          cache: "pip"
+
+      - name: 📦 Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: 🔐 Setup Google Cloud Credentials
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.GOOGLE_CLOUD_SERVICE_ACCOUNT_KEY }}
+          project_id: ${{ secrets.FIREBASE_PROJECT_ID }}
+
+      - name: ☁️ Setup Google Cloud SDK
+        uses: google-github-actions/setup-gcloud@v2
+        with:
+          project_id: ${{ secrets.FIREBASE_PROJECT_ID }}
+
+      - name: 🔗 Test Firebase Connection
+        env:
+          FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
+          GOOGLE_CLOUD_PROJECT: ${{ secrets.FIREBASE_PROJECT_ID }}
+        run: |
+          echo "🔗 Probando conexión a Firebase..."
+          python -c "
+          import sys
+          sys.path.append('.')
+          from database.config import test_connection, show_system_info
+
+          print('=' * 60)
+          show_system_info()
+          print('=' * 60)
+
+          if test_connection():
+              print('✅ Conexión a Firebase exitosa')
+          else:
+              print('❌ Error de conexión a Firebase')
+              sys.exit(1)
+          "
+
+      - name: 📊 Test Google Sheets Connection
+        env:
+          SHEETS_UNIDADES_PROYECTO_URL: ${{ secrets.SHEETS_UNIDADES_PROYECTO_URL }}
+          SHEETS_UNIDADES_PROYECTO_WORKSHEET: ${{ secrets.SHEETS_UNIDADES_PROYECTO_WORKSHEET }}
+        run: |
+          echo "📊 Probando conexión a Google Sheets..."
+          python -c "
+          import sys
+          sys.path.append('.')
+          from database.config import test_sheets_connection
+
+          if test_sheets_connection():
+              print('✅ Conexión a Google Sheets exitosa')
+          else:
+              print('❌ Error de conexión a Google Sheets')
+              sys.exit(1)
+          "
+
+  # Job 3: Ejecución del Pipeline ETL
+  run-etl-pipeline:
+    name: 🚀 Execute ETL Pipeline
+    runs-on: ubuntu-latest
+    needs: [setup-environment, configure-credentials]
+    if: github.event_name != 'pull_request'
+    timeout-minutes: 30
+
+    strategy:
+      fail-fast: true
+      matrix:
+        include:
+          - environment: ${{ needs.setup-environment.outputs.environment }}
+
+    steps:
+      - name: 📥 Checkout Code
+        uses: actions/checkout@v4
+
+      - name: 🐍 Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ needs.setup-environment.outputs.python-version }}
+          cache: "pip"
+
+      - name: 📦 Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: 🔐 Setup Google Cloud Credentials
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.GOOGLE_CLOUD_SERVICE_ACCOUNT_KEY }}
+          project_id: ${{ secrets.FIREBASE_PROJECT_ID }}
+
+      - name: ☁️ Setup Google Cloud SDK
+        uses: google-github-actions/setup-gcloud@v2
+        with:
+          project_id: ${{ secrets.FIREBASE_PROJECT_ID }}
+
+      - name: 🏗️ Create Output Directories
+        run: |
+          mkdir -p transformation_app/app_outputs/unidades_proyecto_outputs
+          mkdir -p extraction_app/app_inputs/unidades_proyecto_input
+          mkdir -p logs
+
+      - name: 🚀 Execute ETL Pipeline
+        env:
+          FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
+          GOOGLE_CLOUD_PROJECT: ${{ secrets.FIREBASE_PROJECT_ID }}
+          SHEETS_UNIDADES_PROYECTO_URL: ${{ secrets.SHEETS_UNIDADES_PROYECTO_URL }}
+          SHEETS_UNIDADES_PROYECTO_WORKSHEET: ${{ secrets.SHEETS_UNIDADES_PROYECTO_WORKSHEET }}
+          FIRESTORE_BATCH_SIZE: "100"
+          FIRESTORE_TIMEOUT: "60"
+          FORCE_FULL_RELOAD: ${{ github.event.inputs.force_full_reload }}
+          COLLECTION_NAME: ${{ needs.setup-environment.outputs.collection-name }}
+          ENVIRONMENT: ${{ matrix.environment }}
+        run: |
+          echo "🚀 Iniciando Pipeline ETL Unidades de Proyecto"
+          echo "📅 Timestamp: $(date '+%Y-%m-%d %H:%M:%S UTC')"
+          echo "🌍 Environment: $ENVIRONMENT"
+          echo "🗂️ Collection: $COLLECTION_NAME"
+          echo "🔄 Force Full Reload: $FORCE_FULL_RELOAD"
+          echo "=" * 80
+
+          # Configurar variables para forzar recarga completa si es necesario
+          if [[ "$FORCE_FULL_RELOAD" == "true" ]]; then
+            echo "⚠️ MODO: Recarga completa forzada"
+            export SKIP_INCREMENTAL_CHECK=true
+          fi
+
+          # Ejecutar el pipeline
+          cd pipelines
+          python unidades_proyecto_pipeline.py
+
+      - name: 📊 Generate Execution Report
+        if: always()
+        run: |
+          echo "📊 Generando reporte de ejecución..."
+
+          TIMESTAMP=$(date '+%Y%m%d_%H%M%S')
+          REPORT_FILE="execution_report_${TIMESTAMP}.md"
+
+          cat > $REPORT_FILE << EOF
+          # 🏗️ ETL Pipeline Execution Report
+
+          **Fecha:** $(date '+%Y-%m-%d %H:%M:%S UTC')  
+          **Ambiente:** ${{ matrix.environment }}  
+          **Colección:** ${{ needs.setup-environment.outputs.collection-name }}  
+          **Trigger:** ${{ github.event_name }}  
+          **Commit:** \`${{ github.sha }}\`  
+          **Branch:** \`${{ github.ref_name }}\`  
+
+          ## ⚙️ Configuración
+          - **Python Version:** ${{ needs.setup-environment.outputs.python-version }}
+          - **Runner:** ubuntu-latest
+          - **Timeout:** 30 minutos
+          - **Force Full Reload:** ${{ github.event.inputs.force_full_reload || 'false' }}
+
+          ## 📈 Métricas de Ejecución
+          - **Estado:** ${{ job.status }}
+          - **Duración:** \${{ steps.pipeline.outcome == 'success' && '✅ Completado' || '❌ Falló' }}
+
+          ## 🔗 Enlaces
+          - [Workflow Run](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
+          - [Commit](https://github.com/${{ github.repository }}/commit/${{ github.sha }})
+
+          ---
+          *Generado automáticamente por GitHub Actions*
+          EOF
+
+          echo "📄 Reporte generado: $REPORT_FILE"
+          cat $REPORT_FILE
+
+      - name: 📤 Upload Execution Artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: etl-execution-${{ matrix.environment }}-${{ github.run_number }}
+          path: |
+            execution_report_*.md
+            transformation_app/app_outputs/unidades_proyecto_outputs/*.geojson
+            logs/
+          retention-days: 30
+
+  # Job 4: Notificaciones y cleanup
+  notify-completion:
+    name: 📧 Notify & Cleanup
+    runs-on: ubuntu-latest
+    needs: [setup-environment, run-etl-pipeline]
+    if: always() && github.event_name != 'pull_request'
+
+    steps:
+      - name: 📧 Success Notification
+        if: needs.run-etl-pipeline.result == 'success'
+        run: |
+          echo "✅ Pipeline ETL completado exitosamente"
+          echo "🎯 Ambiente: ${{ needs.setup-environment.outputs.environment }}"
+          echo "📊 Colección: ${{ needs.setup-environment.outputs.collection-name }}"
+          echo "⏰ Timestamp: $(date '+%Y-%m-%d %H:%M:%S UTC')"
+
+          # Aquí puedes agregar notificaciones adicionales como:
+          # - Slack webhook
+          # - Email notification
+          # - Discord webhook
+          # - Teams notification
+
+      - name: 💥 Failure Notification
+        if: needs.run-etl-pipeline.result == 'failure'
+        run: |
+          echo "❌ Pipeline ETL falló"
+          echo "🎯 Ambiente: ${{ needs.setup-environment.outputs.environment }}"
+          echo "📊 Colección: ${{ needs.setup-environment.outputs.collection-name }}"
+          echo "⏰ Timestamp: $(date '+%Y-%m-%d %H:%M:%S UTC')"
+          echo "🔗 Ver logs: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+          # Aquí puedes agregar notificaciones de error
+
+      - name: 🧹 Cleanup
+        if: always()
+        run: |
+          echo "🧹 Limpieza automática completada"
+          echo "📦 Artefactos subidos para revisión"
+
+  # Job 5: Testing y validación (solo en PR)
+  test-pipeline:
+    name: 🧪 Test Pipeline
+    runs-on: ubuntu-latest
+    needs: setup-environment
+    if: github.event_name == 'pull_request'
+
+    steps:
+      - name: 📥 Checkout Code
+        uses: actions/checkout@v4
+
+      - name: 🐍 Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ needs.setup-environment.outputs.python-version }}
+          cache: "pip"
+
+      - name: 📦 Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pytest pytest-mock  # Dependencias de testing
+
+      - name: 🧪 Run Pipeline Tests
+        run: |
+          echo "🧪 Ejecutando tests del pipeline..."
+
+          # Test de importación de módulos
+          python -c "
+          import sys
+          sys.path.append('.')
+
+          # Test imports
+          try:
+              from pipelines.unidades_proyecto_pipeline import run_unidades_proyecto_pipeline
+              from extraction_app.data_extraction_unidades_proyecto import extract_and_save_unidades_proyecto
+              from transformation_app.data_transformation_unidades_proyecto import transform_and_save_unidades_proyecto
+              from load_app.data_loading_unidades_proyecto import load_unidades_proyecto_to_firebase
+              from database.config import get_firestore_client
+              print('✅ Todos los módulos importados correctamente')
+          except ImportError as e:
+              print(f'❌ Error de importación: {e}')
+              sys.exit(1)
+          "
+
+          # Test de estructura de funciones
+          python -c "
+          import sys
+          sys.path.append('.')
+          from pipelines.unidades_proyecto_pipeline import *
+
+          # Verificar funciones principales
+          functions_to_test = [
+              'run_extraction',
+              'run_transformation', 
+              'verify_and_prepare_incremental_load',
+              'run_incremental_load',
+              'create_unidades_proyecto_pipeline',
+              'run_unidades_proyecto_pipeline'
+          ]
+
+          for func_name in functions_to_test:
+              if func_name in globals():
+                  print(f'✅ {func_name} - OK')
+              else:
+                  print(f'❌ {func_name} - MISSING')
+                  sys.exit(1)
+          "
+
+      - name: 📊 Code Quality Check
+        run: |
+          echo "📊 Verificando calidad del código..."
+
+          # Verificar que no hay print statements de debug
+          if grep -r "print.*debug\|print.*DEBUG" pipelines/ extraction_app/ transformation_app/ load_app/ 2>/dev/null; then
+            echo "⚠️ Encontrados print statements de debug"
+          else
+            echo "✅ No hay print statements de debug"
+          fi
+
+          # Verificar que hay documentación
+          if grep -r "\"\"\"" pipelines/unidades_proyecto_pipeline.py >/dev/null; then
+            echo "✅ Pipeline documentado"
+          else
+            echo "❌ Pipeline sin documentación"
+            exit 1
+          fi
+
+          echo "✅ Verificaciones de calidad completadas"

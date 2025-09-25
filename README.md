@@ -1,30 +1,52 @@
-# 🏛️ Proyectos Cali Alcaldía ETL
+# �️ ETL Pipeline - Proyectos Cali Alcaldía
 
-Sistema ETL para gestión de datos de proyectos presupuestales de la Alcaldía de Santiago de Cali.
+Pipeline automatizado de **Extracción, Transformación y Carga (ETL)** para datos de unidades de proyecto de la Alcaldía de Cali. Implementa programación funcional, carga incremental y ejecución automatizada con GitHub Actions.
+
+## 🎯 Características Principales
+
+- **🔄 Automatización Completa**: Ejecución automática 2 veces al día (8:00 AM y 4:00 PM COT)
+- **⚡ Carga Incremental**: Solo procesa datos nuevos o modificados
+- **🔐 Seguridad**: Credenciales encriptadas con GitHub Secrets
+- **📊 Monitoreo**: Health checks automáticos y reportes detallados
+- **🎮 Control Manual**: Ejecutar pipeline manualmente cuando sea necesario
+- **🏗️ Programación Funcional**: Código limpio, eficiente y reutilizable
 
 ## 🚀 Inicio Rápido
 
-### 1. Configurar Firebase
+### 1. Configuración Inicial
 
 ```bash
-# Seguir la guía rápida
-python database/config.py
+# Clonar repositorio
+git clone https://github.com/Juanpgm/proyectos_cali_alcaldia_etl.git
+cd proyectos_cali_alcaldia_etl
+
+# Instalar dependencias
+pip install -r requirements.txt
+
+# Configurar repositorio
+python fix_repository.py
 ```
 
-### 2. Cargar datos
+### 2. Configurar Secrets
 
-```bash
-# Cargar proyectos presupuestales
-python load_app/data_loading_bp.py
-```
+Sigue la guía detallada en [`.github/SECRETS_SETUP.md`](.github/SECRETS_SETUP.md) para configurar:
 
-### 3. Verificar
+- Service Account de Google Cloud
+- Acceso a Firebase Firestore
+- Permisos de Google Sheets
+
+### 3. Ejecutar Pipeline Local
+
+````bash
+# Ejecutar pipeline completo
+cd pipelines
+python unidades_proyecto_pipeline.py
 
 ```bash
 # Los datos están en Firebase Firestore
 # Proyecto: dev-test-e778d
 # Colección: proyectos_presupuestales
-```
+````
 
 ## 📚 Documentación
 
