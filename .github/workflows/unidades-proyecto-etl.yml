@@ -255,6 +255,13 @@ jobs:
       - name: ☁️ Setup Google Cloud SDK
         uses: google-github-actions/setup-gcloud@v2
 
+      - name: 📊 Setup Google Sheets Service Account
+        run: |
+          echo "Setting up Google Sheets service account..."
+          echo '${{ secrets.SHEETS_SERVICE_ACCOUNT_JSON }}' > sheets-service-account.json
+          export GOOGLE_APPLICATION_CREDENTIALS="sheets-service-account.json"
+          echo "GOOGLE_APPLICATION_CREDENTIALS=sheets-service-account.json" >> $GITHUB_ENV
+
       - name: 🏗️ Create Output Directories
         run: |
           mkdir -p transformation_app/app_outputs/unidades_proyecto_outputs
@@ -262,6 +269,7 @@ jobs:
           mkdir -p logs
 
       - name: 🚀 Execute ETL Pipeline
+        id: pipeline
         env:
           FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
           GOOGLE_CLOUD_PROJECT: ${{ secrets.FIREBASE_PROJECT_ID }}
@@ -316,7 +324,7 @@ jobs:
 
           ## 📈 Métricas de Ejecución
           - **Estado:** ${{ job.status }}
-          - **Duración:** \${{ steps.pipeline.outcome == 'success' && '✅ Completado' || '❌ Falló' }}
+          - **Resultado:** ${{ steps.pipeline.outcome == 'success' && '✅ Completado' || '❌ Falló' }}
 
           ## 🔗 Enlaces
           - [Workflow Run](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
