@@ -274,8 +274,8 @@ jobs:
         run: |
           echo "Setting up Google Sheets service account..."
           echo '${{ secrets.SHEETS_SERVICE_ACCOUNT_JSON }}' > sheets-service-account.json
-          export GOOGLE_APPLICATION_CREDENTIALS="sheets-service-account.json"
-          echo "GOOGLE_APPLICATION_CREDENTIALS=sheets-service-account.json" >> $GITHUB_ENV
+          chmod 600 sheets-service-account.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=$(pwd)/sheets-service-account.json" >> $GITHUB_ENV
 
       - name: 🏗️ Setup Logging
         run: |
@@ -289,6 +289,7 @@ jobs:
           GOOGLE_CLOUD_PROJECT: ${{ secrets.FIREBASE_PROJECT_ID }}
           SHEETS_UNIDADES_PROYECTO_URL: ${{ secrets.SHEETS_UNIDADES_PROYECTO_URL }}
           SHEETS_UNIDADES_PROYECTO_WORKSHEET: ${{ secrets.SHEETS_UNIDADES_PROYECTO_WORKSHEET }}
+          SHEETS_SERVICE_ACCOUNT_FILE: ./sheets-service-account.json
           FIRESTORE_BATCH_SIZE: "100"
           FIRESTORE_TIMEOUT: "60"
           FORCE_FULL_RELOAD: ${{ github.event.inputs.force_full_reload }}
@@ -308,8 +309,8 @@ jobs:
             export SKIP_INCREMENTAL_CHECK=true
           fi
 
-          # Ejecutar el nuevo pipeline sin archivos temporales
-          python pipelines/unidades_proyecto_inmemory_pipeline.py
+          # Ejecutar el pipeline tradicional que funciona
+          python pipelines/unidades_proyecto_pipeline.py
 
       - name: 📊 Generate Execution Report
         if: always()
@@ -396,6 +397,7 @@ jobs:
       - name: 🧹 Cleanup
         if: always()
         run: |
+          rm -f sheets-service-account.json  
           echo "🧹 Limpieza automática completada"
           echo "📦 Artefactos subidos para revisión"
 
