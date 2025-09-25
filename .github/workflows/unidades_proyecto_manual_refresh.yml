@@ -69,6 +69,69 @@ jobs:
           gcloud config list
           echo "✅ Autenticación verificada"
 
+      - name: ⚙️ Configure Service Account Permissions
+        run: |
+          echo "⚙️ Configurando permisos automáticamente..."
+          
+          # Variables
+          PROJECT_ID="${{ secrets.FIREBASE_PROJECT_ID }}"
+          SERVICE_ACCOUNT="${{ secrets.WIF_SERVICE_ACCOUNT }}"
+          
+          echo "📋 Project: $PROJECT_ID"
+          echo "🔐 Service Account: $SERVICE_ACCOUNT"
+          
+          # Función para verificar y aplicar permisos
+          apply_permission() {
+            local role=$1
+            local description=$2
+            echo "🔧 Aplicando $description ($role)..."
+            
+            if gcloud projects add-iam-policy-binding "$PROJECT_ID" \
+              --member="serviceAccount:$SERVICE_ACCOUNT" \
+              --role="$role" \
+              --quiet > /dev/null 2>&1; then
+              echo "✅ $description aplicado correctamente"
+            else
+              echo "⚠️ $description ya existe o error aplicando"
+            fi
+          }
+          
+          # Función para aplicar permisos de service account
+          apply_sa_permission() {
+            local role=$1
+            local member=$2
+            local description=$3
+            echo "🔧 Aplicando $description ($role)..."
+            
+            if gcloud iam service-accounts add-iam-policy-binding "$SERVICE_ACCOUNT" \
+              --role="$role" \
+              --member="$member" \
+              --project="$PROJECT_ID" \
+              --quiet > /dev/null 2>&1; then
+              echo "✅ $description aplicado correctamente"
+            else
+              echo "⚠️ $description ya existe o error aplicando"
+            fi
+          }
+          
+          # Obtener project number para WIF
+          PROJECT_NUMBER=$(gcloud projects describe "$PROJECT_ID" --format="value(projectNumber)")
+          
+          # Aplicar permisos del proyecto
+          apply_permission "roles/iam.serviceAccountTokenCreator" "Token Creator"
+          apply_permission "roles/iam.serviceAccountUser" "Service Account User"
+          apply_permission "roles/datastore.owner" "Firestore Admin"
+          apply_permission "roles/firebase.admin" "Firebase Admin"
+          
+          # Aplicar auto-impersonación
+          apply_sa_permission "roles/iam.serviceAccountTokenCreator" "serviceAccount:$SERVICE_ACCOUNT" "Auto-impersonación"
+          
+          # Aplicar Workload Identity binding
+          WIF_MEMBER="principalSet://iam.googleapis.com/projects/$PROJECT_NUMBER/locations/global/workloadIdentityPools/github-pool/attribute.repository/Juanpgm/proyectos_cali_alcaldia_etl"
+          apply_sa_permission "roles/iam.workloadIdentityUser" "$WIF_MEMBER" "Workload Identity"
+          
+          echo "🎉 Configuración de permisos completada"
+
       - name: 🔧 Setup Sheets Service Account
         run: |
           echo '${{ secrets.SHEETS_SERVICE_ACCOUNT_JSON }}' > sheets-service-account.json
