@@ -18,6 +18,8 @@ lib64/
 parts/
 sdist/
 var/
+transformation_app/app_inputs/
+transformation_app/app_outputs/
 wheels/
 *.egg-info/
 .installed.cfg
