@@ -171,6 +171,7 @@ jobs:
       - name: 🔧 Setup Google Sheets Service Account
         run: |
           echo '${{ secrets.SHEETS_SERVICE_ACCOUNT_JSON }}' > sheets-service-account.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=$(pwd)/sheets-service-account.json" >> $GITHUB_ENV
 
       - name: ☁️ Setup Google Cloud SDK
         uses: google-github-actions/setup-gcloud@v2
@@ -412,7 +413,7 @@ jobs:
           echo "🌍 Environment: $ENVIRONMENT"
           echo "🗂️ Collection: $COLLECTION_NAME"
           echo "🔄 Force Full Reload: $FORCE_FULL_RELOAD"
-          echo "=" * 80
+          echo "================================================================================"
 
           # Configurar variables para forzar recarga completa si es necesario
           if [[ "$FORCE_FULL_RELOAD" == "true" ]]; then

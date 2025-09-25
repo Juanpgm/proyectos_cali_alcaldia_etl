@@ -136,6 +136,7 @@ jobs:
         run: |
           echo '${{ secrets.SHEETS_SERVICE_ACCOUNT_JSON }}' > sheets-service-account.json
           chmod 600 sheets-service-account.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=$(pwd)/sheets-service-account.json" >> $GITHUB_ENV
 
       - name: 🚀 Execute Unidades Proyecto Pipeline
         env:
@@ -153,7 +154,7 @@ jobs:
           echo "🧪 Test Mode: $TEST_MODE"
           echo "🔄 Force Full Sync: $FORCE_FULL_SYNC"
           echo "🐛 Debug Mode: $DEBUG_MODE"
-          echo "=" * 80
+          echo "================================================================================"
 
           # Crear script de ejecución
           cat > run_refresh.py << 'EOF'
