@@ -24,6 +24,15 @@ class TempFileManager:
         """Initialize with optional base directory."""
         self.base_dir = Path(base_dir) if base_dir else Path.cwd()
         self.temp_dirs: List[Path] = []
+        self.temp_files: List[Path] = []
+    
+    def __enter__(self):
+        """Enter context manager."""
+        return self
+    
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        """Exit context manager with cleanup."""
+        self.cleanup_all()
     
     @contextmanager
     def temp_directory(self, prefix: str = "etl_temp_"):
@@ -34,6 +43,24 @@ class TempFileManager:
             yield temp_dir
         finally:
             self._cleanup_directory(temp_dir)
+    
+    def create_temp_file(self, filename: str, content: str) -> Path:
+        """Create a temporary file with given content."""
+        temp_dir = Path(tempfile.mkdtemp(prefix="etl_temp_"))
+        self.temp_dirs.append(temp_dir)
+        temp_file = temp_dir / filename
+        temp_file.write_text(content, encoding='utf-8')
+        self.temp_files.append(temp_file)
+        return temp_file
+    
+    def create_temp_directory(self, name: str = None) -> Path:
+        """Create a temporary directory."""
+        if name:
+            temp_dir = Path(tempfile.mkdtemp(prefix=f"etl_{name}_"))
+        else:
+            temp_dir = Path(tempfile.mkdtemp(prefix="etl_temp_"))
+        self.temp_dirs.append(temp_dir)
+        return temp_dir
     
     def _cleanup_directory(self, directory: Path) -> None:
         """Safely remove temporary directory."""
@@ -49,6 +76,7 @@ class TempFileManager:
         for temp_dir in self.temp_dirs:
             self._cleanup_directory(temp_dir)
         self.temp_dirs.clear()
+        self.temp_files.clear()
     
     def __enter__(self):
         """Context manager entry."""
