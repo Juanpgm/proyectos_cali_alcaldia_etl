@@ -110,20 +110,48 @@ jobs:
               print("🔗 Probando conexiones...")
               
               try:
+                  import os
+                  # Configurar logging para GitHub Actions
+                  os.environ.setdefault('SECURE_LOGGING', 'false')
+                  
                   from database.config import test_connection, test_sheets_connection
                   
-                  # Test Firebase
-                  firebase_ok = test_connection()
-                  print(f"🔥 Firebase: {'✅ OK' if firebase_ok else '❌ FAIL'}")
+                  # Test Firebase con mejor manejo de errores
+                  print("🔥 Probando conexión a Firebase...")
+                  try:
+                      firebase_ok = test_connection()
+                      if firebase_ok:
+                          print("🔥 Firebase: ✅ OK")
+                      else:
+                          print("🔥 Firebase: ❌ FAIL")
+                  except Exception as firebase_error:
+                      print(f"🔥 Firebase: ❌ ERROR - {firebase_error}")
+                      firebase_ok = False
                   
                   # Test Google Sheets
-                  sheets_ok = test_sheets_connection()
-                  print(f"📊 Sheets: {'✅ OK' if sheets_ok else '❌ FAIL'}")
+                  print("📊 Probando conexión a Google Sheets...")
+                  try:
+                      sheets_ok = test_sheets_connection()
+                      if sheets_ok:
+                          print("📊 Sheets: ✅ OK")
+                      else:
+                          print("📊 Sheets: ❌ FAIL")
+                  except Exception as sheets_error:
+                      print(f"📊 Sheets: ❌ ERROR - {sheets_error}")
+                      sheets_ok = False
                   
-                  return firebase_ok and sheets_ok
+                  # Resultado final
+                  if firebase_ok and sheets_ok:
+                      print("✅ Todas las conexiones OK")
+                      return True
+                  else:
+                      print("❌ Algunas conexiones fallaron")
+                      return False
                   
               except Exception as e:
-                  print(f"❌ Error probando conexiones: {e}")
+                  print(f"❌ Error general probando conexiones: {e}")
+                  import traceback
+                  traceback.print_exc()
                   return False
 
           def run_pipeline():
