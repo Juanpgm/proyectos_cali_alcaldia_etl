@@ -1,0 +1,6 @@
+# Dependencias principales para Firebase ETL
+firebase-admin>=6.0.0
+python-dotenv>=1.0.0
+
+# Dependencias opcionales para desarrollo
+requests>=2.28.0

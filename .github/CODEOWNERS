@@ -1,0 +1,19 @@
+# Code Owners para ETL Pipeline
+# Ver: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Pipeline principal
+/pipelines/ @Juanpgm
+
+# Aplicaciones ETL
+/extraction_app/ @Juanpgm
+/transformation_app/ @Juanpgm  
+/load_app/ @Juanpgm
+
+# Configuración de base de datos
+/database/ @Juanpgm
+
+# GitHub Actions workflows
+/.github/workflows/ @Juanpgm
+
+# Documentación
+*.md @Juanpgm
