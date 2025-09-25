@@ -153,3 +153,5 @@ Thumbs.db
 # Temporary files
 *.tmp
 *.temp
+transformation_app/app_inputs/
+transformation_app/app_outputs/
