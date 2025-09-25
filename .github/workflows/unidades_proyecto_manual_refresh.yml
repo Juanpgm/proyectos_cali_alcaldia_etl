@@ -59,6 +59,15 @@ jobs:
 
       - name: ☁️ Setup Google Cloud SDK
         uses: google-github-actions/setup-gcloud@v2
+        with:
+          project_id: ${{ secrets.FIREBASE_PROJECT_ID }}
+
+      - name: 🔍 Verify Google Cloud Authentication
+        run: |
+          echo "🔍 Verificando autenticación..."
+          gcloud auth list
+          gcloud config list
+          echo "✅ Autenticación verificada"
 
       - name: 🔧 Setup Sheets Service Account
         run: |
