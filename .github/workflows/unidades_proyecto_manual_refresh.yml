@@ -232,10 +232,11 @@ jobs:
                       os.environ['SECURE_LOGGING'] = 'false'
                       print("🐛 Modo debug activado")
                   
-                  # Importar y ejecutar pipeline
-                  from pipelines.unidades_proyecto_pipeline import run_unidades_proyecto_pipeline
+                  # Importar y ejecutar pipeline (nueva versión sin archivos temporales)
+                  from pipelines.unidades_proyecto_inmemory_pipeline import run_inmemory_pipeline
                   
-                  success = run_unidades_proyecto_pipeline()
+                  # Usar el pipeline en memoria que no requiere archivos temporales
+                  success = run_inmemory_pipeline()
                   
                   if success:
                       print("✅ Pipeline ejecutado exitosamente")
@@ -308,7 +309,6 @@ jobs:
           name: unidades-proyecto-refresh-logs-${{ github.run_number }}
           path: |
             *.log
-            transformation_app/app_outputs/unidades_proyecto_outputs/*.geojson
           retention-days: 7
 
       - name: ✅ Success Notification

@@ -271,6 +271,46 @@ def create_extraction_pipeline() -> Callable[[str, str], Optional[pd.DataFrame]]
     return extraction_pipeline
 
 
+def extract_unidades_proyecto_data(
+    sheet_url: str = None,
+    worksheet_name: str = None
+) -> Optional[pd.DataFrame]:
+    """
+    Extract unidades de proyecto data directly to memory (no file saving).
+    Perfect for in-memory processing without temporary files.
+    
+    Args:
+        sheet_url: Google Sheets URL (uses config if None)
+        worksheet_name: Worksheet name (uses config if None)
+        
+    Returns:
+        DataFrame with extracted data or None if failed
+    """
+    
+    # Use centralized configuration if parameters not provided
+    if sheet_url is None:
+        sheet_url = SHEETS_CONFIG['unidades_proyecto']['url']
+    if worksheet_name is None:
+        worksheet_name = SHEETS_CONFIG['unidades_proyecto']['worksheet']
+    
+    print("🚀 Extracting data directly to memory (no temporary files)")
+    
+    # Create extraction pipeline
+    extract_data = create_extraction_pipeline()
+    
+    # Extract data
+    df = extract_data(sheet_url, worksheet_name)
+    
+    if df is not None:
+        print(f"✓ Extraction completed successfully!")
+        print(f"  - Records extracted: {len(df)}")
+        print(f"  - Data ready for in-memory processing")
+        return df
+    else:
+        print(f"✗ Data extraction failed")
+        return None
+
+
 def extract_and_save_unidades_proyecto(
     sheet_url: str = None,
     worksheet_name: str = None

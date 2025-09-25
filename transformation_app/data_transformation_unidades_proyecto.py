@@ -5,12 +5,18 @@ Implements functional programming patterns for clean, scalable, and reusable tra
 """
 
 import os
+import sys
 import pandas as pd
 import json
 import numpy as np
 from typing import Optional, Dict, List, Any, Tuple, Union, Callable
 from datetime import datetime
 from functools import reduce, partial, wraps
+from pathlib import Path
+
+# Add utils to path for temp file manager
+sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'utils'))
+from temp_file_manager import process_in_memory, TempFileManager
 
 
 # Functional programming utilities
@@ -576,19 +582,37 @@ def load_json_data(file_path: str) -> Optional[pd.DataFrame]:
         return None
 
 
-def unidades_proyecto_transformer(data_directory: str = "app_inputs/unidades_proyecto_input") -> Optional[pd.DataFrame]:
+def unidades_proyecto_transformer(
+    data_directory: str = "app_inputs/unidades_proyecto_input", 
+    data: Optional[Union[List[Dict], pd.DataFrame]] = None
+) -> Optional[pd.DataFrame]:
     """
     Transform project units data using functional programming approach.
-    Loads JSON data and processes it for geospatial visualization.
+    Can work with either file-based data or in-memory data for better flexibility.
     
     Args:
-        data_directory: Path to the directory containing JSON files
+        data_directory: Path to the directory containing JSON files (fallback)
+        data: Optional in-memory data to process directly
         
     Returns:
         DataFrame with processed unidades de proyecto data or None if failed
     """
     
-    # Get the absolute path to the data directory
+    # If data is provided in memory, process it directly (no temp files needed)
+    if data is not None:
+        print("🚀 Processing data in memory (no temporary files)")
+        if isinstance(data, list):
+            df = pd.DataFrame(data)
+        elif isinstance(data, pd.DataFrame):
+            df = data.copy()
+        else:
+            print(f"❌ Unsupported data type: {type(data)}")
+            return None
+        
+        return process_in_memory(df, _process_unidades_proyecto_dataframe)
+    
+    # Fallback to file-based processing if no in-memory data provided
+    print(f"📁 Processing data from files in: {data_directory}")
     current_dir = os.path.dirname(os.path.abspath(__file__))
     directory_path = os.path.join(current_dir, data_directory)
     
@@ -610,9 +634,21 @@ def unidades_proyecto_transformer(data_directory: str = "app_inputs/unidades_pro
     if df_unidades_proyecto is None:
         return None
     
-    # ================================
-    # FUNCTIONAL DATA PROCESSING PIPELINE
-    # ================================
+    # Process using the internal function
+    return _process_unidades_proyecto_dataframe(df_unidades_proyecto)
+
+
+def _process_unidades_proyecto_dataframe(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Internal function to process unidades proyecto dataframe using functional pipeline.
+    This function can be used with both file-based and in-memory processing.
+    
+    Args:
+        df: Input dataframe to process
+        
+    Returns:
+        Processed dataframe
+    """
     print("\n" + "="*60)
     print("PROCESSING UNIDADES DE PROYECTO DATA")
     print("="*60)
@@ -628,7 +664,7 @@ def unidades_proyecto_transformer(data_directory: str = "app_inputs/unidades_pro
     
     # Apply the complete processing pipeline
     print("Applying functional processing pipeline...")
-    processed_df = processing_pipeline(df_unidades_proyecto)
+    processed_df = processing_pipeline(df)
     
     print(f"✓ Processing completed: {len(processed_df)} rows, {len(processed_df.columns)} columns")
     
@@ -642,8 +678,8 @@ def unidades_proyecto_transformer(data_directory: str = "app_inputs/unidades_pro
     print(f"\nUnidades de Proyecto:")
     print(f"  Rows: {len(processed_df)}")
     print(f"  Total columns: {len(processed_df.columns)}")
-    print(f"  Original columns preserved: {len([col for col in df_unidades_proyecto.columns if col in processed_df.columns])}")
-    print(f"  New computed columns: {len([col for col in processed_df.columns if col not in df_unidades_proyecto.columns])}")
+    print(f"  Original columns preserved: {len([col for col in df.columns if col in processed_df.columns])}")
+    print(f"  New computed columns: {len([col for col in processed_df.columns if col not in df.columns])}")
     print(f"  Valid geometries: {processed_df['geometry_type'].notna().sum()}")
     
     # Show column summary

@@ -389,11 +389,10 @@ jobs:
           export GOOGLE_APPLICATION_CREDENTIALS="sheets-service-account.json"
           echo "GOOGLE_APPLICATION_CREDENTIALS=sheets-service-account.json" >> $GITHUB_ENV
 
-      - name: 🏗️ Create Output Directories
+      - name: 🏗️ Setup Logging
         run: |
-          mkdir -p transformation_app/app_outputs/unidades_proyecto_outputs
-          mkdir -p extraction_app/app_inputs/unidades_proyecto_input
           mkdir -p logs
+          echo "📁 Directorio de logs creado (no se requieren directorios temporales con el nuevo pipeline)"
 
       - name: 🚀 Execute ETL Pipeline
         id: pipeline
@@ -421,9 +420,8 @@ jobs:
             export SKIP_INCREMENTAL_CHECK=true
           fi
 
-          # Ejecutar el pipeline
-          cd pipelines
-          python unidades_proyecto_pipeline.py
+          # Ejecutar el nuevo pipeline sin archivos temporales
+          python pipelines/unidades_proyecto_inmemory_pipeline.py
 
       - name: 📊 Generate Execution Report
         if: always()
@@ -471,7 +469,6 @@ jobs:
           name: etl-execution-${{ matrix.environment }}-${{ github.run_number }}
           path: |
             execution_report_*.md
-            transformation_app/app_outputs/unidades_proyecto_outputs/*.geojson
             logs/
           retention-days: 30
 
@@ -548,7 +545,7 @@ jobs:
 
           # Test imports
           try:
-              from pipelines.unidades_proyecto_pipeline import run_unidades_proyecto_pipeline
+              from pipelines.unidades_proyecto_inmemory_pipeline import run_inmemory_pipeline
               from extraction_app.data_extraction_unidades_proyecto import extract_and_save_unidades_proyecto
               from transformation_app.data_transformation_unidades_proyecto import transform_and_save_unidades_proyecto
               from load_app.data_loading_unidades_proyecto import load_unidades_proyecto_to_firebase
@@ -563,16 +560,12 @@ jobs:
           python -c "
           import sys
           sys.path.append('.')
-          from pipelines.unidades_proyecto_pipeline import *
+          from pipelines.unidades_proyecto_inmemory_pipeline import *
 
-          # Verificar funciones principales
+          # Verificar funciones principales del nuevo pipeline
           functions_to_test = [
-              'run_extraction',
-              'run_transformation', 
-              'verify_and_prepare_incremental_load',
-              'run_incremental_load',
-              'create_unidades_proyecto_pipeline',
-              'run_unidades_proyecto_pipeline'
+              'run_inmemory_pipeline',
+              'run_traditional_pipeline'
           ]
 
           for func_name in functions_to_test:
@@ -595,7 +588,7 @@ jobs:
           fi
 
           # Verificar que hay documentación
-          if grep -r "\"\"\"" pipelines/unidades_proyecto_pipeline.py >/dev/null; then
+          if grep -r "\"\"\"" pipelines/unidades_proyecto_inmemory_pipeline.py >/dev/null; then
             echo "✅ Pipeline documentado"
           else
             echo "❌ Pipeline sin documentación"
