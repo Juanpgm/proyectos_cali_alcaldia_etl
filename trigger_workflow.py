@@ -8,6 +8,10 @@ import time
 import os
 from datetime import datetime
 from typing import Dict, Any, Optional
+from dotenv import load_dotenv
+
+# Cargar variables del archivo .env
+load_dotenv()
 
 class GitHubWorkflowTrigger:
     """Clase para disparar workflows de GitHub Actions desde Python."""
@@ -139,7 +143,7 @@ def test_workflow_trigger():
     }
     
     # Disparar workflow
-    result = trigger.trigger_workflow(WORKFLOW_FILE, test_inputs, ref="fresh-start")
+    result = trigger.trigger_workflow(WORKFLOW_FILE, test_inputs, ref="main")
     
     if result["status"] == "success":
         print("\n⏳ Esperando completación...")
@@ -188,7 +192,7 @@ def production_workflow_trigger():
         return False
     
     # Disparar workflow
-    result = trigger.trigger_workflow(WORKFLOW_FILE, production_inputs, ref="fresh-start")
+    result = trigger.trigger_workflow(WORKFLOW_FILE, production_inputs, ref="main")
     
     if result["status"] == "success":
         print("\n⏳ Esperando completación...")
