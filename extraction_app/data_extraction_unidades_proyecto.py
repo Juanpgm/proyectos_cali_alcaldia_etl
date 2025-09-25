@@ -155,7 +155,6 @@ def standardize_data_structure(df: pd.DataFrame) -> pd.DataFrame:
     # Column standardization mapping
     column_mapping = {
         'fuente_de_financiacion': 'fuente_financiacion',
-        'usuarios_beneficiarios': 'usuarios',
         'subclase_obra': 'subclase',
         'ppto_base': 'presupuesto_base',
         'avance_fisico_obra': 'avance_obra',
@@ -171,7 +170,6 @@ def standardize_data_structure(df: pd.DataFrame) -> pd.DataFrame:
     # Ensure required columns exist with default values
     required_defaults = {
         'bpin': 0,
-        'usuarios': 0,
         'presupuesto_base': 0,
         'avance_obra': 0,
         'centros_gravedad': False
