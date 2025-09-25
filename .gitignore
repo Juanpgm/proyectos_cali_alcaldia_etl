@@ -87,6 +87,8 @@ tmp/
 *credentials*.json
 *key*.json
 sheets-service-account.json
+secrets/
+config/credentials/
 
 # Firebase
 .firebase/
