@@ -293,7 +293,7 @@ def pipe(value, *functions):
 
 
 # In-memory ETL Pipeline
-class InMemoryETLPipeline:
+class GenericInMemoryETLPipeline:
     """ETL pipeline that processes data entirely in memory."""
     
     def __init__(self, extraction_func, transformation_func, load_func):
@@ -339,7 +339,7 @@ class InMemoryETLPipeline:
 # Export main functions for use in ETL modules
 __all__ = [
     'TempFileManager',
-    'InMemoryETLPipeline',
+    'GenericInMemoryETLPipeline',
     'compose',
     'pipe',
     'with_temp_file',
