@@ -1,33 +1,45 @@
-sources/*.csv
-sources/*.xlsx
-sources/*.json
-.env/
-env/
-context/
-# Ignore logs and temporary files
-logs/
-*.log
-*.tmp
+# Secrets folder
+secrets/
 
-# Ignore compiled Python files
-*.pyc
+# Python
 __pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
 
-# Ignore IDE and editor settings
+# Virtual environment
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE
 .vscode/
 .idea/
 *.swp
+*.swo
+*~
 
-# Ignore node_modules for JavaScript/Node.js projects
-node_modules/
+# OS
+.DS_Store
+Thumbs.db
 
-# Ignore build artifacts
-dist/
-build/
-
-# Ignore transformation app input and output folders (heavy files)
-transformation_app/app_inputs/
-transformation_app/app_outputs/
-
-# Ignore Google Sheets service account secrets
-extraction_app/sheet-secrets.json
+# Logs
+*.log
