@@ -2,15 +2,21 @@
 """
 Data extraction module for project units (unidades de proyecto) from Google Sheets.
 Implements functional programming patterns for clean, scalable, and reusable data extraction.
+Uses Workload Identity Federation for secure authentication.
 """
 
 import os
 import json
+import sys
 import pandas as pd
 import gspread
 from typing import Optional, Dict, List, Callable, Any, Tuple, Union
 from functools import reduce, partial, wraps
 from datetime import datetime
+
+# Add database config to path for centralized configuration
+sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'database'))
+from config import get_sheets_client, open_spreadsheet_by_url, SHEETS_CONFIG
 
 
 # Functional composition utilities
@@ -46,23 +52,8 @@ def safe_execute(func: Callable, default_value: Any = None) -> Callable:
     return wrapper
 
 
-# Pure functions for data processing
-def load_credentials(credentials_path: str = "sheet-secrets.json") -> Optional[Dict[str, Any]]:
-    """Load Google Sheets API credentials from JSON file."""
-    current_dir = os.path.dirname(os.path.abspath(__file__))
-    full_path = os.path.join(current_dir, credentials_path)
-    
-    if not os.path.exists(full_path):
-        raise FileNotFoundError(f"Credentials file not found: {full_path}")
-    
-    with open(full_path, 'r', encoding='utf-8') as f:
-        return json.load(f)
-
-
-@safe_execute
-def authenticate_gspread(credentials: Dict[str, Any]) -> Optional[gspread.Client]:
-    """Authenticate with Google Sheets API using service account credentials."""
-    return gspread.service_account_from_dict(credentials)
+# Pure functions for data processing using centralized configuration
+# Note: get_sheets_client is now imported from config.py
 
 
 def extract_sheet_id(url: str) -> str:
@@ -78,20 +69,20 @@ def extract_sheet_id(url: str) -> str:
 
 
 @safe_execute
-def connect_to_sheet(client: gspread.Client, sheet_url: str) -> Optional[gspread.Spreadsheet]:
-    """Connect to a Google Spreadsheet."""
-    sheet_id = extract_sheet_id(sheet_url)
-    return client.open_by_key(sheet_id)
+def connect_to_sheet(sheet_url: str) -> Optional[gspread.Spreadsheet]:
+    """Connect to a Google Spreadsheet using Workload Identity."""
+    return open_spreadsheet_by_url(sheet_url)
 
 
 @safe_execute
-def get_worksheet_data(spreadsheet: gspread.Spreadsheet, worksheet_name: str) -> Optional[List[List[str]]]:
-    """Get all data from a specific worksheet."""
+def get_sheet_data(spreadsheet: gspread.Spreadsheet, worksheet_name: str) -> Optional[List[List[str]]]:
+    """Get all data from a specific worksheet using centralized configuration."""
     try:
         worksheet = spreadsheet.worksheet(worksheet_name)
         return worksheet.get_all_values()
-    except gspread.WorksheetNotFound:
-        raise ValueError(f"Worksheet '{worksheet_name}' not found in spreadsheet")
+    except Exception as e:
+        print(f"Error accessing worksheet '{worksheet_name}': {e}")
+        return None
 
 
 def clean_column_name(col_name: str) -> str:
@@ -221,45 +212,43 @@ def save_as_json(data: pd.DataFrame, output_path: str) -> bool:
         return False
 
 
-# Main extraction pipeline using functional composition
-def create_extraction_pipeline(
-    credentials_path: str = "sheet-secrets.json"
-) -> Callable[[str, str], Optional[pd.DataFrame]]:
+# Main extraction pipeline using functional composition with Workload Identity
+def create_extraction_pipeline() -> Callable[[str, str], Optional[pd.DataFrame]]:
     """
-    Create a reusable extraction pipeline using functional composition.
+    Create a reusable extraction pipeline using Workload Identity Federation.
     Returns a configured extraction function.
     """
     
     def extraction_pipeline(sheet_url: str, worksheet_name: str) -> Optional[pd.DataFrame]:
-        """Functional pipeline for data extraction."""
+        """Functional pipeline for secure data extraction."""
         
         try:
             print("="*80)
-            print("FUNCTIONAL DATA EXTRACTION PIPELINE")
+            print("FUNCTIONAL DATA EXTRACTION PIPELINE (WORKLOAD IDENTITY)")
             print("="*80)
             
-            # Step 1: Authentication pipeline
-            print("\n1. Loading credentials and authenticating...")
-            credentials = load_credentials(credentials_path)
-            if not credentials:
-                return None
-            
-            client = authenticate_gspread(credentials)
+            # Step 1: Secure authentication using Workload Identity
+            print("\n1. Authenticating with Workload Identity Federation...")
+            client = get_sheets_client()
             if not client:
+                print("✗ Authentication failed")
+                print("🔧 Run: gcloud auth application-default login --scopes=https://www.googleapis.com/auth/spreadsheets,https://www.googleapis.com/auth/drive.readonly")
                 return None
-            print("✓ Authentication successful")
+            print("✓ Authentication successful with Workload Identity")
             
             # Step 2: Data extraction pipeline
             print(f"\n2. Extracting data from: {worksheet_name}")
-            spreadsheet = connect_to_sheet(client, sheet_url)
+            spreadsheet = connect_to_sheet(sheet_url)
             if not spreadsheet:
                 return None
             
-            raw_data = get_worksheet_data(spreadsheet, worksheet_name)
+            raw_data = get_sheet_data(spreadsheet, worksheet_name)
             if not raw_data:
                 return None
             
-            print(f"✓ Extracted {len(raw_data)} rows from '{spreadsheet.title}'")
+            # Mostrar título de forma segura
+            title_display = spreadsheet.title[:20] + "***" if len(spreadsheet.title) > 20 else spreadsheet.title
+            print(f"✓ Extracted {len(raw_data)} rows from '{title_display}'")
             
             # Step 3: Data transformation pipeline
             print(f"\n3. Converting and standardizing data...")
@@ -275,100 +264,100 @@ def create_extraction_pipeline(
             
         except Exception as e:
             print(f"✗ Pipeline failed: {e}")
+            import traceback
+            traceback.print_exc()
             return None
     
     return extraction_pipeline
 
 
-def extract_obras_equipamientos(
-    sheet_url: str = "https://docs.google.com/spreadsheets/d/1UUHPSr5juelZjkILxFJ4mmUP0tT_emoKbptRg-bsXio/edit?usp=sharing",
-    worksheet_name: str = "obras_equipamientos"
+def extract_and_save_unidades_proyecto(
+    sheet_url: str = None,
+    worksheet_name: str = None
 ) -> Optional[pd.DataFrame]:
     """
-    Main function to extract obras_equipamientos data and process it.
+    Main function to extract unidades de proyecto data and save as JSON.
+    Implements complete functional pipeline using centralized configuration.
+    """
     
-    Args:
-        sheet_url: URL of the Google Sheet
-        worksheet_name: Name of the worksheet to extract
-        
-    Returns:
-        DataFrame with equipamientos data or None if failed
-    """
-    return pipeline_extract_and_transform(sheet_url, worksheet_name)
-
-
-# Functional composition helpers
-def compose(*functions):
-    """Compose multiple functions into a single function."""
-    return reduce(lambda f, g: lambda x: f(g(x)), functions, lambda x: x)
-
-
-def pipe(value, *functions):
-    """Apply a sequence of functions to a value (pipe operator)."""
-    return reduce(lambda acc, func: func(acc), functions, value)
-
-
-# Higher-order functions for data processing
-def apply_transformation(transformation_func: Callable) -> Callable[[pd.DataFrame], pd.DataFrame]:
-    """
-    Create a higher-order function that applies a transformation to a DataFrame.
+    # Use centralized configuration if parameters not provided
+    if sheet_url is None:
+        sheet_url = SHEETS_CONFIG['unidades_proyecto']['url']
+    if worksheet_name is None:
+        worksheet_name = SHEETS_CONFIG['unidades_proyecto']['worksheet']
     
-    Args:
-        transformation_func: Function to apply to the DataFrame
+    # Create extraction pipeline
+    extract_data = create_extraction_pipeline()
+    
+    # Extract data
+    df = extract_data(sheet_url, worksheet_name)
+    
+    if df is not None:
+        # Create output directory and save JSON
+        output_dir = create_output_directory("../transformation_app/app_inputs/unidades_proyecto_input")
+        json_path = os.path.join(output_dir, "unidades_proyecto.json")
         
-    Returns:
-        Function that takes a DataFrame and returns transformed DataFrame
-    """
-    def wrapper(df: pd.DataFrame) -> pd.DataFrame:
-        try:
-            return transformation_func(df)
-        except Exception as e:
-            print(f"Transformation error: {e}")
+        # Save as JSON
+        success = save_as_json(df, json_path)
+        
+        if success:
+            print(f"\n✓ Extraction completed successfully!")
+            print(f"  - Records extracted: {len(df)}")
+            # Mostrar solo el nombre del archivo, no la ruta completa por seguridad
+            print(f"  - JSON file: {os.path.basename(json_path)}")
             return df
-    return wrapper
-
-
-def log_step(step_name: str) -> Callable[[Any], Any]:
-    """
-    Create a logging decorator for pipeline steps.
-    
-    Args:
-        step_name: Name of the step to log
-        
-    Returns:
-        Function that logs and passes through its input
-    """
-    def logger(data):
-        if isinstance(data, pd.DataFrame):
-            print(f"📊 {step_name}: {len(data)} rows, {len(data.columns)} columns")
         else:
-            print(f"📊 {step_name}: {type(data).__name__}")
-        return data
-    return logger
+            print(f"\n✗ Failed to save JSON file")
+            return None
+    
+    else:
+        print(f"\n✗ Data extraction failed")
+        return None
+
+
+# Utility functions for logging and monitoring
+def log_pipeline_step(step_name: str) -> Callable:
+    """Decorator for logging pipeline steps."""
+    def decorator(func: Callable) -> Callable:
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            print(f"📊 {step_name}...")
+            result = func(*args, **kwargs)
+            if result is not None:
+                if isinstance(result, pd.DataFrame):
+                    print(f"✓ {step_name}: {len(result)} rows, {len(result.columns)} columns")
+                else:
+                    print(f"✓ {step_name}: completed")
+            else:
+                print(f"✗ {step_name}: failed")
+            return result
+        return wrapper
+    return decorator
 
 
 if __name__ == "__main__":
     """
-    Main execution block for testing the extraction and transformation pipeline.
+    Main execution block for testing the extraction pipeline.
     """
-    print("Starting Google Sheets extraction and transformation process...")
+    print("Starting Google Sheets extraction process...")
     
-    # Run the complete pipeline
-    df_equipamientos = extract_obras_equipamientos()
+    # Run the complete extraction pipeline
+    df_result = extract_and_save_unidades_proyecto()
     
-    if df_equipamientos is not None:
+    if df_result is not None:
         print("\n" + "="*60)
-        print("PIPELINE COMPLETED SUCCESSFULLY")
+        print("EXTRACTION COMPLETED SUCCESSFULLY")
         print("="*60)
-        print(f"✓ Extracted and transformed equipamientos data: {len(df_equipamientos)} records")
-        print("✓ GeoJSON file saved: unidades_proyecto_equipamientos.geojson")
+        print(f"✓ Extracted data: {len(df_result)} records")
+        print(f"✓ Columns: {len(df_result.columns)}")
+        print(f"✓ JSON file saved in: transformation_app/app_inputs/unidades_proyecto_input/")
         
-        # Show sample of the final data
-        print(f"\nSample equipamientos data:")
-        print(df_equipamientos.head(2))
+        # Show sample of the extracted data
+        print(f"\nSample data (first 2 records):")
+        print(df_result.head(2).to_string())
         
     else:
         print("\n" + "="*60)
-        print("PIPELINE FAILED")
+        print("EXTRACTION FAILED")
         print("="*60)
-        print("✗ Could not extract or transform data")
+        print("✗ Could not extract data from Google Sheets")

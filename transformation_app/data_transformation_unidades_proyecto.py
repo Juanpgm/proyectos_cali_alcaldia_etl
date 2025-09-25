@@ -1,38 +1,49 @@
 # -*- coding: utf-8 -*-
 """
 Data transformation module for project units (unidades de proyecto) with geospatial data processing.
-Optimized for FastAPI compatibility, scalability, and map visualization.
+Implements functional programming patterns for clean, scalable, and reusable transformations.
 """
 
 import os
 import pandas as pd
 import json
 import numpy as np
-from typing import Optional, Dict, List, Any, Tuple
+from typing import Optional, Dict, List, Any, Tuple, Union, Callable
 from datetime import datetime
-from functools import reduce, partial
-from functools import reduce, partial
-from operator import methodcaller
+from functools import reduce, partial, wraps
 
 
 # Functional programming utilities
-def compose(*functions):
+def compose(*functions: Callable) -> Callable:
     """Compose multiple functions into a single function."""
     return reduce(lambda f, g: lambda x: f(g(x)), functions, lambda x: x)
 
 
-def pipe(value, *functions):
+def pipe(value: Any, *functions: Callable) -> Any:
     """Apply a sequence of functions to a value (pipe operator)."""
     return reduce(lambda acc, func: func(acc), functions, value)
 
 
-def curry(func):
-    """Convert a function to a curried version."""
+def curry(func: Callable) -> Callable:
+    """Convert a function to a curried version for partial application."""
+    @wraps(func)
     def curried(*args, **kwargs):
         if len(args) + len(kwargs) >= func.__code__.co_argcount:
             return func(*args, **kwargs)
         return lambda *more_args, **more_kwargs: curried(*(args + more_args), **dict(kwargs, **more_kwargs))
     return curried
+
+
+def safe_transform(func: Callable, fallback_value: Any = None) -> Callable:
+    """Safely execute transformation functions with error handling."""
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        try:
+            return func(*args, **kwargs)
+        except Exception as e:
+            print(f"Warning in {func.__name__}: {e}")
+            return fallback_value
+    return wrapper
 
 
 # Functional data cleaning utilities
@@ -232,6 +243,212 @@ def extract_coordinates_info(geom_obj: Dict[str, Any]) -> Tuple[Optional[float],
         return None, None, None
 
 
+# Pure functions for data processing
+def generate_upid_for_records(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Generate unique upid (Unidades de Proyecto ID) with format UNP-# for records without upid.
+    Preserves existing upid values and ensures no duplicates.
+    
+    Args:
+        df: DataFrame with potential upid column
+        
+    Returns:
+        DataFrame with upid column populated
+    """
+    result_df = df.copy()
+    
+    # Ensure upid column exists
+    if 'upid' not in result_df.columns:
+        result_df['upid'] = None
+    
+    # Find existing upid values to determine next consecutive number
+    existing_upids = set()
+    max_consecutive = 0
+    
+    for upid in result_df['upid'].dropna():
+        if isinstance(upid, str) and upid.startswith('UNP-'):
+            existing_upids.add(upid)
+            # Extract number from UNP-# format
+            try:
+                number_part = upid.replace('UNP-', '')
+                if number_part.isdigit():
+                    max_consecutive = max(max_consecutive, int(number_part))
+            except (ValueError, AttributeError):
+                continue
+    
+    # Generate upid for records without one
+    new_upids_count = 0
+    next_consecutive = max_consecutive + 1
+    
+    for idx in result_df.index:
+        current_upid = result_df.at[idx, 'upid']
+        
+        # Only assign upid if it's null, empty, or NaN
+        if pd.isna(current_upid) or current_upid is None or str(current_upid).strip() == '':
+            new_upid = f"UNP-{next_consecutive}"
+            
+            # Ensure uniqueness (very unlikely but safety check)
+            while new_upid in existing_upids:
+                next_consecutive += 1
+                new_upid = f"UNP-{next_consecutive}"
+            
+            result_df.at[idx, 'upid'] = new_upid
+            existing_upids.add(new_upid)
+            next_consecutive += 1
+            new_upids_count += 1
+    
+    print(f"✓ UPID Generation:")
+    print(f"  - Existing upids preserved: {len(existing_upids) - new_upids_count}")
+    print(f"  - New upids generated: {new_upids_count}")
+    print(f"  - Total upids: {len(existing_upids)}")
+    print(f"  - Next available number: UNP-{next_consecutive}")
+    
+    return result_df
+
+
+def add_computed_columns(df: pd.DataFrame) -> pd.DataFrame:
+    """Add computed columns for coordinates and metadata."""
+    result_df = df.copy()
+    
+    # Add computed columns without modifying original data
+    new_columns = {
+        'longitude': None,
+        'latitude': None,
+        'geometry_bounds': None,
+        'geometry_type': None,
+        'processed_timestamp': datetime.now().isoformat()
+    }
+    
+    for col, default_value in new_columns.items():
+        result_df[col] = default_value
+    
+    print(f"✓ Added computed columns: {list(new_columns.keys())}")
+    return result_df
+
+
+def clean_text_column(df: pd.DataFrame, column: str) -> pd.DataFrame:
+    """Clean a single text column using functional approach."""
+    if column in df.columns:
+        result_df = df.copy()
+        result_df[column] = result_df[column].apply(
+            lambda x: None if pd.isna(x) else str(x).strip()
+        )
+        return result_df
+    return df
+
+
+def clean_numeric_column_safe(df: pd.DataFrame, column: str) -> pd.DataFrame:
+    """Clean a single numeric column using functional approach."""
+    if column in df.columns:
+        result_df = df.copy()
+        result_df[column] = pd.to_numeric(result_df[column], errors='coerce').fillna(0.0)
+        return result_df
+    return df
+
+
+def clean_bpin_column(df: pd.DataFrame) -> pd.DataFrame:
+    """Clean BPIN column specifically."""
+    if 'bpin' in df.columns:
+        result_df = df.copy()
+        result_df['bpin'] = result_df['bpin'].apply(
+            lambda x: int(float(x)) if pd.notna(x) and str(x).replace('.', '').isdigit() else None
+        )
+        return result_df
+    return df
+
+
+def clean_boolean_column(df: pd.DataFrame, column: str) -> pd.DataFrame:
+    """Clean a single boolean column using functional approach."""
+    if column in df.columns:
+        result_df = df.copy()
+        result_df[column] = result_df[column].astype(bool)
+        return result_df
+    return df
+
+
+def clean_data_types(df: pd.DataFrame) -> pd.DataFrame:
+    """Clean and standardize data types using functional composition."""
+    
+    # Define column types
+    text_columns = ['nickname_detalle', 'direccion', 'descripcion_intervencion', 'identificador', 'nickname']
+    numeric_columns = ['presupuesto_base', 'ppto_base', 'avance_obra', 'avance_fisico_obra', 'usuarios']
+    boolean_columns = ['centros_gravedad']
+    
+    # Create cleaning pipeline
+    cleaning_functions = []
+    
+    # Add text column cleaners
+    for col in text_columns:
+        cleaning_functions.append(partial(clean_text_column, column=col))
+        
+    # Add numeric column cleaners
+    for col in numeric_columns:
+        cleaning_functions.append(partial(clean_numeric_column_safe, column=col))
+        
+    # Add boolean column cleaners
+    for col in boolean_columns:
+        cleaning_functions.append(partial(clean_boolean_column, column=col))
+    
+    # Add BPIN cleaner
+    cleaning_functions.append(clean_bpin_column)
+    
+    # Apply all cleaning functions using functional composition
+    return pipe(df, *cleaning_functions)
+
+
+def process_single_geometry(row: pd.Series, idx: int) -> Tuple[Optional[float], Optional[float], Optional[str], Optional[str]]:
+    """Process a single row's geometry data."""
+    geom_value = None
+    
+    # Try different geometry column names
+    for geom_col in ['geom', 'geometry', 'geometria']:
+        if geom_col in row and pd.notna(row[geom_col]):
+            geom_value = row[geom_col]
+            break
+    
+    if geom_value:
+        geom_obj = parse_geojson_geometry(geom_value)
+        
+        if geom_obj:
+            lon, lat, bounds = extract_coordinates_info(geom_obj)
+            return (
+                round(lon, 6) if lon is not None else None,
+                round(lat, 6) if lat is not None else None,
+                json.dumps(bounds) if bounds else None,
+                geom_obj['type']
+            )
+    
+    return None, None, None, None
+
+
+def process_geospatial_data(df: pd.DataFrame) -> pd.DataFrame:
+    """Process geospatial data using functional approach."""
+    result_df = df.copy()
+    
+    print("Processing geospatial data...")
+    
+    valid_geoms = 0
+    invalid_geoms = 0
+    
+    # Process geometries using functional mapping
+    for idx, row in result_df.iterrows():
+        lon, lat, bounds, geom_type = process_single_geometry(row, idx)
+        
+        if geom_type:
+            valid_geoms += 1
+        else:
+            invalid_geoms += 1
+        
+        # Update row data
+        result_df.at[idx, 'longitude'] = lon
+        result_df.at[idx, 'latitude'] = lat
+        result_df.at[idx, 'geometry_bounds'] = bounds
+        result_df.at[idx, 'geometry_type'] = geom_type
+    
+    print(f"✓ Geospatial processing: {valid_geoms} valid, {invalid_geoms} invalid geometries")
+    return result_df
+
+
 def create_feature_collection(dataframe: pd.DataFrame) -> Dict[str, Any]:
     """
     Create a GeoJSON FeatureCollection from a dataframe with geometry data.
@@ -292,12 +509,13 @@ def create_feature_collection(dataframe: pd.DataFrame) -> Dict[str, Any]:
                     else:
                         print(f"  Invalid lat/lon coordinates for row {idx}: lat={lat_val}, lon={lon_val}")
             
-            # Create properties - Include ALL columns except geometry columns
+            # Create properties - Include ALL columns except redundant coordinate columns
             properties = {}
-            geometry_columns = ['geom', 'geometry', 'geometria']  # Only exclude actual geometry columns
+            # Exclude only redundant coordinate fields (geometry is handled separately)
+            excluded_columns = ['geom', 'lat', 'lon', 'longitude', 'latitude']
             
             for col, value in row.items():
-                if col not in geometry_columns:
+                if col not in excluded_columns:
                     # Handle different data types for JSON serialization
                     if pd.isna(value):
                         properties[col] = None
@@ -343,16 +561,31 @@ def create_feature_collection(dataframe: pd.DataFrame) -> Dict[str, Any]:
     return feature_collection
 
 
+def load_json_data(file_path: str) -> Optional[pd.DataFrame]:
+    """Load JSON data and convert to DataFrame."""
+    try:
+        with open(file_path, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        
+        df = pd.DataFrame(data)
+        print(f"✓ Loaded {len(df)} records from {os.path.basename(file_path)}")
+        return df
+    
+    except Exception as e:
+        print(f"✗ Error loading {file_path}: {e}")
+        return None
+
+
 def unidades_proyecto_transformer(data_directory: str = "app_inputs/unidades_proyecto_input") -> Optional[pd.DataFrame]:
     """
-    Transform project units data for infrastructure equipment.
-    Creates GeoJSON output optimized for map visualization.
+    Transform project units data using functional programming approach.
+    Loads JSON data and processes it for geospatial visualization.
     
     Args:
-        data_directory (str): Path to the directory containing Excel files
+        data_directory: Path to the directory containing JSON files
         
     Returns:
-        DataFrame with equipamientos data or None if failed
+        DataFrame with processed unidades de proyecto data or None if failed
     """
     
     # Get the absolute path to the data directory
@@ -364,147 +597,74 @@ def unidades_proyecto_transformer(data_directory: str = "app_inputs/unidades_pro
     
     print(f"Loading data from: {directory_path}")
     
-    # Define file paths - only equipamientos
-    equipamientos_path = os.path.join(directory_path, "obras_equipamientos.xlsx")
+    # Define file path for JSON input
+    json_path = os.path.join(directory_path, "unidades_proyecto.json")
     
     # Check if file exists
-    if not os.path.exists(equipamientos_path):
-        raise FileNotFoundError(f"File not found: {equipamientos_path}")
+    if not os.path.exists(json_path):
+        raise FileNotFoundError(f"File not found: {json_path}")
     
-    # Load Excel file
-    print("Loading obras_equipamientos.xlsx...")
-    df_equipamientos = pd.read_excel(equipamientos_path)
-    print(f"Loaded {len(df_equipamientos)} rows from obras_equipamientos.xlsx")
+    # Load JSON file using functional approach
+    df_unidades_proyecto = load_json_data(json_path)
     
-    # ================================
-    # PROCESS EQUIPAMIENTOS DATA - PRESERVE ALL ORIGINAL COLUMNS
-    # ================================
-    print("\n" + "="*60)
-    print("PROCESSING EQUIPAMIENTOS DATA")
-    print("="*60)
-    
-    # Work directly with the original DataFrame to preserve all columns
-    print("Preserving all original columns and adding standardized processing...")
-    
-    # Create a copy to work with
-    unidad_proyecto_infraestructura_equipamientos = df_equipamientos.copy()
-    
-    # Add computed columns without removing originals
-    print("Adding computed coordinate and geometry information...")
-    
-    # Initialize new columns for computed values
-    unidad_proyecto_infraestructura_equipamientos['longitude'] = None
-    unidad_proyecto_infraestructura_equipamientos['latitude'] = None
-    unidad_proyecto_infraestructura_equipamientos['geometry_bounds'] = None
-    unidad_proyecto_infraestructura_equipamientos['geometry_type'] = None
-    unidad_proyecto_infraestructura_equipamientos['processed_timestamp'] = datetime.now().isoformat()
-    
-    # Clean and standardize data types while preserving original columns
-    print("Cleaning and standardizing data types...")
-    
-    # Clean text columns
-    text_columns = ['nickname_detalle', 'direccion', 'descripcion_intervencion', 'identificador', 'nickname']
-    for col in text_columns:
-        if col in unidad_proyecto_infraestructura_equipamientos.columns:
-            unidad_proyecto_infraestructura_equipamientos[col] = unidad_proyecto_infraestructura_equipamientos[col].apply(
-                lambda x: None if pd.isna(x) else str(x).strip()
-            )
-    
-    # Clean numeric columns (monetary and percentages)
-    numeric_columns = ['presupuesto_base', 'ppto_base', 'avance_obra', 'avance_fisico_obra', 'usuarios']
-    for col in numeric_columns:
-        if col in unidad_proyecto_infraestructura_equipamientos.columns:
-            unidad_proyecto_infraestructura_equipamientos[col] = pd.to_numeric(
-                unidad_proyecto_infraestructura_equipamientos[col], errors='coerce'
-            ).fillna(0.0)
-    
-    # Clean BPIN if present
-    if 'bpin' in unidad_proyecto_infraestructura_equipamientos.columns:
-        unidad_proyecto_infraestructura_equipamientos['bpin'] = unidad_proyecto_infraestructura_equipamientos['bpin'].apply(
-            lambda x: int(float(x)) if pd.notna(x) and str(x).replace('.', '').isdigit() else None
-        )
-    
-    # Clean boolean columns
-    boolean_columns = ['centros_gravedad']
-    for col in boolean_columns:
-        if col in unidad_proyecto_infraestructura_equipamientos.columns:
-            unidad_proyecto_infraestructura_equipamientos[col] = unidad_proyecto_infraestructura_equipamientos[col].astype(bool)
+    if df_unidades_proyecto is None:
+        return None
     
     # ================================
-    # GEOSPATIAL PROCESSING - PRESERVE ALL COLUMNS
+    # FUNCTIONAL DATA PROCESSING PIPELINE
     # ================================
     print("\n" + "="*60)
-    print("PROCESSING GEOSPATIAL DATA")
+    print("PROCESSING UNIDADES DE PROYECTO DATA")
     print("="*60)
     
-    # Process geometries for equipamientos
-    print(f"\nProcessing geometries for equipamientos...")
+    # Create processing pipeline using functional composition
+    # IMPORTANT: upid generation MUST be first to ensure unique IDs
+    processing_pipeline = compose(
+        lambda df: generate_upid_for_records(df),
+        lambda df: add_computed_columns(df),
+        lambda df: clean_data_types(df),
+        lambda df: process_geospatial_data(df)
+    )
     
-    valid_geoms = 0
-    invalid_geoms = 0
+    # Apply the complete processing pipeline
+    print("Applying functional processing pipeline...")
+    processed_df = processing_pipeline(df_unidades_proyecto)
     
-    # Process each row and extract geospatial information
-    for idx, row in unidad_proyecto_infraestructura_equipamientos.iterrows():
-        # Try different geometry column names
-        geom_value = None
-        for geom_col in ['geom', 'geometry', 'geometria']:
-            if geom_col in row and pd.notna(row[geom_col]):
-                geom_value = row[geom_col]
-                break
-        
-        if geom_value:
-            geom_obj = parse_geojson_geometry(geom_value)
-            
-            if geom_obj:
-                valid_geoms += 1
-                
-                # Extract coordinates and bounds
-                lon, lat, bounds = extract_coordinates_info(geom_obj)
-                unidad_proyecto_infraestructura_equipamientos.at[idx, 'longitude'] = round(lon, 6) if lon is not None else None
-                unidad_proyecto_infraestructura_equipamientos.at[idx, 'latitude'] = round(lat, 6) if lat is not None else None
-                unidad_proyecto_infraestructura_equipamientos.at[idx, 'geometry_bounds'] = json.dumps(bounds) if bounds else None
-                unidad_proyecto_infraestructura_equipamientos.at[idx, 'geometry_type'] = geom_obj['type']
-            else:
-                invalid_geoms += 1
-        else:
-            invalid_geoms += 1
-    
-    print(f"  Valid geometries: {valid_geoms}")
-    print(f"  Invalid geometries: {invalid_geoms}")
-    if valid_geoms + invalid_geoms > 0:
-        print(f"  Success rate: {valid_geoms/(valid_geoms+invalid_geoms)*100:.1f}%")
-    else:
-        print(f"  Success rate: N/A (no data)")
+    print(f"✓ Processing completed: {len(processed_df)} rows, {len(processed_df.columns)} columns")
     
     # ================================
-    # DATA SUMMARY - ALL COLUMNS PRESERVED
+    # DATA SUMMARY
     # ================================
     print("\n" + "="*60)
     print("DATA TRANSFORMATION SUMMARY")
     print("="*60)
     
-    print(f"\nUnidad Proyecto Infraestructura Equipamientos:")
-    print(f"  Rows: {len(unidad_proyecto_infraestructura_equipamientos)}")
-    print(f"  Total columns (ALL PRESERVED): {len(unidad_proyecto_infraestructura_equipamientos.columns)}")
-    print(f"  Original columns preserved: {len([col for col in df_equipamientos.columns if col in unidad_proyecto_infraestructura_equipamientos.columns])}")
-    print(f"  New computed columns added: {len([col for col in unidad_proyecto_infraestructura_equipamientos.columns if col not in df_equipamientos.columns])}")
-    print(f"  Valid geometries: {unidad_proyecto_infraestructura_equipamientos['geometry_type'].notna().sum()}")
+    print(f"\nUnidades de Proyecto:")
+    print(f"  Rows: {len(processed_df)}")
+    print(f"  Total columns: {len(processed_df.columns)}")
+    print(f"  Original columns preserved: {len([col for col in df_unidades_proyecto.columns if col in processed_df.columns])}")
+    print(f"  New computed columns: {len([col for col in processed_df.columns if col not in df_unidades_proyecto.columns])}")
+    print(f"  Valid geometries: {processed_df['geometry_type'].notna().sum()}")
     
-    # Show column list for verification
-    print(f"\nAll columns included:")
-    for i, col in enumerate(sorted(unidad_proyecto_infraestructura_equipamientos.columns)):
-        print(f"  {i+1:2d}. {col}")
+    # Show column summary
+    print(f"\nColumn summary:")
+    print(f"  Text columns: {len([col for col in processed_df.columns if processed_df[col].dtype == 'object'])}")
+    print(f"  Numeric columns: {len([col for col in processed_df.columns if pd.api.types.is_numeric_dtype(processed_df[col])])}")
+    print(f"  Boolean columns: {len([col for col in processed_df.columns if processed_df[col].dtype == 'bool'])}")
     
-    return unidad_proyecto_infraestructura_equipamientos
+    return processed_df
 
 
-def save_equipamientos_geojson(df_equipamientos: pd.DataFrame, output_directory: str = "app_outputs/unidades_proyecto_outputs"):
+def save_unidades_proyecto_geojson(df_unidades_proyecto: pd.DataFrame, output_directory: str = "app_outputs/unidades_proyecto_outputs") -> bool:
     """
-    Save the processed equipamientos data as GeoJSON file.
+    Save the processed unidades de proyecto data as GeoJSON file using functional approach.
     
     Args:
-        df_equipamientos: Processed equipamientos dataframe
+        df_unidades_proyecto: Processed unidades de proyecto dataframe
         output_directory: Directory to save output files
+        
+    Returns:
+        True if successful, False otherwise
     """
     
     # Create output directory
@@ -518,84 +678,117 @@ def save_equipamientos_geojson(df_equipamientos: pd.DataFrame, output_directory:
     print(f"Output directory: {output_dir}")
     
     try:
-        # Create GeoJSON FeatureCollection
-        feature_collection = create_feature_collection(df_equipamientos)
+        # Create GeoJSON FeatureCollection using functional approach
+        feature_collection = create_feature_collection(df_unidades_proyecto)
         
         # Save GeoJSON file
-        geojson_filepath = os.path.join(output_dir, "unidades_proyecto_equipamientos.geojson")
-        with open(geojson_filepath, 'w', encoding='utf-8') as f:
-            json.dump(feature_collection, f, indent=2, ensure_ascii=False)
+        geojson_filepath = os.path.join(output_dir, "unidades_proyecto.geojson")
         
-        file_size = os.path.getsize(geojson_filepath) / 1024  # Size in KB
-        feature_count = len(feature_collection['features'])
+        # Use functional approach for file saving
+        success = pipe(
+            feature_collection,
+            lambda data: save_json_file(data, geojson_filepath),
+            lambda result: log_file_save_result(result, geojson_filepath, len(feature_collection['features']))
+        )
         
-        print(f"✓ Successfully saved: unidades_proyecto_equipamientos.geojson")
-        print(f"  - Features: {feature_count}")
-        print(f"  - File size: {file_size:.1f} KB")
-        print(f"  - Location: {geojson_filepath}")
-        
-        return True
+        return success
         
     except Exception as e:
         print(f"✗ Failed to save GeoJSON file: {e}")
         return False
-    """
-    Save the processed data in multiple formats optimized for different use cases.
-    
-    Args:
-        df_equipamientos: Processed equipamientos dataframe
-        df_vial: Processed vial dataframe  
-        output_directory: Directory to save output files
-    """
-    
-    # Create output directory
-    current_dir = os.path.dirname(os.path.abspath(__file__))
-    output_dir = os.path.join(current_dir, output_directory)
-    os.makedirs(output_dir, exist_ok=True)
-    
-    print(f"\n" + "="*60)
-    print("SAVING GEOSPATIAL DATA")
-    print("="*60)
-    print(f"Output directory: {output_dir}")
 
-def main():
-    """Main function for testing the transformer."""
+
+def save_json_file(data: Dict[str, Any], filepath: str) -> bool:
+    """Save JSON data to file with proper encoding."""
+    try:
+        with open(filepath, 'w', encoding='utf-8') as f:
+            json.dump(data, f, indent=2, ensure_ascii=False)
+        return True
+    except Exception as e:
+        print(f"Error saving file: {e}")
+        return False
+
+
+def log_file_save_result(success: bool, filepath: str, feature_count: int) -> bool:
+    """Log the result of file save operation."""
+    if success:
+        file_size = os.path.getsize(filepath) / 1024  # Size in KB
+        print(f"✓ Successfully saved: {os.path.basename(filepath)}")
+        print(f"  - Features: {feature_count}")
+        print(f"  - File size: {file_size:.1f} KB")
+        print(f"  - Location: {filepath}")
+    return success
+
+def transform_and_save_unidades_proyecto() -> Optional[pd.DataFrame]:
+    """
+    Main function to transform and save unidades de proyecto data.
+    Implements complete functional pipeline for transformation and output generation.
+    """
     try:
         print("="*80)
-        print("UNIDADES DE PROYECTO DATA TRANSFORMATION")
+        print("UNIDADES DE PROYECTO FUNCTIONAL TRANSFORMATION")
         print("="*80)
         
-        # Transform the data
-        df_equipamientos = unidades_proyecto_transformer()
+        # Transform the data using functional pipeline
+        df_processed = unidades_proyecto_transformer()
         
-        if df_equipamientos is not None:
+        if df_processed is not None:
             print("\n" + "="*60)
             print("TRANSFORMATION COMPLETED SUCCESSFULLY")
             print("="*60)
             
             # Display sample data
-            print(f"\nEquipamientos sample data:")
-            print(df_equipamientos.head(3))
-            print(f"\nEquipamientos columns: {list(df_equipamientos.columns)}")
+            print(f"\nSample processed data:")
+            print(df_processed.head(2).to_string())
+            print(f"\nTotal columns: {len(df_processed.columns)}")
             
-            # Save the processed data as GeoJSON
-            success = save_equipamientos_geojson(df_equipamientos)
+            # Save the processed data as GeoJSON using functional approach
+            success = save_unidades_proyecto_geojson(df_processed)
             
             if success:
                 print("\n" + "="*60)
                 print("GEOJSON FILE SAVED SUCCESSFULLY")
                 print("="*60)
-            
-            return df_equipamientos
+                return df_processed
+            else:
+                print("Warning: GeoJSON save failed, but transformation was successful")
+                return df_processed
         
         else:
             print("Error: Data transformation failed")
             return None
         
     except Exception as e:
-        print(f"Error in transformation: {e}")
+        print(f"Error in transformation pipeline: {e}")
+        import traceback
+        traceback.print_exc()
         return None
 
 
+def main():
+    """Main function for testing the transformer."""
+    return transform_and_save_unidades_proyecto()
+
+
 if __name__ == "__main__":
-    df_equipamientos = main()
+    """
+    Main execution block for testing the transformation pipeline.
+    """
+    print("Starting unidades de proyecto transformation process...")
+    
+    # Run the complete transformation pipeline
+    df_result = main()
+    
+    if df_result is not None:
+        print("\n" + "="*60)
+        print("TRANSFORMATION PIPELINE COMPLETED")
+        print("="*60)
+        print(f"✓ Processed data: {len(df_result)} records")
+        print(f"✓ Total columns: {len(df_result.columns)}")
+        print(f"✓ GeoJSON file saved: unidades_proyecto.geojson")
+        
+    else:
+        print("\n" + "="*60)
+        print("TRANSFORMATION PIPELINE FAILED")
+        print("="*60)
+        print("✗ Could not process unidades de proyecto data")
