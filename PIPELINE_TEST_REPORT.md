@@ -115,7 +115,7 @@ GOOGLE_CLOUD_PROJECT=your-project-id
 # Google Sheets
 SHEETS_SERVICE_ACCOUNT_FILE=./sheets-service-account.json
 SHEETS_UNIDADES_PROYECTO_URL=https://docs.google.com/spreadsheets/d/YOUR_SHEET_ID/edit
-SHEETS_UNIDADES_PROYECTO_WORKSHEET=obras_equipamientos
+SHEETS_UNIDADES_PROYECTO_WORKSHEET=unidades_proyecto
 
 # Opcional
 FIRESTORE_BATCH_SIZE=500

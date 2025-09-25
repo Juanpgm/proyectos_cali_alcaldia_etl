@@ -49,7 +49,7 @@ Este documento describe cómo configurar los secrets necesarios para que los Git
 4. **`SHEETS_UNIDADES_PROYECTO_WORKSHEET`** (Opcional)
    - **Descripción**: Nombre de la hoja específica dentro del documento
    - **Formato**: String simple
-   - **Default**: `obras_equipamientos`
+   - **Default**: `unidades_proyecto`
 
 ## 🛠️ Configuración Paso a Paso
 
@@ -114,7 +114,7 @@ Name: SHEETS_UNIDADES_PROYECTO_URL
 Value: https://docs.google.com/spreadsheets/d/TU_SHEET_ID/edit
 
 Name: SHEETS_UNIDADES_PROYECTO_WORKSHEET
-Value: obras_equipamientos
+Value: unidades_proyecto
 ```
 
 ### 3. Configurar Permisos de Google Sheets

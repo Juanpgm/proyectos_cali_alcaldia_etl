@@ -1,0 +1,220 @@
+name: 🔄 Unidades Proyecto - Manual Refresh
+
+on:
+  # Ejecución manual con opciones específicas
+  workflow_dispatch:
+    inputs:
+      force_full_sync:
+        description: "Forzar sincronización completa (ignorar incremental)"
+        required: false
+        default: false
+        type: boolean
+
+      test_mode:
+        description: "Modo prueba (solo verificar conexiones)"
+        required: false
+        default: false
+        type: boolean
+
+      debug_mode:
+        description: "Activar logs detallados"
+        required: false
+        default: false
+        type: boolean
+
+env:
+  PYTHON_VERSION: "3.12"
+
+jobs:
+  unidades-proyecto-refresh:
+    name: 🏗️ Refresh Unidades de Proyecto
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: 📥 Checkout Code
+        uses: actions/checkout@v4
+
+      - name: 🐍 Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: "pip"
+
+      - name: 📦 Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: 🔐 Authenticate with Google Cloud
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: ${{ secrets.WIF_PROVIDER }}
+          service_account: ${{ secrets.WIF_SERVICE_ACCOUNT }}
+
+      - name: ☁️ Setup Google Cloud SDK
+        uses: google-github-actions/setup-gcloud@v2
+
+      - name: 🔧 Setup Sheets Service Account
+        run: |
+          echo '${{ secrets.SHEETS_SERVICE_ACCOUNT_JSON }}' > sheets-service-account.json
+          chmod 600 sheets-service-account.json
+
+      - name: 🚀 Execute Unidades Proyecto Pipeline
+        env:
+          FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
+          GOOGLE_CLOUD_PROJECT: ${{ secrets.FIREBASE_PROJECT_ID }}
+          SHEETS_UNIDADES_PROYECTO_URL: ${{ secrets.SHEETS_UNIDADES_PROYECTO_URL }}
+          SHEETS_UNIDADES_PROYECTO_WORKSHEET: ${{ secrets.SHEETS_UNIDADES_PROYECTO_WORKSHEET }}
+          SHEETS_SERVICE_ACCOUNT_FILE: ./sheets-service-account.json
+          FORCE_FULL_SYNC: ${{ github.event.inputs.force_full_sync }}
+          TEST_MODE: ${{ github.event.inputs.test_mode }}
+          DEBUG_MODE: ${{ github.event.inputs.debug_mode }}
+        run: |
+          echo "🚀 Iniciando refresh de Unidades de Proyecto"
+          echo "📅 Timestamp: $(date '+%Y-%m-%d %H:%M:%S UTC')"
+          echo "🧪 Test Mode: $TEST_MODE"
+          echo "🔄 Force Full Sync: $FORCE_FULL_SYNC"
+          echo "🐛 Debug Mode: $DEBUG_MODE"
+          echo "=" * 80
+
+          # Crear script de ejecución
+          cat > run_refresh.py << 'EOF'
+          #!/usr/bin/env python3
+          """
+          Script de refresh manual para Unidades de Proyecto
+          """
+          import os
+          import sys
+          from datetime import datetime
+
+          # Agregar path del proyecto
+          sys.path.append('.')
+
+          def test_connections():
+              """Prueba las conexiones necesarias."""
+              print("🔗 Probando conexiones...")
+              
+              try:
+                  from database.config import test_connection, test_sheets_connection
+                  
+                  # Test Firebase
+                  firebase_ok = test_connection()
+                  print(f"🔥 Firebase: {'✅ OK' if firebase_ok else '❌ FAIL'}")
+                  
+                  # Test Google Sheets
+                  sheets_ok = test_sheets_connection()
+                  print(f"📊 Sheets: {'✅ OK' if sheets_ok else '❌ FAIL'}")
+                  
+                  return firebase_ok and sheets_ok
+                  
+              except Exception as e:
+                  print(f"❌ Error probando conexiones: {e}")
+                  return False
+
+          def run_pipeline():
+              """Ejecuta el pipeline de unidades de proyecto."""
+              print("🏗️ Ejecutando pipeline de Unidades de Proyecto...")
+              
+              try:
+                  # Configurar variables de entorno si es necesario
+                  if os.getenv('FORCE_FULL_SYNC', 'false').lower() == 'true':
+                      os.environ['SKIP_INCREMENTAL_CHECK'] = 'true'
+                      print("🔄 Forzando sincronización completa")
+                  
+                  if os.getenv('DEBUG_MODE', 'false').lower() == 'true':
+                      os.environ['SECURE_LOGGING'] = 'false'
+                      print("🐛 Modo debug activado")
+                  
+                  # Importar y ejecutar pipeline
+                  from pipelines.unidades_proyecto_pipeline import run_unidades_proyecto_pipeline
+                  
+                  success = run_unidades_proyecto_pipeline()
+                  
+                  if success:
+                      print("✅ Pipeline ejecutado exitosamente")
+                  else:
+                      print("❌ Pipeline falló")
+                      
+                  return success
+                  
+              except Exception as e:
+                  print(f"💥 Error ejecutando pipeline: {e}")
+                  if os.getenv('DEBUG_MODE', 'false').lower() == 'true':
+                      import traceback
+                      traceback.print_exc()
+                  return False
+
+          def main():
+              """Función principal."""
+              test_mode = os.getenv('TEST_MODE', 'false').lower() == 'true'
+              
+              print(f"🎯 Iniciando refresh - Modo: {'TEST' if test_mode else 'PRODUCCIÓN'}")
+              print(f"📅 Timestamp: {datetime.now().isoformat()}")
+              
+              try:
+                  if test_mode:
+                      print("🧪 MODO PRUEBA - Solo verificando conexiones")
+                      success = test_connections()
+                      
+                      if success:
+                          print("✅ Todas las conexiones funcionan correctamente")
+                          print("🎉 Test completado exitosamente")
+                      else:
+                          print("❌ Algunas conexiones fallaron")
+                          sys.exit(1)
+                  else:
+                      # Primero probar conexiones
+                      if not test_connections():
+                          print("❌ Fallo en conexiones iniciales")
+                          sys.exit(1)
+                      
+                      # Ejecutar pipeline
+                      success = run_pipeline()
+                      
+                      if success:
+                          print("🎉 Refresh completado exitosamente")
+                      else:
+                          print("❌ Refresh falló")
+                          sys.exit(1)
+                  
+              except Exception as e:
+                  print(f"💥 Error general: {e}")
+                  sys.exit(1)
+
+          if __name__ == '__main__':
+              main()
+          EOF
+
+          # Ejecutar script
+          python run_refresh.py
+
+      - name: 🧹 Cleanup
+        if: always()
+        run: |
+          rm -f sheets-service-account.json
+          rm -f run_refresh.py
+
+      - name: 📊 Upload Logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: unidades-proyecto-refresh-logs-${{ github.run_number }}
+          path: |
+            *.log
+            transformation_app/app_outputs/unidades_proyecto_outputs/*.geojson
+          retention-days: 7
+
+      - name: ✅ Success Notification
+        if: success()
+        run: |
+          echo "🎉 Refresh de Unidades de Proyecto completado exitosamente"
+          echo "📅 Timestamp: $(date '+%Y-%m-%d %H:%M:%S UTC')"
+          echo "🔗 Ver detalles: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+      - name: ❌ Failure Notification
+        if: failure()
+        run: |
+          echo "❌ Refresh de Unidades de Proyecto falló"
+          echo "📅 Timestamp: $(date '+%Y-%m-%d %H:%M:%S UTC')"
+          echo "🔗 Ver detalles: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"

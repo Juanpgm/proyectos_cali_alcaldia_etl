@@ -1,7 +1,10 @@
 """
 ETL Configuration Module
 
-Configuración centralizada para toda la pipeline ETL de Cali.
+Configuración cent    'unidades_proyecto': {
+        'url': os.getenv('SHEETS_UNIDADES_PROYECTO_URL'),
+        'worksheet': os.getenv('SHEETS_UNIDADES_PROYECTO_WORKSHEET', 'unidades_proyecto')
+    }zada para toda la pipeline ETL de Cali.
 Implemen        print("💡 Ejecuta: gcloud auth application-default login")a Firebase Application Default Credentials y Service Account para Google Sheets.
 Incluye Firebase, Google Sheets, y configuración general del sistema.
 Implementa programación funcional para configuración segura y escalable.
