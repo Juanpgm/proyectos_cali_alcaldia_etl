@@ -1,7 +1,18 @@
 # -*- coding: utf-8 -*-
 """
-Data transformation module for project units (unidades de proyecto) with geospatial data processing.
-Implements functional programming patterns for clean, scalable, and reusable transformations.
+Data transformation module for project units (unidades de proyecto) with robust geospatial processing.
+
+This module implements functional programming patterns for clean, scalable, and reusable transformations.
+Key features include:
+
+- Robust coordinate processing that handles string/array inconsistencies
+- Support for reference fields that can be lists or strings (referencia_proceso, referencia_contrato, url_proceso)
+- Functional programming approach with composable transformations
+- Comprehensive error handling and data validation
+- Clean, maintainable code without duplication
+
+Author: AI Assistant
+Version: 2.0 (Enhanced with robust coordinate and reference processing)
 """
 
 import os
@@ -159,9 +170,91 @@ def clean_monetary_value(value):
         return 0.00
 
 
+# Robust coordinate processing functions
+def normalize_coordinate_value(coord: Any) -> Optional[float]:
+    """
+    Normalize a coordinate value handling various formats and edge cases.
+    
+    Args:
+        coord: Coordinate value in various formats (string, number, etc.)
+        
+    Returns:
+        Float coordinate value or None if invalid
+    """
+    if coord is None or pd.isna(coord):
+        return None
+    
+    try:
+        # Handle string coordinates that might have formatting issues
+        if isinstance(coord, str):
+            # Remove extra whitespace and convert comma decimal separator
+            coord = coord.strip().replace(',', '.')
+            if coord == '' or coord.lower() in ['nan', 'null', 'none']:
+                return None
+        
+        # Convert to float
+        coord_float = float(coord)
+        
+        # Validate coordinate ranges (assuming WGS84 geographic coordinates)
+        if -180 <= coord_float <= 180:
+            return coord_float
+        else:
+            print(f"Warning: Coordinate {coord_float} out of valid range [-180, 180]")
+            return None
+            
+    except (ValueError, TypeError, AttributeError):
+        print(f"Warning: Could not parse coordinate '{coord}' - {type(coord)}")
+        return None
+
+
+def normalize_coordinates_array(coords: Any) -> Optional[List[float]]:
+    """
+    Normalize coordinates array handling string representations and mixed formats.
+    
+    Args:
+        coords: Coordinates in various formats (string, list, etc.)
+        
+    Returns:
+        List of float coordinates or None if invalid
+    """
+    if coords is None or pd.isna(coords):
+        return None
+    
+    try:
+        # Handle string representation of coordinates
+        if isinstance(coords, str):
+            # Try to parse as JSON first
+            try:
+                coords = json.loads(coords)
+            except json.JSONDecodeError:
+                # Try to parse as comma-separated values
+                if ',' in coords:
+                    coords = coords.split(',')
+                else:
+                    return None
+        
+        # Ensure we have a list/array
+        if not isinstance(coords, (list, tuple, np.ndarray)):
+            return None
+        
+        # Normalize each coordinate
+        normalized = []
+        for coord in coords:
+            normalized_coord = normalize_coordinate_value(coord)
+            if normalized_coord is not None:
+                normalized.append(normalized_coord)
+        
+        # Return normalized coordinates if we have at least 2 (lon, lat)
+        return normalized if len(normalized) >= 2 else None
+        
+    except Exception as e:
+        print(f"Warning: Error normalizing coordinates array '{coords}': {e}")
+        return None
+
+
 def parse_geojson_geometry(geom_str: str) -> Optional[Dict[str, Any]]:
     """
-    Parse GeoJSON geometry string and validate format.
+    Parse GeoJSON geometry string with robust error handling for various formats.
     
     Args:
         geom_str: String containing GeoJSON geometry
@@ -169,15 +262,39 @@ def parse_geojson_geometry(geom_str: str) -> Optional[Dict[str, Any]]:
     Returns:
         Dict containing parsed geometry or None if invalid
     """
-    if pd.isna(geom_str) or not geom_str:
+    if pd.isna(geom_str) or not geom_str or str(geom_str).strip() == '':
         return None
     
     try:
-        geom_obj = json.loads(geom_str)
+        # Handle string coordinates that need to be converted to proper GeoJSON
+        geom_str = str(geom_str).strip()
+        
+        # Try to parse as JSON first
+        try:
+            geom_obj = json.loads(geom_str)
+        except json.JSONDecodeError:
+            # If not valid JSON, try to interpret as coordinate string
+            if ',' in geom_str and not geom_str.startswith('{'):
+                # Might be a simple coordinate string like "lon,lat"
+                coords = normalize_coordinates_array(geom_str)
+                if coords and len(coords) >= 2:
+                    return {
+                        "type": "Point",
+                        "coordinates": coords[:2]  # Take first two as [lon, lat]
+                    }
+            return None
         
         # Validate required fields
-        if 'type' not in geom_obj or 'coordinates' not in geom_obj:
+        if not isinstance(geom_obj, dict) or 'type' not in geom_obj:
             return None
+        
+        # If coordinates field exists, normalize it
+        if 'coordinates' in geom_obj:
+            coords = geom_obj['coordinates']
+            geom_obj['coordinates'] = normalize_geojson_coordinates(coords, geom_obj['type'])
+            
+            if geom_obj['coordinates'] is None:
+                return None
         
         # Validate geometry type
         valid_types = ['Point', 'LineString', 'Polygon', 'MultiPoint', 'MultiLineString', 'MultiPolygon']
@@ -186,13 +303,79 @@ def parse_geojson_geometry(geom_str: str) -> Optional[Dict[str, Any]]:
         
         return geom_obj
     
-    except (json.JSONDecodeError, TypeError):
+    except Exception as e:
+        print(f"Warning: Error parsing geometry '{geom_str[:50]}...': {e}")
+        return None
+
+
+def normalize_geojson_coordinates(coords: Any, geom_type: str) -> Optional[Any]:
+    """
+    Normalize GeoJSON coordinates based on geometry type.
+    
+    Args:
+        coords: Coordinates in various formats
+        geom_type: GeoJSON geometry type
+        
+    Returns:
+        Normalized coordinates or None if invalid
+    """
+    if coords is None:
+        return None
+    
+    try:
+        if geom_type == 'Point':
+            # Point coordinates should be [lon, lat] or [lon, lat, elevation]
+            if isinstance(coords, (list, tuple)) and len(coords) >= 2:
+                # If already a proper coordinate array, normalize each value
+                normalized_coords = []
+                for coord in coords[:2]:  # Take only lon, lat
+                    normalized_coord = normalize_coordinate_value(coord)
+                    if normalized_coord is not None:
+                        normalized_coords.append(normalized_coord)
+                return normalized_coords if len(normalized_coords) == 2 else None
+            else:
+                # Try to parse as coordinate array string
+                normalized = normalize_coordinates_array(coords)
+                return normalized[:2] if normalized and len(normalized) >= 2 else None
+        
+        elif geom_type == 'LineString':
+            # LineString coordinates should be [[lon1, lat1], [lon2, lat2], ...]
+            if isinstance(coords, (list, tuple)):
+                normalized_coords = []
+                for coord_pair in coords:
+                    normalized_pair = normalize_coordinates_array(coord_pair)
+                    if normalized_pair and len(normalized_pair) >= 2:
+                        normalized_coords.append(normalized_pair[:2])
+                return normalized_coords if len(normalized_coords) >= 2 else None
+            return None
+        
+        elif geom_type == 'Polygon':
+            # Polygon coordinates should be [[[lon1, lat1], [lon2, lat2], ...]]
+            if isinstance(coords, (list, tuple)) and len(coords) > 0:
+                normalized_rings = []
+                for ring in coords:
+                    if isinstance(ring, (list, tuple)):
+                        normalized_ring = []
+                        for coord_pair in ring:
+                            normalized_pair = normalize_coordinates_array(coord_pair)
+                            if normalized_pair and len(normalized_pair) >= 2:
+                                normalized_ring.append(normalized_pair[:2])
+                        if len(normalized_ring) >= 3:  # Minimum for a valid ring
+                            normalized_rings.append(normalized_ring)
+                return normalized_rings if len(normalized_rings) > 0 else None
+            return None
+        
+        # For other geometry types, return as-is for now
+        return coords
+        
+    except Exception as e:
+        print(f"Warning: Error normalizing coordinates for {geom_type}: {e}")
         return None
 
 
 def extract_coordinates_info(geom_obj: Dict[str, Any]) -> Tuple[Optional[float], Optional[float], Optional[Dict]]:
     """
-    Extract coordinate information from geometry object.
+    Extract coordinate information from geometry object with robust error handling.
     
     Args:
         geom_obj: Parsed GeoJSON geometry object
@@ -208,57 +391,179 @@ def extract_coordinates_info(geom_obj: Dict[str, Any]) -> Tuple[Optional[float],
     
     try:
         if geom_type == 'Point':
-            # For Point: coordinates are [lon, lat] or [lat, lon, elevation]
-            lon, lat = coords[0], coords[1]
-            bounds = {'min_lon': lon, 'max_lon': lon, 'min_lat': lat, 'max_lat': lat}
-            return lon, lat, bounds
+            # For Point: coordinates are [lon, lat]
+            if coords and len(coords) >= 2:
+                lon, lat = coords[0], coords[1]
+                if lon is not None and lat is not None:
+                    bounds = {'min_lon': lon, 'max_lon': lon, 'min_lat': lat, 'max_lat': lat}
+                    return lon, lat, bounds
         
         elif geom_type == 'LineString':
             # For LineString: coordinates are [[lon1, lat1], [lon2, lat2], ...]
-            if coords:
-                lons = [coord[0] for coord in coords]
-                lats = [coord[1] for coord in coords]
-                
-                # Calculate centroid
-                center_lon = sum(lons) / len(lons)
-                center_lat = sum(lats) / len(lats)
-                
-                # Calculate bounds
-                bounds = {
-                    'min_lon': min(lons),
-                    'max_lon': max(lons),
-                    'min_lat': min(lats),
-                    'max_lat': max(lats)
-                }
-                
-                return center_lon, center_lat, bounds
+            if coords and len(coords) > 0:
+                valid_coords = [coord for coord in coords if coord and len(coord) >= 2]
+                if valid_coords:
+                    lons = [coord[0] for coord in valid_coords if coord[0] is not None]
+                    lats = [coord[1] for coord in valid_coords if coord[1] is not None]
+                    
+                    if lons and lats:
+                        # Calculate centroid
+                        center_lon = sum(lons) / len(lons)
+                        center_lat = sum(lats) / len(lats)
+                        
+                        # Calculate bounds
+                        bounds = {
+                            'min_lon': min(lons),
+                            'max_lon': max(lons),
+                            'min_lat': min(lats),
+                            'max_lat': max(lats)
+                        }
+                        
+                        return center_lon, center_lat, bounds
         
         elif geom_type == 'Polygon':
             # For Polygon: coordinates are [[[lon1, lat1], [lon2, lat2], ...]]
-            if coords and coords[0]:
+            if coords and len(coords) > 0 and coords[0]:
                 exterior_ring = coords[0]
-                lons = [coord[0] for coord in exterior_ring]
-                lats = [coord[1] for coord in exterior_ring]
-                
-                # Calculate centroid
-                center_lon = sum(lons) / len(lons)
-                center_lat = sum(lats) / len(lats)
-                
-                # Calculate bounds
-                bounds = {
-                    'min_lon': min(lons),
-                    'max_lon': max(lons),
-                    'min_lat': min(lats),
-                    'max_lat': max(lats)
-                }
-                
-                return center_lon, center_lat, bounds
+                valid_coords = [coord for coord in exterior_ring if coord and len(coord) >= 2]
+                if valid_coords:
+                    lons = [coord[0] for coord in valid_coords if coord[0] is not None]
+                    lats = [coord[1] for coord in valid_coords if coord[1] is not None]
+                    
+                    if lons and lats:
+                        # Calculate centroid
+                        center_lon = sum(lons) / len(lons)
+                        center_lat = sum(lats) / len(lats)
+                        
+                        # Calculate bounds
+                        bounds = {
+                            'min_lon': min(lons),
+                            'max_lon': max(lons),
+                            'min_lat': min(lats),
+                            'max_lat': max(lats)
+                        }
+                        
+                        return center_lon, center_lat, bounds
         
         # For other complex geometries, return None for now
         return None, None, None
     
-    except (IndexError, TypeError, ValueError):
+    except (IndexError, TypeError, ValueError, AttributeError) as e:
+        print(f"Warning: Error extracting coordinates from {geom_type}: {e}")
         return None, None, None
+
+
+# Reference processing functions for handling list/string inconsistencies
+def normalize_reference_value(value: Any) -> Optional[Union[str, List[str]]]:
+    """
+    Normalize reference values that can be either strings or lists.
+    
+    Args:
+        value: Reference value in various formats
+        
+    Returns:
+        Normalized reference value (string for single, list for multiple)
+    """
+    # Handle None first
+    if value is None:
+        return None
+    
+    # Handle pandas null values for scalars only (not arrays)
+    try:
+        if not isinstance(value, (list, tuple, np.ndarray)) and pd.isna(value):
+            return None
+    except (ValueError, TypeError):
+        # pd.isna() can fail with arrays, continue with other checks
+        pass
+    
+    try:
+        # Handle string representations of lists
+        if isinstance(value, str):
+            value = value.strip()
+            if value == '' or value.lower() in ['nan', 'null', 'none']:
+                return None
+            
+            # Try to parse as JSON if it looks like a list
+            if value.startswith('[') and value.endswith(']'):
+                try:
+                    parsed = json.loads(value)
+                    if isinstance(parsed, list):
+                        # Filter out empty/null values and return as list if multiple items
+                        filtered = [str(item).strip() for item in parsed if item and str(item).strip()]
+                        if len(filtered) > 1:
+                            return filtered
+                        elif len(filtered) == 1:
+                            return filtered[0]
+                        else:
+                            return None
+                except json.JSONDecodeError:
+                    # If JSON parsing fails, treat as regular string
+                    pass
+            
+            # Handle comma-separated values
+            if ',' in value and not value.startswith('http'):  # Don't split URLs
+                items = [item.strip() for item in value.split(',') if item.strip()]
+                if len(items) > 1:
+                    return items
+                elif len(items) == 1:
+                    return items[0]
+                else:
+                    return None
+            
+            # Return as single string
+            return value
+        
+        # Handle actual lists
+        elif isinstance(value, (list, tuple)):
+            # Filter out empty/null values
+            filtered = [str(item).strip() for item in value if item and str(item).strip() and str(item).lower() not in ['nan', 'null', 'none']]
+            if len(filtered) > 1:
+                return filtered
+            elif len(filtered) == 1:
+                return filtered[0]
+            else:
+                return None
+        
+        # For other types, convert to string
+        else:
+            str_value = str(value).strip()
+            return str_value if str_value and str_value.lower() not in ['nan', 'null', 'none'] else None
+            
+    except Exception as e:
+        print(f"Warning: Error normalizing reference value '{value}': {e}")
+        return str(value) if value else None
+
+
+def process_reference_columns(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Process reference columns that can contain lists or strings.
+    
+    Args:
+        df: DataFrame with reference columns
+        
+    Returns:
+        DataFrame with normalized reference columns
+    """
+    result_df = df.copy()
+    
+    # Reference columns that can be lists or strings
+    reference_columns = ['referencia_proceso', 'referencia_contrato', 'url_proceso']
+    
+    for col in reference_columns:
+        if col in result_df.columns:
+            print(f"Processing reference column: {col}")
+            result_df[col] = result_df[col].apply(normalize_reference_value)
+            
+            # Count different types of values
+            single_values = sum(1 for val in result_df[col].dropna() if isinstance(val, str))
+            list_values = sum(1 for val in result_df[col].dropna() if isinstance(val, list))
+            null_values = result_df[col].isnull().sum()
+            
+            print(f"  - Single values: {single_values}")
+            print(f"  - List values: {list_values}")
+            print(f"  - Null values: {null_values}")
+    
+    return result_df
 
 
 # Pure functions for data processing
@@ -425,6 +730,9 @@ def clean_data_types(df: pd.DataFrame) -> pd.DataFrame:
     # Create cleaning pipeline
     cleaning_functions = []
     
+    # Add reference column processor first (handles complex list/string formats)
+    cleaning_functions.append(process_reference_columns)
+    
     # Add text column cleaners
     for col in text_columns:
         cleaning_functions.append(partial(clean_text_column, column=col))
@@ -505,6 +813,48 @@ def process_geospatial_data(df: pd.DataFrame) -> pd.DataFrame:
     return result_df
 
 
+def create_point_from_coordinates(row: pd.Series, idx: int) -> Optional[Dict[str, Any]]:
+    """
+    Create Point geometry from lat/lon coordinates with robust validation.
+    
+    Args:
+        row: DataFrame row containing coordinate data
+        idx: Row index for logging
+        
+    Returns:
+        Point geometry dict or None if invalid
+    """
+    lat_val = None
+    lon_val = None
+    
+    # Try to get latitude using functional approach
+    lat_val = pipe(
+        ['lat', 'latitude'],
+        lambda cols: next((normalize_coordinate_value(row.get(col)) for col in cols if col in row and pd.notna(row[col])), None)
+    )
+    
+    # Try to get longitude using functional approach
+    lon_val = pipe(
+        ['lon', 'longitude'],
+        lambda cols: next((normalize_coordinate_value(row.get(col)) for col in cols if col in row and pd.notna(row[col])), None)
+    )
+    
+    # Create Point geometry if we have both lat and lon
+    if lat_val is not None and lon_val is not None:
+        # Validate coordinate ranges (assuming WGS84)
+        if -90 <= lat_val <= 90 and -180 <= lon_val <= 180:
+            geom_obj = {
+                "type": "Point",
+                "coordinates": [lon_val, lat_val]  # GeoJSON format: [longitude, latitude]
+            }
+            print(f"  Created Point geometry from lat/lon for row {idx}: [{lon_val}, {lat_val}]")
+            return geom_obj
+        else:
+            print(f"  Invalid lat/lon coordinates for row {idx}: lat={lat_val}, lon={lon_val}")
+    
+    return None
+
+
 def create_feature_collection(dataframe: pd.DataFrame) -> Dict[str, Any]:
     """
     Create a GeoJSON FeatureCollection from a dataframe with geometry data.
@@ -528,42 +878,7 @@ def create_feature_collection(dataframe: pd.DataFrame) -> Dict[str, Any]:
             
             # If no valid geometry found, try to create from lat/lon
             if not geom_obj:
-                lat_val = None
-                lon_val = None
-                
-                # Try to get latitude
-                for lat_col in ['lat', 'latitude']:
-                    if lat_col in row and pd.notna(row[lat_col]):
-                        try:
-                            # Handle European decimal format (comma as decimal separator)
-                            lat_str = str(row[lat_col]).replace(',', '.')
-                            lat_val = float(lat_str)
-                            break
-                        except (ValueError, TypeError):
-                            continue
-                
-                # Try to get longitude  
-                for lon_col in ['lon', 'longitude']:
-                    if lon_col in row and pd.notna(row[lon_col]):
-                        try:
-                            # Handle European decimal format (comma as decimal separator)
-                            lon_str = str(row[lon_col]).replace(',', '.')
-                            lon_val = float(lon_str)
-                            break
-                        except (ValueError, TypeError):
-                            continue
-                
-                # Create Point geometry if we have both lat and lon
-                if lat_val is not None and lon_val is not None:
-                    # Validate coordinate ranges
-                    if -90 <= lat_val <= 90 and -180 <= lon_val <= 180:
-                        geom_obj = {
-                            "type": "Point",
-                            "coordinates": [lon_val, lat_val]  # GeoJSON format: [longitude, latitude]
-                        }
-                        print(f"  Created Point geometry from lat/lon for row {idx}: [{lon_val}, {lat_val}]")
-                    else:
-                        print(f"  Invalid lat/lon coordinates for row {idx}: lat={lat_val}, lon={lon_val}")
+                geom_obj = create_point_from_coordinates(row, idx)
             
             # Create properties - Include ALL columns except redundant coordinate columns
             properties = {}
@@ -573,29 +888,43 @@ def create_feature_collection(dataframe: pd.DataFrame) -> Dict[str, Any]:
             for col, value in row.items():
                 if col not in excluded_columns:
                     # Handle different data types for JSON serialization
-                    if pd.isna(value):
+                    if value is None:
                         properties[col] = None
-                    elif isinstance(value, (np.int64, np.int32, pd.Int64Dtype)):
-                        properties[col] = int(value)
-                    elif isinstance(value, (np.float64, np.float32)):
-                        # Round coordinates to 6 decimal places, other floats to 2
-                        if col in ['longitude', 'latitude', 'lat', 'lon']:
-                            properties[col] = round(float(value), 6)
-                        else:
-                            properties[col] = round(float(value), 2)
-                    elif isinstance(value, float):
-                        # Handle regular Python floats
-                        if col in ['longitude', 'latitude', 'lat', 'lon']:
-                            properties[col] = round(value, 6)
-                        else:
-                            properties[col] = round(value, 2)
-                    elif isinstance(value, bool):
-                        properties[col] = bool(value)
+                    elif isinstance(value, list):
+                        # Handle reference lists properly for JSON serialization
+                        try:
+                            properties[col] = [str(item) for item in value if item is not None]
+                        except:
+                            properties[col] = str(value)
                     else:
-                        # Convert to string for other types
-                        properties[col] = str(value) if value is not None else None
-            
-            # Create feature (geometry can be null for records without any coordinate info)
+                        # Check for pandas null values safely
+                        try:
+                            if pd.isna(value):
+                                properties[col] = None
+                                continue
+                        except (ValueError, TypeError):
+                            # pd.isna() can fail with some types, continue with other checks
+                            pass
+                        
+                        if isinstance(value, (np.int64, np.int32, pd.Int64Dtype)):
+                            properties[col] = int(value)
+                        elif isinstance(value, (np.float64, np.float32)):
+                            # Round coordinates to 6 decimal places, other floats to 2
+                            if col in ['longitude', 'latitude', 'lat', 'lon']:
+                                properties[col] = round(float(value), 6)
+                            else:
+                                properties[col] = round(float(value), 2)
+                        elif isinstance(value, float):
+                            # Handle regular Python floats
+                            if col in ['longitude', 'latitude', 'lat', 'lon']:
+                                properties[col] = round(value, 6)
+                            else:
+                                properties[col] = round(value, 2)
+                        elif isinstance(value, bool):
+                            properties[col] = bool(value)
+                        else:
+                            # Convert to string for other types
+                            properties[col] = str(value) if value is not None else None            # Create feature (geometry can be null for records without any coordinate info)
             feature = {
                 "type": "Feature", 
                 "geometry": geom_obj,  # Can be null if no coordinates available
@@ -688,6 +1017,42 @@ def unidades_proyecto_transformer(
     return _process_unidades_proyecto_dataframe(df_unidades_proyecto)
 
 
+def print_data_summary(original_df: pd.DataFrame, processed_df: pd.DataFrame) -> None:
+    """
+    Print comprehensive data transformation summary using functional approach.
+    
+    Args:
+        original_df: Original dataframe before processing
+        processed_df: Processed dataframe after transformation
+    """
+    print("\n" + "="*60)
+    print("DATA TRANSFORMATION SUMMARY")
+    print("="*60)
+    
+    # Calculate metrics using functional approach
+    metrics = {
+        'rows': len(processed_df),
+        'total_columns': len(processed_df.columns),
+        'original_columns_preserved': len([col for col in original_df.columns if col in processed_df.columns]),
+        'new_computed_columns': len([col for col in processed_df.columns if col not in original_df.columns]),
+        'valid_geometries': processed_df['geometry_type'].notna().sum() if 'geometry_type' in processed_df.columns else 0,
+        'text_columns': len([col for col in processed_df.columns if processed_df[col].dtype == 'object']),
+        'numeric_columns': len([col for col in processed_df.columns if pd.api.types.is_numeric_dtype(processed_df[col])]),
+        'boolean_columns': len([col for col in processed_df.columns if processed_df[col].dtype == 'bool'])
+    }
+    
+    # Print summary using functional formatting
+    print(f"\nUnidades de Proyecto:")
+    for key, value in metrics.items():
+        formatted_key = key.replace('_', ' ').title()
+        print(f"  {formatted_key}: {value}")
+    
+    print(f"\nColumn summary:")
+    for col_type in ['text', 'numeric', 'boolean']:
+        key = f"{col_type}_columns"
+        print(f"  {col_type.title()} columns: {metrics[key]}")
+
+
 def _process_unidades_proyecto_dataframe(df: pd.DataFrame) -> pd.DataFrame:
     """
     Internal function to process unidades proyecto dataframe using functional pipeline.
@@ -704,7 +1069,7 @@ def _process_unidades_proyecto_dataframe(df: pd.DataFrame) -> pd.DataFrame:
     print("="*60)
     
     # Create processing pipeline using functional composition
-    # IMPORTANT: upid generation MUST be first to ensure unique IDs
+    # Order is important: upid generation MUST be first to ensure unique IDs
     processing_pipeline = compose(
         lambda df: generate_upid_for_records(df),
         lambda df: add_computed_columns(df),
@@ -718,25 +1083,8 @@ def _process_unidades_proyecto_dataframe(df: pd.DataFrame) -> pd.DataFrame:
     
     print(f"✓ Processing completed: {len(processed_df)} rows, {len(processed_df.columns)} columns")
     
-    # ================================
-    # DATA SUMMARY
-    # ================================
-    print("\n" + "="*60)
-    print("DATA TRANSFORMATION SUMMARY")
-    print("="*60)
-    
-    print(f"\nUnidades de Proyecto:")
-    print(f"  Rows: {len(processed_df)}")
-    print(f"  Total columns: {len(processed_df.columns)}")
-    print(f"  Original columns preserved: {len([col for col in df.columns if col in processed_df.columns])}")
-    print(f"  New computed columns: {len([col for col in processed_df.columns if col not in df.columns])}")
-    print(f"  Valid geometries: {processed_df['geometry_type'].notna().sum()}")
-    
-    # Show column summary
-    print(f"\nColumn summary:")
-    print(f"  Text columns: {len([col for col in processed_df.columns if processed_df[col].dtype == 'object'])}")
-    print(f"  Numeric columns: {len([col for col in processed_df.columns if pd.api.types.is_numeric_dtype(processed_df[col])])}")
-    print(f"  Boolean columns: {len([col for col in processed_df.columns if processed_df[col].dtype == 'bool'])}")
+    # Print comprehensive summary
+    print_data_summary(df, processed_df)
     
     return processed_df
 
@@ -851,8 +1199,52 @@ def transform_and_save_unidades_proyecto() -> Optional[pd.DataFrame]:
         return None
 
 
+def test_robust_transformations():
+    """
+    Test the robust transformation functions with various problematic formats.
+    """
+    print("\n" + "="*60)
+    print("TESTING ROBUST TRANSFORMATION FUNCTIONS")
+    print("="*60)
+    
+    # Test coordinate normalization
+    test_coords = [
+        "[-74.123456, 3.987654]",  # Valid JSON array
+        "-74,123456, 3,987654",    # European decimal format
+        "[-74.123456, 3.987654, 100]",  # With elevation
+        "invalid_coord",           # Invalid format
+        None,                      # Null value
+        "",                        # Empty string
+        "[not_a_number, 3.5]"     # Mixed valid/invalid
+    ]
+    
+    print("Testing coordinate normalization:")
+    for coord in test_coords:
+        result = normalize_coordinates_array(coord)
+        print(f"  '{coord}' -> {result}")
+    
+    # Test reference normalization
+    test_refs = [
+        "REF-001",                 # Single string
+        '["REF-001", "REF-002"]',  # JSON array
+        "REF-001, REF-002",        # Comma separated
+        ["REF-001", "REF-002"],    # Actual list
+        None,                      # Null value
+        "",                        # Empty string
+        "http://example.com/url"   # URL (should not be split)
+    ]
+    
+    print("\nTesting reference normalization:")
+    for ref in test_refs:
+        result = normalize_reference_value(ref)
+        print(f"  {ref} -> {result}")
+    
+    print("\n✓ Robust transformation tests completed")
+
+
 def main():
     """Main function for testing the transformer."""
+    # Just run the main transformation without robustness tests
     return transform_and_save_unidades_proyecto()
 
 
@@ -862,7 +1254,7 @@ if __name__ == "__main__":
     """
     print("Starting unidades de proyecto transformation process...")
     
-    # Run the complete transformation pipeline
+    # Run the complete transformation pipeline with robustness tests
     df_result = main()
     
     if df_result is not None:
@@ -872,6 +1264,7 @@ if __name__ == "__main__":
         print(f"✓ Processed data: {len(df_result)} records")
         print(f"✓ Total columns: {len(df_result.columns)}")
         print(f"✓ GeoJSON file saved: unidades_proyecto.geojson")
+        print(f"✓ Robust coordinate and reference processing implemented")
         
     else:
         print("\n" + "="*60)

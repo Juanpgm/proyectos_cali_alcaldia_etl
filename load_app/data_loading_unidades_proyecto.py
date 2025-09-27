@@ -7,6 +7,8 @@ Implements functional programming patterns for clean, scalable, and efficient Fi
 import os
 import json
 import sys
+import pandas as pd
+import numpy as np
 from typing import Dict, List, Any, Optional, Callable
 from functools import reduce, partial, wraps
 from datetime import datetime
@@ -53,10 +55,57 @@ def safe_execute(func: Callable, fallback_value: Any = None) -> Callable:
 
 
 # Firebase data preparation functions
+def serialize_for_firebase(value: Any) -> Any:
+    """
+    Serialize values for Firebase storage, handling lists and complex types.
+    
+    Args:
+        value: Value to serialize
+        
+    Returns:
+        Firebase-compatible value
+    """
+    if value is None:
+        return None
+    
+    # Handle numpy arrays and lists first
+    if isinstance(value, (list, np.ndarray)):
+        # Convert to list if numpy array
+        if isinstance(value, np.ndarray):
+            value = value.tolist()
+        # Handle reference lists properly
+        return [str(item) for item in value if item is not None and not (isinstance(item, float) and pd.isna(item))]
+    
+    # Check for pandas NA/NaN for scalar values only
+    if hasattr(value, '__len__') and not isinstance(value, (str, bytes)):
+        # For other sequence types, convert to string
+        return str(value)
+    
+    # Check for scalar NA values
+    try:
+        if pd.isna(value):
+            return None
+    except (TypeError, ValueError):
+        # pd.isna can fail on some types, continue processing
+        pass
+    
+    if isinstance(value, dict):
+        # Convert dicts to strings for Firebase
+        return str(value)
+    elif isinstance(value, (np.int64, np.int32)):
+        return int(value)
+    elif isinstance(value, (np.float64, np.float32)):
+        return float(value)
+    elif isinstance(value, bool):
+        return bool(value)
+    else:
+        return str(value)
+
+
 @safe_execute
 def prepare_document_data(feature: Dict[str, Any]) -> Optional[Dict[str, Any]]:
     """
-    Prepare a single feature for Firebase document storage.
+    Prepare a single feature for Firebase document storage with robust serialization.
     Converts GeoJSON feature to Firebase-compatible document.
     
     Args:
@@ -72,11 +121,16 @@ def prepare_document_data(feature: Dict[str, Any]) -> Optional[Dict[str, Any]]:
     properties = feature.get('properties', {})
     geometry = feature.get('geometry')
     
+    # Serialize properties for Firebase compatibility
+    serialized_properties = {}
+    for key, value in properties.items():
+        serialized_properties[key] = serialize_for_firebase(value)
+    
     # Create document data
     document_data = {
         'type': 'Feature',
         'geometry': geometry,  # Keep full GeoJSON geometry
-        'properties': properties,
+        'properties': serialized_properties,
         'created_at': datetime.now().isoformat(),
         'updated_at': datetime.now().isoformat()
     }
