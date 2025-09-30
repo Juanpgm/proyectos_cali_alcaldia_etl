@@ -36,9 +36,9 @@ class ContractosEmprestitoExtractor:
         }
         
         # Rutas de archivos
-        self.base_path = "transformation_app/app_outputs/emprestito_outputs"
-        self.input_file = os.path.join(self.base_path, "emp_contratos_index.json")
-        self.output_file = os.path.join(self.base_path, "emp_contratos.json")
+        self.base_path = "transformation_app/app_inputs/contratos_secop_input"
+        self.input_file = "transformation_app/app_inputs/indice_procesos_emprestito/indice_procesos.json"
+        self.output_file = os.path.join(self.base_path, "contratos_secop_emprestito.json")
         
         os.makedirs(self.base_path, exist_ok=True)
     
@@ -55,9 +55,13 @@ class ContractosEmprestitoExtractor:
             # Filtrar solo registros con referencia_contrato válida
             valid_contracts = []
             for item in contratos_index:
-                ref_contrato = item.get('referencia_contrato', '').strip()
-                if ref_contrato:  # No vacío
-                    valid_contracts.append(item)
+                if 'referencia_contrato' in item and isinstance(item['referencia_contrato'], list):
+                    for ref_contrato in item['referencia_contrato']:
+                        if ref_contrato and ref_contrato.strip():  # No vacío
+                            # Crear un registro por cada referencia de contrato
+                            contract_record = item.copy()
+                            contract_record['referencia_contrato'] = ref_contrato.strip()
+                            valid_contracts.append(contract_record)
             
             logger.info(f"Encontrados {len(valid_contracts)} registros con referencia_contrato válida")
             return valid_contracts

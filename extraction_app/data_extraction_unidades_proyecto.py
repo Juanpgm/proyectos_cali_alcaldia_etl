@@ -10,13 +10,20 @@ import json
 import sys
 import pandas as pd
 import gspread
-from typing import Optional, Dict, List, Callable, Any, Tuple, Union
-from functools import reduce, partial, wraps
-from datetime import datetime
+from typing import Optional, List, Callable, Any
+from functools import reduce, wraps
 
 # Add database config to path for centralized configuration
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'database'))
-from config import get_sheets_client, open_spreadsheet_by_url, SHEETS_CONFIG
+
+try:
+    from config import get_sheets_client, open_spreadsheet_by_url, SHEETS_CONFIG
+except ImportError as e:
+    print(f"Warning: Could not import from config module: {e}")
+    # Fallback imports or alternative configuration
+    get_sheets_client = None
+    open_spreadsheet_by_url = None
+    SHEETS_CONFIG = {}
 
 
 # Functional composition utilities

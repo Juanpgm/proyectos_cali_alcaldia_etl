@@ -8,7 +8,6 @@ usando las referencias de proceso cargadas desde el archivo JSON.
 
 import pandas as pd
 from sodapy import Socrata
-import os
 import time
 import logging
 from datetime import datetime
@@ -21,7 +20,7 @@ logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler('extraction_app/extraction_logs.log', encoding='utf-8'),
+        logging.FileHandler('extraction_logs.log', encoding='utf-8'),
         logging.StreamHandler()
     ]
 )
@@ -32,7 +31,7 @@ SECOP_DOMAIN = "www.datos.gov.co"
 DATASET_ID = "p6dx-8zbt"  # ID del dataset de procesos de contratación
 NIT_ENTIDAD_CALI = "890399011"  # NIT de la Alcaldía de Cali
 OUTPUT_DIR = Path("transformation_app/app_inputs/procesos_secop_input")
-REFERENCIAS_JSON_PATH = Path("transformation_app/app_outputs/emprestito_outputs/emp_procesos_index.json")
+REFERENCIAS_JSON_PATH = Path("transformation_app/app_inputs/indice_procesos_emprestito/indice_procesos.json")
 RECORDS_PER_REQUEST = 1000  # Límite por request del API
 REQUEST_TIMEOUT = 30  # Timeout en segundos para requests
 
@@ -80,12 +79,16 @@ class SecopProcessExtractor:
             with open(REFERENCIAS_JSON_PATH, 'r', encoding='utf-8') as f:
                 referencias_data = json.load(f)
             
-            # Extraer solo las referencias de proceso, limpiando espacios
-            self.target_references = [
-                item['referencia_proceso'].strip() 
-                for item in referencias_data 
-                if 'referencia_proceso' in item and item['referencia_proceso']
-            ]
+            # Extraer referencias de proceso de los arrays, limpiando espacios
+            self.target_references = []
+            for item in referencias_data:
+                if 'referencia_proceso' in item and isinstance(item['referencia_proceso'], list):
+                    for ref in item['referencia_proceso']:
+                        if ref and ref.strip():  # Solo referencias no vacías
+                            self.target_references.append(ref.strip())
+            
+            # Eliminar duplicados manteniendo el orden
+            self.target_references = list(dict.fromkeys(self.target_references))
             
             logger.info(f"✓ Cargadas {len(self.target_references)} referencias de proceso objetivo")
             logger.info(f"📋 Primeras 5 referencias: {self.target_references[:5]}")
@@ -243,7 +246,7 @@ class SecopProcessExtractor:
                 df_processes_clean = self.clean_data_for_excel(df_processes)
                 
                 # Guardar procesos en JSON
-                processes_filename = f"procesos_secop_emprestito_{timestamp}.json"
+                processes_filename = "procesos_secop_emprestito.json"
                 processes_path = OUTPUT_DIR / processes_filename
                 
                 data_list = df_processes_clean.to_dict('records')

@@ -1,6 +1,7 @@
 import pandas as pd
 import os
 import re
+import json
 from datetime import datetime
 from tqdm import tqdm
 
@@ -95,35 +96,6 @@ def remove_unwanted_columns(df):
     ]
     
     # Verificar qué columnas existen realmente en el DataFrame
-    existing_columns_to_remove = [col for col in columns_to_remove if col in df.columns]
-    
-    if existing_columns_to_remove:
-        df = df.drop(columns=existing_columns_to_remove)
-        print(f"✅ Eliminadas {len(existing_columns_to_remove)} columnas: {existing_columns_to_remove}")
-    else:
-        print("ℹ️ No se encontraron columnas para eliminar")
-    
-    print(f"📊 Columnas restantes: {len(df.columns)}")
-    return df
-
-def remove_unwanted_columns(df):
-    """
-    Elimina columnas específicas que no son necesarias
-    """
-    print("🔄 Eliminando columnas no deseadas...")
-    
-    # Lista de columnas a eliminar
-    columns_to_remove = [
-        'nit_entidad', 
-        'departamento', 
-        'ciudad', 
-        'localización', 
-        'orden', 
-        'rama', 
-        'condiciones_entrega'
-    ]
-    
-    # Filtrar solo las columnas que existen en el DataFrame
     existing_columns_to_remove = [col for col in columns_to_remove if col in df.columns]
     
     if existing_columns_to_remove:
@@ -239,9 +211,77 @@ def clean_nan_values(df):
     
     return df
 
+def enrich_bpin_from_projects(df):
+    """
+    Enriquece los contratos con BPIN desde datos de proyectos presupuestales
+    cuando el BPIN no está disponible o es 0 en SECOP
+    """
+    print("🔄 Enriqueciendo BPIN desde datos de proyectos presupuestales...")
+    
+    # Verificar si existe el archivo de proyectos
+    projects_file = 'transformation_app/app_outputs/ejecucion_presupuestal_outputs/datos_caracteristicos_proyectos.json'
+    if not os.path.exists(projects_file):
+        print(f"⚠️ Archivo de proyectos no encontrado: {projects_file}")
+        return df
+    
+    try:
+        # Cargar datos de proyectos
+        with open(projects_file, 'r', encoding='utf-8') as f:
+            projects_data = json.load(f)
+        
+        df_projects = pd.DataFrame(projects_data)
+        print(f"✅ Cargados {len(df_projects)} proyectos presupuestales")
+        
+        # Contar contratos sin BPIN válido
+        contratos_sin_bpin = len(df[(df['bpin'] == 0) | (df['bpin'].isna())])
+        print(f"📊 Contratos sin BPIN válido: {contratos_sin_bpin}")
+        
+        if contratos_sin_bpin == 0:
+            print("✅ Todos los contratos ya tienen BPIN válido")
+            return df
+        
+        # Crear índice de búsqueda por palabras clave
+        enriched_count = 0
+        
+        for idx, row in df.iterrows():
+            # Solo procesar contratos sin BPIN válido
+            if row['bpin'] != 0 and not pd.isna(row['bpin']):
+                continue
+                
+            descripcion = str(row.get('descripcion_proceso', '')).lower()
+            referencia = str(row.get('referencia_contrato', ''))
+            
+            # Buscar coincidencias por palabras clave en descripción
+            palabras_clave = [palabra for palabra in descripcion.split() if len(palabra) > 4][:10]
+            
+            mejor_coincidencia = None
+            max_coincidencias = 0
+            
+            for _, project in df_projects.iterrows():
+                nombre_proyecto = str(project['nombre_proyecto']).lower()
+                coincidencias = sum(1 for palabra in palabras_clave if palabra in nombre_proyecto)
+                
+                if coincidencias > max_coincidencias and coincidencias >= 2:  # Mínimo 2 palabras
+                    max_coincidencias = coincidencias
+                    mejor_coincidencia = project
+            
+            # Si se encontró una buena coincidencia, asignar el BPIN
+            if mejor_coincidencia is not None:
+                df.at[idx, 'bpin'] = int(mejor_coincidencia['bpin'])
+                enriched_count += 1
+                print(f"  ✅ BPIN {mejor_coincidencia['bpin']} asignado a contrato {referencia}")
+                print(f"     Proyecto: {mejor_coincidencia['nombre_proyecto'][:60]}...")
+        
+        print(f"🎉 Enriquecimiento completado: {enriched_count} contratos actualizados")
+        
+    except Exception as e:
+        print(f"❌ Error enriqueciendo BPIN: {e}")
+    
+    return df
+
 def rename_and_convert_bpin(df):
     """
-    Renombra 'código_bpin' a 'bpin' y convierte a entero
+    Renombra 'código_bpin' a 'bpin' y convierte a entero sin decimales
     """
     print("🔄 Procesando columna BPIN...")
     
@@ -250,21 +290,32 @@ def rename_and_convert_bpin(df):
         df = df.rename(columns={'código_bpin': 'bpin'})
         print("✅ Columna renombrada: 'código_bpin' → 'bpin'")
         
-        # Convertir a entero
+        # Convertir a entero sin decimales
         try:
             # Limpiar valores no numéricos
             df['bpin'] = df['bpin'].astype(str)
             df['bpin'] = df['bpin'].str.replace(r'[^\d]', '', regex=True)
             
-            # Convertir a entero
+            # Convertir a entero sin decimales
             df['bpin'] = pd.to_numeric(df['bpin'], errors='coerce')
             df['bpin'] = df['bpin'].fillna(0).astype('int64')
             
-            print("✅ Columna BPIN convertida a entero")
+            print("✅ Columna BPIN convertida a entero sin decimales")
         except Exception as e:
             print(f"⚠️ Error convirtiendo BPIN a entero: {e}")
     else:
-        print("⚠️ Columna 'código_bpin' no encontrada")
+        # Si no existe la columna código_bpin, verificar si ya existe 'bpin'
+        if 'bpin' in df.columns:
+            print("✅ Columna 'bpin' ya existe, verificando formato...")
+            try:
+                # Asegurar que sea entero sin decimales
+                df['bpin'] = pd.to_numeric(df['bpin'], errors='coerce')
+                df['bpin'] = df['bpin'].fillna(0).astype('int64')
+                print("✅ Columna BPIN convertida a entero sin decimales")
+            except Exception as e:
+                print(f"⚠️ Error convirtiendo BPIN existente a entero: {e}")
+        else:
+            print("⚠️ Columna 'código_bpin' o 'bpin' no encontrada")
     
     return df
 
@@ -356,6 +407,10 @@ def create_bpin_summary(df):
     unique_bpins = summary_df['bpin'].unique()
     
     for bpin_value in tqdm(unique_bpins, desc="Procesando BPINs para resumen"):
+        # Verificar que el BPIN no sea NaN
+        if pd.isna(bpin_value):
+            continue
+            
         bpin_records = summary_df[summary_df['bpin'] == bpin_value]
         
         # Crear lista de contratos para este BPIN
@@ -411,6 +466,8 @@ def export_optimized_json(grouped_data, output_path):
     
     return optimized_structure
 
+
+
 def load_and_filter_contratos_secop():
     """
     Lee todos los archivos de datos de contratos SECOP desde la carpeta de entrada
@@ -439,7 +496,7 @@ def load_and_filter_contratos_secop():
     
     print(f"🔄 Archivos encontrados en la carpeta: {len(all_files)}")
     for file in all_files:
-        print(f"  � {file}")
+        print(f"  📄 {file}")
     
     # Lista para almacenar todos los DataFrames
     all_dataframes = []
@@ -476,7 +533,17 @@ def load_and_filter_contratos_secop():
                 
             elif file_extension == '.json':
                 print("📊 Leyendo archivo JSON...")
-                df_temp = pd.read_json(file_path)
+                # Cargar JSON y extraer solo la parte de contratos
+                with open(file_path, 'r', encoding='utf-8') as f:
+                    json_data = json.load(f)
+                
+                # Si el JSON tiene estructura compleja, extraer solo contratos_encontrados
+                if isinstance(json_data, dict) and 'contratos_encontrados' in json_data:
+                    df_temp = pd.DataFrame(json_data['contratos_encontrados'])
+                    print(f"📋 Extrayendo 'contratos_encontrados' del JSON estructurado")
+                else:
+                    # Intentar leer directamente si es un array simple
+                    df_temp = pd.DataFrame(json_data)
                 
             elif file_extension == '.parquet':
                 print("📊 Leyendo archivo Parquet...")
@@ -569,18 +636,21 @@ def transform_dataframe(df):
     # 4. Renombrar y convertir BPIN
     df = rename_and_convert_bpin(df)
     
-    # 5. Renombrar link_proceso a urlProceso
+    # 5. Enriquecer BPIN desde datos de proyectos presupuestales
+    df = enrich_bpin_from_projects(df)
+    
+    # 6. Renombrar link_proceso a urlProceso
     if 'link_proceso' in df.columns:
         df = df.rename(columns={'link_proceso': 'urlProceso'})
         print("✅ Columna renombrada: 'link_proceso' → 'urlProceso'")
     
-    # 6. Estandarizar fechas
+    # 7. Estandarizar fechas
     df = standardize_dates(df)
     
-    # 7. Convertir valores monetarios
+    # 8. Convertir valores monetarios
     df = convert_monetary_to_numeric(df)
     
-    # 8. Limpiar valores NaN
+    # 9. Limpiar valores NaN
     df = clean_nan_values(df)
     
     print("✅ Todas las transformaciones completadas")
@@ -628,7 +698,7 @@ def main():
         df_contratos = transform_dataframe(df_contratos)
         
         # Exportar JSON normal (individual records)
-        output_path = "transformation_app/app_outputs/contratos_secop_outputs/contratos_proyectos.json"
+        output_path = "transformation_app/app_outputs/emprestito_outputs/contratos_secop_emprestito_transformed.json"
         export_to_json(df_contratos, output_path)
         
         # Crear resumen optimizado por BPIN

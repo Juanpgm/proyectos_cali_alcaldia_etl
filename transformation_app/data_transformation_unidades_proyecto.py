@@ -27,7 +27,12 @@ from pathlib import Path
 
 # Add utils to path for temp file manager
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'utils'))
-from temp_file_manager import process_in_memory, TempFileManager
+try:
+    from temp_file_manager import process_in_memory, TempFileManager
+except ImportError:
+    # Fallback in case of import issues
+    process_in_memory = None
+    TempFileManager = None
 
 
 # Functional programming utilities

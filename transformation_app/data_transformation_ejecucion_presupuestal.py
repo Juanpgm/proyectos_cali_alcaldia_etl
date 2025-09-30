@@ -14,7 +14,10 @@ import numpy as np
 import re
 import unicodedata
 import time
-import psutil
+try:
+    import psutil
+except ImportError:
+    psutil = None
 from tqdm import tqdm
 from typing import Dict, List, Optional, Tuple, Union
 from datetime import datetime
@@ -743,8 +746,14 @@ def print_performance_metrics(start_time: float, df_consolidado: pd.DataFrame) -
     end_time = time.time()
     execution_time = end_time - start_time
     
-    process = psutil.Process()
-    memory_usage = process.memory_info().rss / (1024 * 1024)  # MB
+    # Obtener uso de memoria si psutil está disponible
+    memory_usage = "N/A"
+    if psutil is not None:
+        try:
+            process = psutil.Process()
+            memory_usage = f"{process.memory_info().rss / (1024 * 1024):.2f} MB"
+        except Exception:
+            memory_usage = "N/A"
     
     print("\n" + "="*60)
     print("MÉTRICAS DE DESEMPEÑO:")
@@ -752,7 +761,7 @@ def print_performance_metrics(start_time: float, df_consolidado: pd.DataFrame) -
     print(f"Tiempo total de ejecución: {execution_time:.2f} segundos")
     print(f"Total de filas procesadas: {len(df_consolidado):,}")
     print(f"Total de columnas: {len(df_consolidado.columns)}")
-    print(f"Memoria utilizada: {memory_usage:.2f} MB")
+    print(f"Memoria utilizada: {memory_usage}")
     print("="*60)
 
 

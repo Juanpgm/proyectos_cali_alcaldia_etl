@@ -362,41 +362,21 @@ def create_procesos_proyectos_index(cleaned_data):
         print(f"❌ Error durante la creación del índice de procesos: {str(e)}")
         raise
 
+
+
 def main():
     """
     Convierte datos de procesos SECOP a JSON, 
     excluyendo registros con tipo_contrato = 'Prestación de servicios'
-    y filtrando por proceso_compra que existan en contratos_proyectos_index.json
     """
     print("🚀 Iniciando conversión de datos de procesos SECOP a JSON")
     print("=" * 60)
-    
-    # Ruta del índice de contratos
-    contratos_index_path = "transformation_app/app_outputs/contratos_secop_outputs/contratos_proyectos_index.json"
-    
-    if not os.path.exists(contratos_index_path):
-        print(f"❌ No se encontró el archivo de índice de contratos: {contratos_index_path}")
-        return
     
     try:
         # Cargar todos los archivos de procesos automáticamente
         print("🔄 Cargando datos de procesos desde la carpeta de entrada...")
         df = load_all_procesos_secop_files()
         print(f"✅ Datos cargados: {len(df):,} registros, {len(df.columns)} columnas")
-        
-        # Cargar el índice de contratos para obtener los proceso_compra válidos
-        print("🔄 Cargando índice de contratos...")
-        with open(contratos_index_path, 'r', encoding='utf-8') as f:
-            contratos_index = json.load(f)
-        
-        # Extraer todos los proceso_compra del índice de contratos
-        valid_proceso_compras = set()
-        for bpin_data in contratos_index.values():
-            for contrato in bpin_data.get('contratos', []):
-                if 'proceso_compra' in contrato:
-                    valid_proceso_compras.add(contrato['proceso_compra'])
-        
-        print(f"✅ Índice de contratos cargado: {len(valid_proceso_compras):,} proceso_compra únicos")
         
         # Limpiar nombres de columnas
         df = clean_column_names(df)
@@ -428,18 +408,39 @@ def main():
         df = clean_monetary_values(df)
         df = clean_nan_values(df)
         
-        # Filtrar por proceso_compra que existan en el índice de contratos
-        if 'proceso_compra' in df.columns:
-            print(f"\n🔍 Filtrando por proceso_compra válidos...")
-            registros_antes_filtro = len(df)
-            df = df[df['proceso_compra'].isin(valid_proceso_compras)].copy()
-            registros_filtrados = registros_antes_filtro - len(df)
+        # Cargar el índice de contratos para filtrar por proceso_compra válidos
+        contratos_index_path = "transformation_app/app_outputs/contratos_secop_outputs/contratos_proyectos_index.json"
+        
+        if os.path.exists(contratos_index_path):
+            print(f"\n🔄 Cargando índice de contratos para filtrar proceso_compra válidos...")
+            with open(contratos_index_path, 'r', encoding='utf-8') as f:
+                contratos_index = json.load(f)
             
-            print(f"   - Registros antes del filtro: {registros_antes_filtro:,}")
-            print(f"   - Registros filtrados (no en contratos): {registros_filtrados:,}")
-            print(f"   - Registros restantes: {len(df):,}")
+            # Extraer todos los proceso_compra válidos del índice de contratos
+            valid_proceso_compra = set()
+            for bpin_data in contratos_index.values():
+                for contrato in bpin_data.get('contratos', []):
+                    proceso_compra = contrato.get('proceso_compra')
+                    if proceso_compra:
+                        valid_proceso_compra.add(proceso_compra)
+            
+            print(f"✅ Proceso_compra válidos encontrados: {len(valid_proceso_compra):,}")
+            
+            # Filtrar el DataFrame por proceso_compra válidos
+            if 'proceso_compra' in df.columns:
+                registros_antes = len(df)
+                df = df[df['proceso_compra'].isin(valid_proceso_compra)].copy()
+                registros_filtrados = registros_antes - len(df)
+                
+                print(f"🔍 Filtro por proceso_compra válidos aplicado:")
+                print(f"   - Registros antes del filtro: {registros_antes:,}")
+                print(f"   - Registros filtrados: {registros_filtrados:,}")
+                print(f"   - Registros restantes: {len(df):,}")
+            else:
+                print("⚠️ No se pudo aplicar filtro por proceso_compra (columna no encontrada)")
         else:
-            print("⚠️ No se pudo aplicar filtro por proceso_compra (columna no encontrada)")
+            print(f"⚠️ No se encontró el archivo de índice de contratos: {contratos_index_path}")
+            print("🔄 Continuando sin filtro por proceso_compra...")
         
         # Buscar la columna de tipo de contrato (ahora con nombres limpiados)
         tipo_contrato_col = None
@@ -522,11 +523,11 @@ def main():
             cleaned_data.append(cleaned_record)
         
         # Crear directorio de salida si no existe
-        output_dir = "transformation_app/app_outputs/procesos_secop_outputs"
+        output_dir = "transformation_app/app_outputs/emprestito_outputs"
         os.makedirs(output_dir, exist_ok=True)
         
-        # Guardar como procesos_secop.json en el directorio de salida
-        output_path = f"{output_dir}/procesos_secop.json"
+        # Guardar como procesos_secop_emprestito_transformed.json en el directorio de salida
+        output_path = f"{output_dir}/procesos_secop_emprestito_transformed.json"
         with open(output_path, 'w', encoding='utf-8') as f:
             json.dump(cleaned_data, f, ensure_ascii=False, indent=2, default=str)
         
