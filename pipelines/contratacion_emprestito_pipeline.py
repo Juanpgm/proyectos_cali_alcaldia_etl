@@ -23,6 +23,7 @@ import threading
 import queue
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
+
 # Configuración de logging
 def setup_logging():
     """Configurar el sistema de logging con soporte UTF-8"""
@@ -36,10 +37,11 @@ def setup_logging():
     )
     return logging.getLogger(__name__)
 
+
 class ContratacionEmprestitoPipeline:
     """Pipeline principal para el procesamiento de datos de contratación de empréstito"""
     
-    def __init__(self, fast_mode: bool = False, skip_on_timeout: bool = True, parallel_execution: bool = True, adaptive_timeouts: bool = True):
+    def __init__(self, fast_mode: bool=False, skip_on_timeout: bool=True, parallel_execution: bool=True, adaptive_timeouts: bool=True):
         """
         Inicializar el pipeline de contratación de empréstito
         
@@ -82,27 +84,27 @@ class ContratacionEmprestitoPipeline:
                 'extraction_contratos': {
                     'estimated_time': 30,  # Reducido de 45 a 30
                     'buffer_factor': 2.0,  # Reducido de 3.0 a 2.0
-                    'min_timeout': 60,     # Reducido de 120 a 60
-                    'max_timeout': 300     # Reducido de 600 a 300
+                    'min_timeout': 60,  # Reducido de 120 a 60
+                    'max_timeout': 300  # Reducido de 600 a 300
                 },
                 'extraction_procesos': {
                     'estimated_time': 15,  # Reducido de 20 a 15
                     'buffer_factor': 2.5,  # Reducido de 4.0 a 2.5
-                    'min_timeout': 30,     # Reducido de 60 a 30
-                    'max_timeout': 120     # Reducido de 300 a 120
+                    'min_timeout': 30,  # Reducido de 60 a 30
+                    'max_timeout': 120  # Reducido de 300 a 120
                 },
                 # Transformación: Timeouts más eficientes
                 'transformation_contratos': {
                     'estimated_time': 20,  # Reducido de 30 a 20
                     'buffer_factor': 2.5,  # Reducido de 4.0 a 2.5
-                    'min_timeout': 60,     # Reducido de 120 a 60
-                    'max_timeout': 180     # Reducido de 480 a 180
+                    'min_timeout': 60,  # Reducido de 120 a 60
+                    'max_timeout': 180  # Reducido de 480 a 180
                 },
                 'transformation_procesos': {
                     'estimated_time': 15,  # Reducido de 25 a 15
                     'buffer_factor': 2.5,  # Reducido de 4.0 a 2.5
-                    'min_timeout': 45,     # Reducido de 100 a 45
-                    'max_timeout': 120     # Reducido de 400 a 120
+                    'min_timeout': 45,  # Reducido de 100 a 45
+                    'max_timeout': 120  # Reducido de 400 a 120
                 }
             }
             
@@ -112,7 +114,7 @@ class ContratacionEmprestitoPipeline:
                 calculated_timeout = int(config['estimated_time'] * config['buffer_factor'])
                 
                 # Aplicar límites mínimos y máximos
-                final_timeout = max(config['min_timeout'], 
+                final_timeout = max(config['min_timeout'],
                                   min(calculated_timeout, config['max_timeout']))
                 
                 # Ajustar según modo rápido
@@ -126,17 +128,17 @@ class ContratacionEmprestitoPipeline:
             # Timeouts fijos optimizados
             if self.fast_mode:
                 self.timeouts = {
-                    'extraction_contratos': 60,   # Reducido de 90 a 60
-                    'extraction_procesos': 30,    # Reducido de 60 a 30
+                    'extraction_contratos': 60,  # Reducido de 90 a 60
+                    'extraction_procesos': 30,  # Reducido de 60 a 30
                     'transformation_contratos': 60,  # Reducido de 120 a 60
-                    'transformation_procesos': 45    # Reducido de 100 a 45
+                    'transformation_procesos': 45  # Reducido de 100 a 45
                 }
             else:
                 self.timeouts = {
                     'extraction_contratos': 180,  # Reducido de 300 a 180
-                    'extraction_procesos': 90,    # Reducido de 180 a 90
+                    'extraction_procesos': 90,  # Reducido de 180 a 90
                     'transformation_contratos': 120,  # Reducido de 300 a 120
-                    'transformation_procesos': 90     # Reducido de 240 a 90
+                    'transformation_procesos': 90  # Reducido de 240 a 90
                 }
 
     def _validate_scripts(self):
@@ -271,7 +273,7 @@ class ContratacionEmprestitoPipeline:
         print(f"🚀 Ejecutando {total_tasks} tareas en paralelo...")
         
         # Crear barra de progreso principal
-        with tqdm(total=total_tasks, desc=f"Fase {phase_name}", 
+        with tqdm(total=total_tasks, desc=f"Fase {phase_name}",
                  bar_format='{l_bar}{bar}| {n_fmt}/{total_fmt} [{elapsed}<{remaining}]',
                  position=0) as main_progress:
             
@@ -283,12 +285,12 @@ class ContratacionEmprestitoPipeline:
                 
                 for i, (script_name, script_path, step_key) in enumerate(tasks):
                     # Crear barra de progreso individual
-                    task_progress = tqdm(total=100, desc=f"Preparando {script_name}", 
-                                       position=i+1, leave=False)
+                    task_progress = tqdm(total=100, desc=f"Preparando {script_name}",
+                                       position=i + 1, leave=False)
                     task_progress_bars[step_key] = task_progress
                     
                     future = executor.submit(
-                        self._execute_script_with_progress, 
+                        self._execute_script_with_progress,
                         script_name, script_path, step_key, task_progress
                     )
                     future_to_task[future] = (script_name, step_key)
@@ -354,13 +356,13 @@ class ContratacionEmprestitoPipeline:
         print(f"🔄 Ejecutando {total_tasks} tareas secuencialmente...")
         
         # Crear barra de progreso para la fase
-        with tqdm(total=total_tasks, desc=f"Fase {phase_name} (Secuencial)", 
+        with tqdm(total=total_tasks, desc=f"Fase {phase_name} (Secuencial)",
                  bar_format='{l_bar}{bar}| {n_fmt}/{total_fmt} [{elapsed}<{remaining}]',
                  position=0) as phase_progress:
             
             for i, (script_name, script_path, step_key) in enumerate(tasks):
                 # Crear barra de progreso para la tarea individual
-                with tqdm(total=100, desc=f"Ejecutando {script_name}", 
+                with tqdm(total=100, desc=f"Ejecutando {script_name}",
                          position=1, leave=False) as task_progress:
                     
                     result = self._execute_script_with_progress(
@@ -430,7 +432,7 @@ class ContratacionEmprestitoPipeline:
         
         print("="*80)
 
-    def run(self, fast_mode: Optional[bool] = None):
+    def run(self, fast_mode: Optional[bool]=None):
         """
         Ejecutar el pipeline completo de contratación de empréstito
         
@@ -606,6 +608,7 @@ class ContratacionEmprestitoPipeline:
             for rec in recommendations:
                 self.logger.info(f"   {rec}")
 
+
 def main():
     """Función principal"""
     # Configurar logging para el script principal con soporte UTF-8
@@ -646,6 +649,7 @@ def main():
     except Exception as e:
         print(f"\n💥 Error crítico: {str(e)}")
         exit(1)
+
 
 if __name__ == "__main__":
     main()
