@@ -279,6 +279,53 @@ def enrich_bpin_from_projects(df):
     
     return df
 
+
+def add_nombre_centro_gestor(df):
+    """
+    Añade la columna 'nombre_centro_gestor' basada en el BPIN desde datos de proyectos presupuestales
+    """
+    print("🔄 Añadiendo nombre_centro_gestor desde datos de proyectos presupuestales...")
+    
+    # Verificar si existe el archivo de proyectos
+    projects_file = 'transformation_app/app_outputs/ejecucion_presupuestal_outputs/datos_caracteristicos_proyectos.json'
+    if not os.path.exists(projects_file):
+        print(f"⚠️ Archivo de proyectos no encontrado: {projects_file}")
+        df['nombre_centro_gestor'] = None
+        return df
+    
+    try:
+        # Cargar datos de proyectos
+        with open(projects_file, 'r', encoding='utf-8') as f:
+            projects_data = json.load(f)
+        
+        # Crear mapeo BPIN -> nombre_centro_gestor
+        bpin_to_centro_gestor = {}
+        for project in projects_data:
+            bpin = project.get('bpin')
+            nombre_centro_gestor = project.get('nombre_centro_gestor')
+            if bpin and nombre_centro_gestor:
+                bpin_to_centro_gestor[int(bpin)] = nombre_centro_gestor
+        
+        print(f"✅ Creado mapeo de {len(bpin_to_centro_gestor)} BPIN -> nombre_centro_gestor")
+        
+        # Añadir columna nombre_centro_gestor
+        df['nombre_centro_gestor'] = df['bpin'].map(bpin_to_centro_gestor)
+        
+        # Contar cuántos se añadieron exitosamente
+        centro_gestor_added = df['nombre_centro_gestor'].notna().sum()
+        centro_gestor_missing = df['nombre_centro_gestor'].isna().sum()
+        
+        print(f"✅ Nombre_centro_gestor añadido:")
+        print(f"   📊 Contratos con centro gestor: {centro_gestor_added}")
+        print(f"   📊 Contratos sin centro gestor: {centro_gestor_missing}")
+        
+        return df
+        
+    except Exception as e:
+        print(f"❌ Error añadiendo nombre_centro_gestor: {e}")
+        df['nombre_centro_gestor'] = None
+        return df
+
 def rename_and_convert_bpin(df):
     """
     Renombra 'código_bpin' a 'bpin' y convierte a entero sin decimales
@@ -639,18 +686,21 @@ def transform_dataframe(df):
     # 5. Enriquecer BPIN desde datos de proyectos presupuestales
     df = enrich_bpin_from_projects(df)
     
-    # 6. Renombrar link_proceso a urlProceso
+    # 6. Añadir nombre_centro_gestor basado en BPIN
+    df = add_nombre_centro_gestor(df)
+    
+    # 7. Renombrar link_proceso a urlProceso
     if 'link_proceso' in df.columns:
         df = df.rename(columns={'link_proceso': 'urlProceso'})
         print("✅ Columna renombrada: 'link_proceso' → 'urlProceso'")
     
-    # 7. Estandarizar fechas
+    # 8. Estandarizar fechas
     df = standardize_dates(df)
     
-    # 8. Convertir valores monetarios
+    # 9. Convertir valores monetarios
     df = convert_monetary_to_numeric(df)
     
-    # 9. Limpiar valores NaN
+    # 10. Limpiar valores NaN
     df = clean_nan_values(df)
     
     print("✅ Todas las transformaciones completadas")

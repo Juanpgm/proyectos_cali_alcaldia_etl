@@ -247,6 +247,83 @@ def clean_nan_values(df):
     print(f"✅ Valores NaN reemplazados con None")
     return df
 
+
+def add_nombre_centro_gestor_to_procesos(df):
+    """
+    Añade la columna 'nombre_centro_gestor' a los procesos basándose en el mapeo desde contratos
+    """
+    print("🔄 Añadiendo nombre_centro_gestor a procesos desde datos de contratos...")
+    
+    # Verificar si existe el archivo de índice de contratos
+    contratos_index_path = "transformation_app/app_outputs/contratos_secop_outputs/contratos_proyectos_index.json"
+    if not os.path.exists(contratos_index_path):
+        print(f"⚠️ Archivo de índice de contratos no encontrado: {contratos_index_path}")
+        df['nombre_centro_gestor'] = None
+        return df
+    
+    # Verificar si existe el archivo de proyectos presupuestales
+    projects_file = 'transformation_app/app_outputs/ejecucion_presupuestal_outputs/datos_caracteristicos_proyectos.json'
+    if not os.path.exists(projects_file):
+        print(f"⚠️ Archivo de proyectos no encontrado: {projects_file}")
+        df['nombre_centro_gestor'] = None
+        return df
+    
+    try:
+        # Cargar el índice de contratos
+        with open(contratos_index_path, 'r', encoding='utf-8') as f:
+            contratos_index = json.load(f)
+        
+        # Cargar datos de proyectos presupuestales
+        with open(projects_file, 'r', encoding='utf-8') as f:
+            projects_data = json.load(f)
+        
+        # Crear mapeo BPIN -> nombre_centro_gestor
+        bpin_to_centro_gestor = {}
+        for project in projects_data:
+            bpin = project.get('bpin')
+            nombre_centro_gestor = project.get('nombre_centro_gestor')
+            if bpin and nombre_centro_gestor:
+                bpin_to_centro_gestor[int(bpin)] = nombre_centro_gestor
+        
+        print(f"✅ Creado mapeo de {len(bpin_to_centro_gestor)} BPIN -> nombre_centro_gestor")
+        
+        # Crear mapeo proceso_compra -> BPIN desde el índice de contratos
+        proceso_compra_to_bpin = {}
+        for bpin_str, bpin_data in contratos_index.items():
+            bpin = bpin_data.get('bpin')
+            for contrato in bpin_data.get('contratos', []):
+                proceso_compra = contrato.get('proceso_compra')
+                if proceso_compra and bpin:
+                    proceso_compra_to_bpin[proceso_compra] = int(bpin)
+        
+        print(f"✅ Creado mapeo de {len(proceso_compra_to_bpin)} proceso_compra -> BPIN")
+        
+        # Añadir nombre_centro_gestor a los procesos
+        df['nombre_centro_gestor'] = None
+        
+        if 'proceso_compra' in df.columns:
+            for idx, row in df.iterrows():
+                proceso_compra = row.get('proceso_compra')
+                if proceso_compra and proceso_compra in proceso_compra_to_bpin:
+                    bpin = proceso_compra_to_bpin[proceso_compra]
+                    if bpin in bpin_to_centro_gestor:
+                        df.at[idx, 'nombre_centro_gestor'] = bpin_to_centro_gestor[bpin]
+        
+        # Contar cuántos se añadieron exitosamente
+        centro_gestor_added = df['nombre_centro_gestor'].notna().sum()
+        centro_gestor_missing = df['nombre_centro_gestor'].isna().sum()
+        
+        print(f"✅ Nombre_centro_gestor añadido a procesos:")
+        print(f"   📊 Procesos con centro gestor: {centro_gestor_added}")
+        print(f"   📊 Procesos sin centro gestor: {centro_gestor_missing}")
+        
+        return df
+        
+    except Exception as e:
+        print(f"❌ Error añadiendo nombre_centro_gestor a procesos: {e}")
+        df['nombre_centro_gestor'] = None
+        return df
+
 def create_procesos_proyectos_index(cleaned_data):
     """
     Crea procesos_proyectos_index.json que contiene procesos agrupados por BPIN
@@ -407,6 +484,9 @@ def main():
         df = clean_date_columns(df)
         df = clean_monetary_values(df)
         df = clean_nan_values(df)
+        
+        # Añadir nombre_centro_gestor
+        df = add_nombre_centro_gestor_to_procesos(df)
         
         # Cargar el índice de contratos para filtrar por proceso_compra válidos
         contratos_index_path = "transformation_app/app_outputs/contratos_secop_outputs/contratos_proyectos_index.json"
