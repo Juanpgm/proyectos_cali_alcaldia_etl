@@ -7,6 +7,7 @@ Extrae datos completos de todas las referencias de contrato válidas del archivo
 import json
 import os
 import re
+import time
 from sodapy import Socrata
 import logging
 from datetime import datetime
@@ -27,13 +28,16 @@ class ContractosEmprestitoExtractor:
     """Extractor especializado para contratos de empréstito usando referencias específicas"""
     
     def __init__(self):
-        # Cliente SECOP sin autenticación (solo datos públicos)
-        self.client = Socrata("www.datos.gov.co", None)
+        # Cliente SECOP sin autenticación (solo datos públicos) con timeout optimizado
+        self.client = Socrata("www.datos.gov.co", None, timeout=15)  # Timeout más corto
         
         # Dataset IDs de SECOP - Solo usaremos contratos
         self.datasets = {
             'contratos': 'jbjy-vk9h'  # Contratos SECOP I - Dataset principal
         }
+        
+        # Configuración de optimización
+        self.max_retries = 2  # Máximo 2 reintentos
         
         # Rutas de archivos
         self.base_path = "transformation_app/app_inputs/contratos_secop_input"
@@ -41,6 +45,31 @@ class ContractosEmprestitoExtractor:
         self.output_file = os.path.join(self.base_path, "contratos_secop_emprestito.json")
         
         os.makedirs(self.base_path, exist_ok=True)
+    
+    def _optimized_api_call(self, dataset_key: str, where_clause: str, limit: int = 5000) -> List[Dict]:
+        """
+        Llamada optimizada a la API con reintentos
+        """        
+        # Hacer llamada con reintentos
+        for attempt in range(self.max_retries + 1):
+            try:
+                results = self.client.get(
+                    self.datasets[dataset_key],
+                    where=where_clause,
+                    select="*",
+                    limit=limit
+                )
+                
+                return results
+                
+            except Exception as e:
+                if attempt < self.max_retries:
+                    wait_time = (attempt + 1) * 2  # Backoff exponencial: 2s, 4s
+                    logger.warning(f"Intento {attempt + 1} falló, reintentando en {wait_time}s...")
+                    time.sleep(wait_time)
+                else:
+                    logger.warning(f"Error final en búsqueda después de {self.max_retries + 1} intentos: {str(e)[:100]}")
+                    return []
     
     def load_contratos_index(self) -> List[Dict]:
         """Cargar y filtrar referencias de contrato válidas"""
@@ -219,12 +248,7 @@ class ContractosEmprestitoExtractor:
                 # Usar $select=* para obtener TODOS los campos disponibles
                 # Búsqueda exacta
                 where_clause = f"{field_name} = '{referencia}'"
-                results = self.client.get(
-                    self.datasets[dataset_key],
-                    where=where_clause,
-                    select="*",  # Obtener todos los campos
-                    limit=limit
-                )
+                results = self._optimized_api_call(dataset_key, where_clause, limit)
                 
                 if results:
                     logger.info(f"Encontrados {len(results)} registros para {referencia} en {dataset_key}.{field_name}")
@@ -239,12 +263,7 @@ class ContractosEmprestitoExtractor:
                 # Si no encuentra exacto, buscar con LIKE para variaciones
                 if not results:
                     where_clause = f"{field_name} like '%{referencia}%'"
-                    results = self.client.get(
-                        self.datasets[dataset_key],
-                        where=where_clause,
-                        select="*",  # Obtener todos los campos
-                        limit=limit
-                    )
+                    results = self._optimized_api_call(dataset_key, where_clause, limit)
                     
                     if results:
                         logger.info(f"Encontrados {len(results)} registros similares para {referencia} en {dataset_key}.{field_name}")
@@ -260,12 +279,7 @@ class ContractosEmprestitoExtractor:
                 if not results and '-' in referencia:
                     ref_sin_guiones = referencia.replace('-', '').replace('.', '')
                     where_clause = f"{field_name} like '%{ref_sin_guiones}%'"
-                    results = self.client.get(
-                        self.datasets[dataset_key],
-                        where=where_clause,
-                        select="*",  # Obtener todos los campos
-                        limit=limit
-                    )
+                    results = self._optimized_api_call(dataset_key, where_clause, limit)
                     
                     if results:
                         logger.info(f"Encontrados {len(results)} registros sin guiones para {referencia} en {dataset_key}.{field_name}")
@@ -283,12 +297,7 @@ class ContractosEmprestitoExtractor:
                     if year_part.isdigit() and len(year_part) == 4:
                         base_part = referencia.rsplit('-', 1)[0]  # Todo menos el año
                         where_clause = f"{field_name} like '%{base_part}%{year_part}%'"
-                        results = self.client.get(
-                            self.datasets[dataset_key],
-                            where=where_clause,
-                            select="*",  # Obtener todos los campos
-                            limit=limit
-                        )
+                        results = self._optimized_api_call(dataset_key, where_clause, limit)
                         
                         if results:
                             logger.info(f"Encontrados {len(results)} registros por partes para {referencia} en {dataset_key}.{field_name}")
@@ -306,12 +315,7 @@ class ContractosEmprestitoExtractor:
                     if '-' in referencia:
                         base_without_year = referencia.rsplit('-', 1)[0]  # 4134.010.26.1.0252
                         where_clause = f"{field_name} like '%{base_without_year}%'"
-                        results = self.client.get(
-                            self.datasets[dataset_key],
-                            where=where_clause,
-                            select="*",
-                            limit=limit
-                        )
+                        results = self._optimized_api_call(dataset_key, where_clause, limit)
                         
                         if results:
                             logger.info(f"Encontrados {len(results)} registros por base para {referencia} en {dataset_key}.{field_name}")
@@ -349,12 +353,7 @@ class ContractosEmprestitoExtractor:
                                     new_ref = '.'.join(new_parts)
                                     
                                     where_clause = f"{field_name} = '{new_ref}'"
-                                    results = self.client.get(
-                                        self.datasets[dataset_key],
-                                        where=where_clause,
-                                        select="*",
-                                        limit=limit
-                                    )
+                                    results = self._optimized_api_call(dataset_key, where_clause, limit)
                                     
                                     if results:
                                         logger.info(f"Encontrados {len(results)} registros con variación +{offset} ({new_ref}) para {referencia} en {dataset_key}.{field_name}")
@@ -410,9 +409,9 @@ class ContractosEmprestitoExtractor:
                     
                     all_contracts.extend(processed_contracts)
                     extracted_count += 1
-                    logger.info(f"✅ Encontrados {len(contract_data)} registros para: {referencia}")
+                    logger.info(f"Encontrados {len(contract_data)} registros para: {referencia}")
                 else:
-                    logger.warning(f"❌ No se encontraron datos para: {referencia}")
+                    logger.warning(f"No se encontraron datos para: {referencia}")
                     # Crear un registro vacío para mantener trazabilidad
                     empty_record = {
                         'referencia_contrato_buscada': referencia,
@@ -579,19 +578,19 @@ def main():
         print("="*60)
         
         if 'error' in resultado:
-            print(f"❌ Error: {resultado['error']}")
+            print(f"Error: {resultado['error']}")
         else:
             print(f"📊 Registros originales: {resultado.get('registros_originales', 0)}")
             print(f"📈 Registros expandidos: {resultado.get('registros_expandidos', 0)}")
-            print(f"✅ Contratos encontrados: {resultado.get('contratos_encontrados', 0)}")
-            print(f"❌ Registros no encontrados: {resultado.get('registros_no_encontrados', 0)}")
+            print(f"Contratos encontrados: {resultado.get('contratos_encontrados', 0)}")
+            print(f"Registros no encontrados: {resultado.get('registros_no_encontrados', 0)}")
             print(f"📁 Archivo guardado: {resultado.get('archivo_salida', 'N/A')}")
         
         print("="*60)
         
     except Exception as e:
         logger.error(f"Error en ejecución principal: {e}")
-        print(f"❌ Error durante la ejecución: {e}")
+        print(f"Error durante la ejecución: {e}")
 
 if __name__ == "__main__":
     main()

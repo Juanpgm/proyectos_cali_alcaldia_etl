@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """
-Pipeline de Contratación de Empréstito - Versión Optimizada
-==========================================================
+Pipeline de Contratos de Empréstito - Versión Optimizada
+========================================================
 
-Pipeline principal para el procesamiento de datos de contratación de empréstito
-con soporte para ejecución paralela, timeouts adaptativos y feedback mejorado.
+Pipeline específico para el procesamiento de datos de contratos de empréstito
+con soporte para ejecución secuencial optimizada y timeouts adaptativos.
 
 Autor: Sistema ETL Alcaldía de Cali
-Fecha: 2025-09-30
+Fecha: 2025-10-02
 """
 
 import sys
@@ -31,31 +31,23 @@ def setup_logging():
         level=logging.INFO,
         format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
         handlers=[
-            logging.FileHandler('pipeline_contratacion_emprestito.log', encoding='utf-8'),
+            logging.FileHandler('pipeline_contratos_emprestito.log', encoding='utf-8'),
             logging.StreamHandler()
         ]
     )
     return logging.getLogger(__name__)
 
 
-class ContratacionEmprestitoPipeline:
-    """Pipeline principal para el procesamiento de datos de contratación de empréstito"""
+class ContratosEmprestitoPipeline:
+    """Pipeline específico para el procesamiento de datos de contratos de empréstito"""
     
-    def __init__(self, fast_mode: bool=False, skip_on_timeout: bool=True, parallel_execution: bool=True, adaptive_timeouts: bool=True, smart_mode: bool=True):
+    def __init__(self, smart_mode: bool=True):
         """
-        Inicializar el pipeline de contratación de empréstito
+        Inicializar el pipeline de contratos de empréstito
         
         Args:
-            fast_mode: Usar timeouts más cortos para ejecución rápida
-            skip_on_timeout: Continuar con el siguiente paso si hay timeout
-            parallel_execution: Ejecutar pasos independientes en paralelo cuando sea posible
-            adaptive_timeouts: Usar timeouts adaptativos basados en estimaciones realistas
             smart_mode: Omitir fases si los archivos de salida ya existen
         """
-        self.fast_mode = fast_mode
-        self.skip_on_timeout = skip_on_timeout
-        self.parallel_execution = parallel_execution
-        self.adaptive_timeouts = adaptive_timeouts
         self.smart_mode = smart_mode
         self.logger = setup_logging()
         self.start_time = None
@@ -63,103 +55,23 @@ class ContratacionEmprestitoPipeline:
         self.progress_queue = queue.Queue()
         self.live_progress = None
         
-        # Configurar timeouts adaptativos basados en análisis de rendimiento real
-        self._configure_adaptive_timeouts()
-        
-        # Configuración de scripts
+        # Configuración de scripts - Solo contratos
         self.scripts = {
             'extraction_contratos': 'extraction_app/data_extraction_contratos_emprestito.py',
-            'extraction_procesos': 'extraction_app/data_extraction_procesos_emprestito.py',
             'transformation_contratos': 'transformation_app/data_transformation_contratos_secop.py',
-            'transformation_procesos': 'transformation_app/data_transformation_procesos_secop.py',
-            'loading_data': 'load_app/data_loading_contratacion_emprestito.py'
+            'loading_contratos': 'load_app/data_loading_contratos_emprestito.py'
         }
         
         # Validar que todos los scripts existen
         self._validate_scripts()
         
-        # Configurar archivos de salida esperados
+        # Configurar archivos de salida esperados - Solo contratos
         self.output_files = {
             'extraction_contratos': 'extraction_app/transformation_app/app_inputs/contratos_emprestito_input/contratos_emprestito_extracted.json',
-            'extraction_procesos': 'extraction_app/transformation_app/app_inputs/procesos_emprestito_input/procesos_emprestito_extracted.json',
-            'transformation_contratos': 'transformation_app/app_outputs/emprestito_outputs/contratos_secop_emprestito_transformed.json',
-            'transformation_procesos': 'transformation_app/app_outputs/emprestito_outputs/procesos_secop_emprestito_transformed.json'
+            'transformation_contratos': 'transformation_app/app_outputs/emprestito_outputs/contratos_secop_emprestito_transformed.json'
         }
 
-    def _configure_adaptive_timeouts(self):
-        """Configurar timeouts adaptativos optimizados basados en análisis de rendimiento real"""
-        if self.adaptive_timeouts:
-            # Timeouts optimizados basados en análisis de ejecuciones reales
-            base_timeouts = {
-                # Extracción: Timeouts más agresivos pero realistas
-                'extraction_contratos': {
-                    'estimated_time': 30,  # Reducido de 45 a 30
-                    'buffer_factor': 2.0,  # Reducido de 3.0 a 2.0
-                    'min_timeout': 60,  # Reducido de 120 a 60
-                    'max_timeout': 300  # Reducido de 600 a 300
-                },
-                'extraction_procesos': {
-                    'estimated_time': 15,  # Reducido de 20 a 15
-                    'buffer_factor': 2.5,  # Reducido de 4.0 a 2.5
-                    'min_timeout': 30,  # Reducido de 60 a 30
-                    'max_timeout': 120  # Reducido de 300 a 120
-                },
-                # Transformación: Timeouts más eficientes
-                'transformation_contratos': {
-                    'estimated_time': 20,  # Reducido de 30 a 20
-                    'buffer_factor': 2.5,  # Reducido de 4.0 a 2.5
-                    'min_timeout': 60,  # Reducido de 120 a 60
-                    'max_timeout': 180  # Reducido de 480 a 180
-                },
-                'transformation_procesos': {
-                    'estimated_time': 15,  # Reducido de 25 a 15
-                    'buffer_factor': 2.5,  # Reducido de 4.0 a 2.5
-                    'min_timeout': 45,  # Reducido de 100 a 45
-                    'max_timeout': 120  # Reducido de 400 a 120
-                },
-                # Carga: Timeouts para operaciones de Firebase
-                'loading_data': {
-                    'estimated_time': 25,  # Tiempo estimado para carga a Firebase
-                    'buffer_factor': 2.0,  # Buffer conservador para operaciones de red
-                    'min_timeout': 60,    # Mínimo para operaciones de Firebase
-                    'max_timeout': 180    # Máximo razonable para carga de datos
-                }
-            }
-            
-            # Calcular timeouts finales
-            self.timeouts = {}
-            for step, config in base_timeouts.items():
-                calculated_timeout = int(config['estimated_time'] * config['buffer_factor'])
-                
-                # Aplicar límites mínimos y máximos
-                final_timeout = max(config['min_timeout'],
-                                  min(calculated_timeout, config['max_timeout']))
-                
-                # Ajustar según modo rápido
-                if self.fast_mode:
-                    # En modo rápido, usar el 80% del timeout calculado pero respetando mínimos
-                    fast_timeout = max(config['min_timeout'] // 2, int(final_timeout * 0.8))
-                    self.timeouts[step] = fast_timeout
-                else:
-                    self.timeouts[step] = final_timeout
-        else:
-            # Timeouts fijos optimizados
-            if self.fast_mode:
-                self.timeouts = {
-                    'extraction_contratos': 60,  # Reducido de 90 a 60
-                    'extraction_procesos': 30,  # Reducido de 60 a 30
-                    'transformation_contratos': 60,  # Reducido de 120 a 60
-                    'transformation_procesos': 45,  # Reducido de 100 a 45
-                    'loading_data': 60  # Timeout rápido para carga de datos
-                }
-            else:
-                self.timeouts = {
-                    'extraction_contratos': 180,  # Reducido de 300 a 180
-                    'extraction_procesos': 90,  # Reducido de 180 a 90
-                    'transformation_contratos': 120,  # Reducido de 300 a 120
-                    'transformation_procesos': 90,  # Reducido de 240 a 90
-                    'loading_data': 120  # Timeout normal para carga de datos
-                }
+
 
     def _validate_scripts(self):
         """Validar que todos los scripts necesarios existen"""
@@ -217,18 +129,17 @@ class ContratacionEmprestitoPipeline:
 
     def _execute_script_with_progress(self, script_name: str, script_path: str, step_key: str, progress_bar: tqdm) -> Dict[str, Any]:
         """
-        Ejecutar un script con monitoreo de progreso en tiempo real y timeout adaptativo
+        Ejecutar un script con monitoreo de progreso sin timeout
         
         Args:
             script_name: Nombre descriptivo del script
             script_path: Ruta al script
-            step_key: Clave para obtener el timeout
+            step_key: Clave del paso (para compatibilidad)
             progress_bar: Barra de progreso compartida
         
         Returns:
             Diccionario con el resultado de la ejecución
         """
-        timeout = self.timeouts.get(step_key, 300)
         start_time = time.time()
         
         try:
@@ -236,16 +147,13 @@ class ContratacionEmprestitoPipeline:
             progress_bar.set_description(f"🚀 Iniciando {script_name}")
             progress_bar.update(10)
             
-            # Mostrar información de timeout adaptativo
-            timeout_info = f"(timeout adaptativo: {timeout}s = {timeout/60:.1f}min)"
-            progress_bar.set_postfix_str(timeout_info)
+            progress_bar.set_postfix_str("Sin límite de tiempo - Ejecutando...")
             
-            # Ejecutar el script
+            # Ejecutar el script SIN timeout
             result = subprocess.run(
                 [sys.executable, script_path],
                 capture_output=True,
                 text=True,
-                timeout=timeout,
                 cwd=os.getcwd()
             )
             
@@ -254,15 +162,12 @@ class ContratacionEmprestitoPipeline:
             
             if result.returncode == 0:
                 progress_bar.set_description(f"✅ {script_name} completado")
-                efficiency = (execution_time / timeout) * 100
-                progress_bar.set_postfix_str(f"Eficiencia: {efficiency:.1f}%")
+                progress_bar.set_postfix_str(f"Completado en {execution_time:.1f}s")
                 progress_bar.update(10)
                 return {
                     'success': True,
                     'script': script_name,
                     'execution_time': execution_time,
-                    'timeout_used': timeout,
-                    'efficiency_percent': efficiency,
                     'output': result.stdout,
                     'timeout_occurred': False
                 }
@@ -274,30 +179,11 @@ class ContratacionEmprestitoPipeline:
                     'success': False,
                     'script': script_name,
                     'execution_time': execution_time,
-                    'timeout_used': timeout,
                     'error': result.stderr,
                     'output': result.stdout,
                     'timeout_occurred': False
                 }
                 
-        except subprocess.TimeoutExpired:
-            execution_time = time.time() - start_time
-            progress_bar.set_description(f"⏰ {script_name} timeout")
-            progress_bar.set_postfix_str(f"Excedió {timeout}s")
-            progress_bar.update(100)
-            
-            # Sugerir timeout mejorado para próxima ejecución
-            suggested_timeout = int(execution_time * 1.5)
-            
-            return {
-                'success': False,
-                'script': script_name,
-                'execution_time': execution_time,
-                'timeout_used': timeout,
-                'suggested_timeout': suggested_timeout,
-                'error': f'Script excedió el timeout adaptativo de {timeout} segundos. Sugerencia: usar {suggested_timeout}s próxima vez.',
-                'timeout_occurred': True
-            }
         except Exception as e:
             execution_time = time.time() - start_time
             progress_bar.set_description(f"💥 {script_name} error")
@@ -307,7 +193,6 @@ class ContratacionEmprestitoPipeline:
                 'success': False,
                 'script': script_name,
                 'execution_time': execution_time,
-                'timeout_used': timeout,
                 'error': str(e),
                 'timeout_occurred': False
             }
@@ -454,36 +339,34 @@ class ContratacionEmprestitoPipeline:
         return phase_success
 
     def run_extraction_phase(self) -> bool:
-        """Ejecutar la fase de extracción"""
-        self.logger.info("🔄 INICIANDO FASE DE EXTRACCIÓN")
+        """Ejecutar la fase de extracción de contratos"""
+        self.logger.info("🔄 INICIANDO FASE DE EXTRACCIÓN DE CONTRATOS")
         
         extraction_tasks = [
-            ("Extracción de Contratos", self.scripts['extraction_contratos'], 'extraction_contratos'),
-            ("Extracción de Procesos", self.scripts['extraction_procesos'], 'extraction_procesos')
+            ("Extracción de Contratos", self.scripts['extraction_contratos'], 'extraction_contratos')
         ]
         
-        return self._execute_parallel_phase("EXTRACCIÓN", extraction_tasks)
+        return self._execute_sequential_phase("EXTRACCIÓN", extraction_tasks)
 
     def run_transformation_phase(self) -> bool:
-        """Ejecutar la fase de transformación"""
-        self.logger.info("🔄 INICIANDO FASE DE TRANSFORMACIÓN")
+        """Ejecutar la fase de transformación de contratos"""
+        self.logger.info("🔄 INICIANDO FASE DE TRANSFORMACIÓN DE CONTRATOS")
         
         transformation_tasks = [
-            ("Transformación de Contratos", self.scripts['transformation_contratos'], 'transformation_contratos'),
-            ("Transformación de Procesos", self.scripts['transformation_procesos'], 'transformation_procesos')
+            ("Transformación de Contratos", self.scripts['transformation_contratos'], 'transformation_contratos')
         ]
         
-        return self._execute_parallel_phase("TRANSFORMACIÓN", transformation_tasks)
+        return self._execute_sequential_phase("TRANSFORMACIÓN", transformation_tasks)
 
     def run_loading_phase(self) -> bool:
-        """Ejecutar la fase de carga de datos a Firebase"""
-        self.logger.info("🔄 INICIANDO FASE DE CARGA")
+        """Ejecutar la fase de carga de contratos a Firebase"""
+        self.logger.info("🔄 INICIANDO FASE DE CARGA DE CONTRATOS")
         
         loading_tasks = [
-            ("Carga de Datos a Firebase", self.scripts['loading_data'], 'loading_data')
+            ("Carga de Contratos a Firebase", self.scripts['loading_contratos'], 'loading_contratos')
         ]
         
-        return self._execute_parallel_phase("CARGA", loading_tasks)
+        return self._execute_sequential_phase("CARGA", loading_tasks)
 
     def _print_final_report(self):
         """Imprimir reporte final del pipeline"""
@@ -511,80 +394,37 @@ class ContratacionEmprestitoPipeline:
         
         print("="*80)
 
-    def run(self, fast_mode: Optional[bool]=None):
+    def run(self):
         """
-        Ejecutar el pipeline completo de contratación de empréstito
-        
-        Args:
-            fast_mode: Sobrescribir configuración de modo rápido si se especifica
+        Ejecutar el pipeline completo de contratos de empréstito sin timeouts
         """
-        # Configurar modo si se especifica
-        if fast_mode is not None:
-            self.fast_mode = fast_mode
-            # Reconfigurar timeouts con el nuevo modo
-            self._configure_adaptive_timeouts()
-        
         self.start_time = datetime.now()
         self.logger.info("=" * 80)
-        self.logger.info("🚀 INICIANDO PIPELINE DE CONTRATACIÓN DE EMPRÉSTITO")
+        self.logger.info("🚀 INICIANDO PIPELINE DE CONTRATOS DE EMPRÉSTITO")
         self.logger.info("=" * 80)
         
-        # Mostrar configuración detallada
-        mode_text = "RÁPIDO" if self.fast_mode else "NORMAL"
-        timeout_type = "ADAPTATIVOS" if self.adaptive_timeouts else "FIJOS"
-        
         self.logger.info(f"📊 CONFIGURACIÓN DEL PIPELINE:")
-        self.logger.info(f"   • Modo de ejecución: {mode_text}")
-        self.logger.info(f"   • Timeouts: {timeout_type}")
-        self.logger.info(f"   • Ejecución paralela: {'HABILITADA' if self.parallel_execution else 'DESHABILITADA'}")
-        self.logger.info(f"   • Continuar en timeout: {'SÍ' if self.skip_on_timeout else 'NO'}")
+        self.logger.info(f"   • Ejecución: SECUENCIAL SIN TIMEOUTS")
         self.logger.info(f"   • Modo inteligente: {'ACTIVADO' if self.smart_mode else 'DESACTIVADO'}")
-        
-        # Mostrar timeouts configurados
-        self.logger.info(f"⏱️  TIMEOUTS CONFIGURADOS ({timeout_type}):")
-        for step, timeout in self.timeouts.items():
-            minutes = timeout / 60
-            self.logger.info(f"   • {step}: {timeout}s ({minutes:.1f} min)")
+        self.logger.info(f"   • Los scripts se ejecutarán hasta completarse")
         
         self.logger.info("-" * 80)
         
         try:
-            # Fase 1: Extracción (paralela)
-            extraction_tasks = [
-                ('Extracción de Contratos', 'extraction_app/data_extraction_contratos_emprestito.py', 'extraction_contratos'),
-                ('Extracción de Procesos', 'extraction_app/data_extraction_procesos_emprestito.py', 'extraction_procesos')
-            ]
+            # Fase 1: Extracción de contratos
+            self.logger.info("🔄 INICIANDO FASE DE EXTRACCIÓN DE CONTRATOS")
+            if not self.run_extraction_phase():
+                self.logger.error("❌ Extracción de contratos falló.")
             
-            extraction_results = self._execute_parallel_phase("EXTRACCIÓN", extraction_tasks)
+            # Fase 2: Transformación de contratos (continúa aunque la extracción falle)
+            self.logger.info("🔄 INICIANDO FASE DE TRANSFORMACIÓN DE CONTRATOS")
+            if not self.run_transformation_phase():
+                self.logger.error("❌ Transformación de contratos falló.")
             
-            # Verificar si alguna extracción falló
-            extraction_success = extraction_results
-            
-            if not extraction_success and not self.skip_on_timeout:
-                self.logger.error("❌ Todas las extracciones fallaron. Deteniendo pipeline.")
-                return self._generate_final_report()
-            
-            # Fase 2: Transformación (paralela)
-            transformation_tasks = [
-                ('Transformación de Contratos', 'transformation_app/data_transformation_contratos_secop.py', 'transformation_contratos'),
-                ('Transformación de Procesos', 'transformation_app/data_transformation_procesos_secop.py', 'transformation_procesos')
-            ]
-            
-            transformation_results = self._execute_parallel_phase("TRANSFORMACIÓN", transformation_tasks)
-            
-            # Verificar si alguna transformación falló
-            transformation_success = transformation_results
-            
-            if not transformation_success and not self.skip_on_timeout:
-                self.logger.error("❌ Todas las transformaciones fallaron. Deteniendo pipeline.")
-                return self._generate_final_report()
-            
-            # Fase 3: Carga de datos a Firebase (secuencial)
-            loading_tasks = [
-                ('Carga de Datos a Firebase', 'load_app/data_loading_contratacion_emprestito.py', 'loading_data')
-            ]
-            
-            loading_results = self._execute_parallel_phase("CARGA", loading_tasks)
+            # Fase 3: Carga de contratos a Firebase (continúa aunque la transformación falle)
+            self.logger.info("🔄 INICIANDO FASE DE CARGA DE CONTRATOS")
+            if not self.run_loading_phase():
+                self.logger.error("❌ Carga de contratos falló.")
             
             # Generar reporte final
             return self._generate_final_report()
@@ -613,30 +453,21 @@ class ContratacionEmprestitoPipeline:
         self.logger.info(f"⏱️  Duración total: {total_duration:.1f} segundos ({total_duration/60:.1f} minutos)")
         self.logger.info(f"✅ Pasos exitosos: {successful_steps}/{total_steps} ({success_rate:.1f}%)")
         
-        # Análisis de timeouts y eficiencia
-        timeout_analysis = []
-        efficiency_analysis = []
+        # Análisis de ejecución
+        execution_analysis = []
         
         for step_name, result in self.step_results.items():
             if result:
                 execution_time = result.get('execution_time', 0)
-                timeout_used = result.get('timeout_used', 0)
                 
-                if result.get('timeout_occurred'):
-                    suggested = result.get('suggested_timeout', 'N/A')
-                    timeout_analysis.append(f"   ⏰ {step_name}: Timeout ({timeout_used}s) - Sugerencia: {suggested}s")
-                elif result.get('success'):
-                    efficiency = result.get('efficiency_percent', 0)
-                    efficiency_analysis.append(f"   ⚡ {step_name}: {efficiency:.1f}% eficiencia ({execution_time:.1f}s de {timeout_used}s)")
+                if result.get('success'):
+                    execution_analysis.append(f"   ✅ {step_name}: Completado en {execution_time:.1f}s")
+                else:
+                    execution_analysis.append(f"   ❌ {step_name}: Falló después de {execution_time:.1f}s")
         
-        if timeout_analysis:
-            self.logger.info("🚨 ANÁLISIS DE TIMEOUTS:")
-            for analysis in timeout_analysis:
-                self.logger.info(analysis)
-        
-        if efficiency_analysis:
-            self.logger.info("📈 ANÁLISIS DE EFICIENCIA:")
-            for analysis in efficiency_analysis:
+        if execution_analysis:
+            self.logger.info("📈 ANÁLISIS DE EJECUCIÓN:")
+            for analysis in execution_analysis:
                 self.logger.info(analysis)
         
         # Recomendaciones para próximas ejecuciones
@@ -670,31 +501,28 @@ class ContratacionEmprestitoPipeline:
             'total_steps': total_steps,
             'success_rate': success_rate,
             'step_results': self.step_results,
-            'timeout_analysis': timeout_analysis,
-            'efficiency_analysis': efficiency_analysis
+            'execution_analysis': execution_analysis
         }
 
     def _generate_recommendations(self):
         """Generar recomendaciones basadas en el análisis de ejecución"""
         recommendations = []
         
-        # Analizar timeouts
-        timeout_steps = [name for name, result in self.step_results.items() 
-                        if result and result.get('timeout_occurred')]
+        # Analizar fallos
+        failed_steps = [name for name, result in self.step_results.items() 
+                       if result and not result.get('success')]
         
-        if timeout_steps:
-            recommendations.append("🔧 Considerar aumentar timeouts para: " + ", ".join(timeout_steps))
+        if failed_steps:
+            recommendations.append("🔧 Revisar errores en: " + ", ".join(failed_steps))
         
-        # Analizar eficiencia
-        inefficient_steps = []
+        # Analizar tiempos de ejecución largos
+        slow_steps = []
         for name, result in self.step_results.items():
-            if result and result.get('success'):
-                efficiency = result.get('efficiency_percent', 100)
-                if efficiency < 30:  # Menos del 30% de eficiencia
-                    inefficient_steps.append(name)
+            if result and result.get('execution_time', 0) > 300:  # Más de 5 minutos
+                slow_steps.append(f"{name} ({result.get('execution_time', 0):.1f}s)")
         
-        if inefficient_steps:
-            recommendations.append("⚡ Timeouts muy altos para: " + ", ".join(inefficient_steps))
+        if slow_steps:
+            recommendations.append("⏰ Pasos que toman mucho tiempo: " + ", ".join(slow_steps))
         
         # Mostrar recomendaciones
         if recommendations:
@@ -710,27 +538,23 @@ def main():
         level=logging.INFO,
         format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
         handlers=[
-            logging.FileHandler('pipeline_contratacion_emprestito.log', encoding='utf-8'),
+            logging.FileHandler('pipeline_contratos_emprestito.log', encoding='utf-8'),
             logging.StreamHandler()
         ]
     )
     
     try:
         # Crear y ejecutar el pipeline
-        pipeline = ContratacionEmprestitoPipeline(
-            fast_mode=True,  # Usar modo rápido por defecto
-            skip_on_timeout=True,  # Continuar aunque haya timeouts
-            parallel_execution=True,  # Activar ejecución paralela
+        pipeline = ContratosEmprestitoPipeline(
             smart_mode=True  # Activar modo inteligente (omitir fases si archivos existen)
         )
         
-        print("🔧 CONFIGURACIÓN OPTIMIZADA:")
-        print("   - Modo rápido: Activado (timeouts optimizados 30-60s)")
-        print("   - Ejecución paralela: Activada (extracción y transformación simultáneas)")
-        print("   - Continuar en timeout: Activado (no se detiene por timeouts)")
+        print("🔧 CONFIGURACIÓN SIN TIMEOUTS:")
+        print("   - Ejecución: Secuencial (extracción → transformación → carga)")
+        print("   - Sin timeouts: Los scripts se ejecutan hasta completarse")
         print("   - Modo inteligente: Activado (omite fases si archivos existen)")
-        print("   - Timeouts reducidos: 50-70% más rápidos que versión anterior")
-        print("   - Para cambiar: pipeline.run(fast_mode=False)")
+        print("   - Solo contratos: Procesamiento enfocado en contratos únicamente")
+        print("   - Continuidad: Cada fase se ejecuta independientemente")
         print()
         
         success = pipeline.run()
