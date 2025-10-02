@@ -488,39 +488,10 @@ def main():
         # Añadir nombre_centro_gestor
         df = add_nombre_centro_gestor_to_procesos(df)
         
-        # Cargar el índice de contratos para filtrar por proceso_compra válidos
-        contratos_index_path = "transformation_app/app_outputs/contratos_secop_outputs/contratos_proyectos_index.json"
-        
-        if os.path.exists(contratos_index_path):
-            print(f"\n🔄 Cargando índice de contratos para filtrar proceso_compra válidos...")
-            with open(contratos_index_path, 'r', encoding='utf-8') as f:
-                contratos_index = json.load(f)
-            
-            # Extraer todos los proceso_compra válidos del índice de contratos
-            valid_proceso_compra = set()
-            for bpin_data in contratos_index.values():
-                for contrato in bpin_data.get('contratos', []):
-                    proceso_compra = contrato.get('proceso_compra')
-                    if proceso_compra:
-                        valid_proceso_compra.add(proceso_compra)
-            
-            print(f"✅ Proceso_compra válidos encontrados: {len(valid_proceso_compra):,}")
-            
-            # Filtrar el DataFrame por proceso_compra válidos
-            if 'proceso_compra' in df.columns:
-                registros_antes = len(df)
-                df = df[df['proceso_compra'].isin(valid_proceso_compra)].copy()
-                registros_filtrados = registros_antes - len(df)
-                
-                print(f"🔍 Filtro por proceso_compra válidos aplicado:")
-                print(f"   - Registros antes del filtro: {registros_antes:,}")
-                print(f"   - Registros filtrados: {registros_filtrados:,}")
-                print(f"   - Registros restantes: {len(df):,}")
-            else:
-                print("⚠️ No se pudo aplicar filtro por proceso_compra (columna no encontrada)")
-        else:
-            print(f"⚠️ No se encontró el archivo de índice de contratos: {contratos_index_path}")
-            print("🔄 Continuando sin filtro por proceso_compra...")
+        # Nota: No filtramos por proceso_compra del índice de contratos porque los procesos
+        # pueden existir sin tener contratos asociados (pueden estar en evaluación, etc.)
+        print(f"\n✅ Manteniendo todos los procesos válidos (sin filtro restrictivo por contratos)")
+        print(f"   📊 Total procesos a procesar: {len(df):,}")
         
         # Buscar la columna de tipo de contrato (ahora con nombres limpiados)
         tipo_contrato_col = None
@@ -538,14 +509,9 @@ def main():
             for tipo, count in tipos_contrato.items():
                 print(f"   - {tipo}: {count:,} registros")
             
-            # Filtrar excluyendo "Prestación de servicios"
-            registros_antes = len(df)
-            df_filtered = df[df[tipo_contrato_col] != "Prestación de servicios"].copy()
-            registros_eliminados = registros_antes - len(df_filtered)
-            
-            print(f"\n🗑️ Eliminando registros de 'Prestación de servicios':")
-            print(f"   - Registros eliminados: {registros_eliminados:,}")
-            print(f"   - Registros restantes: {len(df_filtered):,}")
+            print(f"\n✅ Manteniendo todos los tipos de contrato (sin filtros restrictivos)")
+            print(f"   📊 Registros totales: {len(df):,}")
+            df_filtered = df.copy()
             
         else:
             print("\n⚠️ No se encontró columna de tipo de contrato")
