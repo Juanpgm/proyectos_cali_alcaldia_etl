@@ -406,6 +406,8 @@ class ContratosEmprestitoPipeline:
         self.logger.info(f"📊 CONFIGURACIÓN DEL PIPELINE:")
         self.logger.info(f"   • Ejecución: SECUENCIAL SIN TIMEOUTS")
         self.logger.info(f"   • Modo inteligente: {'ACTIVADO' if self.smart_mode else 'DESACTIVADO'}")
+        self.logger.info(f"   • Filtros de contratos: Aplica filtros de calidad de datos")
+        self.logger.info(f"   • Excluye: Prestación de servicios y BPIN 'No Definido'")
         self.logger.info(f"   • Los scripts se ejecutarán hasta completarse")
         
         self.logger.info("-" * 80)
@@ -554,6 +556,7 @@ def main():
         print("   - Sin timeouts: Los scripts se ejecutan hasta completarse")
         print("   - Modo inteligente: Activado (omite fases si archivos existen)")
         print("   - Solo contratos: Procesamiento enfocado en contratos únicamente")
+        print("   - Filtros aplicados: Excluye Prestación de servicios y BPIN 'No Definido'")
         print("   - Continuidad: Cada fase se ejecuta independientemente")
         print()
         
