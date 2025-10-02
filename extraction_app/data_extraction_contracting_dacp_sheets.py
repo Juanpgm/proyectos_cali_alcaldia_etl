@@ -16,24 +16,15 @@ from datetime import datetime
 
 # Agregar el directorio actual al path para importar módulos locales
 sys.path.append(os.path.dirname(__file__))
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
-# Importar módulo funcional de Google Sheets
-from google_sheets_functional import (
-    extract_from_sheet_by_id,
-    extract_from_sheet_by_url,
-    create_column_mapper,
-    create_value_cleaner,
-    create_row_filter,
-    preview_data,
-    get_data_summary,
-    save_data_to_json,
-    validate_auth_config,
-    create_auth_config
-)
+# Importar funciones de Google Sheets desde database.config
+from database.config import get_sheets_client, open_spreadsheet_by_url, get_worksheet_data
+import gspread
 
 # Configuración de logging
 logging.basicConfig(
-    level=logging.INFO,
+    level=logging.DEBUG,
     format='%(asctime)s - %(levelname)s - %(message)s',
     handlers=[
         logging.FileHandler('extraction_dacp.log'),
@@ -43,11 +34,65 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # =============================================================================
+# FUNCIONES AUXILIARES SIMPLIFICADAS
+# =============================================================================
+
+def create_column_mapper(column_mapping):
+    """Función simple para mapear columnas"""
+    def mapper(df):
+        return df.rename(columns=column_mapping)
+    return mapper
+
+def create_value_cleaner(cleaning_rules):
+    """Función simple para limpiar valores"""
+    def cleaner(df):
+        df_cleaned = df.copy()
+        for column, cleaning_func in cleaning_rules.items():
+            if column in df_cleaned.columns:
+                df_cleaned[column] = df_cleaned[column].apply(cleaning_func)
+        return df_cleaned
+    return cleaner
+
+def create_row_filter(filter_criteria):
+    """Función simple para filtrar filas"""
+    def filter_func(df):
+        df_filtered = df.copy()
+        for column, criteria in filter_criteria.items():
+            if column in df_filtered.columns:
+                if callable(criteria):
+                    df_filtered = df_filtered[df_filtered[column].apply(criteria)]
+                else:
+                    df_filtered = df_filtered[df_filtered[column] == criteria]
+        return df_filtered
+    return filter_func
+
+def create_auth_config():
+    """Configuración básica de autenticación"""
+    return {'service_account_file': 'sheets-service-account.json'}
+
+def validate_auth_config(config):
+    """Validar configuración de autenticación"""
+    if 'service_account_file' in config:
+        exists = os.path.exists(config['service_account_file'])
+        return exists, "Archivo encontrado" if exists else "Archivo no encontrado"
+    return False, "Configuración inválida"
+
+# =============================================================================
 # CONFIGURACIÓN DEL SPREADSHEET OBJETIVO
 # =============================================================================
 
-# URL: https://docs.google.com/spreadsheets/d/1n6I8lgJoXDjeg5um6B2uLIdGQDNnX2_WY0Kj5z5B-hs/edit?usp=sharing
-SPREADSHEET_ID = "1n6I8lgJoXDjeg5um6B2uLIdGQDNnX2_WY0Kj5z5B-hs"
+# Cargar configuración desde variables de entorno
+from dotenv import load_dotenv
+load_dotenv()
+
+# Configuración del spreadsheet de índice de procesos
+SHEETS_INDICE_PROCESOS_URL = os.getenv('SHEETS_INDICE_PROCESOS_URL')
+SHEETS_INDICE_PROCESOS_WORKSHEET = os.getenv('SHEETS_INDICE_PROCESOS_WORKSHEET', 'procesos')
+
+# Extraer ID del spreadsheet de la URL para compatibilidad con funciones existentes
+import re
+url_match = re.search(r'/spreadsheets/d/([a-zA-Z0-9-_]+)', SHEETS_INDICE_PROCESOS_URL or '')
+SPREADSHEET_ID = url_match.group(1) if url_match else "1CqIxNeD4KT1Z3dQACVc1f46OVPIZClcO11cxiWMrpVE"
 SHEET_GID = ""  # No hay GID específico en este link
 
 # Configuración de salida
@@ -65,11 +110,9 @@ def get_sheet_name_from_gid(spreadsheet_id: str, gid: str) -> str:
     """
     try:
         # Intentar obtener el nombre real de la hoja
-        from google_sheets_functional import create_auth_config, load_service_account_credentials, create_gspread_client
-        
-        auth_config = create_auth_config()
-        credentials = load_service_account_credentials(auth_config)
-        client = create_gspread_client(credentials)
+        client = get_sheets_client()
+        if not client:
+            raise Exception("No se pudo obtener cliente de Google Sheets")
         
         spreadsheet = client.open_by_key(spreadsheet_id)
         
@@ -86,7 +129,7 @@ def get_sheet_name_from_gid(spreadsheet_id: str, gid: str) -> str:
     
     # Nombres comunes para intentar si no funciona el GID
     common_names = [
-        "Hoja1", "Sheet1", "Datos", "Data", "Contratos", "Contratación", 
+        "procesos", "Procesos", "PROCESOS", "Hoja1", "Sheet1", "Datos", "Data", "Contratos", "Contratación", 
         "DACP", "Base de datos", "Principal", "Main"
     ]
     
@@ -100,11 +143,14 @@ def try_multiple_sheet_names(spreadsheet_id: str, possible_names: List[str]) -> 
         try:
             logger.info(f"Intentando extraer de la hoja: '{sheet_name}'")
             
-            data = extract_from_sheet_by_id(
-                spreadsheet_id=spreadsheet_id,
-                sheet_name=sheet_name,
-                range_spec=None  # Obtener todos los datos
-            )
+            # Usar funciones existentes del módulo database.config
+            client = get_sheets_client()
+            if not client:
+                raise Exception("No se pudo obtener cliente de Google Sheets")
+            
+            spreadsheet = client.open_by_key(spreadsheet_id)
+            worksheet = spreadsheet.worksheet(sheet_name)
+            data = worksheet.get_all_values()
             
             if data and len(data) > 0:
                 logger.info(f"✅ Extracción exitosa de '{sheet_name}': {len(data)} filas")
@@ -113,7 +159,8 @@ def try_multiple_sheet_names(spreadsheet_id: str, possible_names: List[str]) -> 
                 logger.warning(f"Hoja '{sheet_name}' está vacía")
                 
         except Exception as e:
-            logger.warning(f"Error con hoja '{sheet_name}': {e}")
+            logger.warning(f"Error con hoja '{sheet_name}': {str(e)}")
+            logger.debug(f"Detalle del error: {repr(e)}")
             continue
     
     raise Exception("No se pudo extraer datos de ninguna hoja")
@@ -271,11 +318,7 @@ def create_dacp_value_cleaner():
         'contratista': lambda x: str(x).title().strip() if x else x
     }
     
-    return create_value_cleaner(
-        strip_whitespace=True,
-        convert_empty_to_null=True,
-        custom_cleaners=custom_cleaners
-    )
+    return create_value_cleaner(custom_cleaners)
 
 def create_dacp_date_transformer():
     """
@@ -495,51 +538,19 @@ def extract_dacp_contracting_data(
         logger.info(f"✅ Datos extraídos exitosamente de la hoja: '{sheet_name}'")
         logger.info(f"Total de filas brutas: {len(raw_data)}")
         
-        # 4. Aplicar transformaciones específicas para DACP
-        logger.info("Aplicando transformaciones...")
+        # 4. Convertir datos a DataFrame para procesamiento básico
+        logger.info("Procesando datos...")
         
-        transformers = [
-            create_dacp_column_normalizer(),
-            create_dacp_value_cleaner(),
-            create_dacp_date_transformer(),
-            create_dacp_value_converter(),
-            # FILTRO IMPORTANTE: Excluir servicios profesionales ANTES de dividir por plataforma
-            create_servicios_profesionales_filter(),
-            # Filtro más flexible - solo excluir filas completamente vacías
-            create_row_filter(
-                lambda row: any(
-                    str(value).strip() 
-                    for key, value in row.items() 
-                    if not key.startswith('_') and value is not None
-                )
-            )
-        ]
-        
-        # Volver a extraer con transformadores
-        final_data = extract_from_sheet_by_id(
-            spreadsheet_id=spreadsheet_id,
-            sheet_name=sheet_name,
-            transformers=transformers
-        )
-        
-        logger.info(f"✅ Datos transformados: {len(final_data)} filas finales")
-        
-        # 5. Convertir a DataFrame
-        if not final_data:
-            logger.warning("No se obtuvieron datos después de las transformaciones")
+        # Convertir a DataFrame si hay datos
+        if raw_data and len(raw_data) > 1:
+            import pandas as pd
+            df = pd.DataFrame(raw_data[1:], columns=raw_data[0])
+            logger.info(f"DataFrame creado: {len(df)} filas, {len(df.columns)} columnas")
+            return df
+        else:
+            logger.warning("No se encontraron datos válidos")
+            import pandas as pd
             return pd.DataFrame()
-        
-        # Convertir tupla de diccionarios a lista para pandas
-        data_list = []
-        for row in final_data:
-            # Excluir metadatos para el DataFrame
-            clean_row = {k: v for k, v in row.items() if not k.startswith('_')}
-            data_list.append(clean_row)
-        
-        df = pd.DataFrame(data_list)
-        
-        logger.info(f"✅ DataFrame creado: {df.shape[0]} filas x {df.shape[1]} columnas")
-        logger.info(f"Columnas: {list(df.columns)}")
         
         # 6. Mostrar preview
         print("\n" + "="*60)
@@ -652,10 +663,10 @@ def diagnose_access_issues(spreadsheet_id: str = SPREADSHEET_ID):
         print("4. Intentando acceso al spreadsheet...")
         
         try:
-            from google_sheets_functional import load_service_account_credentials, create_gspread_client
+            client = get_sheets_client()
+            if not client:
+                raise Exception("No se pudo obtener cliente de Google Sheets")
             
-            credentials = load_service_account_credentials(auth_config)
-            client = create_gspread_client(credentials)
             spreadsheet = client.open_by_key(spreadsheet_id)
             
             print(f"   ✅ Spreadsheet accesible: '{spreadsheet.title}'")

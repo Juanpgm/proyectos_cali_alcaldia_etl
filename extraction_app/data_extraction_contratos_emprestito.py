@@ -28,16 +28,18 @@ class ContractosEmprestitoExtractor:
     """Extractor especializado para contratos de empréstito usando referencias específicas"""
     
     def __init__(self):
-        # Cliente SECOP sin autenticación (solo datos públicos) con timeout optimizado
-        self.client = Socrata("www.datos.gov.co", None, timeout=15)  # Timeout más corto
+        # Cliente SECOP sin autenticación (solo datos públicos) con timeout más corto
+        self.client = Socrata("www.datos.gov.co", None, timeout=10)  # Timeout reducido
         
         # Dataset IDs de SECOP - Solo usaremos contratos
         self.datasets = {
             'contratos': 'jbjy-vk9h'  # Contratos SECOP I - Dataset principal
         }
         
-        # Configuración de optimización
-        self.max_retries = 2  # Máximo 2 reintentos
+        # Configuración de reintentos robusta
+        self.max_retries = 3  # Más reintentos para garantizar éxito
+        self.base_delay = 1   # Delay base en segundos
+        self.max_delay = 30   # Delay máximo en segundos
         
         # Rutas de archivos
         self.base_path = "transformation_app/app_inputs/contratos_secop_input"
@@ -48,11 +50,15 @@ class ContractosEmprestitoExtractor:
     
     def _optimized_api_call(self, dataset_key: str, where_clause: str, limit: int = 5000) -> List[Dict]:
         """
-        Llamada optimizada a la API con reintentos
+        Llamada robusta a la API con reintentos y validación de respuestas
         """        
-        # Hacer llamada con reintentos
+        last_exception = None
+        
         for attempt in range(self.max_retries + 1):
             try:
+                logger.debug(f"Intento {attempt + 1}/{self.max_retries + 1} para dataset {dataset_key}")
+                
+                # Realizar la llamada a la API
                 results = self.client.get(
                     self.datasets[dataset_key],
                     where=where_clause,
@@ -60,16 +66,39 @@ class ContractosEmprestitoExtractor:
                     limit=limit
                 )
                 
-                return results
+                # Validar que la respuesta sea válida
+                if results is not None:
+                    if isinstance(results, list):
+                        logger.debug(f"API retornó {len(results)} registros")
+                        return results
+                    else:
+                        logger.warning(f"API retornó tipo inesperado: {type(results)}")
+                        return []
+                else:
+                    logger.warning("API retornó None")
+                    if attempt < self.max_retries:
+                        continue
+                    return []
                 
             except Exception as e:
+                last_exception = e
+                error_msg = str(e)
+                
                 if attempt < self.max_retries:
-                    wait_time = (attempt + 1) * 2  # Backoff exponencial: 2s, 4s
-                    logger.warning(f"Intento {attempt + 1} falló, reintentando en {wait_time}s...")
+                    # Calcular tiempo de espera con backoff exponencial
+                    wait_time = min(self.base_delay * (2 ** attempt), self.max_delay)
+                    
+                    logger.warning(f"Intento {attempt + 1} falló: {error_msg[:200]}. Reintentando en {wait_time}s...")
                     time.sleep(wait_time)
                 else:
-                    logger.warning(f"Error final en búsqueda después de {self.max_retries + 1} intentos: {str(e)[:100]}")
-                    return []
+                    logger.error(f"Error final después de {self.max_retries + 1} intentos: {error_msg[:200]}")
+        
+        # Si llegamos aquí, todos los intentos fallaron
+        logger.error(f"Todos los intentos fallaron para {dataset_key} con where: {where_clause}")
+        if last_exception:
+            logger.error(f"Última excepción: {last_exception}")
+        
+        return []  # Siempre retorna una lista vacía en caso de fallo total
     
     def load_contratos_index(self) -> List[Dict]:
         """Cargar y filtrar referencias de contrato válidas"""
@@ -85,11 +114,15 @@ class ContractosEmprestitoExtractor:
             valid_contracts = []
             for item in contratos_index:
                 if 'referencia_contrato' in item and isinstance(item['referencia_contrato'], list):
+                    # Omitir arrays vacíos
+                    if not item['referencia_contrato']:
+                        continue
+                    
                     for ref_contrato in item['referencia_contrato']:
-                        if ref_contrato and ref_contrato.strip():  # No vacío
+                        if ref_contrato and str(ref_contrato).strip():  # No vacío y no None
                             # Crear un registro por cada referencia de contrato
                             contract_record = item.copy()
-                            contract_record['referencia_contrato'] = ref_contrato.strip()
+                            contract_record['referencia_contrato'] = str(ref_contrato).strip()
                             valid_contracts.append(contract_record)
             
             logger.info(f"Encontrados {len(valid_contracts)} registros con referencia_contrato válida")
@@ -231,9 +264,15 @@ class ContractosEmprestitoExtractor:
         return processed
     
     def search_contract_by_exact_reference(self, referencia: str, limit: int = 50) -> List[Dict]:
-        """Buscar contrato por referencia exacta en diferentes datasets"""
+        """Buscar contrato por referencia exacta con validación robusta"""
         logger.info(f"Buscando contrato: {referencia}")
         
+        # Validar entrada
+        if not referencia or not referencia.strip():
+            logger.warning("Referencia vacía o inválida")
+            return []
+        
+        referencia = referencia.strip()
         all_results = []
         
         # Campos de referencia a buscar SOLO en el dataset de contratos SECOP
@@ -245,35 +284,45 @@ class ContractosEmprestitoExtractor:
         
         for dataset_key, field_name in search_fields:
             try:
-                # Usar $select=* para obtener TODOS los campos disponibles
-                # Búsqueda exacta
+                # Búsqueda exacta primero
                 where_clause = f"{field_name} = '{referencia}'"
+                logger.debug(f"Búsqueda exacta en {dataset_key}.{field_name}")
+                
                 results = self._optimized_api_call(dataset_key, where_clause, limit)
                 
-                if results:
-                    logger.info(f"Encontrados {len(results)} registros para {referencia} en {dataset_key}.{field_name}")
+                # Validar y procesar resultados
+                if results and isinstance(results, list) and len(results) > 0:
+                    logger.info(f"✅ Encontrados {len(results)} registros exactos para {referencia} en {dataset_key}.{field_name}")
+                    
                     for result in results:
-                        result['_dataset_source'] = dataset_key
-                        result['_search_field'] = field_name
-                        result['_referencia_buscada'] = referencia
-                        result['_search_type'] = 'exact'
-                        result['_total_campos'] = len(result.keys())
-                    all_results.extend(results)
+                        if isinstance(result, dict):
+                            # Agregar metadatos de búsqueda
+                            result['_dataset_source'] = dataset_key
+                            result['_search_field'] = field_name
+                            result['_referencia_buscada'] = referencia
+                            result['_search_type'] = 'exact'
+                            result['_total_campos'] = len(result.keys())
+                            all_results.append(result)
+                    
+                    # Si encontramos resultados exactos, no necesitamos buscar similares
+                    continue
                 
                 # Si no encuentra exacto, buscar con LIKE para variaciones
-                if not results:
-                    where_clause = f"{field_name} like '%{referencia}%'"
-                    results = self._optimized_api_call(dataset_key, where_clause, limit)
+                logger.debug(f"Búsqueda similar en {dataset_key}.{field_name}")
+                where_clause = f"{field_name} like '%{referencia}%'"
+                results = self._optimized_api_call(dataset_key, where_clause, limit)
+                
+                if results and isinstance(results, list) and len(results) > 0:
+                    logger.info(f"📝 Encontrados {len(results)} registros similares para {referencia} en {dataset_key}.{field_name}")
                     
-                    if results:
-                        logger.info(f"Encontrados {len(results)} registros similares para {referencia} en {dataset_key}.{field_name}")
-                        for result in results:
+                    for result in results:
+                        if isinstance(result, dict):
                             result['_dataset_source'] = dataset_key
                             result['_search_field'] = field_name
                             result['_referencia_buscada'] = referencia
                             result['_search_type'] = 'similar'
                             result['_total_campos'] = len(result.keys())
-                        all_results.extend(results)
+                            all_results.append(result)
                 
                 # Búsqueda adicional sin guiones para casos como "4151010261093220925"
                 if not results and '-' in referencia:
@@ -389,45 +438,53 @@ class ContractosEmprestitoExtractor:
             try:
                 contract_data = self.search_contract_by_exact_reference(referencia)
                 
-                if contract_data:
-                    # Agregar información del registro original a cada contrato encontrado
+                # Validar que contract_data sea una lista válida
+                if contract_data and isinstance(contract_data, list) and len(contract_data) > 0:
+                    logger.info(f"✅ Encontrados {len(contract_data)} contratos para {referencia}")
+                    
+                    # Procesar cada contrato encontrado
                     processed_contracts = []
                     for contract in contract_data:
-                        # Procesar y limpiar datos del contrato
-                        processed_contract = self.process_contract_data(contract)
-                        
-                        processed_contract['_registro_origen'] = {
-                            'banco': record.get('banco'),
-                            'id_origen': record.get('id'),
-                            'referencia_proceso': record.get('referencia_proceso'),
-                            'fecha_extraccion': record.get('fecha_extraccion'),
-                            'multiple_refs': record.get('_multiple_refs', False),
-                            'refs_originales': record.get('_original_refs'),
-                            'referencia_original': record.get('referencia_contrato_original', referencia)
-                        }
-                        processed_contracts.append(processed_contract)
+                        if not isinstance(contract, dict):
+                            logger.warning(f"Contrato inválido (no es dict): {type(contract)}")
+                            continue
+                            
+                        try:
+                            # Procesar y limpiar datos del contrato
+                            processed_contract = self.process_contract_data(contract)
+                            
+                            # Agregar información del registro original
+                            processed_contract['_registro_origen'] = {
+                                'banco': record.get('banco'),
+                                'id_origen': record.get('id'),
+                                'referencia_proceso': record.get('referencia_proceso'),
+                                'fecha_extraccion': record.get('fecha_extraccion'),
+                                'multiple_refs': record.get('_multiple_refs', False),
+                                'refs_originales': record.get('_original_refs'),
+                                'referencia_original': record.get('referencia_contrato_original', referencia)
+                            }
+                            processed_contracts.append(processed_contract)
+                            
+                        except Exception as e:
+                            logger.error(f"Error procesando contrato individual: {e}")
+                            continue
                     
-                    all_contracts.extend(processed_contracts)
-                    extracted_count += 1
-                    logger.info(f"Encontrados {len(contract_data)} registros para: {referencia}")
+                    if processed_contracts:
+                        all_contracts.extend(processed_contracts)
+                        extracted_count += 1
+                        logger.info(f"✅ Procesados {len(processed_contracts)} contratos para {referencia}")
+                    else:
+                        logger.warning(f"❌ No se pudieron procesar contratos para {referencia}")
                 else:
-                    logger.warning(f"No se encontraron datos para: {referencia}")
-                    # Crear un registro vacío para mantener trazabilidad
-                    empty_record = {
-                        'referencia_contrato_buscada': referencia,
-                        'estado_busqueda': 'No encontrado en SECOP',
-                        'referencia_original': record.get('referencia_contrato_original', referencia),
-                        '_registro_origen': {
-                            'banco': record.get('banco'),
-                            'id_origen': record.get('id'),
-                            'referencia_proceso': record.get('referencia_proceso'),
-                            'fecha_extraccion': record.get('fecha_extraccion'),
-                            'multiple_refs': record.get('_multiple_refs', False),
-                            'refs_originales': record.get('_original_refs'),
-                            'referencia_original': record.get('referencia_contrato_original', referencia)
-                        }
+                    logger.warning(f"❌ No se encontraron contratos para {referencia}")
+                    # Agregar un registro de "no encontrado" para tracking
+                    not_found_record = {
+                        'referencia_contrato_no_encontrada': referencia,
+                        'motivo': 'no_encontrado_en_secop',
+                        '_registro_origen': record,
+                        '_timestamp_busqueda': datetime.now().isoformat()
                     }
-                    all_contracts.append(empty_record)
+                    all_contracts.append(not_found_record)
                 
             except Exception as e:
                 logger.error(f"Error procesando {referencia}: {e}")
