@@ -78,18 +78,39 @@ def clean_numeric_column(df: pd.DataFrame, column_name: str, default_value: floa
 
 
 def clean_monetary_column(df: pd.DataFrame, column_name: str, as_integer: bool = False) -> pd.DataFrame:
-    """Clean a monetary column using functional approach."""
+    """Clean a monetary column using functional approach with robust type handling."""
     if column_name in df.columns:
         df = df.copy()
-        df[column_name] = df[column_name].apply(
-            lambda x: clean_monetary_value(x) if pd.notna(x) else 0.00
-        )
-        # Ensure it's numeric before processing
+        
+        print(f"Cleaning monetary column: {column_name}")
+        
+        # Apply the cleaning function to all values
+        df[column_name] = df[column_name].apply(clean_monetary_value)
+        
+        # Ensure it's numeric and handle any remaining issues
         df[column_name] = pd.to_numeric(df[column_name], errors='coerce').fillna(0.0)
+        
+        # Final validation - ensure no negative values for monetary columns
+        negative_mask = df[column_name] < 0
+        if negative_mask.any():
+            negative_count = negative_mask.sum()
+            print(f"  Warning: Found {negative_count} negative values in {column_name}, converting to 0.00")
+            df.loc[negative_mask, column_name] = 0.0
+        
+        # Report statistics
+        positive_values = (df[column_name] > 0).sum()
+        zero_values = (df[column_name] == 0).sum()
+        total_values = len(df[column_name])
+        
+        print(f"  {column_name} validation results:")
+        print(f"    Positive values: {positive_values}")
+        print(f"    Zero values: {zero_values}")
+        print(f"    Total values: {total_values}")
         
         # Convert to integer if requested (removes decimals)
         if as_integer:
-            df[column_name] = df[column_name].astype(int)
+            df[column_name] = df[column_name].astype('int64')
+        
     return df
 
 
@@ -122,23 +143,37 @@ def normalize_column_names(columns):
 
 
 def clean_monetary_value(value):
-    """Clean monetary values by removing currency symbols and thousands separators."""
+    """Clean monetary values by removing currency symbols and thousands separators with robust type handling."""
     if pd.isna(value) or value is None:
-        return None
+        return 0.00
     
-    # Convert to string first
+    # Convert to string first, handling different input types
+    if isinstance(value, (int, float)):
+        # If already numeric, ensure it's positive and return
+        numeric_value = float(value)
+        if numeric_value < 0:
+            print(f"    Warning: Negative monetary value {numeric_value} converted to 0.00")
+            return 0.00
+        return round(numeric_value, 2)
+    
     str_value = str(value).strip()
     
     # Handle special cases
-    if str_value == '-' or str_value == '' or str_value.lower() == 'nan' or str_value.lower() == 'null':
-        return None
-    
-    # Remove currency symbols and spaces
-    cleaned = str_value.replace('$', '').replace(' ', '').strip()
-    
-    # Handle the case where cleaned string is just "-" after cleaning
-    if cleaned == '-' or cleaned == '':
+    if str_value in ['-', '', 'nan', 'null', 'NaN', 'NULL', 'None']:
         return 0.00
+    
+    # Remove currency symbols, spaces, and common prefixes
+    cleaned = str_value.replace('$', '').replace('COP', '').replace('USD', '').replace(' ', '').replace('\t', '').strip()
+    
+    # Handle the case where cleaned string is just "-" or empty after cleaning
+    if cleaned in ['-', '', '+']:
+        return 0.00
+    
+    # Handle negative signs - for monetary values, we'll convert to positive
+    is_negative = cleaned.startswith('-')
+    if is_negative:
+        cleaned = cleaned[1:]  # Remove negative sign
+        print(f"    Warning: Negative monetary value '{str_value}' converted to positive")
     
     try:
         # Handle different decimal formats
@@ -166,12 +201,22 @@ def clean_monetary_value(value):
                 # Remove commas (thousands separators)
                 cleaned = cleaned.replace(',', '')
         
+        # Final validation before conversion
+        if not cleaned or cleaned == '.':
+            return 0.00
+        
         # Convert to float
         result = float(cleaned)
+        
+        # Ensure positive value for monetary amounts
+        if result < 0:
+            print(f"    Warning: Negative result {result} from '{str_value}' converted to 0.00")
+            result = 0.00
+        
         return round(result, 2)  # Always return with 2 decimal places
         
     except (ValueError, TypeError) as e:
-        print(f"    Error cleaning '{str_value}': {e} - Setting to 0.00")
+        print(f"    Error cleaning monetary value '{str_value}': {e} - Setting to 0.00")
         return 0.00
 
 
