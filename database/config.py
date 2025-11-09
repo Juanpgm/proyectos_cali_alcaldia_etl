@@ -16,12 +16,50 @@ from typing import Optional, List, Dict, Any, Callable
 from pathlib import Path
 from functools import wraps, lru_cache
 
-# Cargar variables de entorno desde .env
+# Cargar variables de entorno desde .env basado en la rama de Git
 try:
     from dotenv import load_dotenv
-    # Buscar .env en el directorio raíz del proyecto
-    env_path = Path(__file__).parent.parent / '.env'
-    load_dotenv(env_path)
+    import subprocess
+    
+    # Detectar rama actual de Git
+    try:
+        result = subprocess.run(
+            ['git', 'rev-parse', '--abbrev-ref', 'HEAD'],
+            capture_output=True,
+            text=True,
+            timeout=5,
+            cwd=Path(__file__).parent.parent
+        )
+        current_branch = result.stdout.strip() if result.returncode == 0 else 'main'
+    except Exception:
+        current_branch = 'main'
+    
+    # Determinar el archivo .env según la rama
+    project_root = Path(__file__).parent.parent
+    if current_branch == 'dev':
+        env_path = project_root / '.env.dev'
+        print(f"🔧 Usando configuración de DESARROLLO (.env.dev)")
+    elif current_branch == 'main':
+        env_path = project_root / '.env.prod'
+        print(f"🔧 Usando configuración de PRODUCCIÓN (.env.prod)")
+    else:
+        # Para otras ramas, usar .env.dev como default
+        env_path = project_root / '.env.dev'
+        print(f"⚠️  Rama '{current_branch}' no reconocida, usando .env.dev")
+    
+    # Cargar el archivo correspondiente
+    if env_path.exists():
+        load_dotenv(env_path)
+        print(f"✅ Variables de entorno cargadas desde {env_path.name}")
+    else:
+        # Fallback a .env genérico
+        env_path = project_root / '.env'
+        if env_path.exists():
+            load_dotenv(env_path)
+            print(f"⚠️  Usando .env genérico (crea {env_path.parent / ('.env.dev' if current_branch == 'dev' else '.env.prod')})")
+        else:
+            print(f"⚠️  No se encontró archivo de configuración {env_path}")
+            
 except ImportError:
     print("⚠️  python-dotenv no instalado, usando variables de entorno del sistema")
 
