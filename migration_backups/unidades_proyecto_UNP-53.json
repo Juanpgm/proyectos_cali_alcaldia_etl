@@ -1,0 +1,52 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-53",
+  "data": {
+    "created_at": "2025-11-05T11:34:33.293528",
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -76.500366,
+        3.437917
+      ]
+    },
+    "has_geometry": true,
+    "geometry_type": "Point",
+    "properties": {
+      "processed_timestamp": "2025-11-05T11:34:28.210236",
+      "descripcion_intervencion": null,
+      "microtio": "Calle 44 N° 24C – 01, Barrio: Nueva Floresta",
+      "bpin": "-2147483648",
+      "centros_gravedad": false,
+      "upid": "UNP-53",
+      "nombre_up_detalle": "EDUARDO SANTOS",
+      "tipo_intervencion": "Adecuaciones y mantenimientos",
+      "url_proceso": "Pendiente",
+      "referencia_contrato": "4146.010.26.1.1741.2024",
+      "unidad": "UND",
+      "identificador": "Mantenimiento Correctivo UTS",
+      "tipo_equipamiento": "UTS",
+      "fecha_fin": "2025-06-10",
+      "estado": "Finalizado",
+      "fecha_inicio": "2024-11-08",
+      "plataforma": "SECOP II",
+      "nombre_centro_gestor": "Secretaría de Bienestar Social",
+      "avance_obra": "100.0",
+      "geometry_bounds": null,
+      "direccion": "Punto de Apropiación Digital C.A.L.I 12 - El Paraíso",
+      "ano": "2025",
+      "geometry_type": null,
+      "dataframe": "UTS 2025.xlsx",
+      "comuna_corregimiento": "COMUNA 12",
+      "nombre_up": "UTS EDUARDO SANTOS",
+      "referencia_proceso": "4146.010.32.1.1158.2024",
+      "fuente_financiacion": "Recursos propios",
+      "cantidad": "1",
+      "barrio_vereda": "El Paraíso",
+      "presupuesto_base": "200402714"
+    },
+    "updated_at": "2025-11-05T11:34:33.293528"
+  },
+  "timestamp": "2025-11-09T01:53:11.247746"
+}

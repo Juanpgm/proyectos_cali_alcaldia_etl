@@ -1,0 +1,49 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "TP2u6uUhghO5b9tYsaMd",
+  "data": {
+    "observaciones": "Informe de actividades ejecutadas con corte al 31 de octubre de 2025; En el CALI 20 Se desarrollan trabajos de demolición de enchape de piso, retiro de tubería antigua, instalación de nueva red hidraualica y fundición de alistado de piso, En el CALI 13 se realizan trabajos de pintura de estructura metalica de cubierta y terminación de  instalación de tejas upvc, En el CALI 18 se reactivan las labores realizando actividades de resane de muros.",
+    "fecha_reporte": "2025-11-05T01:16:01.280704+00:00",
+    "nombre_centro_gestor": "",
+    "referencia_contrato": "4173.010.26.1.1268-2025",
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/12IQwASMDQ1gq0I9XTIcTCQaPVkaB1YrD",
+    "archivos_evidencia": [
+      {
+        "type": "application/pdf",
+        "size": 491494,
+        "download_url": "https://drive.google.com/uc?id=1ohiQr7kGLVz8PmXTzPqyGNIGK-m3Bok4",
+        "url": "https://drive.google.com/file/d/1ohiQr7kGLVz8PmXTzPqyGNIGK-m3Bok4/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1ohiQr7kGLVz8PmXTzPqyGNIGK-m3Bok4",
+        "name": "1. Informe Ejecutivo Semanal No 9- 4-11-25.pdf"
+      },
+      {
+        "type": "image/png",
+        "size": 4915091,
+        "download_url": "https://drive.google.com/uc?id=1y8q-xI9NGEQZaoNxXfec7Kz418qOTwhZ",
+        "url": "https://drive.google.com/file/d/1y8q-xI9NGEQZaoNxXfec7Kz418qOTwhZ/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1y8q-xI9NGEQZaoNxXfec7Kz418qOTwhZ",
+        "name": "Captura de pantalla 2025-11-04 a las 8.15.21 p. m..png"
+      },
+      {
+        "type": "image/png",
+        "size": 4074774,
+        "download_url": "https://drive.google.com/uc?id=1X86TKJupl0-fXNG9v33BCYaS9PGFvYor",
+        "url": "https://drive.google.com/file/d/1X86TKJupl0-fXNG9v33BCYaS9PGFvYor/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1X86TKJupl0-fXNG9v33BCYaS9PGFvYor",
+        "name": "Captura de pantalla 2025-11-04 a las 8.15.36 p. m..png"
+      }
+    ],
+    "avance_fisico": 27.67,
+    "avance_financiero": 27.67,
+    "alertas": {
+      "es_alerta": false,
+      "descripcion": "",
+      "tipos": []
+    },
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:41:18.867483"
+}

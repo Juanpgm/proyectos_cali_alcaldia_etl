@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1026",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Calle 74 Entre Carreras 7M Y 7P",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.145678",
+    "has_valid_geometry": true,
+    "upid": "UNP-1026",
+    "nombre_up_detalle": "Via Local",
+    "nombre_up": "Calle 74 Entre Carreras 7M Y 7P",
+    "comuna_corregimiento": "COMUNA 07",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.48102927199994, 3.4564696210000534, 0.0], [-76.48108816899997, 3.4556138230000215, 0.0]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Alfonso Lopez III",
+    "cantidad": 97,
+    "loaded_at": "2025-11-04T20:23:09.145683",
+    "presupuesto_base": 73137342.05
+  },
+  "timestamp": "2025-11-09T01:42:55.958133"
+}

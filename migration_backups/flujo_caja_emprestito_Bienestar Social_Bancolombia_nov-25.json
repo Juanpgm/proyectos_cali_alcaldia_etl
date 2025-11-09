@@ -1,0 +1,16 @@
+{
+  "collection_path": "flujo_caja_emprestito",
+  "doc_id": "Bienestar Social_Bancolombia_nov-25",
+  "data": {
+    "banco": "Bancolombia",
+    "desembolso": 0.0,
+    "mes": "nov-25",
+    "id_registro": "Bienestar Social_Bancolombia_nov-25",
+    "fecha_procesamiento": "2025-10-20T11:37:44.598321",
+    "desembolso_real": 0.0,
+    "periodo": "2025-11-01T00:00:00",
+    "archivo_origen": "Matriz Emprestito.xlsx",
+    "organismo": "Bienestar Social"
+  },
+  "timestamp": "2025-11-09T00:49:50.279732"
+}

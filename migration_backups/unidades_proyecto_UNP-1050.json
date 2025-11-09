@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1050",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Av Cañasgordas Con Carrera 105",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.155854",
+    "has_valid_geometry": true,
+    "upid": "UNP-1050",
+    "nombre_up_detalle": "Via Arteria Principal",
+    "nombre_up": "Av Cañasgordas Con Carrera 105",
+    "comuna_corregimiento": "COMUNA 22",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.53195636199996, 3.3641585210000358, 0.0], [-76.53211332999996, 3.3640657920000763, 0.0], [-76.53214853499998, 3.363968279000062, 0.0], [-76.53211658699996, 3.3638863120000337, 0.0], [-76.53197919399997, 3.363785673000052, 0.0], [-76.53184150299995, 3.36346736400003, 0.0], [-76.53175197999997, 3.3632040440000424, 0.0]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Urbanización Ciudad Jardín",
+    "cantidad": 130,
+    "loaded_at": "2025-11-04T20:23:09.155858",
+    "presupuesto_base": 46164052.48
+  },
+  "timestamp": "2025-11-09T01:43:19.876681"
+}

@@ -1,0 +1,49 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "Yj55ibhneS0LG7o7vJXf",
+  "data": {
+    "fecha_reporte": "2025-10-14T03:07:17.704629+00:00",
+    "nombre_centro_gestor": "",
+    "observaciones": "Con corte al 30 de septiembre de 2025 se ejecutaron las actividades preliminares de desmonte de iluminarias, desmonte de mesón de cocina y de cielo raso panel incluyendo estructura en las instalaciones, la demolición de piso de los C.A.L.I.s 12 y 13.",
+    "avance_fisico": 0.5,
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/1tpsekPDUF6SZjvEaX-AvVd6wo_JLCRFf",
+    "archivos_evidencia": [
+      {
+        "type": "application/pdf",
+        "size": 2553804,
+        "download_url": "https://drive.google.com/uc?id=1vWwMgHVXoQZnBW4iNXAcw6bZ9Fi_JL6O",
+        "url": "https://drive.google.com/file/d/1vWwMgHVXoQZnBW4iNXAcw6bZ9Fi_JL6O/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1vWwMgHVXoQZnBW4iNXAcw6bZ9Fi_JL6O",
+        "name": "Informe Interventoría 001 Septiembre.pdf"
+      },
+      {
+        "type": "image/jpeg",
+        "size": 235396,
+        "download_url": "https://drive.google.com/uc?id=1sRmDGog0us4zW-47WO_DZN8L32GasIVF",
+        "url": "https://drive.google.com/file/d/1sRmDGog0us4zW-47WO_DZN8L32GasIVF/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1sRmDGog0us4zW-47WO_DZN8L32GasIVF",
+        "name": "CALI 12.jpeg"
+      },
+      {
+        "type": "image/jpeg",
+        "size": 251079,
+        "download_url": "https://drive.google.com/uc?id=1K5ry8eIVH9Gc1uRuXyDlU-AG-PaiuBvm",
+        "url": "https://drive.google.com/file/d/1K5ry8eIVH9Gc1uRuXyDlU-AG-PaiuBvm/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1K5ry8eIVH9Gc1uRuXyDlU-AG-PaiuBvm",
+        "name": "CALI 13.jpeg"
+      }
+    ],
+    "referencia_contrato": "4173.010.26.1.1268-2025",
+    "alertas": {
+      "es_alerta": false,
+      "descripcion": "",
+      "tipos": []
+    },
+    "avance_financiero": 0.5,
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:41:34.585106"
+}

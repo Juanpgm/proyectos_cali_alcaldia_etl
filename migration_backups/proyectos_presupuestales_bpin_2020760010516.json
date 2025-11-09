@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010516",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Seguridad y Justicia",
+    "cod_producto": null,
+    "nombre_area_funcional": "Infraestructura de seguridad y justicia mejorada",
+    "nombre_fondo": "Contribución Contratos De Obra Pública",
+    "nombre_programa": "Vigilancia y prevención del delito",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010516,
+    "created_at": "2025-10-10T09:25:14.270354+00:00",
+    "nombre_actividad": "Realizar mantenimiento y adecuación de Estaciones de policía",
+    "updated_at": "2025-10-10T09:25:14.270354+00:00",
+    "programa_presupuestal": 6101004,
+    "nombre_pospre": "Servicios de la construcción",
+    "anio": 2025,
+    "nombre_proyecto": "ADECUACIÓN  DE LA INFRAESTRUCTURA FÍSICA DE LOS ORGANISMOS DE SEGURIDAD Y JUSTICIA  DE SANTIAGO DE  CALI",
+    "clasificacion_fondo": "Recursos Propios con Destinacion Especifica",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": null,
+    "validador_cuipo": null,
+    "bp": "BP26003255"
+  },
+  "timestamp": "2025-11-09T01:07:25.701949"
+}

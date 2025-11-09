@@ -1,0 +1,52 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-539",
+  "data": {
+    "created_at": "2025-11-05T11:34:41.218502",
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -76.54999337284515,
+        3.4537155132296053
+      ]
+    },
+    "has_geometry": true,
+    "geometry_type": "Point",
+    "properties": {
+      "processed_timestamp": "2025-11-05T11:34:28.210236",
+      "descripcion_intervencion": null,
+      "microtio": null,
+      "bpin": "0",
+      "centros_gravedad": false,
+      "upid": "UNP-539",
+      "nombre_up_detalle": "N/A",
+      "tipo_intervencion": "Adecuaciones y mantenimientos",
+      "url_proceso": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.6853262&isFromPublicArea=True&isModal=False",
+      "referencia_contrato": "4181.010.26.1.434-2024",
+      "unidad": "UND",
+      "identificador": "MANTENIMIENTO DE BANDERAS",
+      "tipo_equipamiento": "Infraestructura cultural ",
+      "fecha_fin": "25/10/2024",
+      "estado": "En ejecución",
+      "fecha_inicio": "30/09/2024",
+      "plataforma": "SECOP II",
+      "nombre_centro_gestor": "Unidad Administrativa Especial de Gestión de Bienes y Servicios",
+      "avance_obra": "100.0",
+      "geometry_bounds": null,
+      "direccion": "Av. 4 Oeste #2 Oeste Calle 2 Oeste #30 - 2ª",
+      "ano": "2024",
+      "geometry_type": null,
+      "dataframe": null,
+      "comuna_corregimiento": "COMUNA 01",
+      "nombre_up": "PORTADA AL MAR",
+      "referencia_proceso": "4181.010.26.1.434-2024",
+      "fuente_financiacion": "Recursos propios",
+      "cantidad": "1",
+      "barrio_vereda": "Portada al mar",
+      "presupuesto_base": "169277500"
+    },
+    "updated_at": "2025-11-05T11:34:41.218502"
+  },
+  "timestamp": "2025-11-09T01:53:20.058187"
+}

@@ -1,0 +1,23 @@
+{
+  "collection_path": "proyecciones_emprestito",
+  "doc_id": "vD64Bv4CtrdKkG0S3E2t",
+  "data": {
+    "nombre_banco": "Bancolombia",
+    "nombre_organismo_reducido": "Educación",
+    "ultima_actualizacion": "2025-11-08T11:31:07.630698+00:00",
+    "item": "37",
+    "nombre_resumido_proceso": "Contrato 1: Adecuaciones 22 sedes educativas.",
+    "fuente": "google_sheets",
+    "fecha_carga": "2025-11-08T11:31:04.566401",
+    "valor_proyectado": 0,
+    "nombre_generico_proyecto": "Adecuaciones 22 Sedes Educativas",
+    "fila_origen": 37,
+    "id_paa": "18910",
+    "fecha_guardado": "2025-11-08T11:31:07.630698+00:00",
+    "referencia_proceso": "4143.010.32.0876-2025",
+    "BP": "BP26004701",
+    "urlProceso": "https://www.secop.gov.co/CO1BusinessLine/Tendering/ContractNoticeView/Index?Notice=CO1.NTC.8657537",
+    "descripcion_bp": "Mejoramiento a la Infraestructura física de las sedes educativas oficiales para las vigencias 2024-2028 en Santiago de Cali"
+  },
+  "timestamp": "2025-11-09T00:53:46.445600"
+}

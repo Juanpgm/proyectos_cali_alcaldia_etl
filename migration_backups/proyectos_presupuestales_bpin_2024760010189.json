@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010189",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Bienestar Social",
+    "cod_producto": null,
+    "nombre_area_funcional": "Espacios territoriales con enfoque de género y diferencial dirigidos a mujeres operando",
+    "nombre_fondo": "Estampilla Prodesarrollo Urbano  (10% Equidad de Género)",
+    "nombre_programa": "Atención integral a poblaciones",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010189,
+    "nombre_actividad": "Realizar apoyo operativo y administrativo para el funcionamiento de los espacios territoriales con enfoque de género y diferencial dirigidos a mujeres",
+    "created_at": "2025-10-10T09:33:22.139790+00:00",
+    "updated_at": "2025-10-10T09:33:22.139790+00:00",
+    "programa_presupuestal": 6102006,
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2025,
+    "nombre_proyecto": "Fortalecimiento de espacios territoriales con enfoque de género y diferencial dirigidos a mujeres en Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios con Destinacion Especifica",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "bp": "BP26005432",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T01:34:47.252139"
+}

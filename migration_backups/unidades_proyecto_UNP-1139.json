@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1139",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Autopista Suroriental Entre Calle 25 Y 44",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.909664",
+    "has_valid_geometry": true,
+    "upid": "UNP-1139",
+    "nombre_up_detalle": "Via Arteria Principal",
+    "nombre_up": "Autopista Suroriental Entre Calle 25 Y 44",
+    "comuna_corregimiento": "COMUNA 11",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"MultiLineString\", \"coordinates\": [[[-76.51867243305966, 3.435768398993972, 0.0], [-76.51789467266906, 3.4358703651397695, 0.0], [-76.51718742300679, 3.435968068801481, 0.0]], [[-76.50415459235832, 3.4392609530387834, 0.0], [-76.5040373977817, 3.4393022857685214, 0.0]]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Primitivo Crespo",
+    "cantidad": 89,
+    "loaded_at": "2025-11-04T20:23:09.909667",
+    "presupuesto_base": 62967767.58
+  },
+  "timestamp": "2025-11-09T01:44:45.816235"
+}

@@ -1,0 +1,23 @@
+{
+  "collection_path": "proyecciones_emprestito",
+  "doc_id": "kQh6js9Wj30D1Z4M79q3",
+  "data": {
+    "nombre_banco": "BBVA",
+    "nombre_organismo_reducido": "Educación",
+    "ultima_actualizacion": "2025-11-08T11:31:07.641745+00:00",
+    "item": "72",
+    "nombre_resumido_proceso": "INTERVENTORIA: Infraestructura educativa adecuaciones y mantenimientos 49 sedes",
+    "fuente": "google_sheets",
+    "fecha_carga": "2025-11-08T11:31:04.573119",
+    "valor_proyectado": 0,
+    "nombre_generico_proyecto": "INTERVENTORIA: Infraestructura educativa adecuaciones y mantenimientos 49 sedes",
+    "fila_origen": 72,
+    "id_paa": "VIGENCIAS 2026 Y 2027",
+    "fecha_guardado": "2025-11-08T11:31:07.641745+00:00",
+    "referencia_proceso": "",
+    "BP": "BP26004701",
+    "urlProceso": "",
+    "descripcion_bp": "Adecuaciones 49 sedes educativas"
+  },
+  "timestamp": "2025-11-09T00:53:27.750401"
+}

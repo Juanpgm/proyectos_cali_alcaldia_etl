@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1046",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Calle 40 Entre Carrera 39 Y 47",
+    "has_geometry": true,
+    "bpin": "2022760010010",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.154499",
+    "has_valid_geometry": true,
+    "upid": "UNP-1046",
+    "nombre_up_detalle": "Via Colectora",
+    "nombre_up": "Calle 40 Entre Carrera 39 Y 46",
+    "comuna_corregimiento": "COMUNA 16",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"GeometryCollection\", \"geometries\": [{\"type\": \"MultiLineString\", \"coordinates\": [[[-76.50597458699997, 3.41709535800004, 0.0], [-76.50940035598101, 3.4138116802112575, 0.0]], [[-76.50940035598101, 3.4138116802112575, 0.0], [-76.51291476647489, 3.4104430375084727, 0.0]]]}, {\"type\": \"LineString\", \"coordinates\": [[-76.51291476647489, 3.4104430375084727, 0.0], [-76.51598472099994, 3.4075004160000617, 0.0]]}]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Antonio Nariño",
+    "cantidad": 1970,
+    "loaded_at": "2025-11-04T20:23:09.154504",
+    "presupuesto_base": 5872099173.99
+  },
+  "timestamp": "2025-11-09T01:43:15.317685"
+}

@@ -1,0 +1,52 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-139",
+  "data": {
+    "created_at": "2025-11-05T11:34:34.750286",
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -76.54376,
+        3.44
+      ]
+    },
+    "has_geometry": true,
+    "geometry_type": "Point",
+    "properties": {
+      "processed_timestamp": "2025-11-05T11:34:28.210236",
+      "descripcion_intervencion": null,
+      "microtio": null,
+      "bpin": "-2147483648",
+      "centros_gravedad": false,
+      "upid": "UNP-139",
+      "nombre_up_detalle": "Sede principal",
+      "tipo_intervencion": "Adecuaciones y mantenimientos",
+      "url_proceso": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.6340585&isFromPublicArea=True&isModal=False",
+      "referencia_contrato": "4148.010.26.1.0900-2024",
+      "unidad": "UND",
+      "identificador": "Mantenimiento Transporte vertical y Ascensor Centenario",
+      "tipo_equipamiento": "Bibliotecas",
+      "fecha_fin": "30-01-2025",
+      "estado": "Finalizado",
+      "fecha_inicio": "26-09-2024",
+      "plataforma": "SECOP II",
+      "nombre_centro_gestor": "Secretaría de Cultura",
+      "avance_obra": "100.0",
+      "geometry_bounds": null,
+      "direccion": "Cali",
+      "ano": "2024",
+      "geometry_type": null,
+      "dataframe": null,
+      "comuna_corregimiento": "COMUNAS DE CALI",
+      "nombre_up": "Bibliotecas Públicas",
+      "referencia_proceso": "4148.010.32.1.0864-2024",
+      "fuente_financiacion": "Recursos propios",
+      "cantidad": "1",
+      "barrio_vereda": "Cali",
+      "presupuesto_base": "231777413"
+    },
+    "updated_at": "2025-11-05T11:34:34.750286"
+  },
+  "timestamp": "2025-11-09T01:46:48.429157"
+}

@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_202400000007537",
+  "data": {
+    "nombre_centro_gestor": "Unidad Administrativa Especial de Servicios Públicos",
+    "cod_producto": null,
+    "nombre_area_funcional": "Aumento en el aprovechamiento de residuos sólidos orgánicos mediante tecnologias de compostaje.",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Protección ambiental y mitigación del cambio climático",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 202400000007537,
+    "created_at": "2025-10-10T09:26:35.556334+00:00",
+    "nombre_actividad": "Adquirir insumos para implementar estrategias de aprovechamiento de residuos orgánicos",
+    "updated_at": "2025-10-10T09:26:35.556334+00:00",
+    "programa_presupuestal": 6202001,
+    "nombre_pospre": "Maquinaria agropecuaria o silvícola y sus partes y piezas",
+    "anio": 2025,
+    "nombre_proyecto": "Implementación de tecnologías de aprovechamiento de residuos sólidos orgánicos en la Comuna 14 de Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "COMUNA 14",
+    "origen": "Territorio",
+    "nombre_linea_estrategica": null,
+    "validador_cuipo": null,
+    "bp": "BP26005648"
+  },
+  "timestamp": "2025-11-09T01:31:59.412128"
+}

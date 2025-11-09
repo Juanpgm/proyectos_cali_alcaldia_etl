@@ -1,0 +1,52 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-272",
+  "data": {
+    "created_at": "2025-11-05T11:34:36.181604",
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -76.53590213560878,
+        3.4496146503537166
+      ]
+    },
+    "has_geometry": true,
+    "geometry_type": "Point",
+    "properties": {
+      "processed_timestamp": "2025-11-05T11:34:28.210236",
+      "descripcion_intervencion": null,
+      "microtio": null,
+      "bpin": "-2147483648",
+      "centros_gravedad": false,
+      "upid": "UNP-272",
+      "nombre_up_detalle": "Sede principal",
+      "tipo_intervencion": "Adecuaciones y mantenimientos",
+      "url_proceso": "Pendiente",
+      "referencia_contrato": null,
+      "unidad": "UND",
+      "identificador": "Restauración del Teatro Municipal Enrique Buenaventura",
+      "tipo_equipamiento": "Infraestructura cultural ",
+      "fecha_fin": "31/12/2027",
+      "estado": "En alistamiento",
+      "fecha_inicio": "01-03-2026",
+      "plataforma": "SECOP II",
+      "nombre_centro_gestor": "Secretaría de Cultura",
+      "avance_obra": "0.0",
+      "geometry_bounds": null,
+      "direccion": "Cra 5 No. 06-64",
+      "ano": "2026",
+      "geometry_type": null,
+      "dataframe": null,
+      "comuna_corregimiento": "COMUNA 03",
+      "nombre_up": "Teatro Municipal Enrique Buenaventura",
+      "referencia_proceso": null,
+      "fuente_financiacion": "Empréstito",
+      "cantidad": "1",
+      "barrio_vereda": "La merced",
+      "presupuesto_base": "36000000000"
+    },
+    "updated_at": "2025-11-05T11:34:36.181604"
+  },
+  "timestamp": "2025-11-09T01:48:58.328180"
+}

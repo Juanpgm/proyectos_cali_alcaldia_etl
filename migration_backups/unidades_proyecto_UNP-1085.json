@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1085",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Calle  15A Entre Carrera 100 Y 101",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.169491",
+    "has_valid_geometry": true,
+    "upid": "UNP-1085",
+    "nombre_up_detalle": "Via Local",
+    "nombre_up": "Calle 15A Entre Carrera 100 Y 101",
+    "comuna_corregimiento": "COMUNA 22",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.53111342015592, 3.367934129917516, 0.0], [-76.53130507543166, 3.3675489699285754, 0.0], [-76.5316203738767, 3.3669103128984728, 0.0]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Urbanización Ciudad Jardín",
+    "cantidad": 196,
+    "loaded_at": "2025-11-04T20:23:09.169499",
+    "presupuesto_base": 147782670.53
+  },
+  "timestamp": "2025-11-09T01:43:53.180860"
+}

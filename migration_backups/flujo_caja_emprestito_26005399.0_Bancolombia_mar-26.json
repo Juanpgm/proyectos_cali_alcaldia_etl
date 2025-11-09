@@ -1,0 +1,19 @@
+{
+  "collection_path": "flujo_caja_emprestito",
+  "doc_id": "26005399.0_Bancolombia_mar-26",
+  "data": {
+    "banco": "Bancolombia",
+    "desembolso": 2713507260.0,
+    "id_registro": "26005399.0_Bancolombia_mar-26",
+    "mes": "mar-26",
+    "columna_origen": "mar-26 Desembolso",
+    "bp_proyecto": "26005399.0",
+    "responsable": "Mauricio Jimenez",
+    "fecha_procesamiento": "2025-10-20T11:50:33.082333",
+    "periodo": "2026-03-01T00:00:00",
+    "archivo_origen": "Matriz Emprestito.xlsx",
+    "organismo": "Deportes",
+    "descripcion_bp": "Conservacion de la infraestructura deportiva y recreativa del distrito especial de Santiago de Cali"
+  },
+  "timestamp": "2025-11-09T00:49:04.684766"
+}

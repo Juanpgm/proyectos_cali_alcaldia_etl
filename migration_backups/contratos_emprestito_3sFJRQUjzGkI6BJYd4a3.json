@@ -1,0 +1,42 @@
+{
+  "collection_path": "contratos_emprestito",
+  "doc_id": "3sFJRQUjzGkI6BJYd4a3",
+  "data": {
+    "nit_contratista": "",
+    "fecha_fin_contrato": "2026-07-31",
+    "sector": "Servicio Público",
+    "ordenador_gasto": "No definido",
+    "_dataset_source": "jbjy-vk9h",
+    "nombre_procedimiento": "",
+    "valor_pagado": "0",
+    "urlproceso": {
+      "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.8672876&isFromPublicArea=True&isModal=true&asPopupView=true"
+    },
+    "bpin": null,
+    "descripcion_proceso": "REALIZAR LA INTERVENTORÍA TÉCNICA; ADMINISTRATIVA; FINANCIERA; JURÍDICA Y AMBIENTAL AL CONTRATO DE OBRA CUYO OBJETO ES: REALIZAR EL MANTENIMIENTO PREVENTIVO Y CORRECTIVO DE LOS EQUIPAMIENTOS INSTITUCIONALES DEL DISTRITO ESPECIAL DE SANTIAGO DE CALI: CENTROS DE ADMINISTRACIÓN LOCAL INTEGRADA EN LA CO",
+    "valor_contrato": 592999584,
+    "supervisor": "No definido",
+    "entidad_contratante": "SANTIAGO DE CALI DISTRITO ESPECIAL - SECRETARIA DE DESARROLLO TERRITORIAL Y PARTICIPACION CIUDADANA",
+    "banco": "Davivienda",
+    "referencia_contrato": "4173.010.26.1.1301-2025",
+    "nit_entidad": "890399011",
+    "id_contrato": "CO1.PCCNTR.8328079",
+    "fecha_guardado": "2025-10-23T02:21:56.389425+00:00",
+    "modalidad_contratacion": "Concurso de méritos abierto",
+    "fecha_firma_contrato": null,
+    "bp": "BP26005255",
+    "nombre_centro_gestor": "Secretaría de Desarrollo Territorial y Participación Ciudadana",
+    "version_esquema": "1.1",
+    "representante_legal": "PLANEAMOS",
+    "fuente_datos": "SECOP_API",
+    "proceso_contractual": "CO1.BDOS.8604534",
+    "fecha_inicio_contrato": "2025-10-17",
+    "fecha_actualizacion": "2025-10-23T02:21:56.524557+00:00",
+    "nombre_contratista": "",
+    "estado_contrato": "En ejecución",
+    "referencia_proceso": "4173.010.32.1.1279-2025",
+    "objeto_contrato": "REALIZAR LA INTERVENTORÍA TÉCNICA; ADMINISTRATIVA; FINANCIERA; JURÍDICA Y AMBIENTAL AL CONTRATO DE OBRA CUYO OBJETO ES: REALIZAR EL MANTENIMIENTO PREVENTIVO Y CORRECTIVO DE LOS EQUIPAMIENTOS INSTITUCIONALES DEL DISTRITO ESPECIAL DE SANTIAGO DE CALI: CENTROS DE ADMINISTRACIÓN LOCAL INTEGRADA EN LA COMUNA 19; BAJO EL SISTEMA DE PRECIOS UNITARIOS FIJOS SIN FÓRMULA DE REAJUSTE.",
+    "tipo_contrato": "Interventoría"
+  },
+  "timestamp": "2025-11-09T00:47:45.196962"
+}

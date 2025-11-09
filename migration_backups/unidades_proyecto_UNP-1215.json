@@ -1,0 +1,30 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1215",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Carrera 3 Entre Calles 7 Hasta 13",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.940901",
+    "has_valid_geometry": true,
+    "upid": "UNP-1215",
+    "comuna_corregimiento": "COMUNA 03",
+    "nombre_up": "Carrera 3 Entre Calles 7 Hasta 13",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"MultiLineString\", \"coordinates\": [[[-76.53465781494846, 3.4522947299596276, 0.0], [-76.53403026878186, 3.4524460736274714, 0.0], [-76.53319581303629, 3.4528851226503448, 0.0], [-76.53239473023257, 3.4532954671121843, 0.0], [-76.53171389308164, 3.453618171741255, 0.0]], [[-76.5350154938748, 3.4519524385768583, 0.0], [-76.53471764310473, 3.45210901581845, 0.0], [-76.53474933521363, 3.4522726582566188, 0.0], [-76.53465781494846, 3.4522947299596276, 0.0]]]}",
+    "identificador": "Puntos Estrategicos",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "San Pedro",
+    "cantidad": 426,
+    "loaded_at": "2025-11-04T20:23:09.940910",
+    "presupuesto_base": 1083202758.0
+  },
+  "timestamp": "2025-11-09T01:46:00.246717"
+}

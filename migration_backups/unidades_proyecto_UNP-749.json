@@ -1,0 +1,52 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-749",
+  "data": {
+    "created_at": "2025-11-05T11:34:43.982547",
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -76.497281,
+        3.405397
+      ]
+    },
+    "has_geometry": true,
+    "geometry_type": "Point",
+    "properties": {
+      "processed_timestamp": "2025-11-05T11:34:28.210236",
+      "descripcion_intervencion": null,
+      "microtio": null,
+      "bpin": "-2147483648",
+      "centros_gravedad": false,
+      "upid": "UNP-749",
+      "nombre_up_detalle": "Asignar y/o transferir Subsidio Distrital de Vivienda modalidad Mejoramiento de Vivienda a los hogares postulantes.",
+      "tipo_intervencion": "Obra nueva",
+      "url_proceso": null,
+      "referencia_contrato": null,
+      "unidad": null,
+      "identificador": "Subsidios de Mejoramiento de Vivienda",
+      "tipo_equipamiento": "Vivienda mejoramiento",
+      "fecha_fin": null,
+      "estado": "En alistamiento",
+      "fecha_inicio": null,
+      "plataforma": null,
+      "nombre_centro_gestor": "Secretaría de Vivienda Social y Habitat",
+      "avance_obra": "0.0",
+      "geometry_bounds": null,
+      "direccion": "CARRERA 39E # 56 - 22",
+      "ano": null,
+      "geometry_type": null,
+      "dataframe": null,
+      "comuna_corregimiento": "COMUNA 15",
+      "nombre_up": "Subsidios de Mejoramiento de Vivienda",
+      "referencia_proceso": "4244.0.9.10.280-2025",
+      "fuente_financiacion": "Empréstito",
+      "cantidad": null,
+      "barrio_vereda": "EL VALLADO",
+      "presupuesto_base": "13521599"
+    },
+    "updated_at": "2025-11-05T11:34:43.982547"
+  },
+  "timestamp": "2025-11-09T01:56:47.227108"
+}

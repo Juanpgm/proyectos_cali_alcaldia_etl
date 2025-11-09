@@ -1,0 +1,23 @@
+{
+  "collection_path": "proyecciones_emprestito",
+  "doc_id": "Btc2Rj3evpvxicZA2IgN",
+  "data": {
+    "nombre_banco": "Banco de Occidente",
+    "nombre_organismo_reducido": "Deportes",
+    "ultima_actualizacion": "2025-11-08T11:31:07.613578+00:00",
+    "item": "3",
+    "nombre_resumido_proceso": "Lote de la Rueda y limonar",
+    "fuente": "google_sheets",
+    "fecha_carga": "2025-11-08T11:31:04.558590",
+    "valor_proyectado": 0,
+    "nombre_generico_proyecto": "Lote de la Rueda y limonar",
+    "fila_origen": 3,
+    "id_paa": "vigencia 2027",
+    "fecha_guardado": "2025-11-08T11:31:07.613578+00:00",
+    "referencia_proceso": "",
+    "BP": "BP26005933",
+    "urlProceso": "",
+    "descripcion_bp": "Habilitacion de Espacios Deportivos, Recreativos y de activacion fisica en el distrito de Santiago de Cali"
+  },
+  "timestamp": "2025-11-09T00:52:34.324838"
+}

@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1069",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Carrera 8N Entre Calles 51 Y 51B",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.163373",
+    "has_valid_geometry": true,
+    "upid": "UNP-1069",
+    "nombre_up_detalle": "Via Colectora",
+    "nombre_up": "Carrera 8N Entre Calles 51 Y 51B",
+    "comuna_corregimiento": "COMUNA 04",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.50894309498753, 3.4788281637810874, 0.0], [-76.50859700226118, 3.4791674022339856, 0.0]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Olaya Herrera",
+    "cantidad": 12,
+    "loaded_at": "2025-11-04T20:23:09.163376",
+    "presupuesto_base": 4261297.15
+  },
+  "timestamp": "2025-11-09T01:43:37.344416"
+}

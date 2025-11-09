@@ -1,0 +1,31 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "PeLUo4JlkabFmY33MhDv",
+  "data": {
+    "nombre_centro_gestor": "",
+    "observaciones": "- Se realizó la revisión del aprovisionamiento de los equipos requeridos contractualmente para el primer pago, de igual forma se revisó el cumplimiento de especificaciones técnicas.\r\n- Se solicitó el informe técnico de avance y actividades realizadas, se verificó y se dio aprobación mediante la emisión de informe técnico de interventoría.\r\n- Se solicitó el informe técnico de avance y actividades realizadas, se verificó y se dio aprobación mediante la emisión de informe técnico de interventoría.\r\n- Se verificó los tiempos de garantía establecidos en la documentación técnica de los equipos.\r\n- Se revisaron las condiciones establecidas en la documentación contractual con la cual se evaluó el cumplimiento técnico, financiero y económico del contrato. Esta revisión y aprobación quedó plasmada en el informe técnico de aprobación de interventoría",
+    "fecha_reporte": "2025-10-30T22:22:13.408567+00:00",
+    "referencia_contrato": "4134.010.26.1.0544-2025",
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/10IMwFb9ITapODVcgvimbDjYcxfLKHBI1",
+    "archivos_evidencia": [
+      {
+        "type": "application/pdf",
+        "size": 1394049,
+        "download_url": "https://drive.google.com/uc?id=1Q4Yx4hrdY8OgfPwcBWyo72t9RtY4BduC",
+        "url": "https://drive.google.com/file/d/1Q4Yx4hrdY8OgfPwcBWyo72t9RtY4BduC/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1Q4Yx4hrdY8OgfPwcBWyo72t9RtY4BduC",
+        "name": "Informe de Supervisión Cuota 1 DATIC. Modernización.pdf"
+      }
+    ],
+    "avance_fisico": 38.0,
+    "alertas": {
+      "descripcion": "",
+      "es_alerta": false,
+      "tipos": []
+    },
+    "avance_financiero": 38.0,
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:41:11.881444"
+}

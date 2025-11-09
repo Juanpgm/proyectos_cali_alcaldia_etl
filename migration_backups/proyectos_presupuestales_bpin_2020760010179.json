@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010179",
+  "data": {
+    "nombre_centro_gestor": "Departamento Administrativo de Planeación Municipal",
+    "cod_producto": 4599006,
+    "nombre_area_funcional": "Estudios para la planificación de la gestión integral de residuos sólidos, la prestación del servicio público de aseo y sus actividades complementarias elaborados",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Gestión Integral de Residuos Sólidos ",
+    "nombre_dimension": "Cali, Nuestra Casa Común",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010179,
+    "created_at": "2025-10-10T09:26:56.092793+00:00",
+    "nombre_actividad": "Efectuar el seguimiento y evaluación a la implementación del PGIRS.",
+    "updated_at": "2025-10-10T09:26:56.092793+00:00",
+    "programa_presupuestal": "BP260034051010104",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "Fortalecimiento de la Planificación de la Gestión Integral de Residuos Sólidos de Santiago de  Cali",
+    "clasificacion_fondo": "Libre destinación (Recursos Propios)",
+    "cod_sector": 45,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Mitigación del Cambio Climático",
+    "validador_cuipo": null,
+    "bp": "BP26003405"
+  },
+  "timestamp": "2025-11-09T01:05:52.511988"
+}

@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010457",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Salud Pública",
+    "cod_producto": 1906029,
+    "nombre_area_funcional": "Territorios que concentran el mayor riesgo epidemiológico, sanitario, social y ambiental intervenidos integralmente",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Salud Ambiental Territorial",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010457,
+    "created_at": "2025-10-10T09:27:52.278493+00:00",
+    "nombre_actividad": "Realizar acciones de información, educación y comunicación en la promoción de entornos para la vida y estilos de vida saludables",
+    "updated_at": "2025-10-10T09:27:52.278493+00:00",
+    "programa_presupuestal": "BP260033261010104",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Implementación De Encuentros Comunitarios en la Promoción de Entornos para la Vida y Estilos de Vida Saludables en la Comuna 21 de Santiago de Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 19,
+    "comuna": "COMUNA 21",
+    "origen": "Territorio",
+    "nombre_linea_estrategica": "Territorios para la Vida",
+    "validador_cuipo": null,
+    "bp": "BP26003326"
+  },
+  "timestamp": "2025-11-09T01:07:08.143963"
+}

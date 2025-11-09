@@ -1,0 +1,31 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "49rfG49fPhquVjQqvx7J",
+  "data": {
+    "observaciones": "Se dio inicio a la ejecución del contrato con el kick off del proyecto con las partes interesadas en las cuales se les ha presentado el cronograma y las pautas iniciales para su desarrollo, dentro de la planeación de este proyecto esta contemplado alcanzar un 25% de avance físico y financiero al finalizar noviembre con 4 de 12 tramites Automatizados.",
+    "nombre_centro_gestor": "",
+    "fecha_reporte": "2025-10-13T20:25:02.746438+00:00",
+    "referencia_contrato": "4134.010.26.1.0251-2025",
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/13CEE1mWziuonpEG0hnzzmBjY-skm-jBH",
+    "archivos_evidencia": [
+      {
+        "type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "size": 20671,
+        "download_url": "https://drive.google.com/uc?id=1OcIWEoxr_oKlbBCRrFAjXafvKq2CDFEw",
+        "url": "https://docs.google.com/document/d/1OcIWEoxr_oKlbBCRrFAjXafvKq2CDFEw/edit?usp=drivesdk&ouid=107631050282737776825&rtpof=true&sd=true",
+        "drive_id": "1OcIWEoxr_oKlbBCRrFAjXafvKq2CDFEw",
+        "status": "uploaded_successfully",
+        "name": "% avances de procesos de contratacion emprestito DATIC.docx"
+      }
+    ],
+    "avance_fisico": 10.0,
+    "avance_financiero": 0.0,
+    "alertas": {
+      "es_alerta": false,
+      "descripcion": "",
+      "tipos": []
+    },
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:40:29.692310"
+}

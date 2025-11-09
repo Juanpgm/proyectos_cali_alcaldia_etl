@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010792",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Educación",
+    "cod_producto": 2201071,
+    "nombre_area_funcional": "Población en edad escolar matriculada en el sistema educativo oficial de Santiago de Cali",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "La Escuela me acoge ",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010792,
+    "created_at": "2025-10-10T09:27:34.796637+00:00",
+    "nombre_actividad": "Arrendar planta física para estudiantes de sedes de Instituciones Educativas Oficiales",
+    "updated_at": "2025-10-10T09:27:34.796637+00:00",
+    "programa_presupuestal": "BP260030951010103",
+    "nombre_pospre": "Servicios financieros y servicios conexos, servicios inmobiliarios y servicios de leasing",
+    "anio": 2024,
+    "nombre_proyecto": "Mejoramiento de las condiciones de la planta física y de servicios públicos de las IEO de Santiago de Cali",
+    "clasificacion_fondo": "Libre destinación (Recursos Propios)",
+    "cod_sector": 22,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Distrito Educador",
+    "validador_cuipo": null,
+    "bp": "BP26003095"
+  },
+  "timestamp": "2025-11-09T01:09:01.421366"
+}

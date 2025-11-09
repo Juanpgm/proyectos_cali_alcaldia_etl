@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010537",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Desarrollo Económico",
+    "cod_producto": null,
+    "nombre_area_funcional": "Personas del ecosistema empresarial fortalecidas",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Desarrollo productivo",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010537,
+    "created_at": "2025-10-10T09:26:05.559475+00:00",
+    "nombre_actividad": "Realizar proceso de convocatoria, inscripción, selección y caracterización\nde beneficiarios de la Comuna 11",
+    "updated_at": "2025-10-10T09:26:05.559475+00:00",
+    "programa_presupuestal": 6102002,
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2025,
+    "nombre_proyecto": "Fortalecimiento empresarial a las microempresas y micronegocios de la comuna 11 de Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "COMUNA 11",
+    "origen": "Territorio",
+    "nombre_linea_estrategica": null,
+    "validador_cuipo": null,
+    "bp": "BP26005529"
+  },
+  "timestamp": "2025-11-09T01:39:37.993403"
+}

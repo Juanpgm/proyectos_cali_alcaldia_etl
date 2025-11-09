@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_202500000022566",
+  "data": {
+    "nombre_centro_gestor": "Unidad Administrativa Especial de Servicios Públicos",
+    "cod_producto": null,
+    "nombre_area_funcional": "Redes de alcantarillado optimizadas",
+    "nombre_fondo": "CUR 627/19 SSF - Recursos Emcali Conpes 3858/16",
+    "nombre_programa": "Vivienda sostenible, saneamiento básico y servicios públicos",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 202500000022566,
+    "created_at": "2025-10-10T09:30:44.712660+00:00",
+    "nombre_actividad": "Realizar la obra civil, corte, demolición de calzada, retiro de material, carpeta asfaltica, protección de excavaciones, sardinel trapezoidal, cámaras de inspección e instalación de tuberías y accesorios de alcantarillado en el barrio San Carlos",
+    "updated_at": "2025-10-10T09:30:44.712660+00:00",
+    "programa_presupuestal": 6201002,
+    "nombre_pospre": "Alcantarillas y plantas de tratamiento de agua",
+    "anio": 2025,
+    "nombre_proyecto": "Optimización de las redes de alcantarillado del barrio San Carlos de Santiago de Cali",
+    "clasificacion_fondo": "Otros Recursos con Destinación Especifica",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": null,
+    "validador_cuipo": null,
+    "bp": "BP26005907"
+  },
+  "timestamp": "2025-11-09T01:40:17.303790"
+}

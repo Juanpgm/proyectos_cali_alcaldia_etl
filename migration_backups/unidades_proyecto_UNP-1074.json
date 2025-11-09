@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1074",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Carrera 83C Entre Calles 25 Y26",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.164993",
+    "has_valid_geometry": true,
+    "upid": "UNP-1074",
+    "nombre_up_detalle": "Via Colectora",
+    "nombre_up": "Carrera 83C Entre Calles 25 Y26",
+    "comuna_corregimiento": "COMUNA 17",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.52431429241322, 3.383825942893056, 0.0], [-76.5236081744177, 3.38379081607242, 0.0], [-76.52359345581118, 3.3837900838692763, 0.0]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Ciudadela Comfandi",
+    "cantidad": 156,
+    "loaded_at": "2025-11-04T20:23:09.164997",
+    "presupuesto_base": 67079919.33
+  },
+  "timestamp": "2025-11-09T01:43:42.592293"
+}

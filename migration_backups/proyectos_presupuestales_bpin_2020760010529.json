@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010529",
+  "data": {
+    "nombre_centro_gestor": "Departamento Administrativo de Desarrollo e Innovación Institucional",
+    "cod_producto": 4599030,
+    "nombre_area_funcional": "Servidores públicos, capacitados según plan de formación",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Fortalecimiento Institucional",
+    "nombre_dimension": "Cali, Gobierno Incluyente",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010529,
+    "created_at": "2025-10-10T09:27:25.913791+00:00",
+    "nombre_actividad": "Realizar capacitaciones que se realicen a nivel individual y grupal por solicitud puntuales de las dependencias",
+    "updated_at": "2025-10-10T09:27:25.913791+00:00",
+    "programa_presupuestal": "BP260027061010119",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Desarrollo de las capacidades y competencias de los servidores públicos de la Alcaldía de Santiago de Cali",
+    "clasificacion_fondo": "Libre destinación (Recursos Propios)",
+    "cod_sector": 45,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Gobierno Inteligente",
+    "validador_cuipo": null,
+    "bp": "BP26002706"
+  },
+  "timestamp": "2025-11-09T01:07:28.320248"
+}

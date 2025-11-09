@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1106",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Calle 13 Entre Carreras 50 Y 100",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.177440",
+    "has_valid_geometry": true,
+    "upid": "UNP-1106",
+    "nombre_up_detalle": "Via Arteria Principal",
+    "nombre_up": "Calle 13 Entre Carreras 50 Y 100",
+    "comuna_corregimiento": "COMUNA 17",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"GeometryCollection\", \"geometries\": [{\"type\": \"MultiLineString\", \"coordinates\": [[[-76.53652176259294, 3.4024256375965094, 0.0], [-76.53666569836763, 3.4019837757004994, 0.0]], [[-76.53666569836763, 3.4019837757004994, 0.0], [-76.53671743768831, 3.401824943510356, 0.0]]]}, {\"type\": \"LineString\", \"coordinates\": [[-76.53727709343869, 3.37462049056054, 0.0], [-76.53725069806582, 3.3739452198043103, 0.0], [-76.53725098410753, 3.3739555890853405, 0.0]]}, {\"type\": \"LineString\", \"coordinates\": [[-76.53719352904432, 3.372253357396812, 0.0], [-76.53714857496765, 3.3716475427574775, 0.0]]}]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Santa Anita - La Selva",
+    "cantidad": 309,
+    "loaded_at": "2025-11-04T20:23:09.177444",
+    "presupuesto_base": 438771563.4
+  },
+  "timestamp": "2025-11-09T01:44:14.190065"
+}

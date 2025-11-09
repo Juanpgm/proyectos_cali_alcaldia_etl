@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010656",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Cultura",
+    "cod_producto": 3301064,
+    "nombre_area_funcional": "Instituciones y organizaciones con promoción de lectura, escritura y oralidad",
+    "nombre_fondo": "Estampilla procultura ",
+    "nombre_programa": "Construyendo un Distrito Lector ",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010656,
+    "created_at": "2025-10-10T09:28:50.433535+00:00",
+    "nombre_actividad": "Diseñar una propuesta de promoción de lectura, escritura y oralidad con  organizaciones",
+    "updated_at": "2025-10-10T09:28:50.433535+00:00",
+    "programa_presupuestal": "BP260028151010140",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "Fortalecimiento  institucional, organizativo y ciudadano para la promoción de lectura, escritura y oralidad en Santiago de Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 33,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Distrito Educador",
+    "validador_cuipo": null,
+    "bp": "BP26002815"
+  },
+  "timestamp": "2025-11-09T01:08:13.983148"
+}

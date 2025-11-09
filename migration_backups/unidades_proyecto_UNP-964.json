@@ -1,0 +1,49 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-964",
+  "data": {
+    "created_at": "2025-11-05T11:34:47.041647",
+    "type": "Feature",
+    "geometry": null,
+    "has_geometry": false,
+    "geometry_type": null,
+    "properties": {
+      "processed_timestamp": "2025-11-05T11:34:28.210236",
+      "descripcion_intervencion": "Adecuaciones de la cancha múltiple; instalación de paneles solares en cubiertas: reforzamiento a las cerchas donde se instalan los paneles; placa de soporte del tanque de reserva agua, suministro de tanque de reserva de agua y enlucimiento general",
+      "microtio": null,
+      "bpin": "-2147483648",
+      "centros_gravedad": false,
+      "upid": "UNP-964",
+      "nombre_up_detalle": "Juan Pablo I",
+      "tipo_intervencion": "Adecuaciones y mantenimientos",
+      "url_proceso": null,
+      "referencia_contrato": "4143.010.26.1.1743.2025\n 4143.010.26.1.1741.2025",
+      "unidad": "UND",
+      "identificador": "Grupo 22 sedes (Empréstito)",
+      "tipo_equipamiento": "Institución Educativa",
+      "fecha_fin": "27/2/2026",
+      "estado": "En alistamiento",
+      "fecha_inicio": "04-11-2025",
+      "plataforma": null,
+      "nombre_centro_gestor": "Secretaría de Educación",
+      "avance_obra": "0.0",
+      "geometry_bounds": null,
+      "direccion": null,
+      "ano": "2025",
+      "geometry_type": null,
+      "dataframe": null,
+      "comuna_corregimiento": "Los Andes",
+      "nombre_up": "I.E. Los Andes",
+      "referencia_proceso": [
+        "4143.010.32.0876-2025",
+        "4143.010.32.1544-2025"
+      ],
+      "fuente_financiacion": "Empréstito",
+      "cantidad": "1",
+      "barrio_vereda": "Vereda Los Carpatos",
+      "presupuesto_base": "549999994"
+    },
+    "updated_at": "2025-11-05T11:34:47.041647"
+  },
+  "timestamp": "2025-11-09T02:00:18.777770"
+}

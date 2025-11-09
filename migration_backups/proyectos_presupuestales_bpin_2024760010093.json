@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010093",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Movilidad",
+    "cod_producto": null,
+    "nombre_area_funcional": "Mejoramiento de la Red semaforizada del Distrito de Santiago de Cali realizado",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Movilidad segura y sostenible",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010093,
+    "created_at": "2025-10-10T09:25:00.217590+00:00",
+    "nombre_actividad": "Realizar la aquisición, instalación y puesta a punto de los equipos tecnológicos para operación de la red semaforizada",
+    "updated_at": "2025-10-10T09:25:00.217590+00:00",
+    "programa_presupuestal": 6201003,
+    "nombre_pospre": "Autopistas, carreteras, calles",
+    "anio": 2025,
+    "nombre_proyecto": "Mejoramiento de la  red semaforizada del Distrito de Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": null,
+    "validador_cuipo": null,
+    "bp": "BP26005476"
+  },
+  "timestamp": "2025-11-09T01:33:21.987950"
+}

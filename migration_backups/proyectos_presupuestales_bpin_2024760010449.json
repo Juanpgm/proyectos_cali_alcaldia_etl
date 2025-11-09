@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010449",
+  "data": {
+    "nombre_centro_gestor": "Secretaría del Deporte y la Recreación",
+    "cod_producto": null,
+    "nombre_area_funcional": "Escenarios deportivos y recreativos de Santiago de Cali adecuados, intervenidos y construidos",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Ordenamiento Territorial e Integración Regional",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010449,
+    "created_at": "2025-10-10T09:25:40.103077+00:00",
+    "nombre_actividad": "Realizar adecuaciones a la infraestructura deportiva de los escenarios deportivos y recreativos de la comuna 14 del Distrito Especial de Santiago de Cali",
+    "updated_at": "2025-10-10T09:25:40.103077+00:00",
+    "programa_presupuestal": 6201001,
+    "nombre_pospre": "Servicios de la construcción",
+    "anio": 2025,
+    "nombre_proyecto": "Conservación de la infraestructura deportiva y recreativa de la comuna 14 del distrito especial de Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "COMUNA 14",
+    "origen": "Territorio",
+    "nombre_linea_estrategica": null,
+    "validador_cuipo": null,
+    "bp": "BP26005611"
+  },
+  "timestamp": "2025-11-09T01:38:21.844419"
+}

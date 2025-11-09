@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1150",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Avenida 1 Norte Entre Calle 5 Norte Y 4 Norte",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.914493",
+    "has_valid_geometry": true,
+    "upid": "UNP-1150",
+    "nombre_up_detalle": "Via Arteria Principal",
+    "nombre_up": "Avenida 1 Norte Entre Calle 5 Norte Y 4 Norte",
+    "comuna_corregimiento": "COMUNA 02",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.53787293175786, 3.451415448549002, 0.0], [-76.53797131486357, 3.4513606662747716, 0.0]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Centenario",
+    "cantidad": 12,
+    "loaded_at": "2025-11-04T20:23:09.914498",
+    "presupuesto_base": 9047918.6
+  },
+  "timestamp": "2025-11-09T01:44:57.123888"
+}

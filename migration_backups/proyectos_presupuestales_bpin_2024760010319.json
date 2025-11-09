@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010319",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Seguridad y Justicia",
+    "cod_producto": null,
+    "nombre_area_funcional": "Infraestructura de seguridad y justicia mejorada",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Vigilancia y prevención del delito",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010319,
+    "created_at": "2025-10-10T09:25:05.905595+00:00",
+    "nombre_actividad": "Adecuación de la Infraestructura física de la Estación de Policía La María de la Comuna 22 de Cali.",
+    "updated_at": "2025-10-10T09:25:05.905595+00:00",
+    "programa_presupuestal": 6101004,
+    "nombre_pospre": "Servicios de la construcción",
+    "anio": 2025,
+    "nombre_proyecto": "Mejoramiento de la infraestructura física de las agencias de Seguridad de la Comuna 22 en Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "COMUNA 22",
+    "origen": "Territorio",
+    "nombre_linea_estrategica": null,
+    "validador_cuipo": null,
+    "bp": "BP26005549"
+  },
+  "timestamp": "2025-11-09T01:36:31.991940"
+}

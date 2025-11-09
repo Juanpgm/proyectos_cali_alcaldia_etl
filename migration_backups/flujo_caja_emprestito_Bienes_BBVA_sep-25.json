@@ -1,0 +1,16 @@
+{
+  "collection_path": "flujo_caja_emprestito",
+  "doc_id": "Bienes_BBVA_sep-25",
+  "data": {
+    "desembolso": 0.0,
+    "banco": "BBVA",
+    "id_registro": "Bienes_BBVA_sep-25",
+    "mes": "sep-25",
+    "fecha_procesamiento": "2025-10-20T11:37:44.596179",
+    "desembolso_real": 0.0,
+    "periodo": "2025-09-01T00:00:00",
+    "archivo_origen": "Matriz Emprestito.xlsx",
+    "organismo": "Bienes"
+  },
+  "timestamp": "2025-11-09T00:49:44.339870"
+}

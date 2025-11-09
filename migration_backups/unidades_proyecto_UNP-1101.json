@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1101",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Carrera 24C Entre Calles 2 Y 3 Oeste",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.175602",
+    "has_valid_geometry": true,
+    "upid": "UNP-1101",
+    "nombre_up_detalle": "Via Local",
+    "nombre_up": "Carrera 24C Entre Calles 2 Y 3 Oeste",
+    "comuna_corregimiento": "COMUNA 19",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.54214074173296, 3.438234998973675, 0.0], [-76.54225000918736, 3.4382316769693815, 0.0]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Miraflores",
+    "cantidad": 12,
+    "loaded_at": "2025-11-04T20:23:09.175605",
+    "presupuesto_base": 12566553.61
+  },
+  "timestamp": "2025-11-09T01:44:09.824634"
+}

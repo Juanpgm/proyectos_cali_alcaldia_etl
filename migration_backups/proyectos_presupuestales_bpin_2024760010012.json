@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010012",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Turismo",
+    "cod_producto": null,
+    "nombre_area_funcional": "Estrategias para la gestión y desarrollo del turismo sostenible implementadas",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Planificación para el desarrollo",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010012,
+    "created_at": "2025-10-10T09:30:51.844424+00:00",
+    "nombre_actividad": "Realizar el diseño de la estrategia de planificación turística de los territorios con vocación turística de Cali",
+    "updated_at": "2025-10-10T09:30:51.844424+00:00",
+    "programa_presupuestal": "BP260052301010101",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Fortalecimiento de la competitividad del destino turístico de Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": null,
+    "validador_cuipo": null,
+    "bp": "BP26005230"
+  },
+  "timestamp": "2025-11-09T01:32:10.059307"
+}

@@ -1,0 +1,42 @@
+{
+  "collection_path": "contratos_emprestito",
+  "doc_id": "JlB6aXCA4ye3PgG9F4bE",
+  "data": {
+    "nit_contratista": "",
+    "fecha_fin_contrato": "2025-12-31",
+    "ordenador_gasto": "LUZ ADRIANA VaSQUEZ TRUJILLO",
+    "sector": "No aplica/No pertenece",
+    "bpin": 2024760010333,
+    "nombre_procedimiento": "",
+    "valor_pagado": "0",
+    "urlproceso": {
+      "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.8495489&isFromPublicArea=True&isModal=true&asPopupView=true"
+    },
+    "descripcion_proceso": "LOTE 3: REALIZAR  OBRAS  DE  MANTENIMIENTO  Y  MEJORAMIENTO  DE  VÍAS  EN  LA COMUNA 5;7;10;18;19;20 Y 21 DE LA  ZONA URBANA Y CORREGIMIENTO DE LA BUITRERA EN LA ZONA RURAL DE SANTIAGO DE CALI; EN DESARROLLO DEL PROYECTO DE INVERSIÓN BP-26005375 - RECUPERACIÓN DE LA INFRAESTRUCTURA VIAL DE SANTIAGO",
+    "valor_contrato": 9340789495,
+    "_dataset_source": "jbjy-vk9h",
+    "supervisor": "No definido",
+    "entidad_contratante": "SANTIAGO DE CALI DISTRITO ESPECIAL - SECRETARIA DE INFRAESTRUCTURA",
+    "banco": "Bancolombia",
+    "referencia_contrato": "4151.010.26.1.0927-2025",
+    "nit_entidad": "890399011",
+    "id_contrato": "CO1.PCCNTR.8257185",
+    "fecha_guardado": "2025-10-23T02:21:46.583888+00:00",
+    "modalidad_contratacion": "Licitación pública Obra Publica",
+    "fecha_firma_contrato": null,
+    "bp": "BP26005375",
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "version_esquema": "1.1",
+    "representante_legal": "FERNANDO JOSÉ CASTRO SPADAFFORA",
+    "fuente_datos": "SECOP_API",
+    "proceso_contractual": "CO1.BDOS.8335234",
+    "fecha_inicio_contrato": "2025-09-22",
+    "fecha_actualizacion": "2025-10-23T02:21:46.715065+00:00",
+    "nombre_contratista": "",
+    "estado_contrato": "En ejecución",
+    "referencia_proceso": "4151.010.32.1.0575-2025",
+    "objeto_contrato": "LOTE 3: REALIZAR  OBRAS  DE  MANTENIMIENTO  Y  MEJORAMIENTO  DE  VÍAS  EN  LA COMUNA 5;7;10;18;19;20 Y 21 DE LA  ZONA URBANA Y CORREGIMIENTO DE LA BUITRERA EN LA ZONA RURAL DE SANTIAGO DE CALI; EN DESARROLLO DEL PROYECTO DE INVERSIÓN BP-26005375 - RECUPERACIÓN DE LA INFRAESTRUCTURA VIAL DE SANTIAGO DE CALI.",
+    "tipo_contrato": "Obra"
+  },
+  "timestamp": "2025-11-09T00:47:52.278361"
+}

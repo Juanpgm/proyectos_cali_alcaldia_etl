@@ -1,0 +1,23 @@
+{
+  "collection_path": "proyecciones_emprestito",
+  "doc_id": "xyTC9xYi4hStvrW98MoQ",
+  "data": {
+    "nombre_banco": "DAVIVIENDA",
+    "nombre_organismo_reducido": "DATIC",
+    "ultima_actualizacion": "2025-11-08T11:31:07.647013+00:00",
+    "item": "94",
+    "nombre_resumido_proceso": "Contrato 19: Interventoria Ciudad Inteligente",
+    "fuente": "google_sheets",
+    "fecha_carga": "2025-11-08T11:31:04.574180",
+    "valor_proyectado": 0,
+    "nombre_generico_proyecto": "Soluciones Tecnológicas",
+    "fila_origen": 94,
+    "id_paa": "19573",
+    "fecha_guardado": "2025-11-08T11:31:07.647013+00:00",
+    "referencia_proceso": "",
+    "BP": "BP26005255",
+    "urlProceso": "Publicado 30 oct",
+    "descripcion_bp": "Implementación soluciones tecnológicas para el aprovechamiento estratégico de datos en el distrito de Santiago de Cali"
+  },
+  "timestamp": "2025-11-09T00:53:49.793720"
+}

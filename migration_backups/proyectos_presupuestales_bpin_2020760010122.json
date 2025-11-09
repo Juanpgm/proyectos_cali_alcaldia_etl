@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010122",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Gobierno",
+    "cod_producto": 4501001,
+    "nombre_area_funcional": "Iniciativas institucionales y comunitarias en cultura ciudadana y promoción de nuevas normalidades apoyadas",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Cultura Ciudadana ",
+    "nombre_dimension": "Cali, Gobierno Incluyente",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010122,
+    "created_at": "2025-10-10T09:26:46.925868+00:00",
+    "nombre_actividad": "Implementar estrategia intertesectorial e interinstitucional para transversalizar el enfoque de cultura ciudadana como un abordaje central del gobierno abierto.",
+    "updated_at": "2025-10-10T09:26:46.925868+00:00",
+    "programa_presupuestal": "BP260032471010104",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "Desarrollo de una estrategia de articulación institucional para implementar iniciativas que dinamicen la cultura ciudadana para asumir la nueva normalidad en  Cali",
+    "clasificacion_fondo": "Libre destinación (Recursos Propios)",
+    "cod_sector": 45,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Ciudadanía Activa y Gobernanza",
+    "validador_cuipo": null,
+    "bp": "BP26003247"
+  },
+  "timestamp": "2025-11-09T00:54:26.261096"
+}

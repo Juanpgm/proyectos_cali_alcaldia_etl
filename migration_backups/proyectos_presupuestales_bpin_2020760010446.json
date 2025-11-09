@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010446",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Salud Pública",
+    "cod_producto": 1905031,
+    "nombre_area_funcional": "Territorios que concentran el mayor riesgo epidemiológico, sanitario, social y ambiental intervenidos integralmente",
+    "nombre_fondo": "SGP-Salud-Salud pública 11/12",
+    "nombre_programa": "Salud Ambiental Territorial",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010446,
+    "created_at": "2025-10-10T09:27:59.762196+00:00",
+    "nombre_actividad": "Realizar articulación intrainstitucional,  intersectorial y comunitaria en la gestión conjunta de los entornos de vida cotidiana en el marco del Comité Municipal \"Entornos para la Vida\"",
+    "updated_at": "2025-10-10T09:27:59.762196+00:00",
+    "programa_presupuestal": "BP260029411010106",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Fortalecimiento De la Gestión en la Promoción de Entornos para la vida en Santiago de  Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 19,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Territorios para la Vida",
+    "validador_cuipo": null,
+    "bp": "BP26002941"
+  },
+  "timestamp": "2025-11-09T01:07:04.648330"
+}

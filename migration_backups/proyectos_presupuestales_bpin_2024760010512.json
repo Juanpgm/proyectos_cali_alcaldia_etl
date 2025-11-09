@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010512",
+  "data": {
+    "nombre_centro_gestor": "Unidad Administrativa Especial de Servicios Públicos",
+    "cod_producto": null,
+    "nombre_area_funcional": "Aumento en el aprovechamiento de residuos sólidos orgánicos mediante tecnologias de compostaje.",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Protección ambiental y mitigación del cambio climático",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010512,
+    "created_at": "2025-10-10T09:26:34.796578+00:00",
+    "nombre_actividad": "Implementar planta de compostaje para el aprovechamiento de residuos sólidos orgánicos",
+    "updated_at": "2025-10-10T09:26:34.796578+00:00",
+    "programa_presupuestal": 6202001,
+    "nombre_pospre": "Servicios de la construcción",
+    "anio": 2025,
+    "nombre_proyecto": "Implementación de tecnologías de aprovechamiento de residuos sólidos orgánicos en el Corregimiento La Buitrera de Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "LA BUITRERA",
+    "origen": "Territorio",
+    "nombre_linea_estrategica": null,
+    "validador_cuipo": null,
+    "bp": "BP26005578"
+  },
+  "timestamp": "2025-11-09T01:39:15.440539"
+}

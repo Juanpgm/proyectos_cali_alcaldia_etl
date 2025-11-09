@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010207",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Gestión del Riesgo de Emergencias y Desastres",
+    "cod_producto": null,
+    "nombre_area_funcional": "Instrumentos de Planificación para la Gestión del Riesgo realizados y actualizados",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Ordenamiento Territorial e Integración Regional",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010207,
+    "created_at": "2025-10-10T09:25:46.154946+00:00",
+    "nombre_actividad": "Actualizar los componentes de preparación para la respuesta y  la recuperación a emergencias",
+    "updated_at": "2025-10-10T09:25:46.154946+00:00",
+    "programa_presupuestal": 6201001,
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2025,
+    "nombre_proyecto": "Actualización de los instrumentos de respuesta y manejo de desastres en Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": null,
+    "validador_cuipo": null,
+    "bp": "BP26005456"
+  },
+  "timestamp": "2025-11-09T01:35:03.280581"
+}

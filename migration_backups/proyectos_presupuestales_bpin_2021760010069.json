@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2021760010069",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Bienestar Social",
+    "cod_producto": 4102042,
+    "nombre_area_funcional": "Organizaciones juveniles con procesos sociales y comunitarios apoyadas técnicamente",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Cali Distrito Joven: Conectados con la Ciudadanía Juvenil",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2021760010069,
+    "created_at": "2025-10-10T09:28:02.960013+00:00",
+    "nombre_actividad": "Realizar procesos técnicos que conlleven  a la identificación y caracterización de jóvenes de comunas y corregimientos.",
+    "updated_at": "2025-10-10T09:28:02.960013+00:00",
+    "programa_presupuestal": "BP260026481010101",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "Apoyo al desarollo de iniciativas sociales innovadoras de jóvenes en organizaciones juveniles de Santiago de Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 41,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Poblaciones Construyendo Territorio",
+    "validador_cuipo": null,
+    "bp": "BP26002648"
+  },
+  "timestamp": "2025-11-09T01:26:50.638814"
+}

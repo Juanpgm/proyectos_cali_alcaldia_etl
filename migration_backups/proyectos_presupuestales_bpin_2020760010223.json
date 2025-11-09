@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010223",
+  "data": {
+    "nombre_centro_gestor": "Departamento Administrativo de Hacienda",
+    "cod_producto": 1209009,
+    "nombre_area_funcional": "Predios actualizados por Conservación Catastral",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Gestión Financiera Eficiente",
+    "nombre_dimension": "Cali, Gobierno Incluyente",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010223,
+    "created_at": "2025-10-10T09:26:51.927091+00:00",
+    "nombre_actividad": "Realizar la actualización de la información  Catastral correspondientes a los cambios  de propietario o poseedor y rectificación de la información catastral en la base de datos catastral.",
+    "updated_at": "2025-10-10T09:26:51.927091+00:00",
+    "programa_presupuestal": "BP260034261010114",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "Fortalecimiento de la Información Catastral del Distrito de Santiago de  Cali",
+    "clasificacion_fondo": "Libre destinación (Recursos Propios)",
+    "cod_sector": 12,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Gobierno Inteligente",
+    "validador_cuipo": null,
+    "bp": "BP26003426"
+  },
+  "timestamp": "2025-11-09T01:06:19.072739"
+}

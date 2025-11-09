@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010004",
+  "data": {
+    "nombre_centro_gestor": "Unidad Administrativa Especial de Servicios Públicos",
+    "cod_producto": null,
+    "nombre_area_funcional": "Alumbrado público modernizado y eficiente",
+    "nombre_fondo": "R.B. Impuesto de Alumbrado Público EMCALI y Otros Comercializadores",
+    "nombre_programa": "Espacios públicos seguros",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010004,
+    "created_at": "2025-10-10T09:30:53.338794+00:00",
+    "nombre_actividad": "Modernizar y expandir el sistema de alumbrado público con luminarias LED",
+    "updated_at": "2025-10-10T09:30:53.338794+00:00",
+    "programa_presupuestal": "BP260052041010101",
+    "nombre_pospre": "Lámparas eléctricas de incandescencia o descarga; lámparas de arco, equipo para alumbrado eléctrico; sus partes y piezas",
+    "anio": 2024,
+    "nombre_proyecto": "Mejoramiento Integral del Servicio de Alumbrado Público en Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios con Destinacion Especifica",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": null,
+    "validador_cuipo": null,
+    "bp": "BP26005204"
+  },
+  "timestamp": "2025-11-09T01:32:02.990041"
+}

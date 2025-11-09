@@ -1,0 +1,30 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1207",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Av Roosevelt Entre Cra 52 Hasta Cll 5",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.937664",
+    "has_valid_geometry": true,
+    "upid": "UNP-1207",
+    "comuna_corregimiento": "COMUNA 19",
+    "nombre_up": "Av Roosevelt Entre Cra 52 Hasta Cll 5",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.54759516408552, 3.4118880639830427, 0.0], [-76.54694528339809, 3.4127502188475773, 0.0], [-76.54669828010151, 3.4130899332538434, 0.0], [-76.54570501354719, 3.4143572540606337, 0.0]]}",
+    "identificador": "Puntos Estrategicos",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Unidad Residencial Santiago de Cali",
+    "cantidad": 344,
+    "loaded_at": "2025-11-04T20:23:09.937670",
+    "presupuesto_base": 547213829.0
+  },
+  "timestamp": "2025-11-09T01:45:52.316179"
+}

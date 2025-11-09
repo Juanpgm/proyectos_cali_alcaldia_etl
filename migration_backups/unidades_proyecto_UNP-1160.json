@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1160",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Calle 6 Oeste Entre Carrera 2 Oeste Y 1C Oeste",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.917986",
+    "has_valid_geometry": true,
+    "upid": "UNP-1160",
+    "nombre_up_detalle": "Via Local",
+    "nombre_up": "Calle 6 Oeste Entre Carrera 2 Oeste Y 1C Oeste",
+    "comuna_corregimiento": "COMUNA 02",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.5468518275276, 3.4510920563832177, 0.0], [-76.54681728216198, 3.451105940325996, 0.0], [-76.54679862831716, 3.451137569413617, 0.0]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Santa Teresita",
+    "cantidad": 8,
+    "loaded_at": "2025-11-04T20:23:09.917989",
+    "presupuesto_base": 2840864.77
+  },
+  "timestamp": "2025-11-09T01:45:06.733159"
+}

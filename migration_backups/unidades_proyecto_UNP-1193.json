@@ -1,0 +1,30 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1193",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Carrera 25 Entre Calle 7 Hasta Calle 8",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.931744",
+    "has_valid_geometry": true,
+    "upid": "UNP-1193",
+    "comuna_corregimiento": "COMUNA 19",
+    "nombre_up": "Carrera 25 Entre Calle 7 Hasta Calle 8",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.53732506190204, 3.4351443306463803, 0.0], [-76.53666311770866, 3.4349904557449804, 0.0], [-76.53605376406989, 3.434815852369751, 0.0]]}",
+    "identificador": "Puntos Estrategicos",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "El Cedro",
+    "cantidad": 145,
+    "loaded_at": "2025-11-04T20:23:09.931748",
+    "presupuesto_base": 204854407.0
+  },
+  "timestamp": "2025-11-09T01:45:38.363607"
+}

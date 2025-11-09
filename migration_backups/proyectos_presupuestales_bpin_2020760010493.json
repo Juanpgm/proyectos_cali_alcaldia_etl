@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010493",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Seguridad y Justicia",
+    "cod_producto": 4501052,
+    "nombre_area_funcional": "Zonas turísticas afectadas por el delito de hurto intervenidas en seguridad y convivencia",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Seguridad y Lucha Contra el Delito ",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010493,
+    "created_at": "2025-10-10T09:29:18.128851+00:00",
+    "nombre_actividad": "Adquirir equipos tecnológicos para realizar intervenciones en las zonas turisticas priorizadas.",
+    "updated_at": "2025-10-10T09:29:18.128851+00:00",
+    "programa_presupuestal": "BP260031641010110",
+    "nombre_pospre": "Aparatos transmisores de televisión y radio; televisión, video y cámaras digitales; teléfonos",
+    "anio": 2024,
+    "nombre_proyecto": "Implementación de estrategia de prevención del delito en zonas turísticas priorizadas en Santiago de  Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 45,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Distrito Reconciliado",
+    "validador_cuipo": null,
+    "bp": "BP26003164"
+  },
+  "timestamp": "2025-11-09T01:07:16.932551"
+}

@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1100",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Calle 10A Con Carrera 28",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.175282",
+    "has_valid_geometry": true,
+    "upid": "UNP-1100",
+    "nombre_up_detalle": "Via Local",
+    "nombre_up": "Calle 10A Con Carrera 28",
+    "comuna_corregimiento": "COMUNA 19",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.5314127701528, 3.4316260490592927, 0.0], [-76.53138632961605, 3.431734044558169, 0.0]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Urbanización Colseguros",
+    "cantidad": 12,
+    "loaded_at": "2025-11-04T20:23:09.175286",
+    "presupuesto_base": 9047918.6
+  },
+  "timestamp": "2025-11-09T01:44:08.969984"
+}

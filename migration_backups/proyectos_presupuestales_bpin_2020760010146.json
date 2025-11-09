@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010146",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Bienestar Social",
+    "cod_producto": 4101018,
+    "nombre_area_funcional": "Puntos de Información Orientación (PIO) y Unidades Móviles adecuadas y funcionando",
+    "nombre_fondo": "Estampilla Prodesarrollo Urbano  (10% Afro )",
+    "nombre_programa": "Atención Integral a las Víctimas del Conflicto",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010146,
+    "created_at": "2025-10-10T09:28:13.598313+00:00",
+    "nombre_actividad": "Orientar a la población Afro y Víctima del Conflicto Armado, desde los territorios y comunas para que accedan a la oferta de servicios",
+    "updated_at": "2025-10-10T09:28:13.598313+00:00",
+    "programa_presupuestal": "BP260030181010114",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "Fortalecimiento de la oferta de servicios  brindados a las víctimas del conflicto armado en Santiago de  Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 41,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Distrito Reconciliado",
+    "validador_cuipo": null,
+    "bp": "BP26003018"
+  },
+  "timestamp": "2025-11-09T01:05:35.627386"
+}

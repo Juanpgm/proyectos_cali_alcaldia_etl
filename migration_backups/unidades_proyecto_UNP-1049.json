@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1049",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Carrera 83 Calle 14",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.155426",
+    "has_valid_geometry": true,
+    "upid": "UNP-1049",
+    "nombre_up_detalle": "Via Arteria Secundaria",
+    "nombre_up": "Carrera 83 Calle 14",
+    "comuna_corregimiento": "COMUNA 17",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.53133327899997, 3.385706434000042, 0.0], [-76.53064719699995, 3.3859480150000536, 0.0]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "El Ingenio",
+    "cantidad": 80,
+    "loaded_at": "2025-11-04T20:23:09.155429",
+    "presupuesto_base": 28408647.68
+  },
+  "timestamp": "2025-11-09T01:43:17.984369"
+}

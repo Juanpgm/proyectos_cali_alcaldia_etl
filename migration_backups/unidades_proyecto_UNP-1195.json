@@ -1,0 +1,30 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1195",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Cra 39 Entre Cll 10 Hasta Cll 9",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.932454",
+    "has_valid_geometry": true,
+    "upid": "UNP-1195",
+    "comuna_corregimiento": "COMUNA 19",
+    "nombre_up": "Cra 39 Entre Cll 10 Hasta Cll 9",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"MultiLineString\", \"coordinates\": [[[-76.53842766160022, 3.4214063419674203, 0.0], [-76.5356144578409, 3.4208290572152578, 0.0]], [[-76.53843212284414, 3.421407257439, 0.0], [-76.53842766160022, 3.4214063419674203, 0.0]]]}",
+    "identificador": "Puntos Estrategicos",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Champagnat",
+    "cantidad": 319,
+    "loaded_at": "2025-11-04T20:23:09.932458",
+    "presupuesto_base": 424051742.0
+  },
+  "timestamp": "2025-11-09T01:45:40.102568"
+}

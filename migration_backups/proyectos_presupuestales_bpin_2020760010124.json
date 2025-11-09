@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010124",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Gobierno",
+    "cod_producto": 4502016,
+    "nombre_area_funcional": "Estrategia de Comunicación clara y transparente, implementada",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Ciudadanía Empoderada",
+    "nombre_dimension": "Cali, Gobierno Incluyente",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010124,
+    "created_at": "2025-10-10T09:26:46.539165+00:00",
+    "nombre_actividad": "Realizar la planeación y  seguimiento a las actividades que permitan la recolección de información de las diferentes fuentes de la Administración Central Municipal y externas",
+    "updated_at": "2025-10-10T09:26:46.539165+00:00",
+    "programa_presupuestal": "BP260030111010109",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "Implementación de estrategia de comunicación institucional clara y transparente en Santiago de Cali",
+    "clasificacion_fondo": "Libre destinación (Recursos Propios)",
+    "cod_sector": 45,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Ciudadanía Activa y Gobernanza",
+    "validador_cuipo": null,
+    "bp": "BP26003011"
+  },
+  "timestamp": "2025-11-09T00:54:26.921672"
+}

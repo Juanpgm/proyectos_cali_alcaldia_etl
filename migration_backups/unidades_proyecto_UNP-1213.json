@@ -1,0 +1,30 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1213",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Calle 3 Oeste Perimetral Parque Del Perro",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.939911",
+    "has_valid_geometry": true,
+    "upid": "UNP-1213",
+    "comuna_corregimiento": "COMUNA 19",
+    "nombre_up": "Calle 3 Oeste Perimetral Parque Del Perro",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.546025855209, 3.435913633207633, 0.0], [-76.54554185896956, 3.4364833042611167, 0.0]]}",
+    "identificador": "Puntos Estrategicos",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "San Fernando Viejo",
+    "cantidad": 82,
+    "loaded_at": "2025-11-04T20:23:09.939917",
+    "presupuesto_base": 70155619.0
+  },
+  "timestamp": "2025-11-09T01:45:58.469082"
+}

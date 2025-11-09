@@ -1,0 +1,30 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1228",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Carrera 10 Entre Calles 1 Hasta 3 Oeste",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:10.779460",
+    "has_valid_geometry": true,
+    "upid": "UNP-1228",
+    "comuna_corregimiento": "COMUNA 03",
+    "nombre_up": "Carrera 10 Entre Calles 1 Hasta 3 Oeste",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.54293208304915, 3.4467966305600726, 0.0], [-76.54288795331638, 3.4468447290011, 0.0], [-76.54281014127497, 3.4468578501097227, 0.0], [-76.54263810906144, 3.4468511402679383, 0.0], [-76.54191053324445, 3.446810263382986, 0.0], [-76.54104100573778, 3.4466845498521366, 0.0], [-76.54047624768066, 3.4465959387516136, 0.0]]}",
+    "identificador": "Puntos Estrategicos",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "San Antonio",
+    "cantidad": 277,
+    "loaded_at": "2025-11-04T20:23:10.779464",
+    "presupuesto_base": 134698788.0
+  },
+  "timestamp": "2025-11-09T01:46:12.488443"
+}

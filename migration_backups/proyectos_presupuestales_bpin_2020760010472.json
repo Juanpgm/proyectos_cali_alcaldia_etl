@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010472",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Salud Pública",
+    "cod_producto": 1905050,
+    "nombre_area_funcional": "Personas intervenidas con estrategia en salud para la promoción de la convivencia, el fortalecimiento del tejido social y el abordaje de las violencias con perspectiva de género, aumentadas",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Cali Distrito Previene las Violencias ",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010472,
+    "created_at": "2025-10-10T09:27:46.155856+00:00",
+    "nombre_actividad": "Convocar a actores comunitarios, previo al desarrollo del diplomado en salud mental comunitaria",
+    "updated_at": "2025-10-10T09:27:46.155856+00:00",
+    "programa_presupuestal": "BP260035151010103",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Capacitación a lideres en salud mental comunitaria Comuna 21 Santiago de   Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 19,
+    "comuna": "COMUNA 21",
+    "origen": "Territorio",
+    "nombre_linea_estrategica": "Distrito Reconciliado",
+    "validador_cuipo": null,
+    "bp": "BP26003515"
+  },
+  "timestamp": "2025-11-09T01:07:12.537471"
+}

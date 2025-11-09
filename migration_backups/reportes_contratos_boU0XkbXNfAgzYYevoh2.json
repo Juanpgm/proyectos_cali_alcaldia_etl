@@ -1,0 +1,31 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "boU0XkbXNfAgzYYevoh2",
+  "data": {
+    "nombre_centro_gestor": "",
+    "fecha_reporte": "2025-11-07T21:22:59.722999+00:00",
+    "observaciones": "Se encuentra en fase de adjudicación",
+    "avance_fisico": 0.0,
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/1QRenETtjHJdNCu0KV-IGwmNAjl7_9lun",
+    "archivos_evidencia": [
+      {
+        "type": "application/pdf",
+        "size": 84048,
+        "download_url": "https://drive.google.com/uc?id=1LddpwF62edx1UYLB99YzeN0fbAwDHdJi",
+        "url": "https://drive.google.com/file/d/1LddpwF62edx1UYLB99YzeN0fbAwDHdJi/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1LddpwF62edx1UYLB99YzeN0fbAwDHdJi",
+        "name": "CO1_REQ_8959158.pdf"
+      }
+    ],
+    "referencia_contrato": "CO1.PCCNTR.8522233",
+    "avance_financiero": 0.0,
+    "alertas": {
+      "es_alerta": false,
+      "descripcion": "",
+      "tipos": []
+    },
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:41:41.596762"
+}

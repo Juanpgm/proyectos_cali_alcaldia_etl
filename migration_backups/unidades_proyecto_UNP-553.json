@@ -1,0 +1,52 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-553",
+  "data": {
+    "created_at": "2025-11-05T11:34:41.228110",
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -76.54235022767057,
+        3.431787058861885
+      ]
+    },
+    "has_geometry": true,
+    "geometry_type": "Point",
+    "properties": {
+      "processed_timestamp": "2025-11-05T11:34:28.210236",
+      "descripcion_intervencion": null,
+      "microtio": null,
+      "bpin": "0",
+      "centros_gravedad": false,
+      "upid": "UNP-553",
+      "nombre_up_detalle": "N/A",
+      "tipo_intervencion": "Adecuaciones y mantenimientos",
+      "url_proceso": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.6853262&isFromPublicArea=True&isModal=False",
+      "referencia_contrato": "4181.010.26.1.434-2024",
+      "unidad": "UND",
+      "identificador": "MANTENIMIENTO DE BANDERAS",
+      "tipo_equipamiento": "Infraestructura cultural ",
+      "fecha_fin": "25/10/2024",
+      "estado": "Finalizado",
+      "fecha_inicio": "30/09/2024",
+      "plataforma": "SECOP II",
+      "nombre_centro_gestor": "Unidad Administrativa Especial de Gestión de Bienes y Servicios",
+      "avance_obra": "100.0",
+      "geometry_bounds": null,
+      "direccion": "Calle 5 entre carreras 34 y 36",
+      "ano": "2024",
+      "geometry_type": null,
+      "dataframe": null,
+      "comuna_corregimiento": "COMUNA 19",
+      "nombre_up": "PARQUE PANAMERICANO (PARQUE DE LAS BANDERAS)",
+      "referencia_proceso": "4181.010.26.1.434-2024",
+      "fuente_financiacion": "Recursos propios",
+      "cantidad": "1",
+      "barrio_vereda": "San Fernando",
+      "presupuesto_base": "169277500"
+    },
+    "updated_at": "2025-11-05T11:34:41.228110"
+  },
+  "timestamp": "2025-11-09T01:53:34.193079"
+}

@@ -1,0 +1,23 @@
+{
+  "collection_path": "proyecciones_emprestito",
+  "doc_id": "o4t6B8uy1ccYoCIP2cx7",
+  "data": {
+    "nombre_banco": "DAVIVIENDA",
+    "nombre_organismo_reducido": "Infraestructura",
+    "ultima_actualizacion": "2025-11-08T11:31:07.649816+00:00",
+    "item": "104",
+    "nombre_resumido_proceso": "Contrato 1: Suministro de materiales y suministros",
+    "fuente": "google_sheets",
+    "fecha_carga": "2025-11-08T11:31:04.576909",
+    "valor_proyectado": 0,
+    "nombre_generico_proyecto": "Recuperación Malla Vial",
+    "fila_origen": 104,
+    "id_paa": "VIGENCIA 2026",
+    "fecha_guardado": "2025-11-08T11:31:07.649816+00:00",
+    "referencia_proceso": "",
+    "BP": "BP26005375",
+    "urlProceso": "",
+    "descripcion_bp": "RECUPERACION DE LA INFRAESTRUCTURA VIAL DE SANTIAGO DE CALI"
+  },
+  "timestamp": "2025-11-09T00:53:36.431945"
+}

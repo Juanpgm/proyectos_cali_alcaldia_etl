@@ -1,0 +1,49 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "bkOa3gZSefEjj0qrcTbZ",
+  "data": {
+    "nombre_centro_gestor": "",
+    "observaciones": "Informe de actividades ejecutadas con corte al 25 de octubre de 2025: \r\n- Se desarrollaron trabajos de demolición de enchape de piso  y paredes del CALI 20 en las areas de oficinas y baños.\r\n- En el CALI 13 se realizan trabajos de desmonte de tejas de cubierta, limpieza y pintura de estructura metalica de cubierta, instalación de tejas upvc.",
+    "fecha_reporte": "2025-10-30T21:12:57.052669+00:00",
+    "referencia_contrato": "4173.010.26.1.1268-2025",
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/1oIJQT5EUh5fRG6Me7-bWiWbpuS1xLJ9p",
+    "archivos_evidencia": [
+      {
+        "type": "application/pdf",
+        "size": 502897,
+        "download_url": "https://drive.google.com/uc?id=1kzy_F_-F3K3cVQnOFhSG0Gg_Unt5OjvQ",
+        "url": "https://drive.google.com/file/d/1kzy_F_-F3K3cVQnOFhSG0Gg_Unt5OjvQ/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1kzy_F_-F3K3cVQnOFhSG0Gg_Unt5OjvQ",
+        "name": "1. Informe Ejecutivo Semanal No 8.pdf"
+      },
+      {
+        "type": "image/jpeg",
+        "size": 51735,
+        "download_url": "https://drive.google.com/uc?id=1oFV7cTHhciUtwXkXVc1IXRa7i7_xI_Vj",
+        "url": "https://drive.google.com/file/d/1oFV7cTHhciUtwXkXVc1IXRa7i7_xI_Vj/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1oFV7cTHhciUtwXkXVc1IXRa7i7_xI_Vj",
+        "name": "CALI 13.jpg"
+      },
+      {
+        "type": "image/jpeg",
+        "size": 33970,
+        "download_url": "https://drive.google.com/uc?id=1M17dPcWrwKxn9V_co7qKwY20c6LDB8v3",
+        "url": "https://drive.google.com/file/d/1M17dPcWrwKxn9V_co7qKwY20c6LDB8v3/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1M17dPcWrwKxn9V_co7qKwY20c6LDB8v3",
+        "name": "CALI 20.jpg"
+      }
+    ],
+    "avance_fisico": 21.0,
+    "alertas": {
+      "descripcion": "",
+      "es_alerta": false,
+      "tipos": []
+    },
+    "avance_financiero": 21.0,
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:41:40.713283"
+}

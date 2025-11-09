@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010149",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Educación",
+    "cod_producto": null,
+    "nombre_area_funcional": "Establecimientos educativos en operación",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Cali Educada",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010149,
+    "nombre_actividad": "Adquirir el servicio de aseo integral y desinfección a las Instituciones Educativas Oficiales",
+    "created_at": "2025-10-10T09:32:32.216956+00:00",
+    "updated_at": "2025-10-10T09:32:32.216956+00:00",
+    "programa_presupuestal": 6102001,
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2025,
+    "nombre_proyecto": "Mejoramiento en la gestión administrativa de la Secretaría de Educación de Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "bp": "BP26005486",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T01:34:12.578815"
+}

@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010848",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Movilidad",
+    "cod_producto": 2409006,
+    "nombre_area_funcional": "Centro de enseñanza automovilística de Distrito de Cali operando",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Regulación, Control y Gestión Inteligente del Tránsito ",
+    "nombre_dimension": "Cali, Nuestra Casa Común",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010848,
+    "created_at": "2025-10-10T09:29:12.408783+00:00",
+    "nombre_actividad": "Realizar los cursos teórico prácticos de conducción en el CEA, según las categorías habilitadas",
+    "updated_at": "2025-10-10T09:29:12.408783+00:00",
+    "programa_presupuestal": "BP260029031010108",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Servicio del Centro de Enseñanza automovilística del Distrito de Santiago de   Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 24,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Movilidad Multimodal Sustentable",
+    "validador_cuipo": null,
+    "bp": "BP26002903"
+  },
+  "timestamp": "2025-11-09T01:09:21.645822"
+}

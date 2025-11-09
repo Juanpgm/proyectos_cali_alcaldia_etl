@@ -1,0 +1,30 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1168",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Carrera 29 B Entre Calle 70 Y Calle 72 J Cambió Carrera 28B, Entre Las Calles 70 Y 72J– El Pondaje",
+    "has_geometry": true,
+    "bpin": "2021760010260",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.920900",
+    "has_valid_geometry": true,
+    "upid": "UNP-1168",
+    "comuna_corregimiento": "COMUNA 13",
+    "nombre_up": "Carrera 29 B Entre Calle 70 Y 72 J",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"MultiLineString\", \"coordinates\": [[[-76.49968184406933, 3.4201473581938306, 0.0], [-76.49984999999998, 3.4203320000000303, 0.0], [-76.50051299999996, 3.4210370000000694, 0.0], [-76.50123499999995, 3.4217670000000453, 0.0], [-76.50185199999999, 3.422375000000045, 0.0], [-76.50254399999994, 3.423073000000045, 0.0], [-76.50319099999996, 3.4237390000000687, 0.0]], [[-76.49954399999996, 3.419996000000026, 0.0], [-76.49968184406933, 3.4201473581938306, 0.0]]]}",
+    "identificador": "Presupuesto Participativo Urbano",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Presupuesto Participativo",
+    "barrio_vereda": "El Diamante",
+    "cantidad": 92,
+    "loaded_at": "2025-11-04T20:23:09.920905",
+    "presupuesto_base": 233554220.0
+  },
+  "timestamp": "2025-11-09T01:45:13.777950"
+}

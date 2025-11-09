@@ -1,0 +1,16 @@
+{
+  "collection_path": "flujo_caja_emprestito",
+  "doc_id": "Vivienda_Bancolombia_mar-26",
+  "data": {
+    "desembolso": 1946631370.5,
+    "banco": "Bancolombia",
+    "id_registro": "Vivienda_Bancolombia_mar-26",
+    "mes": "mar-26",
+    "fecha_procesamiento": "2025-10-20T11:37:44.640547",
+    "desembolso_real": 0.0,
+    "periodo": "2026-03-01T00:00:00",
+    "archivo_origen": "Matriz Emprestito.xlsx",
+    "organismo": "Vivienda"
+  },
+  "timestamp": "2025-11-09T00:51:34.403138"
+}

@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2021760010238",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "cod_producto": 2402042,
+    "nombre_area_funcional": "Vías y obras de drenaje en la zona urbana y rural construidas",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Mejoramiento de la Infraestructura Vial ",
+    "nombre_dimension": "Cali, Nuestra Casa Común",
+    "tipo_gasto": "Inversión",
+    "bpin": 2021760010238,
+    "created_at": "2025-10-10T09:28:56.123281+00:00",
+    "nombre_actividad": "Construir obras de drenaje en el corregimiento el Saladito",
+    "updated_at": "2025-10-10T09:28:56.123281+00:00",
+    "programa_presupuestal": "BP260039891010301",
+    "nombre_pospre": "Otras obras de ingeniería civil",
+    "anio": 2024,
+    "nombre_proyecto": "Construcción de vías y obras de drenaje en el corregimiento El Saladito de Santiago de  Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 24,
+    "comuna": "EL SALADITO",
+    "origen": "Territorio",
+    "nombre_linea_estrategica": "Movilidad Multimodal Sustentable",
+    "validador_cuipo": null,
+    "bp": "BP26003989"
+  },
+  "timestamp": "2025-11-09T01:27:25.165851"
+}

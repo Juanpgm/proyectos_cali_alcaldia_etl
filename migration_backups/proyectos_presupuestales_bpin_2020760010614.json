@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010614",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Seguridad y Justicia",
+    "cod_producto": 4501028,
+    "nombre_area_funcional": "Sistemas de monitoreo y alerta del delito implementado",
+    "nombre_fondo": "Ingresos Corrientes de Libre Destinación",
+    "nombre_programa": "Seguridad y Lucha Contra el Delito ",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010614,
+    "created_at": "2025-10-10T09:29:28.062251+00:00",
+    "nombre_actividad": "Dotar de equipos de monitoreo y control - Camaras",
+    "updated_at": "2025-10-10T09:29:28.062251+00:00",
+    "programa_presupuestal": "BP260034771010103",
+    "nombre_pospre": "Aparatos transmisores de televisión y radio; televisión, video y cámaras digitales; teléfonos",
+    "anio": 2024,
+    "nombre_proyecto": "IMPLEMENTACIÓN DE SISTEMA DE MONITOREO Y ALERTA DEL DELITO EN LA COMUNA 17 DE CALI",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 45,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Distrito Reconciliado",
+    "validador_cuipo": null,
+    "bp": "BP26003477"
+  },
+  "timestamp": "2025-11-09T01:07:55.551818"
+}

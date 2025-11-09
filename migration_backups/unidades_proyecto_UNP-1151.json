@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1151",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Carrera 48A Entre Calles 10 Y 11",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.914839",
+    "has_valid_geometry": true,
+    "upid": "UNP-1151",
+    "nombre_up_detalle": "Via Local",
+    "nombre_up": "Carrera 48A Entre Calles 10 Y 11",
+    "comuna_corregimiento": "COMUNA 10",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.5380843305599, 3.4117914075378986, 0.0], [-76.53781487612211, 3.4117045666203945, 0.0], [-76.53768145188195, 3.4116615660570675, 0.0], [-76.53750482512305, 3.411604641957263, 0.0], [-76.53725763272014, 3.4115231381092164, 0.0], [-76.53705520186993, 3.4114563929041224, 0.0]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Departamental",
+    "cantidad": 120,
+    "loaded_at": "2025-11-04T20:23:09.914844",
+    "presupuesto_base": 90479186.04
+  },
+  "timestamp": "2025-11-09T01:44:57.999883"
+}

@@ -1,0 +1,16 @@
+{
+  "collection_path": "flujo_caja_emprestito",
+  "doc_id": "Vivienda_Davivienda_abr-26",
+  "data": {
+    "banco": "Davivienda",
+    "desembolso": 2844286726.0,
+    "id_registro": "Vivienda_Davivienda_abr-26",
+    "mes": "abr-26",
+    "fecha_procesamiento": "2025-10-20T11:37:44.640547",
+    "desembolso_real": 0.0,
+    "periodo": "2026-04-01T00:00:00",
+    "archivo_origen": "Matriz Emprestito.xlsx",
+    "organismo": "Vivienda"
+  },
+  "timestamp": "2025-11-09T00:51:36.366653"
+}

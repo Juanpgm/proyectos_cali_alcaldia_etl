@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010188",
+  "data": {
+    "nombre_centro_gestor": "Departamento Administrativo de Planeación Municipal",
+    "cod_producto": null,
+    "nombre_area_funcional": "Documento de avances de proyectos estratégicos elaborado y actualizado",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Ordenamiento Territorial e Integración Regional",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010188,
+    "created_at": "2025-10-10T09:30:46.957545+00:00",
+    "nombre_actividad": "Apoyar la implementación y operación de la Autoridad Regional de Transporte - ART y el Ente Gestor",
+    "updated_at": "2025-10-10T09:30:46.957545+00:00",
+    "programa_presupuestal": "BP260034201010104",
+    "nombre_pospre": "A establecimientos públicos y unidades administrativas especiales",
+    "anio": 2024,
+    "nombre_proyecto": "Apoyo para la implementación de la Autoridad Regional de Transporte - ART  Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": null,
+    "validador_cuipo": null,
+    "bp": "BP26003420"
+  },
+  "timestamp": "2025-11-09T01:05:56.883389"
+}

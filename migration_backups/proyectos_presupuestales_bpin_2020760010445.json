@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010445",
+  "data": {
+    "nombre_centro_gestor": "Departamento Administrativo de Tecnologías de la Información y las Comunicaciones",
+    "cod_producto": 2301024,
+    "nombre_area_funcional": "Datacenter del Distrito Especial, unificado",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Sistema de la Información y la Infraestructura Tecnológica  ",
+    "nombre_dimension": "Cali, Gobierno Incluyente",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010445,
+    "created_at": "2025-10-10T09:27:24.020537+00:00",
+    "nombre_actividad": "Adquirir infraestructura tecnologica.",
+    "updated_at": "2025-10-10T09:27:24.020537+00:00",
+    "programa_presupuestal": "BP260025501010109",
+    "nombre_pospre": "Paquetes de software",
+    "anio": 2024,
+    "nombre_proyecto": "Consolidación del centro de datos de la Alcaldía de Santiago de   Cali",
+    "clasificacion_fondo": "Libre destinación (Recursos Propios)",
+    "cod_sector": 23,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Gobierno Inteligente",
+    "validador_cuipo": null,
+    "bp": "BP26002550"
+  },
+  "timestamp": "2025-11-09T01:07:03.766172"
+}

@@ -1,0 +1,30 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1212",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Carrera 34 Entre Calle 5Ta Hasta Calle 3 Oeste",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.939508",
+    "has_valid_geometry": true,
+    "upid": "UNP-1212",
+    "comuna_corregimiento": "COMUNA 19",
+    "nombre_up": "Carrera 34 Entre Calle 5Ta Hasta Calle 3 Oeste",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.54553063093385, 3.4364812628001005, 0.0], [-76.54535196622021, 3.436426089392569, 0.0], [-76.54522740292225, 3.4363536490017736, 0.0], [-76.54511895817336, 3.43623836760662, 0.0], [-76.54505439584364, 3.436093592944985, 0.0], [-76.54503786270715, 3.435772757107088, 0.0], [-76.54508521920746, 3.4355717100664265, 0.0], [-76.5451018350816, 3.435421295756214, 0.0], [-76.54511289314547, 3.435333220651671, 0.0], [-76.54384871884326, 3.4335832487679454, 0.0], [-76.5426769840555, 3.4327930621501537, 0.0]]}",
+    "identificador": "Puntos Estrategicos",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "San Fernando Viejo",
+    "cantidad": 552,
+    "loaded_at": "2025-11-04T20:23:09.939513",
+    "presupuesto_base": 21202587.0
+  },
+  "timestamp": "2025-11-09T01:45:57.597663"
+}

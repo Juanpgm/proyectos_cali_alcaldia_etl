@@ -1,0 +1,22 @@
+{
+  "collection_path": "users",
+  "doc_id": "595fVmQ6GCVZWQ83R4F0qYWkmDu2",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Educación",
+    "uid": "595fVmQ6GCVZWQ83R4F0qYWkmDu2",
+    "created_at": "2025-10-10T22:43:01.376588+00:00",
+    "cellphone": "+573002927372",
+    "fullname": "Juan José",
+    "is_active": true,
+    "auth_providers": [
+      "password"
+    ],
+    "login_count": 0,
+    "email": "mejia.juanjose1151@gmail.com",
+    "updated_at": "2025-10-10T22:43:01.376594+00:00",
+    "last_login": null,
+    "email_verified": false,
+    "can_use_google_auth": false
+  },
+  "timestamp": "2025-11-09T02:00:54.436185"
+}

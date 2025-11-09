@@ -1,0 +1,23 @@
+{
+  "collection_path": "proyecciones_emprestito",
+  "doc_id": "djqbWrEFF44x0A9GrCNj",
+  "data": {
+    "nombre_banco": "Banco de Occidente",
+    "nombre_organismo_reducido": "Seguridad",
+    "ultima_actualizacion": "2025-11-08T11:31:07.614579+00:00",
+    "item": "6",
+    "nombre_resumido_proceso": "Mantnenimiento CAI",
+    "fuente": "google_sheets",
+    "fecha_carga": "2025-11-08T11:31:04.558590",
+    "valor_proyectado": 0,
+    "nombre_generico_proyecto": "Mantenimiento de estaciones de policia CAI",
+    "fila_origen": 6,
+    "id_paa": "VIGENCIAS 2026 Y 2027",
+    "fecha_guardado": "2025-11-08T11:31:07.614579+00:00",
+    "referencia_proceso": "",
+    "BP": "BP26005500",
+    "urlProceso": "",
+    "descripcion_bp": "Fortalecimiento a la capacidad operativa de las agencias de seguridad y justicia en Santiago de Cali"
+  },
+  "timestamp": "2025-11-09T00:53:18.461333"
+}

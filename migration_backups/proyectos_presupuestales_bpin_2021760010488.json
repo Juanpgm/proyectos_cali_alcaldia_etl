@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2021760010488",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Cultura",
+    "cod_producto": 3301127,
+    "nombre_area_funcional": "Equipamientos culturales del Distrito diseñados, con mantenimiento, construidos, adecuados, mejorados o dotación",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Equipamientos para el Desarrollo y el Bienestar",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2021760010488,
+    "created_at": "2025-10-10T09:28:31.384537+00:00",
+    "nombre_actividad": "Adquirir dotación de mobiliario en las bibliotecas públicas de la Red.",
+    "updated_at": "2025-10-10T09:28:31.384537+00:00",
+    "programa_presupuestal": "BP260036761010128",
+    "nombre_pospre": "Muebles del tipo utilizado en la oficina",
+    "anio": 2024,
+    "nombre_proyecto": "Mejoramiento de los espacios y ambientes de las bibliotecas públicas de la Red en Santiago de  Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 33,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Territorios para la Vida",
+    "validador_cuipo": null,
+    "bp": "BP26003676"
+  },
+  "timestamp": "2025-11-09T01:28:28.275854"
+}

@@ -1,0 +1,30 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1186",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Calle 72 F Entre Carrera 8 N Y Carrera 9 N",
+    "has_geometry": true,
+    "bpin": "2021760010260",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.928750",
+    "has_valid_geometry": true,
+    "upid": "UNP-1186",
+    "comuna_corregimiento": "COMUNA 06",
+    "nombre_up": "Calle 72F Entre Carrera 8N Y 9N (Ciudadela Floralia)",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.49767691103125, 3.495476447158792, 0.0], [-76.49694299999999, 3.4950690000000577, 0.0]]}",
+    "identificador": "Presupuesto Participativo Urbano",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Presupuesto Participativo",
+    "barrio_vereda": "Ciudadela Floralia",
+    "cantidad": 108,
+    "loaded_at": "2025-11-04T20:23:09.928755",
+    "presupuesto_base": 146580547.0
+  },
+  "timestamp": "2025-11-09T01:45:31.316345"
+}

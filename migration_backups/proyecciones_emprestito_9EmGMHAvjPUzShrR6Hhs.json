@@ -1,0 +1,23 @@
+{
+  "collection_path": "proyecciones_emprestito",
+  "doc_id": "9EmGMHAvjPUzShrR6Hhs",
+  "data": {
+    "nombre_banco": "DAVIVIENDA-Otro Si",
+    "nombre_organismo_reducido": "cultura",
+    "ultima_actualizacion": "2025-11-08T11:31:07.654000+00:00",
+    "item": "124",
+    "nombre_resumido_proceso": "Contrato 4: Adquisición Pantallas interactivas",
+    "fuente": "google_sheets",
+    "fecha_carga": "2025-11-08T11:31:04.579405",
+    "valor_proyectado": 0,
+    "nombre_generico_proyecto": "Bibliotecas Públicas",
+    "fila_origen": 124,
+    "id_paa": "19600",
+    "fecha_guardado": "2025-11-08T11:31:07.654000+00:00",
+    "referencia_proceso": "Oredenes de compra 152486-152488-152489-152487",
+    "BP": "BP26005280",
+    "urlProceso": "OC 152486-152488-152489-152487",
+    "descripcion_bp": "Proyecto : Renovación de los Espacios y Ambientes de las Bibliotecas Públicas de la Red en Santiago de Cali"
+  },
+  "timestamp": "2025-11-09T00:52:29.682573"
+}

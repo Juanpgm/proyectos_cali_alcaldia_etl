@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010173",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Gestión del Riesgo de Emergencias y Desastres",
+    "cod_producto": null,
+    "nombre_area_funcional": "Estrategia de Gobernanza para la protección y uso adecuado de zonas de riesgo no mitigable implementada.",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Gestión del Riesgo y Atención de Desastres",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010173,
+    "created_at": "2025-10-10T09:25:47.660780+00:00",
+    "nombre_actividad": "Realizar acompañamiento técnico a la implementación y seguimiento en el marco\nde la estrategia",
+    "updated_at": "2025-10-10T09:25:47.660780+00:00",
+    "programa_presupuestal": 6202002,
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2025,
+    "nombre_proyecto": "Desarrollo de la estrategia de sostenibilidad y gobernanza para la protección del sistema contra inundaciones de Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": null,
+    "validador_cuipo": null,
+    "bp": "BP26005272"
+  },
+  "timestamp": "2025-11-09T01:34:32.715489"
+}

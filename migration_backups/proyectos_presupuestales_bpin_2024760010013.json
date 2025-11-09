@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010013",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Cultura",
+    "cod_producto": null,
+    "nombre_area_funcional": "Manifestaciones del patrimonio cultural inmaterial salvaguardadas",
+    "nombre_fondo": "Estampilla procultura ",
+    "nombre_programa": "Cali Distrito Deportivo, Cultural y Turístico",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010013,
+    "created_at": "2025-10-10T09:24:39.235866+00:00",
+    "nombre_actividad": "REALIZAR LA COORDINACIÓN DEL  DESARROLLO DE ESTRATEGIAS DE SALVAGUARDA",
+    "updated_at": "2025-10-10T09:24:39.235866+00:00",
+    "programa_presupuestal": 6102003,
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2025,
+    "nombre_proyecto": "Implementación de estrategias orientadas a la salvaguardia de las manifestaciones y oficios del patrimonio cultural inmaterial en Santiago de  Cali",
+    "clasificacion_fondo": "Recursos Propios con Destinacion Especifica",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": null,
+    "validador_cuipo": null,
+    "bp": "BP26005221"
+  },
+  "timestamp": "2025-11-09T01:32:10.946639"
+}

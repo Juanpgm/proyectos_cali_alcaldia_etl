@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010054",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Seguridad y Justicia",
+    "cod_producto": null,
+    "nombre_area_funcional": "Jóvenes atendidos con enfoque diferencial, territorial y de género en estrategias de prevención social de la violencia",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Proyectos de vida para los jóvenes",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010054,
+    "created_at": "2025-10-10T09:25:03.637531+00:00",
+    "nombre_actividad": "Implementar programa de apoyo psicosocial y educativo",
+    "updated_at": "2025-10-10T09:25:03.637531+00:00",
+    "programa_presupuestal": 6101003,
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2025,
+    "nombre_proyecto": "Implementación de estrategia para prevenir la violencia en jóvenes vulnerables a dinámicas delictivas en Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": null,
+    "validador_cuipo": null,
+    "bp": "BP26005253"
+  },
+  "timestamp": "2025-11-09T01:32:47.766592"
+}

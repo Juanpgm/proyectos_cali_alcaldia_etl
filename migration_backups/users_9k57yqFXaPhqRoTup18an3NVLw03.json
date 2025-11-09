@@ -1,0 +1,22 @@
+{
+  "collection_path": "users",
+  "doc_id": "9k57yqFXaPhqRoTup18an3NVLw03",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Gobierno",
+    "uid": "9k57yqFXaPhqRoTup18an3NVLw03",
+    "created_at": "2025-11-04T20:37:12.321604+00:00",
+    "cellphone": "+573167098302",
+    "last_login": "2025-11-04T20:47:18.092704+00:00",
+    "is_active": true,
+    "fullname": "Jackeline Maya Sanchez",
+    "auth_providers": [
+      "password"
+    ],
+    "email": "mayasanchezjackeline@gmail.com",
+    "email_verified": false,
+    "login_count": 2,
+    "updated_at": "2025-11-04T20:47:18.092708+00:00",
+    "can_use_google_auth": false
+  },
+  "timestamp": "2025-11-09T02:00:57.019623"
+}

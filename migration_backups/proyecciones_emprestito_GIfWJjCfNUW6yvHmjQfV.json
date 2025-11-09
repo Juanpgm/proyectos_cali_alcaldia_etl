@@ -1,0 +1,23 @@
+{
+  "collection_path": "proyecciones_emprestito",
+  "doc_id": "GIfWJjCfNUW6yvHmjQfV",
+  "data": {
+    "nombre_banco": "BBVA",
+    "nombre_organismo_reducido": "Infraestructura",
+    "ultima_actualizacion": "2025-11-08T11:31:07.643161+00:00",
+    "item": "80",
+    "nombre_resumido_proceso": "Obra parque alamenda roosevelt",
+    "fuente": "google_sheets",
+    "fecha_carga": "2025-11-08T11:31:04.573119",
+    "valor_proyectado": 0,
+    "nombre_generico_proyecto": "Parque Alameda Roosevelt",
+    "fila_origen": 80,
+    "id_paa": "VIGENCIAS 2026 Y 2027",
+    "fecha_guardado": "2025-11-08T11:31:07.643161+00:00",
+    "referencia_proceso": "",
+    "BP": "BP26005375",
+    "urlProceso": "",
+    "descripcion_bp": "RECUPERACION DE LA INFRAESTRUCTURA VIAL DE SANTIAGO DE CALI"
+  },
+  "timestamp": "2025-11-09T00:52:40.258920"
+}

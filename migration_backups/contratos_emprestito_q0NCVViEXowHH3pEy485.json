@@ -1,0 +1,41 @@
+{
+  "collection_path": "contratos_emprestito",
+  "doc_id": "q0NCVViEXowHH3pEy485",
+  "data": {
+    "nit_contratista": "",
+    "fecha_fin_contrato": "2026-03-31",
+    "ordenador_gasto": "SARA MERCEDES RODAS SOTO",
+    "sector": "Educación Nacional",
+    "_dataset_source": "jbjy-vk9h",
+    "nombre_procedimiento": "",
+    "valor_pagado": "0",
+    "urlproceso": {
+      "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.8725902&isFromPublicArea=True&isModal=true&asPopupView=true"
+    },
+    "bpin": null,
+    "descripcion_proceso": "REALIZAR LA INTERVENTORÍA DE OBRAS PARA LA ADECUACIÓN DE LAS IEO CARLOS HOLGUÍN MALLARINO SEDE MIGUEL DE POMBO; DESEPAZ SEDE PRINCIPAL; GABRIEL GARCÍA MÁRQUEZ SEDE JOSÉ RAMON BEJARANO; POLITÉCNICO MUNICIPAL SEDE JHON F KENNEDY; EUSTAQUIO PALACIOS SEDE MANUEL MARÍA BUENAVENTURA ; LA BUITRERA SEDE SAN",
+    "valor_contrato": 487644278,
+    "supervisor": "No definido",
+    "entidad_contratante": "SECRETARIA DE EDUCACION DE CALI",
+    "banco": "Bancolombia",
+    "referencia_contrato": "4143.010.26.1.1740.2025",
+    "nit_entidad": "890399011",
+    "id_contrato": "CO1.PCCNTR.8426407",
+    "fecha_guardado": "2025-11-04T15:49:30.210259+00:00",
+    "modalidad_contratacion": "Concurso de méritos abierto",
+    "fecha_firma_contrato": null,
+    "bp": "BP226004701",
+    "nombre_centro_gestor": "Secretaría de Educación",
+    "version_esquema": "1.1",
+    "representante_legal": "LEYDI MABEL PEREZ CHUD",
+    "fuente_datos": "SECOP_API",
+    "proceso_contractual": "CO1.BDOS.8642298",
+    "fecha_inicio_contrato": "2025-10-21",
+    "nombre_contratista": "",
+    "estado_contrato": "En ejecución",
+    "referencia_proceso": "4143.010.32.1544-2025",
+    "objeto_contrato": "REALIZAR LA INTERVENTORÍA DE OBRAS PARA LA ADECUACIÓN DE LAS IEO CARLOS HOLGUÍN MALLARINO SEDE MIGUEL DE POMBO; DESEPAZ SEDE PRINCIPAL; GABRIEL GARCÍA MÁRQUEZ SEDE JOSÉ RAMON BEJARANO; POLITÉCNICO MUNICIPAL SEDE JHON F KENNEDY; EUSTAQUIO PALACIOS SEDE MANUEL MARÍA BUENAVENTURA ; LA BUITRERA SEDE SAN GABRIEL; CARLOS HOLGUÍN LLOREDA SEDE SANTA ELENA; JOSÉ MARÍA VIVAS BALCÁZAR SEDE SANTO DOMINGO; RAFAEL NAVIA VARÓN SEDE PRINCIPAL; LICEO DEPARTAMENTAL SEDE LA GRAN COLOMBIA; CIUDAD MODELO SEDE PRINCI",
+    "tipo_contrato": "Interventoría"
+  },
+  "timestamp": "2025-11-09T00:48:05.897971"
+}

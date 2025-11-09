@@ -1,0 +1,23 @@
+{
+  "collection_path": "proyecciones_emprestito",
+  "doc_id": "6tn4L9xKpiYZIJRubZ79",
+  "data": {
+    "nombre_banco": "POR DEFINIR",
+    "nombre_organismo_reducido": "Bienes",
+    "ultima_actualizacion": "2025-11-08T11:31:07.657000+00:00",
+    "item": "141",
+    "nombre_resumido_proceso": "Galeria Alameda (Convenio EDRU Alcance Juridico",
+    "fuente": "google_sheets",
+    "fecha_carga": "2025-11-08T11:31:04.580674",
+    "valor_proyectado": 0,
+    "nombre_generico_proyecto": "Infraestructura Social",
+    "fila_origen": 141,
+    "id_paa": "19333",
+    "fecha_guardado": "2025-11-08T11:31:07.657000+00:00",
+    "referencia_proceso": "",
+    "BP": "BPX DEFINIR",
+    "urlProceso": "",
+    "descripcion_bp": "EJE MOTORES DE DESARROLLO"
+  },
+  "timestamp": "2025-11-09T00:52:23.663972"
+}

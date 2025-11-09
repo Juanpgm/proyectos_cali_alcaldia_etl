@@ -1,0 +1,31 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "S0ZOHtvglqvXUWqfjg0y",
+  "data": {
+    "observaciones": "El proceso dio inicio el 15 de octubre el proximo lunes se tendrá Reunión con interventoría para revisar la planificación y obtener avance.",
+    "nombre_centro_gestor": "",
+    "fecha_reporte": "2025-10-17T20:25:28.723594+00:00",
+    "referencia_contrato": "4134.010.26.1.0322-2025",
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/1TekvQlV6VNB2VdiurMmRilnoO6L-ejES",
+    "archivos_evidencia": [
+      {
+        "type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "size": 20671,
+        "download_url": "https://drive.google.com/uc?id=1ZWr_taCBCZVXYliGIjs93EUkhFUSmyjQ",
+        "url": "https://docs.google.com/document/d/1ZWr_taCBCZVXYliGIjs93EUkhFUSmyjQ/edit?usp=drivesdk&ouid=107631050282737776825&rtpof=true&sd=true",
+        "status": "uploaded_successfully",
+        "drive_id": "1ZWr_taCBCZVXYliGIjs93EUkhFUSmyjQ",
+        "name": "% avances de procesos de contratacion emprestito DATIC.docx"
+      }
+    ],
+    "avance_fisico": 0.0,
+    "avance_financiero": 0.0,
+    "alertas": {
+      "es_alerta": false,
+      "descripcion": "",
+      "tipos": []
+    },
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:41:12.765191"
+}

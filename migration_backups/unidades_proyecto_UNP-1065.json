@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1065",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Calle 13A Entre Carreras 58 Y 64",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.161661",
+    "has_valid_geometry": true,
+    "upid": "UNP-1065",
+    "nombre_up_detalle": "Via Local",
+    "nombre_up": "Calle 13A Entre Carreras 58 Y 64",
+    "comuna_corregimiento": "COMUNA 17",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.53563427650687, 3.403074585667367, 0.0], [-76.53590168696287, 3.4022857073574673, 0.0]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Primero de Mayo",
+    "cantidad": 362,
+    "loaded_at": "2025-11-04T20:23:09.161666",
+    "presupuesto_base": 272945544.55
+  },
+  "timestamp": "2025-11-09T01:43:33.861938"
+}

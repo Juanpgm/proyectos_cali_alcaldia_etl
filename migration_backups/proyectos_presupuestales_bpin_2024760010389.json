@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010389",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Cultura",
+    "cod_producto": null,
+    "nombre_area_funcional": "Eventos de promoción de la cultura a nivel local, distrital e internacional realizados",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Cali Distrito Deportivo, Cultural y Turístico",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010389,
+    "nombre_actividad": "Realizar la divulgación de los eventos artísticos y culturales en los espacios públicos de la comuna 10",
+    "created_at": "2025-10-10T09:33:35.464439+00:00",
+    "updated_at": "2025-10-10T09:33:35.464439+00:00",
+    "programa_presupuestal": 6102003,
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2025,
+    "nombre_proyecto": "Aprovechamiento  de los espacios públicos con programación artística y cultural en la comuna 10 en Santiago de   Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "COMUNA 10",
+    "origen": "Territorio",
+    "bp": "BP26005752",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T01:37:30.286247"
+}

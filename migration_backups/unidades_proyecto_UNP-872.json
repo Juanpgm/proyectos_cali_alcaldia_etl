@@ -1,0 +1,58 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-872",
+  "data": {
+    "created_at": "2025-11-05T11:34:45.377903",
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -76.521427,
+        3.424281
+      ]
+    },
+    "has_geometry": true,
+    "geometry_type": "Point",
+    "properties": {
+      "processed_timestamp": "2025-11-05T11:34:28.210236",
+      "descripcion_intervencion": "Adecuacion de cerramiento y zona de cocina",
+      "microtio": null,
+      "bpin": "-2147483648",
+      "centros_gravedad": false,
+      "upid": "UNP-872",
+      "nombre_up_detalle": "SANTA ELENA",
+      "tipo_intervencion": "Adecuaciones y mantenimientos",
+      "url_proceso": "Pendiente",
+      "referencia_contrato": [
+        "4143.010.26.1.1374-2024",
+        "4143.010.26.1.1375-2024"
+      ],
+      "unidad": "UND",
+      "identificador": "Frente de obra ejecutada 2024 - Recursos Propios",
+      "tipo_equipamiento": "Institución Educativa",
+      "fecha_fin": "2024",
+      "estado": "Entregada",
+      "fecha_inicio": "2024",
+      "plataforma": "SECOP II",
+      "nombre_centro_gestor": "Secretaría de Educación",
+      "avance_obra": "10.0",
+      "geometry_bounds": null,
+      "direccion": null,
+      "ano": "2024",
+      "geometry_type": null,
+      "dataframe": null,
+      "comuna_corregimiento": "COMUNA 10",
+      "nombre_up": "I.E. CARLOS HOLGUIN LLOREDA",
+      "referencia_proceso": [
+        "4143.010.32.1122-2024",
+        "4143.010.32.1123-2024"
+      ],
+      "fuente_financiacion": "Recursos propios",
+      "cantidad": "1",
+      "barrio_vereda": "Santa Elena",
+      "presupuesto_base": "140000000"
+    },
+    "updated_at": "2025-11-05T11:34:45.377903"
+  },
+  "timestamp": "2025-11-09T01:58:48.962104"
+}

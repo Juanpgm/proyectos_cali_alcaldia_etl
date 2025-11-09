@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1077",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Carrera 30 Entre Calles 5B Y 5A",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.166243",
+    "has_valid_geometry": true,
+    "upid": "UNP-1077",
+    "nombre_up_detalle": "Via Local",
+    "nombre_up": "Carrera 30 Entre Calles 5B Y 5A",
+    "comuna_corregimiento": "COMUNA 19",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.54160781802528, 3.432894520854219, 0.0], [-76.54093960125314, 3.4319996880498804, 0.0]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "3 de Julio",
+    "cantidad": 78,
+    "loaded_at": "2025-11-04T20:23:09.166247",
+    "presupuesto_base": 58811470.93
+  },
+  "timestamp": "2025-11-09T01:43:45.223406"
+}

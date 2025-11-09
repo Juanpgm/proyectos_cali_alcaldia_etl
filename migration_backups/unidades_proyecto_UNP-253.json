@@ -1,0 +1,52 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-253",
+  "data": {
+    "created_at": "2025-11-05T11:34:36.170962",
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -76.469644,
+        3.413352
+      ]
+    },
+    "has_geometry": true,
+    "geometry_type": "Point",
+    "properties": {
+      "processed_timestamp": "2025-11-05T11:34:28.210236",
+      "descripcion_intervencion": null,
+      "microtio": null,
+      "bpin": "-2147483648",
+      "centros_gravedad": false,
+      "upid": "UNP-253",
+      "nombre_up_detalle": "Sede principal",
+      "tipo_intervencion": "Adecuaciones y mantenimientos",
+      "url_proceso": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.7857151&isFromPublicArea=True&isModal=False",
+      "referencia_contrato": "4148.010.26.1.0522-2025",
+      "unidad": "UND",
+      "identificador": "Mantenimiento Bibliotecas",
+      "tipo_equipamiento": "Bibliotecas",
+      "fecha_fin": "15-12-2025",
+      "estado": "En ejecución",
+      "fecha_inicio": "13-05-2025",
+      "plataforma": "SECOP II",
+      "nombre_centro_gestor": "Secretaría de Cultura",
+      "avance_obra": "80.0",
+      "geometry_bounds": null,
+      "direccion": "Cra. 26t #72w23",
+      "ano": "2025",
+      "geometry_type": null,
+      "dataframe": null,
+      "comuna_corregimiento": "COMUNA 13",
+      "nombre_up": "biblioteca pública daniel guillard - certificada",
+      "referencia_proceso": "4148.010.32.1.0424-2025",
+      "fuente_financiacion": "Recursos propios",
+      "cantidad": "1",
+      "barrio_vereda": "Los Lagos",
+      "presupuesto_base": "6861959"
+    },
+    "updated_at": "2025-11-05T11:34:36.170962"
+  },
+  "timestamp": "2025-11-09T01:48:39.888966"
+}

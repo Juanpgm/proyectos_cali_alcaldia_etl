@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2021760010475",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Paz y Cultura Ciudadana",
+    "cod_producto": 4502037,
+    "nombre_area_funcional": "Personas en proceso de reincorporación, reintegración, desvinculados del conflicto armado con orientación social, política y comunitaria",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Derechos Humanos, Paz y Reconciliación  ",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2021760010475,
+    "created_at": "2025-10-10T09:29:59.440273+00:00",
+    "nombre_actividad": "Realizar la identificación y acompañamiento  a las iniciativas sociales, politicas y comunitarias en  la construcción de paz y la reconciliación.",
+    "updated_at": "2025-10-10T09:29:59.440273+00:00",
+    "programa_presupuestal": "BP260026311010104",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "Fortalecimiento de escenarios y oportunidades sociales, políticas y comunitarias que faciliten los procesos de reincorporación, reintegración y reconciliación en Santiago de   Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 45,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Distrito Reconciliado",
+    "validador_cuipo": null,
+    "bp": "BP26002631"
+  },
+  "timestamp": "2025-11-09T01:28:18.784564"
+}

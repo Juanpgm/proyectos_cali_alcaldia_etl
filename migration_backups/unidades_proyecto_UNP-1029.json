@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1029",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Calle 3A Con Carrera 35",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.147399",
+    "has_valid_geometry": true,
+    "upid": "UNP-1029",
+    "nombre_up_detalle": "Via Local",
+    "nombre_up": "Calle 3A Con Carrera 35",
+    "comuna_corregimiento": "COMUNA 19",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.54653996699994, 3.4357578790000503, 0.0], [-76.54642072999997, 3.4357655410000234, 0.0]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "San Fernando Viejo",
+    "cantidad": 80,
+    "loaded_at": "2025-11-04T20:23:09.147405",
+    "presupuesto_base": 60319457.36
+  },
+  "timestamp": "2025-11-09T01:42:58.591962"
+}

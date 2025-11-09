@@ -1,0 +1,19 @@
+{
+  "collection_path": "flujo_caja_emprestito",
+  "doc_id": "26005359.0_Bancolombia_dic-25",
+  "data": {
+    "banco": "Bancolombia",
+    "desembolso": 184758000.0,
+    "id_registro": "26005359.0_Bancolombia_dic-25",
+    "mes": "dic-25",
+    "columna_origen": "dic-25 Desembolso",
+    "bp_proyecto": "26005359.0",
+    "responsable": "Esperanza Ramos",
+    "fecha_procesamiento": "2025-10-20T11:50:33.076660",
+    "periodo": "2025-12-01T00:00:00",
+    "archivo_origen": "Matriz Emprestito.xlsx",
+    "organismo": "Desarrollo Económico",
+    "descripcion_bp": "Fortalecimiento de las capacidades del ecosistema laboral para el desarrollo productivo sostenible en el Distrito de Santiago de Cali"
+  },
+  "timestamp": "2025-11-09T00:48:32.743021"
+}

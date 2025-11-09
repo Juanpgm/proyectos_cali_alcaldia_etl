@@ -1,0 +1,52 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-352",
+  "data": {
+    "created_at": "2025-11-05T11:34:37.529430",
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -76.484306,
+        3.418222
+      ]
+    },
+    "has_geometry": true,
+    "geometry_type": "Point",
+    "properties": {
+      "processed_timestamp": "2025-11-05T11:34:28.210236",
+      "descripcion_intervencion": null,
+      "microtio": null,
+      "bpin": "-2147483648",
+      "centros_gravedad": false,
+      "upid": "UNP-352",
+      "nombre_up_detalle": "Estudios & Diseños Bulevar Figueroa",
+      "tipo_intervencion": "Obra nueva",
+      "url_proceso": null,
+      "referencia_contrato": null,
+      "unidad": "UND",
+      "identificador": "Ingeniería de Detalle Cristo y Rey & Bulevar Figueroa",
+      "tipo_equipamiento": "Reducción del riesgo",
+      "fecha_fin": null,
+      "estado": "En alistamiento",
+      "fecha_inicio": null,
+      "plataforma": null,
+      "nombre_centro_gestor": "Secretaría de Vivienda Social y Habitat",
+      "avance_obra": "0.0",
+      "geometry_bounds": null,
+      "direccion": null,
+      "ano": "2025",
+      "geometry_type": null,
+      "dataframe": null,
+      "comuna_corregimiento": "COMUNA 14",
+      "nombre_up": "Estudios & Diseños Bulevar Figueroa",
+      "referencia_proceso": "4147.010.32.1.868-2025",
+      "fuente_financiacion": "Empréstito",
+      "cantidad": "1",
+      "barrio_vereda": null,
+      "presupuesto_base": "0"
+    },
+    "updated_at": "2025-11-05T11:34:37.529430"
+  },
+  "timestamp": "2025-11-09T01:50:17.756346"
+}

@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1093",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Calle 38N Entre Av 6A N Y 6D N",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.172536",
+    "has_valid_geometry": true,
+    "upid": "UNP-1093",
+    "nombre_up_detalle": "Via Colectora",
+    "nombre_up": "Calle 38N Entre Av 6A N Y 6D N",
+    "comuna_corregimiento": "COMUNA 02",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.52881223414963, 3.478302048610769, 0.0], [-76.52716498014941, 3.477720703494941, 0.0]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Chipichape",
+    "cantidad": 290,
+    "loaded_at": "2025-11-04T20:23:09.172540",
+    "presupuesto_base": 219035029.54
+  },
+  "timestamp": "2025-11-09T01:44:01.076566"
+}

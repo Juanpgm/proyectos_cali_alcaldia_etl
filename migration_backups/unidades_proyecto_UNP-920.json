@@ -1,0 +1,55 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-920",
+  "data": {
+    "created_at": "2025-11-05T11:34:47.014801",
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -76.55282,
+        3.403565
+      ]
+    },
+    "has_geometry": true,
+    "geometry_type": "Point",
+    "properties": {
+      "processed_timestamp": "2025-11-05T11:34:28.210236",
+      "descripcion_intervencion": "Cambio de cubiertas en bloques de aulas y comedor cocina, Adecuaciones de comedor cocina, reposición de losas de corredores, enlucimiento general de las aulas intervenidas.",
+      "microtio": null,
+      "bpin": "-2147483648",
+      "centros_gravedad": false,
+      "upid": "UNP-920",
+      "nombre_up_detalle": "Jhon F Kennedy",
+      "tipo_intervencion": "Adecuaciones y mantenimientos",
+      "url_proceso": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.8657537&isFromPublicArea=True&isModal=False, https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.8725902&isFromPublicArea=True&isModal=False",
+      "referencia_contrato": "4143.010.26.1.1738.2025\n 4143.010.26.1.1740.2025",
+      "unidad": "UND",
+      "identificador": "Grupo 22 sedes (Empréstito)",
+      "tipo_equipamiento": "Institución Educativa",
+      "fecha_fin": "27/2/2026",
+      "estado": "En alistamiento",
+      "fecha_inicio": "04-11-2025",
+      "plataforma": "SECOP II",
+      "nombre_centro_gestor": "Secretaría de Educación",
+      "avance_obra": "0.0",
+      "geometry_bounds": null,
+      "direccion": null,
+      "ano": "2025",
+      "geometry_type": null,
+      "dataframe": null,
+      "comuna_corregimiento": "COMUNA 18",
+      "nombre_up": "I.E. Politecnico Municipal",
+      "referencia_proceso": [
+        "4143.010.32.0876-2025",
+        "4143.010.32.1544-2025"
+      ],
+      "fuente_financiacion": "Empréstito",
+      "cantidad": "1",
+      "barrio_vereda": "Caldas",
+      "presupuesto_base": "660655862"
+    },
+    "updated_at": "2025-11-05T11:34:47.014801"
+  },
+  "timestamp": "2025-11-09T01:59:36.468531"
+}

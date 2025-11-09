@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010017",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Movilidad",
+    "cod_producto": null,
+    "nombre_area_funcional": "Cartera RDI (Registro Distrital de Infracciones) recuperada",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Fortalecimiento institucional",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010017,
+    "created_at": "2025-10-10T09:25:01.341872+00:00",
+    "nombre_actividad": "Apoyar la gestión de cobro coactivo",
+    "updated_at": "2025-10-10T09:25:01.341872+00:00",
+    "programa_presupuestal": 6302001,
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2025,
+    "nombre_proyecto": "Fortalecimiento institucional para la atención de usuarios de la Secretaria De Movilidad Del Distrito De Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": null,
+    "validador_cuipo": null,
+    "bp": "BP26005474"
+  },
+  "timestamp": "2025-11-09T01:32:14.449343"
+}

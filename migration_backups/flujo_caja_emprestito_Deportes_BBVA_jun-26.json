@@ -1,0 +1,16 @@
+{
+  "collection_path": "flujo_caja_emprestito",
+  "doc_id": "Deportes_BBVA_jun-26",
+  "data": {
+    "banco": "BBVA",
+    "desembolso": 94844156.0,
+    "id_registro": "Deportes_BBVA_jun-26",
+    "mes": "jun-26",
+    "fecha_procesamiento": "2025-10-20T11:37:44.609614",
+    "desembolso_real": 0.0,
+    "periodo": "2026-06-01T00:00:00",
+    "archivo_origen": "Matriz Emprestito.xlsx",
+    "organismo": "Deportes"
+  },
+  "timestamp": "2025-11-09T00:50:09.610479"
+}

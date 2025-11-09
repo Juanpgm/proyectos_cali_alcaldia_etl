@@ -1,0 +1,31 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "WYS12fRliDh7QSWS140Z",
+  "data": {
+    "nombre_centro_gestor": "",
+    "observaciones": "Se encuentra en estructuración de cuenta de cobro",
+    "fecha_reporte": "2025-10-30T22:28:12.810484+00:00",
+    "referencia_contrato": "151305",
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/1RgJtXj3aMEBww4KGKIs65q7ZCazu7NOp",
+    "archivos_evidencia": [
+      {
+        "type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "size": 0,
+        "download_url": "https://drive.google.com/uc?id=1QGZNbm7F563zGUQ18wCEkB_ovl8n64ua",
+        "url": "https://docs.google.com/document/d/1QGZNbm7F563zGUQ18wCEkB_ovl8n64ua/edit?usp=drivesdk&ouid=107631050282737776825&rtpof=true&sd=true",
+        "status": "uploaded_successfully",
+        "drive_id": "1QGZNbm7F563zGUQ18wCEkB_ovl8n64ua",
+        "name": "Nuevo Documento de Microsoft Word.docx"
+      }
+    ],
+    "avance_fisico": 80.0,
+    "alertas": {
+      "descripcion": "",
+      "es_alerta": false,
+      "tipos": []
+    },
+    "avance_financiero": 80.0,
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:41:27.605082"
+}

@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010244",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Educación",
+    "cod_producto": null,
+    "nombre_area_funcional": "Sedes educativas oficiales con infraestructura mejorada",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Cali Educada",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010244,
+    "nombre_actividad": "Realizar el mejoramiento de las áreas escolares en la IEO Normal Superior\nFarallones - Sede Principal de la Comuna 3 de Santiago de Cali",
+    "created_at": "2025-10-10T09:32:43.814264+00:00",
+    "updated_at": "2025-10-10T09:32:43.814264+00:00",
+    "programa_presupuestal": 6102001,
+    "nombre_pospre": "Servicios de la construcción",
+    "anio": 2025,
+    "nombre_proyecto": "Mejoramiento locativo de la infraestructura en las Sedes Educativas Oficiales de la Comuna 3 de Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "COMUNA 3",
+    "origen": "Territorio",
+    "bp": "BP26005796",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T01:35:35.004003"
+}

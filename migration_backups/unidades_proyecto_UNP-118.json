@@ -1,0 +1,52 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-118",
+  "data": {
+    "created_at": "2025-11-05T11:34:34.739193",
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -76.518335,
+        3.454866
+      ]
+    },
+    "has_geometry": true,
+    "geometry_type": "Point",
+    "properties": {
+      "processed_timestamp": "2025-11-05T11:34:28.210236",
+      "descripcion_intervencion": null,
+      "microtio": null,
+      "bpin": "-2147483648",
+      "centros_gravedad": false,
+      "upid": "UNP-118",
+      "nombre_up_detalle": "Sede principal",
+      "tipo_intervencion": "Adecuaciones y mantenimientos",
+      "url_proceso": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.6122226&isFromPublicArea=True&isModal=False",
+      "referencia_contrato": "4148.010.26.1.0824-2024",
+      "unidad": "UND",
+      "identificador": "Mantenimiento Monumentos",
+      "tipo_equipamiento": "Infraestructura cultural ",
+      "fecha_fin": "15-12-2024",
+      "estado": "Finalizado",
+      "fecha_inicio": "06-06-2024",
+      "plataforma": "SECOP II",
+      "nombre_centro_gestor": "Secretaría de Cultura",
+      "avance_obra": "100.0",
+      "geometry_bounds": null,
+      "direccion": "Carrera 7 Calle 26",
+      "ano": "2024",
+      "geometry_type": null,
+      "dataframe": null,
+      "comuna_corregimiento": "COMUNA 04",
+      "nombre_up": "Monumentos Jorge Isaacs 1957",
+      "referencia_proceso": "4148.010.32.1.0439-2024",
+      "fuente_financiacion": "Recursos propios",
+      "cantidad": "1",
+      "barrio_vereda": "Jorge Isaacs",
+      "presupuesto_base": "42820851"
+    },
+    "updated_at": "2025-11-05T11:34:34.739193"
+  },
+  "timestamp": "2025-11-09T01:45:25.113756"
+}

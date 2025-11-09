@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010228",
+  "data": {
+    "nombre_centro_gestor": "Departamento Administrativo de Desarrollo e Innovación Institucional",
+    "cod_producto": 4599021,
+    "nombre_area_funcional": "Documentos técnicos de rediseño institucional acorde con la categoría Cali Distrito Especial, elaborados",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Implementación de Cali Distrito ",
+    "nombre_dimension": "Cali, Gobierno Incluyente",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010228,
+    "created_at": "2025-10-10T09:27:25.141732+00:00",
+    "nombre_actividad": "Diagnosticar entorno y ambiente externo",
+    "updated_at": "2025-10-10T09:27:25.141732+00:00",
+    "programa_presupuestal": "BP260027011010103",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "Asistencia técnica para el desarrollo de la categoria de Distrito Especial en la Alcaldía de Santiago de Cali",
+    "clasificacion_fondo": "Libre destinación (Recursos Propios)",
+    "cod_sector": 45,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Transición hacia Distrito Especial",
+    "validador_cuipo": null,
+    "bp": "BP26002701"
+  },
+  "timestamp": "2025-11-09T01:06:19.949489"
+}

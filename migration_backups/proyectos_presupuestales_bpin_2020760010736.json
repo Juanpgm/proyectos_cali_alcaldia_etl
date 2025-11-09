@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010736",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Desarrollo Territorial y Participación Ciudadana",
+    "cod_producto": 4502034,
+    "nombre_area_funcional": "Estrategia para el fomento y promoción del derecho a la libertad religiosa y la participación ciudadana, realizada",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Cultura Ciudadana ",
+    "nombre_dimension": "Cali, Gobierno Incluyente",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010736,
+    "created_at": "2025-10-10T09:30:31.307389+00:00",
+    "nombre_actividad": "Realizar procesos de formación sobre los derechos, deberes y las políticas públicas relacionadas con la participación",
+    "updated_at": "2025-10-10T09:30:31.307389+00:00",
+    "programa_presupuestal": "BP260029481020106",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Apoyo al fomento a la promoción del derecho a la libertad religiosa participativa en Santiago de Cali.",
+    "clasificacion_fondo": "Libre destinación (Recursos Propios)",
+    "cod_sector": 45,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Ciudadanía Activa y Gobernanza",
+    "validador_cuipo": null,
+    "bp": "BP26002948"
+  },
+  "timestamp": "2025-11-09T01:08:32.414469"
+}

@@ -1,0 +1,22 @@
+{
+  "collection_path": "users",
+  "doc_id": "7Y8FKYCOiEemgj55RSXG7G8rxOa2",
+  "data": {
+    "created_at": "2025-10-12T14:23:11.168657+00:00",
+    "uid": "7Y8FKYCOiEemgj55RSXG7G8rxOa2",
+    "nombre_centro_gestor": "Secretaría de Gobierno",
+    "cellphone": "+573016944373",
+    "updated_at": "2025-10-12T14:23:11.168662+00:00",
+    "last_login": null,
+    "login_count": 0,
+    "is_active": true,
+    "email": "juana.catano@cali.gov.co",
+    "email_verified": false,
+    "fullname": "Juana catano",
+    "auth_providers": [
+      "password"
+    ],
+    "can_use_google_auth": true
+  },
+  "timestamp": "2025-11-09T02:00:55.277979"
+}

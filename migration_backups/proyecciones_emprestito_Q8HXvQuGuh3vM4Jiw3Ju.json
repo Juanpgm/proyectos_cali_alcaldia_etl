@@ -1,0 +1,23 @@
+{
+  "collection_path": "proyecciones_emprestito",
+  "doc_id": "Q8HXvQuGuh3vM4Jiw3Ju",
+  "data": {
+    "nombre_banco": "Bancolombia",
+    "nombre_organismo_reducido": "DATIC",
+    "ultima_actualizacion": "2025-11-08T11:31:07.621144+00:00",
+    "item": "17",
+    "nombre_resumido_proceso": "Contrato 07: Plataforma para los sistemas de información financiera de la Alcaldía de Santiago de Cali en Nube",
+    "fuente": "google_sheets",
+    "fecha_carga": "2025-11-08T11:31:04.561592",
+    "valor_proyectado": 0,
+    "nombre_generico_proyecto": "ModernIzacion Plataforma Tecnológica",
+    "fila_origen": 17,
+    "id_paa": "18924",
+    "fecha_guardado": "2025-11-08T11:31:07.621144+00:00",
+    "referencia_proceso": "",
+    "BP": "BP26005260",
+    "urlProceso": "https://drive.google.com/file/d/13UemXfM0tdZLBOzpKLVoD79x539LH7X5/view",
+    "descripcion_bp": "Fortalecimiento de la Plataforma Tecnológica de la Alcaldia de Santiago de Cali"
+  },
+  "timestamp": "2025-11-09T00:52:52.330059"
+}

@@ -1,0 +1,10 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Reglas temporales para migración
+    // TODO: Actualizar estas reglas después de la migración
+    match /{document=**} {
+      allow read, write: if true;
+    }
+  }
+}

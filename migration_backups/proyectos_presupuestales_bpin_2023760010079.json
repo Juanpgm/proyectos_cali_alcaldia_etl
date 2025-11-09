@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2023760010079",
+  "data": {
+    "nombre_centro_gestor": "Secretaría del Deporte y la Recreación",
+    "cod_producto": null,
+    "nombre_area_funcional": "Adultos mayores beneficiados con estrategias en pro del envejecimiento funcional saludable y activo",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Personas Mayores Envejeciendo con Bienestar",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2023760010079,
+    "created_at": "2025-10-10T09:29:41.436024+00:00",
+    "nombre_actividad": "Organizar las estrategias que promuevan hábitos saludables en los adultos mayores de la comuna 3",
+    "updated_at": "2025-10-10T09:29:41.436024+00:00",
+    "programa_presupuestal": "BP260049971010101",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Recreación con estrategias en pro del envejecimiento funcional saludable y activo con adultos mayores de la comuna 3 de Santiago de Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": null,
+    "comuna": "COMUNA 3",
+    "origen": "Territorio",
+    "nombre_linea_estrategica": "Poblaciones Construyendo Territorio",
+    "validador_cuipo": null,
+    "bp": "BP26004997"
+  },
+  "timestamp": "2025-11-09T01:30:21.023458"
+}

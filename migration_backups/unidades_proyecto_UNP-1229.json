@@ -1,0 +1,30 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1229",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Carrera 10 Entre Calles 3 Hasta Calle 4",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:10.780636",
+    "has_valid_geometry": true,
+    "upid": "UNP-1229",
+    "comuna_corregimiento": "COMUNA 03",
+    "nombre_up": "Carrera 10 Entre Calles 3 Hasta Calle 4",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.53879943924267, 3.446292630700384, 0.0], [-76.53843427222387, 3.4462302896961887, 0.0], [-76.5382987237071, 3.4462090360182174, 0.0], [-76.53812182795997, 3.4461960677943466, 0.0], [-76.53801768736633, 3.446194548839401, 0.0], [-76.53787415826577, 3.446196190102114, 0.0]]}",
+    "identificador": "Puntos Estrategicos",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "San Antonio",
+    "cantidad": 103,
+    "loaded_at": "2025-11-04T20:23:10.780646",
+    "presupuesto_base": 62360550.0
+  },
+  "timestamp": "2025-11-09T01:46:13.357271"
+}

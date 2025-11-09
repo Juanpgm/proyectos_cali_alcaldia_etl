@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1110",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Calle 2 Oeste Entre Carreras 71 Y 76   - Calle 1A Oeste Entre Carreras 74B Y 75",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.178858",
+    "has_valid_geometry": true,
+    "upid": "UNP-1110",
+    "nombre_up_detalle": "Via Local",
+    "nombre_up": "Calle 2 Oeste Entre Carreras 71 Y 76",
+    "comuna_corregimiento": "COMUNA 18",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"MultiLineString\", \"coordinates\": [[[-76.55751378477835, 3.390185843338565, 0.0], [-76.55752820646772, 3.390136722541902, 0.0]], [[-76.55752820646772, 3.390136722541902, 0.0], [-76.55758057816749, 3.389958342634563, 0.0], [-76.55769301550896, 3.3895753767285512, 0.0], [-76.55773554598886, 3.3894305161990657, 0.0], [-76.55792263764776, 3.3889659900233022, 0.0], [-76.55799822007901, 3.388778483426109, 0.0], [-76.55804153018853, 3.3886708826279515, 0.0], [-76.55806276998095, 3.388405940279419, 0.0]]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Lourdes",
+    "cantidad": 0,
+    "loaded_at": "2025-11-04T20:23:09.178861",
+    "presupuesto_base": 170878015.8
+  },
+  "timestamp": "2025-11-09T01:44:18.598705"
+}

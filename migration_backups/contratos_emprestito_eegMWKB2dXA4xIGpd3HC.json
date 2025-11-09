@@ -1,0 +1,42 @@
+{
+  "collection_path": "contratos_emprestito",
+  "doc_id": "eegMWKB2dXA4xIGpd3HC",
+  "data": {
+    "nit_contratista": "",
+    "fecha_fin_contrato": "2026-02-28",
+    "sector": "Educación Nacional",
+    "ordenador_gasto": "SARA MERCEDES RODAS SOTO",
+    "valor_contrato": 2044073628,
+    "nombre_procedimiento": "",
+    "valor_pagado": "0",
+    "urlproceso": {
+      "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.8657537&isFromPublicArea=True&isModal=true&asPopupView=true"
+    },
+    "descripcion_proceso": "Ejecutar por el sistema de precios unitarios fijos; sin formula de reajuste la construcción de obras para la adecuación de las Instituciones Educativas Veinte de Julio sede Cristina Serrano; Santa Fe sede Estado de Puerto Rico; Juan De Ampudia sede Once De Noviembre; Simón Rodríguez sede María Panes",
+    "bpin": null,
+    "_dataset_source": "jbjy-vk9h",
+    "supervisor": "No definido",
+    "entidad_contratante": "SECRETARIA DE EDUCACION DE CALI",
+    "banco": "Bancolombia",
+    "referencia_contrato": "4143.010.26.1.1744.2025",
+    "nit_entidad": "890399011",
+    "fecha_guardado": "2025-10-29T17:16:05.908627+00:00",
+    "id_contrato": "CO1.PCCNTR.8414382",
+    "modalidad_contratacion": "Licitación pública Obra Publica",
+    "fecha_firma_contrato": null,
+    "bp": "BP26004701",
+    "nombre_centro_gestor": "Secretaría de Educación",
+    "version_esquema": "1.1",
+    "representante_legal": "WILVER FRANCINY RUSSY LADINO",
+    "fuente_datos": "SECOP_API",
+    "proceso_contractual": "CO1.BDOS.8526751",
+    "fecha_inicio_contrato": "2025-10-31",
+    "fecha_actualizacion": "2025-11-06T06:28:06.354965+00:00",
+    "nombre_contratista": "",
+    "estado_contrato": "En ejecución",
+    "referencia_proceso": "4143.010.32.0876-2025",
+    "objeto_contrato": "Ejecutar por el sistema de precios unitarios fijos; sin formula de reajuste la construcción de obras para la adecuación de las Instituciones Educativas Veinte de Julio sede Cristina Serrano; Santa Fe sede Estado de Puerto Rico; Juan De Ampudia sede Once De Noviembre; Simón Rodríguez sede María Panesso; Villa Colombia sede Santísima Trinidad",
+    "tipo_contrato": "Obra"
+  },
+  "timestamp": "2025-11-09T00:48:02.512628"
+}

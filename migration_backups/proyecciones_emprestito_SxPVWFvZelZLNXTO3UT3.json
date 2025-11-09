@@ -1,0 +1,23 @@
+{
+  "collection_path": "proyecciones_emprestito",
+  "doc_id": "SxPVWFvZelZLNXTO3UT3",
+  "data": {
+    "nombre_banco": "IFC",
+    "nombre_organismo_reducido": "Desarrollo Económico",
+    "ultima_actualizacion": "2025-11-08T11:31:07.657000+00:00",
+    "item": "137",
+    "nombre_resumido_proceso": "Adición. Interventoría para la construcción de las fases II y III del Centro de Ciencia, Arte y Tecnología – YAWA.",
+    "fuente": "google_sheets",
+    "fecha_carga": "2025-11-08T11:31:04.580674",
+    "valor_proyectado": 0,
+    "nombre_generico_proyecto": "YAWA",
+    "fila_origen": 137,
+    "id_paa": "VIGENCIAS 2026 Y 2027",
+    "fecha_guardado": "2025-11-08T11:31:07.657000+00:00",
+    "referencia_proceso": "",
+    "BP": "BP26005258",
+    "urlProceso": "",
+    "descripcion_bp": "\"Construcción y operación del Centro de Ciencia, Arte y Tecnología del distrito de Santiago de Cali\""
+  },
+  "timestamp": "2025-11-09T00:52:57.681341"
+}

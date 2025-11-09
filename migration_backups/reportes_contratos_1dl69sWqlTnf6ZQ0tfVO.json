@@ -1,0 +1,31 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "1dl69sWqlTnf6ZQ0tfVO",
+  "data": {
+    "nombre_centro_gestor": "",
+    "observaciones": "Una vez cumplido con la primer parte de los entregables del contrato se procedió a pasar cuenta de cobro previamente aprobada por el supervisor esta en tramite de cuenta.",
+    "fecha_reporte": "2025-10-24T17:50:48.317494+00:00",
+    "referencia_contrato": "4134.010.26.1.0252-2025",
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/15nu3dTEETAKF7Nqp3yRwX2a7ITTYEOrS",
+    "archivos_evidencia": [
+      {
+        "type": "application/pdf",
+        "size": 1715552,
+        "download_url": "https://drive.google.com/uc?id=1MDtWALnTnNZsGu2GXatJI7kqvTKgC2o5",
+        "url": "https://drive.google.com/file/d/1MDtWALnTnNZsGu2GXatJI7kqvTKgC2o5/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1MDtWALnTnNZsGu2GXatJI7kqvTKgC2o5",
+        "name": "Informe de supervisión cuota 1.pdf"
+      }
+    ],
+    "avance_fisico": 60.0,
+    "alertas": {
+      "descripcion": "",
+      "es_alerta": false,
+      "tipos": []
+    },
+    "avance_financiero": 60.0,
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:40:24.271864"
+}

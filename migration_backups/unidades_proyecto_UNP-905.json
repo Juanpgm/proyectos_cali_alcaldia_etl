@@ -1,0 +1,52 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-905",
+  "data": {
+    "created_at": "2025-11-05T11:34:47.008953",
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -76.495775,
+        3.413805
+      ]
+    },
+    "has_geometry": true,
+    "geometry_type": "Point",
+    "properties": {
+      "processed_timestamp": "2025-11-05T11:34:28.210236",
+      "descripcion_intervencion": "Reparacion alumbrado en patio, prioritario para garantizar las ejeucacion de las votaciones por las elecciones de alcaldia y gobernacion en sede.",
+      "microtio": null,
+      "bpin": "-2147483648",
+      "centros_gravedad": false,
+      "upid": "UNP-905",
+      "nombre_up_detalle": "JOSE RAMON BEJARANO",
+      "tipo_intervencion": "Adecuaciones y mantenimientos",
+      "url_proceso": "Pendiente",
+      "referencia_contrato": "4143.010.26.1.1320-2024",
+      "unidad": "UND",
+      "identificador": "Frente de obra contratada en 2024",
+      "tipo_equipamiento": "Institución Educativa",
+      "fecha_fin": "2024",
+      "estado": "Entregada",
+      "fecha_inicio": "2024",
+      "plataforma": "SECOP II",
+      "nombre_centro_gestor": "Secretaría de Educación",
+      "avance_obra": "10.0",
+      "geometry_bounds": null,
+      "direccion": null,
+      "ano": "2024",
+      "geometry_type": null,
+      "dataframe": null,
+      "comuna_corregimiento": "COMUNA 15",
+      "nombre_up": "I.E. Gabriel Garcia Marquez",
+      "referencia_proceso": "4143.010.32.0829-2024",
+      "fuente_financiacion": "Recursos propios",
+      "cantidad": "1",
+      "barrio_vereda": "El Retiro",
+      "presupuesto_base": "15380211"
+    },
+    "updated_at": "2025-11-05T11:34:47.008953"
+  },
+  "timestamp": "2025-11-09T01:59:21.488796"
+}

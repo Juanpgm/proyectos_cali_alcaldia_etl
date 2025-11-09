@@ -1,0 +1,58 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-908",
+  "data": {
+    "created_at": "2025-11-05T11:34:47.009963",
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -76.551002,
+        3.393881
+      ]
+    },
+    "has_geometry": true,
+    "geometry_type": "Point",
+    "properties": {
+      "processed_timestamp": "2025-11-05T11:34:28.210236",
+      "descripcion_intervencion": "Adecuaciones del edificio donde se ubica la sala de sistemas, con el cambio de teja, reposición de instalaciones eléctricas e instalación de cielos en sala de informática; adicionalmente, se debe realizar la prolongación de la cubierta sobre losa de concreto del mismo bloque. Como segunda prioridad se habló del mantenimiento de la estructura del coliseo y el cambio parcial de paños de concreto de la cancha.",
+      "microtio": null,
+      "bpin": "-2147483648",
+      "centros_gravedad": false,
+      "upid": "UNP-908",
+      "nombre_up_detalle": "ALFONSO BONILLA NAAR",
+      "tipo_intervencion": "Adecuaciones y mantenimientos",
+      "url_proceso": "https://www.secop.gov.co/CO1ContractsManagement/Tendering/ProcurementContractEdit/View?Id=2987299&prevCtxUrl=https%3a%2f%2fwww.secop.gov.co%3a443%2fCO1ContractsManagement%2fGlobalSearch%2fGlobalSearch%2fIndex%3fallWords2Search%3d2078",
+      "referencia_contrato": [
+        "4143.010.26. 1313-2024",
+        "4143.010.26.1.1317-2024"
+      ],
+      "unidad": "UND",
+      "identificador": "Frente de obra ejecutada 2024 - P. Participativo 2024",
+      "tipo_equipamiento": "Institución Educativa",
+      "fecha_fin": "2024",
+      "estado": "Entregada",
+      "fecha_inicio": "2024",
+      "plataforma": "SECOP II",
+      "nombre_centro_gestor": "Secretaría de Educación",
+      "avance_obra": "10.0",
+      "geometry_bounds": null,
+      "direccion": null,
+      "ano": "2024",
+      "geometry_type": null,
+      "dataframe": null,
+      "comuna_corregimiento": "COMUNA 15",
+      "nombre_up": "I.E. Gabriel Garcia Marquez",
+      "referencia_proceso": [
+        "4143.010.32.0470-2024",
+        "4143.010.32.0724-2024"
+      ],
+      "fuente_financiacion": "Recursos propios",
+      "cantidad": "1",
+      "barrio_vereda": "Comuneros I",
+      "presupuesto_base": "236000000"
+    },
+    "updated_at": "2025-11-05T11:34:47.009963"
+  },
+  "timestamp": "2025-11-09T01:59:24.196648"
+}

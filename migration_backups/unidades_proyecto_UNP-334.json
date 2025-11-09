@@ -1,0 +1,52 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-334",
+  "data": {
+    "created_at": "2025-11-05T11:34:37.520204",
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -76.48375266,
+        3.426631606
+      ]
+    },
+    "has_geometry": true,
+    "geometry_type": "Point",
+    "properties": {
+      "processed_timestamp": "2025-11-05T11:34:28.210236",
+      "descripcion_intervencion": "Casa de Justicia Aguablanca.",
+      "microtio": null,
+      "bpin": "-2147483648",
+      "centros_gravedad": false,
+      "upid": "UNP-334",
+      "nombre_up_detalle": "Casa de Justicia Aguablanca.",
+      "tipo_intervencion": "Adecuaciones y mantenimientos",
+      "url_proceso": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.8428443&isFromPublicArea=True&isModal=False",
+      "referencia_contrato": "4161.010.26.1.1133.2025",
+      "unidad": "UND",
+      "identificador": "MANTENIMIENTO DE LA INFRAESTRUCTURA DE LOS DESPACHOS DE ACCESO A LA JUSTICIA DEL DISTRITO DE SANTIAGO DE CALI.",
+      "tipo_equipamiento": "CAD",
+      "fecha_fin": "46022",
+      "estado": "En ejecución",
+      "fecha_inicio": "45870",
+      "plataforma": "SECOP II",
+      "nombre_centro_gestor": "Secretaría de Seguridad y Justicia",
+      "avance_obra": "85.0",
+      "geometry_bounds": null,
+      "direccion": "Calle 73 # 26R-00",
+      "ano": "2025",
+      "geometry_type": null,
+      "dataframe": null,
+      "comuna_corregimiento": "COMUNA 14",
+      "nombre_up": "Mantenimiento Infraestructura",
+      "referencia_proceso": "4161.010.32.1.1106.2025",
+      "fuente_financiacion": "Recursos propios",
+      "cantidad": "1",
+      "barrio_vereda": "Marroquin II",
+      "presupuesto_base": "225108768"
+    },
+    "updated_at": "2025-11-05T11:34:37.520204"
+  },
+  "timestamp": "2025-11-09T01:50:00.178971"
+}

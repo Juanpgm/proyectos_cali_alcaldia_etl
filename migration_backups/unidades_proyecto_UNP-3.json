@@ -1,0 +1,52 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-3",
+  "data": {
+    "created_at": "2025-11-05T11:34:33.267954",
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -76.50621930930474,
+        3.398446564826276
+      ]
+    },
+    "has_geometry": true,
+    "geometry_type": "Point",
+    "properties": {
+      "processed_timestamp": "2025-11-05T11:34:28.210236",
+      "descripcion_intervencion": null,
+      "microtio": null,
+      "bpin": "-2147483648",
+      "centros_gravedad": false,
+      "upid": "UNP-3",
+      "nombre_up_detalle": "•\tObras Civiles\n•\tAmoblamiento\n•\tLimpieza Final\n•\tAdecuación Paisajistica Y Manejo Ambiental\n•\tComponente Educativo ",
+      "tipo_intervencion": "Adecuaciones y mantenimientos",
+      "url_proceso": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.8535730&isFromPublicArea=True&isModal=False",
+      "referencia_contrato": "4133.010.27.1.021-2025",
+      "unidad": "UND",
+      "identificador": "Parque",
+      "tipo_equipamiento": "Parques y zonas verdes",
+      "fecha_fin": "15/12/2024",
+      "estado": "En ejecución",
+      "fecha_inicio": "12/08/2024",
+      "plataforma": "SECOP II",
+      "nombre_centro_gestor": "Departamento Administrativo de Gestión del Medio Ambiente",
+      "avance_obra": "0.0",
+      "geometry_bounds": null,
+      "direccion": "Carreras 43C y 45 con calles 54C y 55",
+      "ano": "2025",
+      "geometry_type": null,
+      "dataframe": "INFORMACION DEL ESTADO POAI 2024 - 2025.xlsx",
+      "comuna_corregimiento": "COMUNA 15",
+      "nombre_up": "Parque Morichal 3",
+      "referencia_proceso": "4133.010.32.1.1601-2025",
+      "fuente_financiacion": "Presupuesto Participativo",
+      "cantidad": "1",
+      "barrio_vereda": "Morichal",
+      "presupuesto_base": "162473651"
+    },
+    "updated_at": "2025-11-05T11:34:33.267954"
+  },
+  "timestamp": "2025-11-09T01:49:24.668567"
+}

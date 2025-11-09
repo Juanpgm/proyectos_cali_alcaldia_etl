@@ -1,0 +1,52 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-536",
+  "data": {
+    "created_at": "2025-11-05T11:34:41.215482",
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -76.51390561781379,
+        3.4915963106068757
+      ]
+    },
+    "has_geometry": true,
+    "geometry_type": "Point",
+    "properties": {
+      "processed_timestamp": "2025-11-05T11:34:28.210236",
+      "descripcion_intervencion": null,
+      "microtio": "3,4915963106068757",
+      "bpin": "-2147483648",
+      "centros_gravedad": false,
+      "upid": "UNP-536",
+      "nombre_up_detalle": "Centro Integrado para la Gestión del Riesgo de Emergencias y Desastres",
+      "tipo_intervencion": "Rehabilitación - Reforzamiento",
+      "url_proceso": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.7059922&isFromPublicArea=True&isModal=False",
+      "referencia_contrato": "4163.001.32.1.858 -2024",
+      "unidad": "UND",
+      "identificador": "CIGRED",
+      "tipo_equipamiento": "Reducción del riesgo",
+      "fecha_fin": "31-12-2024",
+      "estado": "En ejecución",
+      "fecha_inicio": "05-12-2024",
+      "plataforma": "SECOP II",
+      "nombre_centro_gestor": "Secretaría para la Gestión del Riesgo de Emergencias y Desastres",
+      "avance_obra": "0.0",
+      "geometry_bounds": null,
+      "direccion": "calle 70N # 3B-35.",
+      "ano": "2024",
+      "geometry_type": null,
+      "dataframe": "-76,51390561781379",
+      "comuna_corregimiento": "COMUNA 02",
+      "nombre_up": "Estudios CIGRED, Centro Integral Gestión del Riesgo de Emergencias y Desastres de Cali",
+      "referencia_proceso": "4163.001.32.1.858 -2024",
+      "fuente_financiacion": "Recursos propios",
+      "cantidad": "1",
+      "barrio_vereda": "Urbanización la Flora",
+      "presupuesto_base": "121380000"
+    },
+    "updated_at": "2025-11-05T11:34:41.215482"
+  },
+  "timestamp": "2025-11-09T01:53:17.393945"
+}

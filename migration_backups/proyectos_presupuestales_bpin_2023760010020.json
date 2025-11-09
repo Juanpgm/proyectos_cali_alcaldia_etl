@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2023760010020",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Educación",
+    "cod_producto": 2201006,
+    "nombre_area_funcional": "IEO fortalecidas en competencias comunicativas en lengua extranjeraInglés",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Gestión de la Educación",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2023760010020,
+    "created_at": "2025-10-10T09:27:38.220974+00:00",
+    "nombre_actividad": "Brindar apoyo a la implementación de actividades para el fomento del desarrollo de la Competencia Comunicativa Intercultural",
+    "updated_at": "2025-10-10T09:27:38.221561+00:00",
+    "programa_presupuestal": "BP260048191010110",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Fortalecimiento de la Competencia Comunicativa Intercultural en estudiantes, docentes y directivos docentes de las Instituciones Educativas Oficiales de Santiago de Cali",
+    "clasificacion_fondo": "Libre destinación (Recursos Propios)",
+    "cod_sector": 22,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Distrito Educador",
+    "validador_cuipo": null,
+    "bp": "BP26004819"
+  },
+  "timestamp": "2025-11-09T01:29:35.326388"
+}

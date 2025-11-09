@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2022760010080",
+  "data": {
+    "nombre_centro_gestor": "Secretaría del Deporte y la Recreación",
+    "cod_producto": 4301028,
+    "nombre_area_funcional": "Intervenciones en escenarios deportivos y recreativos en comunas y corregimientos diseñados, con mantenimiento, construidos o adecuados",
+    "nombre_fondo": "Ingresos Corrientes de Libre Destinación",
+    "nombre_programa": "Equipamientos para el Desarrollo y el Bienestar",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2022760010080,
+    "created_at": "2025-10-10T09:29:49.412693+00:00",
+    "nombre_actividad": "Realizar mantenimiento de escenarios deportivos de la comuna 1",
+    "updated_at": "2025-10-10T09:29:49.412693+00:00",
+    "programa_presupuestal": "BP260043641010101",
+    "nombre_pospre": "Servicios de la construcción",
+    "anio": 2024,
+    "nombre_proyecto": "Mantenimiento de espacios deportivos de la comuna 1 del distrito de Santiago de Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 43,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Territorios para la Vida",
+    "validador_cuipo": null,
+    "bp": "BP26004364"
+  },
+  "timestamp": "2025-11-09T01:28:46.721357"
+}

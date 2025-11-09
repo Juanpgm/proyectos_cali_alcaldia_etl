@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1080",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Calle 39A Con Carrera 43B",
+    "has_geometry": true,
+    "bpin": "2022760010010",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.167231",
+    "has_valid_geometry": true,
+    "upid": "UNP-1080",
+    "nombre_up_detalle": "Via Local",
+    "nombre_up": "Calle 39A Con Carrera 43B",
+    "comuna_corregimiento": "COMUNA 16",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.51497378949846, 3.409176300821358, 0.0], [-76.51493580008302, 3.4092134173156836, 0.0]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "República de Israel",
+    "cantidad": 5,
+    "loaded_at": "2025-11-04T20:23:09.167235",
+    "presupuesto_base": 3769966.09
+  },
+  "timestamp": "2025-11-09T01:43:48.824846"
+}

@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010045",
+  "data": {
+    "nombre_centro_gestor": "Departamento Administrativo de Tecnologías de la Información y las Comunicaciones",
+    "cod_producto": null,
+    "nombre_area_funcional": "Infraestructura Tecnológica de la Administración Municipal con índice de disponibilidad consolidado",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Fortalecimiento institucional",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010045,
+    "nombre_actividad": "Ejecutar monitoreo y gestión sobre la Infraestructura Tecnológica",
+    "created_at": "2025-10-10T09:32:27.196622+00:00",
+    "updated_at": "2025-10-10T09:32:27.196622+00:00",
+    "programa_presupuestal": 6302001,
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2025,
+    "nombre_proyecto": "Fortalecimiento de la Plataforma Tecnológica de la Alcaldía de Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "bp": "BP26005260",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T01:32:39.881314"
+}

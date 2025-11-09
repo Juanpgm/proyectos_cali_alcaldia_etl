@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010604",
+  "data": {
+    "nombre_centro_gestor": "Unidad Administrativa Especial de Servicios Públicos",
+    "cod_producto": null,
+    "nombre_area_funcional": "Redes de acueducto optimizadas",
+    "nombre_fondo": "CUR 016/18EMCALI SSF",
+    "nombre_programa": "Vivienda sostenible, saneamiento básico y servicios públicos",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010604,
+    "created_at": "2025-10-10T09:26:41.261237+00:00",
+    "nombre_actividad": "Realizar la obra civil e instalación de tuberías y accesorios de acueducto en el Barrio Saavedra Galindo",
+    "updated_at": "2025-10-10T09:26:41.261237+00:00",
+    "programa_presupuestal": 6201002,
+    "nombre_pospre": "Acueductos y otros conductos de suministros de aguas, excepto gasoductos",
+    "anio": 2025,
+    "nombre_proyecto": "Mejoramiento de la redes de acueducto en los barrios el Lido, Colseguros, Saavedra Galindo, Puerto Mallarino y Simón Bolívar de Santiago de Cali",
+    "clasificacion_fondo": "Otros Recursos con Destinación Especifica",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": null,
+    "validador_cuipo": null,
+    "bp": "BP26005881"
+  },
+  "timestamp": "2025-11-09T01:40:15.548920"
+}

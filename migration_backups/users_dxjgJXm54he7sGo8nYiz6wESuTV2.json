@@ -1,0 +1,22 @@
+{
+  "collection_path": "users",
+  "doc_id": "dxjgJXm54he7sGo8nYiz6wESuTV2",
+  "data": {
+    "created_at": "2025-11-06T17:09:00.934848+00:00",
+    "uid": "dxjgJXm54he7sGo8nYiz6wESuTV2",
+    "login_count": 0,
+    "cellphone": "+573046337709",
+    "nombre_centro_gestor": "Secretaría de Vivienda Social y Hábitat",
+    "is_active": true,
+    "fullname": "KAREN ALEXA GALEANO RESTREPO",
+    "auth_providers": [
+      "password"
+    ],
+    "email": "karen.galeano@correounivalle.edu.co",
+    "email_verified": false,
+    "last_login": null,
+    "updated_at": "2025-11-06T17:09:00.934853+00:00",
+    "can_use_google_auth": false
+  },
+  "timestamp": "2025-11-09T02:01:10.817910"
+}

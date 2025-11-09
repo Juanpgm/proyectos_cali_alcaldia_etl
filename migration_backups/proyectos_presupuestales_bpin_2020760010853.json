@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010853",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Gobierno",
+    "cod_producto": 4599031,
+    "nombre_area_funcional": "Red de agentes institucionales con un plan específico para buen gobierno, abierto a la ciudadanía; operando",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Ciudadanía Empoderada",
+    "nombre_dimension": "Cali, Gobierno Incluyente",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010853,
+    "created_at": "2025-10-10T09:26:46.152998+00:00",
+    "nombre_actividad": "Apoyar la formulación participativa e implementación de un plan articulado de buen gobierno con la participación decisiva de los ecosistemas de agentes institucionales involucrados.",
+    "updated_at": "2025-10-10T09:26:46.152998+00:00",
+    "programa_presupuestal": "BP260031021020111",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "Implementación de la escuela de buen gobierno en   Cali",
+    "clasificacion_fondo": "Libre destinación (Recursos Propios)",
+    "cod_sector": 45,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Ciudadanía Activa y Gobernanza",
+    "validador_cuipo": null,
+    "bp": "BP26003102"
+  },
+  "timestamp": "2025-11-09T01:09:25.132701"
+}

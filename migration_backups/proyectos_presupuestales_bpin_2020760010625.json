@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010625",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Seguridad y Justicia",
+    "cod_producto": null,
+    "nombre_area_funcional": "Jóvenes vinculados a situaciones delictivas, intervenidos",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Cali Distrito Joven: Conectados con la Ciudadanía Juvenil",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010625,
+    "created_at": "2025-10-10T09:29:22.474448+00:00",
+    "nombre_actividad": "Realizar actividades de acompañamiento psicosocial y pedagógico de\nintervencion con jóvenes",
+    "updated_at": "2025-10-10T09:29:22.474448+00:00",
+    "programa_presupuestal": "BP260034831010105",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "PREVENCIÓN DE LAS VIOLENCIAS  EN JÓVENES VINCULADOS A SITUACIONES DELICTIVAS  DE LA COMUNA 15 DE CALI",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": null,
+    "comuna": "COMUNA 15",
+    "origen": "Territorio",
+    "nombre_linea_estrategica": "Poblaciones Construyendo Territorio",
+    "validador_cuipo": null,
+    "bp": "BP26003483"
+  },
+  "timestamp": "2025-11-09T01:07:57.292506"
+}

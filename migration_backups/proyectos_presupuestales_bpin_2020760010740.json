@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010740",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Paz y Cultura Ciudadana",
+    "cod_producto": 4102040,
+    "nombre_area_funcional": "Niños, niñas, adolescentes y jóvenes sensibilizados para la prevención de los delitos de desaparición, trata, reclutamiento forzado, uso y utilización de menores",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Derechos Humanos, Paz y Reconciliación  ",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010740,
+    "created_at": "2025-10-10T09:29:58.228916+00:00",
+    "nombre_actividad": "Realizar la construccion conjunta de la cartilla con la comunidad participante de los espacios formativos",
+    "updated_at": "2025-10-10T09:29:58.228916+00:00",
+    "programa_presupuestal": "BP260026731010104",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "Fortalecimiento de las acciones de prevención de las vulneraciones y/o violaciones a los derechos humanos en NNAJ  en Santiago de  Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 41,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Distrito Reconciliado",
+    "validador_cuipo": null,
+    "bp": "BP26002673"
+  },
+  "timestamp": "2025-11-09T01:08:33.288004"
+}

@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2022760010121",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Turismo",
+    "cod_producto": 3502036,
+    "nombre_area_funcional": "Parques de experiencia turística diseñados e implementados",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Marca de Ciudad para un Distrito Especial ",
+    "nombre_dimension": "Cali, Inteligente para la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2022760010121,
+    "created_at": "2025-10-10T09:30:24.860813+00:00",
+    "nombre_actividad": "Implementación de un modelo de operación y sostenibilidad para parques de experiencia de Santiago de Cali",
+    "updated_at": "2025-10-10T09:30:24.860813+00:00",
+    "programa_presupuestal": "BP260043261010101",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Apoyo para la consolidación de parques de experiencia en Santiago de   Cali",
+    "clasificacion_fondo": "Libre destinación (Recursos Propios)",
+    "cod_sector": 35,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Posicionamiento Local en el Ámbito Internacional",
+    "validador_cuipo": null,
+    "bp": "BP26004326"
+  },
+  "timestamp": "2025-11-09T01:29:01.711388"
+}

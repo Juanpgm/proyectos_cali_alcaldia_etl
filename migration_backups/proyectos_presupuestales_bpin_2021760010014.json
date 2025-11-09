@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2021760010014",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Educación",
+    "cod_producto": null,
+    "nombre_area_funcional": "Estudiantes atendidos a través de Metodologías Educativas Flexibles para la población en extraedad, educación formal de jóvenes y adultos y apoyo académico especial y emocional",
+    "nombre_fondo": "R.B. R.F. S.G.P. Propósito General-Otros Sectores",
+    "nombre_programa": "Cali Educada",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2021760010014,
+    "created_at": "2025-10-10T09:30:48.464736+00:00",
+    "nombre_actividad": "Realizar atencion a niños y niñas de extraedad en aulas de modelos educativos flexibles en basica primaria en Instituciones Educativas Oficiales",
+    "updated_at": "2025-10-10T09:30:48.464736+00:00",
+    "programa_presupuestal": "BP260028081010101",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Fortalecimiento de las metodologías flexibles para la atención educativa IEO de Cali",
+    "clasificacion_fondo": "Recursos con Destinación específica del SGP",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": null,
+    "validador_cuipo": null,
+    "bp": "BP26002808"
+  },
+  "timestamp": "2025-11-09T01:09:31.262094"
+}

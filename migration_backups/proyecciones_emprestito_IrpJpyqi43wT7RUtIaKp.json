@@ -1,0 +1,23 @@
+{
+  "collection_path": "proyecciones_emprestito",
+  "doc_id": "IrpJpyqi43wT7RUtIaKp",
+  "data": {
+    "nombre_banco": "Bancolombia",
+    "nombre_organismo_reducido": "Desarrollo Económico",
+    "ultima_actualizacion": "2025-11-08T11:31:07.628700+00:00",
+    "item": "33",
+    "nombre_resumido_proceso": "Contrato 1: Constituir un Fondo en Administración con recursos aportados por EL CONSTITUYENTE al ICETEX, quien actuará como administrador y mandatario, para financiar becas en programas de formación por competencias, enfocados en bilingüismo y habilidades clave para mejorar la competitividad del talento humano en el Distrito de Santiago de Cali.",
+    "fuente": "google_sheets",
+    "fecha_carga": "2025-11-08T11:31:04.565257",
+    "valor_proyectado": 0,
+    "nombre_generico_proyecto": "Becas de habilitación Laboral",
+    "fila_origen": 33,
+    "id_paa": "18992",
+    "fecha_guardado": "2025-11-08T11:31:07.628700+00:00",
+    "referencia_proceso": "",
+    "BP": "BP26005359",
+    "urlProceso": "https://www.secop.gov.co/CO1BusinessLine/Tendering/ContractNoticeView/Index?prevCtxLbl=Buscar+procesos&prevCtxUrl=https%3a%2f%2fwww.secop.gov.co%3a443%2fCO1BusinessLine%2fTendering%2fContractNoticeManagement%2fIndex&notice=CO1.NTC.9048521",
+    "descripcion_bp": "Fortalecimiento de las capacidades del ecosistema laboral para el desarrollo productivo sostenible en el distrito de Santiago de Cali) - MI CALI BECA"
+  },
+  "timestamp": "2025-11-09T00:52:43.609972"
+}

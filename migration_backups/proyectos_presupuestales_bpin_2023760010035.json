@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2023760010035",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Educación",
+    "cod_producto": null,
+    "nombre_area_funcional": "Sedes educativas oficiales con infraestructura mejorada",
+    "nombre_fondo": "Ingresos Corrientes de Libre Destinación",
+    "nombre_programa": "Cali Educada",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2023760010035,
+    "nombre_actividad": "Realizar el mejoramiento de las áreas escolares en la IEO Santa Librada - Sede Eustaquio Palacios de la Comuna 3 de Santiago de Cali",
+    "created_at": "2025-10-10T09:32:52.437255+00:00",
+    "updated_at": "2025-10-10T09:32:52.437255+00:00",
+    "programa_presupuestal": 6102001,
+    "nombre_pospre": "Servicios de la construcción",
+    "anio": 2025,
+    "nombre_proyecto": "Mejoramiento de la infraestructura en las Sedes Educativas Oficiales de la Comuna 3 de Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "COMUNA 3",
+    "origen": "Territorio",
+    "bp": "BP26004891",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T01:29:45.828147"
+}

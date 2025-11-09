@@ -1,0 +1,31 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "X1y7U3KK4Gup0SMwo2Sy",
+  "data": {
+    "observaciones": "Para este proyecto se lleva como ejecución física el 50%, para proceder con el primer desembolso  el contratista se encuentra subsanando unas observaciones realizadas por el supervisor para proceder a pasar la primer cuenta de cobro y asi ejecutar el 50% del valor financiero correspondiente a $ 250.000.000 COP. Una vez este ya aprobado por el super se procederá a cargar dicho informe",
+    "nombre_centro_gestor": "",
+    "fecha_reporte": "2025-10-13T20:14:57.656121+00:00",
+    "referencia_contrato": "4134.010.26.1.0252-2025",
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/1PCEp6viSGyVYTMUhuwMVrxEuHrl7EPIr",
+    "archivos_evidencia": [
+      {
+        "type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "size": 20671,
+        "download_url": "https://drive.google.com/uc?id=1LdEFmAHyaOTBnEny5GF2aqEao-LpU98F",
+        "url": "https://docs.google.com/document/d/1LdEFmAHyaOTBnEny5GF2aqEao-LpU98F/edit?usp=drivesdk&ouid=107631050282737776825&rtpof=true&sd=true",
+        "drive_id": "1LdEFmAHyaOTBnEny5GF2aqEao-LpU98F",
+        "status": "uploaded_successfully",
+        "name": "% avances de procesos de contratacion emprestito DATIC.docx"
+      }
+    ],
+    "avance_fisico": 50.0,
+    "avance_financiero": 0.0,
+    "alertas": {
+      "es_alerta": false,
+      "descripcion": "",
+      "tipos": []
+    },
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:41:29.363701"
+}

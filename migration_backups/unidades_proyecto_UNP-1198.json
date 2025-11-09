@@ -1,0 +1,30 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1198",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Cil 9 Entre Cra 39 Hasta Cra 36",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.933670",
+    "has_valid_geometry": true,
+    "upid": "UNP-1198",
+    "comuna_corregimiento": "COMUNA 19",
+    "nombre_up": "Cil 9 Entre Cra 39 Hasta Cra 36",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.53782283665453, 3.425533898270828, 0.0], [-76.53804355996226, 3.424728964570079, 0.0], [-76.53813015478278, 3.4242721251584953, 0.0], [-76.53815216119324, 3.4239493018188796, 0.0], [-76.53816064359876, 3.4231380269984015, 0.0], [-76.53818322557538, 3.422719106601562, 0.0], [-76.53827827402307, 3.422359109785134, 0.0], [-76.5383524842797, 3.422065967670335, 0.0], [-76.53850194261054, 3.4215411062371004, 0.0]]}",
+    "identificador": "Puntos Estrategicos",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Eucaristico",
+    "cantidad": 450,
+    "loaded_at": "2025-11-04T20:23:09.933676",
+    "presupuesto_base": 1361019011.0
+  },
+  "timestamp": "2025-11-09T01:45:42.725624"
+}

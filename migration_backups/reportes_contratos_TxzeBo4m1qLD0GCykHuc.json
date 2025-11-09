@@ -1,0 +1,31 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "TxzeBo4m1qLD0GCykHuc",
+  "data": {
+    "nombre_centro_gestor": "",
+    "observaciones": "LOTE 1: informe semanal No. 6 de interventoría de corte al 28 de octubre de 2025 el Contrato de Obra No. 4151.010.26.1.0887-2025, presenta avance físico del 3.4%, y un avance financiero del 2.7% que equivale a $ 276,407,144",
+    "fecha_reporte": "2025-10-30T16:14:24.579699+00:00",
+    "referencia_contrato": "4151.010.26.1.0887-2025",
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/16dwF48-us86Z-TwLmittF9zqbvvV2x68",
+    "archivos_evidencia": [
+      {
+        "type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "size": 13393,
+        "download_url": "https://drive.google.com/uc?id=1RJWoCRh406xVQo-K0aH8sX-eMKZBurra",
+        "url": "https://docs.google.com/document/d/1RJWoCRh406xVQo-K0aH8sX-eMKZBurra/edit?usp=drivesdk&ouid=107631050282737776825&rtpof=true&sd=true",
+        "status": "uploaded_successfully",
+        "drive_id": "1RJWoCRh406xVQo-K0aH8sX-eMKZBurra",
+        "name": "Blanco.docx"
+      }
+    ],
+    "avance_fisico": 3.4,
+    "alertas": {
+      "descripcion": "",
+      "es_alerta": false,
+      "tipos": []
+    },
+    "avance_financiero": 2.7,
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:41:20.615412"
+}

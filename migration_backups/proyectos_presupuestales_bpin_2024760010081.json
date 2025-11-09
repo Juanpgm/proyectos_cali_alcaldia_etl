@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010081",
+  "data": {
+    "nombre_centro_gestor": "Secretaría del Deporte y la Recreación",
+    "cod_producto": null,
+    "nombre_area_funcional": "Acciones para promover la iniciativa \"Cali Ciudad Deportiva\" en cumplimiento de la Política Pública del Deporte y la Recreación de Santiago de Cali.",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Cali Distrito Deportivo, Cultural y Turístico",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010081,
+    "created_at": "2025-10-10T09:25:15.771765+00:00",
+    "nombre_actividad": "Realizar el diagnóstico de desempeño institucional histórico de la Secretaría del Deporte y la Recreación",
+    "updated_at": "2025-10-10T09:25:15.771765+00:00",
+    "programa_presupuestal": 6102003,
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2025,
+    "nombre_proyecto": "Transformación institucional y articulación con el sector productivo de la secretaría del deporte y la recreación de Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": null,
+    "validador_cuipo": null,
+    "bp": "BP26005302"
+  },
+  "timestamp": "2025-11-09T01:33:11.487923"
+}

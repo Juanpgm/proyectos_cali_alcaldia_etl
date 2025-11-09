@@ -1,0 +1,23 @@
+{
+  "collection_path": "proyecciones_emprestito",
+  "doc_id": "OugbMRtwkw9efcK2hba0",
+  "data": {
+    "nombre_banco": "Bancolombia",
+    "nombre_organismo_reducido": "Vivienda",
+    "ultima_actualizacion": "2025-11-08T11:31:07.637226+00:00",
+    "item": "55",
+    "nombre_resumido_proceso": "Contrato 1. Subsidios para cierre financiero",
+    "fuente": "google_sheets",
+    "fecha_carga": "2025-11-08T11:31:04.570648",
+    "valor_proyectado": 0,
+    "nombre_generico_proyecto": "Subsidios para vivienda",
+    "fila_origen": 55,
+    "id_paa": "19030",
+    "fecha_guardado": "2025-11-08T11:31:07.637226+00:00",
+    "referencia_proceso": "",
+    "BP": "BP26005429",
+    "urlProceso": "Se transfirieron $17.537.520.000 al Fondo Especial de Vivienda",
+    "descripcion_bp": "FORTALECIMIENTO DE OFERTA HABITACIONL EN SANTIAGO DE CALI"
+  },
+  "timestamp": "2025-11-09T00:52:51.673245"
+}

@@ -1,0 +1,19 @@
+{
+  "collection_path": "flujo_caja_emprestito",
+  "doc_id": "26005296.0_BBVA_abr-26",
+  "data": {
+    "banco": "BBVA",
+    "desembolso": 179760000.0,
+    "id_registro": "26005296.0_BBVA_abr-26",
+    "mes": "abr-26",
+    "fecha_procesamiento": "2025-10-20T11:50:33.088485",
+    "bp_proyecto": "26005296.0",
+    "responsable": "Paola Riveros",
+    "columna_origen": "abr-26 Desembolso",
+    "periodo": "2026-04-01T00:00:00",
+    "archivo_origen": "Matriz Emprestito.xlsx",
+    "organismo": "Bienes",
+    "descripcion_bp": "Mejoramiento y/o adecuación de las edificaciones propiedad del Distrito de Santiago de Cali, incluido piso 11"
+  },
+  "timestamp": "2025-11-09T00:48:24.767265"
+}

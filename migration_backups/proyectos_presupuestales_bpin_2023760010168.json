@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2023760010168",
+  "data": {
+    "nombre_centro_gestor": "Unidad Administrativa Especial de Servicios Públicos",
+    "cod_producto": null,
+    "nombre_area_funcional": "Personas sensibilizadas en gestión de residuos sólidos con inclusión de recicladores de oficio",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Gestión Integral de Residuos Sólidos ",
+    "nombre_dimension": "Cali, Nuestra Casa Común",
+    "tipo_gasto": "Inversión",
+    "bpin": 2023760010168,
+    "created_at": "2025-10-10T09:30:37.132744+00:00",
+    "nombre_actividad": "Realizar jornadas de difusión de información para la prestación de los servicios públicos",
+    "updated_at": "2025-10-10T09:30:37.132744+00:00",
+    "programa_presupuestal": "BP260048171010101",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "Implementación de la estrategia de comunicación para el manejo adecuado de los residuos sólidos en el marco de la prestación de los servicios públicos en  Cali",
+    "clasificacion_fondo": "Libre destinación (Recursos Propios)",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Mitigación del Cambio Climático",
+    "validador_cuipo": null,
+    "bp": "BP26004817"
+  },
+  "timestamp": "2025-11-09T01:31:30.191682"
+}

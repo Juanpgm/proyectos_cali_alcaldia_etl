@@ -1,0 +1,31 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "idtpmC2N9Ob6ly6qTpga",
+  "data": {
+    "nombre_centro_gestor": "",
+    "fecha_reporte": "2025-10-24T00:33:16.647544+00:00",
+    "observaciones": "No se ha establecido la fecha de inicio del contrato debido a que se encuentra en proceso de elaboración el RPC. Por este motivo, no es posible dar inicio a las actividades de interventoría.",
+    "avance_fisico": 0.0,
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/1BbgKExLS0P4haJYDYeO6bE-uS8OiZMiC",
+    "archivos_evidencia": [
+      {
+        "type": "application/pdf",
+        "size": 1733999,
+        "download_url": "https://drive.google.com/uc?id=1e6NwQoi3fpUP1i1v31Y1w_keLuNnBvfU",
+        "url": "https://drive.google.com/file/d/1e6NwQoi3fpUP1i1v31Y1w_keLuNnBvfU/view?usp=drivesdk",
+        "drive_id": "1e6NwQoi3fpUP1i1v31Y1w_keLuNnBvfU",
+        "status": "uploaded_successfully",
+        "name": "INTERVENTORIA 4148.010.26.1.1417-2025.pdf"
+      }
+    ],
+    "referencia_contrato": "4148.010.26.1.1417-2025",
+    "avance_financiero": 0.0,
+    "alertas": {
+      "descripcion": "",
+      "es_alerta": false,
+      "tipos": []
+    },
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:42:00.866170"
+}

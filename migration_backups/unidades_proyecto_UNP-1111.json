@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1111",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Calle 13 Entre Carreras 24 Y Autopista Suroriental",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.179225",
+    "has_valid_geometry": true,
+    "upid": "UNP-1111",
+    "nombre_up_detalle": "Via Arteria Principal",
+    "nombre_up": "Calle 13 Entre Carreras 24 Y Autopista Suroriental",
+    "comuna_corregimiento": "COMUNA 10",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.52738273171221, 3.431748931257412, 0.0], [-76.52715855123503, 3.4314346796101187, 0.0]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Colseguros Andes",
+    "cantidad": 42,
+    "loaded_at": "2025-11-04T20:23:09.179229",
+    "presupuesto_base": 14843518.41
+  },
+  "timestamp": "2025-11-09T01:44:19.475826"
+}

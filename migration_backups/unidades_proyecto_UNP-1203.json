@@ -1,0 +1,30 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1203",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Cra 36 Entre Av Roosevelt Hasta Cll 9",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.935728",
+    "has_valid_geometry": true,
+    "upid": "UNP-1203",
+    "comuna_corregimiento": "COMUNA 19",
+    "nombre_up": "Cra 36 Entre Av Roosevelt Hasta Cll 9",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.53788686658561, 3.4255129386712047, 0.0], [-76.5384438967684, 3.425779502222269, 0.0], [-76.53886395660629, 3.425963603337664, 0.0], [-76.53906682027747, 3.4261045253036286, 0.0], [-76.53926021228892, 3.4263419067536347, 0.0], [-76.53962743695661, 3.426754230623317, 0.0]]}",
+    "identificador": "Puntos Estrategicos",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Eucaristico",
+    "cantidad": 242,
+    "loaded_at": "2025-11-04T20:23:09.935733",
+    "presupuesto_base": 505120457.0
+  },
+  "timestamp": "2025-11-09T01:45:48.830440"
+}

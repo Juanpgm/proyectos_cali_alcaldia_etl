@@ -1,0 +1,52 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-343",
+  "data": {
+    "created_at": "2025-11-05T11:34:37.524039",
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -76.49775,
+        3.42508333
+      ]
+    },
+    "has_geometry": true,
+    "geometry_type": "Point",
+    "properties": {
+      "processed_timestamp": "2025-11-05T11:34:28.210236",
+      "descripcion_intervencion": null,
+      "microtio": null,
+      "bpin": "-2147483648",
+      "centros_gravedad": false,
+      "upid": "UNP-343",
+      "nombre_up_detalle": "Calipso III",
+      "tipo_intervencion": "Rehabilitación / Reforzamiento",
+      "url_proceso": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.6920161&isFromPublicArea=True&isModal=False",
+      "referencia_contrato": "4147.010.26.1.503-2024",
+      "unidad": "UND",
+      "identificador": "Parque comuna 13",
+      "tipo_equipamiento": "Parques y zonas verdes",
+      "fecha_fin": "16-06-2025",
+      "estado": "En liquidación",
+      "fecha_inicio": "03-12-2024",
+      "plataforma": "SECOP II",
+      "nombre_centro_gestor": "Secretaría de Vivienda Social y Habitat",
+      "avance_obra": "100.0",
+      "geometry_bounds": null,
+      "direccion": "Carrera 28D3 con Calle 72F a la Calle 72F3",
+      "ano": "2024",
+      "geometry_type": null,
+      "dataframe": null,
+      "comuna_corregimiento": "COMUNA 13",
+      "nombre_up": "Comuna 13 Calipso",
+      "referencia_proceso": "4147.010.32.1.503-2024",
+      "fuente_financiacion": "Ingresos libre destinación",
+      "cantidad": "1",
+      "barrio_vereda": "Calipso",
+      "presupuesto_base": "1015658785"
+    },
+    "updated_at": "2025-11-05T11:34:37.524039"
+  },
+  "timestamp": "2025-11-09T01:50:09.003906"
+}

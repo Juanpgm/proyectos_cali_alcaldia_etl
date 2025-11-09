@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010023",
+  "data": {
+    "nombre_centro_gestor": "Departamento Administrativo de Hacienda",
+    "cod_producto": null,
+    "nombre_area_funcional": "Predios urbanos y rurales de la ciudad actualizados con enfoque multipropósito",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Fortalecimiento institucional",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010023,
+    "nombre_actividad": "Elaborar plan de trabajo para el desarrollo del proceso de actualización con enfoque multipropósito.",
+    "created_at": "2025-10-10T09:32:02.386452+00:00",
+    "updated_at": "2025-10-10T09:32:02.386452+00:00",
+    "programa_presupuestal": 6302001,
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2025,
+    "nombre_proyecto": "Actualización del Censo Urbano y Rural del Distrito Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "bp": "BP26005401",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T01:32:19.657108"
+}

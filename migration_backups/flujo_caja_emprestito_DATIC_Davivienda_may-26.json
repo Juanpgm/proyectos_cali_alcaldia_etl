@@ -1,0 +1,16 @@
+{
+  "collection_path": "flujo_caja_emprestito",
+  "doc_id": "DATIC_Davivienda_may-26",
+  "data": {
+    "banco": "Davivienda",
+    "desembolso": 302176961.6,
+    "id_registro": "DATIC_Davivienda_may-26",
+    "mes": "may-26",
+    "fecha_procesamiento": "2025-10-20T11:37:44.609614",
+    "desembolso_real": 0.0,
+    "periodo": "2026-05-01T00:00:00",
+    "archivo_origen": "Matriz Emprestito.xlsx",
+    "organismo": "DATIC"
+  },
+  "timestamp": "2025-11-09T00:50:07.613153"
+}

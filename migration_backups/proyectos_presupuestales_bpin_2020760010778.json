@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010778",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Paz y Cultura Ciudadana",
+    "cod_producto": 4501004,
+    "nombre_area_funcional": "Iniciativas de prevención, promoción y protección ante la feminización de la vulneración de los Derechos Humanos y del DIH, desarrolladas",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Derechos Humanos, Paz y Reconciliación  ",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010778,
+    "created_at": "2025-10-10T09:30:03.668144+00:00",
+    "nombre_actividad": "Realizar mesas de trabajo que permitan identificar necesidades y requerimientos de las mujeres en derechos humanos.",
+    "updated_at": "2025-10-10T09:30:03.668144+00:00",
+    "programa_presupuestal": "BP260029831010108",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "Fortalecimiento de la atención diferencial ante la feminización de las vulneraciones de Derechos Humanos y el Derecho internacional humanitario a lideresas sociales en la Ciudad de Santiago de   Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 45,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Distrito Reconciliado",
+    "validador_cuipo": null,
+    "bp": "BP26002983"
+  },
+  "timestamp": "2025-11-09T01:08:56.109388"
+}

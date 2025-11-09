@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010550",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Paz y Cultura Ciudadana",
+    "cod_producto": 4102037,
+    "nombre_area_funcional": "Personas formadas en cultura ciudadana para la paz, la convivencia y la reconciliación",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Cultura Ciudadana ",
+    "nombre_dimension": "Cali, Gobierno Incluyente",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010550,
+    "created_at": "2025-10-10T09:30:05.963732+00:00",
+    "nombre_actividad": "Realizar la socialización del programa con la población para la conformación de grupos participantes",
+    "updated_at": "2025-10-10T09:30:05.963732+00:00",
+    "programa_presupuestal": "BP260026351010105",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Formación de capacidades para resolver los conflictos del hogar y de convivencia ciudadana pacíficamente en la ciudad de Santiago  Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 41,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Ciudadanía Activa y Gobernanza",
+    "validador_cuipo": null,
+    "bp": "BP26002635"
+  },
+  "timestamp": "2025-11-09T01:07:34.507621"
+}

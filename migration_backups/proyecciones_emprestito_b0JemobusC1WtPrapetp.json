@@ -1,0 +1,23 @@
+{
+  "collection_path": "proyecciones_emprestito",
+  "doc_id": "b0JemobusC1WtPrapetp",
+  "data": {
+    "nombre_banco": "BBVA",
+    "nombre_organismo_reducido": "Educación",
+    "ultima_actualizacion": "2025-11-08T11:31:07.641745+00:00",
+    "item": "75",
+    "nombre_resumido_proceso": "OBRA: Infraestructura educativa adecuaciones y mantenimientos 49 sedes",
+    "fuente": "google_sheets",
+    "fecha_carga": "2025-11-08T11:31:04.573119",
+    "valor_proyectado": 0,
+    "nombre_generico_proyecto": "OBRA: Infraestructura educativa adecuaciones y mantenimientos 49 sedes",
+    "fila_origen": 75,
+    "id_paa": "19718",
+    "fecha_guardado": "2025-11-08T11:31:07.641745+00:00",
+    "referencia_proceso": "",
+    "BP": "BP26004701",
+    "urlProceso": "https://www.secop.gov.co/CO1BusinessLine/Tendering/ContractNoticeView/Index?prevCtxLbl=Buscar+procesos&prevCtxUrl=https%3a%2f%2fwww.secop.gov.co%3a443%2fCO1BusinessLine%2fTendering%2fContractNoticeManagement%2fIndex&notice=CO1.NTC.9034626",
+    "descripcion_bp": "Adecuaciones 49 sedes educativas"
+  },
+  "timestamp": "2025-11-09T00:53:11.853433"
+}

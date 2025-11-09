@@ -1,0 +1,23 @@
+{
+  "collection_path": "proyecciones_emprestito",
+  "doc_id": "d1eSRa6hESBnBmGnrdPy",
+  "data": {
+    "nombre_banco": "BBVA",
+    "nombre_organismo_reducido": "Deportes",
+    "ultima_actualizacion": "2025-11-08T11:31:07.640233+00:00",
+    "item": "69",
+    "nombre_resumido_proceso": "Contrato No. 6: Interventoria a las obras de: adecuacion plataforma +5,70 coliseo del pueblo y realizar 17 adecuaciones de los escenarios y espacios deportivos priorizados del distrito especial de santiago de cali, con recursos del emprestito.",
+    "fuente": "google_sheets",
+    "fecha_carga": "2025-11-08T11:31:04.571650",
+    "valor_proyectado": 0,
+    "nombre_generico_proyecto": "Adeacuación y mantenimiento de escenarios deportivos",
+    "fila_origen": 69,
+    "id_paa": "VIGENCIAS 2026 Y 2027",
+    "fecha_guardado": "2025-11-08T11:31:07.640233+00:00",
+    "referencia_proceso": "",
+    "BP": "BP26005399",
+    "urlProceso": "",
+    "descripcion_bp": "Conservacion de la infraestructura deportiva y recreativa del distrito especial de Santiago de Cali"
+  },
+  "timestamp": "2025-11-09T00:53:16.474966"
+}

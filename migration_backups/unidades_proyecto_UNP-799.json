@@ -1,0 +1,58 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-799",
+  "data": {
+    "created_at": "2025-11-05T11:34:44.014683",
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -76.53428,
+        3.442317
+      ]
+    },
+    "has_geometry": true,
+    "geometry_type": "Point",
+    "properties": {
+      "processed_timestamp": "2025-11-05T11:34:28.210236",
+      "descripcion_intervencion": "Reforzamiento Estructural / reconstrucción bloques A y H",
+      "microtio": null,
+      "bpin": "-2147483648",
+      "centros_gravedad": false,
+      "upid": "UNP-799",
+      "nombre_up_detalle": "Principal",
+      "tipo_intervencion": "Adecuaciones y mantenimientos",
+      "url_proceso": "Se genera en el 2026",
+      "referencia_contrato": [
+        "***Proceso que depende de aprobación de las Vigencias Futuras Excepcionales: Adjudicación entre el 26 y 30 de diciembre",
+        "de obra e interventoria"
+      ],
+      "unidad": "UND",
+      "identificador": "Grupo de 7 (Empréstito)",
+      "tipo_equipamiento": "Institución Educativa",
+      "fecha_fin": "***Depende de la aprobación de las Vigencias Futuras Excepacionales: Fecha estimada 31-08-2027",
+      "estado": "En alistamiento",
+      "fecha_inicio": "***Depende de la aprobación de las Vigencias Futuras Excepacionales: Fecha estimada 01-03-2026",
+      "plataforma": "SECOP II",
+      "nombre_centro_gestor": "Secretaría de Educación",
+      "avance_obra": "0.0",
+      "geometry_bounds": null,
+      "direccion": "IND CL 7 # 14 A - 106",
+      "ano": "2026",
+      "geometry_type": null,
+      "dataframe": null,
+      "comuna_corregimiento": "COMUNA 03",
+      "nombre_up": "I.E. Santa Librada",
+      "referencia_proceso": [
+        "***Proceso que depende de aprobación de las Vigencias Futuras Excepcionales:\n Publicación prepliegos entre en 27 y 30 de Octubre",
+        "de obra e interventoria"
+      ],
+      "fuente_financiacion": "Empréstito",
+      "cantidad": "1",
+      "barrio_vereda": "San Juan Bosco",
+      "presupuesto_base": "15000000000"
+    },
+    "updated_at": "2025-11-05T11:34:44.014683"
+  },
+  "timestamp": "2025-11-09T01:57:36.720264"
+}

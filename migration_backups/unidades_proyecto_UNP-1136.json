@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1136",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Calle 25 Entre Carrera 83 Y 89",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.908623",
+    "has_valid_geometry": true,
+    "upid": "UNP-1136",
+    "nombre_up_detalle": "Via Arteria Principal",
+    "nombre_up": "Calle 25 Entre Carrera 83 Y 89",
+    "comuna_corregimiento": "COMUNA 17",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"MultiLineString\", \"coordinates\": [[[-76.5246757459947, 3.385638990332909, 0.0], [-76.52474645487628, 3.3836606759952716, 0.0], [-76.5248022809042, 3.3820987530355993, 0.0], [-76.52486982939278, 3.3802915856041746, 0.0], [-76.52487868397465, 3.3793191500210527, 0.0], [-76.52488115510835, 3.379223154798117, 0.0]], [[-76.52488115510835, 3.379223154798117, 0.0], [-76.52491896851387, 3.377754231323027, 0.0]]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "El Ingenio",
+    "cantidad": 431,
+    "loaded_at": "2025-11-04T20:23:09.908628",
+    "presupuesto_base": 785962529.4
+  },
+  "timestamp": "2025-11-09T01:44:43.168892"
+}

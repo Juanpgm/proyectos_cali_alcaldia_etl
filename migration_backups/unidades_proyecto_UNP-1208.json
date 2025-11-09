@@ -1,0 +1,30 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1208",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Vía A Cristo Rey Entre Cai Bellavista Hasta Monumento",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.938066",
+    "has_valid_geometry": true,
+    "upid": "UNP-1208",
+    "comuna_corregimiento": "COMUNA 19",
+    "nombre_up": "Vía A Cristo Rey Entre Cai Bellavista Hasta Monumento",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"GeometryCollection\", \"geometries\": [{\"type\": \"MultiLineString\", \"coordinates\": [[[-76.55397853038482, 3.4435977708205314, 0.0], [-76.5539912045304, 3.4435955755753866, 0.0], [-76.55418725943446, 3.443553350606692, 0.0], [-76.55450934802798, 3.443450139912104, 0.0], [-76.55468206102825, 3.4433563163409526, 0.0], [-76.55480809471777, 3.443281258023661, 0.0], [-76.55488277981641, 3.4431827471860865, 0.0], [-76.55493150436318, 3.443124876999184, 0.0]], [[-76.55749189753168, 3.435817041570931, 0.0], [-76.55750832958839, 3.435767903517725, 0.0]]]}, {\"type\": \"LineString\", \"coordinates\": [[-76.55750832958839, 3.435767903517725, 0.0], [-76.55752879873258, 3.435706693048831, 0.0]]}, {\"type\": \"LineString\", \"coordinates\": [[-76.54630871951002, 3.4467709758160603, 0.0], [-76.54643692498077, 3.446871679739787, 0.0], [-76.54652233273112, 3.4469216974228623, 0.0], [-76.54660598364026, 3.446954901658423, 0.0], [-76.54671128686667, 3.4469782179289714, 0.0], [-76.54682797823756, 3.4469825322353977, 0.0], [-76.5469798060428, 3.4469715212703362, 0.0], [-76.54718798367665, 3.4469746873694933, 0.0]]}, {\"type\": \"LineString\", \"coordinates\": [[-76.54610484202725, 3.446610832396633, 0.0], [-76.54630871951002, 3.4467709758160603, 0.0]]}]}",
+    "identificador": "Puntos Estrategicos",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Bellavista",
+    "cantidad": 1619,
+    "loaded_at": "2025-11-04T20:23:09.938070",
+    "presupuesto_base": 3591967700.0
+  },
+  "timestamp": "2025-11-09T01:45:53.192661"
+}

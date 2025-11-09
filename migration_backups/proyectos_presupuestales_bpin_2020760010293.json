@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010293",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Salud Pública",
+    "cod_producto": 1905049,
+    "nombre_area_funcional": "Personas en situación y en riesgo de consumo de sustancias psicoactivas, intervenidas",
+    "nombre_fondo": "SGP-Salud-Salud pública 11/12",
+    "nombre_programa": "Salud Pública Integral, Una Realidad en los Entornos de Vida Cotidianos",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010293,
+    "created_at": "2025-10-10T09:27:58.560315+00:00",
+    "nombre_actividad": "Realizar reconocimiento de la situación local en relación al abordaje integral del consumo de sustancias psicoactivas",
+    "updated_at": "2025-10-10T09:27:58.560315+00:00",
+    "programa_presupuestal": "BP260028661010110",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Fortalecimiento de la capacidad de respuesta en el abordaje y el riesgo del consumo de sustancias psicoactivas en    Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 19,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Territorios para la Vida",
+    "validador_cuipo": null,
+    "bp": "BP26002866"
+  },
+  "timestamp": "2025-11-09T01:06:29.584722"
+}

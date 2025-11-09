@@ -1,0 +1,23 @@
+{
+  "collection_path": "proyecciones_emprestito",
+  "doc_id": "s0ZeOpauzYzLXB5L5kdg",
+  "data": {
+    "nombre_banco": "Bancolombia",
+    "nombre_organismo_reducido": "Educación",
+    "ultima_actualizacion": "2025-11-08T11:31:07.631701+00:00",
+    "item": "39",
+    "nombre_resumido_proceso": "Contrato 3: Transferencia FFIE Obras Ley 21 (7 COLEGIOS) tranferencia",
+    "fuente": "google_sheets",
+    "fecha_carga": "2025-11-08T11:31:04.566401",
+    "valor_proyectado": 0,
+    "nombre_generico_proyecto": "Infraestructura Educativa FFIE",
+    "fila_origen": 39,
+    "id_paa": "NO VA AL PAA",
+    "fecha_guardado": "2025-11-08T11:31:07.631701+00:00",
+    "referencia_proceso": "",
+    "BP": "BP26005788",
+    "urlProceso": "Resolucion Transferencia",
+    "descripcion_bp": "Fortalecimiento de la infraestructura física de las sedes Educativas de Santaigo de Cali"
+  },
+  "timestamp": "2025-11-09T00:53:43.097747"
+}

@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2021760010492",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Bienestar Social",
+    "cod_producto": 4599030,
+    "nombre_area_funcional": "Sistema Distrital del Cuidado, diseñado y en proceso de implementación",
+    "nombre_fondo": "Estampilla Prodesarrollo Urbano  (10% Equidad de Género)",
+    "nombre_programa": "Todas las Mujeres Todos los Derechos ",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2021760010492,
+    "created_at": "2025-10-10T09:28:11.636901+00:00",
+    "nombre_actividad": "Desarrollar  direccionamiento técnico para mejorar la atención de la demanda del Cuidado a la ciudadanía en  Santiago de Cali",
+    "updated_at": "2025-10-10T09:28:11.636901+00:00",
+    "programa_presupuestal": "BP260037351010101",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "Implementación de un Sistema Distrital de Cuidados desde el enfoque de género y diferencial para Santiago de Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 45,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Poblaciones Construyendo Territorio",
+    "validador_cuipo": null,
+    "bp": "BP26003735"
+  },
+  "timestamp": "2025-11-09T01:28:31.819173"
+}

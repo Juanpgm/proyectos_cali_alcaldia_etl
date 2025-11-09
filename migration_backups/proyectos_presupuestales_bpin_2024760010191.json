@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010191",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Bienestar Social",
+    "cod_producto": null,
+    "nombre_area_funcional": "Mujeres víctimas de violencias basadas en género y su núcleo familiar vinculadas a servicios de atención integral",
+    "nombre_fondo": "Estampilla Prodesarrollo Urbano  (10% Equidad de Género)",
+    "nombre_programa": "Prevención y resolución de conflictos",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010191,
+    "nombre_actividad": "Suministrar servicio de transporte a las mujeres víctimas de violencias basadas en género en Casa Matria y en territorio.",
+    "created_at": "2025-10-10T09:33:20.335692+00:00",
+    "updated_at": "2025-10-10T09:33:20.335692+00:00",
+    "programa_presupuestal": 6101002,
+    "nombre_pospre": "Servicios de alojamiento; servicios de suministro de comidas y bebidas; servicios de transporte; y servicios de distribución de electricidad, gas y agua",
+    "anio": 2025,
+    "nombre_proyecto": "Servicio de atención integral a las mujeres víctimas de violencia basada en género en Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios con Destinacion Especifica",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "bp": "BP26005433",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T01:34:49.134698"
+}

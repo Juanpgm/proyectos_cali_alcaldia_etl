@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1075",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Carrera 1 (Av Colombia) Entre Calle 3 Y 4 Oeste",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.165379",
+    "has_valid_geometry": true,
+    "upid": "UNP-1075",
+    "nombre_up_detalle": "Via Arteria Principal",
+    "nombre_up": "Carrera 1 (Av Colombia) Entre Calle 3 Y 4 Oeste",
+    "comuna_corregimiento": "COMUNA 03",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.54349994543692, 3.4508303652279144, 0.0], [-76.54331544114066, 3.4508692453778393, 0.0], [-76.54331841710258, 3.4508722357459054, 0.0]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "El Peñón",
+    "cantidad": 20,
+    "loaded_at": "2025-11-04T20:23:09.165388",
+    "presupuesto_base": 7102161.92
+  },
+  "timestamp": "2025-11-09T01:43:43.462068"
+}

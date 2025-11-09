@@ -1,0 +1,16 @@
+{
+  "collection_path": "flujo_caja_emprestito",
+  "doc_id": "Desarrollo Económico_Bancolombia_mar-26",
+  "data": {
+    "banco": "Bancolombia",
+    "desembolso": 406467600.0,
+    "id_registro": "Desarrollo Económico_Bancolombia_mar-26",
+    "mes": "mar-26",
+    "fecha_procesamiento": "2025-10-20T11:37:44.613616",
+    "desembolso_real": 0.0,
+    "periodo": "2026-03-01T00:00:00",
+    "archivo_origen": "Matriz Emprestito.xlsx",
+    "organismo": "Desarrollo Económico"
+  },
+  "timestamp": "2025-11-09T00:50:22.233797"
+}

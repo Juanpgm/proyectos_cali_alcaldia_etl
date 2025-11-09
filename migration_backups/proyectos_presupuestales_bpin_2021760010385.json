@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2021760010385",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Seguridad y Justicia",
+    "cod_producto": 4102027,
+    "nombre_area_funcional": "Centros de formación para menores infractores adecuados",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Fortalecimiento de Sistemas Locales de Justicia y Penitenciarios",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2021760010385,
+    "created_at": "2025-10-10T09:29:21.616333+00:00",
+    "nombre_actividad": "Realizar adecuaciones al Centro de Atención Especializado Valle del Lilí",
+    "updated_at": "2025-10-10T09:29:21.616333+00:00",
+    "programa_presupuestal": "BP260037901010101",
+    "nombre_pospre": "Servicios de la construcción",
+    "anio": 2024,
+    "nombre_proyecto": "Mejoramiento  de la infraestructura de los Centros de formación para Adolescentes en conflicto con la ley de Santiago de Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 41,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Distrito Reconciliado",
+    "validador_cuipo": null,
+    "bp": "BP26003790"
+  },
+  "timestamp": "2025-11-09T01:28:00.171303"
+}

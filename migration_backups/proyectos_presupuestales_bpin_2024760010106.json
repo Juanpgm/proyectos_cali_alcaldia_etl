@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010106",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Educación",
+    "cod_producto": null,
+    "nombre_area_funcional": "Estudiantes atendidos a través de Metodologías Educativas Flexibles para la población en extraedad, educación formal de jóvenes y adultos y apoyo académico especial y emocional",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Cali Educada",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010106,
+    "nombre_actividad": "Realizar la atención educativa en aulas de modelos educativos flexibles de extraedad",
+    "created_at": "2025-10-10T09:32:32.600916+00:00",
+    "updated_at": "2025-10-10T09:32:32.600916+00:00",
+    "programa_presupuestal": 6102001,
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2025,
+    "nombre_proyecto": "Fortalecimiento de la atención educativa a estudiantes de zona rural, extraedad, en condición de enfermedad, joven, adulta y analfabeta matriculados en las instituciones educativas oficiales con metodologías flexibles en Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "bp": "BP26005322",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T01:33:35.788864"
+}

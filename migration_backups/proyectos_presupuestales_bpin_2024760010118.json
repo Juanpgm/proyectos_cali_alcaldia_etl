@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010118",
+  "data": {
+    "nombre_centro_gestor": "Unidad Administrativa Especial de Servicios Públicos",
+    "cod_producto": null,
+    "nombre_area_funcional": "Beneficiarios del programa de agua potable mínimo vital en comunidades seleccionadas.",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Vivienda sostenible, saneamiento básico y servicios públicos",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010118,
+    "created_at": "2025-10-10T09:26:31.838237+00:00",
+    "nombre_actividad": "Realizar el reconocimiento de Servicios Públicos Domiciliarios por suministrar de agua potable a los usuarios de los estratos 1",
+    "updated_at": "2025-10-10T09:26:31.838237+00:00",
+    "programa_presupuestal": 6201002,
+    "nombre_pospre": "Mínimo vital",
+    "anio": 2025,
+    "nombre_proyecto": "Implementación del programa mínimo vital de agua potable en Santiago de  Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": null,
+    "validador_cuipo": null,
+    "bp": "BP26005345"
+  },
+  "timestamp": "2025-11-09T01:33:46.242851"
+}

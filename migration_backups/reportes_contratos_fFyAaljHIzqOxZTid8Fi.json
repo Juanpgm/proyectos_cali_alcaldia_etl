@@ -1,0 +1,40 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "fFyAaljHIzqOxZTid8Fi",
+  "data": {
+    "observaciones": "El contrato se encuentra firmado, sin embargo, no se reporta avance debido a que su ejecución iniciará una vez se aprueben las garantías correspondientes.",
+    "fecha_reporte": "2025-11-03T16:34:11.218616+00:00",
+    "nombre_centro_gestor": "",
+    "avance_fisico": 0.0,
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/1AnIr3n6foqJvMY_6f9aniPmR-2IN3MWM",
+    "archivos_evidencia": [
+      {
+        "type": "image/png",
+        "size": 1149143,
+        "download_url": "https://drive.google.com/uc?id=1JZD_L5zfZ0JveHtEqb3CFAgKZM6DLfHn",
+        "url": "https://drive.google.com/file/d/1JZD_L5zfZ0JveHtEqb3CFAgKZM6DLfHn/view?usp=drivesdk",
+        "drive_id": "1JZD_L5zfZ0JveHtEqb3CFAgKZM6DLfHn",
+        "status": "uploaded_successfully",
+        "name": "Captura de pantalla 2025-11-03 a las 11.31.50 a. m..png"
+      },
+      {
+        "type": "image/png",
+        "size": 1172327,
+        "download_url": "https://drive.google.com/uc?id=1NZpQX86ppFo2_LoNWWB9LL1YNzPta4Rp",
+        "url": "https://drive.google.com/file/d/1NZpQX86ppFo2_LoNWWB9LL1YNzPta4Rp/view?usp=drivesdk",
+        "drive_id": "1NZpQX86ppFo2_LoNWWB9LL1YNzPta4Rp",
+        "status": "uploaded_successfully",
+        "name": "Captura de pantalla 2025-11-03 a las 11.33.51 a. m..png"
+      }
+    ],
+    "referencia_contrato": "4173.010.26.1.1301-2025",
+    "avance_financiero": 0.0,
+    "alertas": {
+      "descripcion": "",
+      "es_alerta": false,
+      "tipos": []
+    },
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:41:54.700669"
+}

@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010603",
+  "data": {
+    "nombre_centro_gestor": "Unidad Administrativa Especial de Servicios Públicos",
+    "cod_producto": null,
+    "nombre_area_funcional": "Componentes del sistema de saneamiento y drenaje pluvial optimizado",
+    "nombre_fondo": "CUR 625/19 SSF - Recursos Emcali Conpes 3858/16",
+    "nombre_programa": "Vivienda sostenible, saneamiento básico y servicios públicos",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010603,
+    "created_at": "2025-10-10T09:26:41.632250+00:00",
+    "nombre_actividad": "Realizar la obra civil, instalación de tuberías, instalación conexiones de domiciliares, construcción de cámaras tipo y especiales del alcantarillado del barrio San Luis",
+    "updated_at": "2025-10-10T09:26:41.632250+00:00",
+    "programa_presupuestal": 6201002,
+    "nombre_pospre": "Alcantarillas y plantas de tratamiento de agua",
+    "anio": 2025,
+    "nombre_proyecto": "Optimización del funcionamiento hidráulico y estructural de la red secundaria de alcantarillado en el barrio San Luis de Santiago de Cali",
+    "clasificacion_fondo": "Otros Recursos con Destinación Especifica",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": null,
+    "validador_cuipo": null,
+    "bp": "BP26005880"
+  },
+  "timestamp": "2025-11-09T01:40:14.666570"
+}

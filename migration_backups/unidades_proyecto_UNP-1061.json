@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1061",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Carrera 80 Entre Calle 42 Y 48",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.159945",
+    "has_valid_geometry": true,
+    "upid": "UNP-1061",
+    "nombre_up_detalle": "Via Arteria Secundaria",
+    "nombre_up": "Carrera 80 Entre Calle 42 Y 48",
+    "comuna_corregimiento": "COMUNA 17",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.52003298867434, 3.3883679476277395, 0.0], [-76.51917987311727, 3.3886362600179436, 0.0], [-76.51836581802087, 3.388623562695361, 0.0], [-76.51643012026027, 3.388580178440249, 0.0]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Caney",
+    "cantidad": 726,
+    "loaded_at": "2025-11-04T20:23:09.159948",
+    "presupuesto_base": 257808477.7
+  },
+  "timestamp": "2025-11-09T01:43:30.382002"
+}

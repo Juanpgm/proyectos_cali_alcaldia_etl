@@ -1,0 +1,23 @@
+{
+  "collection_path": "proyecciones_emprestito",
+  "doc_id": "YwX2KjPTuS9wWgp6dlNF",
+  "data": {
+    "nombre_banco": "DAVIVIENDA",
+    "nombre_organismo_reducido": "Bienestar Social",
+    "ultima_actualizacion": "2025-11-08T11:31:07.644667+00:00",
+    "item": "86",
+    "nombre_resumido_proceso": "Contrato 2: Interventoría - Interventoria Convenio Interadministrativo con el Ministerio de Igualdad y Equidad",
+    "fuente": "google_sheets",
+    "fecha_carga": "2025-11-08T11:31:04.574180",
+    "valor_proyectado": 0,
+    "nombre_generico_proyecto": "CASA MATRIA ORIENTE",
+    "fila_origen": 86,
+    "id_paa": "19662",
+    "fecha_guardado": "2025-11-08T11:31:07.644667+00:00",
+    "referencia_proceso": "",
+    "BP": "BP26005871",
+    "urlProceso": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.8934563&isFromPublicArea=True&isModal=False",
+    "descripcion_bp": "BP-26005871: CASA MATRIA ORIENTE"
+  },
+  "timestamp": "2025-11-09T00:53:05.727466"
+}

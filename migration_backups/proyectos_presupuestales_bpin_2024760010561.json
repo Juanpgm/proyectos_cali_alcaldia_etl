@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010561",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Desarrollo Económico",
+    "cod_producto": null,
+    "nombre_area_funcional": "Personas formadas en competencias laborales para el cierre de brechas de capital humano",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Desarrollo productivo",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010561,
+    "created_at": "2025-10-10T09:26:10.829528+00:00",
+    "nombre_actividad": "Realizar la convocatoria, selección y caracterización  de beneficiarios del proyecto de la comuna 10",
+    "updated_at": "2025-10-10T09:26:10.829528+00:00",
+    "programa_presupuestal": 6102002,
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2025,
+    "nombre_proyecto": "Fortalecimiento de competencias laborales a personas con vulnerabilidad laboral de la comuna 10 de Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "COMUNA 10",
+    "origen": "Territorio",
+    "nombre_linea_estrategica": null,
+    "validador_cuipo": null,
+    "bp": "BP26005542"
+  },
+  "timestamp": "2025-11-09T01:39:59.711500"
+}

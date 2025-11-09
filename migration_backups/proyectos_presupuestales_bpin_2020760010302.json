@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010302",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Salud Pública",
+    "cod_producto": 1906004,
+    "nombre_area_funcional": "Usuarios con restitución de derechos en salud por la Autoridad Sanitaria",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Servicios de Salud de Calidad en Redes Integrales, Un Desafío para Todos",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010302,
+    "created_at": "2025-10-10T09:27:51.518822+00:00",
+    "nombre_actividad": "Realizar la identificación de Solicitudes Por barreras de atención en salud en SAC",
+    "updated_at": "2025-10-10T09:27:51.518822+00:00",
+    "programa_presupuestal": "BP260030411010108",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "MEJORAMIENTO DE LA CAPACIDAD DE GESTIÓN DE LA AUTORIDAD SANITARIA EN LA RESTITUCIÓN DE DERECHOS EN SALUD A LOS USUARIOS EN SANTIAGO DE CALI",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 19,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Territorios para la Vida",
+    "validador_cuipo": null,
+    "bp": "BP26003041"
+  },
+  "timestamp": "2025-11-09T01:06:34.841073"
+}

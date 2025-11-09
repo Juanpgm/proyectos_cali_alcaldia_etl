@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010545",
+  "data": {
+    "nombre_centro_gestor": "Unidad Administrativa Especial de Servicios Públicos",
+    "cod_producto": 2102009,
+    "nombre_area_funcional": "Servicio de alumbrado público inteligente operando",
+    "nombre_fondo": "Impuesto de Alumbrado Público - Predio Lotes",
+    "nombre_programa": "Cali Inteligente ",
+    "nombre_dimension": "Cali, Inteligente para la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010545,
+    "created_at": "2025-10-10T09:30:37.893239+00:00",
+    "nombre_actividad": "Realizar pago administración, operación y mantenimiento del Sistema de Alumbrado Público",
+    "updated_at": "2025-10-10T09:30:37.893239+00:00",
+    "programa_presupuestal": "BP260026161010163",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "Fortalecimiento de la Operación del Servicio de Alumbrado Público de Santiago de  Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 21,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Territorio Inteligente",
+    "validador_cuipo": null,
+    "bp": "BP26002616"
+  },
+  "timestamp": "2025-11-09T01:07:31.872342"
+}

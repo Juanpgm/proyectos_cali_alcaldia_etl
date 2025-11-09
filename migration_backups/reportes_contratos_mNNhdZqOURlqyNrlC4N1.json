@@ -1,0 +1,31 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "mNNhdZqOURlqyNrlC4N1",
+  "data": {
+    "nombre_centro_gestor": "",
+    "fecha_reporte": "2025-11-07T22:10:42.811301+00:00",
+    "observaciones": "El proceso continúa en su fase de modernización. Actualmente, se avanza en la etapa de implementación y configuración de la nueva arquitectura inteligente, la cual representa la evolución de la plataforma virtualizada anterior. Si bien esta última cumplió exitosamente con sus objetivos, la transformación actual resulta esencial para responder a las crecientes demandas de la transformación digital y permitir la transición de un modelo de gestión tradicional hacia uno más proactivo, automatizado y orientado a la eficiencia operativa.",
+    "avance_fisico": 80.0,
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/19xAmi-1NTO0GpErRHnQzj5oUvNrqLNvG",
+    "archivos_evidencia": [
+      {
+        "type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "size": 13480,
+        "download_url": "https://drive.google.com/uc?id=1GDoJDjCii6kQI7nsKmoRDf-_EzLxCHW-",
+        "url": "https://docs.google.com/document/d/1GDoJDjCii6kQI7nsKmoRDf-_EzLxCHW-/edit?usp=drivesdk&ouid=107631050282737776825&rtpof=true&sd=true",
+        "status": "uploaded_successfully",
+        "drive_id": "1GDoJDjCii6kQI7nsKmoRDf-_EzLxCHW-",
+        "name": "evidencias AWS.docx"
+      }
+    ],
+    "referencia_contrato": "151305",
+    "avance_financiero": 80.0,
+    "alertas": {
+      "es_alerta": false,
+      "descripcion": "",
+      "tipos": []
+    },
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:42:06.202603"
+}

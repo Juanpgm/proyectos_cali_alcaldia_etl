@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2022760010209",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Bienestar Social",
+    "cod_producto": 4599029,
+    "nombre_area_funcional": "Casa Matria al servicio de las mujeres operando",
+    "nombre_fondo": "Estampilla Prodesarrollo Urbano  (10% Equidad de Género)",
+    "nombre_programa": "Todas las Mujeres Todos los Derechos ",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2022760010209,
+    "created_at": "2025-10-10T09:28:09.700832+00:00",
+    "nombre_actividad": "Realizar estudios, diseños y autorizaciones para el mantenimiento de las instalaciones de Casa Matria y su sede",
+    "updated_at": "2025-10-10T09:28:09.700832+00:00",
+    "programa_presupuestal": "BP260044971010101",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Mejoramiento integral de Casa Matria y su sede para la atención de mujeres víctimas de violencia basadas en género en Santiago de Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 45,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Poblaciones Construyendo Territorio",
+    "validador_cuipo": null,
+    "bp": "BP26004497"
+  },
+  "timestamp": "2025-11-09T01:29:16.959721"
+}

@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2021760010489",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Paz y Cultura Ciudadana",
+    "cod_producto": 4502032,
+    "nombre_area_funcional": "Política Pública de Barrismo Social formulada, aprobada y socializada, articulada con la ley 1445 de 2011",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Cali Distrito Previene las Violencias ",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2021760010489,
+    "created_at": "2025-10-10T09:30:04.052965+00:00",
+    "nombre_actividad": "Realizar sistematización de los encuentros y mesas de trabajo con los representantes de las barras futboleras e Instituciones públicas y privadas.",
+    "updated_at": "2025-10-10T09:30:04.052965+00:00",
+    "programa_presupuestal": "BP260041551010112",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "Fortalecimiento de las acciones de formulación y socialización de la Política Pública del Barrismo Social en Santiago de   Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 45,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Distrito Reconciliado",
+    "validador_cuipo": null,
+    "bp": "BP26004155"
+  },
+  "timestamp": "2025-11-09T01:28:29.154702"
+}

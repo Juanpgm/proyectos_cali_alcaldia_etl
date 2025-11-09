@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010373",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Desarrollo Económico",
+    "cod_producto": 3502112,
+    "nombre_area_funcional": "Investigaciones sobre economía creativa, circular, digital y demás temas conexos al desarrollo del territorio, generadas y publicadas",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Gestión de Información Estadística y Geográfica para la Evaluación de Resultados  ",
+    "nombre_dimension": "Cali, Gobierno Incluyente",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010373,
+    "created_at": "2025-10-10T09:30:24.101673+00:00",
+    "nombre_actividad": "Realizar estudios de investigación sobre los sectores económicos priorizados en la Política Pública de Desarrollo económico",
+    "updated_at": "2025-10-10T09:30:24.101673+00:00",
+    "programa_presupuestal": "BP260029651010109",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "Investigación sobre los sectores económicos priorizados y temas conexos en la política pública de desarrollo económico en Santiago de Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 35,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Gobierno Inteligente",
+    "validador_cuipo": null,
+    "bp": "BP26002965"
+  },
+  "timestamp": "2025-11-09T01:06:43.611581"
+}

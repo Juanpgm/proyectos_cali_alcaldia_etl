@@ -1,0 +1,30 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1216",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Carrera 5 Entre Calles 10 Hasta Calle 13",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:10.774246",
+    "has_valid_geometry": true,
+    "upid": "UNP-1216",
+    "comuna_corregimiento": "COMUNA 03",
+    "nombre_up": "Carrera 5 Entre Calles 10 Hasta Calle 13",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.53350949027072, 3.450854423792691, 0.0], [-76.53277223684921, 3.451248655101381, 0.0], [-76.53202925294761, 3.451616919385344, 0.0], [-76.53128066267243, 3.451958581723204, 0.0]]}",
+    "identificador": "Puntos Estrategicos",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "San Pedro",
+    "cantidad": 276,
+    "loaded_at": "2025-11-04T20:23:10.774264",
+    "presupuesto_base": 580888526.0
+  },
+  "timestamp": "2025-11-09T01:46:01.106152"
+}

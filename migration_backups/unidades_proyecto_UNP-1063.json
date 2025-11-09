@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1063",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Calle 5 Oe Entre Avenidas 3 Oe Y 4 Oe",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.160654",
+    "has_valid_geometry": true,
+    "upid": "UNP-1063",
+    "nombre_up_detalle": "Via Local",
+    "nombre_up": "Calle 5 Oe Entre Avenidas 3 Oe Y 4 Oe",
+    "comuna_corregimiento": "COMUNA 02",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.54538430552144, 3.4518877748568646, 0.0], [-76.545298487986, 3.4518447346582315, 0.0]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Normandia",
+    "cantidad": 2,
+    "loaded_at": "2025-11-04T20:23:09.160660",
+    "presupuesto_base": 710216.19
+  },
+  "timestamp": "2025-11-09T01:43:32.131435"
+}

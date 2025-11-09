@@ -1,0 +1,49 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "vv8OeCWfuxbKCsiNSeKa",
+  "data": {
+    "nombre_centro_gestor": "",
+    "observaciones": "La semana se caracterizó por la culminación casi total del capítulo de Preliminares en los dos Centros de Administración Local Integrada (CALI).\r\n\r\nEn el CALI 17 el avance fue significativo, no solo cerrando Preliminares, sino también iniciando de lleno la fase de Cubiertas con el montaje y la instalación de la teja UPVC. Este centro concentra la mayor ejecución semanal. Por su parte, el CALI 9 está a punto de finalizar sus Preliminares y ya ha iniciado actividades cruciales de construcción como la impermeabilización y repello de muros, marcando el paso hacia la siguiente etapa del proyecto.",
+    "fecha_reporte": "2025-10-31T22:38:59.953527+00:00",
+    "referencia_contrato": "4173.010.26.1.1277-2025",
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/1zxSPXuyCgwMoseMd9--cGNMEb5p8I_XX",
+    "archivos_evidencia": [
+      {
+        "type": "application/pdf",
+        "size": 496275,
+        "download_url": "https://drive.google.com/uc?id=1pGo_KQbA_BUXYEo_qUbHDbDijvMaRR2x",
+        "url": "https://drive.google.com/file/d/1pGo_KQbA_BUXYEo_qUbHDbDijvMaRR2x/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1pGo_KQbA_BUXYEo_qUbHDbDijvMaRR2x",
+        "name": "Copia de 1. Informe Ejecutivo Semanal No 7.pdf"
+      },
+      {
+        "type": "image/jpeg",
+        "size": 198637,
+        "download_url": "https://drive.google.com/uc?id=1-FTpM5zX9LCeVTOY8gDlrDwohwb0ZrCn",
+        "url": "https://drive.google.com/file/d/1-FTpM5zX9LCeVTOY8gDlrDwohwb0ZrCn/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1-FTpM5zX9LCeVTOY8gDlrDwohwb0ZrCn",
+        "name": "WhatsApp Image 2025-10-30 at 4.13.00 PM.jpeg"
+      },
+      {
+        "type": "image/jpeg",
+        "size": 181112,
+        "download_url": "https://drive.google.com/uc?id=131ujZ6v5JLEZLsaaCM5B1AQvUCmLVhIa",
+        "url": "https://drive.google.com/file/d/131ujZ6v5JLEZLsaaCM5B1AQvUCmLVhIa/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "131ujZ6v5JLEZLsaaCM5B1AQvUCmLVhIa",
+        "name": "WhatsApp Image 2025-10-30 at 4.24.10 PM.jpeg"
+      }
+    ],
+    "avance_fisico": 3.46,
+    "alertas": {
+      "descripcion": "",
+      "es_alerta": false,
+      "tipos": []
+    },
+    "avance_financiero": 3.46,
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:42:19.386848"
+}

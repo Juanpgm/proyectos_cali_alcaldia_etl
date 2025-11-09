@@ -1,0 +1,42 @@
+{
+  "collection_path": "contratos_emprestito",
+  "doc_id": "6UCGSJwdFLHm3tYUVKx0",
+  "data": {
+    "nit_contratista": "",
+    "fecha_fin_contrato": "2025-12-30",
+    "sector": "No aplica/No pertenece",
+    "ordenador_gasto": "LUZ ADRIANA VaSQUEZ TRUJILLO",
+    "_dataset_source": "jbjy-vk9h",
+    "nombre_procedimiento": "",
+    "valor_pagado": "0",
+    "urlproceso": {
+      "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.8465685&isFromPublicArea=True&isModal=true&asPopupView=true"
+    },
+    "bpin": 2024760010333,
+    "descripcion_proceso": "REALIZAR LA CONSTRUCCIÓN; MEJORAMIENTO Y MANTENIMIENTO DE CICLO INFRAESTRUCTURA EN EL DISTRITO DE SANTIAGO DE CALI",
+    "valor_contrato": 4146297178,
+    "supervisor": "SEBASTIAN TARAPUEZ MARTINEZ",
+    "entidad_contratante": "SANTIAGO DE CALI DISTRITO ESPECIAL - SECRETARIA DE INFRAESTRUCTURA",
+    "banco": "Bancolombia",
+    "referencia_contrato": "4151.010.26.1.0837-2025",
+    "nit_entidad": "890399011",
+    "id_contrato": "CO1.PCCNTR.8224755",
+    "fecha_guardado": "2025-10-23T02:21:51.125900+00:00",
+    "modalidad_contratacion": "Licitación pública Obra Publica",
+    "fecha_firma_contrato": null,
+    "bp": "BP26005375",
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "version_esquema": "1.1",
+    "representante_legal": "JULIETH CORDOBA MUÑOZ",
+    "fuente_datos": "SECOP_API",
+    "proceso_contractual": "CO1.BDOS.8335654",
+    "fecha_inicio_contrato": "2025-09-30",
+    "fecha_actualizacion": "2025-10-23T02:21:51.260997+00:00",
+    "nombre_contratista": "",
+    "estado_contrato": "En ejecución",
+    "referencia_proceso": "4151.010.32.1.0577- 2025",
+    "objeto_contrato": "REALIZAR LA CONSTRUCCIÓN; MEJORAMIENTO Y MANTENIMIENTO DE CICLO INFRAESTRUCTURA EN EL DISTRITO DE SANTIAGO DE CALI",
+    "tipo_contrato": "Obra"
+  },
+  "timestamp": "2025-11-09T00:47:47.373499"
+}

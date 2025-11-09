@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010212",
+  "data": {
+    "nombre_centro_gestor": "Departamento Administrativo de Planeación Municipal",
+    "cod_producto": 4599020,
+    "nombre_area_funcional": "Base de datos de Estratificación urbana y rural actualizada",
+    "nombre_fondo": "R.F. Concurso Económico - Estratificación",
+    "nombre_programa": "Gestión de Información Estadística y Geográfica para la Evaluación de Resultados  ",
+    "nombre_dimension": "Cali, Gobierno Incluyente",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010212,
+    "created_at": "2025-10-10T09:27:03.328000+00:00",
+    "nombre_actividad": "Adquirir equipos tecnológicos para la administración de la estratificación de Santiago de Cali.",
+    "updated_at": "2025-10-10T09:27:03.328000+00:00",
+    "programa_presupuestal": "BP260034291020118",
+    "nombre_pospre": "Otras máquinas para usos generales y sus partes y piezas",
+    "anio": 2024,
+    "nombre_proyecto": "Actualización De la estratificación socioeconómica en Santiago de  Cali.",
+    "clasificacion_fondo": "Otros",
+    "cod_sector": 45,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Gobierno Inteligente",
+    "validador_cuipo": null,
+    "bp": "BP26003429"
+  },
+  "timestamp": "2025-11-09T01:06:13.842694"
+}

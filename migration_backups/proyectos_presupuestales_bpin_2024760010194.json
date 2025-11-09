@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010194",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Bienestar Social",
+    "cod_producto": null,
+    "nombre_area_funcional": "Organismos asistidos con la estrategia de transversalización del enfoque de género dirigido a mujeres",
+    "nombre_fondo": "Estampilla Prodesarrollo Urbano  (10% Equidad de Género)",
+    "nombre_programa": "Atención integral a poblaciones",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010194,
+    "nombre_actividad": "Articular la incorporación del enfoque de género con interseccionalidad en los equipos, comités e instancias de participación. Que vienen trabajando o se constituyan para la implementación y seguimiento de las dimensiones y líneas estratégicas de la Política Pública de las Mujeres del Distrito",
+    "created_at": "2025-10-10T09:33:22.979906+00:00",
+    "updated_at": "2025-10-10T09:33:22.979906+00:00",
+    "programa_presupuestal": 6102006,
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2025,
+    "nombre_proyecto": "Implementación del enfoque de género con interseccionalidad en la alcaldía de Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios con Destinacion Especifica",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "bp": "BP26005426",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T01:34:51.761125"
+}

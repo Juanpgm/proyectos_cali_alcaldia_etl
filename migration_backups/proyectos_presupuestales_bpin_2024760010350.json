@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010350",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Turismo",
+    "cod_producto": null,
+    "nombre_area_funcional": "Iniciativas de turismo para el desarrollo local fortalecidas.",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Cali Distrito Deportivo, Cultural y Turístico",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010350,
+    "created_at": "2025-10-10T09:26:18.349745+00:00",
+    "nombre_actividad": "Realizar procesos de formación y acompañamiento a los prestadores de servicios turísticos del corregimiento",
+    "updated_at": "2025-10-10T09:26:18.349745+00:00",
+    "programa_presupuestal": 6102003,
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2025,
+    "nombre_proyecto": "Fortalecimiento del potencial turístico del corregimiento de Villacarmelo del Distrito de Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "VILLACARMELO",
+    "origen": "Territorio",
+    "nombre_linea_estrategica": null,
+    "validador_cuipo": null,
+    "bp": "BP26005556"
+  },
+  "timestamp": "2025-11-09T01:36:57.823048"
+}

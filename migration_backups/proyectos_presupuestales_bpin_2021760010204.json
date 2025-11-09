@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2021760010204",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Desarrollo Territorial y Participación Ciudadana",
+    "cod_producto": 4502001,
+    "nombre_area_funcional": "Sistema de participación ciudadana, funcionando",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Ciudadanía Empoderada",
+    "nombre_dimension": "Cali, Gobierno Incluyente",
+    "tipo_gasto": "Inversión",
+    "bpin": 2021760010204,
+    "created_at": "2025-10-10T09:30:30.526475+00:00",
+    "nombre_actividad": "Realizar actividades de articulación comunitaria del sistema de participación ciudadana",
+    "updated_at": "2025-10-10T09:30:30.526475+00:00",
+    "programa_presupuestal": "BP260037241010101",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Apoyo al Sistema de Participación Ciudadana en Santiago de  Cali",
+    "clasificacion_fondo": "Libre destinación (Recursos Propios)",
+    "cod_sector": 45,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Ciudadanía Activa y Gobernanza",
+    "validador_cuipo": null,
+    "bp": "BP26003724"
+  },
+  "timestamp": "2025-11-09T01:27:10.178001"
+}

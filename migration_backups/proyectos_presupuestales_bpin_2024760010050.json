@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010050",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Paz y Cultura Ciudadana",
+    "cod_producto": null,
+    "nombre_area_funcional": "Política pública de Barrismo formulada y presentada",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Prevención y resolución de conflictos",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010050,
+    "created_at": "2025-10-10T09:25:51.103449+00:00",
+    "nombre_actividad": "Realizar el proceso de formulación de la Política Pública de Barrismo Social",
+    "updated_at": "2025-10-10T09:25:51.103449+00:00",
+    "programa_presupuestal": 6101002,
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2025,
+    "nombre_proyecto": "Fortalecimiento de las acciones de la reconciliación para la Paz y el barrismo social en el Distrito Especial de Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": null,
+    "validador_cuipo": null,
+    "bp": "BP26005443"
+  },
+  "timestamp": "2025-11-09T01:32:44.228679"
+}

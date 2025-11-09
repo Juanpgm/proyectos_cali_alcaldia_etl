@@ -1,0 +1,49 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "JMdjL6QfTFVmK4OdCjw7",
+  "data": {
+    "fecha_reporte": "2025-10-14T03:56:41.464906+00:00",
+    "nombre_centro_gestor": "",
+    "observaciones": "En el Cali 17: Se realizaron actividades preliminares de desmonte de iluminarias, cielo raso panel incluyendo estructura, teniendo en cuenta que son actividades criticas para el cambio de la cubierta.\r\n\r\nEn el CALI 9: Se avanza en actividades preliminares de demolición de piso y enchape cerámico.",
+    "avance_fisico": 0.45,
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/11BDZ4Fry39davptVozWDpJ17IW_iKvJM",
+    "archivos_evidencia": [
+      {
+        "type": "application/pdf",
+        "size": 1081937,
+        "download_url": "https://drive.google.com/uc?id=1ihD4mS2cFxvJuerxZcm8gpnWiUaUSyQA",
+        "url": "https://drive.google.com/file/d/1ihD4mS2cFxvJuerxZcm8gpnWiUaUSyQA/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1ihD4mS2cFxvJuerxZcm8gpnWiUaUSyQA",
+        "name": "INFORME MENSUAL SEPTIEMBRE NO. 1 (2).pdf"
+      },
+      {
+        "type": "image/jpeg",
+        "size": 167260,
+        "download_url": "https://drive.google.com/uc?id=12Ky5NZXmLWe5uvVyv6Ska7VLh_T17QRm",
+        "url": "https://drive.google.com/file/d/12Ky5NZXmLWe5uvVyv6Ska7VLh_T17QRm/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "12Ky5NZXmLWe5uvVyv6Ska7VLh_T17QRm",
+        "name": "CALI 9.jpeg"
+      },
+      {
+        "type": "image/jpeg",
+        "size": 28119,
+        "download_url": "https://drive.google.com/uc?id=1A1tilprJuA1CjnVPn22YUE7cVESJK74b",
+        "url": "https://drive.google.com/file/d/1A1tilprJuA1CjnVPn22YUE7cVESJK74b/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1A1tilprJuA1CjnVPn22YUE7cVESJK74b",
+        "name": "CALI 17.jpg"
+      }
+    ],
+    "referencia_contrato": "4173.010.26.1.1277-2025",
+    "alertas": {
+      "es_alerta": false,
+      "descripcion": "",
+      "tipos": []
+    },
+    "avance_financiero": 0.45,
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:40:54.317873"
+}

@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1114",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Carrera 56 Con Calle 13",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.180706",
+    "has_valid_geometry": true,
+    "upid": "UNP-1114",
+    "nombre_up_detalle": "Via Arteria Secundaria",
+    "nombre_up": "Carrera 56 Con Calle 13",
+    "comuna_corregimiento": "COMUNA 17",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.53568169995226, 3.405257352200665, 0.0], [-76.53556799310392, 3.405220166998869, 0.0]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Santa Anita - La Selva",
+    "cantidad": 13,
+    "loaded_at": "2025-11-04T20:23:09.180712",
+    "presupuesto_base": 4616405.25
+  },
+  "timestamp": "2025-11-09T01:44:22.123699"
+}

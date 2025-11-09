@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2019760010223",
+  "data": {
+    "nombre_centro_gestor": "Unidad Administrativa Especial de Servicios Públicos",
+    "cod_producto": 4003042,
+    "nombre_area_funcional": "Avance piloto a escala real de sistema de filtración en lecho de río, construido y en funcionamiento, en PTAP Cauca",
+    "nombre_fondo": "CUR 016/18 EMCALI SSF",
+    "nombre_programa": "Gestión del Agua ",
+    "nombre_dimension": "Cali, Nuestra Casa Común",
+    "tipo_gasto": "Inversión",
+    "bpin": 2019760010223,
+    "created_at": "2025-10-10T09:30:42.832993+00:00",
+    "nombre_actividad": "Realizar obra civil para construcción nave industrial",
+    "updated_at": "2025-10-10T09:30:42.832993+00:00",
+    "programa_presupuestal": "BP260007951010162",
+    "nombre_pospre": "Alcantarillas y plantas de tratamiento de agua",
+    "anio": 2024,
+    "nombre_proyecto": "Construcción de un módulo del sistema de captación de lecho del río Cauca para la zona urbana de Santiago de  Cali",
+    "clasificacion_fondo": "Otros",
+    "cod_sector": 40,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Soporte Vital para el Desarrollo",
+    "validador_cuipo": null,
+    "bp": "BP26000795"
+  },
+  "timestamp": "2025-11-09T00:53:51.323670"
+}

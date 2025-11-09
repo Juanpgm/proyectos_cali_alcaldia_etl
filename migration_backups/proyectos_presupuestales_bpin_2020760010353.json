@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010353",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Salud Pública",
+    "cod_producto": 3902014,
+    "nombre_area_funcional": "Laboratorio de Vigilancia Epidemiológica, Investigación y Autoridad Sanitaria implementado",
+    "nombre_fondo": "Coljuegos  25%",
+    "nombre_programa": "Salud Pública Integral, Una Realidad en los Entornos de Vida Cotidianos",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010353,
+    "created_at": "2025-10-10T09:27:55.704730+00:00",
+    "nombre_actividad": "Adoptar los lineamientos nacionales de ciencia y tecnología para la operación del laboratorio de investigación en salud pública.",
+    "updated_at": "2025-10-10T09:27:55.704730+00:00",
+    "programa_presupuestal": "BP260035171010106",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Implementación de un laboratorio de Investigación en Salud Pública en  Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 39,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Territorios para la Vida",
+    "validador_cuipo": null,
+    "bp": "BP26003517"
+  },
+  "timestamp": "2025-11-09T01:06:40.110256"
+}

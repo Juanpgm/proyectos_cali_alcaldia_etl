@@ -1,0 +1,30 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1218",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Calle 7 Entre Carreras 2 Hasta 4",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:10.775528",
+    "has_valid_geometry": true,
+    "upid": "UNP-1218",
+    "comuna_corregimiento": "COMUNA 03",
+    "nombre_up": "Calle 7 Entre Carreras 2 Hasta 4",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.53642216235289, 3.451617815110126, 0.0], [-76.536311819587, 3.4513381511197423, 0.0]]}",
+    "identificador": "Puntos Estrategicos",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "La Merced",
+    "cantidad": 33,
+    "loaded_at": "2025-11-04T20:23:10.775536",
+    "presupuesto_base": 38164656.0
+  },
+  "timestamp": "2025-11-09T01:46:02.874940"
+}

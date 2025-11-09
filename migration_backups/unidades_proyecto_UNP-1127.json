@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1127",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Calle 9 Oeste Entre Carrera 42B Y 49",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.905110",
+    "has_valid_geometry": true,
+    "upid": "UNP-1127",
+    "nombre_up_detalle": "Via Local",
+    "nombre_up": "Calle 9 Oeste Entre Carrera 42B Y 49",
+    "comuna_corregimiento": "COMUNA 20",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"GeometryCollection\", \"geometries\": [{\"type\": \"MultiLineString\", \"coordinates\": [[[-76.5586944784712, 3.423309599593652, 0.0], [-76.55888371739809, 3.4231858952365926, 0.0]], [[-76.56303941977627, 3.419341734902734, 0.0], [-76.56289995784701, 3.4192787197105883, 0.0], [-76.56275445014504, 3.4192301863382046, 0.0]]]}, {\"type\": \"LineString\", \"coordinates\": [[-76.56145757265011, 3.4174967575364255, 0.0], [-76.56149680648036, 3.417588264168252, 0.0]]}]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Lleras Camargo",
+    "cantidad": 25,
+    "loaded_at": "2025-11-04T20:23:09.905116",
+    "presupuesto_base": 26633107.200000003
+  },
+  "timestamp": "2025-11-09T01:44:34.399284"
+}

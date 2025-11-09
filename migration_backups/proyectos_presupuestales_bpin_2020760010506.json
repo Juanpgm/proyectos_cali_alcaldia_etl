@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010506",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Salud Pública",
+    "cod_producto": 1903016,
+    "nombre_area_funcional": "Sistema de Garantía de la Calidad en Salud en las IPS con cumplimiento",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Servicios de Salud de Calidad en Redes Integrales, Un Desafío para Todos",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010506,
+    "created_at": "2025-10-10T09:27:51.144806+00:00",
+    "nombre_actividad": "Ejecutar plan de auditorías a las IPS",
+    "updated_at": "2025-10-10T09:27:51.144806+00:00",
+    "programa_presupuestal": "BP260029371010107",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Mejoramiento de la calidad en la prestación de los servicios de salud en la red de prestadores de Santiago de Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 19,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Territorios para la Vida",
+    "validador_cuipo": null,
+    "bp": "BP26002937"
+  },
+  "timestamp": "2025-11-09T01:07:22.206920"
+}

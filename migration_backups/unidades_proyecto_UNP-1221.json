@@ -1,0 +1,30 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1221",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Calle 11 Entre Carreras 2 Hasta 6",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:10.776959",
+    "has_valid_geometry": true,
+    "upid": "UNP-1221",
+    "comuna_corregimiento": "COMUNA 03",
+    "nombre_up": "Calle 11 Entre Carreras 2 Hasta 6",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.53320976331986, 3.452898082780337, 0.0], [-76.53316312987448, 3.452610347389681, 0.0], [-76.53300594906528, 3.451992902550445, 0.0], [-76.5327274829869, 3.451101863260419, 0.0], [-76.5325297607398, 3.4503374889839633, 0.0]]}",
+    "identificador": "Puntos Estrategicos",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "San Pedro",
+    "cantidad": 293,
+    "loaded_at": "2025-11-04T20:23:10.776963",
+    "presupuesto_base": 126280114.0
+  },
+  "timestamp": "2025-11-09T01:46:06.382604"
+}

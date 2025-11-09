@@ -1,0 +1,31 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "zp8xvMnYZO3EQw4M5i1x",
+  "data": {
+    "nombre_centro_gestor": "",
+    "observaciones": "EL proceso se encuentra adjudicado, pendiente para inicio de ejecución.",
+    "fecha_reporte": "2025-10-30T22:51:46.365895+00:00",
+    "referencia_contrato": "4134.010.26.1.0241-2025",
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/1n69PX3HaeHFn5dE9WMsfx9y7v8pp9VJ5",
+    "archivos_evidencia": [
+      {
+        "type": "application/pdf",
+        "size": 84093,
+        "download_url": "https://drive.google.com/uc?id=1c7x3x2v9ITKQchHv--Z8R7lylW-c7_kr",
+        "url": "https://drive.google.com/file/d/1c7x3x2v9ITKQchHv--Z8R7lylW-c7_kr/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1c7x3x2v9ITKQchHv--Z8R7lylW-c7_kr",
+        "name": "CO1_PCCNTR_8482564_Firmado (1).pdf"
+      }
+    ],
+    "avance_fisico": 0.0,
+    "alertas": {
+      "descripcion": "",
+      "es_alerta": false,
+      "tipos": []
+    },
+    "avance_financiero": 0.0,
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:42:26.426309"
+}

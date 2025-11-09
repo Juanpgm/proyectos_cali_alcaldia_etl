@@ -1,0 +1,19 @@
+{
+  "collection_path": "flujo_caja_emprestito",
+  "doc_id": "26005395.0_Bancolombia_mar-26",
+  "data": {
+    "desembolso": 819281250.0,
+    "banco": "Bancolombia",
+    "id_registro": "26005395.0_Bancolombia_mar-26",
+    "mes": "mar-26",
+    "columna_origen": "mar-26 Desembolso",
+    "bp_proyecto": "26005395.0",
+    "responsable": "Esperanza Ramos",
+    "fecha_procesamiento": "2025-10-20T11:50:33.087484",
+    "periodo": "2026-03-01T00:00:00",
+    "archivo_origen": "Matriz Emprestito.xlsx",
+    "organismo": "DATIC",
+    "descripcion_bp": "Mejoramiento de la oferta de trámites y servicios en línea a los ciudadanos de Santiago de Cali"
+  },
+  "timestamp": "2025-11-09T00:48:58.625076"
+}

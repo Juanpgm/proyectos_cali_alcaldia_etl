@@ -1,0 +1,31 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "SAXkVk6fsYfodBiQUC0g",
+  "data": {
+    "nombre_centro_gestor": "",
+    "fecha_reporte": "2025-11-07T11:47:30.782259+00:00",
+    "observaciones": "",
+    "avance_fisico": 8.18,
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/1z2HPS5i8uycY9ybazFoIagQFHwQ5oCWL",
+    "archivos_evidencia": [
+      {
+        "type": "application/pdf",
+        "size": 5817486,
+        "download_url": "https://drive.google.com/uc?id=17j1lobCvEWuURsz7WHsTfd25KYijyEDc",
+        "url": "https://drive.google.com/file/d/17j1lobCvEWuURsz7WHsTfd25KYijyEDc/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "17j1lobCvEWuURsz7WHsTfd25KYijyEDc",
+        "name": "Avance Emp 1 - Semana 5.pdf"
+      }
+    ],
+    "referencia_contrato": "4162.010.26.1.3225-2025",
+    "avance_financiero": 0.0,
+    "alertas": {
+      "es_alerta": false,
+      "descripcion": "",
+      "tipos": []
+    },
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:41:14.484352"
+}

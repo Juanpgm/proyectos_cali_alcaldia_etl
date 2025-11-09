@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010548",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Bienestar Social",
+    "cod_producto": 4101007,
+    "nombre_area_funcional": "Personas víctimas del conflicto armado que reciben asistencia psico jurídica especializada frente al goce efectivo de sus derechos a la verdad, la justicia, la reparación y la no repetición",
+    "nombre_fondo": "Estampilla Prodesarrollo Urbano  (10% Afro )",
+    "nombre_programa": "Atención Integral a las Víctimas del Conflicto",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010548,
+    "created_at": "2025-10-10T09:28:14.017975+00:00",
+    "nombre_actividad": "Apoyar de manera psicosocial y jurídica a las víctimas en las rutas de atención del SIVJRNR, en el marco de la atencion a la poblacion Afro",
+    "updated_at": "2025-10-10T09:28:14.017975+00:00",
+    "programa_presupuestal": "BP260035101010107",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "Asistencia a víctimas de manera psicosocial y jurídicamente frente al goce de sus derechos ante las entidades del Sistema Integral de Verdad, Justicia, Reparación y No Repetición  Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 41,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Distrito Reconciliado",
+    "validador_cuipo": null,
+    "bp": "BP26003510"
+  },
+  "timestamp": "2025-11-09T01:07:33.628497"
+}

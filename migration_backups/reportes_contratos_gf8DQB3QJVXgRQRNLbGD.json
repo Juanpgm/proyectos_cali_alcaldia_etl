@@ -1,0 +1,31 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "gf8DQB3QJVXgRQRNLbGD",
+  "data": {
+    "observaciones": "",
+    "nombre_centro_gestor": "",
+    "fecha_reporte": "2025-11-06T19:18:33.363431+00:00",
+    "referencia_contrato": "4151.010.26.1.0837-2025",
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/1K2nAAQWyJk6dMlCBMOjwZo_slAMpRirO",
+    "archivos_evidencia": [
+      {
+        "type": "application/pdf",
+        "size": 582861,
+        "download_url": "https://drive.google.com/uc?id=1s8Eom6ebI-6WR1RROFa8Gt80n_ICDla0",
+        "url": "https://drive.google.com/file/d/1s8Eom6ebI-6WR1RROFa8Gt80n_ICDla0/view?usp=drivesdk",
+        "drive_id": "1s8Eom6ebI-6WR1RROFa8Gt80n_ICDla0",
+        "status": "uploaded_successfully",
+        "name": "Inf. semanal 5 Interventoria (27-10-2025 al 02-11-2025).pdf"
+      }
+    ],
+    "avance_fisico": 9.75,
+    "avance_financiero": 11.06,
+    "alertas": {
+      "es_alerta": false,
+      "descripcion": "",
+      "tipos": []
+    },
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:41:58.195701"
+}

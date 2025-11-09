@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010135",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Bienestar Social",
+    "cod_producto": 4103063,
+    "nombre_area_funcional": "Implementación de los Planes de Etnodesarrollo para los Consejos Comunitarios",
+    "nombre_fondo": "Estampilla Prodesarrollo Urbano  (10% Afro )",
+    "nombre_programa": "CaliAfro ",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010135,
+    "created_at": "2025-10-10T09:28:16.650459+00:00",
+    "nombre_actividad": "Construir estrategias cualitativas para la formulación de los Planes de Etnodesarrollo de los Consejos de comunidades Negras",
+    "updated_at": "2025-10-10T09:28:16.650459+00:00",
+    "programa_presupuestal": "BP260027801010122",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "Implementacion de los Planes de Etnodesarrollo de los Consejos de Comunidades Negras, Afrocolombianas, Raizales y Palenqueras de Santiago de Cali.",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 41,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Poblaciones Construyendo Territorio",
+    "validador_cuipo": null,
+    "bp": "BP26002780"
+  },
+  "timestamp": "2025-11-09T00:54:32.325118"
+}

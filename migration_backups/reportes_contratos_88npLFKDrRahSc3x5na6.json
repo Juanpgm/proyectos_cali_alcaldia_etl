@@ -1,0 +1,31 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "88npLFKDrRahSc3x5na6",
+  "data": {
+    "nombre_centro_gestor": "",
+    "fecha_reporte": "2025-11-07T16:00:01.836995+00:00",
+    "observaciones": "Actualmente, el proyecto avanza conforme a las solicitudes de requerimientos que se encuentran en proceso de registro y validación, orientadas a la optimización de los diferentes módulos del sistema SAP. De igual forma, se estableció un plan de trabajo conjunto con el contratista, que permite realizar un seguimiento sistemático a cada una de las solicitudes, priorizar las mejoras según su impacto funcional y asegurar la implementación oportuna de los ajustes requeridos. Este enfoque garantiza una gestión más eficiente del sistema y una respuesta ágil a las necesidades operativas de las áreas involucradas.",
+    "avance_fisico": 40.0,
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/1pN4OMosnIyDlUTtmkxLu1HlwnCqfyI1O",
+    "archivos_evidencia": [
+      {
+        "type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        "size": 14615,
+        "download_url": "https://drive.google.com/uc?id=1p-cJcwAvcgfZa1S1QH4FkAuXlqlRvGNd",
+        "url": "https://docs.google.com/spreadsheets/d/1p-cJcwAvcgfZa1S1QH4FkAuXlqlRvGNd/edit?usp=drivesdk&ouid=107631050282737776825&rtpof=true&sd=true",
+        "status": "uploaded_successfully",
+        "drive_id": "1p-cJcwAvcgfZa1S1QH4FkAuXlqlRvGNd",
+        "name": "Plan de Trabajo Requerimientos S1 (1) OC 151342 04 11 2025.xlsx"
+      }
+    ],
+    "referencia_contrato": "151342",
+    "avance_financiero": 40.0,
+    "alertas": {
+      "es_alerta": false,
+      "descripcion": "",
+      "tipos": []
+    },
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:40:36.747952"
+}

@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010304",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Salud Pública",
+    "cod_producto": 1905054,
+    "nombre_area_funcional": "Riesgos en salud intervenidos",
+    "nombre_fondo": "SGP-Salud-Salud pública 11/12",
+    "nombre_programa": "Servicios de Salud de Calidad en Redes Integrales, Un Desafío para Todos",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010304,
+    "created_at": "2025-10-10T09:27:59.372904+00:00",
+    "nombre_actividad": "Realizar asistencia técnica y seguimiento a la implementación de la estrategia de APS",
+    "updated_at": "2025-10-10T09:27:59.372904+00:00",
+    "programa_presupuestal": "BP260030781010133",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Mejoramiento de la gestión del riesgo por parte de los actores del SGSSS en Santiago de  Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 19,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Territorios para la Vida",
+    "validador_cuipo": null,
+    "bp": "BP26003078"
+  },
+  "timestamp": "2025-11-09T01:06:36.583070"
+}

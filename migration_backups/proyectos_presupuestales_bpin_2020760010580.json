@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010580",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Seguridad y Justicia",
+    "cod_producto": null,
+    "nombre_area_funcional": "Modelo diseñado e implementado para el control, protección y recuperación del Parque Nacional Natural Farallones y los ecosistemas de Cali",
+    "nombre_fondo": "Ingresos Corrientes de Libre Destinación",
+    "nombre_programa": "Protección ambiental y mitigación del cambio climático",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010580,
+    "created_at": "2025-10-10T09:25:12.398069+00:00",
+    "nombre_actividad": "Realizar mantenimiento preventivo y/o correctivo a vehículos para realización de operativos",
+    "updated_at": "2025-10-10T09:25:12.398069+00:00",
+    "programa_presupuestal": 6202001,
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2025,
+    "nombre_proyecto": "Restitución de espacio público y privado por desmonte de techos en zonas protegidas y no protegidas en Santiago de   Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": null,
+    "validador_cuipo": null,
+    "bp": "BP26003318"
+  },
+  "timestamp": "2025-11-09T01:07:42.362692"
+}

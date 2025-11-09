@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010011",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Movilidad",
+    "cod_producto": 2408017,
+    "nombre_area_funcional": "Ejecución de recursos FESDE para la operación del Sistema de Transporte Masivo, reportado",
+    "nombre_fondo": "Impuesto de Circulación y Tránsito Sobre Vehículos de Servicio Público - Tradicional",
+    "nombre_programa": "Transporte Público de Pasajeros ",
+    "nombre_dimension": "Cali, Nuestra Casa Común",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010011,
+    "created_at": "2025-10-10T09:29:14.737433+00:00",
+    "nombre_actividad": "Cumplir con la programación del servicio del SITM-MIO",
+    "updated_at": "2025-10-10T09:29:14.737433+00:00",
+    "programa_presupuestal": "BP260028141010165",
+    "nombre_pospre": "Subvenciones a empresas de transporte masivo",
+    "anio": 2024,
+    "nombre_proyecto": "Apoyo a la sostenibilidad del SITM-MIO del Distrito Santiago de   Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 24,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Movilidad Multimodal Sustentable",
+    "validador_cuipo": null,
+    "bp": "BP26002814"
+  },
+  "timestamp": "2025-11-09T00:53:54.019834"
+}

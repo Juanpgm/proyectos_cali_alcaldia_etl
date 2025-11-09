@@ -1,0 +1,31 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "mmKqC758PUlDokDuXHF8",
+  "data": {
+    "nombre_centro_gestor": "",
+    "observaciones": "Avance de actividades preliminares en 12 frentes de obra",
+    "fecha_reporte": "2025-10-14T13:23:44.349683+00:00",
+    "avance_fisico": 2.0,
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/1P_geY1R3bTvKYP-gVnx-_flTZ9eOsWJ1",
+    "archivos_evidencia": [
+      {
+        "type": "application/pdf",
+        "size": 1977158,
+        "download_url": "https://drive.google.com/uc?id=1vWI3VVni49hu0V-JjHPfQica0Y4O3AUg",
+        "url": "https://drive.google.com/file/d/1vWI3VVni49hu0V-JjHPfQica0Y4O3AUg/view?usp=drivesdk",
+        "drive_id": "1vWI3VVni49hu0V-JjHPfQica0Y4O3AUg",
+        "status": "uploaded_successfully",
+        "name": "Comité No.4  del 6 octubre 2025.pdf"
+      }
+    ],
+    "referencia_contrato": "4162.010.26.1.3229-2025",
+    "avance_financiero": 0.0,
+    "alertas": {
+      "descripcion": "",
+      "es_alerta": false,
+      "tipos": []
+    },
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:42:07.961721"
+}

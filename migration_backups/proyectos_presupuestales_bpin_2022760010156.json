@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2022760010156",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Desarrollo Territorial y Participación Ciudadana",
+    "cod_producto": 4599031,
+    "nombre_area_funcional": "Proceso de participación ciudadana y gestión comunitaria certificado",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Fortalecimiento Institucional",
+    "nombre_dimension": "Cali, Gobierno Incluyente",
+    "tipo_gasto": "Inversión",
+    "bpin": 2022760010156,
+    "created_at": "2025-10-10T09:30:29.756925+00:00",
+    "nombre_actividad": "Realizar programación, presupuestación, eficiencia del gasto publico y control organizacional",
+    "updated_at": "2025-10-10T09:30:29.756925+00:00",
+    "programa_presupuestal": "BP260043112010101",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Fortalecimiento de la planificación estrategica del Proceso de Participación Ciudadana y gestión comunitaria en Santiago de Cali",
+    "clasificacion_fondo": "Libre destinación (Recursos Propios)",
+    "cod_sector": 45,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Gobierno Inteligente",
+    "validador_cuipo": null,
+    "bp": "BP26004311"
+  },
+  "timestamp": "2025-11-09T01:29:07.010850"
+}

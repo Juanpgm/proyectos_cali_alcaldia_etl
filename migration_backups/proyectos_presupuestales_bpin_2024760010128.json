@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010128",
+  "data": {
+    "nombre_centro_gestor": "Departamento Administrativo de Desarrollo e Innovación Institucional",
+    "cod_producto": null,
+    "nombre_area_funcional": "Modelo Distrital de la Gestión Estratégica del Talento Humano implementada",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Fortalecimiento institucional",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010128,
+    "nombre_actividad": "Desarrollar un modelo estratégico en la entidad de acuerdo al diagnóstico del proceso de la gestión y el desarrollo del talento humano",
+    "created_at": "2025-10-10T09:32:29.894474+00:00",
+    "updated_at": "2025-10-10T09:32:29.894474+00:00",
+    "programa_presupuestal": 6302001,
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2025,
+    "nombre_proyecto": "Desarrollo de un Modelo Distrital de la Gestión Estratégica del Talento Humano 4.0 en Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "bp": "BP26005403",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T01:33:55.050441"
+}

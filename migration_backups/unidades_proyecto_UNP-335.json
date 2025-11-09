@@ -1,0 +1,52 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-335",
+  "data": {
+    "created_at": "2025-11-05T11:34:37.520816",
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -76.50296955,
+        3.463091183
+      ]
+    },
+    "has_geometry": true,
+    "geometry_type": "Point",
+    "properties": {
+      "processed_timestamp": "2025-11-05T11:34:28.210236",
+      "descripcion_intervencion": "Comisaria de familia de Salomia",
+      "microtio": null,
+      "bpin": "-2147483648",
+      "centros_gravedad": false,
+      "upid": "UNP-335",
+      "nombre_up_detalle": "Comisaria de familia de Salomia",
+      "tipo_intervencion": "Adecuaciones y mantenimientos",
+      "url_proceso": "https://www.secop.gov.co/CO1BusinessLine/Tendering/ProcedureEdit/View?docUniqueIdentifier=CO1.REQ.9079503&prevCtxUrl=https%3a%2f%2fwww.secop.gov.co%2fCO1BusinessLine%2fTendering%2fBuyerDossierWorkspace%2fIndex%3fallWords2Search%3dsalomia%26createDateFrom%3d15%2f04%2f2025+21%3a47%3a00%26createDateTo%3d15%2f10%2f2025+21%3a47%3a00%26filteringState%3d0%26sortingState%3dLastModifiedDESC%26showAdvancedSearch%3dTrue%26showAdvancedSearchFields%3dFalse%26advSrchFolderCode%3dALL%26selectedDossier%3dCO1.BDOS.8842456%26selectedRequest%3dCO1.REQ.9079503%26&prevCtxLbl=Procesos+de+la+Entidad+Estatal",
+      "referencia_contrato": "x",
+      "unidad": "UND",
+      "identificador": "ADECUACIÓN DE LA INFRAESTRUCTURA FÍSICA DEL DESPACHO DE LA COMISARÍA DE FAMILIA DE SALOMIA",
+      "tipo_equipamiento": "Casa de Justicia",
+      "fecha_fin": "Pendiente",
+      "estado": "En alistamiento",
+      "fecha_inicio": "Pendiente",
+      "plataforma": "SECOP II",
+      "nombre_centro_gestor": "Secretaría de Seguridad y Justicia",
+      "avance_obra": "0.0",
+      "geometry_bounds": null,
+      "direccion": "Calle 47 # 4D-03",
+      "ano": null,
+      "geometry_type": null,
+      "dataframe": null,
+      "comuna_corregimiento": "COMUNA 04",
+      "nombre_up": "Adecuacion Comisaria de Familia de Salomia",
+      "referencia_proceso": "4161.010.32.1.1452.2025",
+      "fuente_financiacion": "Recursos propios",
+      "cantidad": "1",
+      "barrio_vereda": "Salomia",
+      "presupuesto_base": "0"
+    },
+    "updated_at": "2025-11-05T11:34:37.520816"
+  },
+  "timestamp": "2025-11-09T01:50:01.065107"
+}

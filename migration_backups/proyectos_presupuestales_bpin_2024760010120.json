@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010120",
+  "data": {
+    "nombre_centro_gestor": "Unidad Administrativa Especial de Servicios Públicos",
+    "cod_producto": null,
+    "nombre_area_funcional": "Mediciones de emisiones contaminantes en el antiguo vertedero de Navarro realizadas",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Protección ambiental y mitigación del cambio climático",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010120,
+    "created_at": "2025-10-10T09:30:52.598169+00:00",
+    "nombre_actividad": "Realizar caracterización de la Calidad del Aire Resolución 2254 de 2017",
+    "updated_at": "2025-10-10T09:30:52.598169+00:00",
+    "programa_presupuestal": "BP260053141010101",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "Diagnostico de la Calidad Ambiental del Antiguo Vertedero de Navarro de la Ciudad de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": null,
+    "validador_cuipo": null,
+    "bp": "BP26005314"
+  },
+  "timestamp": "2025-11-09T01:33:48.007729"
+}

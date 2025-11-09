@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1117",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Avenida 2 Norte Con Calle 23 Norte",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.899929",
+    "has_valid_geometry": true,
+    "upid": "UNP-1117",
+    "nombre_up_detalle": "Via Colectora",
+    "nombre_up": "Avenida 2 Norte Con Calle 23 Norte",
+    "comuna_corregimiento": "COMUNA 02",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.52493563338078, 3.461988716798276, 0.0], [-76.52502400460605, 3.461886152754177, 0.0], [-76.52510323478816, 3.4618043146811712, 0.0], [-76.52513502216908, 3.461726269643583, 0.0], [-76.52515766860424, 3.46169051429455, 0.0], [-76.52521445964102, 3.461600849689558, 0.0], [-76.52525144125235, 3.4615230065394136, 0.0], [-76.52530747351042, 3.461441137821017, 0.0], [-76.52541123942251, 3.461341400174388, 0.0], [-76.5254792896455, 3.4612973963178426, 0.0]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "San Vicente",
+    "cantidad": 175,
+    "loaded_at": "2025-11-04T20:23:09.899938",
+    "presupuesto_base": 62143916.8
+  },
+  "timestamp": "2025-11-09T01:44:24.768661"
+}

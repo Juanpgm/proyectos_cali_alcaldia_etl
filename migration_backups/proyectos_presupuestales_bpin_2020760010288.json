@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010288",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Bienestar Social",
+    "cod_producto": 4102041,
+    "nombre_area_funcional": "Sistema Distrital de Atención Integral a la Primera Infancia",
+    "nombre_fondo": "R.F. Estampilla Prodesarrollo Urbano (20% Primera Infancia)",
+    "nombre_programa": "Cariños, Puro Corazón por la Primera Infancia ",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010288,
+    "created_at": "2025-10-10T09:28:19.901757+00:00",
+    "nombre_actividad": "Realizar asistencia técnica de los actores  del Sistema Distrital de Atención Integral a la Primera Infancia.",
+    "updated_at": "2025-10-10T09:28:19.901757+00:00",
+    "programa_presupuestal": "BP260035031010106",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "Conformación del sistema distrital de atención integral a la primera infancia en Santiago de   Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 41,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Poblaciones Construyendo Territorio",
+    "validador_cuipo": null,
+    "bp": "BP26003503"
+  },
+  "timestamp": "2025-11-09T01:06:26.059408"
+}

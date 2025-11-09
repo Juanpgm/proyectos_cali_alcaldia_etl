@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2023760010182",
+  "data": {
+    "nombre_centro_gestor": "Departamento Administrativo de Planeación Municipal",
+    "cod_producto": null,
+    "nombre_area_funcional": "Estudios de preinversión de proyectos estratégicos del plan de desarrollo elaborados",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Gestión de Información Estadística y Geográfica para la Evaluación de Resultados  ",
+    "nombre_dimension": "Cali, Gobierno Incluyente",
+    "tipo_gasto": "Inversión",
+    "bpin": 2023760010182,
+    "created_at": "2025-10-10T09:27:02.562030+00:00",
+    "nombre_actividad": "Elaborar los estudios y diseños de los proyectos estratégicos según las necesidades de Santiago de Cali",
+    "updated_at": "2025-10-10T09:27:02.562030+00:00",
+    "programa_presupuestal": "BP260048651010104",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "Fortalecimiento  en la formulación, planificación y estructuración de proyectos de inversión del distrito Santiago  Cali",
+    "clasificacion_fondo": "Libre destinación (Recursos Propios)",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Gobierno Inteligente",
+    "validador_cuipo": null,
+    "bp": "BP26004865"
+  },
+  "timestamp": "2025-11-09T01:31:42.463186"
+}

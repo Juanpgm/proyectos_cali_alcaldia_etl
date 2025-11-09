@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010062",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Seguridad y Justicia",
+    "cod_producto": 4501044,
+    "nombre_area_funcional": "Centro de Gestión del Conocimiento y la Innovación en materia de seguridad y justicia funcionando",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Sistema de la Información y la Infraestructura Tecnológica  ",
+    "nombre_dimension": "Cali, Gobierno Incluyente",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010062,
+    "created_at": "2025-10-10T09:29:26.187529+00:00",
+    "nombre_actividad": "Conformar equipos de trabajo y apropiar metodologías para el análisis cuantitativo, cualitativo y espacial",
+    "updated_at": "2025-10-10T09:29:26.187529+00:00",
+    "programa_presupuestal": "BP260030761010106",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "Implementación de un Centro de Gestión del Conocimiento y la Innovación en materia de seguridad y justicia  Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 45,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Gobierno Inteligente",
+    "validador_cuipo": null,
+    "bp": "BP26003076"
+  },
+  "timestamp": "2025-11-09T00:54:06.097956"
+}

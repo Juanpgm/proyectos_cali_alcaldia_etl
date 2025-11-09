@@ -1,0 +1,23 @@
+{
+  "collection_path": "proyecciones_emprestito",
+  "doc_id": "eyNJ1vf114zyNbCn28Qf",
+  "data": {
+    "nombre_banco": "Bancolombia",
+    "nombre_organismo_reducido": "Vivienda",
+    "ultima_actualizacion": "2025-11-08T11:31:07.638235+00:00",
+    "item": "61",
+    "nombre_resumido_proceso": "Contrato 6. Socialización y difusión de los proyectos que generan la oferta habitacional en el Distrito",
+    "fuente": "google_sheets",
+    "fecha_carga": "2025-11-08T11:31:04.571650",
+    "valor_proyectado": 0,
+    "nombre_generico_proyecto": "Subsidios para vivienda",
+    "fila_origen": 61,
+    "id_paa": "19032",
+    "fecha_guardado": "2025-11-08T11:31:07.638235+00:00",
+    "referencia_proceso": "4171.010.32.1.1053-2025",
+    "BP": "BP26005429",
+    "urlProceso": "https://www.secop.gov.co/CO1BusinessLine/Tendering/ContractNoticeView/Index?prevCtxLbl=Buscar+procesos&prevCtxUrl=https%3a%2f%2fwww.secop.gov.co%3a443%2fCO1BusinessLine%2fTendering%2fContractNoticeManagement%2fIndex&notice=CO1.NTC.8866963",
+    "descripcion_bp": "Fortalecimiento de la oferta habitacional"
+  },
+  "timestamp": "2025-11-09T00:53:22.456336"
+}

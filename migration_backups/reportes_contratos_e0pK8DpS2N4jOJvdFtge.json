@@ -1,0 +1,31 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "e0pK8DpS2N4jOJvdFtge",
+  "data": {
+    "nombre_centro_gestor": "",
+    "observaciones": "Se realizó reunión con el Contratista para planificar segundo entregable contrato No. 4134.010.26.1.0252-2025.\r\nTransferencia de Conocimiento, mediante reunión se discutió las estrategias para sensibilizar creación Grupos de Trabajo y Portafolio Herramienta Mesa de Servicios MARI.\r\n\r\nEnlace Reunión: https://drive.google.com/file/d/17fpZMUUz-Bi6WBEDFZD2hWZvLZJ0hBgt/view",
+    "fecha_reporte": "2025-10-29T20:51:46.238513+00:00",
+    "referencia_contrato": "4134.010.26.1.0252-2025",
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/1suVYusKOn31ZgpfkUOQfyn5NpfelUSqS",
+    "archivos_evidencia": [
+      {
+        "type": "application/pdf",
+        "size": 447765,
+        "download_url": "https://drive.google.com/uc?id=1QYOg5HUBrJnlPjqD80k_bRop-MVOT_G7",
+        "url": "https://drive.google.com/file/d/1QYOg5HUBrJnlPjqD80k_bRop-MVOT_G7/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1QYOg5HUBrJnlPjqD80k_bRop-MVOT_G7",
+        "name": "ACTA No. 4134.020.3.2.384-oct-21-2025.pdf"
+      }
+    ],
+    "avance_fisico": 60.0,
+    "alertas": {
+      "descripcion": "",
+      "es_alerta": false,
+      "tipos": []
+    },
+    "avance_financiero": 60.0,
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:41:52.091757"
+}

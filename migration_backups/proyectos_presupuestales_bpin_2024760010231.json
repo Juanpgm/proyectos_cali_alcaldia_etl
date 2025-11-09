@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010231",
+  "data": {
+    "nombre_centro_gestor": "Departamento Administrativo de Tecnologías de la Información y las Comunicaciones",
+    "cod_producto": null,
+    "nombre_area_funcional": "Trámites en la sede electrónica del Distrito de Santiago de Cali integrados",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Trámites rápidos y sin complicaciones",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010231,
+    "nombre_actividad": "Elaborar diagnóstico del estado actual de trámites",
+    "created_at": "2025-10-10T09:32:28.739630+00:00",
+    "updated_at": "2025-10-10T09:32:28.739630+00:00",
+    "programa_presupuestal": 6302002,
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2025,
+    "nombre_proyecto": "Mejoramiento de la oferta de trámites y servicios en línea a los ciudadanos de Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "bp": "BP26005395",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T01:35:24.370038"
+}

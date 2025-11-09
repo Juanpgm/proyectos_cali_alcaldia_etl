@@ -1,0 +1,27 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1248",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 0.0,
+    "direccion": "Cra 34 Entre Cll 9 Hasta Av Roosevelt",
+    "has_geometry": true,
+    "bpin": "0",
+    "ano": "0",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:10.789449",
+    "has_valid_geometry": true,
+    "upid": "UNP-1248",
+    "clase_obra": "Obra Vial",
+    "nombre_up": "Cra 34 Entre Cll 9 Hasta Av Roosevelt",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.5390112898391, 3.4281085430748703, 0.0], [-76.53762779798444, 3.4262950044109743, 0.0]]}",
+    "tipo_equipamiento": "Vías",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Eucaristico",
+    "cantidad": 252,
+    "loaded_at": "2025-11-04T20:23:10.789455",
+    "presupuesto_base": 0.0
+  },
+  "timestamp": "2025-11-09T01:46:31.773991"
+}

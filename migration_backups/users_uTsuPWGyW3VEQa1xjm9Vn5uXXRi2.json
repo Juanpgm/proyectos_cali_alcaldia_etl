@@ -1,0 +1,22 @@
+{
+  "collection_path": "users",
+  "doc_id": "uTsuPWGyW3VEQa1xjm9Vn5uXXRi2",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Gestión del Riesgo de Emergencias y Desastres",
+    "uid": "uTsuPWGyW3VEQa1xjm9Vn5uXXRi2",
+    "created_at": "2025-10-10T17:41:19.880359+00:00",
+    "cellphone": "+573009918080",
+    "fullname": "Luis Felipe Echeverry Abadia",
+    "is_active": true,
+    "auth_providers": [
+      "password"
+    ],
+    "login_count": 0,
+    "email": "luis.echeverry@cali.gov.co",
+    "updated_at": "2025-10-10T17:41:19.880363+00:00",
+    "last_login": null,
+    "email_verified": false,
+    "can_use_google_auth": true
+  },
+  "timestamp": "2025-11-09T02:01:15.147373"
+}

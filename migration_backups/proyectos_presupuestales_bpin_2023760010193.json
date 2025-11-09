@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2023760010193",
+  "data": {
+    "nombre_centro_gestor": "Departamento Administrativo de Hacienda",
+    "cod_producto": null,
+    "nombre_area_funcional": "Software del sistema de Información Catastral Implementado",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Gestión Financiera Eficiente",
+    "nombre_dimension": "Cali, Gobierno Incluyente",
+    "tipo_gasto": "Inversión",
+    "bpin": 2023760010193,
+    "created_at": "2025-10-10T09:26:52.312216+00:00",
+    "nombre_actividad": "Fortalecer Los modulos del sistema de gestión catastral Multiproposito para el adecuado desarrollo de los procesos misionales.",
+    "updated_at": "2025-10-10T09:26:52.312216+00:00",
+    "programa_presupuestal": "BP260051001010101",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "Fortalecimiento del Sistema de Gestión Catastral con enfoque Multipropósito de Santiago de Cali",
+    "clasificacion_fondo": "Libre destinación (Recursos Propios)",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Gobierno Inteligente",
+    "validador_cuipo": null,
+    "bp": "BP26005100"
+  },
+  "timestamp": "2025-11-09T01:31:51.564260"
+}

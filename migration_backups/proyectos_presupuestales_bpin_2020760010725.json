@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010725",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "cod_producto": null,
+    "nombre_area_funcional": "Vías y obras de infraestructura hidraulica en la zona urbana y rural construidas",
+    "nombre_fondo": "Ingresos Corrientes de Libre Destinación",
+    "nombre_programa": "Movilidad segura y sostenible",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010725,
+    "created_at": "2025-10-10T09:24:57.239908+00:00",
+    "nombre_actividad": "Construir vias y obras de drenaje rurales en los corregimientos de Santiago de Cali",
+    "updated_at": "2025-10-10T09:24:57.239908+00:00",
+    "programa_presupuestal": 6201003,
+    "nombre_pospre": "Otras obras de ingeniería civil",
+    "anio": 2025,
+    "nombre_proyecto": "Construcción  de Vías y obras de drenaje en la zona urbana y rural de Santiago de  Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": null,
+    "validador_cuipo": null,
+    "bp": "BP26002990"
+  },
+  "timestamp": "2025-11-09T01:08:28.896676"
+}

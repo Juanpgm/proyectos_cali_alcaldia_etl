@@ -1,0 +1,30 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1189",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Carrera 8 D Entre Calle 72 B Y Calle 73",
+    "has_geometry": true,
+    "bpin": "2021760010260",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.930011",
+    "has_valid_geometry": true,
+    "upid": "UNP-1189",
+    "comuna_corregimiento": "COMUNA 07",
+    "nombre_up": "Carrera 8 D Entre Calle 72 B Y Calle 73 - Siete De Agosto",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.48355499999997, 3.449636000000055, 0.0], [-76.48445699999996, 3.4498550000000705, 0.0]]}",
+    "identificador": "Presupuesto Participativo Urbano",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Presupuesto Participativo",
+    "barrio_vereda": "Siete de Agosto",
+    "cantidad": 90,
+    "loaded_at": "2025-11-04T20:23:09.930018",
+    "presupuesto_base": 105973737.0
+  },
+  "timestamp": "2025-11-09T01:45:33.977535"
+}

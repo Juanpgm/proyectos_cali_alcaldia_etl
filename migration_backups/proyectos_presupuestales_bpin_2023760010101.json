@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2023760010101",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Cultura",
+    "cod_producto": null,
+    "nombre_area_funcional": "Personas formadas en prácticas artísticas en comunas y corregimientos",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Ecosistema Artístico ",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2023760010101,
+    "created_at": "2025-10-10T09:28:38.660253+00:00",
+    "nombre_actividad": "Realizar talleres de formación artística en el corregimiento Golondrinas y sus veredas",
+    "updated_at": "2025-10-10T09:28:38.660253+00:00",
+    "programa_presupuestal": "BP260049051010101",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Fortalecimiento de las practicas artísticas y culturales para los habitantes del corregimiento Golondrinas de Santiago de Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": null,
+    "comuna": "GOLONDRINAS",
+    "origen": "Territorio",
+    "nombre_linea_estrategica": "Cali Corazón de las Culturas",
+    "validador_cuipo": null,
+    "bp": "BP26004905"
+  },
+  "timestamp": "2025-11-09T01:30:36.724529"
+}

@@ -1,0 +1,49 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "aHrkbzs5wy7oaHUqah2Q",
+  "data": {
+    "nombre_centro_gestor": "",
+    "observaciones": "AVANCE EN LAS ACTIVIDADES DE SUPERVISION DEL PROCESO DEL CONTRATO 3229-2025",
+    "fecha_reporte": "2025-10-24T11:13:53.267063+00:00",
+    "referencia_contrato": "4162.010.26.1.3225-2025",
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/1AoCGzhWYBW9skKAjNo03FAdeV2Dpc_PD",
+    "archivos_evidencia": [
+      {
+        "type": "application/pdf",
+        "size": 119804,
+        "download_url": "https://drive.google.com/uc?id=1ilrweJHhbOCqqckq0gDYGf9WBRP-e4t0",
+        "url": "https://drive.google.com/file/d/1ilrweJHhbOCqqckq0gDYGf9WBRP-e4t0/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1ilrweJHhbOCqqckq0gDYGf9WBRP-e4t0",
+        "name": "RESUMEN PRESENTACIÓN INTERVENTORÍA 3229.pdf"
+      },
+      {
+        "type": "image/jpeg",
+        "size": 196581,
+        "download_url": "https://drive.google.com/uc?id=1_jBE3MdTvZV37naNDyMQH9imJTnNGJ1D",
+        "url": "https://drive.google.com/file/d/1_jBE3MdTvZV37naNDyMQH9imJTnNGJ1D/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1_jBE3MdTvZV37naNDyMQH9imJTnNGJ1D",
+        "name": "2.jpg"
+      },
+      {
+        "type": "image/jpeg",
+        "size": 189030,
+        "download_url": "https://drive.google.com/uc?id=1ASbtW-Y9jgYPofmTWfOxC-b8hQbKL9wS",
+        "url": "https://drive.google.com/file/d/1ASbtW-Y9jgYPofmTWfOxC-b8hQbKL9wS/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1ASbtW-Y9jgYPofmTWfOxC-b8hQbKL9wS",
+        "name": "1.jpg"
+      }
+    ],
+    "avance_fisico": 3.0,
+    "alertas": {
+      "descripcion": "",
+      "es_alerta": false,
+      "tipos": []
+    },
+    "avance_financiero": 0.0,
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:41:38.075593"
+}

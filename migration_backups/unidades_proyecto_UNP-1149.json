@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1149",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Calle 5 Con Carrera 1",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.914090",
+    "has_valid_geometry": true,
+    "upid": "UNP-1149",
+    "nombre_up_detalle": "Via Arteria Principal",
+    "nombre_up": "Calle 5 Con Carrera 1",
+    "comuna_corregimiento": "COMUNA 03",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.53838346960595, 3.4505573590026097, 0.0], [-76.53831680999383, 3.450574585181838, 0.0], [-76.53823491389366, 3.450595639402415, 0.0], [-76.53817206313354, 3.4505975544510568, 0.0], [-76.53810159367383, 3.450576503061953, 0.0], [-76.5380635018633, 3.4505535371903404, 0.0]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "El Peñón",
+    "cantidad": 37,
+    "loaded_at": "2025-11-04T20:23:09.914095",
+    "presupuesto_base": 27897749.03
+  },
+  "timestamp": "2025-11-09T01:44:55.387770"
+}

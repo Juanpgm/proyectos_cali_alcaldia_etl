@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2023760010034",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Educación",
+    "cod_producto": null,
+    "nombre_area_funcional": "Intervenciones (Mantenimiento, adecuación de infraestructura) realizadas a sedes educativas",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Equipamientos para el Desarrollo y el Bienestar",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2023760010034,
+    "created_at": "2025-10-10T09:27:32.867061+00:00",
+    "nombre_actividad": "Realizar el mejoramiento de las áreas escolares en la Sede Educativa Tulia Borrero Mercado del Corregimiento de El Hormiguero de Santiago de Cali",
+    "updated_at": "2025-10-10T09:27:32.867061+00:00",
+    "programa_presupuestal": "BP260048801010101",
+    "nombre_pospre": "Servicios de la construcción",
+    "anio": 2024,
+    "nombre_proyecto": "Mejoramiento de la infraestructura en las Sedes Educativas Oficiales del Corregimiento El Hormiguero de Santiago de Cali",
+    "clasificacion_fondo": "Libre destinación (Recursos Propios)",
+    "cod_sector": null,
+    "comuna": "EL HORMIGUERO",
+    "origen": "Territorio",
+    "nombre_linea_estrategica": "Territorios para la Vida",
+    "validador_cuipo": null,
+    "bp": "BP26004880"
+  },
+  "timestamp": "2025-11-09T01:29:44.943473"
+}

@@ -1,0 +1,31 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "ClaUcZhTIXPKmFmQRzXW",
+  "data": {
+    "nombre_centro_gestor": "",
+    "observaciones": "Contrato con acta de inicio para ejecutar en este ultimo trimestre 2025",
+    "fecha_reporte": "2025-10-14T17:04:22.450291+00:00",
+    "avance_fisico": 0.0,
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/168TtZwWaWYgVPwFfG7kmm6mhMD9CFOpE",
+    "archivos_evidencia": [
+      {
+        "type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "size": 13393,
+        "download_url": "https://drive.google.com/uc?id=1W0uza3qlCsVdTStf35MnJlBJLOK389UQ",
+        "url": "https://docs.google.com/document/d/1W0uza3qlCsVdTStf35MnJlBJLOK389UQ/edit?usp=drivesdk&ouid=107631050282737776825&rtpof=true&sd=true",
+        "drive_id": "1W0uza3qlCsVdTStf35MnJlBJLOK389UQ",
+        "status": "uploaded_successfully",
+        "name": "Blanco.docx"
+      }
+    ],
+    "referencia_contrato": "4151.010.26.1.0954-2025",
+    "avance_financiero": 0.0,
+    "alertas": {
+      "descripcion": "",
+      "es_alerta": false,
+      "tipos": []
+    },
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:40:41.150234"
+}

@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010147",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Bienestar Social",
+    "cod_producto": 4101039,
+    "nombre_area_funcional": "Personas en Procesos de Retorno y Reubicación, apoyadas",
+    "nombre_fondo": "Estampilla Prodesarrollo 10% Víctimas de Conflicto Armado",
+    "nombre_programa": "Atención Integral a las Víctimas del Conflicto",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010147,
+    "created_at": "2025-10-10T09:28:17.040547+00:00",
+    "nombre_actividad": "Apoyar logísticamente las visitas a los posibles municipios de retorno",
+    "updated_at": "2025-10-10T09:28:17.040547+00:00",
+    "programa_presupuestal": "BP260030231010103",
+    "nombre_pospre": "Servicios de alojamiento; servicios de suministro de comidas y bebidas; servicios de transporte; y servicios de distribución de electricidad, gas y agua",
+    "anio": 2024,
+    "nombre_proyecto": "Apoyo a las personas víctimas del conflicto armado en los procesos de retorno y reubicación desde o hacía el Municipio de Santiago de  Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 41,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Distrito Reconciliado",
+    "validador_cuipo": null,
+    "bp": "BP26003023"
+  },
+  "timestamp": "2025-11-09T01:05:36.524435"
+}

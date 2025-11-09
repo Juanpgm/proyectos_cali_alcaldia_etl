@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010647",
+  "data": {
+    "nombre_centro_gestor": "Departamento Administrativo de Gestión del Medio Ambiente ",
+    "cod_producto": 3205022,
+    "nombre_area_funcional": "Procesos institucionales de la autoridad ambiental, conforme a los requerimientos de las políticas institucionales y administrativas vigentes mejorados",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Fortalecimiento Institucional",
+    "nombre_dimension": "Cali, Gobierno Incluyente",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010647,
+    "created_at": "2025-10-10T09:27:15.214585+00:00",
+    "nombre_actividad": "Realizar las acciones del ciclo PHVA para el desarrollo  del macroproceso transversal Hacienda Pública en el DAGMA",
+    "updated_at": "2025-10-10T09:27:15.214585+00:00",
+    "programa_presupuestal": "BP260026841010129",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Implementación del Sistema de Planeación y Gestión de la Autoridad Ambiental de Santiago de  Cali",
+    "clasificacion_fondo": "Libre destinación (Recursos Propios)",
+    "cod_sector": 32,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Gobierno Inteligente",
+    "validador_cuipo": null,
+    "bp": "BP26002684"
+  },
+  "timestamp": "2025-11-09T01:08:07.857514"
+}

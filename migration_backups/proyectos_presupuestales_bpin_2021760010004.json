@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2021760010004",
+  "data": {
+    "nombre_centro_gestor": "Departamento Administrativo de Hacienda",
+    "cod_producto": 1305015,
+    "nombre_area_funcional": "Ingresos de la vigencia actual de Impuesto Predial Unificado e Impuesto de Industria y Comercio y otros recaudados",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Gestión Financiera Eficiente",
+    "nombre_dimension": "Cali, Gobierno Incluyente",
+    "tipo_gasto": "Inversión",
+    "bpin": 2021760010004,
+    "created_at": "2025-10-10T09:26:50.802235+00:00",
+    "nombre_actividad": "Elaborar documentos trimestrales para la consolidación de la gestión del recaudo",
+    "updated_at": "2025-10-10T09:26:50.802235+00:00",
+    "programa_presupuestal": "BP260036201010103",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "Fortalecimiento del recaudo de la vigencia corriente de  Cali",
+    "clasificacion_fondo": "Libre destinación (Recursos Propios)",
+    "cod_sector": 13,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Gobierno Inteligente",
+    "validador_cuipo": null,
+    "bp": "BP26003620"
+  },
+  "timestamp": "2025-11-09T01:09:29.510077"
+}

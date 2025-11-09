@@ -1,0 +1,31 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "krfnOlncvwX8AwjcbUsV",
+  "data": {
+    "nombre_centro_gestor": "",
+    "fecha_reporte": "2025-11-07T22:03:29.073408+00:00",
+    "observaciones": "Se finalizaron los entregables y evidencias relacionadas a la cuenta de cobro número 1, que corresponde a las actividades de plan de gestión de proyecto, migración de Oracle a PostgreSQL, cambio de Forest ECM a S3, contenerización con Docker, implementación de infraestructura como código (IaC) y el versionamiento de la PGC\r\n\r\nEnlace de evidencias por cada obligación contractual:\r\nhttps://drive.google.com/drive/folders/1XTwUZZ9I1AfEoRRrY_3s3yLC4b6QMv1W",
+    "avance_fisico": 52.0,
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/1yvHF6ABoqBQnEhKKC8Ziy8ozb7nXaT3J",
+    "archivos_evidencia": [
+      {
+        "type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "size": 13594,
+        "download_url": "https://drive.google.com/uc?id=1_sK4FkUiLDASpVomlvBfd0qprROISw_Q",
+        "url": "https://docs.google.com/document/d/1_sK4FkUiLDASpVomlvBfd0qprROISw_Q/edit?usp=drivesdk&ouid=107631050282737776825&rtpof=true&sd=true",
+        "status": "uploaded_successfully",
+        "drive_id": "1_sK4FkUiLDASpVomlvBfd0qprROISw_Q",
+        "name": "Enlace de evidencias contrato PGC.docx"
+      }
+    ],
+    "referencia_contrato": "4134.010.26.1.0253-2025",
+    "avance_financiero": 52.0,
+    "alertas": {
+      "es_alerta": false,
+      "descripcion": "",
+      "tipos": []
+    },
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:42:03.531458"
+}

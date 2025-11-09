@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010061",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Salud Pública",
+    "cod_producto": null,
+    "nombre_area_funcional": "Territorios y entornos de vida cotidiana priorizados con estrategias integrales e intersectoriales para reducir las inequidades sociales en salud y mejorar la calidad de vida de la población, implementadas",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Protección ambiental y mitigación del cambio climático",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010061,
+    "nombre_actividad": "Acompañar técnicamente a las organizaciones comunitarias en la participación social en salud.",
+    "created_at": "2025-10-10T09:33:03.253145+00:00",
+    "updated_at": "2025-10-10T09:33:03.253145+00:00",
+    "programa_presupuestal": 6202001,
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2025,
+    "nombre_proyecto": "Fortalecimiento Intersectorial y Comunitario en la gestión de entornos para el bienestar en Santiago de Cali.",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "bp": "BP26005445",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T01:32:53.888351"
+}

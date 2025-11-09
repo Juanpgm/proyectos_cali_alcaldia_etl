@@ -1,0 +1,30 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1204",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Cra 50 Entre Av Roosevelt Hasta Cil 5",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.936064",
+    "has_valid_geometry": true,
+    "upid": "UNP-1204",
+    "comuna_corregimiento": "COMUNA 19",
+    "nombre_up": "Cra 50 Entre Av Roosevelt Hasta Cil 5",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"MultiLineString\", \"coordinates\": [[[-76.54827628991882, 3.4155906456917933, 0.0], [-76.5481919127492, 3.4155704180991515, 0.0]], [[-76.5481919127492, 3.4155704180991515, 0.0], [-76.54741540219902, 3.4153842665706975, 0.0], [-76.54686381201526, 3.4151252879017875, 0.0], [-76.54613104890876, 3.4148025401051996, 0.0], [-76.54553205545994, 3.4145611467795334, 0.0]]]}",
+    "identificador": "Puntos Estrategicos",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "El Lido",
+    "cantidad": 326,
+    "loaded_at": "2025-11-04T20:23:09.936067",
+    "presupuesto_base": 1641641488.0
+  },
+  "timestamp": "2025-11-09T01:45:49.708406"
+}

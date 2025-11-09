@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010140",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Bienestar Social",
+    "cod_producto": null,
+    "nombre_area_funcional": "Víctimas del conflicto armado atendidas con ayuda y atención humanitaria",
+    "nombre_fondo": "Estampilla Pro desarrollo10% Victimas de Conflicto Armado",
+    "nombre_programa": "Atención integral a poblaciones",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010140,
+    "nombre_actividad": "Proporcionar Ayuda Humanitaria a las personas víctimas del conflicto armado",
+    "created_at": "2025-10-10T09:33:24.745762+00:00",
+    "updated_at": "2025-10-10T09:33:24.745762+00:00",
+    "programa_presupuestal": 6102006,
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2025,
+    "nombre_proyecto": "Apoyo de ayudas humanitarias Inmediatas a los hogares víctimas del conflicto armado en  Cali",
+    "clasificacion_fondo": "Recursos Propios con Destinacion Especifica",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "bp": "BP26003008",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T00:54:34.339679"
+}

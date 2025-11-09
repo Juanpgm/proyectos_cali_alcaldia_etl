@@ -1,0 +1,23 @@
+{
+  "collection_path": "proyecciones_emprestito",
+  "doc_id": "ZvkdvYbW5adfc3DQWfWr",
+  "data": {
+    "nombre_banco": "Bancolombia",
+    "nombre_organismo_reducido": "Educación",
+    "ultima_actualizacion": "2025-11-08T11:31:07.632702+00:00",
+    "item": "40",
+    "nombre_resumido_proceso": "Contrato 4. Convenio Icetex",
+    "fuente": "google_sheets",
+    "fecha_carga": "2025-11-08T11:31:04.566401",
+    "valor_proyectado": 0,
+    "nombre_generico_proyecto": "Mi Cali Beca educación Superior",
+    "fila_origen": 40,
+    "id_paa": "18973",
+    "fecha_guardado": "2025-11-08T11:31:07.632702+00:00",
+    "referencia_proceso": "",
+    "BP": "BP26005488",
+    "urlProceso": "https://www.secop.gov.co/CO1BusinessLine/Tendering/ContractNoticeView/Index?prevCtxLbl=Buscar+procesos&prevCtxUrl=https%3a%2f%2fwww.secop.gov.co%3a443%2fCO1BusinessLine%2fTendering%2fContractNoticeManagement%2fIndex&notice=CO1.NTC.9071971",
+    "descripcion_bp": "Mi Cali Beca"
+  },
+  "timestamp": "2025-11-09T00:53:09.085051"
+}

@@ -1,0 +1,23 @@
+{
+  "collection_path": "proyecciones_emprestito",
+  "doc_id": "ZtvgI8aHkHWnOcadWkGB",
+  "data": {
+    "nombre_banco": "Banco de Occidente",
+    "nombre_organismo_reducido": "Bienes",
+    "ultima_actualizacion": "2025-11-08T11:31:07.613578+00:00",
+    "item": "2",
+    "nombre_resumido_proceso": "Contrato 8: Interventoria",
+    "fuente": "google_sheets",
+    "fecha_carga": "2025-11-08T11:31:04.558590",
+    "valor_proyectado": 0,
+    "nombre_generico_proyecto": "Remodelación Cam/Concejo",
+    "fila_origen": 2,
+    "id_paa": "VIGENCIAS 2026 Y 2027",
+    "fecha_guardado": "2025-11-08T11:31:07.613578+00:00",
+    "referencia_proceso": "",
+    "BP": "BP26005941",
+    "urlProceso": "",
+    "descripcion_bp": "Renovación y Modernización Integral de la Infraestructura del Concejo Distrital y la Plataforma Administrativa"
+  },
+  "timestamp": "2025-11-09T00:53:08.399605"
+}

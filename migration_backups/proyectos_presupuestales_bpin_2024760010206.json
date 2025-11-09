@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010206",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Desarrollo Económico",
+    "cod_producto": null,
+    "nombre_area_funcional": "\nEmpresas participantes de la estrategia de encadenamientos productivos",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Desarrollo productivo",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010206,
+    "created_at": "2025-10-10T09:25:53.769024+00:00",
+    "nombre_actividad": "Realizar acciones de desarrollo de los encadenamientos productivos del sector creativo y cultural",
+    "updated_at": "2025-10-10T09:25:53.769024+00:00",
+    "programa_presupuestal": 6102002,
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2025,
+    "nombre_proyecto": "Mejoramiento de la competitividad de las cadenas estratégicas del distrito de Santiago de  Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": null,
+    "validador_cuipo": null,
+    "bp": "BP26005380"
+  },
+  "timestamp": "2025-11-09T01:35:02.404797"
+}

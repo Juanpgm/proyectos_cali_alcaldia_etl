@@ -1,0 +1,52 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-815",
+  "data": {
+    "created_at": "2025-11-05T11:34:45.344327",
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -76.491612,
+        3.466352
+      ]
+    },
+    "has_geometry": true,
+    "geometry_type": "Point",
+    "properties": {
+      "processed_timestamp": "2025-11-05T11:34:28.210236",
+      "descripcion_intervencion": "Reemplazo transferencia automatica, para funcionamiento bombas",
+      "microtio": null,
+      "bpin": "-2147483648",
+      "centros_gravedad": false,
+      "upid": "UNP-815",
+      "nombre_up_detalle": "Principal",
+      "tipo_intervencion": "Adecuaciones y mantenimientos",
+      "url_proceso": "Pendiente",
+      "referencia_contrato": "4143.010.26.1.1320-2024",
+      "unidad": "UND",
+      "identificador": "Frente de obra contratada en 2024",
+      "tipo_equipamiento": "Institución Educativa",
+      "fecha_fin": "2024",
+      "estado": "Entregada",
+      "fecha_inicio": "2024",
+      "plataforma": "SECOP II",
+      "nombre_centro_gestor": "Secretaría de Educación",
+      "avance_obra": "10.0",
+      "geometry_bounds": null,
+      "direccion": "CL 47 4 E 30",
+      "ano": "2024",
+      "geometry_type": null,
+      "dataframe": null,
+      "comuna_corregimiento": "COMUNA 04",
+      "nombre_up": "I.E. La Merced",
+      "referencia_proceso": "4143.010.32.0829-2024",
+      "fuente_financiacion": "Recursos propios",
+      "cantidad": "1",
+      "barrio_vereda": "Salomia",
+      "presupuesto_base": "832402"
+    },
+    "updated_at": "2025-11-05T11:34:45.344327"
+  },
+  "timestamp": "2025-11-09T01:57:53.454905"
+}

@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010735",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Bienestar Social",
+    "cod_producto": 4101069,
+    "nombre_area_funcional": "Organizaciones que reciben apoyo para su participación e incidencia ante las entidades del Sistema Integral de Verdad, Justicia Reparación y No Repetición",
+    "nombre_fondo": "R.F. Estampilla Prodesarrollo 10% Víctimas de Conflicto Armado",
+    "nombre_programa": "Atención Integral a las Víctimas del Conflicto",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010735,
+    "created_at": "2025-10-10T09:28:21.517443+00:00",
+    "nombre_actividad": "Capacitar a las organizaciones de víctimas en los mecanismos de acceso al SIVJRNR",
+    "updated_at": "2025-10-10T09:28:21.517443+00:00",
+    "programa_presupuestal": "BP260035091010107",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "Apoyo a las organizaciones de víctimas ante las entidades del Sistema Integral de Verdad, Justicia, Reparación y No Repetición - SIVJRNR   Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 41,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Distrito Reconciliado",
+    "validador_cuipo": null,
+    "bp": "BP26003509"
+  },
+  "timestamp": "2025-11-09T01:08:31.531432"
+}

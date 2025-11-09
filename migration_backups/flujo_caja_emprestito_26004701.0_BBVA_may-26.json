@@ -1,0 +1,19 @@
+{
+  "collection_path": "flujo_caja_emprestito",
+  "doc_id": "26004701.0_BBVA_may-26",
+  "data": {
+    "banco": "BBVA",
+    "desembolso": 120666128.5,
+    "id_registro": "26004701.0_BBVA_may-26",
+    "mes": "may-26",
+    "columna_origen": "may-26 Desembolso",
+    "bp_proyecto": "26004701.0",
+    "responsable": "Esperanza Ramos",
+    "fecha_procesamiento": "2025-10-20T11:50:33.093426",
+    "periodo": "2026-05-01T00:00:00",
+    "archivo_origen": "Matriz Emprestito.xlsx",
+    "organismo": "Educación",
+    "descripcion_bp": "Infraestructura educativa adecuaciones y mantenimientos 49 sedes"
+  },
+  "timestamp": "2025-11-09T00:48:09.485256"
+}

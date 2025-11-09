@@ -1,0 +1,19 @@
+{
+  "collection_path": "flujo_caja_emprestito",
+  "doc_id": "26005375.0_Bancolombia_ago-25",
+  "data": {
+    "desembolso": 1018254430.0,
+    "banco": "Bancolombia",
+    "id_registro": "26005375.0_Bancolombia_ago-25",
+    "mes": "ago-25",
+    "columna_origen": "ago-25 Desembolso",
+    "bp_proyecto": "26005375.0",
+    "responsable": "Mauricio Jimenez",
+    "fecha_procesamiento": "2025-10-20T11:50:33.067830",
+    "periodo": "2025-08-01T00:00:00",
+    "archivo_origen": "Matriz Emprestito.xlsx",
+    "organismo": "Infraestructura",
+    "descripcion_bp": "RECUPERACION DE LA INFRAESTRUCTURA VIAL DE SANTIAGO DE CALI"
+  },
+  "timestamp": "2025-11-09T00:48:39.387833"
+}

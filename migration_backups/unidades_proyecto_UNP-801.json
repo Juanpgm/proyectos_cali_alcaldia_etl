@@ -1,0 +1,52 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-801",
+  "data": {
+    "created_at": "2025-11-05T11:34:45.334611",
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -76.536838,
+        3.442629
+      ]
+    },
+    "has_geometry": true,
+    "geometry_type": "Point",
+    "properties": {
+      "processed_timestamp": "2025-11-05T11:34:28.210236",
+      "descripcion_intervencion": "Repotenciación acometida, reparacion cortocircuito.",
+      "microtio": null,
+      "bpin": "-2147483648",
+      "centros_gravedad": false,
+      "upid": "UNP-801",
+      "nombre_up_detalle": "Eustaquio Palacios",
+      "tipo_intervencion": "Adecuaciones y mantenimientos",
+      "url_proceso": "Pendiente",
+      "referencia_contrato": "4143.010.26.1.1320-2024",
+      "unidad": "UND",
+      "identificador": "Frente de obra contratada en 2024",
+      "tipo_equipamiento": "Institución Educativa",
+      "fecha_fin": "2024",
+      "estado": "Entregada",
+      "fecha_inicio": "2024",
+      "plataforma": "SECOP II",
+      "nombre_centro_gestor": "Secretaría de Educación",
+      "avance_obra": "10.0",
+      "geometry_bounds": null,
+      "direccion": "KR 17 3 A 55",
+      "ano": "2024",
+      "geometry_type": null,
+      "dataframe": null,
+      "comuna_corregimiento": "COMUNA 03",
+      "nombre_up": "I.E. Santa Librada",
+      "referencia_proceso": "4143.010.32.0829-2024",
+      "fuente_financiacion": "Recursos propios",
+      "cantidad": "1",
+      "barrio_vereda": "Los Libertadores",
+      "presupuesto_base": "10023067"
+    },
+    "updated_at": "2025-11-05T11:34:45.334611"
+  },
+  "timestamp": "2025-11-09T01:57:40.254806"
+}

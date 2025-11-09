@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010292",
+  "data": {
+    "nombre_centro_gestor": "Departamento Administrativo de Gestión del Medio Ambiente",
+    "cod_producto": null,
+    "nombre_area_funcional": "Áreas de conservación y protección ambiental de la Estructura Ecológica Principal con estrategias implementadas para garantizar su mantenimiento y oferta de servicios ecosistémicos.",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Protección ambiental y mitigación del cambio climático",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010292,
+    "nombre_actividad": "Realizar acciones de herramientas de manejo del paisaje para la recuperación y protección del Humedal Isaías Duarte Cancino",
+    "created_at": "2025-10-10T09:32:13.933022+00:00",
+    "updated_at": "2025-10-10T09:32:13.933022+00:00",
+    "programa_presupuestal": 6202001,
+    "nombre_pospre": "Servicios de la construcción",
+    "anio": 2025,
+    "nombre_proyecto": "Recuperación del Humedal Isaías Duarte Cancino en la Comuna 15 de Santiago de   Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "COMUNA 15",
+    "origen": "Territorio",
+    "bp": "BP26005803",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T01:36:10.923638"
+}

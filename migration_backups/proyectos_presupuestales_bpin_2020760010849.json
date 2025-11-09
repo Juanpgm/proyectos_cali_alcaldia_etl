@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010849",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Movilidad",
+    "cod_producto": 2409002,
+    "nombre_area_funcional": "Promoción y pedagogía de comportamientos y prácticas seguras para la movilidad sustentable y sobre estrategias de regulación del tránsito realizadas",
+    "nombre_fondo": "Multas infracciones de tránsito ley 769-02",
+    "nombre_programa": "Regulación, Control y Gestión Inteligente del Tránsito ",
+    "nombre_dimension": "Cali, Nuestra Casa Común",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010849,
+    "created_at": "2025-10-10T09:29:16.231282+00:00",
+    "nombre_actividad": "Realizar el diseño, gestion y seguimiento de estrategias de promoción de seguridad vial con  gremios, colectivos y/o organizaciones y organismos del sector público",
+    "updated_at": "2025-10-10T09:29:16.231282+00:00",
+    "programa_presupuestal": "BP260030251010113",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Fortalecimiento  del desarrollo de estrategias de promoción y pedagogía para la movilidad sustentable en Santiago de  Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 24,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Movilidad Multimodal Sustentable",
+    "validador_cuipo": null,
+    "bp": "BP26003025"
+  },
+  "timestamp": "2025-11-09T01:09:22.512327"
+}

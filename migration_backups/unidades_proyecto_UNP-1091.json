@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1091",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Calle 72 A Con Carrera 7B",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.171854",
+    "has_valid_geometry": true,
+    "upid": "UNP-1091",
+    "nombre_up_detalle": "Via Local",
+    "nombre_up": "Calle 72 A Con Carrera 7B",
+    "comuna_corregimiento": "COMUNA 07",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.48230212124913, 3.464912018140319, 0.0], [-76.4822531188271, 3.464762929342668, 0.0], [-76.48225289103233, 3.464762236281904, 0.0]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Alfonso Lopez I",
+    "cantidad": 17,
+    "loaded_at": "2025-11-04T20:23:09.171858",
+    "presupuesto_base": 6036837.63
+  },
+  "timestamp": "2025-11-09T01:43:59.298751"
+}

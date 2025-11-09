@@ -1,0 +1,19 @@
+{
+  "collection_path": "flujo_caja_emprestito",
+  "doc_id": "26004701.0_Bancolombia_oct-25",
+  "data": {
+    "banco": "Bancolombia",
+    "desembolso": 110556250.116375,
+    "id_registro": "26004701.0_Bancolombia_oct-25",
+    "mes": "oct-25",
+    "columna_origen": "oct-25 Desembolso",
+    "bp_proyecto": "26004701.0",
+    "responsable": "Esperanza Ramos",
+    "fecha_procesamiento": "2025-10-20T11:50:33.071085",
+    "periodo": "2025-10-01T00:00:00",
+    "archivo_origen": "Matriz Emprestito.xlsx",
+    "organismo": "Educación",
+    "descripcion_bp": "Mejoramiento a la Infraestructura física de las sedes educativas oficiales para las vigencias 2024-2028 en Santiago de Cali"
+  },
+  "timestamp": "2025-11-09T00:48:12.828986"
+}

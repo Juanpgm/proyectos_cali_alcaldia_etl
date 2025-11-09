@@ -1,0 +1,31 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "YyI1E8dPb5JNyxU8VkUB",
+  "data": {
+    "observaciones": "El contrato ya fue firmado y actualmente se encuentra en etapa de legalización. Se espera la entrega de las pólizas por parte del contratista para continuar con el proceso de inicio de obra.",
+    "nombre_centro_gestor": "",
+    "fecha_reporte": "2025-10-18T03:18:22.498990+00:00",
+    "referencia_contrato": "4148.010.26.1.1418-2025",
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/1ArP2ZtuuHxEtXpLEX20ezzgtvgCv4DG1",
+    "archivos_evidencia": [
+      {
+        "type": "application/pdf",
+        "size": 1934304,
+        "download_url": "https://drive.google.com/uc?id=18HjaMN7nCo_7cVm2-1NU4FsxyqC2TSfg",
+        "url": "https://drive.google.com/file/d/18HjaMN7nCo_7cVm2-1NU4FsxyqC2TSfg/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "18HjaMN7nCo_7cVm2-1NU4FsxyqC2TSfg",
+        "name": "MINUTA DEL CONTRATO-.pdf"
+      }
+    ],
+    "avance_fisico": 0.0,
+    "avance_financiero": 0.0,
+    "alertas": {
+      "es_alerta": false,
+      "descripcion": "",
+      "tipos": []
+    },
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:41:35.450384"
+}

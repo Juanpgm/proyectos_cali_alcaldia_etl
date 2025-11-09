@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2021760010319",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Salud Pública",
+    "cod_producto": 4599025,
+    "nombre_area_funcional": "Central de Telecomunicaciones en Salud Fase 1 diseñada y construida",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Cali Inteligente ",
+    "nombre_dimension": "Cali, Inteligente para la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2021760010319,
+    "created_at": "2025-10-10T09:27:45.754108+00:00",
+    "nombre_actividad": "Realizar la articulacion tecnica y administrativa, gestión, planificación y seguimiento operativo, en el desarrollo de la implementacióndel sistema de información software por modulos de servicios.",
+    "updated_at": "2025-10-10T09:27:45.754108+00:00",
+    "programa_presupuestal": "BP260036971010106",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Implementación de un sistema integrado de información y gestión de la autoridad sanitaria en Santiago de   Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 45,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Territorio Inteligente",
+    "validador_cuipo": null,
+    "bp": "BP26003697"
+  },
+  "timestamp": "2025-11-09T01:27:50.535554"
+}

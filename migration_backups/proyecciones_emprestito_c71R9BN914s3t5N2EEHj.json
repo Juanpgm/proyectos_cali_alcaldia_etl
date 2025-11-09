@@ -1,0 +1,23 @@
+{
+  "collection_path": "proyecciones_emprestito",
+  "doc_id": "c71R9BN914s3t5N2EEHj",
+  "data": {
+    "nombre_banco": "",
+    "nombre_organismo_reducido": "DATIC",
+    "ultima_actualizacion": "2025-11-08T11:31:07.654998+00:00",
+    "item": "127",
+    "nombre_resumido_proceso": "Contrato 23: Interventoria Hacienda a un clic",
+    "fuente": "google_sheets",
+    "fecha_carga": "2025-11-08T11:31:04.579405",
+    "valor_proyectado": 0,
+    "nombre_generico_proyecto": "Soluciones Tecnológicas",
+    "fila_origen": 127,
+    "id_paa": "SE ELIMINA",
+    "fecha_guardado": "2025-11-08T11:31:07.654998+00:00",
+    "referencia_proceso": "",
+    "BP": "",
+    "urlProceso": "",
+    "descripcion_bp": "Implementación de soluciones tecnológicas para el aprovechamiento estratégico de datos en el distrito"
+  },
+  "timestamp": "2025-11-09T00:53:15.159143"
+}

@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010007",
+  "data": {
+    "nombre_centro_gestor": "Unidad Administrativa Especial de Servicios Públicos",
+    "cod_producto": null,
+    "nombre_area_funcional": "Intervenciones integrales para la mejora del área de espacio público afectada por residuos sólidos realizadas.",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Espacios públicos seguros",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010007,
+    "created_at": "2025-10-10T09:26:31.090175+00:00",
+    "nombre_actividad": "Realizar la asistencia técnica para el manejo del SIG relacionada con puntos críticos y el servicio público de aseo",
+    "updated_at": "2025-10-10T09:26:31.090175+00:00",
+    "programa_presupuestal": 6101001,
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2025,
+    "nombre_proyecto": "Fortalecimiento a la gestión adecuada de residuos sólidos y al servicio público de Aseo en Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": null,
+    "validador_cuipo": null,
+    "bp": "BP26005213"
+  },
+  "timestamp": "2025-11-09T01:32:05.673537"
+}

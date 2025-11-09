@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2023760010145",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Educación",
+    "cod_producto": null,
+    "nombre_area_funcional": "Lineamientos para la creación del observatorio de educación",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Gestión de la Educación",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2023760010145,
+    "created_at": "2025-10-10T09:27:39.000532+00:00",
+    "nombre_actividad": "Realizar la consolidación, depuración, procesamiento y análisis de datos relevantes para la caracterización y monitoreo del sector educativo.",
+    "updated_at": "2025-10-10T09:27:39.000532+00:00",
+    "programa_presupuestal": "BP260047001010101",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "Implementación del observatorio de la educación del Distrito Especial de Santiago de Cali",
+    "clasificacion_fondo": "Libre destinación (Recursos Propios)",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Distrito Educador",
+    "validador_cuipo": null,
+    "bp": "BP26004700"
+  },
+  "timestamp": "2025-11-09T01:31:10.849330"
+}

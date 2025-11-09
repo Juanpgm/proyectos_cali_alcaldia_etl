@@ -1,0 +1,30 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1222",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Area Parque Loma De La Cruz Calle 2 Entre Carreras 10 Hasta Carrera 14",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:10.777289",
+    "has_valid_geometry": true,
+    "upid": "UNP-1222",
+    "comuna_corregimiento": "COMUNA 03",
+    "nombre_up": "Area Parque Loma De La Cruz Calle 2 Entre Carreras 10 Hasta Carrera 14",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"MultiLineString\", \"coordinates\": [[[-76.53998509823367, 3.4465301740283394, 0.0], [-76.5399754655952, 3.44646326536747, 0.0], [-76.54004526827447, 3.445790595859364, 0.0], [-76.54005459894931, 3.4457396746018163, 0.0]], [[-76.54005459894931, 3.4457396746018163, 0.0], [-76.54015262574302, 3.4452047028348147, 0.0], [-76.54022386374027, 3.444755147032481, 0.0], [-76.54029448929919, 3.444357510890484, 0.0], [-76.54052052490226, 3.443464232288534, 0.0]]]}",
+    "identificador": "Puntos Estrategicos",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "San Antonio",
+    "cantidad": 345,
+    "loaded_at": "2025-11-04T20:23:10.777293",
+    "presupuesto_base": 10264546.0
+  },
+  "timestamp": "2025-11-09T01:46:07.240910"
+}

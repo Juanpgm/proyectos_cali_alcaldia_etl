@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010037",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Turismo",
+    "cod_producto": null,
+    "nombre_area_funcional": "Estrategias de apropiación del destino implementadas.",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Cali Distrito Deportivo, Cultural y Turístico",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010037,
+    "created_at": "2025-10-10T09:26:14.922149+00:00",
+    "nombre_actividad": "Realizar el desarrollo y ejecución de programas educativos y campañas de sensibilización dirigidas a la comunidad caleña para promover la valoración y el conocimiento del potencial turístico de la ciudad",
+    "updated_at": "2025-10-10T09:26:14.922149+00:00",
+    "programa_presupuestal": 6102003,
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2025,
+    "nombre_proyecto": "Fortalecimiento de las estrategias de promoción y comunicación a nivel local, nacional e internacional de Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": null,
+    "validador_cuipo": null,
+    "bp": "BP26005259"
+  },
+  "timestamp": "2025-11-09T01:32:31.853515"
+}

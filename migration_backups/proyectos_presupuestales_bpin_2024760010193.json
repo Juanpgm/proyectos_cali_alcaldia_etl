@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010193",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Bienestar Social",
+    "cod_producto": null,
+    "nombre_area_funcional": "Personas vinculadas a estrategias de promoción de derechos y prevención de las violencias basadas en género",
+    "nombre_fondo": "Estampilla Prodesarrollo Urbano  (10% Equidad de Género)",
+    "nombre_programa": "Prevención y resolución de conflictos",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010193,
+    "nombre_actividad": "Realizar direccionamiento técnico para la implementación de la estrategia de prevención de las violencias",
+    "created_at": "2025-10-10T09:33:20.717503+00:00",
+    "updated_at": "2025-10-10T09:33:20.717503+00:00",
+    "programa_presupuestal": 6101002,
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2025,
+    "nombre_proyecto": "Implementación de la estrategia de prevención de violencias basadas en género en Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios con Destinacion Especifica",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "bp": "BP26005428",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T01:34:50.879542"
+}

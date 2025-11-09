@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1020",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Avenida 5 Oeste",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.142757",
+    "has_valid_geometry": true,
+    "upid": "UNP-1020",
+    "nombre_up_detalle": "Via Colectora",
+    "nombre_up": "Avenida 5 Oeste",
+    "comuna_corregimiento": "COMUNA 01",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.55401695799998, 3.4543936320000626, 0.0], [-76.55346831499998, 3.4544241780000675, 0.0]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Terron Colorado",
+    "cantidad": 8,
+    "loaded_at": "2025-11-04T20:23:09.142763",
+    "presupuesto_base": 5730348.45
+  },
+  "timestamp": "2025-11-09T01:42:50.647714"
+}

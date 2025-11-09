@@ -1,0 +1,19 @@
+{
+  "collection_path": "flujo_caja_emprestito",
+  "doc_id": "26005393.0_Bancolombia_sep-25",
+  "data": {
+    "banco": "Bancolombia",
+    "desembolso": 81518400.0,
+    "id_registro": "26005393.0_Bancolombia_sep-25",
+    "mes": "sep-25",
+    "columna_origen": "sep-25 Desembolso",
+    "bp_proyecto": "26005393.0",
+    "responsable": "Paola Riveros",
+    "fecha_procesamiento": "2025-10-20T11:50:33.069016",
+    "periodo": "2025-09-01T00:00:00",
+    "archivo_origen": "Matriz Emprestito.xlsx",
+    "organismo": "Desarrollo Terriotiral",
+    "descripcion_bp": "Mantenimiento de la Infraestructura Física de los CALIS que prestan servicios y atención a los ciudadanos en Santiago de Cali."
+  },
+  "timestamp": "2025-11-09T00:48:51.391841"
+}

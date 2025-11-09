@@ -1,0 +1,30 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1187",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Carrera 1 A 13 Entre Calle 73 Y Calle 73 A",
+    "has_geometry": true,
+    "bpin": "2021760010260",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.929077",
+    "has_valid_geometry": true,
+    "upid": "UNP-1187",
+    "comuna_corregimiento": "COMUNA 06",
+    "nombre_up": "Carrera 1A13 Entre Calle 73 Y 73A",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.48442999999997, 3.48176600000005, 0.0], [-76.48476099999993, 3.4816390000000297, 0.0], [-76.48508199999998, 3.4815470000000346, 0.0]]}",
+    "identificador": "Presupuesto Participativo Urbano",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Presupuesto Participativo",
+    "barrio_vereda": "San Luis",
+    "cantidad": 70,
+    "loaded_at": "2025-11-04T20:23:09.929080",
+    "presupuesto_base": 94447922.0
+  },
+  "timestamp": "2025-11-09T01:45:32.185383"
+}

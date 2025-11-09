@@ -1,0 +1,30 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1169",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Calle 42 Entre Carrera 29 Y Carrera 31 – El Diamante",
+    "has_geometry": true,
+    "bpin": "2021760010260",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.921278",
+    "has_valid_geometry": true,
+    "upid": "UNP-1169",
+    "comuna_corregimiento": "COMUNA 13",
+    "nombre_up": "Calle 42 Entre Carreras 29 Y 31",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.50073499999996, 3.4194460000000504, 0.0], [-76.49913399999997, 3.4209660000000213, 0.0]]}",
+    "identificador": "Presupuesto Participativo Urbano",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Presupuesto Participativo",
+    "barrio_vereda": "El Diamante",
+    "cantidad": 241,
+    "loaded_at": "2025-11-04T20:23:09.921282",
+    "presupuesto_base": 388504520.0
+  },
+  "timestamp": "2025-11-09T01:45:14.643958"
+}

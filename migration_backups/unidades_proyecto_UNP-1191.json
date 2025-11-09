@@ -1,0 +1,30 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1191",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Av 2N Entre Cli 26N Hasta Cli 67N",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.930925",
+    "has_valid_geometry": true,
+    "upid": "UNP-1191",
+    "comuna_corregimiento": "COMUNA 02",
+    "nombre_up": "Av 2N Entre Cli 26N Hasta Cli 67N",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"GeometryCollection\", \"geometries\": [{\"type\": \"MultiLineString\", \"coordinates\": [[[-76.51286921740409, 3.4770745552204896, 0.0], [-76.50999703463538, 3.4810791781615666, 0.0], [-76.5097511317717, 3.48142452351522, 0.0]], [[-76.52061902958182, 3.4636296119459105, 0.0], [-76.52052966216361, 3.4635864478457687, 0.0], [-76.52039542593099, 3.46361221659668, 0.0], [-76.52037407836431, 3.4636609101056113, 0.0], [-76.52009665230031, 3.4642937146842887, 0.0]]]}, {\"type\": \"LineString\", \"coordinates\": [[-76.51902672530309, 3.466474189032624, 0.0], [-76.51890837901846, 3.4667779269598213, 0.0], [-76.51883370381233, 3.467186969203342, 0.0], [-76.5188216824619, 3.467231684157331, 0.0]]}, {\"type\": \"LineString\", \"coordinates\": [[-76.51559716306672, 3.4732815922923383, 0.0], [-76.51543429536609, 3.4735180018815663, 0.0]]}, {\"type\": \"LineString\", \"coordinates\": [[-76.51559962005825, 3.4732780258616818, 0.0], [-76.51559716306672, 3.4732815922923383, 0.0]]}, {\"type\": \"LineString\", \"coordinates\": [[-76.50458293804427, 3.485823574250656, 0.0], [-76.5045479461308, 3.4859662794203237, 0.0], [-76.50446114986215, 3.486525244944118, 0.0], [-76.50420845975965, 3.4877621396046843, 0.0]]}]}",
+    "identificador": "Puntos Estrategicos",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Urbanización La Merced",
+    "cantidad": 592,
+    "loaded_at": "2025-11-04T20:23:09.930932",
+    "presupuesto_base": 3850954182.0
+  },
+  "timestamp": "2025-11-09T01:45:36.598770"
+}

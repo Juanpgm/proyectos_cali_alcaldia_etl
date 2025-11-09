@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010076",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Salud Pública",
+    "cod_producto": null,
+    "nombre_area_funcional": "Personas capacitadas con estrategias intersectoriales para la promoción de la salud, la prevención y la reducción de riesgos y daños asociados al consumo de SPA",
+    "nombre_fondo": "SGP-Salud-Salud pública 11/12",
+    "nombre_programa": "Salud Integral y de Calidad",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010076,
+    "nombre_actividad": "Realizar acciones de promoción y prevención para el fortalecimiento de las relaciones y vínculos sociales en la ciudadanía, promoviendo la salud mental.",
+    "created_at": "2025-10-10T09:33:05.937814+00:00",
+    "updated_at": "2025-10-10T09:33:05.937814+00:00",
+    "programa_presupuestal": 6102004,
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2025,
+    "nombre_proyecto": "Fortalecimiento  de la respuesta a la prevención y reducción de riesgos  del consumo de sustancias psicoactivas en Santiago de    Cali",
+    "clasificacion_fondo": "Recursos con Destinación específica del SGP",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "bp": "BP26005484",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T01:33:07.109291"
+}

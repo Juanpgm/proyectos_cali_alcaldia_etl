@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010113",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Educación",
+    "cod_producto": null,
+    "nombre_area_funcional": "Observatorio de educación en operación",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Cali Educada",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010113,
+    "nombre_actividad": "Realizar la consolidación, depuración, procesamiento y análisis de datos relevantes para la caracterización y monitoreo del sector educativo.",
+    "created_at": "2025-10-10T09:32:31.437960+00:00",
+    "updated_at": "2025-10-10T09:32:31.437960+00:00",
+    "programa_presupuestal": 6102001,
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2025,
+    "nombre_proyecto": "Implementación del Observatorio de la Educación para el monitoreo del sector educativo de Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "bp": "BP26005337",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T01:33:41.898196"
+}

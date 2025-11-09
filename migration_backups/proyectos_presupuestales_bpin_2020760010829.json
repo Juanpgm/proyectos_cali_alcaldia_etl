@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010829",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Movilidad",
+    "cod_producto": 2409039,
+    "nombre_area_funcional": "Puntos de la red vial del Distrito de Cali señalizados",
+    "nombre_fondo": "Multas infracciones de tránsito ley 769-02",
+    "nombre_programa": "Regulación, Control y Gestión Inteligente del Tránsito ",
+    "nombre_dimension": "Cali, Nuestra Casa Común",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010829,
+    "created_at": "2025-10-10T09:29:15.484362+00:00",
+    "nombre_actividad": "Realizar el apoyo técnico y operativo a la adecuacion de los puntos de señalizacion vial",
+    "updated_at": "2025-10-10T09:29:15.484362+00:00",
+    "programa_presupuestal": "BP260030611010115",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "Mejoramiento de la señalización vial, en Santiago de   Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 24,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Movilidad Multimodal Sustentable",
+    "validador_cuipo": null,
+    "bp": "BP26003061"
+  },
+  "timestamp": "2025-11-09T01:09:16.393594"
+}

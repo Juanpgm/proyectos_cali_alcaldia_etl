@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010113",
+  "data": {
+    "nombre_centro_gestor": "Departamento Administrativo de Desarrollo e Innovación Institucional",
+    "cod_producto": 4599031,
+    "nombre_area_funcional": "Instrumentos de servicio al ciudadano actualizados",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Fortalecimiento Institucional",
+    "nombre_dimension": "Cali, Gobierno Incluyente",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010113,
+    "created_at": "2025-10-10T09:27:28.643762+00:00",
+    "nombre_actividad": "Divulgar la normativa vigente sobre Servicio al Ciudadano",
+    "updated_at": "2025-10-10T09:27:28.643762+00:00",
+    "programa_presupuestal": "BP260027151010107",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "Elaboración de instrumentos para la implementación de la Política de servicio al ciudadano en la Alcaldía de Santiago de Cali",
+    "clasificacion_fondo": "Libre destinación (Recursos Propios)",
+    "cod_sector": 45,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Gobierno Inteligente",
+    "validador_cuipo": null,
+    "bp": "BP26002715"
+  },
+  "timestamp": "2025-11-09T00:54:22.192259"
+}

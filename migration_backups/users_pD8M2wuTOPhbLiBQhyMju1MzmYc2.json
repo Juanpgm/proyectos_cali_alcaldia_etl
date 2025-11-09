@@ -1,0 +1,22 @@
+{
+  "collection_path": "users",
+  "doc_id": "pD8M2wuTOPhbLiBQhyMju1MzmYc2",
+  "data": {
+    "nombre_centro_gestor": "Unidad Administrativa Especial de Gestión de Bienes y Servicios",
+    "uid": "pD8M2wuTOPhbLiBQhyMju1MzmYc2",
+    "created_at": "2025-10-10T17:38:44.668452+00:00",
+    "cellphone": "+573176652957",
+    "fullname": "Cindy Dahjan Castro",
+    "is_active": true,
+    "auth_providers": [
+      "password"
+    ],
+    "login_count": 0,
+    "email": "dajhancastro@gmail.com",
+    "updated_at": "2025-10-10T17:38:44.668457+00:00",
+    "last_login": null,
+    "email_verified": false,
+    "can_use_google_auth": false
+  },
+  "timestamp": "2025-11-09T02:01:12.544273"
+}

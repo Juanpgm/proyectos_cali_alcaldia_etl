@@ -1,0 +1,31 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "X75MpA6o9fbXw8dX8ui5",
+  "data": {
+    "nombre_centro_gestor": "",
+    "observaciones": "Obedece a la instalación de la mesa técnica, verificación y entrega de cronogramas de trabajo (contrato principal e interventoría), verificación de fichas técnicas con cumplimiento de estándares/normas y tiempos de garantía, verificación de suministro de los equipos arriba mencionados, Elaboración de informes y entrega de documentación para el primer pago.",
+    "fecha_reporte": "2025-10-24T17:51:51.767425+00:00",
+    "referencia_contrato": "4134.010.26.1.0322-2025",
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/1DS1P7wLDNO1_f3IUtHNfS3qnYVqjrBjN",
+    "archivos_evidencia": [
+      {
+        "type": "application/pdf",
+        "size": 324705,
+        "download_url": "https://drive.google.com/uc?id=1V9BM3kBYeF_6DVERsTI3PVrWnnN7MOPw",
+        "url": "https://drive.google.com/file/d/1V9BM3kBYeF_6DVERsTI3PVrWnnN7MOPw/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1V9BM3kBYeF_6DVERsTI3PVrWnnN7MOPw",
+        "name": "ACTA_DE_REUNIÓN_-_4134.020.3.2.373 FIRMADA (1).pdf"
+      }
+    ],
+    "avance_fisico": 30.0,
+    "alertas": {
+      "descripcion": "",
+      "es_alerta": false,
+      "tipos": []
+    },
+    "avance_financiero": 30.0,
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:41:30.239959"
+}

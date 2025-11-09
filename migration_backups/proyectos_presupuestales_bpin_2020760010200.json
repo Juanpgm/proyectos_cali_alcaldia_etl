@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010200",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Salud Pública",
+    "cod_producto": 1905019,
+    "nombre_area_funcional": "Personas intervenidas con estrategia en salud para la promoción de la convivencia, el fortalecimiento del tejido social y el abordaje de las violencias con perspectiva de género, aumentadas",
+    "nombre_fondo": "Coljuegos  25%",
+    "nombre_programa": "Cali Distrito Previene las Violencias ",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010200,
+    "created_at": "2025-10-10T09:27:54.176814+00:00",
+    "nombre_actividad": "Realizar acciones de educación en salud por curso de vida según la RIA de promoción y mantenimiento de la salud",
+    "updated_at": "2025-10-10T09:27:54.176814+00:00",
+    "programa_presupuestal": "BP260027021010112",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Implementación de estrategias para la promoción de la convivencia, el fortalecimiento del tejido social y el abordaje de las violencias con perspectiva de género en Santiago de Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 19,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Distrito Reconciliado",
+    "validador_cuipo": null,
+    "bp": "BP26002702"
+  },
+  "timestamp": "2025-11-09T01:06:05.941049"
+}

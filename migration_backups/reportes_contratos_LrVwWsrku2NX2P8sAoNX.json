@@ -1,0 +1,31 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "LrVwWsrku2NX2P8sAoNX",
+  "data": {
+    "nombre_centro_gestor": "",
+    "observaciones": "El proyecto continúa su desarrollo conforme a la planeación, avanzando en las actividades descritas anteriormente y manteniendo el enfoque en la implementación técnica, la validación funcional",
+    "fecha_reporte": "2025-10-30T22:55:00.855706+00:00",
+    "referencia_contrato": "151477",
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/1m4DQTsv4wLlap8EarS0Xtk5MMs04BJt_",
+    "archivos_evidencia": [
+      {
+        "type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "size": 0,
+        "download_url": "https://drive.google.com/uc?id=145ixIpvYzdmBbQo9Nx29EwNsiC5w1g6B",
+        "url": "https://docs.google.com/document/d/145ixIpvYzdmBbQo9Nx29EwNsiC5w1g6B/edit?usp=drivesdk&ouid=107631050282737776825&rtpof=true&sd=true",
+        "status": "uploaded_successfully",
+        "drive_id": "145ixIpvYzdmBbQo9Nx29EwNsiC5w1g6B",
+        "name": "Nuevo Documento de Microsoft Word.docx"
+      }
+    ],
+    "avance_fisico": 70.0,
+    "alertas": {
+      "descripcion": "",
+      "es_alerta": false,
+      "tipos": []
+    },
+    "avance_financiero": 70.0,
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:41:01.325115"
+}

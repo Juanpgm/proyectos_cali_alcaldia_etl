@@ -1,0 +1,23 @@
+{
+  "collection_path": "proyecciones_emprestito",
+  "doc_id": "RGORkiDGkwofP6j12Kpc",
+  "data": {
+    "nombre_banco": "Bancolombia",
+    "nombre_organismo_reducido": "DATIC",
+    "ultima_actualizacion": "2025-11-08T11:31:07.618123+00:00",
+    "item": "13",
+    "nombre_resumido_proceso": "Contrato 03: Fortalecimiento y modernización del SGFT SAP",
+    "fuente": "google_sheets",
+    "fecha_carga": "2025-11-08T11:31:04.560596",
+    "valor_proyectado": 0,
+    "nombre_generico_proyecto": "ModernIzacion Plataforma Tecnológica",
+    "fila_origen": 13,
+    "id_paa": "18921",
+    "fecha_guardado": "2025-11-08T11:31:07.618123+00:00",
+    "referencia_proceso": "OC",
+    "BP": "BP26005260",
+    "urlProceso": "Publicado TVCE",
+    "descripcion_bp": "Fortalecimiento de la Plataforma Tecnológica de la Alcaldia de Santiago de Cali"
+  },
+  "timestamp": "2025-11-09T00:52:54.347585"
+}

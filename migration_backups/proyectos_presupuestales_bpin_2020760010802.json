@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010802",
+  "data": {
+    "nombre_centro_gestor": "Departamento Administrativo de Control Disciplinario Interno",
+    "cod_producto": 4599026,
+    "nombre_area_funcional": "Investigaciones de la conducta oficial del servidor público, realizadas",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Gestión de Información Estadística y Geográfica para la Evaluación de Resultados  ",
+    "nombre_dimension": "Cali, Gobierno Incluyente",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010802,
+    "created_at": "2025-10-10T09:26:49.281914+00:00",
+    "nombre_actividad": "Elaborar documento preliminar para el desarrollo de las investigaciones de la conducta  del servidor público",
+    "updated_at": "2025-10-10T09:26:49.281914+00:00",
+    "programa_presupuestal": "BP260029631010107",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "Investigación de la Conducta oficial del Servidor Público de la Alcaldía de Santiago de Cali..",
+    "clasificacion_fondo": "Libre destinación (Recursos Propios)",
+    "cod_sector": 45,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Gobierno Inteligente",
+    "validador_cuipo": null,
+    "bp": "BP26002963"
+  },
+  "timestamp": "2025-11-09T01:09:07.609047"
+}

@@ -1,0 +1,30 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1242",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Calle 3 Oeste Entre Carrera 3 Hasta Carrera 4",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:10.786102",
+    "has_valid_geometry": true,
+    "upid": "UNP-1242",
+    "comuna_corregimiento": "COMUNA 19",
+    "nombre_up": "Calle 3 Oeste Entre Carrera 3 Hasta Carrera 4",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.54278328212274, 3.449814227444677, 0.0], [-76.54245789841326, 3.450070170002391, 0.0]]}",
+    "identificador": "Puntos Estrategicos",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "El Peñón",
+    "cantidad": 45,
+    "loaded_at": "2025-11-04T20:23:10.786112",
+    "presupuesto_base": 59242522.0
+  },
+  "timestamp": "2025-11-09T01:46:26.499477"
+}

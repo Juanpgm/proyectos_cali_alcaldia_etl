@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2021760010187",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Educación",
+    "cod_producto": null,
+    "nombre_area_funcional": "Sedes educativas oficiales beneficiadas con dotación",
+    "nombre_fondo": "Ingresos Corrientes de Libre Destinación",
+    "nombre_programa": "Cali Educada",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2021760010187,
+    "nombre_actividad": "Realizar dotación de mobiliario pedagogico a las sedes priorizadas de las IEO  de la Comuna 8",
+    "created_at": "2025-10-10T09:32:53.205591+00:00",
+    "updated_at": "2025-10-10T09:32:53.205591+00:00",
+    "programa_presupuestal": 6102001,
+    "nombre_pospre": "Otros muebles N.C.P.",
+    "anio": 2025,
+    "nombre_proyecto": "Dotación de equipamiento tecnológico y mobiliario escolar en las sedes de las Instituciones Educativa Oficiales de la Comuna 8 de Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "COMUNA 8",
+    "origen": "Territorio",
+    "bp": "BP26003792",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T01:27:06.661985"
+}

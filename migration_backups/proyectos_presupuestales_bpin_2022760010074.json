@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2022760010074",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Gestión del Riesgo de Emergencias y Desastres",
+    "cod_producto": 4503023,
+    "nombre_area_funcional": "Estrategia de Respuesta a Emergencias, actualizada",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Manejo del Desastre ",
+    "nombre_dimension": "Cali, Nuestra Casa Común",
+    "tipo_gasto": "Inversión",
+    "bpin": 2022760010074,
+    "created_at": "2025-10-10T09:29:56.176582+00:00",
+    "nombre_actividad": "Consolidar el componente de preparación para la respuesta a emergencias",
+    "updated_at": "2025-10-10T09:29:56.176582+00:00",
+    "programa_presupuestal": "BP260043141010101",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "Consolidación de los Mecanismos de Respuesta y Manejo de Desastres en Santiago de  Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 45,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Gestión del Riesgo",
+    "validador_cuipo": null,
+    "bp": "BP26004314"
+  },
+  "timestamp": "2025-11-09T01:28:44.948239"
+}

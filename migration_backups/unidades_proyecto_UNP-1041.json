@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1041",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Carrera 1 Con Calle 5 Oeste",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.152499",
+    "has_valid_geometry": true,
+    "upid": "UNP-1041",
+    "nombre_up_detalle": "Via Arteria Principal",
+    "nombre_up": "Carrera 1 Con Calle 5 Oeste",
+    "comuna_corregimiento": "COMUNA 03",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"MultiLineString\", \"coordinates\": [[[-76.54445677031448, 3.45080502044147, 0.0], [-76.54436949454572, 3.4508066359244767, 0.0]], [[-76.54436949454572, 3.4508066359244767, 0.0], [-76.54427881330228, 3.4508083144431523, 0.0]]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Santa Teresita",
+    "cantidad": 160,
+    "loaded_at": "2025-11-04T20:23:09.152502",
+    "presupuesto_base": 113634590.72
+  },
+  "timestamp": "2025-11-09T01:43:10.913369"
+}

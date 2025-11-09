@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010160",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Bienestar Social",
+    "cod_producto": 2201006,
+    "nombre_area_funcional": "Organismos articulados intersectorial e interinstitucionalmente en la implementación de estrategias de movilización social",
+    "nombre_fondo": "R.F. Estampilla Prodesarrollo Urbano (20% Primera Infancia)",
+    "nombre_programa": "Cariños, Puro Corazón por la Primera Infancia ",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010160,
+    "created_at": "2025-10-10T09:28:20.280878+00:00",
+    "nombre_actividad": "Realizar acciones para el desarrollo y mejora de los procesos de articulación y movilización social en el Distrito de Santiago de Cali",
+    "updated_at": "2025-10-10T09:28:20.280878+00:00",
+    "programa_presupuestal": "BP260035411020109",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "Apoyo para la articulación intersectorial e interinstitucional para la movilización social en Santiago de  Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 22,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Poblaciones Construyendo Territorio",
+    "validador_cuipo": null,
+    "bp": "BP26003541"
+  },
+  "timestamp": "2025-11-09T01:05:43.706740"
+}

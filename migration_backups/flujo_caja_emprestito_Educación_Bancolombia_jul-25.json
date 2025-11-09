@@ -1,0 +1,16 @@
+{
+  "collection_path": "flujo_caja_emprestito",
+  "doc_id": "Educación_Bancolombia_jul-25",
+  "data": {
+    "desembolso": 12000000000.0,
+    "banco": "Bancolombia",
+    "id_registro": "Educación_Bancolombia_jul-25",
+    "mes": "jul-25",
+    "fecha_procesamiento": "2025-10-20T11:37:44.621706",
+    "desembolso_real": 0.0,
+    "periodo": "2025-07-01T00:00:00",
+    "archivo_origen": "Matriz Emprestito.xlsx",
+    "organismo": "Educación"
+  },
+  "timestamp": "2025-11-09T00:50:44.756926"
+}

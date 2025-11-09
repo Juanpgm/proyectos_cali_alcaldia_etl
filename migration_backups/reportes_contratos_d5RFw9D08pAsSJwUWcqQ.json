@@ -1,0 +1,49 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "d5RFw9D08pAsSJwUWcqQ",
+  "data": {
+    "nombre_centro_gestor": "",
+    "fecha_reporte": "2025-11-07T15:10:40.609412+00:00",
+    "observaciones": "Reporte de ejecución ORDEN DE COMPRA 151421 (PROCESO EMPRÉSTITO: MODELOS Y SOLUCIONES IA) 20251107\r\n\r\nCon fecha de corte 2025/11/07 se ha avanzado en la ejecución del 23,9% de los productos del proyecto. \r\nEl avance en los productos corresponde a:\r\n1. 2 soluciones completamente implementadas y operativas en plataforma de nube app.ia.cali.gov.co \r\n2. Entrega del primer informe de ejecución por parte de proveedor, con matriz de avance en ejecución de los productos del proyecto a corte 31 de octubre.\r\n3. Elaboración de Informe de supervisión cuota 1 elaborado, una vez verificada la carga de evidencias y documentación del proveedor en carpeta DRIVE del proyecto.\r\n\r\nEvidencias: 1) informe de ejecución del proveedor; 2) matriz de avance de productos del proyecto proveedor; 3) matriz de seguimiento avance ejecución del proyecto propia",
+    "avance_fisico": 24.0,
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/1ENj5IaM9B5BNIlHjC8H_tFvO5B89lndi",
+    "archivos_evidencia": [
+      {
+        "type": "application/pdf",
+        "size": 1346063,
+        "download_url": "https://drive.google.com/uc?id=1Klka--AWrSQB-gS7Eoncy1S9f4urvNw9",
+        "url": "https://drive.google.com/file/d/1Klka--AWrSQB-gS7Eoncy1S9f4urvNw9/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1Klka--AWrSQB-gS7Eoncy1S9f4urvNw9",
+        "name": "1. Informe de ejecución OC 151421 - 20251104_V01.pdf"
+      },
+      {
+        "type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        "size": 26404,
+        "download_url": "https://drive.google.com/uc?id=1AX8_tVNUXSMtrI6FUiibB0EGkbo_cjfa",
+        "url": "https://docs.google.com/spreadsheets/d/1AX8_tVNUXSMtrI6FUiibB0EGkbo_cjfa/edit?usp=drivesdk&ouid=107631050282737776825&rtpof=true&sd=true",
+        "status": "uploaded_successfully",
+        "drive_id": "1AX8_tVNUXSMtrI6FUiibB0EGkbo_cjfa",
+        "name": "2. Ponderación avance ejecución de productos_proveedor.xlsx"
+      },
+      {
+        "type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        "size": 11700,
+        "download_url": "https://drive.google.com/uc?id=17T2d5TESuN2jr872GozJZKmzH5sz4XzY",
+        "url": "https://docs.google.com/spreadsheets/d/17T2d5TESuN2jr872GozJZKmzH5sz4XzY/edit?usp=drivesdk&ouid=107631050282737776825&rtpof=true&sd=true",
+        "status": "uploaded_successfully",
+        "drive_id": "17T2d5TESuN2jr872GozJZKmzH5sz4XzY",
+        "name": "Seguimiento Ejecución modelos y Soluciones IA_20251107.xlsx"
+      }
+    ],
+    "referencia_contrato": "151421",
+    "avance_financiero": 24.0,
+    "alertas": {
+      "es_alerta": false,
+      "descripcion": "",
+      "tipos": []
+    },
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:41:47.690154"
+}

@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2021760010241",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "cod_producto": 2402039,
+    "nombre_area_funcional": "Vías y obras de drenaje en la zona urbana y rural construidas",
+    "nombre_fondo": "Ingresos Corrientes de Libre Destinación",
+    "nombre_programa": "Mejoramiento de la Infraestructura Vial ",
+    "nombre_dimension": "Cali, Nuestra Casa Común",
+    "tipo_gasto": "Inversión",
+    "bpin": 2021760010241,
+    "created_at": "2025-10-10T09:29:05.583665+00:00",
+    "nombre_actividad": "Construir vias y obras de drenaje en el corregimiento de Golondrinas",
+    "updated_at": "2025-10-10T09:29:05.583665+00:00",
+    "programa_presupuestal": "BP260039921010101",
+    "nombre_pospre": "Autopistas, carreteras, calles",
+    "anio": 2024,
+    "nombre_proyecto": "Construcción DE VÍAS Y OBRAS DE DRENAJE EN EL CORREGIMIENTO DE GOLONDRINAS DE SANTIAGO DE CALI",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 24,
+    "comuna": "GOLONDRINAS",
+    "origen": "Territorio",
+    "nombre_linea_estrategica": "Movilidad Multimodal Sustentable",
+    "validador_cuipo": null,
+    "bp": "BP26003992"
+  },
+  "timestamp": "2025-11-09T01:27:27.791485"
+}

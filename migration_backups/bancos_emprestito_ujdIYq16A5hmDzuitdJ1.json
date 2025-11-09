@@ -1,0 +1,9 @@
+{
+  "collection_path": "bancos_emprestito",
+  "doc_id": "ujdIYq16A5hmDzuitdJ1",
+  "data": {
+    "nombre_banco": "Banco de Occidente",
+    "valor_asignado_banco": 250000000000
+  },
+  "timestamp": "2025-11-09T00:47:42.074346"
+}

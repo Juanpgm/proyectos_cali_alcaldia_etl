@@ -1,0 +1,53 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-970",
+  "data": {
+    "created_at": "2025-11-05T11:34:47.043713",
+    "type": "Feature",
+    "geometry": null,
+    "has_geometry": false,
+    "geometry_type": null,
+    "properties": {
+      "processed_timestamp": "2025-11-05T11:34:28.210236",
+      "descripcion_intervencion": "RETIRO REDES MEDIA TENSION NO UTULIZADAS PARA MITIGAR RIESGOS",
+      "microtio": null,
+      "bpin": "-2147483648",
+      "centros_gravedad": false,
+      "upid": "UNP-970",
+      "nombre_up_detalle": "Principal",
+      "tipo_intervencion": "Adecuaciones y mantenimientos",
+      "url_proceso": null,
+      "referencia_contrato": [
+        "4143.010.26.1.0943",
+        "2025",
+        "4143.010.26.1.0952.2025"
+      ],
+      "unidad": "UND",
+      "identificador": "Frente de obra contratada en 2025",
+      "tipo_equipamiento": "Institución Educativa",
+      "fecha_fin": "2025",
+      "estado": "Entregada",
+      "fecha_inicio": "2025",
+      "plataforma": null,
+      "nombre_centro_gestor": "Secretaría de Educación",
+      "avance_obra": "10.0",
+      "geometry_bounds": null,
+      "direccion": null,
+      "ano": "2025",
+      "geometry_type": null,
+      "dataframe": null,
+      "comuna_corregimiento": "Navarro",
+      "nombre_up": "I.E. Incolballet",
+      "referencia_proceso": [
+        "4143.010.32.0829-2025",
+        "4143.010.32.0863-2025"
+      ],
+      "fuente_financiacion": "Recursos propios",
+      "cantidad": "1",
+      "barrio_vereda": "Corregimiento de Navarro",
+      "presupuesto_base": "12124800"
+    },
+    "updated_at": "2025-11-05T11:34:47.043713"
+  },
+  "timestamp": "2025-11-09T02:00:24.941475"
+}

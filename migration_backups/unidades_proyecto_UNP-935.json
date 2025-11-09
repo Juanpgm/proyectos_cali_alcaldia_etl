@@ -1,0 +1,49 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-935",
+  "data": {
+    "created_at": "2025-11-05T11:34:47.027611",
+    "type": "Feature",
+    "geometry": null,
+    "has_geometry": false,
+    "geometry_type": null,
+    "properties": {
+      "processed_timestamp": "2025-11-05T11:34:28.210236",
+      "descripcion_intervencion": "Adecuaciones de baterías sanitarias; Adecuaciones de restaurante escolar; pintura general de la sede y componente eléctrico de los espacios intervenidos.",
+      "microtio": null,
+      "bpin": "-2147483648",
+      "centros_gravedad": false,
+      "upid": "UNP-935",
+      "nombre_up_detalle": "Manuel Maria Buenaventura",
+      "tipo_intervencion": "Adecuaciones y mantenimientos",
+      "url_proceso": null,
+      "referencia_contrato": "4143.010.26.1.1738.2025\n 4143.010.26.1.1740.2025",
+      "unidad": "UND",
+      "identificador": "Grupo 22 sedes (Empréstito)",
+      "tipo_equipamiento": "Institución Educativa",
+      "fecha_fin": "27/2/2026",
+      "estado": "En alistamiento",
+      "fecha_inicio": "04-11-2025",
+      "plataforma": null,
+      "nombre_centro_gestor": "Secretaría de Educación",
+      "avance_obra": "0.0",
+      "geometry_bounds": null,
+      "direccion": null,
+      "ano": "2025",
+      "geometry_type": null,
+      "dataframe": null,
+      "comuna_corregimiento": "COMUNA 20",
+      "nombre_up": "I.E. Eustaquio Palacios",
+      "referencia_proceso": [
+        "4143.010.32.0876-2025",
+        "4143.010.32.1544-2025"
+      ],
+      "fuente_financiacion": "Empréstito",
+      "cantidad": "1",
+      "barrio_vereda": "SCT. San Fernando",
+      "presupuesto_base": "297429660"
+    },
+    "updated_at": "2025-11-05T11:34:47.027611"
+  },
+  "timestamp": "2025-11-09T01:59:50.505673"
+}

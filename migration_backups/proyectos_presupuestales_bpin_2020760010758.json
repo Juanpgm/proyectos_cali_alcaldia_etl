@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010758",
+  "data": {
+    "nombre_centro_gestor": "Departamento Administrativo de Gestión del Medio Ambiente ",
+    "cod_producto": 4003034,
+    "nombre_area_funcional": "Generadores de Residuos de Construcción y Demolición-RCD y Residuos Ordinarios, vinculados a un proceso de manejo eficiente y mejores prácticas en su gestión",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Gestión Integral de Residuos Sólidos ",
+    "nombre_dimension": "Cali, Nuestra Casa Común",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010758,
+    "created_at": "2025-10-10T09:27:12.113774+00:00",
+    "nombre_actividad": "Realizar actividades de Inspección, Vigilancia y Control  en cumplimiento del Decreto 059/2009 -PGIRS.",
+    "updated_at": "2025-10-10T09:27:12.113774+00:00",
+    "programa_presupuestal": "BP260025881010115",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "FORTALECIMIENTO DE LA GESTION INTEGRAL DE LOS RESIDUOS SOLIDOS EN SANTIAGO DE CALI",
+    "clasificacion_fondo": "Libre destinación (Recursos Propios)",
+    "cod_sector": 40,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Mitigación del Cambio Climático",
+    "validador_cuipo": null,
+    "bp": "BP26002588"
+  },
+  "timestamp": "2025-11-09T01:08:42.068356"
+}

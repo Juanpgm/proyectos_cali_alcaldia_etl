@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2023760010195",
+  "data": {
+    "nombre_centro_gestor": "Departamento Administrativo de Hacienda",
+    "cod_producto": null,
+    "nombre_area_funcional": "Investigaciones de la dinámica Inmobiliaria realizadas",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Gestión de Información Estadística y Geográfica para la Evaluación de Resultados  ",
+    "nombre_dimension": "Cali, Gobierno Incluyente",
+    "tipo_gasto": "Inversión",
+    "bpin": 2023760010195,
+    "created_at": "2025-10-10T09:26:49.664432+00:00",
+    "nombre_actividad": "Realizar revisión de los informes en su componente técnico y jurídico de los hechos generadores para el calculo del efecto plusvalía en planes parciales.",
+    "updated_at": "2025-10-10T09:26:49.664432+00:00",
+    "programa_presupuestal": "BP260048101010101",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "Mejoramiento del mercado inmobiliario del Distrito de Santiago Cali",
+    "clasificacion_fondo": "Libre destinación (Recursos Propios)",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Gobierno Inteligente",
+    "validador_cuipo": null,
+    "bp": "BP26004810"
+  },
+  "timestamp": "2025-11-09T01:31:53.638950"
+}

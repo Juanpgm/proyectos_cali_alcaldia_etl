@@ -1,0 +1,52 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-275",
+  "data": {
+    "created_at": "2025-11-05T11:34:36.183093",
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -76.495744,
+        3.421369
+      ]
+    },
+    "has_geometry": true,
+    "geometry_type": "Point",
+    "properties": {
+      "processed_timestamp": "2025-11-05T11:34:28.210236",
+      "descripcion_intervencion": null,
+      "microtio": null,
+      "bpin": "26005393",
+      "centros_gravedad": false,
+      "upid": "UNP-275",
+      "nombre_up_detalle": "C.A.L.I. 13",
+      "tipo_intervencion": "Adecuaciones y mantenimientos",
+      "url_proceso": "https://www.secop.gov.co/CO1BusinessLine/Tendering/ContractNoticeView/Index?prevCtxLbl=Buscar+procesos&prevCtxUrl=https%3a%2f%2fwww.secop.gov.co%3a443%2fCO1BusinessLine%2fTendering%2fContractNoticeManagement%2fIndex&notice=CO1.NTC.8464265",
+      "referencia_contrato": "4173.010.26.1.1268-2025",
+      "unidad": "UND",
+      "identificador": "C.A.L.I. 13",
+      "tipo_equipamiento": "CALIS",
+      "fecha_fin": "45990",
+      "estado": "En ejecución",
+      "fecha_inicio": "45932",
+      "plataforma": "SECOP II",
+      "nombre_centro_gestor": "Secretaría de Desarrollo Territorial y Participación Ciudadana",
+      "avance_obra": "50.0",
+      "geometry_bounds": null,
+      "direccion": "Calle 72C con Carera 28 F",
+      "ano": "2025",
+      "geometry_type": null,
+      "dataframe": null,
+      "comuna_corregimiento": "COMUNA 13",
+      "nombre_up": "C.A.L.I. 13",
+      "referencia_proceso": "4173.010.32.1.839-2025",
+      "fuente_financiacion": "Empréstito",
+      "cantidad": "1",
+      "barrio_vereda": "Poblado I",
+      "presupuesto_base": "282747476"
+    },
+    "updated_at": "2025-11-05T11:34:36.183093"
+  },
+  "timestamp": "2025-11-09T01:49:00.947391"
+}

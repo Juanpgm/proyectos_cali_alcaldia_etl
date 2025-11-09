@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1042",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Carrera 28J Con Calle 32",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.152848",
+    "has_valid_geometry": true,
+    "upid": "UNP-1042",
+    "nombre_up_detalle": "Via Local",
+    "nombre_up": "Carrera 28J Con Calle 32",
+    "comuna_corregimiento": "COMUNA 11",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"MultiLineString\", \"coordinates\": [[[-76.51039504999994, 3.4307209800000464, 0.0], [-76.5103103747356, 3.4306590012611653, 0.0]], [[-76.5103103747356, 3.4306590012611653, 0.0], [-76.50995064199998, 3.4303956920000473, 0.0]]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Prados de Oriente",
+    "cantidad": 160,
+    "loaded_at": "2025-11-04T20:23:09.152854",
+    "presupuesto_base": 241277829.44
+  },
+  "timestamp": "2025-11-09T01:43:11.806150"
+}

@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010452",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Gestión del Riesgo de Emergencias y Desastres",
+    "cod_producto": null,
+    "nombre_area_funcional": "Entidades públicas, privadas y comunitarias asesoradas en Planes de Gestión del Riesgo de Desastres",
+    "nombre_fondo": "Ingresos Corrientes de Libre Destinación",
+    "nombre_programa": "Gestión del Riesgo y Atención de Desastres",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010452,
+    "created_at": "2025-10-10T09:25:49.175108+00:00",
+    "nombre_actividad": "Adquirir suministros para apoyo operativo en las visitas de riesgos",
+    "updated_at": "2025-10-10T09:25:49.175108+00:00",
+    "programa_presupuestal": 6202002,
+    "nombre_pospre": "Otros bienes transportables (excepto productos metálicos, maquinaria y equipo)",
+    "anio": 2025,
+    "nombre_proyecto": "Identificación  DE FACTORES DE RIESGO POR FENÓMENOS DE ORIGEN TECNOLÓGICO, NATURAL, SOCIONATURAL Y ANTROPICO EN SANTIAGO DE  Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": null,
+    "validador_cuipo": null,
+    "bp": "BP26002817"
+  },
+  "timestamp": "2025-11-09T01:07:07.268791"
+}

@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1118",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Carrera 4 Oeste Entre Calle 8 Oeste Y 7 Oeste",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.900503",
+    "has_valid_geometry": true,
+    "upid": "UNP-1118",
+    "nombre_up_detalle": "Via Colectora",
+    "nombre_up": "Carrera 4 Oeste Entre Calle 8 Oeste Y 7 Oeste",
+    "comuna_corregimiento": "COMUNA 19",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.54851839801567, 3.4469067378379723, 0.0], [-76.5481657916581, 3.4469166834359073, 0.0], [-76.54781487139972, 3.4469230256413277, 0.0], [-76.54764999224594, 3.446938813154934, 0.0]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Bellavista",
+    "cantidad": 98,
+    "loaded_at": "2025-11-04T20:23:09.900511",
+    "presupuesto_base": 34800593.41
+  },
+  "timestamp": "2025-11-09T01:44:25.638572"
+}

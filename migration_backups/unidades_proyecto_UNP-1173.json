@@ -1,0 +1,30 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1173",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Calle 94 Ambos Sentidos Entre Carrera 23 Y\nCarrera 25 - Ciudad Talanga",
+    "has_geometry": true,
+    "bpin": "2021760010270",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.923066",
+    "has_valid_geometry": true,
+    "upid": "UNP-1173",
+    "comuna_corregimiento": "COMUNA 21",
+    "nombre_up": "Calle 94 Ambos Sentidos Entre Carreras 23 Y  25",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"MultiLineString\", \"coordinates\": [[[-76.46864637759096, 3.4323621740650188, 0.0], [-76.46860999999996, 3.432521000000065, 0.0], [-76.46836599999995, 3.4334570000000326, 0.0], [-76.46813299999997, 3.43429100000003, 0.0], [-76.46766299999996, 3.4353810000000635, 0.0]], [[-76.46887499999997, 3.4313640000000305, 0.0], [-76.46864637759096, 3.4323621740650188, 0.0]]]}",
+    "identificador": "Presupuesto Participativo Urbano",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Presupuesto Participativo",
+    "barrio_vereda": "Ciudad Talanga",
+    "cantidad": 35,
+    "loaded_at": "2025-11-04T20:23:09.923076",
+    "presupuesto_base": 110980270.0
+  },
+  "timestamp": "2025-11-09T01:45:19.022656"
+}

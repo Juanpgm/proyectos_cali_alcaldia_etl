@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1113",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Calle 15 Norte Con Avenida 4",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.180254",
+    "has_valid_geometry": true,
+    "upid": "UNP-1113",
+    "nombre_up_detalle": "Via Arteria Principal",
+    "nombre_up": "Calle 15 Norte Con Avenida 4",
+    "comuna_corregimiento": "COMUNA 02",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.53176898394604, 3.457565318716483, 0.0], [-76.53185935580322, 3.4576189727503435, 0.0], [-76.53196102462135, 3.4576998357016935, 0.0]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Granada",
+    "cantidad": 26,
+    "loaded_at": "2025-11-04T20:23:09.180263",
+    "presupuesto_base": 9232810.5
+  },
+  "timestamp": "2025-11-09T01:44:21.239502"
+}

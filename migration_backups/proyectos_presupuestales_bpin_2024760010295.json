@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010295",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "cod_producto": null,
+    "nombre_area_funcional": "Intervenciones de apoyo al Plan Jarillón realizadas",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Gestión del Riesgo y Atención de Desastres",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010295,
+    "created_at": "2025-10-10T09:24:56.136537+00:00",
+    "nombre_actividad": "Realizar labores de intervención de apoyo en la recuperación de zonas afectadas por asentamientos en el Plan Jarillón.",
+    "updated_at": "2025-10-10T09:24:56.136537+00:00",
+    "programa_presupuestal": 6202002,
+    "nombre_pospre": "Servicios de la construcción",
+    "anio": 2025,
+    "nombre_proyecto": "Asistencia en las intervenciones de apoyo al Plan Jarillon de Santiago de  Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": null,
+    "validador_cuipo": null,
+    "bp": "BP26005324"
+  },
+  "timestamp": "2025-11-09T01:36:13.562804"
+}

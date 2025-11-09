@@ -1,0 +1,16 @@
+{
+  "collection_path": "flujo_caja_emprestito",
+  "doc_id": "Desarrollo Terriotiral_Bancolombia_ene-26",
+  "data": {
+    "banco": "Bancolombia",
+    "desembolso": 80892605.0,
+    "id_registro": "Desarrollo Terriotiral_Bancolombia_ene-26",
+    "mes": "ene-26",
+    "fecha_procesamiento": "2025-10-20T11:37:44.614617",
+    "desembolso_real": 0.0,
+    "periodo": "2026-01-01T00:00:00",
+    "archivo_origen": "Matriz Emprestito.xlsx",
+    "organismo": "Desarrollo Terriotiral"
+  },
+  "timestamp": "2025-11-09T00:50:26.882761"
+}

@@ -1,0 +1,52 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-358",
+  "data": {
+    "created_at": "2025-11-05T11:34:37.531488",
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -76.52992,
+        3.446115
+      ]
+    },
+    "has_geometry": true,
+    "geometry_type": "Point",
+    "properties": {
+      "processed_timestamp": "2025-11-05T11:34:28.210236",
+      "descripcion_intervencion": null,
+      "microtio": null,
+      "bpin": "-2147483648",
+      "centros_gravedad": false,
+      "upid": "UNP-358",
+      "nombre_up_detalle": "Adquisición de suelo usos complementarios en áreas de renovación urbana ",
+      "tipo_intervencion": "Obra nueva",
+      "url_proceso": null,
+      "referencia_contrato": null,
+      "unidad": "UND",
+      "identificador": "Adquisición suelo Renovación Urbana /Usos Complementarios Mz 203 Plan Parcial Ciudadela La Justicia",
+      "tipo_equipamiento": "Adquisición predios",
+      "fecha_fin": "31-12-2025",
+      "estado": "En alistamiento",
+      "fecha_inicio": "20-10-2025",
+      "plataforma": null,
+      "nombre_centro_gestor": "Secretaría de Vivienda Social y Habitat",
+      "avance_obra": "0.0",
+      "geometry_bounds": null,
+      "direccion": "Carrera 11 y Carrera 12 entre Calles 12 y 13",
+      "ano": "2025",
+      "geometry_type": null,
+      "dataframe": null,
+      "comuna_corregimiento": "COMUNA 03",
+      "nombre_up": "Adquisición suelo Renovación Urbana /Usos Complementarios Mz 203 Plan Parcial Ciudadela La Justicia ",
+      "referencia_proceso": null,
+      "fuente_financiacion": "Empréstito",
+      "cantidad": "1",
+      "barrio_vereda": "El Calvario",
+      "presupuesto_base": "18143517381"
+    },
+    "updated_at": "2025-11-05T11:34:37.531488"
+  },
+  "timestamp": "2025-11-09T01:50:23.042084"
+}

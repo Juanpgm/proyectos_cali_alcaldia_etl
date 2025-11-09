@@ -1,0 +1,23 @@
+{
+  "collection_path": "proyecciones_emprestito",
+  "doc_id": "rhz1hvuvpU1cGWpd0opq",
+  "data": {
+    "nombre_banco": "Bancolombia",
+    "nombre_organismo_reducido": "Infraestructura",
+    "ultima_actualizacion": "2025-11-08T11:31:07.632702+00:00",
+    "item": "42",
+    "nombre_resumido_proceso": "Contrato 08: Suministro de matriales y suministros",
+    "fuente": "google_sheets",
+    "fecha_carga": "2025-11-08T11:31:04.566401",
+    "valor_proyectado": 0,
+    "nombre_generico_proyecto": "Recuperación Malla Vial",
+    "fila_origen": 42,
+    "id_paa": "18990",
+    "fecha_guardado": "2025-11-08T11:31:07.632702+00:00",
+    "referencia_proceso": "",
+    "BP": "BP26005375",
+    "urlProceso": "https://operaciones.colombiacompra.gov.co/tienda-virtual-del-estado-colombiano/ordenes-compra/143275",
+    "descripcion_bp": "RECUPERACION DE LA INFRAESTRUCTURA VIAL DE SANTIAGO DE CALI"
+  },
+  "timestamp": "2025-11-09T00:53:42.446179"
+}

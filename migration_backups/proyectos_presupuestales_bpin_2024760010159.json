@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010159",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Educación",
+    "cod_producto": null,
+    "nombre_area_funcional": "IEO con estrategias de mejoramiento en competencias comunicativas de lengua extranjera",
+    "nombre_fondo": "Estampilla Prodesarrollo Urbano-Bilinguismo ",
+    "nombre_programa": "Cali Educada",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010159,
+    "nombre_actividad": "Realizar asistencia técnica para detallar metodológica y conceptualmente las prácticas de enseñanza y aprendizaje de lengua extranjera en las Instituciones Educativas Oficiales del Distrito de Santiago de Cali",
+    "created_at": "2025-10-10T09:32:48.050740+00:00",
+    "updated_at": "2025-10-10T09:32:48.050740+00:00",
+    "programa_presupuestal": 6102001,
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2025,
+    "nombre_proyecto": "Mejoramiento de las Competencias en lengua extranjera de los estudiantes de las Instituciones Educativas Oficiales del distrito de Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios con Destinacion Especifica",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "bp": "BP26005338",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T01:34:20.504074"
+}

@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1068",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Carrera 98 Calle 4 Y 3B",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.163071",
+    "has_valid_geometry": true,
+    "upid": "UNP-1068",
+    "nombre_up_detalle": "Via Local",
+    "nombre_up": "Carrera 98 Calle 4 Con  (Esquina)",
+    "comuna_corregimiento": "COMUNA 18",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.54800145499601, 3.371875828923451, 0.0], [-76.54707201849439, 3.3718851079433967, 0.0]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Sector Meléndez",
+    "cantidad": 40,
+    "loaded_at": "2025-11-04T20:23:09.163075",
+    "presupuesto_base": 14275345.46
+  },
+  "timestamp": "2025-11-09T01:43:36.475302"
+}

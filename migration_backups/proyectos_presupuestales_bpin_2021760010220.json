@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2021760010220",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Gobierno",
+    "cod_producto": null,
+    "nombre_area_funcional": "Estrategia de acción internacional implementada",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Fortalecimiento institucional",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2021760010220,
+    "created_at": "2025-10-10T09:30:46.584743+00:00",
+    "nombre_actividad": "Formular e implementar la estrategia de acción internacional de la Alcaldía de Cali por medio de la consolidación de alianzas estratégicas",
+    "updated_at": "2025-10-10T09:30:46.584743+00:00",
+    "programa_presupuestal": "BP260029091010108",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "Fortalecimiento de alianzas y/o coordinaciones que promuevan acciones de integración en Santiago de  Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": null,
+    "validador_cuipo": null,
+    "bp": "BP26002909"
+  },
+  "timestamp": "2025-11-09T01:27:16.346305"
+}

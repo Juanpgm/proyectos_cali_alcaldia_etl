@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1126",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Calle 25 Entre Carrera 94 Y 99",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.904679",
+    "has_valid_geometry": true,
+    "upid": "UNP-1126",
+    "nombre_up_detalle": "Via Arteria Principal",
+    "nombre_up": "Calle 25 Entre Carrera 94 Y 99",
+    "comuna_corregimiento": "COMUNA 17",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.52520902390063, 3.3750194772677484, 0.0], [-76.52527793369174, 3.3727562069347474, 0.0], [-76.52530174190923, 3.3717778507915828, 0.0], [-76.52530756289707, 3.3715153948704426, 0.0], [-76.52535411113487, 3.371233004906782, 0.0], [-76.52531725898861, 3.3709505981705523, 0.0]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Urbanización San Joaquin",
+    "cantidad": 434,
+    "loaded_at": "2025-11-04T20:23:09.904688",
+    "presupuesto_base": 348646463.54
+  },
+  "timestamp": "2025-11-09T01:44:33.526325"
+}

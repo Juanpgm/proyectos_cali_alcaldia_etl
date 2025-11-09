@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1109",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Calle 13 Entre Carrera 33A Y 38A",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.178523",
+    "has_valid_geometry": true,
+    "upid": "UNP-1109",
+    "nombre_up_detalle": "Via Arteria Principal",
+    "nombre_up": "Calle 13 Entre Carrera 33A Y 38A",
+    "comuna_corregimiento": "COMUNA 10",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"MultiLineString\", \"coordinates\": [[[-76.5295156861407, 3.4240362668595687, 0.0], [-76.52964820500804, 3.423626494524663, 0.0], [-76.52971367378387, 3.423421425690346, 0.0], [-76.52974558167708, 3.423331661538915, 0.0], [-76.52977280054, 3.4232550886807056, 0.0], [-76.52979701831607, 3.423181773607918, 0.0]], [[-76.52979701831607, 3.423181773607918, 0.0], [-76.5298338899508, 3.4230701511957076, 0.0], [-76.52993006531418, 3.422741475998931, 0.0], [-76.52998981678687, 3.4225710129795455, 0.0], [-76.53004565302508, 3.4224027145434857, 0.0]]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Colseguros Andes",
+    "cantidad": 190,
+    "loaded_at": "2025-11-04T20:23:09.178526",
+    "presupuesto_base": 135154141.34
+  },
+  "timestamp": "2025-11-09T01:44:16.826813"
+}

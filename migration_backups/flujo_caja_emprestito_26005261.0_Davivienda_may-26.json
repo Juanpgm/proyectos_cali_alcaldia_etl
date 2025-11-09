@@ -1,0 +1,19 @@
+{
+  "collection_path": "flujo_caja_emprestito",
+  "doc_id": "26005261.0_Davivienda_may-26",
+  "data": {
+    "desembolso": 302176961.6,
+    "banco": "Davivienda",
+    "id_registro": "26005261.0_Davivienda_may-26",
+    "mes": "may-26",
+    "columna_origen": "may-26 Desembolso",
+    "bp_proyecto": "26005261.0",
+    "responsable": "Esperanza Ramos",
+    "fecha_procesamiento": "2025-10-20T11:50:33.094422",
+    "periodo": "2026-05-01T00:00:00",
+    "archivo_origen": "Matriz Emprestito.xlsx",
+    "organismo": "DATIC",
+    "descripcion_bp": "Consolidación de la red municipal integrada REMI en el Distrito de Santiago de Cali"
+  },
+  "timestamp": "2025-11-09T00:48:21.457000"
+}

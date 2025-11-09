@@ -1,0 +1,58 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-856",
+  "data": {
+    "created_at": "2025-11-05T11:34:45.369897",
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -76.520349,
+        3.449133
+      ]
+    },
+    "has_geometry": true,
+    "geometry_type": "Point",
+    "properties": {
+      "processed_timestamp": "2025-11-05T11:34:28.210236",
+      "descripcion_intervencion": "Reconstrucción completa de la sede educativa",
+      "microtio": null,
+      "bpin": "-2147483648",
+      "centros_gravedad": false,
+      "upid": "UNP-856",
+      "nombre_up_detalle": "Policarpa Salavarrieta",
+      "tipo_intervencion": "Adecuaciones y mantenimientos",
+      "url_proceso": "Se genera en el 2026",
+      "referencia_contrato": [
+        "Fecha estimada",
+        "por avance de la etapa de estudios y diseños - Fecha de Obra e Interventoria: 01-03-2025"
+      ],
+      "unidad": "UND",
+      "identificador": "Grupo de 7 (Empréstito)",
+      "tipo_equipamiento": "Institución Educativa",
+      "fecha_fin": "31/7/2027",
+      "estado": "En alistamiento",
+      "fecha_inicio": "01-03-26",
+      "plataforma": "SECOP II",
+      "nombre_centro_gestor": "Secretaría de Educación",
+      "avance_obra": "0.0",
+      "geometry_bounds": null,
+      "direccion": null,
+      "ano": "2026",
+      "geometry_type": null,
+      "dataframe": null,
+      "comuna_corregimiento": "COMUNA 09",
+      "nombre_up": "I.E. Republica de Argentina",
+      "referencia_proceso": [
+        "Fecha estimada",
+        "por avance de la etapa de estudios y diseños - Fecha de Obra e Interventoria: 01-02-2025"
+      ],
+      "fuente_financiacion": "Empréstito",
+      "cantidad": "1",
+      "barrio_vereda": "Obrero",
+      "presupuesto_base": "11000000000"
+    },
+    "updated_at": "2025-11-05T11:34:45.369897"
+  },
+  "timestamp": "2025-11-09T01:58:33.115832"
+}

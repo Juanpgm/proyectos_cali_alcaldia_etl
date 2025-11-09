@@ -1,0 +1,22 @@
+{
+  "collection_path": "users",
+  "doc_id": "atldnZE3JiQM3awL4ooEMteZV2p2",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Seguridad y Justicia",
+    "uid": "atldnZE3JiQM3awL4ooEMteZV2p2",
+    "created_at": "2025-10-10T22:06:41.666564+00:00",
+    "cellphone": "+573168035574",
+    "fullname": "Cristian Echeverry",
+    "is_active": true,
+    "auth_providers": [
+      "password"
+    ],
+    "login_count": 0,
+    "email": "cristianeche031093@gmail.com",
+    "updated_at": "2025-10-10T22:06:41.666571+00:00",
+    "last_login": null,
+    "email_verified": false,
+    "can_use_google_auth": false
+  },
+  "timestamp": "2025-11-09T02:01:09.081108"
+}

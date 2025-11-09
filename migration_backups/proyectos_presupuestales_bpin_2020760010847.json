@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010847",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Movilidad",
+    "cod_producto": 2409022,
+    "nombre_area_funcional": "Actores de la movilidad sensibilizados sobre la movilidad sostenible y segura",
+    "nombre_fondo": "Multas infracciones de tránsito ley 769-02",
+    "nombre_programa": "Regulación, Control y Gestión Inteligente del Tránsito ",
+    "nombre_dimension": "Cali, Nuestra Casa Común",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010847,
+    "created_at": "2025-10-10T09:29:15.859594+00:00",
+    "nombre_actividad": "Realizar cursos a conductores infractores en normas de tránsito y comportamientos seguros en la via",
+    "updated_at": "2025-10-10T09:29:15.859594+00:00",
+    "programa_presupuestal": "BP260030461010113",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Capacitación en buenas conductas y prácticas de movilidad segura a los actores viales en  Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 24,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Movilidad Multimodal Sustentable",
+    "validador_cuipo": null,
+    "bp": "BP26003046"
+  },
+  "timestamp": "2025-11-09T01:09:20.785978"
+}

@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010333",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "cod_producto": null,
+    "nombre_area_funcional": "Andenes intervenidos con criterios de accesibilidad",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Movilidad segura y sostenible",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010333,
+    "created_at": "2025-10-10T09:24:45.267959+00:00",
+    "nombre_actividad": "Realizar el mejoramiento de andenes y obras complementarias - Grupo operativo",
+    "updated_at": "2025-10-10T09:24:45.267959+00:00",
+    "programa_presupuestal": 6201003,
+    "nombre_pospre": "Servicios de la construcción",
+    "anio": 2025,
+    "nombre_proyecto": "Recuperación de la Infraestructura Vial de Santiago de  Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": null,
+    "validador_cuipo": null,
+    "bp": "BP26005375"
+  },
+  "timestamp": "2025-11-09T01:36:44.734201"
+}

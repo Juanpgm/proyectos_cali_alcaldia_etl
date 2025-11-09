@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2021760010415",
+  "data": {
+    "nombre_centro_gestor": "Departamento Administrativo de Gestión del Medio Ambiente ",
+    "cod_producto": 3201006,
+    "nombre_area_funcional": "Empresas con cambios hacia patrones de producción y consumo sostenible",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Producción y Consumo Responsable ",
+    "nombre_dimension": "Cali, Nuestra Casa Común",
+    "tipo_gasto": "Inversión",
+    "bpin": 2021760010415,
+    "created_at": "2025-10-10T09:27:12.511479+00:00",
+    "nombre_actividad": "Realizar la revisión y mejora continua de los procesos de  autorregulación ambiental a implementarse en el sector empresarial",
+    "updated_at": "2025-10-10T09:27:12.511479+00:00",
+    "programa_presupuestal": "BP260025921010101",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Implementación de Estrategias de Producción y Consumo Sostenible en el Sector Empresarial de Santiago de   Cali",
+    "clasificacion_fondo": "Libre destinación (Recursos Propios)",
+    "cod_sector": 32,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Mitigación del Cambio Climático",
+    "validador_cuipo": null,
+    "bp": "BP26002592"
+  },
+  "timestamp": "2025-11-09T01:28:10.720564"
+}

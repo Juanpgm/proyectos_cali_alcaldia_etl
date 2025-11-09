@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1102",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Avenida 3N Entre Calles 15N Y 17N",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.175900",
+    "has_valid_geometry": true,
+    "upid": "UNP-1102",
+    "nombre_up_detalle": "Via Arteria Principal",
+    "nombre_up": "Avenida 3N Entre Calles 15N Y 17N",
+    "comuna_corregimiento": "COMUNA 02",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.53075976847278, 3.4577446623335515, 0.0], [-76.53060235311712, 3.4578623418443177, 0.0], [-76.53054092680435, 3.457890394743703, 0.0]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Granada",
+    "cantidad": 29,
+    "loaded_at": "2025-11-04T20:23:09.175903",
+    "presupuesto_base": 10333645.59
+  },
+  "timestamp": "2025-11-09T01:44:10.704522"
+}

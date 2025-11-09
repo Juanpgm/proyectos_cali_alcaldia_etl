@@ -1,0 +1,23 @@
+{
+  "collection_path": "proyecciones_emprestito",
+  "doc_id": "8Hq3FRsAOHe3XeooFeHN",
+  "data": {
+    "nombre_banco": "Bancolombia",
+    "nombre_organismo_reducido": "Desarrollo Económico",
+    "ultima_actualizacion": "2025-11-08T11:31:07.630698+00:00",
+    "item": "36",
+    "nombre_resumido_proceso": "Contrato 4: Ejercer seguimiento integral a la estrategia de formación por competencias en bilingüismo, habilidades clave y apropiación digital, para fortalecer la competitividad del talento humano en el Distrito de Santiago de Cali.",
+    "fuente": "google_sheets",
+    "fecha_carga": "2025-11-08T11:31:04.566401",
+    "valor_proyectado": 0,
+    "nombre_generico_proyecto": "Becas de habilitación Laboral",
+    "fila_origen": 36,
+    "id_paa": "19197",
+    "fecha_guardado": "2025-11-08T11:31:07.630698+00:00",
+    "referencia_proceso": "4171.010.32.1.600-2025",
+    "BP": "BP26005359",
+    "urlProceso": "https://www.secop.gov.co/CO1BusinessLine/Tendering/ContractNoticeView/Index?prevCtxLbl=Buscar+procesos&prevCtxUrl=https%3a%2f%2fwww.secop.gov.co%3a443%2fCO1BusinessLine%2fTendering%2fContractNoticeManagement%2fIndex&notice=CO1.NTC.9013400",
+    "descripcion_bp": "Fortalecimiento de las capacidades del ecosistema laboral para el desarrollo productivo sostenible en el distrito de Santiago de Cali) - MI CALI BECA"
+  },
+  "timestamp": "2025-11-09T00:52:27.668269"
+}

@@ -1,0 +1,31 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "xHhqPmgq69xdpJjCv325",
+  "data": {
+    "fecha_reporte": "2025-10-14T05:03:25.629737+00:00",
+    "nombre_centro_gestor": "",
+    "observaciones": "Se ha realizado el seguimiento técnico, administrativo, financiero y jurídico a los contratos de obra correspondientes.",
+    "avance_fisico": 7.14,
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/1dxaDhNDdQJZ3uZsW6kJxNPrfRLmFQUFS",
+    "archivos_evidencia": [
+      {
+        "type": "image/jpeg",
+        "size": 108776,
+        "download_url": "https://drive.google.com/uc?id=1L1QkcWGDdcLDpmaUz0Aeuw5ngiTucHru",
+        "url": "https://drive.google.com/file/d/1L1QkcWGDdcLDpmaUz0Aeuw5ngiTucHru/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1L1QkcWGDdcLDpmaUz0Aeuw5ngiTucHru",
+        "name": "Comités de obra.jpeg"
+      }
+    ],
+    "referencia_contrato": "4173.010.26.1.1274-2025",
+    "alertas": {
+      "es_alerta": false,
+      "descripcion": "",
+      "tipos": []
+    },
+    "avance_financiero": 7.14,
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:42:20.261024"
+}

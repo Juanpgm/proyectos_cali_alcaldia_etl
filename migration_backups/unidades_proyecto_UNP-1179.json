@@ -1,0 +1,30 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1179",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Calle 35E Entre Carreras 30 Y 30ª",
+    "has_geometry": true,
+    "bpin": "2021760010260",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.925909",
+    "has_valid_geometry": true,
+    "upid": "UNP-1179",
+    "comuna_corregimiento": "COMUNA 11",
+    "nombre_up": "Calle 35 E Entre Carrera 30 Y Carrera 30 A",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.50628299999994, 3.4258440000000405, 0.0], [-76.50642699999997, 3.425552000000039, 0.0]]}",
+    "identificador": "Presupuesto Participativo Urbano",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Presupuesto Participativo",
+    "barrio_vereda": "Los Conquistadores",
+    "cantidad": 39,
+    "loaded_at": "2025-11-04T20:23:09.925916",
+    "presupuesto_base": 56621631.0
+  },
+  "timestamp": "2025-11-09T01:45:24.239816"
+}

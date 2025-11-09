@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010476",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Gestión del Riesgo de Emergencias y Desastres",
+    "cod_producto": 4503016,
+    "nombre_area_funcional": "Equipos de Primera Respuesta del Consejo Municipal de Gestión del Riesgo, articulados y fortalecidos",
+    "nombre_fondo": "R.F. C.M. Fondo GRED",
+    "nombre_programa": "Manejo del Desastre ",
+    "nombre_dimension": "Cali, Nuestra Casa Común",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010476,
+    "created_at": "2025-10-10T09:29:57.391544+00:00",
+    "nombre_actividad": "Consolidar la atención de emergencias del  Sistema Nacional de Gestión del Riesgo de Desastres en el distrito de Santiago de Cali.",
+    "updated_at": "2025-10-10T09:29:57.391544+00:00",
+    "programa_presupuestal": "BP260028421010108",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Asistencia al Sistema Nacional de Gestión del Riesgo de Desastres de Santiago de Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 45,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Gestión del Riesgo",
+    "validador_cuipo": null,
+    "bp": "BP26002842"
+  },
+  "timestamp": "2025-11-09T01:07:13.428315"
+}

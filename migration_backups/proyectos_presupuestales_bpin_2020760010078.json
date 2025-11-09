@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010078",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Vivienda Social y Hábitat",
+    "cod_producto": 4001004,
+    "nombre_area_funcional": "Asentamientos humanos de desarrollo incompleto y/o precarios intervenidos",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Mejoramiento Integral del Hábitat  ",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010078,
+    "created_at": "2025-10-10T09:28:23.418106+00:00",
+    "nombre_actividad": "Efectuar georeferenciación de Asentamientos Humanos Precarios",
+    "updated_at": "2025-10-10T09:28:23.418106+00:00",
+    "programa_presupuestal": "BP260026761010105",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Contribución al mejoramiento integral del habitat de asentamientos humanos en Santiago de  Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 40,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Territorios para la Vida",
+    "validador_cuipo": null,
+    "bp": "BP26002676"
+  },
+  "timestamp": "2025-11-09T00:54:12.121245"
+}

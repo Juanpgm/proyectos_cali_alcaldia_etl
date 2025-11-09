@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010164",
+  "data": {
+    "nombre_centro_gestor": "Departamento Administrativo de Gestión del Medio Ambiente",
+    "cod_producto": null,
+    "nombre_area_funcional": "Instrumentos de planeación y regulación elaborados para la gobernabilidad ambiental de Santiago de Cali",
+    "nombre_fondo": "ICLD LEY 99 - Destino Ambiental ",
+    "nombre_programa": "Ordenamiento Territorial e Integración Regional",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010164,
+    "nombre_actividad": "Realizar el estudio de acotamiento de las rondas hídricas de los cuerpos de agua priorizados.",
+    "created_at": "2025-10-10T09:32:23.726029+00:00",
+    "updated_at": "2025-10-10T09:32:23.726029+00:00",
+    "programa_presupuestal": 6201001,
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2025,
+    "nombre_proyecto": "Desarrollo de Instrumentos de gestión ambiental para la protección y uso sostenible de la base natural de Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios con Destinacion Especifica",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "bp": "BP26005374",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T01:34:24.821565"
+}

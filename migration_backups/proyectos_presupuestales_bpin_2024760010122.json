@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010122",
+  "data": {
+    "nombre_centro_gestor": "Unidad Administrativa Especial de Servicios Públicos",
+    "cod_producto": null,
+    "nombre_area_funcional": "Alumbrado público modernizado y eficiente",
+    "nombre_fondo": "Impuesto de Alumbrado Público - Predio Lotes",
+    "nombre_programa": "Espacios públicos seguros",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010122,
+    "created_at": "2025-10-10T09:26:38.992877+00:00",
+    "nombre_actividad": "Administrar, Operar y Mantener el Sistema de Alumbrado Público",
+    "updated_at": "2025-10-10T09:26:38.992877+00:00",
+    "programa_presupuestal": 6101001,
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2025,
+    "nombre_proyecto": "Optimización integral del servicio de alumbrado público en Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios con Destinacion Especifica",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": null,
+    "validador_cuipo": null,
+    "bp": "BP26005326"
+  },
+  "timestamp": "2025-11-09T01:33:49.740578"
+}

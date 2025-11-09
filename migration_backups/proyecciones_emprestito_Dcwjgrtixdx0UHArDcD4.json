@@ -1,0 +1,23 @@
+{
+  "collection_path": "proyecciones_emprestito",
+  "doc_id": "Dcwjgrtixdx0UHArDcD4",
+  "data": {
+    "nombre_banco": "Bancolombia",
+    "nombre_organismo_reducido": "Vivienda",
+    "ultima_actualizacion": "2025-11-08T11:31:07.638235+00:00",
+    "item": "59",
+    "nombre_resumido_proceso": "Contrato 5. Compra manzana VIS Renovación urbana San Pascual",
+    "fuente": "google_sheets",
+    "fecha_carga": "2025-11-08T11:31:04.571650",
+    "valor_proyectado": 0,
+    "nombre_generico_proyecto": "Subsidios para vivienda",
+    "fila_origen": 59,
+    "id_paa": "NO VA AL PAA",
+    "fecha_guardado": "2025-11-08T11:31:07.638235+00:00",
+    "referencia_proceso": "",
+    "BP": "BP26005429",
+    "urlProceso": "Serán transferidos al Fondo Especial de Vivienda vía resolución Grio 15.693.828752",
+    "descripcion_bp": "FORTALECIMIENTO DE OFERTA HABITACIONL EN SANTIAGO DE CALI"
+  },
+  "timestamp": "2025-11-09T00:52:36.314106"
+}

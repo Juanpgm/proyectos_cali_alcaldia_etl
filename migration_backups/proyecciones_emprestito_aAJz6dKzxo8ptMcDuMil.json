@@ -1,0 +1,23 @@
+{
+  "collection_path": "proyecciones_emprestito",
+  "doc_id": "aAJz6dKzxo8ptMcDuMil",
+  "data": {
+    "nombre_banco": "DAVIVIENDA",
+    "nombre_organismo_reducido": "Participación",
+    "ultima_actualizacion": "2025-11-08T11:31:07.651326+00:00",
+    "item": "111",
+    "nombre_resumido_proceso": "Contrato 4: Interventoría Mixto",
+    "fuente": "google_sheets",
+    "fecha_carga": "2025-11-08T11:31:04.578126",
+    "valor_proyectado": 0,
+    "nombre_generico_proyecto": "Mantemiento de los Calis",
+    "fila_origen": 111,
+    "id_paa": "19494",
+    "fecha_guardado": "2025-11-08T11:31:07.651326+00:00",
+    "referencia_proceso": "4173.010.32.1.1279-2025",
+    "BP": "BP26005393",
+    "urlProceso": "https://www.secop.gov.co/CO1BusinessLine/Tendering/ContractNoticeView/Index?prevCtxLbl=Buscar+procesos&prevCtxUrl=https%3a%2f%2fwww.secop.gov.co%3a443%2fCO1BusinessLine%2fTendering%2fContractNoticeManagement%2fIndex&notice=CO1.NTC.8627833",
+    "descripcion_bp": "Mantenimiento de la Infraestructura Física de los CALIS que prestan servicios y atención a los ciudadanos en Santiago de Cali."
+  },
+  "timestamp": "2025-11-09T00:53:10.444304"
+}

@@ -1,0 +1,31 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "c17zO5vVEN2YbZlXGCJX",
+  "data": {
+    "nombre_centro_gestor": "",
+    "fecha_reporte": "2025-10-24T00:28:07.132684+00:00",
+    "observaciones": "El contrato no presenta avance debido a que corresponde a la adquisición de unas pantallas, las cuales aún no han sido entregadas. Actualmente, se está a la espera de la aprobación del RPC para poder gestionar la compra en la tienda virtual.",
+    "avance_fisico": 0.0,
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/1oDbjtQD9kojzRYNpe7s3f_bMdC3gbjyq",
+    "archivos_evidencia": [
+      {
+        "type": "application/pdf",
+        "size": 1725126,
+        "download_url": "https://drive.google.com/uc?id=1j4chkF5pH5xUdx11phLrwTDx9T6lGZA0",
+        "url": "https://drive.google.com/file/d/1j4chkF5pH5xUdx11phLrwTDx9T6lGZA0/view?usp=drivesdk",
+        "drive_id": "1j4chkF5pH5xUdx11phLrwTDx9T6lGZA0",
+        "status": "uploaded_successfully",
+        "name": "Orden de compra 152487.pdf"
+      }
+    ],
+    "referencia_contrato": "152487",
+    "avance_financiero": 0.0,
+    "alertas": {
+      "descripcion": "",
+      "es_alerta": false,
+      "tipos": []
+    },
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:41:42.484500"
+}

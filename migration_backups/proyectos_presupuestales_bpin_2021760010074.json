@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2021760010074",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Bienestar Social",
+    "cod_producto": null,
+    "nombre_area_funcional": "Personas mayores beneficiadas con servicios de atención integral",
+    "nombre_fondo": "R.B. Estampilla Prodesarrollo Urbano  (5% Adulto mayor )",
+    "nombre_programa": "Atención integral a poblaciones",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2021760010074,
+    "created_at": "2025-10-10T09:30:50.335018+00:00",
+    "nombre_actividad": "Realizar el aprestamiento logistico para la ejecucion del proyecto..",
+    "updated_at": "2025-10-10T09:30:50.335018+00:00",
+    "programa_presupuestal": "BP260027581010111",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Capacitación a cuidadores de personas mayores sobre los cambios biológicos y psicológicos en la vejez y las prácticas actualizadas de cuidado en Santiago de  Cali",
+    "clasificacion_fondo": "Recursos Propios con Destinacion Especifica",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": null,
+    "validador_cuipo": null,
+    "bp": "BP26002758"
+  },
+  "timestamp": "2025-11-09T01:26:52.430486"
+}

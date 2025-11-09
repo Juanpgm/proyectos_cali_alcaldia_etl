@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010090",
+  "data": {
+    "nombre_centro_gestor": "Secretaría del Deporte y la Recreación",
+    "cod_producto": null,
+    "nombre_area_funcional": "Personas en riesgo social con enfoque diferencial, étnico y de género  con actividades deportivas y recreativas beneficiadas.",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Atención integral a poblaciones",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010090,
+    "created_at": "2025-10-10T09:25:36.619357+00:00",
+    "nombre_actividad": "Apoyar con logística el desarrollo de las acciones para la atención a población LGTBIQ+",
+    "updated_at": "2025-10-10T09:25:36.619357+00:00",
+    "programa_presupuestal": 6102006,
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2025,
+    "nombre_proyecto": "Recreación y deporte con enfoque diferencial para los habitantes de Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": null,
+    "validador_cuipo": null,
+    "bp": "BP26005306"
+  },
+  "timestamp": "2025-11-09T01:33:19.357931"
+}

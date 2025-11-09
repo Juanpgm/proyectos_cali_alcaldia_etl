@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1164",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Carrera 36A Entre Calles 27 Y 29",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.919364",
+    "has_valid_geometry": true,
+    "upid": "UNP-1164",
+    "nombre_up_detalle": "Via Local",
+    "nombre_up": "Carrera 36A Entre Calles 27 Y 29",
+    "comuna_corregimiento": "COMUNA 11",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.51726775910934, 3.420657804054266, 0.0], [-76.51694090888505, 3.4206671757393674, 0.0], [-76.51666250308703, 3.4206467722360436, 0.0], [-76.51643448012204, 3.4206300610739104, 0.0], [-76.51631671909858, 3.4206214306778593, 0.0]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "El Jardín",
+    "cantidad": 210,
+    "loaded_at": "2025-11-04T20:23:09.919367",
+    "presupuesto_base": 158338575.57
+  },
+  "timestamp": "2025-11-09T01:45:10.240171"
+}

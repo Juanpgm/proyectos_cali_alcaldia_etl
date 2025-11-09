@@ -1,0 +1,19 @@
+{
+  "collection_path": "flujo_caja_emprestito",
+  "doc_id": "26005488.0_Davivienda_dic-25",
+  "data": {
+    "desembolso": 13895959782.0,
+    "banco": "Davivienda",
+    "id_registro": "26005488.0_Davivienda_dic-25",
+    "mes": "dic-25",
+    "columna_origen": "dic-25 Desembolso",
+    "bp_proyecto": "26005488.0",
+    "responsable": "Esperanza Ramos",
+    "fecha_procesamiento": "2025-10-20T11:50:33.076660",
+    "periodo": "2025-12-01T00:00:00",
+    "archivo_origen": "Matriz Emprestito.xlsx",
+    "organismo": "Educación",
+    "descripcion_bp": "Implementación de estrategias que permitan mejorar el acceso y la permanencia de los jóvenes a la educación superior en Santiago de Cali"
+  },
+  "timestamp": "2025-11-09T00:49:22.553679"
+}

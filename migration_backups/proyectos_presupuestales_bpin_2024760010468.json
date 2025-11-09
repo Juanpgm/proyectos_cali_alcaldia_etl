@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010468",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Cultura",
+    "cod_producto": null,
+    "nombre_area_funcional": "Personas con acceso a procesos de educación informal artística y cultural",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Cali Distrito Deportivo, Cultural y Turístico",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010468,
+    "nombre_actividad": "Difundir y promocionar los talleres de iniciación artistica y Cultural",
+    "created_at": "2025-10-10T09:33:41.155266+00:00",
+    "updated_at": "2025-10-10T09:33:41.155266+00:00",
+    "programa_presupuestal": 6102003,
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2025,
+    "nombre_proyecto": "Fortalecimiento de procesos culturales y artísticos de la comuna 14 de Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "COMUNA 14",
+    "origen": "Territorio",
+    "bp": "BP26005627",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T01:38:37.627554"
+}

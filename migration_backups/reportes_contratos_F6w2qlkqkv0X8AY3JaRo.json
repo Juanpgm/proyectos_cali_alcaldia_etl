@@ -1,0 +1,40 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "F6w2qlkqkv0X8AY3JaRo",
+  "data": {
+    "nombre_centro_gestor": "",
+    "observaciones": "Durante el periodo reportado se avanzó significativamente en la implementación de la solución web integral y aplicación móvil para la Alcaldía de Santiago de Cali, cumpliendo con las actividades programadas del proyecto.\r\n\r\nSe completó el refinamiento y validación de las Historias de Usuario correspondientes al panel administrativo y la aplicación móvil, y se realizaron los prototipos y wireframes que definen la línea gráfica oficial del aplicativo, validados con el equipo de comunicaciones de DATIC.\r\n\r\nAsimismo, se implementó un sistema de roles y permisos dinámico en la base de datos y se inició la construcción de la matriz de pruebas de la aplicación móvil, consolidando los avances técnicos y funcionales previstos en esta fase del proyecto.\r\n\r\nActualmente se encuentra en proceso de tramite de la primer cuenta de cobro",
+    "fecha_reporte": "2025-10-24T18:53:16.069053+00:00",
+    "referencia_contrato": "151303",
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/1YrszczuwTy_e6k-xefXh_5BOCS5TlBXR",
+    "archivos_evidencia": [
+      {
+        "type": "application/pdf",
+        "size": 290172,
+        "download_url": "https://drive.google.com/uc?id=1T-wtYwrfC5nYOxUbfVo9Ifm4mKLIT94z",
+        "url": "https://drive.google.com/file/d/1T-wtYwrfC5nYOxUbfVo9Ifm4mKLIT94z/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1T-wtYwrfC5nYOxUbfVo9Ifm4mKLIT94z",
+        "name": "Formato Informe de actividades - Avance APP CIUDAD.pdf"
+      },
+      {
+        "type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "size": 314019,
+        "download_url": "https://drive.google.com/uc?id=1qCCvAxTBafvLnZCimkF3nEE1YPYFPb1H",
+        "url": "https://docs.google.com/document/d/1qCCvAxTBafvLnZCimkF3nEE1YPYFPb1H/edit?usp=drivesdk&ouid=107631050282737776825&rtpof=true&sd=true",
+        "status": "uploaded_successfully",
+        "drive_id": "1qCCvAxTBafvLnZCimkF3nEE1YPYFPb1H",
+        "name": "1. REQUERIMIENTO Desarrollo APP de Ciudad .docx"
+      }
+    ],
+    "avance_fisico": 25.0,
+    "alertas": {
+      "descripcion": "",
+      "es_alerta": false,
+      "tipos": []
+    },
+    "avance_financiero": 25.0,
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:40:45.551023"
+}

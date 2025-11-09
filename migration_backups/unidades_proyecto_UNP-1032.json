@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1032",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Calle 14 Norte Entre Avenida 4 Y Avenida 3N",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.148896",
+    "has_valid_geometry": true,
+    "upid": "UNP-1032",
+    "nombre_up_detalle": "Via Local",
+    "nombre_up": "Avenida 4 Con Calle 13 Norte",
+    "comuna_corregimiento": "COMUNA 02",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.53246270048113, 3.45708307961118, 0.0], [-76.53209973146757, 3.4565528185963776, 0.0]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Granada",
+    "cantidad": 140,
+    "loaded_at": "2025-11-04T20:23:09.148902",
+    "presupuesto_base": 105559050.38
+  },
+  "timestamp": "2025-11-09T01:43:02.121626"
+}

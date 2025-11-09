@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2021760010478",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Paz y Cultura Ciudadana",
+    "cod_producto": 4502001,
+    "nombre_area_funcional": "Espacios intersectoriales e interinstitucionales coordinados en estrategias de corresponsabilidad y cooperación en la consolidación de la paz territorial junto con líderes territoriales",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Derechos Humanos, Paz y Reconciliación  ",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2021760010478,
+    "created_at": "2025-10-10T09:30:02.894282+00:00",
+    "nombre_actividad": "Brindar asistencia técnica de formulación y seguimientos a iniciativas comunitarias orientadas al desarrollo social y construcción de paz",
+    "updated_at": "2025-10-10T09:30:02.894282+00:00",
+    "programa_presupuestal": "BP260026621010109",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "Fortalecimiento de estrategias de corresponsabilidad para la vida, la paz y la cultura ciudadana en Santiago de   Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 45,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Distrito Reconciliado",
+    "validador_cuipo": null,
+    "bp": "BP26002662"
+  },
+  "timestamp": "2025-11-09T01:28:20.582290"
+}

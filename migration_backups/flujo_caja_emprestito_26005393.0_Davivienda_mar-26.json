@@ -1,0 +1,19 @@
+{
+  "collection_path": "flujo_caja_emprestito",
+  "doc_id": "26005393.0_Davivienda_mar-26",
+  "data": {
+    "banco": "Davivienda",
+    "desembolso": 76289200.0,
+    "id_registro": "26005393.0_Davivienda_mar-26",
+    "mes": "mar-26",
+    "columna_origen": "mar-26 Desembolso",
+    "bp_proyecto": "26005393.0",
+    "responsable": "Paola Riveros",
+    "fecha_procesamiento": "2025-10-20T11:50:33.086458",
+    "periodo": "2026-03-01T00:00:00",
+    "archivo_origen": "Matriz Emprestito.xlsx",
+    "organismo": "Desarrollo Terriotiral",
+    "descripcion_bp": "Mantenimiento de la Infraestructura Física de los CALIS que prestan servicios y atención a los ciudadanos en Santiago de Cali."
+  },
+  "timestamp": "2025-11-09T00:48:55.318471"
+}

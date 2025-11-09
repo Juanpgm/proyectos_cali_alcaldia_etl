@@ -1,0 +1,23 @@
+{
+  "collection_path": "proyecciones_emprestito",
+  "doc_id": "UhP0D7tjIR92jVbxpMLt",
+  "data": {
+    "nombre_banco": "DAVIVIENDA-Otro Si",
+    "nombre_organismo_reducido": "Vivienda",
+    "ultima_actualizacion": "2025-11-08T11:31:07.656000+00:00",
+    "item": "133",
+    "nombre_resumido_proceso": "Contrato 8: Estudios de detalle Espacio Público Cristo Rey Tramo IV",
+    "fuente": "google_sheets",
+    "fecha_carga": "2025-11-08T11:31:04.579405",
+    "valor_proyectado": 0,
+    "nombre_generico_proyecto": "Implementación de obras de EP en el marco de la PPMIH",
+    "fila_origen": 133,
+    "id_paa": "19667",
+    "fecha_guardado": "2025-11-08T11:31:07.656000+00:00",
+    "referencia_proceso": "4147.010.32.1.868-2025",
+    "BP": "BP26005424",
+    "urlProceso": "Publicado",
+    "descripcion_bp": "Implementación de obras de espacio público en el marco de la política pública de Mi Habitat de Santaigo de Cali"
+  },
+  "timestamp": "2025-11-09T00:53:00.376794"
+}

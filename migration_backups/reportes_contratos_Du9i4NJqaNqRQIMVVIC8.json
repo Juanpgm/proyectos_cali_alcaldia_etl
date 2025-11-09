@@ -1,0 +1,40 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "Du9i4NJqaNqRQIMVVIC8",
+  "data": {
+    "nombre_centro_gestor": "",
+    "observaciones": "EL proyecto, ya adjudicado y en fase de ejecución, avanza según lo planificado. Actualmente, nos encontramos en la etapa de implementación y configuración de la nueva arquitectura inteligente. Esta modernización es la evolución de nuestra plataforma virtualizada anterior, que si bien fue exitosa, requería esta transformación para afrontar las crecientes demandas de la transformación digital y evolucionar de una gestión tradicional a una gestión proactiva y automatizada.",
+    "fecha_reporte": "2025-10-24T17:58:57.030133+00:00",
+    "referencia_contrato": "151305",
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/1V2Be9D2ArPhZUfixDWL2FthqX9kgKe-Y",
+    "archivos_evidencia": [
+      {
+        "type": "application/pdf",
+        "size": 490616,
+        "download_url": "https://drive.google.com/uc?id=1p1pkaIECbow1KyRI0nVS4IRw-90E6d9L",
+        "url": "https://drive.google.com/file/d/1p1pkaIECbow1KyRI0nVS4IRw-90E6d9L/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1p1pkaIECbow1KyRI0nVS4IRw-90E6d9L",
+        "name": "Informe de avance aws.pdf"
+      },
+      {
+        "type": "application/pdf",
+        "size": 765858,
+        "download_url": "https://drive.google.com/uc?id=1K9M6jkLgOe-U1DZIToyzyCL3xZd4mwjY",
+        "url": "https://drive.google.com/file/d/1K9M6jkLgOe-U1DZIToyzyCL3xZd4mwjY/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1K9M6jkLgOe-U1DZIToyzyCL3xZd4mwjY",
+        "name": "Alcaldía de Cali.pdf"
+      }
+    ],
+    "avance_fisico": 80.0,
+    "alertas": {
+      "descripcion": "",
+      "es_alerta": false,
+      "tipos": []
+    },
+    "avance_financiero": 80.0,
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:40:42.929376"
+}

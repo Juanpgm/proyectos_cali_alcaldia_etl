@@ -1,0 +1,30 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1174",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Calle 112 Ambos Sentidos Entre Carrera 20 Y\nCarrera 25 - Ciudadela Del Río",
+    "has_geometry": true,
+    "bpin": "2021760010270",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.923517",
+    "has_valid_geometry": true,
+    "upid": "UNP-1174",
+    "comuna_corregimiento": "COMUNA 21",
+    "nombre_up": "Calle 112 Ambos Sentidos Entre Carreras 20 Y  25",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"MultiLineString\", \"coordinates\": [[[-76.46437136503248, 3.4298971891953562, 0.0], [-76.46403299999997, 3.4301600000000576, 0.0], [-76.46232199999997, 3.431481000000076, 0.0], [-76.46221899999995, 3.431532000000061, 0.0]], [[-76.46621399999998, 3.4284660000000713, 0.0], [-76.46437136503248, 3.4298971891953562, 0.0]]]}",
+    "identificador": "Presupuesto Participativo Urbano",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Presupuesto Participativo",
+    "barrio_vereda": "Compartir",
+    "cantidad": 50,
+    "loaded_at": "2025-11-04T20:23:09.923522",
+    "presupuesto_base": 212655530.0
+  },
+  "timestamp": "2025-11-09T01:45:19.895942"
+}

@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010408",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Desarrollo Económico",
+    "cod_producto": 3502013,
+    "nombre_area_funcional": "Empresas y emprendimientos fortalecidos en capacidades para el fomento de la economía Circular",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Ecosistema de Innovación “Cali Circular” ",
+    "nombre_dimension": "Cali, Nuestra Casa Común",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010408,
+    "created_at": "2025-10-10T09:30:22.958942+00:00",
+    "nombre_actividad": "Desarrollar programas de asistencia teórica y práctica en Economía Circular con expertos a nivel nacional e internacional.",
+    "updated_at": "2025-10-10T09:30:22.958942+00:00",
+    "programa_presupuestal": "BP260033931010103",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Fortalecimiento a las empresas y emprendimientos en capacidades para el fomento de la economía circular en Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 35,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Mitigación del Cambio Climático",
+    "validador_cuipo": null,
+    "bp": "BP26003393"
+  },
+  "timestamp": "2025-11-09T01:06:52.387954"
+}

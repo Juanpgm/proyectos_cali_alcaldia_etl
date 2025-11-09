@@ -1,0 +1,30 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1205",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Cra 56 Entre Cli 5 Hasta Av Circunvalar",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.936604",
+    "has_valid_geometry": true,
+    "upid": "UNP-1205",
+    "comuna_corregimiento": "COMUNA 19",
+    "nombre_up": "Cra 56 Entre Cli 5 Hasta Av Circunvalar",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"GeometryCollection\", \"geometries\": [{\"type\": \"MultiLineString\", \"coordinates\": [[[-76.55135191986017, 3.409507990029086, 0.0], [-76.55154235509559, 3.409532538096187, 0.0], [-76.5533122559558, 3.40968951475935, 0.0], [-76.55425136580783, 3.409801159296138, 0.0], [-76.55489390982603, 3.40985146377409, 0.0], [-76.55524290433652, 3.409897794147923, 0.0], [-76.55540807472283, 3.4099534999541, 0.0]], [[-76.5475657599898, 3.409009467239096, 0.0], [-76.5496024707333, 3.4092819860560084, 0.0]]]}, {\"type\": \"LineString\", \"coordinates\": [[-76.5496024707333, 3.4092819860560084, 0.0], [-76.54970239524931, 3.4092953562957304, 0.0], [-76.55135191986017, 3.409507990029086, 0.0]]}]}",
+    "identificador": "Puntos Estrategicos",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Cuarto de Legua - Guadalupe",
+    "cantidad": 454,
+    "loaded_at": "2025-11-04T20:23:09.936614",
+    "presupuesto_base": 2413353297.0
+  },
+  "timestamp": "2025-11-09T01:45:50.580621"
+}

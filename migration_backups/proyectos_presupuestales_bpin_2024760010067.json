@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010067",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Salud Pública",
+    "cod_producto": null,
+    "nombre_area_funcional": "Personas remitidas por el Centro Regulador de Urgencias y Emergencias - CRUE",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Gestión del Riesgo y Atención de Desastres",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010067,
+    "nombre_actividad": "Implementar acciones en salud para la mitigación, preparación y respuesta frente a emergencias y desastres.",
+    "created_at": "2025-10-10T09:33:03.631377+00:00",
+    "updated_at": "2025-10-10T09:33:03.631377+00:00",
+    "programa_presupuestal": 6202002,
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2025,
+    "nombre_proyecto": "Fortalecimiento de la Gestión del Riesgo en Salud ante situaciones de Urgencias, Emergencias y Desastres en Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "bp": "BP26005462",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T01:32:59.155351"
+}

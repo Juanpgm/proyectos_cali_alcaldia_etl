@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010633",
+  "data": {
+    "nombre_centro_gestor": "Departamento Administrativo de Desarrollo e Innovación Institucional",
+    "cod_producto": 4599020,
+    "nombre_area_funcional": "Modelo de Teletrabajo, diseñado",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Fortalecimiento Institucional",
+    "nombre_dimension": "Cali, Gobierno Incluyente",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010633,
+    "created_at": "2025-10-10T09:27:27.859530+00:00",
+    "nombre_actividad": "Socializar el documento de Diseño de Modelo de Teletrabajo",
+    "updated_at": "2025-10-10T09:27:27.859530+00:00",
+    "programa_presupuestal": "BP260027381020104",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "DISEÑO DE UN MODELO DE TELETRABAJO EN LA ALCALDÍA DE CALI",
+    "clasificacion_fondo": "Libre destinación (Recursos Propios)",
+    "cod_sector": 45,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Gobierno Inteligente",
+    "validador_cuipo": null,
+    "bp": "BP26002738"
+  },
+  "timestamp": "2025-11-09T01:08:00.806695"
+}

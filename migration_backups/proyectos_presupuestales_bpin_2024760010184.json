@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010184",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Bienestar Social",
+    "cod_producto": null,
+    "nombre_area_funcional": "Mujeres vinculadas a procesos de empoderamiento político, social y económico en perspectiva de género",
+    "nombre_fondo": "Estampilla Prodesarrollo Urbano  (10% Equidad de Género)",
+    "nombre_programa": "Desarrollo productivo",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010184,
+    "nombre_actividad": "Realizar campañas de promoción de escenarios de sensibilización en contra de la violencia política",
+    "created_at": "2025-10-10T09:33:21.583660+00:00",
+    "updated_at": "2025-10-10T09:33:21.583660+00:00",
+    "programa_presupuestal": 6102002,
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2025,
+    "nombre_proyecto": "Fortalecimiento de la capacidad de empoderamiento político y social de las mujeres en Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios con Destinacion Especifica",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "bp": "BP26005431",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T01:34:42.310818"
+}

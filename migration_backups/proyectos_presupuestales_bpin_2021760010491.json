@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2021760010491",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Bienestar Social",
+    "cod_producto": 4599032,
+    "nombre_area_funcional": "Políticas Públicas sociales con monitoreo y seguimiento",
+    "nombre_fondo": "Estampilla Prodesarrollo Urbano  (10% Equidad de Género)",
+    "nombre_programa": "Gestión de Información Estadística y Geográfica para la Evaluación de Resultados  ",
+    "nombre_dimension": "Cali, Gobierno Incluyente",
+    "tipo_gasto": "Inversión",
+    "bpin": 2021760010491,
+    "created_at": "2025-10-10T09:28:12.403295+00:00",
+    "nombre_actividad": "Realizar seguimiento y monitoreo de la política pública de las mujeres.",
+    "updated_at": "2025-10-10T09:28:12.403295+00:00",
+    "programa_presupuestal": "BP260037341010101",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "Control y Seguimiento de la Política Pública de las Mujeres de Santiago de Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 45,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Gobierno Inteligente",
+    "validador_cuipo": null,
+    "bp": "BP26003734"
+  },
+  "timestamp": "2025-11-09T01:28:30.928814"
+}

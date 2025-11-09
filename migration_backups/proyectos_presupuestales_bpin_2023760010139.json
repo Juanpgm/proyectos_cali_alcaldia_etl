@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2023760010139",
+  "data": {
+    "nombre_centro_gestor": "Departamento Administrativo de Gestión del Medio Ambiente ",
+    "cod_producto": null,
+    "nombre_area_funcional": "Espacios públicos efectivos adecuados arquitectónica y paisajísticamente con empoderamiento ciudadano",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Espacio Público para la Integración SocioEcológica",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2023760010139,
+    "created_at": "2025-10-10T09:27:08.186308+00:00",
+    "nombre_actividad": "Realizar labores de recuperación ambiental y paisajística en el Separador vial de los barrios Asturias, Fenalco Kennedy, Nueva Floresta, El Rodeo y Sindical ubicado en la Calle 44 entre Carreras 23 y 28D",
+    "updated_at": "2025-10-10T09:27:08.186308+00:00",
+    "programa_presupuestal": "BP260049291020104",
+    "nombre_pospre": "Servicios de la construcción",
+    "anio": 2024,
+    "nombre_proyecto": "Mejoramiento Ambiental y Paisajístico de Parques y Zonas Verdes del Espacio Público de la Comuna 12 de Santiago de  Cali",
+    "clasificacion_fondo": "Libre destinación (Recursos Propios)",
+    "cod_sector": null,
+    "comuna": "COMUNA 12",
+    "origen": "Territorio",
+    "nombre_linea_estrategica": "Territorios para la Vida",
+    "validador_cuipo": null,
+    "bp": "BP26004929"
+  },
+  "timestamp": "2025-11-09T01:31:06.409642"
+}

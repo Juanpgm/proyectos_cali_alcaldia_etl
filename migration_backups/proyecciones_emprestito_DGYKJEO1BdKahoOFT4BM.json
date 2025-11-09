@@ -1,0 +1,23 @@
+{
+  "collection_path": "proyecciones_emprestito",
+  "doc_id": "DGYKJEO1BdKahoOFT4BM",
+  "data": {
+    "nombre_banco": "BBVA",
+    "nombre_organismo_reducido": "Educación",
+    "ultima_actualizacion": "2025-11-08T11:31:07.641745+00:00",
+    "item": "74",
+    "nombre_resumido_proceso": "OBRA: Infraestructura Educativa - Santa Librada - Sede Principal",
+    "fuente": "google_sheets",
+    "fecha_carga": "2025-11-08T11:31:04.573119",
+    "valor_proyectado": 0,
+    "nombre_generico_proyecto": "Fortalecimiento de la infraestructura física de las sedes Educativas de Santaigo de Cali",
+    "fila_origen": 74,
+    "id_paa": "19714",
+    "fecha_guardado": "2025-11-08T11:31:07.641745+00:00",
+    "referencia_proceso": "",
+    "BP": "BP26005788",
+    "urlProceso": "https://www.secop.gov.co/CO1BusinessLine/Tendering/ContractNoticeView/Index?prevCtxLbl=Buscar+procesos&prevCtxUrl=https%3a%2f%2fwww.secop.gov.co%3a443%2fCO1BusinessLine%2fTendering%2fContractNoticeManagement%2fIndex&notice=CO1.NTC.9006005",
+    "descripcion_bp": "Fortalecimiento de la infraestructura física de las sedes Educativas de Santaigo de Cali"
+  },
+  "timestamp": "2025-11-09T00:52:34.976758"
+}

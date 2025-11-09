@@ -1,0 +1,55 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-930",
+  "data": {
+    "created_at": "2025-11-05T11:34:47.022534",
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -76.538346,
+        3.432988
+      ]
+    },
+    "has_geometry": true,
+    "geometry_type": "Point",
+    "properties": {
+      "processed_timestamp": "2025-11-05T11:34:28.210236",
+      "descripcion_intervencion": "Cambio de cubiertas de bloque de 3 aulas, componente eléctrico de los espacios intervenidos y enlucimiento general de la sede.",
+      "microtio": null,
+      "bpin": "-2147483648",
+      "centros_gravedad": false,
+      "upid": "UNP-930",
+      "nombre_up_detalle": "La Gran Colombia",
+      "tipo_intervencion": "Adecuaciones y mantenimientos",
+      "url_proceso": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.8657537&isFromPublicArea=True&isModal=False, https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.8725902&isFromPublicArea=True&isModal=False",
+      "referencia_contrato": "4143.010.26.1.1739.2025\n 4143.010.26.1.1741.2025",
+      "unidad": "UND",
+      "identificador": "Grupo 22 sedes (Empréstito)",
+      "tipo_equipamiento": "Institución Educativa",
+      "fecha_fin": "27/2/2026",
+      "estado": "En alistamiento",
+      "fecha_inicio": "04-11-2025",
+      "plataforma": "SECOP II",
+      "nombre_centro_gestor": "Secretaría de Educación",
+      "avance_obra": "0.0",
+      "geometry_bounds": null,
+      "direccion": null,
+      "ano": "2025",
+      "geometry_type": null,
+      "dataframe": null,
+      "comuna_corregimiento": "COMUNA 19",
+      "nombre_up": "I.E. Liceo Departamental",
+      "referencia_proceso": [
+        "4143.010.32.0876-2025",
+        "4143.010.32.1544-2025"
+      ],
+      "fuente_financiacion": "Empréstito",
+      "cantidad": "1",
+      "barrio_vereda": "El Cedro",
+      "presupuesto_base": "311918779"
+    },
+    "updated_at": "2025-11-05T11:34:47.022534"
+  },
+  "timestamp": "2025-11-09T01:59:46.104256"
+}

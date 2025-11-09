@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010217",
+  "data": {
+    "nombre_centro_gestor": "Departamento Administrativo de Tecnologías de la Información y las Comunicaciones",
+    "cod_producto": null,
+    "nombre_area_funcional": "Soluciones basadas en diferentes tecnologías, entre ellas inteligencia artificial, para necesidades relacionadas con Gobierno Digital adoptadas en el Distrito de Santiago de Cali",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Fortalecimiento institucional",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010217,
+    "nombre_actividad": "Realizar formulación e implementación de casos de uso de explotación de datos",
+    "created_at": "2025-10-10T09:32:28.355355+00:00",
+    "updated_at": "2025-10-10T09:32:28.355355+00:00",
+    "programa_presupuestal": 6302001,
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2025,
+    "nombre_proyecto": "Implementación  de soluciones tecnológicas para el aprovechamiento estratégico de datos en el distrito de Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "bp": "BP26005255",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T01:35:12.108563"
+}

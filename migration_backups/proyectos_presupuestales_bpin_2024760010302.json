@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010302",
+  "data": {
+    "nombre_centro_gestor": "Unidad Administrativa Especial de Gestión de Bienes y Servicios",
+    "cod_producto": null,
+    "nombre_area_funcional": "Fortalecimiento del Inventario de bienes muebles y automotores del Distrito",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Fortalecimiento institucional",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010302,
+    "created_at": "2025-10-10T09:26:30.337129+00:00",
+    "nombre_actividad": "Analizar la información suministrada de Bienes Muebles y Automotores de propiedad de la Alcaldía de Santiago de Cali",
+    "updated_at": "2025-10-10T09:26:30.337129+00:00",
+    "programa_presupuestal": 6302001,
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2025,
+    "nombre_proyecto": "Fortalecimiento del proceso de actualización del Inventario de los Bienes Muebles y Parque Automotor Propiedad del Distrito de Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": null,
+    "validador_cuipo": null,
+    "bp": "BP26005293"
+  },
+  "timestamp": "2025-11-09T01:36:19.700041"
+}

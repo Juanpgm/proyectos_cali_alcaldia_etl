@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2021760010485",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Cultura",
+    "cod_producto": 3301074,
+    "nombre_area_funcional": "Festivales de talla internacional realizados anualmente",
+    "nombre_fondo": "Estampilla procultura ",
+    "nombre_programa": "Marca de Ciudad para un Distrito Especial ",
+    "nombre_dimension": "Cali, Inteligente para la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2021760010485,
+    "created_at": "2025-10-10T09:28:48.156741+00:00",
+    "nombre_actividad": "Realizar la articulación de festivales al circuito cultural del Distrito",
+    "updated_at": "2025-10-10T09:28:48.156741+00:00",
+    "programa_presupuestal": "BP260036771010105",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Fortalecimiento de Festivales de talla internacional con enfoque en lectura, escritura y oralidad en Santiago de  Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 33,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Posicionamiento Local en el Ámbito Internacional",
+    "validador_cuipo": null,
+    "bp": "BP26003677"
+  },
+  "timestamp": "2025-11-09T01:28:25.651815"
+}

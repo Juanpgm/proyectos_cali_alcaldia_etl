@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2021760010235",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "cod_producto": 2402128,
+    "nombre_area_funcional": "Mejoramiento de la red peatonal en la zona urbana y rural",
+    "nombre_fondo": "Ingresos Corrientes de Libre Destinación",
+    "nombre_programa": "Movilidad Peatonal ",
+    "nombre_dimension": "Cali, Nuestra Casa Común",
+    "tipo_gasto": "Inversión",
+    "bpin": 2021760010235,
+    "created_at": "2025-10-10T09:29:04.067675+00:00",
+    "nombre_actividad": "REALIZAR MANTENIMIENTO DE ANDENES EN LA COMUNA 17",
+    "updated_at": "2025-10-10T09:29:04.067675+00:00",
+    "programa_presupuestal": "BP260039591010101",
+    "nombre_pospre": "Servicios de la construcción",
+    "anio": 2024,
+    "nombre_proyecto": "Mejoramiento De la red peatonal de la Comuna 17 de Santiago de\n  Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 24,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Movilidad Multimodal Sustentable",
+    "validador_cuipo": null,
+    "bp": "BP26003959"
+  },
+  "timestamp": "2025-11-09T01:27:22.519095"
+}

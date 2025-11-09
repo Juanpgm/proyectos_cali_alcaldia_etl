@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010195",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Bienestar Social",
+    "cod_producto": null,
+    "nombre_area_funcional": "Mujeres cuidadoras vinculadas a CuidARTE - Sistema Distrital del Cuidado",
+    "nombre_fondo": "Estampilla Prodesarrollo Urbano  (10% Equidad de Género)",
+    "nombre_programa": "Atención integral a poblaciones",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010195,
+    "nombre_actividad": "Desarrollar lineamientos técnicos para la implementación y seguimiento del Sistema Distrital de Cuidado-CuiDARTE",
+    "created_at": "2025-10-10T09:33:22.544662+00:00",
+    "updated_at": "2025-10-10T09:33:22.544662+00:00",
+    "programa_presupuestal": 6102006,
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2025,
+    "nombre_proyecto": "Fortalecimiento del Sistema Distrital de Cuidado \"Cuidarte\" en Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios con Destinacion Especifica",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "bp": "BP26005427",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T01:34:52.696535"
+}

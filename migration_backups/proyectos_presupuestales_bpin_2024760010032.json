@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010032",
+  "data": {
+    "nombre_centro_gestor": "Departamento Administrativo de Planeación Municipal",
+    "cod_producto": null,
+    "nombre_area_funcional": "Documentos elaborados para la implementación del Plan de Ordenamiento Territorial",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Ordenamiento Territorial e Integración Regional",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010032,
+    "nombre_actividad": "Elaborar documentos para la formulación de instrumentos de planificación, gestión y financiación complementarios al plan de ordenamiento territorial",
+    "created_at": "2025-10-10T09:32:03.178648+00:00",
+    "updated_at": "2025-10-10T09:32:03.178648+00:00",
+    "programa_presupuestal": 6201001,
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2025,
+    "nombre_proyecto": "Formulación de instrumentos complementarios al Plan de Ordenamiento Territorial de Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "bp": "BP26005247",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T01:32:27.516280"
+}

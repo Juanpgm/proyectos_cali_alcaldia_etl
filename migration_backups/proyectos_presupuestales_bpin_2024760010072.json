@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010072",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Salud Pública",
+    "cod_producto": null,
+    "nombre_area_funcional": "Usuarios con derechos en salud restituidos frente a barreras de atención",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Salud Integral y de Calidad",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010072,
+    "nombre_actividad": "Realizar atención, gestión y seguimiento de casos reportados por lo diferentes canales de atención de la autoridad sanitaria",
+    "created_at": "2025-10-10T09:33:02.096500+00:00",
+    "updated_at": "2025-10-10T09:33:02.096500+00:00",
+    "programa_presupuestal": 6102004,
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2025,
+    "nombre_proyecto": "Mejoramiento de la capacidad de gestión de la autoridad sanitaria en la restitución de derechos en salud a los usuarios en Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "bp": "BP26005449",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T01:33:03.568522"
+}

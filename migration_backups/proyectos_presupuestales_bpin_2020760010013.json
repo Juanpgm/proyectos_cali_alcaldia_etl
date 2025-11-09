@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010013",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Movilidad",
+    "cod_producto": 2401063,
+    "nombre_area_funcional": "Mantenimiento de la red semaforizada en Cali realizada",
+    "nombre_fondo": "Multas infracciones de tránsito ley 769-02",
+    "nombre_programa": "Regulación, Control y Gestión Inteligente del Tránsito ",
+    "nombre_dimension": "Cali, Nuestra Casa Común",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010013,
+    "created_at": "2025-10-10T09:29:15.110213+00:00",
+    "nombre_actividad": "Adquirir equipos e insumos necesarios para mantenimiento de la red semaforizada",
+    "updated_at": "2025-10-10T09:29:15.110213+00:00",
+    "programa_presupuestal": "BP260029021010119",
+    "nombre_pospre": "Autopistas, carreteras, calles",
+    "anio": 2024,
+    "nombre_proyecto": "Mantenimiento de la red semaforizada en Santiago de  Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 24,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Movilidad Multimodal Sustentable",
+    "validador_cuipo": null,
+    "bp": "BP26002902"
+  },
+  "timestamp": "2025-11-09T00:53:55.381313"
+}

@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010298",
+  "data": {
+    "nombre_centro_gestor": "Unidad Administrativa Especial de Gestión de Bienes y Servicios",
+    "cod_producto": null,
+    "nombre_area_funcional": "Levantamiento de información predial del inventario de bienes inmuebles del Distrito",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Fortalecimiento institucional",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010298,
+    "created_at": "2025-10-10T09:26:30.706891+00:00",
+    "nombre_actividad": "Realizar el levantamiento topográfico de predios identificados que lo requieren para la actualización del inventario de bienes inmuebles del Distrito de Santiago de Cali",
+    "updated_at": "2025-10-10T09:26:30.706891+00:00",
+    "programa_presupuestal": 6302001,
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2025,
+    "nombre_proyecto": "Actualización de la información predial del inventario de bienes inmuebles del Distrito de Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": null,
+    "validador_cuipo": null,
+    "bp": "BP26005295"
+  },
+  "timestamp": "2025-11-09T01:36:16.192839"
+}

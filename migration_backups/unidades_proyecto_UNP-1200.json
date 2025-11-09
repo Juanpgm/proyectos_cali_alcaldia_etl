@@ -1,0 +1,30 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1200",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Cra 32 Entre Cll 9 Hasta Cll 8",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.934546",
+    "has_valid_geometry": true,
+    "upid": "UNP-1200",
+    "comuna_corregimiento": "COMUNA 19",
+    "nombre_up": "Cra 32 Entre Cll 9 Hasta Cll 8",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.53687835065534, 3.4278881237379437, 0.0], [-76.53767909171665, 3.4281280646584946, 0.0]]}",
+    "identificador": "Puntos Estrategicos",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "El Cedro",
+    "cantidad": 92,
+    "loaded_at": "2025-11-04T20:23:09.934553",
+    "presupuesto_base": 154342362.0
+  },
+  "timestamp": "2025-11-09T01:45:46.222617"
+}

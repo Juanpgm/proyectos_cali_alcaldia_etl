@@ -1,0 +1,52 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-138",
+  "data": {
+    "created_at": "2025-11-05T11:34:34.750286",
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -76.536615,
+        3.449572
+      ]
+    },
+    "has_geometry": true,
+    "geometry_type": "Point",
+    "properties": {
+      "processed_timestamp": "2025-11-05T11:34:28.210236",
+      "descripcion_intervencion": null,
+      "microtio": null,
+      "bpin": "-2147483648",
+      "centros_gravedad": false,
+      "upid": "UNP-138",
+      "nombre_up_detalle": "Sede principal",
+      "tipo_intervencion": "Adecuaciones y mantenimientos",
+      "url_proceso": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.6402772&isFromPublicArea=True&isModal=False",
+      "referencia_contrato": "4148.010.26.1.0904-2024",
+      "unidad": "UND",
+      "identificador": "Mantenimiento sistemas de climatización Centro Cultural de Cali",
+      "tipo_equipamiento": "Infraestructura cultural ",
+      "fecha_fin": "15-12-2024",
+      "estado": "Finalizado",
+      "fecha_inicio": "09-09-2024",
+      "plataforma": "SECOP II",
+      "nombre_centro_gestor": "Secretaría de Cultura",
+      "avance_obra": "100.0",
+      "geometry_bounds": null,
+      "direccion": "Cra 5 No. 06-05",
+      "ano": "2024",
+      "geometry_type": null,
+      "dataframe": null,
+      "comuna_corregimiento": "COMUNA 03",
+      "nombre_up": "Climatización Centro Cultural de Cali",
+      "referencia_proceso": "4148.010.32.1.0912-2024",
+      "fuente_financiacion": "Recursos propios",
+      "cantidad": "1",
+      "barrio_vereda": "La merced",
+      "presupuesto_base": "540715000"
+    },
+    "updated_at": "2025-11-05T11:34:34.750286"
+  },
+  "timestamp": "2025-11-09T01:46:47.556834"
+}

@@ -1,0 +1,42 @@
+{
+  "collection_path": "contratos_emprestito",
+  "doc_id": "PjJV4dptPLHnAb9aRcMl",
+  "data": {
+    "nit_contratista": "",
+    "fecha_fin_contrato": "2025-12-31",
+    "sector": "Tecnologías de la Información y las Comunicaciones",
+    "ordenador_gasto": "ALEXANDER MONDRAGON VALENCIA",
+    "descripcion_proceso": "Implementar soluciones tecnológicas para modernizar la infraestructura de la entidad; optimizar la gestión de bases de datos y sistemas de información; garantizar la seguridad informática; fortalecer los sistemas de recuperación ante desastres y respaldo de información On-Premise para la Alcaldía de",
+    "nombre_procedimiento": "",
+    "valor_pagado": "0",
+    "urlproceso": {
+      "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.8652108&isFromPublicArea=True&isModal=true&asPopupView=true"
+    },
+    "_dataset_source": "jbjy-vk9h",
+    "bpin": 2024760010045,
+    "valor_contrato": 15606872302,
+    "supervisor": "ERMILSON DIAZ MARTINEZ",
+    "entidad_contratante": "SANTIAGO DE CALI DISTRITO ESPECIAL - DEPARTAMENTO ADMINISTRATIVO DE TECNOLOGIAS DE LA INFORMACION Y LAS COMUNICACIONES",
+    "banco": "Bancolombia",
+    "referencia_contrato": "4134.010.26.1.0322-2025",
+    "nit_entidad": "890399011",
+    "id_contrato": "CO1.PCCNTR.8346532",
+    "fecha_guardado": "2025-10-23T02:22:01.359228+00:00",
+    "modalidad_contratacion": "Licitación pública",
+    "fecha_firma_contrato": null,
+    "bp": "BP26005260",
+    "nombre_centro_gestor": "Departamento Administrativo de Tecnologías de la Información y las Comunicaciones",
+    "version_esquema": "1.1",
+    "representante_legal": "Nathali Ayala Hernandez",
+    "fuente_datos": "SECOP_API",
+    "proceso_contractual": "CO1.BDOS.8495987",
+    "fecha_inicio_contrato": "2025-10-15",
+    "fecha_actualizacion": "2025-10-29T02:29:13.355991+00:00",
+    "nombre_contratista": "",
+    "estado_contrato": "Modificado",
+    "referencia_proceso": "4134.010.32.1.0145-2025",
+    "objeto_contrato": "Implementar soluciones tecnológicas para modernizar la infraestructura de la entidad; optimizar la gestión de bases de datos y sistemas de información; garantizar la seguridad informática; fortalecer los sistemas de recuperación ante desastres y respaldo de información On-Premise para la Alcaldía del Distrito Especial de Santiago de Cali.",
+    "tipo_contrato": "Suministros"
+  },
+  "timestamp": "2025-11-09T00:47:55.715392"
+}

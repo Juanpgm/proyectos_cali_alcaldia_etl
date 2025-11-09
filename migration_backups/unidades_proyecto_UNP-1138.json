@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1138",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Calle 3A Entre Carrera 93 Y 95",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.909333",
+    "has_valid_geometry": true,
+    "upid": "UNP-1138",
+    "nombre_up_detalle": "Via Local",
+    "nombre_up": "Calle 3A Entre Carrera 93 Y 95",
+    "comuna_corregimiento": "COMUNA 18",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.54851241083712, 3.3741552718021235, 0.0], [-76.54846923167266, 3.375469351315575, 0.0]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Horizontes",
+    "cantidad": 560,
+    "loaded_at": "2025-11-04T20:23:09.909337",
+    "presupuesto_base": 586439168.56
+  },
+  "timestamp": "2025-11-09T01:44:44.960163"
+}

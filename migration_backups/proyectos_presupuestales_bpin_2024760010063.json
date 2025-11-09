@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010063",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Salud Pública",
+    "cod_producto": null,
+    "nombre_area_funcional": "Gestión del conocimiento con procesos de investigación, modelos asociativos publico privados e innovación fortalecidos",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Salud Integral y de Calidad",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010063,
+    "nombre_actividad": "Monitorear y mejorar los procesos institucionales para evaluar el desempeño del modelo de gestión en salud.",
+    "created_at": "2025-10-10T09:32:57.454638+00:00",
+    "updated_at": "2025-10-10T09:32:57.454638+00:00",
+    "programa_presupuestal": 6102004,
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2025,
+    "nombre_proyecto": "Fortalecimiento de la gestión del conocimiento e innovación para mejorar la salud de la población de Santiago de   Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "bp": "BP26005457",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T01:32:55.634898"
+}

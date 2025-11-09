@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010154",
+  "data": {
+    "nombre_centro_gestor": "Departamento Administrativo de Gestión del Medio Ambiente",
+    "cod_producto": null,
+    "nombre_area_funcional": "Vivero Distrital de Santiago de Cali y red de viveros del DAGMA en operación y en transición a negocio verde",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Protección ambiental y mitigación del cambio climático",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010154,
+    "nombre_actividad": "Realizar la propagación técnica de individuos vegetales para la restauración de los predios públicos u otras áreas de interés ambiental de la ciudad",
+    "created_at": "2025-10-10T09:32:20.245628+00:00",
+    "updated_at": "2025-10-10T09:32:20.245628+00:00",
+    "programa_presupuestal": 6202001,
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2025,
+    "nombre_proyecto": "Fortalecimiento del Vivero Distrital y la red de viveros del DAGMA para su transición a Negocio Verde en Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "bp": "BP26005464",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T01:34:16.988900"
+}

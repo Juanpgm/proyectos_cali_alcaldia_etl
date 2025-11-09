@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010637",
+  "data": {
+    "nombre_centro_gestor": "Departamento Administrativo de Gestión del Medio Ambiente ",
+    "cod_producto": 3201008,
+    "nombre_area_funcional": "Plan de Mejora del Ambiente Sonoro, actualizado, adoptado y ejecutado",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Gestión de la calidad del aire y disminución y control del impacto sonoro  ",
+    "nombre_dimension": "Cali, Nuestra Casa Común",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010637,
+    "created_at": "2025-10-10T09:27:14.446411+00:00",
+    "nombre_actividad": "Hacer el seguimiento de los indicadores, programas y medidas implementadas por los organismos competentes",
+    "updated_at": "2025-10-10T09:27:14.446411+00:00",
+    "programa_presupuestal": "BP260026551010120",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Implementación del Plan de Mejora del Ambiente Sonoro en Santiago de  Cali",
+    "clasificacion_fondo": "Libre destinación (Recursos Propios)",
+    "cod_sector": 32,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Soporte Vital para el Desarrollo",
+    "validador_cuipo": null,
+    "bp": "BP26002655"
+  },
+  "timestamp": "2025-11-09T01:08:04.317874"
+}

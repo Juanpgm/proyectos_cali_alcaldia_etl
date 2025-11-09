@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010721",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "cod_producto": 2402120,
+    "nombre_area_funcional": "Mantenimiento de puentes peatonales de la zona urbana y rural",
+    "nombre_fondo": "Sobretasa Gasol malla vial",
+    "nombre_programa": "Movilidad Peatonal ",
+    "nombre_dimension": "Cali, Nuestra Casa Común",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010721,
+    "created_at": "2025-10-10T09:29:01.416596+00:00",
+    "nombre_actividad": "Realizar mantenimiento de Puentes Peatonales de Cali",
+    "updated_at": "2025-10-10T09:29:01.416596+00:00",
+    "programa_presupuestal": "BP260029871010101",
+    "nombre_pospre": "Servicios de la construcción",
+    "anio": 2024,
+    "nombre_proyecto": "Mantenimiento y rehabilitación de  puentes peatonales de la zona urbana y rural de Santiago de  Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 24,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Movilidad Multimodal Sustentable",
+    "validador_cuipo": null,
+    "bp": "BP26002987"
+  },
+  "timestamp": "2025-11-09T01:08:26.238192"
+}

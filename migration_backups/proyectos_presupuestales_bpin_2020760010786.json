@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010786",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Bienestar Social",
+    "cod_producto": 4104008,
+    "nombre_area_funcional": "Personas mayores en modalidad Centros Vida atendidas",
+    "nombre_fondo": "Estampilla para el bienestar del Adulto mayor",
+    "nombre_programa": "Personas Mayores Envejeciendo con Bienestar",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010786,
+    "created_at": "2025-10-10T09:28:07.632636+00:00",
+    "nombre_actividad": "Coordinar las acciones de atención en los sitios destinados para el servicio de centro vida",
+    "updated_at": "2025-10-10T09:28:07.632636+00:00",
+    "programa_presupuestal": "BP260026581010111",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Implementación DE UN MODELO DE ATENCIÓN A TRAVÉS DE UN CENTRO VIDA PARA PERSONAS MAYORES EN SANTIAGO DE  Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 41,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Poblaciones Construyendo Territorio",
+    "validador_cuipo": null,
+    "bp": "BP26002658"
+  },
+  "timestamp": "2025-11-09T01:08:57.923737"
+}

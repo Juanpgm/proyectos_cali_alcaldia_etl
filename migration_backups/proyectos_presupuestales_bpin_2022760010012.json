@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2022760010012",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "cod_producto": 2402115,
+    "nombre_area_funcional": "Vías con mantenimiento y rehabilitación eco sostenible",
+    "nombre_fondo": "R.B. Ingresos Corrientes de Libre Destinación ",
+    "nombre_programa": "Mejoramiento de la Infraestructura Vial ",
+    "nombre_dimension": "Cali, Nuestra Casa Común",
+    "tipo_gasto": "Inversión",
+    "bpin": 2022760010012,
+    "created_at": "2025-10-10T09:29:11.268624+00:00",
+    "nombre_actividad": "Adquirir suministros para mantenimiento de la carrera  41 F entre calles 44 y 46 comuna 16 de Santiago de Cali - grupo operativo",
+    "updated_at": "2025-10-10T09:29:11.268624+00:00",
+    "programa_presupuestal": "BP260042391010106",
+    "nombre_pospre": "Máquinas herramientas y sus partes, piezas y accesorios",
+    "anio": 2024,
+    "nombre_proyecto": "Rehabilitación de vías en la zona urbana y rural de Santiago de  Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 24,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo - Territorio",
+    "nombre_linea_estrategica": "Movilidad Multimodal Sustentable",
+    "validador_cuipo": null,
+    "bp": "BP26004239"
+  },
+  "timestamp": "2025-11-09T01:28:38.702019"
+}

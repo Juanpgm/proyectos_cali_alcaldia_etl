@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1146",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Calle 16 Entre Carrera 46A Y Carrera 39",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.912705",
+    "has_valid_geometry": true,
+    "upid": "UNP-1146",
+    "nombre_up_detalle": "Via Arteria Secundaria",
+    "nombre_up": "Calle 16 Entre Carrera 46A Y Carrera 39",
+    "comuna_corregimiento": "COMUNA 10",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"GeometryCollection\", \"geometries\": [{\"type\": \"MultiLineString\", \"coordinates\": [[[-76.52575552949315, 3.410478519326879, 0.0], [-76.52577291674062, 3.41042582766471, 0.0]], [[-76.52527073010097, 3.4120328613105078, 0.0], [-76.52527353763995, 3.4120123156879547, 0.0]]]}, {\"type\": \"LineString\", \"coordinates\": [[-76.52495766116034, 3.4131591359143587, 0.0], [-76.52494991307881, 3.41318767793671, 0.0]]}, {\"type\": \"LineString\", \"coordinates\": [[-76.52489689480169, 3.4133503923137214, 0.0], [-76.52483757275863, 3.4135291958966234, 0.0]]}, {\"type\": \"LineString\", \"coordinates\": [[-76.52427667958987, 3.4149923478562716, 0.0], [-76.52426161298541, 3.4152019211032494, 0.0], [-76.52425260941509, 3.4152923396371233, 0.0], [-76.52426133294819, 3.415362511312983, 0.0]]}, {\"type\": \"LineString\", \"coordinates\": [[-76.52445321318578, 3.416507681212899, 0.0], [-76.52444193458096, 3.4164445090375577, 0.0]]}, {\"type\": \"LineString\", \"coordinates\": [[-76.52442349366855, 3.416341220308485, 0.0], [-76.52441476042797, 3.4163134221685265, 0.0]]}, {\"type\": \"LineString\", \"coordinates\": [[-76.52481301694765, 3.4184890508285184, 0.0], [-76.52481025242913, 3.4184389831671944, 0.0], [-76.52479317039787, 3.4183550306528825, 0.0]]}, {\"type\": \"LineString\", \"coordinates\": [[-76.52455805991742, 3.4170937866984503, 0.0], [-76.52455349586317, 3.4170682960663528, 0.0]]}, {\"type\": \"LineString\", \"coordinates\": [[-76.52452841871064, 3.416928238007294, 0.0], [-76.52452502474593, 3.416909282418487, 0.0]]}, {\"type\": \"LineString\", \"coordinates\": [[-76.52431864830369, 3.4158000658581855, 0.0], [-76.52431556124105, 3.41575348467528, 0.0]]}, {\"type\": \"LineString\", \"coordinates\": [[-76.52525386713229, 3.4121562648113843, 0.0], [-76.52525185771958, 3.412174573663092, 0.0]]}, {\"type\": \"LineString\", \"coordinates\": [[-76.5242976230307, 3.414912580680963, 0.0], [-76.52430466158408, 3.414859553282083, 0.0]]}]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Las Granjas",
+    "cantidad": 179,
+    "loaded_at": "2025-11-04T20:23:09.912713",
+    "presupuesto_base": 826336539.3399998
+  },
+  "timestamp": "2025-11-09T01:44:52.770282"
+}

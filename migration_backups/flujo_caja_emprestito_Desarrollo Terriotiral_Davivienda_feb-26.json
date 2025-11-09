@@ -1,0 +1,16 @@
+{
+  "collection_path": "flujo_caja_emprestito",
+  "doc_id": "Desarrollo Terriotiral_Davivienda_feb-26",
+  "data": {
+    "banco": "Davivienda",
+    "desembolso": 76289200.0,
+    "id_registro": "Desarrollo Terriotiral_Davivienda_feb-26",
+    "mes": "feb-26",
+    "fecha_procesamiento": "2025-10-20T11:37:44.617625",
+    "desembolso_real": 0.0,
+    "periodo": "2026-02-01T00:00:00",
+    "archivo_origen": "Matriz Emprestito.xlsx",
+    "organismo": "Desarrollo Terriotiral"
+  },
+  "timestamp": "2025-11-09T00:50:34.180478"
+}

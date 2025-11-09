@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2023760010142",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Salud Pública",
+    "cod_producto": 1906004,
+    "nombre_area_funcional": "Población migrante atendida",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Servicios de Salud de Calidad en Redes Integrales, Un Desafío para Todos",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2023760010142,
+    "created_at": "2025-10-10T09:27:50.769537+00:00",
+    "nombre_actividad": "Realizar consolidación de la información de los servicios de salud prestados a la población migrante irregular",
+    "updated_at": "2025-10-10T09:27:50.769537+00:00",
+    "programa_presupuestal": "BP260050711010101",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Fortalecimiento de la prestación de los servicios de salud de la población migrante irregular en Santiago de Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 19,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Territorios para la Vida",
+    "validador_cuipo": null,
+    "bp": "BP26005071"
+  },
+  "timestamp": "2025-11-09T01:31:08.167938"
+}

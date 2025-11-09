@@ -1,0 +1,31 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "l8IKrl5sir6J7b5FdVNh",
+  "data": {
+    "observaciones": "",
+    "nombre_centro_gestor": "",
+    "fecha_reporte": "2025-11-06T16:30:20.105409+00:00",
+    "referencia_contrato": "4151.010.26.1.0887-2025",
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/11TE8Z3AU1fGc8Plh0g6cfxGLiw2NTbB5",
+    "archivos_evidencia": [
+      {
+        "type": "application/pdf",
+        "size": 707170,
+        "download_url": "https://drive.google.com/uc?id=1UegCHkPOLzC0Uw0mL2wMRb7mlBPCRt3Z",
+        "url": "https://drive.google.com/file/d/1UegCHkPOLzC0Uw0mL2wMRb7mlBPCRt3Z/view?usp=drivesdk",
+        "drive_id": "1UegCHkPOLzC0Uw0mL2wMRb7mlBPCRt3Z",
+        "status": "uploaded_successfully",
+        "name": "07-Informe Semanal_07_ Lote 1 20251104.pdf"
+      }
+    ],
+    "avance_fisico": 8.2,
+    "avance_financiero": 7.24,
+    "alertas": {
+      "es_alerta": false,
+      "descripcion": "",
+      "tipos": []
+    },
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:42:04.426566"
+}

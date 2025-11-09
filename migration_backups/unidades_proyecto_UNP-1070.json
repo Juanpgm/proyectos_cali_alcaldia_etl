@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1070",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Avenida 4N Con Carrera 44",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.163661",
+    "has_valid_geometry": true,
+    "upid": "UNP-1070",
+    "nombre_up_detalle": "Via Arteria Principal",
+    "nombre_up": "Avenida 4N Con Carrera 44",
+    "comuna_corregimiento": "COMUNA 02",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.5222076139205, 3.4807033066085773, 0.0], [-76.52230065262981, 3.4804387692182512, 0.0], [-76.52230341923548, 3.4804309029131866, 0.0]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "La Flora",
+    "cantidad": 29,
+    "loaded_at": "2025-11-04T20:23:09.163664",
+    "presupuesto_base": 10227113.16
+  },
+  "timestamp": "2025-11-09T01:43:39.103027"
+}

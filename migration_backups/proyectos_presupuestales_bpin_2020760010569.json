@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010569",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Salud Pública",
+    "cod_producto": 1903005,
+    "nombre_area_funcional": "Edificaciones e instalaciones con condiciones seguras para la salud humana aumentadas",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Salud Ambiental Territorial",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010569,
+    "created_at": "2025-10-10T09:27:53.051036+00:00",
+    "nombre_actividad": "Realizar actualización de los sistemas de información del procedimiento IVC",
+    "updated_at": "2025-10-10T09:27:53.051036+00:00",
+    "programa_presupuestal": "BP260029551010116",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Mejoramiento de las acciones de inspección, vigilancia y control en Santiago de  Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 19,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Territorios para la Vida",
+    "validador_cuipo": null,
+    "bp": "BP26002955"
+  },
+  "timestamp": "2025-11-09T01:07:38.876353"
+}

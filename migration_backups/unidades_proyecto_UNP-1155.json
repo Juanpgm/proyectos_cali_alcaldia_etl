@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1155",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Carrera 8 Con Calle 52",
+    "has_geometry": true,
+    "bpin": "2021760010260",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.916356",
+    "has_valid_geometry": true,
+    "upid": "UNP-1155",
+    "nombre_up_detalle": "Via Arteria Principal",
+    "nombre_up": "Carrera 8 Con Calle 52",
+    "comuna_corregimiento": "COMUNA 08",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.49885966739414, 3.45283103594852, 0.0], [-76.498648443403, 3.452813428238606, 0.0]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Base Aérea",
+    "cantidad": 24,
+    "loaded_at": "2025-11-04T20:23:09.916360",
+    "presupuesto_base": 8522594.3
+  },
+  "timestamp": "2025-11-09T01:45:01.493272"
+}

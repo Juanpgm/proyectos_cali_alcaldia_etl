@@ -1,0 +1,40 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "PDXbYXr6rSiPWqJ2qUff",
+  "data": {
+    "observaciones": "Informe de actividades ejecutadas con corte al 6 de octubre de 2025:\r\nSe da inicio a los trabajos en CALI 18 iniciando con el desmonte de luminarias, desmonte de cieloraso de panel yeso.\r\nEn el CALI 13 se realizan trabajos de Resane, Demolición de enchape de piso de anden perimetral y a la espera de la llegada de los materiales de cubierta.\r\nEn el CALI 12 se realizan trabajos de instalación de tubería sanitaria, demolición de muros, y alistado de piso.",
+    "nombre_centro_gestor": "",
+    "fecha_reporte": "2025-10-18T02:57:15.983016+00:00",
+    "referencia_contrato": "4173.010.26.1.1268-2025",
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/1APYSxwBr5gXjgGEfV86mdFJQNEIaK4D5",
+    "archivos_evidencia": [
+      {
+        "type": "image/jpeg",
+        "size": 17096,
+        "download_url": "https://drive.google.com/uc?id=1lNTmgjC_iDxNG-nZUYTBP3gWqlIqb8oE",
+        "url": "https://drive.google.com/file/d/1lNTmgjC_iDxNG-nZUYTBP3gWqlIqb8oE/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1lNTmgjC_iDxNG-nZUYTBP3gWqlIqb8oE",
+        "name": "CALI 12.jpg"
+      },
+      {
+        "type": "image/jpeg",
+        "size": 14695,
+        "download_url": "https://drive.google.com/uc?id=1jHVHEgNmhPXZnPsLE3TLT92LECNQoH6B",
+        "url": "https://drive.google.com/file/d/1jHVHEgNmhPXZnPsLE3TLT92LECNQoH6B/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1jHVHEgNmhPXZnPsLE3TLT92LECNQoH6B",
+        "name": "CALI 13.jpg"
+      }
+    ],
+    "avance_fisico": 2.96,
+    "avance_financiero": 2.96,
+    "alertas": {
+      "es_alerta": false,
+      "descripcion": "",
+      "tipos": []
+    },
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:41:09.276133"
+}

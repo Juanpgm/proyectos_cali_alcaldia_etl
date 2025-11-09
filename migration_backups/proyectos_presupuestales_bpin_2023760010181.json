@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2023760010181",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Cultura",
+    "cod_producto": null,
+    "nombre_area_funcional": "Jóvenes y adultos en proceso de formación en artes populares y tradicionales",
+    "nombre_fondo": "Estampilla Procultura  Finan. Inst.Univ.IPC ",
+    "nombre_programa": "Ecosistema Artístico ",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2023760010181,
+    "created_at": "2025-10-10T09:28:53.862884+00:00",
+    "nombre_actividad": "Realizar la divulgación de los programas de formación en artes populares y tradicionales",
+    "updated_at": "2025-10-10T09:28:53.862884+00:00",
+    "programa_presupuestal": "BP260047241010101",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Consolidación de los procesos formación artística y cultural de las artes populares del distrito de Santiago de Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Cali Corazón de las Culturas",
+    "validador_cuipo": null,
+    "bp": "BP26004724"
+  },
+  "timestamp": "2025-11-09T01:31:41.590031"
+}

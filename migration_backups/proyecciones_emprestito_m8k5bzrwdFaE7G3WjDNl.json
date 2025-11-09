@@ -1,0 +1,23 @@
+{
+  "collection_path": "proyecciones_emprestito",
+  "doc_id": "m8k5bzrwdFaE7G3WjDNl",
+  "data": {
+    "nombre_banco": "DAVIVIENDA",
+    "nombre_organismo_reducido": "cultura",
+    "ultima_actualizacion": "2025-11-08T11:31:07.645678+00:00",
+    "item": "92",
+    "nombre_resumido_proceso": "Contrato 1: contratar los servicios de mandato sin representación para el desarrollo del proyecto bp- 26005211, denominado: “implementación del recorrido patrimonial del complejo musical-dancístico de la salsa en Santiago de Cali” en su fase ii",
+    "fuente": "google_sheets",
+    "fecha_carga": "2025-11-08T11:31:04.574180",
+    "valor_proyectado": 0,
+    "nombre_generico_proyecto": "Barrio Obrero II",
+    "fila_origen": 92,
+    "id_paa": "VIGENCIA 2026",
+    "fecha_guardado": "2025-11-08T11:31:07.645678+00:00",
+    "referencia_proceso": "",
+    "BP": "BP26005211",
+    "urlProceso": "",
+    "descripcion_bp": "Implementacion del recorrido patrimonial del complejo musical dancistico de la salsa en Santiago de Cali"
+  },
+  "timestamp": "2025-11-09T00:53:30.449027"
+}

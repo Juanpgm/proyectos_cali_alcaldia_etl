@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2022760010077",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Educación",
+    "cod_producto": null,
+    "nombre_area_funcional": "Estudiantes atendidos a través de Metodologías Educativas Flexibles para la población en extraedad, educación formal de jóvenes y adultos y apoyo académico especial y emocional",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Cali Educada",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2022760010077,
+    "created_at": "2025-10-10T09:30:48.096972+00:00",
+    "nombre_actividad": "Realizar acompañamiento a IEO para la atención educativa de menores de 18 con enfermedad crónica",
+    "updated_at": "2025-10-10T09:30:48.096972+00:00",
+    "programa_presupuestal": "BP260043091010101",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Mejoramiento de la atención educativa a estudiantes con enfermedad crónica en Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": null,
+    "validador_cuipo": null,
+    "bp": "BP26004309"
+  },
+  "timestamp": "2025-11-09T01:28:45.834019"
+}

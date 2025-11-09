@@ -1,0 +1,25 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1250",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 0.0,
+    "has_geometry": true,
+    "bpin": "0",
+    "ano": "0",
+    "geometry_type": "LineString",
+    "updated_at": "2025-11-04T20:23:10.790189",
+    "centros_gravedad": false,
+    "has_valid_geometry": true,
+    "upid": "UNP-1250",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.53493268282867, 3.4344083921593276, 0.0], [-76.5355544736139, 3.434961116023128, 0.0]]}",
+    "tipo_equipamiento": "Vías",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Alameda",
+    "cantidad": 154,
+    "loaded_at": "2025-11-04T20:23:10.790193",
+    "presupuesto_base": 0.0
+  },
+  "timestamp": "2025-11-09T01:46:34.388177"
+}

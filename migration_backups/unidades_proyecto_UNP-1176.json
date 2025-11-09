@@ -1,0 +1,30 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1176",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Carrera 26 J Entre Cl 124 Y Cl 126 -\nEl Remanso",
+    "has_geometry": true,
+    "bpin": "2021760010270",
+    "ano": "2024",
+    "geometry_type": "MultiLineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.924483",
+    "has_valid_geometry": true,
+    "upid": "UNP-1176",
+    "comuna_corregimiento": "COMUNA 21",
+    "nombre_up": "Carera 26 J Entre Calle 124 - 126",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"GeometryCollection\", \"geometries\": [{\"type\": \"MultiLineString\", \"coordinates\": [[[-76.46552179999998, 3.416918100000032, 0.0], [-76.46514249999996, 3.4167039000000727, 0.0], [-76.46492799999999, 3.4165736000000493, 0.0], [-76.46484084878806, 3.4165068784808432, 0.0]], [[-76.46449490451658, 3.4163052029502943, 0.0], [-76.46436269999998, 3.4163900000000353, 0.0], [-76.46541539999998, 3.417001300000038, 0.0]]]}, {\"type\": \"LineString\", \"coordinates\": [[-76.46484084878806, 3.4165068784808432, 0.0], [-76.46474029999996, 3.4164299000000256, 0.0], [-76.46453029999998, 3.4162825000000225, 0.0], [-76.46449490451658, 3.4163052029502943, 0.0]]}]}",
+    "identificador": "Presupuesto Participativo Urbano",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Presupuesto Participativo",
+    "barrio_vereda": "El Remanso",
+    "cantidad": 24,
+    "loaded_at": "2025-11-04T20:23:09.924490",
+    "presupuesto_base": 103167994.0
+  },
+  "timestamp": "2025-11-09T01:45:21.600326"
+}

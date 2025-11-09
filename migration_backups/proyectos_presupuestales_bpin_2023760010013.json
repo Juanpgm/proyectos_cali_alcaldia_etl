@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2023760010013",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Movilidad",
+    "cod_producto": null,
+    "nombre_area_funcional": "Recursos para la oferta de servicios del transporte público ejecutados",
+    "nombre_fondo": "Sobretasa Gasolina S.I.T.M. MIO",
+    "nombre_programa": "Movilidad segura y sostenible",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2023760010013,
+    "created_at": "2025-10-10T09:25:02.103045+00:00",
+    "nombre_actividad": "Desarrollar estrategias para la implementación del Sistema Inteligente Integrado de Transporte Público de Pasajeros (SIITP)",
+    "updated_at": "2025-10-10T09:25:02.103045+00:00",
+    "programa_presupuestal": 6201003,
+    "nombre_pospre": "Subvenciones a empresas de transporte masivo",
+    "anio": 2025,
+    "nombre_proyecto": "Implementación del Sistema Inteligente Integrado de Transporte Público en Santiago de  Cali",
+    "clasificacion_fondo": "Recursos Propios con Destinacion Especifica",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": null,
+    "validador_cuipo": null,
+    "bp": "BP26004729"
+  },
+  "timestamp": "2025-11-09T01:29:33.566707"
+}

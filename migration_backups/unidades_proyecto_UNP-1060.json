@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1060",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Calle 52 Entre Carrera 20 Y 22",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.159656",
+    "has_valid_geometry": true,
+    "upid": "UNP-1060",
+    "nombre_up_detalle": "Via Colectora",
+    "nombre_up": "Calle 52 Entre Carrera 20 Y 22",
+    "comuna_corregimiento": "COMUNA 12",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.49945821588459, 3.442311647029921, 0.0], [-76.49928179107654, 3.4418232878969355, 0.0]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Nueva Floresta",
+    "cantidad": 160,
+    "loaded_at": "2025-11-04T20:23:09.159659",
+    "presupuesto_base": 56817295.36
+  },
+  "timestamp": "2025-11-09T01:43:29.525495"
+}

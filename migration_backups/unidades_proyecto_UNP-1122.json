@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1122",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Calle 25 Entre Carrera 73 Y 80",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.902649",
+    "has_valid_geometry": true,
+    "upid": "UNP-1122",
+    "nombre_up_detalle": "Via Arteria Principal",
+    "nombre_up": "Calle 25 Entre Carrera 73 Y 80",
+    "comuna_corregimiento": "COMUNA 17",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.52450428792238, 3.3902366783085722, 0.0], [-76.5245422321954, 3.389911553262841, 0.0], [-76.52458348182549, 3.3896392610992847, 0.0], [-76.52464124401696, 3.389296706327272, 0.0], [-76.52468624277083, 3.389124911979749, 0.0], [-76.52475823359133, 3.388944078283491, 0.0], [-76.52484822084917, 3.3887451615243145, 0.0], [-76.52489321360477, 3.3886547446297364, 0.0], [-76.52499219821873, 3.388464869756143, 0.0], [-76.52504618917463, 3.3883654117761917, 0.0], [-76.52509118271007, 3.3882569109916245, 0.0], [-76.5251451753588, 3.3881393691254305, 0.0]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Prados del Limonar",
+    "cantidad": 298,
+    "loaded_at": "2025-11-04T20:23:09.902654",
+    "presupuesto_base": 135189652.15
+  },
+  "timestamp": "2025-11-09T01:44:30.020107"
+}

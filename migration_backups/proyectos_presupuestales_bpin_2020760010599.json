@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010599",
+  "data": {
+    "nombre_centro_gestor": "Departamento Administrativo de Gestión del Medio Ambiente ",
+    "cod_producto": 3202040,
+    "nombre_area_funcional": "Infraestructuras para la atención, valoración y rehabilitación de la fauna silvestre y la flora, operando",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Gobernanza, Gobernabilidad y Cultura Ambiental ",
+    "nombre_dimension": "Cali, Nuestra Casa Común",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010599,
+    "created_at": "2025-10-10T09:27:10.893432+00:00",
+    "nombre_actividad": "Realizar actividades de atención, valoración y rehabilitación de especímenes de fauna silvestre, labores de mantenimiento, alimentación, apoyo administrativo y enriquecimiento ambiental en el Hogar de Paso",
+    "updated_at": "2025-10-10T09:27:10.893432+00:00",
+    "programa_presupuestal": "BP260025871010115",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Fortalecimiento del Hogar de Paso para la atención, valoración y rehabilitación de la Fauna Silvestre en Santiago de  Cali",
+    "clasificacion_fondo": "Libre destinación (Recursos Propios)",
+    "cod_sector": 32,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Fortalecimiento y Gestión de los Socioecosistemas",
+    "validador_cuipo": null,
+    "bp": "BP26002587"
+  },
+  "timestamp": "2025-11-09T01:07:49.425462"
+}

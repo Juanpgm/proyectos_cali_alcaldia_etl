@@ -1,0 +1,31 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "JROYNtXwv4JFjxeXzoyt",
+  "data": {
+    "nombre_centro_gestor": "",
+    "fecha_reporte": "2025-11-07T15:01:59.295258+00:00",
+    "observaciones": "El proyecto para la implementación de la solución web integral en la nube para la Alcaldía de Santiago de Cali presenta un avance significativo, con un 80% de desarrollo funcional alcanzado. Durante este periodo se implementó la nueva línea gráfica en el módulo “Explora”, asegurando coherencia visual con la identidad institucional, y se desplegó la aplicación en entornos de prueba (TestFlight y Android), integrando los módulos principales y optimizando el rendimiento. Estos avances permiten iniciar la fase de validación integral y retroalimentación técnica antes del lanzamiento a producción.",
+    "avance_fisico": 35.0,
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/1HvbR2s81d34UIBxZJCpbZhuuj1PaskJ7",
+    "archivos_evidencia": [
+      {
+        "type": "application/pdf",
+        "size": 3429475,
+        "download_url": "https://drive.google.com/uc?id=1FOUnKjDsLAlJWcAZQJ914kbt9ArGsBKp",
+        "url": "https://drive.google.com/file/d/1FOUnKjDsLAlJWcAZQJ914kbt9ArGsBKp/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1FOUnKjDsLAlJWcAZQJ914kbt9ArGsBKp",
+        "name": "Informe de actividades - 05_11_2025.pdf"
+      }
+    ],
+    "referencia_contrato": "151303",
+    "avance_financiero": 35.0,
+    "alertas": {
+      "es_alerta": false,
+      "descripcion": "",
+      "tipos": []
+    },
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:40:55.195202"
+}

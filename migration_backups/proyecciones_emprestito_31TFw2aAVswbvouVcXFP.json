@@ -1,0 +1,23 @@
+{
+  "collection_path": "proyecciones_emprestito",
+  "doc_id": "31TFw2aAVswbvouVcXFP",
+  "data": {
+    "nombre_banco": "Bancolombia",
+    "nombre_organismo_reducido": "cultura",
+    "ultima_actualizacion": "2025-11-08T11:31:07.617094+00:00",
+    "item": "11",
+    "nombre_resumido_proceso": "Contrato 2: Interventoria obra civil",
+    "fuente": "google_sheets",
+    "fecha_carga": "2025-11-08T11:31:04.560596",
+    "valor_proyectado": 0,
+    "nombre_generico_proyecto": "Mejoramiento de las bibliotecas públicas",
+    "fila_origen": 11,
+    "id_paa": "18890",
+    "fecha_guardado": "2025-11-08T11:31:07.617094+00:00",
+    "referencia_proceso": "4148.010.32.1.1064-2025",
+    "BP": "BP26005340",
+    "urlProceso": "https://www.secop.gov.co/CO1BusinessLine/Tendering/ContractNoticeView/Index?prevCtxLbl=Buscar+procesos&prevCtxUrl=https%3a%2f%2fwww.secop.gov.co%3a443%2fCO1BusinessLine%2fTendering%2fContractNoticeManagement%2fIndex&notice=CO1.NTC.8533589",
+    "descripcion_bp": "Mantenimiento de los equioamientos culturales de Santaigo de Cali"
+  },
+  "timestamp": "2025-11-09T00:52:18.985869"
+}

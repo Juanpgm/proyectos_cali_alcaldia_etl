@@ -1,0 +1,23 @@
+{
+  "collection_path": "proyecciones_emprestito",
+  "doc_id": "O6C1t2oZEcRgkFhWUYoE",
+  "data": {
+    "nombre_banco": "DAVIVIENDA",
+    "nombre_organismo_reducido": "Bienestar Social",
+    "ultima_actualizacion": "2025-11-08T11:31:07.645678+00:00",
+    "item": "89",
+    "nombre_resumido_proceso": "Contrato 5: Adecuaciones locativas Aulas y Centros de lavado 2026",
+    "fuente": "google_sheets",
+    "fecha_carga": "2025-11-08T11:31:04.574180",
+    "valor_proyectado": 0,
+    "nombre_generico_proyecto": "Sistema Cuidarte/SIDICU",
+    "fila_origen": 89,
+    "id_paa": "VIGENCIA 2026",
+    "fecha_guardado": "2025-11-08T11:31:07.645678+00:00",
+    "referencia_proceso": "",
+    "BP": "BP26005427",
+    "urlProceso": "",
+    "descripcion_bp": "Fortalecimiento del Sistema Distrital de Cuidado \"Cuidarte\" en el Distrito de Santiago de Cali"
+  },
+  "timestamp": "2025-11-09T00:52:49.637365"
+}

@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2021760010218",
+  "data": {
+    "nombre_centro_gestor": "Departamento Administrativo de Gestión del Medio Ambiente ",
+    "cod_producto": 3206003,
+    "nombre_area_funcional": "Medidas de acción a corto plazo del Plan integral de gestión del Cambio Climático de Santiago de Cali, ejecutadas",
+    "nombre_fondo": "Tasas retributivas",
+    "nombre_programa": "Reducción de la Huella Ecológica de Santiago de Cali ",
+    "nombre_dimension": "Cali, Nuestra Casa Común",
+    "tipo_gasto": "Inversión",
+    "bpin": 2021760010218,
+    "created_at": "2025-10-10T09:27:17.531906+00:00",
+    "nombre_actividad": "Implementar acciones encaminadas al establecimiento de una política del agua en el Distrito de Santiago de Cali",
+    "updated_at": "2025-10-10T09:27:17.531906+00:00",
+    "programa_presupuestal": "BP260026291020127",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Mejoramiento de la gestión, planificación y acciones de mitigación al cambio climático en Santiago de Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 32,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Mitigación del Cambio Climático",
+    "validador_cuipo": null,
+    "bp": "BP26002629"
+  },
+  "timestamp": "2025-11-09T01:27:15.453676"
+}

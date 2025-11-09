@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1036",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Carrera 86 Y 85C Entre 13 14 Y 16",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.150502",
+    "has_valid_geometry": true,
+    "upid": "UNP-1036",
+    "nombre_up_detalle": "Via Arteria Secundaria",
+    "nombre_up": "Carrera 86 Y 85C Entre 13 14 Y 16",
+    "comuna_corregimiento": "COMUNA 17",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"GeometryCollection\", \"geometries\": [{\"type\": \"LineString\", \"coordinates\": [[-76.53217736268533, 3.379794067558382, 0.0], [-76.52946547399995, 3.379629562000048, 0.0], [-76.52924454199996, 3.3795600230000673, 0.0], [-76.52922712021974, 3.3795449373635607, 0.0]]}, {\"type\": \"MultiLineString\", \"coordinates\": [[[-76.53756361999996, 3.379924612000025, 0.0], [-76.53739437899998, 3.380151402000024, 0.0], [-76.53294567399996, 3.379840674000036, 0.0], [-76.53217736268533, 3.379794067558382, 0.0]], [[-76.52922712021974, 3.3795449373635607, 0.0], [-76.52918041499998, 3.379504495000049, 0.0], [-76.52908240799997, 3.379399837000051, 0.0]]]}]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "El Ingenio",
+    "cantidad": 440,
+    "loaded_at": "2025-11-04T20:23:09.150506",
+    "presupuesto_base": 312495124.48
+  },
+  "timestamp": "2025-11-09T01:43:05.658570"
+}

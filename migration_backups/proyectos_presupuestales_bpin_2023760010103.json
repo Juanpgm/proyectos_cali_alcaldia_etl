@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2023760010103",
+  "data": {
+    "nombre_centro_gestor": "Secretaría del Deporte y la Recreación",
+    "cod_producto": null,
+    "nombre_area_funcional": "Intervenciones en escenarios deportivos y recreativos en comunas y corregimientos diseñados, con mantenimiento, construidos o adecuados",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Equipamientos para el Desarrollo y el Bienestar",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2023760010103,
+    "created_at": "2025-10-10T09:29:44.836114+00:00",
+    "nombre_actividad": "Realizar la adecuación del parque recreativo la independencia",
+    "updated_at": "2025-10-10T09:29:44.836114+00:00",
+    "programa_presupuestal": "BP260049631010101",
+    "nombre_pospre": "Servicios de la construcción",
+    "anio": 2024,
+    "nombre_proyecto": "Adecuación de espacios públicos deportivos y recreativos de la comuna 11 del distrito especial de Santiago de Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": null,
+    "comuna": "COMUNA 11",
+    "origen": "Territorio",
+    "nombre_linea_estrategica": "Territorios para la Vida",
+    "validador_cuipo": null,
+    "bp": "BP26004963"
+  },
+  "timestamp": "2025-11-09T01:30:38.476763"
+}

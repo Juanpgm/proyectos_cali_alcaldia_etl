@@ -1,0 +1,40 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "YWWJrdDvnfa85N207AWr",
+  "data": {
+    "nombre_centro_gestor": "",
+    "observaciones": "Informe de actividades ejecutadas con corte al 18 de octubre de 2025:\r\n- Se desarrollaron trabajos de fundición de placa de concreto y alistado de piso del CALI 20 en las áreas de oficinas y baños.\r\n- En el CALI 12 se desarrollaron trabajos de alistado de piso.\r\n- En el CALI 13, los materiales como tejas y pintura ya se encuentran en el sitio.",
+    "fecha_reporte": "2025-10-24T03:12:51.734222+00:00",
+    "referencia_contrato": "4173.010.26.1.1268-2025",
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/14VEzC1VsdnmxWzSqMCdUaKhErc_RfAP2",
+    "archivos_evidencia": [
+      {
+        "type": "image/jpeg",
+        "size": 48731,
+        "download_url": "https://drive.google.com/uc?id=1t9ELhee3vjEK2GGftJjlPI01gnqnI54n",
+        "url": "https://drive.google.com/file/d/1t9ELhee3vjEK2GGftJjlPI01gnqnI54n/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1t9ELhee3vjEK2GGftJjlPI01gnqnI54n",
+        "name": "CALI 13.jpg"
+      },
+      {
+        "type": "image/jpeg",
+        "size": 25086,
+        "download_url": "https://drive.google.com/uc?id=1LsF-ynTMICucHHKYa7FnHcP5-PBGw8y1",
+        "url": "https://drive.google.com/file/d/1LsF-ynTMICucHHKYa7FnHcP5-PBGw8y1/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1LsF-ynTMICucHHKYa7FnHcP5-PBGw8y1",
+        "name": "CALI 20.jpg"
+      }
+    ],
+    "avance_fisico": 5.1,
+    "alertas": {
+      "descripcion": "",
+      "es_alerta": false,
+      "tipos": []
+    },
+    "avance_financiero": 5.1,
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:41:32.842950"
+}

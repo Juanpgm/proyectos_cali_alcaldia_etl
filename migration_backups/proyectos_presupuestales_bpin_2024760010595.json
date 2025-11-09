@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010595",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Bienestar Social",
+    "cod_producto": null,
+    "nombre_area_funcional": "Espacios territoriales con enfoque de género y diferencial dirigidos a mujeres operando",
+    "nombre_fondo": "Recursos de crédito interno",
+    "nombre_programa": "Atención integral a poblaciones",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010595,
+    "created_at": "2025-10-10T09:30:45.097946+00:00",
+    "nombre_actividad": "Realizar la adecuación de Casa Matria Oriente",
+    "updated_at": "2025-10-10T09:30:45.097946+00:00",
+    "programa_presupuestal": 6102006,
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2025,
+    "nombre_proyecto": "Mejoramiento integral de Casa Matria Oriente para la atención de mujeres víctimas de violencias basadas en género en el marco de las propuestas territoriales de construcción de paz en Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios con Destinacion Especifica",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": null,
+    "validador_cuipo": null,
+    "bp": "BP26005871"
+  },
+  "timestamp": "2025-11-09T01:40:11.928560"
+}

@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010612",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Bienestar Social",
+    "cod_producto": 4101024,
+    "nombre_area_funcional": "Encuentros regionales de prevención y articulación de las acciones para mitigación de efectos de desplazamiento y alistamiento de los municipios receptores",
+    "nombre_fondo": "Estampilla Prodesarrollo Urbano  (10% Afro )",
+    "nombre_programa": "Atención Integral a las Víctimas del Conflicto",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010612,
+    "created_at": "2025-10-10T09:28:15.424547+00:00",
+    "nombre_actividad": "Realizar Encuentros con los representantes de los diferentes municipios expulsores y  municipios cercanas en el marco de la atencion a la poblacion Afro",
+    "updated_at": "2025-10-10T09:28:15.424547+00:00",
+    "programa_presupuestal": "BP260035111010109",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "Desarrollo de encuentros regionales de prevención y articulación para mitigar los efectos de desplazamiento y alistamiento de los municipios receptores en Santiago de Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 41,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Distrito Reconciliado",
+    "validador_cuipo": null,
+    "bp": "BP26003511"
+  },
+  "timestamp": "2025-11-09T01:07:54.674149"
+}

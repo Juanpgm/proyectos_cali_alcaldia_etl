@@ -1,0 +1,31 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "ebzwISYJ3Mf4fAh2yAQU",
+  "data": {
+    "nombre_centro_gestor": "",
+    "observaciones": "Se adjunta adicionalmente informe de avance realizado por contratista.",
+    "fecha_reporte": "2025-10-24T20:36:36.493162+00:00",
+    "referencia_contrato": "4134.010.26.1.0251-2025",
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/1XNe3-g7def7DcjCaHznADxYVW_JRJbkR",
+    "archivos_evidencia": [
+      {
+        "type": "application/pdf",
+        "size": 1473716,
+        "download_url": "https://drive.google.com/uc?id=1QMuX-_6o7wex3qvjFiPSHTm5USXuES-m",
+        "url": "https://drive.google.com/file/d/1QMuX-_6o7wex3qvjFiPSHTm5USXuES-m/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1QMuX-_6o7wex3qvjFiPSHTm5USXuES-m",
+        "name": "20251024_Informe de avance.pdf"
+      }
+    ],
+    "avance_fisico": 20.0,
+    "alertas": {
+      "descripcion": "",
+      "es_alerta": false,
+      "tipos": []
+    },
+    "avance_financiero": 20.0,
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:41:52.956410"
+}

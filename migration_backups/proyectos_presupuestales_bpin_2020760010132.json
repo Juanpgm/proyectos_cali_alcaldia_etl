@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010132",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Bienestar Social",
+    "cod_producto": 4103052,
+    "nombre_area_funcional": "Productos de apoyo para la movilidad y desplazamiento de las Personas con discapacidad, entregados",
+    "nombre_fondo": "Estampilla Prodesarrollo Urbano  (5% Discapacidad y enfermedades huérfanas)",
+    "nombre_programa": "Desarrollando Capacidades, Promoviendo Oportunidades a Población en Situación de Discapacidad",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010132,
+    "created_at": "2025-10-10T09:28:19.498441+00:00",
+    "nombre_actividad": "Proporcionar  sillas de ruedas removibles para personas dependientes",
+    "updated_at": "2025-10-10T09:28:19.498441+00:00",
+    "programa_presupuestal": "BP260026811010109",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "Adquisición de productos de apoyo  para la movilización y el transporte de las personas con discapacidad de Santiago de Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 41,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Poblaciones Construyendo Territorio",
+    "validador_cuipo": null,
+    "bp": "BP26002681"
+  },
+  "timestamp": "2025-11-09T00:54:30.972237"
+}

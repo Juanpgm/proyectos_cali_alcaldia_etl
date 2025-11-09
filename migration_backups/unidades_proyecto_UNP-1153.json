@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1153",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Calle 16 Con Carrera 66",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.915663",
+    "has_valid_geometry": true,
+    "upid": "UNP-1153",
+    "nombre_up_detalle": "Via Arteria Secundaria",
+    "nombre_up": "Calle 16 Con Carrera 66",
+    "comuna_corregimiento": "COMUNA 17",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"MultiLineString\", \"coordinates\": [[[-76.52778084114752, 3.397523860283038, 0.0], [-76.52818772712178, 3.3975686548614905, 0.0]], [[-76.52743771738069, 3.397486085364599, 0.0], [-76.52778084114752, 3.397523860283038, 0.0]]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "El Limonar",
+    "cantidad": 152,
+    "loaded_at": "2025-11-04T20:23:09.915669",
+    "presupuesto_base": 229213937.96
+  },
+  "timestamp": "2025-11-09T01:44:59.761508"
+}

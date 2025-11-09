@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010297",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Bienestar Social",
+    "cod_producto": null,
+    "nombre_area_funcional": "Personas beneficiadas mediante la atención de programas de Prosperidad Social",
+    "nombre_fondo": "R.B. Ingresos Corrientes de Libre Destinación ",
+    "nombre_programa": "Atención integral a poblaciones",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010297,
+    "created_at": "2025-10-10T09:30:49.594397+00:00",
+    "nombre_actividad": "Realizar la articulación de los procesos para la operatividad de los diferentes componentes del Programa Jovenes en Acción",
+    "updated_at": "2025-10-10T09:30:49.594397+00:00",
+    "programa_presupuestal": "BP260028591010111",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "Apoyo al Programa Jóvenes en Acción en Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": null,
+    "validador_cuipo": null,
+    "bp": "BP26002859"
+  },
+  "timestamp": "2025-11-09T01:06:31.325603"
+}

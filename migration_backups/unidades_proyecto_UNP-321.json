@@ -1,0 +1,52 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-321",
+  "data": {
+    "created_at": "2025-11-05T11:34:37.511731",
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -76.5083629,
+        3.4161563
+      ]
+    },
+    "has_geometry": true,
+    "geometry_type": "Point",
+    "properties": {
+      "processed_timestamp": "2025-11-05T11:34:28.210236",
+      "descripcion_intervencion": null,
+      "microtio": null,
+      "bpin": "0",
+      "centros_gravedad": false,
+      "upid": "UNP-321",
+      "nombre_up_detalle": "Sede Secuendaria (Centro de Salud)",
+      "tipo_intervencion": "Rehabilitación - Reforzamiento",
+      "url_proceso": "Pendiente",
+      "referencia_contrato": "Pendiente",
+      "unidad": "UND",
+      "identificador": "Grupo 27 Misionales",
+      "tipo_equipamiento": "IPS",
+      "fecha_fin": "2025",
+      "estado": "En alistamiento",
+      "fecha_inicio": "2025",
+      "plataforma": "SECOP II",
+      "nombre_centro_gestor": "Secretaría de Salud Pública",
+      "avance_obra": "0.0",
+      "geometry_bounds": null,
+      "direccion": "Carrera 40 #38-99",
+      "ano": "2025",
+      "geometry_type": null,
+      "dataframe": null,
+      "comuna_corregimiento": "COMUNA 16",
+      "nombre_up": "I.P.S. Antonio Nariño",
+      "referencia_proceso": "Pendiente",
+      "fuente_financiacion": "Empréstito",
+      "cantidad": "1",
+      "barrio_vereda": "Antonio Nariño",
+      "presupuesto_base": "24650917279"
+    },
+    "updated_at": "2025-11-05T11:34:37.511731"
+  },
+  "timestamp": "2025-11-09T01:49:46.638731"
+}

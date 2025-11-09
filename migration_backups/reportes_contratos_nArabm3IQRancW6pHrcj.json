@@ -1,0 +1,31 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "nArabm3IQRancW6pHrcj",
+  "data": {
+    "nombre_centro_gestor": "",
+    "observaciones": "Se realizo visita de reconocimiento y validacion de detalles de instalación a los Datacenter. En esta visita, se coordino con personal de la entidad los detalles concernientes a las actividades de instalación.\r\nEl contratista elaboró y entregó un informe de actividades en el cual se evidenció el desarrollo del objeto contratado. Se puede revisar el informe detallado en el siguiente link:  https://drive.google.com/file/d/1oFtSv6YPFrqrHvAUyFNztwwcqziJfeg3/view?usp=drive_link\r\n- El Contratista cumplió estrictamente con las especificaciones técnicas solicitadas de acuerdo con el Contrato u Orden de compra y/o servicio o Aceptación de oferta No 4134.010.26.1.0322-2025\r\n- El contratista demostró contar con la disponibilidad del personal calificado que se requirió para las labores propias al objeto del contrato. Esto se evidencio en las hojas de vida del equipo de trabajo adjuntadas al drive del proceso.",
+    "fecha_reporte": "2025-10-30T22:19:38.502767+00:00",
+    "referencia_contrato": "4134.010.26.1.0322-2025",
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/13p4frl3D5dLQXiYugbfkdyMxQBMjysWi",
+    "archivos_evidencia": [
+      {
+        "type": "application/pdf",
+        "size": 1027959,
+        "download_url": "https://drive.google.com/uc?id=18J5ZKTBve2SmOq43xTNvv1H5vk8xGMX3",
+        "url": "https://drive.google.com/file/d/18J5ZKTBve2SmOq43xTNvv1H5vk8xGMX3/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "18J5ZKTBve2SmOq43xTNvv1H5vk8xGMX3",
+        "name": "1. Informe de Supervisión Cuota 1- Open Group .docx (1) (1) (1).pdf"
+      }
+    ],
+    "avance_fisico": 38.0,
+    "alertas": {
+      "descripcion": "",
+      "es_alerta": false,
+      "tipos": []
+    },
+    "avance_financiero": 38.0,
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:42:08.844570"
+}

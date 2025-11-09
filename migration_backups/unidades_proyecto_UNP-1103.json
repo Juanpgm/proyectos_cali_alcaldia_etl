@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1103",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Carrera 118 Entre Calle 15 Y 16",
+    "has_geometry": true,
+    "bpin": "2020760010690",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.176261",
+    "has_valid_geometry": true,
+    "upid": "UNP-1103",
+    "nombre_up_detalle": "Via Colectora",
+    "nombre_up": "Carrera 118 Entre Calle 15 Y 16",
+    "comuna_corregimiento": "PANCE",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.53673137178649, 3.3501897832474485, 0.0], [-76.53607328043111, 3.3502527121515735, 0.0]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Parcelaciones Pance",
+    "cantidad": 73,
+    "loaded_at": "2025-11-04T20:23:09.176265",
+    "presupuesto_base": 55041504.84
+  },
+  "timestamp": "2025-11-09T01:44:11.580092"
+}

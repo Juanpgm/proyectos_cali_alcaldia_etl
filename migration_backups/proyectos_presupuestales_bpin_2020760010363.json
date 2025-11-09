@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010363",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Seguridad y Justicia",
+    "cod_producto": null,
+    "nombre_area_funcional": "Estrategias desarrolladas para el mejoramiento de la convivencia a través de la ejecución de acciones de inspección, vigilancia y control",
+    "nombre_fondo": "Ingresos Corrientes de Libre Destinación",
+    "nombre_programa": "Fortalecimiento institucional",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010363,
+    "created_at": "2025-10-10T09:25:11.609611+00:00",
+    "nombre_actividad": "Suministrar combustible para vehículos operativos",
+    "updated_at": "2025-10-10T09:25:11.609611+00:00",
+    "programa_presupuestal": 6302001,
+    "nombre_pospre": "Otros bienes transportables (excepto productos metálicos, maquinaria y equipo)",
+    "anio": 2025,
+    "nombre_proyecto": "Desarrollo de una  estrategia de regulación de los Vendedores Informales en   Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": null,
+    "validador_cuipo": null,
+    "bp": "BP26002845"
+  },
+  "timestamp": "2025-11-09T01:06:40.989275"
+}

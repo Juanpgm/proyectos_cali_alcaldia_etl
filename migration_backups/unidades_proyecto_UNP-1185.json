@@ -1,0 +1,30 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1185",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Diagonal 24ª Entre Tv. 25 Y 29",
+    "has_geometry": true,
+    "bpin": "2021760010260",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.928389",
+    "has_valid_geometry": true,
+    "upid": "UNP-1185",
+    "comuna_corregimiento": "COMUNA 11",
+    "nombre_up": "Diagonal 24 A Entre Transversales 25 Y 29",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.51225699999998, 3.435367000000042, 0.0], [-76.51313999999996, 3.434177000000034, 0.0]]}",
+    "identificador": "Presupuesto Participativo Urbano",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Presupuesto Participativo",
+    "barrio_vereda": "20 de Julio",
+    "cantidad": 162,
+    "loaded_at": "2025-11-04T20:23:09.928395",
+    "presupuesto_base": 252003221.0
+  },
+  "timestamp": "2025-11-09T01:45:30.440063"
+}

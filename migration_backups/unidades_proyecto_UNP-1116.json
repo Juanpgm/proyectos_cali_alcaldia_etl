@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1116",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Carrera 1 Entre Calles 21 Y 52",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.899001",
+    "has_valid_geometry": true,
+    "upid": "UNP-1116",
+    "nombre_up_detalle": "Via Arteria Principal",
+    "nombre_up": "Carrera 1 Entre Calles 21 Y 52",
+    "comuna_corregimiento": "COMUNA 6 - COMUNA 4 - COMUNA 5",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"GeometryCollection\", \"geometries\": [{\"type\": \"MultiLineString\", \"coordinates\": [[[-76.52594133725503, 3.4583503099041923, 0.0], [-76.52575237134572, 3.4584678435208547, 0.0], [-76.52563539199019, 3.4585311286930867, 0.0], [-76.52549141859463, 3.458603455027498, 0.0], [-76.52533729677386, 3.458684566742027, 0.0]], [[-76.51210888047524, 3.467813507840618, 0.0], [-76.51196215354824, 3.4679976278062097, 0.0]]]}, {\"type\": \"LineString\", \"coordinates\": [[-76.51237097094712, 3.4674846241813326, 0.0], [-76.51210888047524, 3.467813507840618, 0.0]]}]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "El Piloto",
+    "cantidad": 377,
+    "loaded_at": "2025-11-04T20:23:09.899022",
+    "presupuesto_base": 401520724.14
+  },
+  "timestamp": "2025-11-09T01:44:23.895207"
+}

@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1107",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Calle 13 Entre Carreras 39 Y 50",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.177814",
+    "has_valid_geometry": true,
+    "upid": "UNP-1107",
+    "nombre_up_detalle": "Via Arteria Principal",
+    "nombre_up": "Calle 13 Entre Carreras 39 Y 50",
+    "comuna_corregimiento": "COMUNA 10",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"GeometryCollection\", \"geometries\": [{\"type\": \"MultiLineString\", \"coordinates\": [[[-76.5343753022354, 3.4091173082029944, 0.0], [-76.53446241223216, 3.408841241210809, 0.0]], [[-76.53446241223216, 3.408841241210809, 0.0], [-76.53457763882031, 3.4084760677657875, 0.0]]]}, {\"type\": \"LineString\", \"coordinates\": [[-76.53111757786066, 3.4190813665805413, 0.0], [-76.53129019965607, 3.41854190313215, 0.0], [-76.53132065690049, 3.4184430382531694, 0.0]]}]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Panamericano",
+    "cantidad": 0,
+    "loaded_at": "2025-11-04T20:23:09.177818",
+    "presupuesto_base": 157987591.92000002
+  },
+  "timestamp": "2025-11-09T01:44:15.076257"
+}

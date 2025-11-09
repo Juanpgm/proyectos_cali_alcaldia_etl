@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010071",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Vivienda Social y Hábitat",
+    "cod_producto": 4001004,
+    "nombre_area_funcional": "Soluciones habitacionales VIP y VIS generadas",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Dignificando la Vivienda",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010071,
+    "created_at": "2025-10-10T09:28:21.914224+00:00",
+    "nombre_actividad": "Apoyar en estudios para viabilidad técnica, jurídica, financiera y social para la formulación de proyectos de vivienda de interés social VIP y VIS",
+    "updated_at": "2025-10-10T09:28:21.914224+00:00",
+    "programa_presupuestal": "BP260027301010105",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Implementación de proyectos habitacionales VIP y VIS en Santiago de Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 40,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Territorios para la Vida",
+    "validador_cuipo": null,
+    "bp": "BP26002730"
+  },
+  "timestamp": "2025-11-09T00:54:09.453073"
+}

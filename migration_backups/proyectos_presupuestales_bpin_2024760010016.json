@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010016",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Paz y Cultura Ciudadana",
+    "cod_producto": null,
+    "nombre_area_funcional": "Observatorio de Cultura Ciudadana, Derechos Humanos y construcción de Paz  en funcionamiento fortalecido.",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Planificación para el desarrollo",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010016,
+    "created_at": "2025-10-10T09:25:53.006070+00:00",
+    "nombre_actividad": "Realizar investigaciones en temas de de paz, reconciliación, cultura ciudadana y Derechos Humanos con metodologías cuantitativas y cualitativas para alimentar el sistema de información",
+    "updated_at": "2025-10-10T09:25:53.006070+00:00",
+    "programa_presupuestal": 6201004,
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2025,
+    "nombre_proyecto": "Fortalecimiento del Observatorio de Paz, Derechos Humanos y Cultura Ciudadana en Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": null,
+    "validador_cuipo": null,
+    "bp": "BP26005453"
+  },
+  "timestamp": "2025-11-09T01:32:13.586603"
+}

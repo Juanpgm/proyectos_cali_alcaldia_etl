@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1128",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Carrera 9A Entre Calle 75 Y 85",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.905515",
+    "has_valid_geometry": true,
+    "upid": "UNP-1128",
+    "nombre_up_detalle": "Via Local",
+    "nombre_up": "Carrera 9A Entre Calle 75 Y 85",
+    "comuna_corregimiento": "COMUNA 07",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"MultiLineString\", \"coordinates\": [[[-76.48044186797372, 3.448134149471555, 0.0], [-76.48048696808182, 3.448114738278413, 0.0]], [[-76.4772342289179, 3.449626229746837, 0.0], [-76.4788701695514, 3.4487978921553135, 0.0], [-76.47941325125774, 3.4485710933430584, 0.0], [-76.479946066833, 3.4483475434546276, 0.0], [-76.48044186797372, 3.448134149471555, 0.0]]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Urbanización El Angel del Hogar",
+    "cantidad": 25,
+    "loaded_at": "2025-11-04T20:23:09.905519",
+    "presupuesto_base": 17755404.8
+  },
+  "timestamp": "2025-11-09T01:44:35.269511"
+}

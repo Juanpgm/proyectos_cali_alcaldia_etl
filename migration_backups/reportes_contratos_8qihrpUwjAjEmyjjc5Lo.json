@@ -1,0 +1,31 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "8qihrpUwjAjEmyjjc5Lo",
+  "data": {
+    "nombre_centro_gestor": "",
+    "observaciones": "En la ejecucion del contrato y mediante el informe adjunto se demuestra el avance y consolidación de la infraestructura tecnológica en la nube de la Alcaldía de Santiago de Cali, implementada sobre la plataforma Oracle Cloud Infrastructure (OCI).\r\n\r\nSe confirma que la tenencia principal “alcaldiacali” se encuentra activa y operativa, con una suscripción vigente hasta noviembre de 2027, bajo el modelo Universal Credit – Annual, lo que garantiza la continuidad del servicio y disponibilidad de créditos cloud.\r\n\r\nLa arquitectura está organizada mediante seis compartimientos activos (Hacienda, Desarrollo, Documental, Plan Jarillón, Redes, entre otros) y una red virtual (SAP-VCN) que asegura conectividad, segmentación y seguridad de los entornos.\r\n\r\nSe contempla que los ambientes productivo (PRD) y de calidad (QAS) del sistema SAP, con más de 39 instancias de cómputo operativas, reflejando un uso eficiente de los recursos y el consumo efectivo de los créditos contratados.\r\n\r\nEn conjunto, las evidencias confirman que la infraestructura en OCI se encuentra plenamente configurada, funcional y alineada con las mejores prácticas de gobernanza en la nube, respaldando la operación del sistema SAP y fortaleciendo la gestión tecnológica y financiera de la Alcaldía de Santiago de Cali.",
+    "fecha_reporte": "2025-10-24T18:51:05.247348+00:00",
+    "referencia_contrato": "150273",
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/1wXyWY1SdaC8n3T8nqpM14MxI4ixhApy1",
+    "archivos_evidencia": [
+      {
+        "type": "application/pdf",
+        "size": 880353,
+        "download_url": "https://drive.google.com/uc?id=1puIViboGLactvCjBLHm0Qyhx1OYWQT3R",
+        "url": "https://drive.google.com/file/d/1puIViboGLactvCjBLHm0Qyhx1OYWQT3R/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1puIViboGLactvCjBLHm0Qyhx1OYWQT3R",
+        "name": "Evidencia de Configuración y Tenencia en Oracle Cloud Infrastructure Alcaldia de Cali (2).pdf"
+      }
+    ],
+    "avance_fisico": 90.0,
+    "alertas": {
+      "descripcion": "",
+      "es_alerta": false,
+      "tipos": []
+    },
+    "avance_financiero": 90.0,
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:40:37.624730"
+}

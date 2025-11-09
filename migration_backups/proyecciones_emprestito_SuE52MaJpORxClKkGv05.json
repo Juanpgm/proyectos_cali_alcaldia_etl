@@ -1,0 +1,23 @@
+{
+  "collection_path": "proyecciones_emprestito",
+  "doc_id": "SuE52MaJpORxClKkGv05",
+  "data": {
+    "nombre_banco": "DAVIVIENDA-Otro Si",
+    "nombre_organismo_reducido": "cultura",
+    "ultima_actualizacion": "2025-11-08T11:31:07.654000+00:00",
+    "item": "126",
+    "nombre_resumido_proceso": "Contrato 6: Adquisición de licencias ofimaticas",
+    "fuente": "google_sheets",
+    "fecha_carga": "2025-11-08T11:31:04.579405",
+    "valor_proyectado": 0,
+    "nombre_generico_proyecto": "Bibliotecas Públicas",
+    "fila_origen": 126,
+    "id_paa": "19601",
+    "fecha_guardado": "2025-11-08T11:31:07.654000+00:00",
+    "referencia_proceso": "4135.010.32.1.234-2025",
+    "BP": "BP26005280",
+    "urlProceso": "https://www.secop.gov.co/CO1BusinessLine/Tendering/ContractNoticeView/Index?prevCtxLbl=Buscar+procesos&prevCtxUrl=https%3a%2f%2fwww.secop.gov.co%3a443%2fCO1BusinessLine%2fTendering%2fContractNoticeManagement%2fIndex&notice=CO1.NTC.8773515",
+    "descripcion_bp": "Proyecto : Renovación de los Espacios y Ambientes de las Bibliotecas Públicas de la Red en Santiago de Cali"
+  },
+  "timestamp": "2025-11-09T00:52:57.012700"
+}

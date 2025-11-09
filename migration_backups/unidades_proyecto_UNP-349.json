@@ -1,0 +1,52 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-349",
+  "data": {
+    "created_at": "2025-11-05T11:34:37.527261",
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -76.561139,
+        3.435528
+      ]
+    },
+    "has_geometry": true,
+    "geometry_type": "Point",
+    "properties": {
+      "processed_timestamp": "2025-11-05T11:34:28.210236",
+      "descripcion_intervencion": null,
+      "microtio": null,
+      "bpin": "-2147483648",
+      "centros_gravedad": false,
+      "upid": "UNP-349",
+      "nombre_up_detalle": "Estudios & Diseños Cristo Rey etapa 4",
+      "tipo_intervencion": "Obra nueva",
+      "url_proceso": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.8534675&isFromPublicArea=True&isModal=False",
+      "referencia_contrato": "4147.010.32.1.759-2025",
+      "unidad": "UND",
+      "identificador": "Estudios & Diseños Cristo Rey etapa 4",
+      "tipo_equipamiento": "Reducción del riesgo",
+      "fecha_fin": "18-11-2025",
+      "estado": "En ejecución",
+      "fecha_inicio": "26-08-2025",
+      "plataforma": "SECOP II",
+      "nombre_centro_gestor": "Secretaría de Vivienda Social y Habitat",
+      "avance_obra": "20.0",
+      "geometry_bounds": null,
+      "direccion": null,
+      "ano": "2025",
+      "geometry_type": null,
+      "dataframe": null,
+      "comuna_corregimiento": "COMUNA 19",
+      "nombre_up": "Estudios & Diseños Cristo Rey etapa 4",
+      "referencia_proceso": "4147.010.32.1.759-2025",
+      "fuente_financiacion": "Ingresos libre destinación",
+      "cantidad": "1",
+      "barrio_vereda": "Corregimiento de los Andes  ",
+      "presupuesto_base": "119000000"
+    },
+    "updated_at": "2025-11-05T11:34:37.527261"
+  },
+  "timestamp": "2025-11-09T01:50:14.253777"
+}

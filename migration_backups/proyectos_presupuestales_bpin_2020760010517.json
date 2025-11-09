@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010517",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Seguridad y Justicia",
+    "cod_producto": 4501004,
+    "nombre_area_funcional": "Entornos de las Instituciones Educativas intervenidos con estrategia intersectorial de erradicación del microtráfico",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Seguridad y Lucha Contra el Delito ",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010517,
+    "created_at": "2025-10-10T09:29:20.463732+00:00",
+    "nombre_actividad": "Desarrollar estrategia intersectorial para intervenir los entornos de las instituciones educativas.",
+    "updated_at": "2025-10-10T09:29:20.463732+00:00",
+    "programa_presupuestal": "BP260032751010108",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "Implementación de estrategia intersectorial de erradicación del microtráfico en los entornos de las Instituciones Educativas en  Cali.",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 45,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Distrito Reconciliado",
+    "validador_cuipo": null,
+    "bp": "BP26003275"
+  },
+  "timestamp": "2025-11-09T01:07:26.580413"
+}

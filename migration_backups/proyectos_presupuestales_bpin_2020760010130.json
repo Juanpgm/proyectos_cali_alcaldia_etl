@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010130",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Bienestar Social",
+    "cod_producto": null,
+    "nombre_area_funcional": "Personas mayores beneficiadas con servicios de atención integral",
+    "nombre_fondo": "R.B. Ingresos Corrientes de Libre Destinación ",
+    "nombre_programa": "Atención integral a poblaciones",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010130,
+    "created_at": "2025-10-10T09:30:48.843093+00:00",
+    "nombre_actividad": "Implementar el plan de acción para la gestión de recursos económicos, técnicos o físicos de los proyectos que benefician las personas mayores",
+    "updated_at": "2025-10-10T09:30:48.843093+00:00",
+    "programa_presupuestal": "BP260026611010132",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "Implementación DE LA ATENCIÓN INTEGRAL A LAS PERSONAS MAYORES DE SANTIAGO DE  Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": null,
+    "validador_cuipo": null,
+    "bp": "BP26002661"
+  },
+  "timestamp": "2025-11-09T00:54:29.631918"
+}

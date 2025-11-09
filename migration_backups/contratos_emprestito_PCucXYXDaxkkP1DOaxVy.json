@@ -1,0 +1,42 @@
+{
+  "collection_path": "contratos_emprestito",
+  "doc_id": "PCucXYXDaxkkP1DOaxVy",
+  "data": {
+    "nit_contratista": "",
+    "fecha_fin_contrato": "2025-12-31",
+    "ordenador_gasto": "No definido",
+    "sector": "Vivienda, Ciudad y Territorio",
+    "valor_contrato": 659729015,
+    "nombre_procedimiento": "",
+    "valor_pagado": "0",
+    "urlproceso": {
+      "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.8866963&isFromPublicArea=True&isModal=true&asPopupView=true"
+    },
+    "_dataset_source": "jbjy-vk9h",
+    "bpin": null,
+    "descripcion_proceso": "Contratar la prestación de servicios logísticos para brindar apoyo integral en la planeación y organización de eventos; campañas y actividades de promoción y difusión de los programas; proyectos y servicios financiados con recursos del crédito público Invertir Para Crecer; a desarrollarse durante la",
+    "supervisor": "No definido",
+    "entidad_contratante": "SANTIAGO DE CALI DISTRITO ESPECIAL - SECRETARIA DE VIVIENDA SOCIAL Y HABITAT",
+    "banco": "Bancolombia",
+    "referencia_contrato": "4147.010.26.1.1053-2025",
+    "nit_entidad": "890399011",
+    "id_contrato": "CO1.PCCNTR.8423995",
+    "fecha_guardado": "2025-10-23T02:21:59.132231+00:00",
+    "modalidad_contratacion": "Contratación directa",
+    "fecha_firma_contrato": null,
+    "bp": "BP26005424",
+    "nombre_centro_gestor": "Secretaría de Vivienda Social y Hábitat",
+    "version_esquema": "1.1",
+    "representante_legal": "cyc servicios integrales y soluciones",
+    "fuente_datos": "SECOP_API",
+    "proceso_contractual": "CO1.BDOS.8841765",
+    "fecha_inicio_contrato": "2025-10-22",
+    "fecha_actualizacion": "2025-11-06T06:28:18.568225+00:00",
+    "nombre_contratista": "",
+    "estado_contrato": "Modificado",
+    "referencia_proceso": "4171.010.32.1.1053-2025",
+    "objeto_contrato": "Contratar la prestación de servicios logísticos para brindar apoyo integral en la planeación y organización de eventos; campañas y actividades de promoción y difusión de los programas; proyectos y servicios financiados con recursos del crédito público Invertir Para Crecer; a desarrollarse durante la vigencia 2025 por la Secretaría de Vivienda Social y Hábitat del Distrito Especial de Santiago de Cali",
+    "tipo_contrato": "Prestación de servicios"
+  },
+  "timestamp": "2025-11-09T00:47:55.029444"
+}

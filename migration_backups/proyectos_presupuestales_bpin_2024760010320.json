@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010320",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Seguridad y Justicia",
+    "cod_producto": null,
+    "nombre_area_funcional": "Jóvenes atendidos con enfoque diferencial, territorial y de género en estrategias de prevención social de la violencia",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Proyectos de vida para los jóvenes",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010320,
+    "created_at": "2025-10-10T09:25:04.395790+00:00",
+    "nombre_actividad": "Realizar acompañamientos y atenciones desde lo psicosocial y pedagógico",
+    "updated_at": "2025-10-10T09:25:04.395790+00:00",
+    "programa_presupuestal": 6101003,
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2025,
+    "nombre_proyecto": "Prevención de violencia en adolescentes y jóvenes en situación de vulnerabilidad en la comuna 9 de Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "COMUNA 9",
+    "origen": "Territorio",
+    "nombre_linea_estrategica": null,
+    "validador_cuipo": null,
+    "bp": "BP26005590"
+  },
+  "timestamp": "2025-11-09T01:36:32.852239"
+}

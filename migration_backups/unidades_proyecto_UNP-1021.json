@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1021",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Carrera 41 Entre Calles 39 Y 40",
+    "has_geometry": true,
+    "bpin": "2022760010010",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.143242",
+    "has_valid_geometry": true,
+    "upid": "UNP-1021",
+    "nombre_up_detalle": "Via Local",
+    "nombre_up": "Carrera 41 Entre Calles 39 Y 40",
+    "comuna_corregimiento": "COMUNA 16",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.50931185899998, 3.4151892350000708, 0.0], [-76.50865305399998, 3.4145207480000295, 0.0]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Antonio Nariño",
+    "cantidad": 90,
+    "loaded_at": "2025-11-04T20:23:09.143247",
+    "presupuesto_base": 68236386.14
+  },
+  "timestamp": "2025-11-09T01:42:51.539298"
+}

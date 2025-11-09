@@ -1,0 +1,31 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "5WpEYBjnaWEw2SoToSaL",
+  "data": {
+    "nombre_centro_gestor": "",
+    "fecha_reporte": "2025-11-07T03:00:59.564968+00:00",
+    "observaciones": "",
+    "avance_fisico": 50.0,
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/1elG1b3Gw2w_bf0iVPdX-sWJVIt_H_kH6",
+    "archivos_evidencia": [
+      {
+        "type": "application/pdf",
+        "size": 90900,
+        "download_url": "https://drive.google.com/uc?id=1jU-Mr6Rsbob2pSfMgwgubA-0RMI7J5Tc",
+        "url": "https://drive.google.com/file/d/1jU-Mr6Rsbob2pSfMgwgubA-0RMI7J5Tc/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1jU-Mr6Rsbob2pSfMgwgubA-0RMI7J5Tc",
+        "name": "OC 152488 FIELD FOOD.pdf"
+      }
+    ],
+    "referencia_contrato": "152488",
+    "avance_financiero": 0.0,
+    "alertas": {
+      "es_alerta": false,
+      "descripcion": "",
+      "tipos": []
+    },
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:40:31.481037"
+}

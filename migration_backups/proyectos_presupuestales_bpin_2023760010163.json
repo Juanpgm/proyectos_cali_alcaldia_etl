@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2023760010163",
+  "data": {
+    "nombre_centro_gestor": "Unidad Administrativa Especial de Servicios Públicos",
+    "cod_producto": null,
+    "nombre_area_funcional": "Sistemas de agua potable y/o saneamiento básico en áreas rurales gestionados",
+    "nombre_fondo": "SGP-Agua potable y saneamiento básico 11/12",
+    "nombre_programa": "Vivienda sostenible, saneamiento básico y servicios públicos",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2023760010163,
+    "created_at": "2025-10-10T09:26:43.124997+00:00",
+    "nombre_actividad": "Realizar obras de mejoramiento PTAP La Paz Cabecera",
+    "updated_at": "2025-10-10T09:26:43.124997+00:00",
+    "programa_presupuestal": 6201002,
+    "nombre_pospre": "Acueductos y otros conductos de suministros de aguas, excepto gasoductos",
+    "anio": 2025,
+    "nombre_proyecto": "Mejoramiento de la infraestructura de agua potable en la zona rural de Santiago de  Cali",
+    "clasificacion_fondo": "Recursos con Destinación específica del SGP",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": null,
+    "validador_cuipo": null,
+    "bp": "BP26004799"
+  },
+  "timestamp": "2025-11-09T01:31:25.772816"
+}

@@ -1,0 +1,22 @@
+{
+  "collection_path": "users",
+  "doc_id": "Bmlr7I4YJSdukzVdDrqTzjDYh6f1",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Paz y Cultura Ciudadana",
+    "uid": "Bmlr7I4YJSdukzVdDrqTzjDYh6f1",
+    "created_at": "2025-10-10T20:05:54.225445+00:00",
+    "cellphone": "+573152441003",
+    "fullname": "Veronica Marin",
+    "is_active": true,
+    "auth_providers": [
+      "password"
+    ],
+    "login_count": 0,
+    "email": "veromarinp83@gmail.com",
+    "updated_at": "2025-10-10T20:05:54.225451+00:00",
+    "last_login": null,
+    "email_verified": false,
+    "can_use_google_auth": false
+  },
+  "timestamp": "2025-11-09T02:00:59.615026"
+}

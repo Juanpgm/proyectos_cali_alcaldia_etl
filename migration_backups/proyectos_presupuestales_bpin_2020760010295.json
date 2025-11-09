@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010295",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Bienestar Social",
+    "cod_producto": 4103054,
+    "nombre_area_funcional": "Planes estratégicos para Consejos Comunitarios, Organizaciones de Base Afro y Colonias Afrocolombianas, diseñado e implementado",
+    "nombre_fondo": "Estampilla Prodesarrollo Urbano  (10% Afro )",
+    "nombre_programa": "CaliAfro ",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010295,
+    "created_at": "2025-10-10T09:28:15.820164+00:00",
+    "nombre_actividad": "Socializar la gestión del conocimiento al interior de la Administración Central en el marco de la implementación de los Planes Estratégicos intersectoriales",
+    "updated_at": "2025-10-10T09:28:15.820164+00:00",
+    "programa_presupuestal": "BP260035221010104",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "APOYO EN LA FORMULACIÓN DE PLANES ESTRATÉGICOS SECTORIALES EN ORGANIZACIONES DE BASE AFRO, CONSEJOS COMUNITARIOS, COLONIAS AFROCOLOMBIANAS EN EL MARCO DE LA IMPLEMENTACIÓN DE LA POLÍTICA PÚBLICA CALIAFRO EN SANTIAGO DE CALI",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 41,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Poblaciones Construyendo Territorio",
+    "validador_cuipo": null,
+    "bp": "BP26003522"
+  },
+  "timestamp": "2025-11-09T01:06:30.448491"
+}

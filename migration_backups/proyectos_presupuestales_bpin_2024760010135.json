@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010135",
+  "data": {
+    "nombre_centro_gestor": "Departamento Administrativo de Gestión del Medio Ambiente",
+    "cod_producto": null,
+    "nombre_area_funcional": "Arbolado urbano mejorado en el marco del Plan de Silvicultura Urbana (PSU)",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Protección ambiental y mitigación del cambio climático",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010135,
+    "nombre_actividad": "Realizar acciones para el mantenimiento de individuos arbóreos ubicados en el área urbana de la ciudad",
+    "created_at": "2025-10-10T09:32:11.382541+00:00",
+    "updated_at": "2025-10-10T09:32:11.382541+00:00",
+    "programa_presupuestal": 6202001,
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2025,
+    "nombre_proyecto": "Optimización de la gestión Integral del arbolado en Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "bp": "BP26005372",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T01:34:01.133895"
+}

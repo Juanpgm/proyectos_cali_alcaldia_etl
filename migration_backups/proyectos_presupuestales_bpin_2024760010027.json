@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010027",
+  "data": {
+    "nombre_centro_gestor": "Departamento Administrativo de Planeación Municipal",
+    "cod_producto": null,
+    "nombre_area_funcional": "Instrumentos implementados para la sostenibilidad del espacio público",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Planificación para el desarrollo",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010027,
+    "nombre_actividad": "Elaborar los instrumentos de sostenibilidad del espacio público",
+    "created_at": "2025-10-10T09:32:05.936194+00:00",
+    "updated_at": "2025-10-10T09:32:05.936194+00:00",
+    "programa_presupuestal": 6201004,
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2025,
+    "nombre_proyecto": "Consolidación de los instrumentos de sostenibilidad del espacio público en Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "bp": "BP26005243",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T01:32:23.143296"
+}

@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010168",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Vivienda Social y Hábitat",
+    "cod_producto": null,
+    "nombre_area_funcional": "Hogares con mejoramiento de vivienda beneficiados",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Vivienda sostenible, saneamiento básico y servicios públicos",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010168,
+    "nombre_actividad": "Verificar el cumplimiento de los requisitos para la asignación del Subsidio Distrital Vivienda en la modalidad Mejoramiento de Vivienda",
+    "created_at": "2025-10-10T09:33:25.898402+00:00",
+    "updated_at": "2025-10-10T09:33:25.898402+00:00",
+    "programa_presupuestal": 6201002,
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2025,
+    "nombre_proyecto": "Contribución a la reducción del déficit cualitativo de vivienda en Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "bp": "BP26005416",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T01:34:28.323233"
+}

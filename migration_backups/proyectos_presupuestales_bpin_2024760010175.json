@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010175",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Bienestar Social",
+    "cod_producto": null,
+    "nombre_area_funcional": "Personas con discapacidad y cuidadores beneficiados con servicios de atención integral",
+    "nombre_fondo": "Estampilla Prodesarrollo Urbano  (5% Discapacidad y enfermedades huérfanas)",
+    "nombre_programa": "Atención integral a poblaciones",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010175,
+    "nombre_actividad": "Realizar orientación  juridica  a la población con discapacidad y sus cuidadores",
+    "created_at": "2025-10-10T09:33:24.351761+00:00",
+    "updated_at": "2025-10-10T09:33:24.351761+00:00",
+    "programa_presupuestal": 6102006,
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2025,
+    "nombre_proyecto": "Mejoramiento de la atención integral dirigida a las personas con discapacidad y sus cuidadores en Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios con Destinacion Especifica",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "bp": "BP26005435",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T01:34:34.462059"
+}

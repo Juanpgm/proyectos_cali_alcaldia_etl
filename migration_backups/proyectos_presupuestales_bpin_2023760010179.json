@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2023760010179",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Cultura",
+    "cod_producto": null,
+    "nombre_area_funcional": "Parque de las cocinas, bebidas tradicionales y artesanías del Pacífico “Parque Pacífico” construido",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Territorios Creativos ",
+    "nombre_dimension": "Cali, Inteligente para la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2023760010179,
+    "created_at": "2025-10-10T09:28:27.180701+00:00",
+    "nombre_actividad": "Realizar el direccionamiento estratégico para la apropiación cultural y comunitaria de Parque Pacífico",
+    "updated_at": "2025-10-10T09:28:27.181219+00:00",
+    "programa_presupuestal": "BP260047282010101",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Implementación del parque de las cocinas, bebidas tradicionales y artesanías del pacífico “parque pacífico” de Santiago de Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Economía Incluyente, Creativa y Clústeres Estratégicos",
+    "validador_cuipo": null,
+    "bp": "BP26004728"
+  },
+  "timestamp": "2025-11-09T01:31:39.841966"
+}

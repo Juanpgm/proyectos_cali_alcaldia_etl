@@ -1,0 +1,40 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "uyVl6kSLF3yJG9JSgP76",
+  "data": {
+    "nombre_centro_gestor": "",
+    "fecha_reporte": "2025-11-07T01:54:36.823977+00:00",
+    "observaciones": "Avances en el trámite de exención;\r\nElaboración de procesos\r\nElaboración de prototipos\r\nMontaje de trámite en la sede electrónica de pruebas, se realizará mesa de trabajo el jueves 6 de noviembre para la entrega de estos avances\r\nSe realizará mesa de trabajo el 6 de novimbre con Catastro para la entrega de los trámites en el módulo de pruebas, para aprobación y o captura de observaciones de los mismos por parte de los funcionarios responsables del trámite",
+    "avance_fisico": 37.0,
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/1wATe5ozoqItziZ9UdEqpeEIpJxHwBdEZ",
+    "archivos_evidencia": [
+      {
+        "type": "application/pdf",
+        "size": 221867,
+        "download_url": "https://drive.google.com/uc?id=1vpDBnamP14O_8jug3s3vNByhlBGk1Ba_",
+        "url": "https://drive.google.com/file/d/1vpDBnamP14O_8jug3s3vNByhlBGk1Ba_/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1vpDBnamP14O_8jug3s3vNByhlBGk1Ba_",
+        "name": "Flujo del proceso Exención del impuesto predial.pdf"
+      },
+      {
+        "type": "application/pdf",
+        "size": 3581642,
+        "download_url": "https://drive.google.com/uc?id=1CrznxdMbOe0pLskVEAP4VDOhIM4-fn4U",
+        "url": "https://drive.google.com/file/d/1CrznxdMbOe0pLskVEAP4VDOhIM4-fn4U/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1CrznxdMbOe0pLskVEAP4VDOhIM4-fn4U",
+        "name": "Prototipos Exención del impuesto predial (1).pdf"
+      }
+    ],
+    "referencia_contrato": "4134.010.26.1.0251-2025",
+    "avance_financiero": 37.0,
+    "alertas": {
+      "es_alerta": false,
+      "descripcion": "",
+      "tipos": []
+    },
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:42:18.522838"
+}

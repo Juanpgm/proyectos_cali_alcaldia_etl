@@ -1,0 +1,40 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "i13h1kCgwIyAvrHCI4AI",
+  "data": {
+    "nombre_centro_gestor": "",
+    "observaciones": "Se ha realizado el seguimiento técnico, administrativo, financiero y jurídico a los contratos de obra correspondientes.",
+    "fecha_reporte": "2025-10-31T22:47:11.388421+00:00",
+    "referencia_contrato": "4173.010.26.1.1274-2025",
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/1wk-m9dhG6mKafmUGVhuTkwlmmsCotn5k",
+    "archivos_evidencia": [
+      {
+        "type": "application/pdf",
+        "size": 649888,
+        "download_url": "https://drive.google.com/uc?id=1pX90YOC5kRM8Xn03ureyD54p5AWaHDEH",
+        "url": "https://drive.google.com/file/d/1pX90YOC5kRM8Xn03ureyD54p5AWaHDEH/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1pX90YOC5kRM8Xn03ureyD54p5AWaHDEH",
+        "name": "INFORMES EJECUTIVOS INTERVENTORIA.pdf"
+      },
+      {
+        "type": "image/jpeg",
+        "size": 2004985,
+        "download_url": "https://drive.google.com/uc?id=1-UfwkD9pPkrN_6Cjp4URJeNWRWFur_uB",
+        "url": "https://drive.google.com/file/d/1-UfwkD9pPkrN_6Cjp4URJeNWRWFur_uB/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1-UfwkD9pPkrN_6Cjp4URJeNWRWFur_uB",
+        "name": "FF294C20-15D3-4CF4-A41B-0DE841282373 3.JPG"
+      }
+    ],
+    "avance_fisico": 24.46,
+    "alertas": {
+      "descripcion": "",
+      "es_alerta": false,
+      "tipos": []
+    },
+    "avance_financiero": 24.46,
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:41:59.979527"
+}

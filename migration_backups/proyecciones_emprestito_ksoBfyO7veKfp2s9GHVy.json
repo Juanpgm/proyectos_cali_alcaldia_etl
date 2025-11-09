@@ -1,0 +1,23 @@
+{
+  "collection_path": "proyecciones_emprestito",
+  "doc_id": "ksoBfyO7veKfp2s9GHVy",
+  "data": {
+    "nombre_banco": "Davivienda",
+    "nombre_organismo_reducido": "Vivienda",
+    "ultima_actualizacion": "2025-11-08T11:31:07.652830+00:00",
+    "item": "118",
+    "nombre_resumido_proceso": "Proyecto 3: Pondaje 300",
+    "fuente": "google_sheets",
+    "fecha_carga": "2025-11-08T11:31:04.578126",
+    "valor_proyectado": 0,
+    "nombre_generico_proyecto": "Subsidios para vivienda",
+    "fila_origen": 118,
+    "id_paa": "NO VA AL PAA",
+    "fecha_guardado": "2025-11-08T11:31:07.652830+00:00",
+    "referencia_proceso": "",
+    "BP": "BP26005429",
+    "urlProceso": "Serán transferidos al Fondo Especial de Vivienda vía resolución",
+    "descripcion_bp": "Fortalecimiento de la oferta habitacional en Santiago de Cali"
+  },
+  "timestamp": "2025-11-09T00:53:28.422022"
+}

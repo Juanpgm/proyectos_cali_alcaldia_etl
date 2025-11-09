@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010549",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Cultura",
+    "cod_producto": null,
+    "nombre_area_funcional": "Personas con acceso a procesos de educación informal artística y cultural",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Cali Distrito Deportivo, Cultural y Turístico",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010549,
+    "nombre_actividad": "Difundir y socializar los talleres de formación artística en la comuna 5 de Santiago de Cali",
+    "created_at": "2025-10-10T09:33:47.630099+00:00",
+    "updated_at": "2025-10-10T09:33:47.630099+00:00",
+    "programa_presupuestal": 6102003,
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2025,
+    "nombre_proyecto": "Formación en prácticas artísticas y culturales a habitantes de la comuna 5 de Santiago de  Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "COMUNA 5",
+    "origen": "Territorio",
+    "bp": "BP26005758",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T01:39:49.114905"
+}

@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2021760010201",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Educación",
+    "cod_producto": 2201077,
+    "nombre_area_funcional": "Jóvenes vinculados al sistema de responsabilidad penal con restitución del derecho a la educación",
+    "nombre_fondo": "SGP-Educación-Prestación de servicios CSF",
+    "nombre_programa": "Fortalecimiento de Sistemas Locales de Justicia y Penitenciarios",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2021760010201,
+    "created_at": "2025-10-10T09:27:41.072398+00:00",
+    "nombre_actividad": "Dotar material fungible para el desarrollo de estrategias educativas con estudiantes.",
+    "updated_at": "2025-10-10T09:27:41.072398+00:00",
+    "programa_presupuestal": "BP260037111010102",
+    "nombre_pospre": "Otros bienes transportables (excepto productos metálicos, maquinaria y equipo)",
+    "anio": 2024,
+    "nombre_proyecto": "Mejoramiento de la atención educativa de los jóvenes del Sistema de Responsabilidad Penal Adolescente en Santiago de  Cali",
+    "clasificacion_fondo": "Destinación Específica (SGP)",
+    "cod_sector": 22,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Distrito Reconciliado",
+    "validador_cuipo": null,
+    "bp": "BP26003711"
+  },
+  "timestamp": "2025-11-09T01:27:09.289445"
+}

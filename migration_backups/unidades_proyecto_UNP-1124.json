@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1124",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Calle 5 Entre Carrera 73 Y 82",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.903715",
+    "has_valid_geometry": true,
+    "upid": "UNP-1124",
+    "nombre_up_detalle": "Via Arteria Principal",
+    "nombre_up": "Calle 5 Entre Carrera 73 Y 82",
+    "comuna_corregimiento": "COMUNA 17",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"GeometryCollection\", \"geometries\": [{\"type\": \"MultiLineString\", \"coordinates\": [[[-76.5455672085715, 3.3920694386579595, 0.0], [-76.54555492600292, 3.3919948920687815, 0.0]], [[-76.54555492600292, 3.3919948920687815, 0.0], [-76.54531177518086, 3.390519136869058, 0.0], [-76.54508333926262, 3.3890411246275125, 0.0], [-76.54481926613511, 3.387243044136246, 0.0], [-76.54466079563244, 3.3861335756637296, 0.0], [-76.54464761878928, 3.3860452552752034, 0.0]]]}, {\"type\": \"LineString\", \"coordinates\": [[-76.54464761878928, 3.3860452552752034, 0.0], [-76.54450062331883, 3.385059989160716, 0.0], [-76.54439729916184, 3.3842872054443496, 0.0], [-76.54419286814908, 3.383248744613368, 0.0], [-76.54414700971033, 3.3830257136370228, 0.0]]}]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Buenos Aires",
+    "cantidad": 197,
+    "loaded_at": "2025-11-04T20:23:09.903720",
+    "presupuesto_base": 445609991.25
+  },
+  "timestamp": "2025-11-09T01:44:31.787009"
+}

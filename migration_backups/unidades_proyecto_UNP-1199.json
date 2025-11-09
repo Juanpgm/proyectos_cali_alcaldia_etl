@@ -1,0 +1,30 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1199",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Cii 9 Entre Cra 36 Hasta Cra 34",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.934110",
+    "has_valid_geometry": true,
+    "upid": "UNP-1199",
+    "comuna_corregimiento": "COMUNA 19",
+    "nombre_up": "Cii 9 Entre Cra 36 Hasta Cra 34",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.53781252862524, 3.425545513015038, 0.0], [-76.53756504778869, 3.4260642203875022, 0.0]]}",
+    "identificador": "Puntos Estrategicos",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Eucaristico",
+    "cantidad": 63,
+    "loaded_at": "2025-11-04T20:23:09.934117",
+    "presupuesto_base": 308684724.0
+  },
+  "timestamp": "2025-11-09T01:45:43.597754"
+}

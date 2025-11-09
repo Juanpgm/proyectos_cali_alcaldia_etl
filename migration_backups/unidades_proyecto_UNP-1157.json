@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1157",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Carrera 56 Entre Calles 15 Y 17",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.916976",
+    "has_valid_geometry": true,
+    "upid": "UNP-1157",
+    "nombre_up_detalle": "Via Arteria Secundaria",
+    "nombre_up": "Carrera 56 Entre Calles 15 Y 17",
+    "comuna_corregimiento": "COMUNA 17",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"MultiLineString\", \"coordinates\": [[[-76.52764159963405, 3.402624025493434, 0.0], [-76.52745253331769, 3.402560568146959, 0.0]], [[-76.52745253331769, 3.402560568146959, 0.0], [-76.52741662438099, 3.402548515837053, 0.0], [-76.52718812454425, 3.4024734723530217, 0.0]]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "El Limonar",
+    "cantidad": 53,
+    "loaded_at": "2025-11-04T20:23:09.916979",
+    "presupuesto_base": 37357371.7
+  },
+  "timestamp": "2025-11-09T01:45:03.248121"
+}

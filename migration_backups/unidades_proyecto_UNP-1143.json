@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1143",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Carrera 91 Entre Calle 4 Y 4C",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.911298",
+    "has_valid_geometry": true,
+    "upid": "UNP-1143",
+    "nombre_up_detalle": "Via Local",
+    "nombre_up": "Carrera 91 Entre Calle 4 Y 4C",
+    "comuna_corregimiento": "COMUNA 18",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"MultiLineString\", \"coordinates\": [[[-76.5467725560985, 3.3777632934060025, 0.0], [-76.54670181411585, 3.377747393300578, 0.0]], [[-76.54670181411585, 3.377747393300578, 0.0], [-76.54549011378204, 3.3774750491800463, 0.0]]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Cuarteles de Nápoles",
+    "cantidad": 525,
+    "loaded_at": "2025-11-04T20:23:09.911304",
+    "presupuesto_base": 1099573441.06
+  },
+  "timestamp": "2025-11-09T01:44:50.178759"
+}

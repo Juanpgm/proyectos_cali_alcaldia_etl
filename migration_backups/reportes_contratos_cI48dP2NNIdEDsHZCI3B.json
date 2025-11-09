@@ -1,0 +1,40 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "cI48dP2NNIdEDsHZCI3B",
+  "data": {
+    "observaciones": "Se ha realizado el seguimiento técnico, administrativo, financiero y jurídico a los contratos de obra correspondientes.",
+    "fecha_reporte": "2025-11-05T01:32:55.445522+00:00",
+    "nombre_centro_gestor": "",
+    "referencia_contrato": "4173.010.26.1.1274-2025",
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/1es8OKQ1KmLSDalTwvECBMUdeG4AUM5aa",
+    "archivos_evidencia": [
+      {
+        "type": "application/pdf",
+        "size": 491494,
+        "download_url": "https://drive.google.com/uc?id=1OZAmkG6-qXlX7rDuS9RaWG4A4DELl4-Z",
+        "url": "https://drive.google.com/file/d/1OZAmkG6-qXlX7rDuS9RaWG4A4DELl4-Z/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1OZAmkG6-qXlX7rDuS9RaWG4A4DELl4-Z",
+        "name": "1. Informe Ejecutivo Semanal No 9- 4-11-25.pdf"
+      },
+      {
+        "type": "image/jpeg",
+        "size": 2455292,
+        "download_url": "https://drive.google.com/uc?id=178uZyyYlHTCrqlo_BY7NaS6IwH49YOIw",
+        "url": "https://drive.google.com/file/d/178uZyyYlHTCrqlo_BY7NaS6IwH49YOIw/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "178uZyyYlHTCrqlo_BY7NaS6IwH49YOIw",
+        "name": "IMG_7835.jpg"
+      }
+    ],
+    "avance_fisico": 33.7,
+    "avance_financiero": 33.7,
+    "alertas": {
+      "es_alerta": false,
+      "descripcion": "",
+      "tipos": []
+    },
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:41:44.200274"
+}

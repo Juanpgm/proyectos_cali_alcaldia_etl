@@ -1,0 +1,23 @@
+{
+  "collection_path": "proyecciones_emprestito",
+  "doc_id": "4rLCXeSWFDBmestG4Bu3",
+  "data": {
+    "nombre_banco": "DAVIVIENDA",
+    "nombre_organismo_reducido": "Bienestar Social",
+    "ultima_actualizacion": "2025-11-08T11:31:07.645678+00:00",
+    "item": "87",
+    "nombre_resumido_proceso": "Contrato 3: Compra de lavadoras, secadoras y artículos para las Aulas y Centros de lavado 2025",
+    "fuente": "google_sheets",
+    "fecha_carga": "2025-11-08T11:31:04.574180",
+    "valor_proyectado": 0,
+    "nombre_generico_proyecto": "Sistema Cuidarte/SIDICU",
+    "fila_origen": 87,
+    "id_paa": "18982",
+    "fecha_guardado": "2025-11-08T11:31:07.645678+00:00",
+    "referencia_proceso": "",
+    "BP": "BP26005427",
+    "urlProceso": "",
+    "descripcion_bp": "Fortalecimiento del Sistema Distrital de Cuidado \"Cuidarte\" en el Distrito de Santiago de Cali"
+  },
+  "timestamp": "2025-11-09T00:52:21.653330"
+}

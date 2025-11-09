@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010070",
+  "data": {
+    "nombre_centro_gestor": "Departamento Administrativo de Gestión Jurídica Pública",
+    "cod_producto": 1205008,
+    "nombre_area_funcional": "Modelo de prevención del Daño Antijurídico operando",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Fortalecimiento Institucional",
+    "nombre_dimension": "Cali, Gobierno Incluyente",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010070,
+    "created_at": "2025-10-10T09:26:47.308375+00:00",
+    "nombre_actividad": "Realizar la digitación, digitalización y actualización de la información litigiosa",
+    "updated_at": "2025-10-10T09:26:47.308375+00:00",
+    "programa_presupuestal": "BP260027851010105",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "Implementación del Modelo de Prevención del Daño Antijurídico de Santiago de  Cali",
+    "clasificacion_fondo": "Libre destinación (Recursos Propios)",
+    "cod_sector": 12,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Gobierno Inteligente",
+    "validador_cuipo": null,
+    "bp": "BP26002785"
+  },
+  "timestamp": "2025-11-09T00:54:08.792864"
+}

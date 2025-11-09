@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010824",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Educación",
+    "cod_producto": 2201013,
+    "nombre_area_funcional": "Estudiantes de las IEO con estrategia de transporte escolar",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "La Escuela me acoge ",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010824,
+    "created_at": "2025-10-10T09:27:36.298089+00:00",
+    "nombre_actividad": "Prestar el servicio de transporte escolar especial a estudiantes reubicados  de las IEO que residen en la zona urbana en comunas deficitarias en cupos escolares",
+    "updated_at": "2025-10-10T09:27:36.298089+00:00",
+    "programa_presupuestal": "BP260025731010112",
+    "nombre_pospre": "Servicios de alojamiento; servicios de suministro de comidas y bebidas; servicios de transporte; y servicios de distribución de electricidad, gas y agua",
+    "anio": 2024,
+    "nombre_proyecto": "Prestación del servicio de transporte escolar a la población estudiantil de las IEO de Cali",
+    "clasificacion_fondo": "Libre destinación (Recursos Propios)",
+    "cod_sector": 22,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Distrito Educador",
+    "validador_cuipo": null,
+    "bp": "BP26002573"
+  },
+  "timestamp": "2025-11-09T01:09:12.013791"
+}

@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2021760010305",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Cultura",
+    "cod_producto": 3301126,
+    "nombre_area_funcional": "Organizaciones e instituciones apoyadas en el desarrollo de sus iniciativas artísticas y culturales",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Ecosistema Artístico ",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2021760010305,
+    "created_at": "2025-10-10T09:28:42.407581+00:00",
+    "nombre_actividad": "Adquirir Dotación para los Procesos Artísticos y Culturales",
+    "updated_at": "2025-10-10T09:28:42.407581+00:00",
+    "programa_presupuestal": "BP260039091010106",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Fortalecimiento a organizaciones artísticas y culturales de la Comuna 6 de Santiago de Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 33,
+    "comuna": "COMUNA 6",
+    "origen": "Territorio",
+    "nombre_linea_estrategica": "Cali Corazón de las Culturas",
+    "validador_cuipo": null,
+    "bp": "BP26003909"
+  },
+  "timestamp": "2025-11-09T01:27:47.052591"
+}

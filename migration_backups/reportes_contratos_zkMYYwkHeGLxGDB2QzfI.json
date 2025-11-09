@@ -1,0 +1,31 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "zkMYYwkHeGLxGDB2QzfI",
+  "data": {
+    "nombre_centro_gestor": "",
+    "fecha_reporte": "2025-11-07T03:01:44.189333+00:00",
+    "observaciones": "",
+    "avance_fisico": 50.0,
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/1Bv9cXKFqbt0r6_Dq3ht0GYkhQTDfkcte",
+    "archivos_evidencia": [
+      {
+        "type": "application/pdf",
+        "size": 91910,
+        "download_url": "https://drive.google.com/uc?id=1RnjS_kc8fZHkEDXHQZEBaoMiCW_FuTOu",
+        "url": "https://drive.google.com/file/d/1RnjS_kc8fZHkEDXHQZEBaoMiCW_FuTOu/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1RnjS_kc8fZHkEDXHQZEBaoMiCW_FuTOu",
+        "name": "OC 152489 HAS.pdf"
+      }
+    ],
+    "referencia_contrato": "152489",
+    "avance_financiero": 0.0,
+    "alertas": {
+      "es_alerta": false,
+      "descripcion": "",
+      "tipos": []
+    },
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:42:25.533686"
+}

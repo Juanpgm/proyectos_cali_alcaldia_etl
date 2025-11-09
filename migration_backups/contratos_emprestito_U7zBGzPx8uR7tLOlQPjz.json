@@ -1,0 +1,42 @@
+{
+  "collection_path": "contratos_emprestito",
+  "doc_id": "U7zBGzPx8uR7tLOlQPjz",
+  "data": {
+    "nit_contratista": "",
+    "fecha_fin_contrato": "2025-12-15",
+    "sector": "deportes",
+    "ordenador_gasto": "ALEXANDER CAMACHO ERAZO",
+    "descripcion_proceso": "Realizar mantenimiento de canchas múltiples y canchas sintéticas de los escenarios y espacios deportivos priorizados del Distrito Especial de Santiago de Cali; con recursos del empréstito.\n\nCLÁUSULA 3.\tALCANCE DEL OBJETO",
+    "nombre_procedimiento": "",
+    "valor_pagado": "0",
+    "urlproceso": {
+      "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.8449825&isFromPublicArea=True&isModal=true&asPopupView=true"
+    },
+    "_dataset_source": "jbjy-vk9h",
+    "bpin": null,
+    "valor_contrato": 4759281664,
+    "supervisor": "EDGAR ALFREDO MARTINEZ BALANTA",
+    "entidad_contratante": "SANTIAGO DE CALI DISTRITO ESPECIAL - SECRETARIA DEL DEPORTE Y LA RECREACIÓN",
+    "banco": "Bancolombia",
+    "referencia_contrato": "4162.010.26.1.3229-2025",
+    "nit_entidad": "890399011",
+    "id_contrato": "CO1.PCCNTR.8279853",
+    "fecha_guardado": "2025-10-23T02:21:42.198413+00:00",
+    "modalidad_contratacion": "Licitación pública Obra Publica",
+    "fecha_firma_contrato": null,
+    "bp": "BP26005399",
+    "nombre_centro_gestor": "Secretaría del Deporte y la Recreación",
+    "version_esquema": "1.1",
+    "representante_legal": "ROYED DAVID LOPEZ MACHADO",
+    "fuente_datos": "SECOP_API",
+    "proceso_contractual": "CO1.BDOS.8317258",
+    "fecha_inicio_contrato": "2025-10-02",
+    "fecha_actualizacion": "2025-11-06T06:28:04.727632+00:00",
+    "nombre_contratista": "",
+    "estado_contrato": "cedido",
+    "referencia_proceso": "4162.010.32.1.1058-2025",
+    "objeto_contrato": "Realizar mantenimiento de canchas múltiples y canchas sintéticas de los escenarios y espacios deportivos priorizados del Distrito Especial de Santiago de Cali; con recursos del empréstito.\n\nCLÁUSULA 3.\tALCANCE DEL OBJETO",
+    "tipo_contrato": "Obra"
+  },
+  "timestamp": "2025-11-09T00:47:58.447259"
+}

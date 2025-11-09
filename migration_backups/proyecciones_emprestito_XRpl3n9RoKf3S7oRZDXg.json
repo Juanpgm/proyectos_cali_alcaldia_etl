@@ -1,0 +1,23 @@
+{
+  "collection_path": "proyecciones_emprestito",
+  "doc_id": "XRpl3n9RoKf3S7oRZDXg",
+  "data": {
+    "nombre_banco": "Bancolombia",
+    "nombre_organismo_reducido": "Desarrollo Económico",
+    "ultima_actualizacion": "2025-11-08T11:31:07.629700+00:00",
+    "item": "35",
+    "nombre_resumido_proceso": "Contrato 3: Diseñar e implementar una estrategia de acciones pedagógicas de difusión, así como la promoción y comunicación de la oferta de becas en formación complementaria y en Educación para el Trabajo y el Desarrollo Humano, sus avances, beneficiarios y/o impactos.",
+    "fuente": "google_sheets",
+    "fecha_carga": "2025-11-08T11:31:04.566401",
+    "valor_proyectado": 0,
+    "nombre_generico_proyecto": "Becas de habilitación Laboral",
+    "fila_origen": 35,
+    "id_paa": "18994",
+    "fecha_guardado": "2025-11-08T11:31:07.629700+00:00",
+    "referencia_proceso": "4171.010.32.1.576-2025",
+    "BP": "BP26005359",
+    "urlProceso": "https://www.secop.gov.co/CO1BusinessLine/Tendering/ContractNoticeView/Index?prevCtxLbl=Buscar+procesos&prevCtxUrl=https%3a%2f%2fwww.secop.gov.co%3a443%2fCO1BusinessLine%2fTendering%2fContractNoticeManagement%2fIndex&notice=CO1.NTC.8868020",
+    "descripcion_bp": "Fortalecimiento de las capacidades del ecosistema laboral para el desarrollo productivo sostenible en el distrito de Santiago de Cali) - MI CALI BECA"
+  },
+  "timestamp": "2025-11-09T00:53:03.722266"
+}

@@ -1,0 +1,40 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "V2Z66dWzEdFGJ7kDoUDW",
+  "data": {
+    "observaciones": "Entrega del cronograma de trabajo y diferentes artefactos que aportan la evidencia del cumplimiento de objeto: Documento de Especificación de Requerimientos de Software (ERS), Historias de Usuario Detalladas, Documento de Arquitectura del Software y Prototipo de la Aplicación Móvil “Cali Alcaldía”, Prototipo del Panel Administrativo. \r\nCabe precisar que algunos de los artefactos (como las historias de usuario, los prototipos y la arquitectura) son documentos iterativos, los cuales serán completados y ajustados progresivamente durante las siguientes fases de desarrollo, integración y pruebas, garantizando una evolución controlada del producto.",
+    "nombre_centro_gestor": "",
+    "fecha_reporte": "2025-10-17T21:33:02.169859+00:00",
+    "referencia_contrato": "151303",
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/1MdSx90TT2fvPTPQaGmSosoOAHjqC1N_5",
+    "archivos_evidencia": [
+      {
+        "type": "application/pdf",
+        "size": 3366650,
+        "download_url": "https://drive.google.com/uc?id=1-mfwhVe3DjVWgMmZo2yOGwv14mF2ltOk",
+        "url": "https://drive.google.com/file/d/1-mfwhVe3DjVWgMmZo2yOGwv14mF2ltOk/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1-mfwhVe3DjVWgMmZo2yOGwv14mF2ltOk",
+        "name": "Plan de trabajo.pdf"
+      },
+      {
+        "type": "application/pdf",
+        "size": 478968,
+        "download_url": "https://drive.google.com/uc?id=1hz48srJ7E-6KMS4BDalhgwdy9ymXdKjL",
+        "url": "https://drive.google.com/file/d/1hz48srJ7E-6KMS4BDalhgwdy9ymXdKjL/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1hz48srJ7E-6KMS4BDalhgwdy9ymXdKjL",
+        "name": "AppCali.pdf"
+      }
+    ],
+    "avance_fisico": 15.0,
+    "avance_financiero": 15.0,
+    "alertas": {
+      "es_alerta": false,
+      "descripcion": "",
+      "tipos": []
+    },
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:41:24.107589"
+}

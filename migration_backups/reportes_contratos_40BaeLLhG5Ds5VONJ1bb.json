@@ -1,0 +1,31 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "40BaeLLhG5Ds5VONJ1bb",
+  "data": {
+    "nombre_centro_gestor": "",
+    "observaciones": "El módulo “Portafolio y Productos” de SAP for Me centraliza la información de los productos y contratos SAP de la entidad, permitiendo su seguimiento, control y análisis.\r\nLas pantallas muestran el inventario de soluciones adquiridas, el detalle de órdenes activas y los niveles de avance por área de solución, facilitando la gestión integral del portafolio tecnológico y la planeación de su evolución hacia la nube.",
+    "fecha_reporte": "2025-10-24T17:54:25.171641+00:00",
+    "referencia_contrato": "151477",
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/1bcfPtSyg_awEVf0gzWaKRDCdKc1xSZAx",
+    "archivos_evidencia": [
+      {
+        "type": "application/pdf",
+        "size": 543906,
+        "download_url": "https://drive.google.com/uc?id=1N4dR3BtKbGyK_yrTWtdK-zNpBKucqyZ8",
+        "url": "https://drive.google.com/file/d/1N4dR3BtKbGyK_yrTWtdK-zNpBKucqyZ8/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1N4dR3BtKbGyK_yrTWtdK-zNpBKucqyZ8",
+        "name": "Informe Fortalecimiento y modernización del SGFT SAP.pdf"
+      }
+    ],
+    "avance_fisico": 70.0,
+    "alertas": {
+      "descripcion": "",
+      "es_alerta": false,
+      "tipos": []
+    },
+    "avance_financiero": 70.0,
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:40:28.818858"
+}

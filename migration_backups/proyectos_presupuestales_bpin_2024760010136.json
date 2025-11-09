@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010136",
+  "data": {
+    "nombre_centro_gestor": "Departamento Administrativo de Gestión del Medio Ambiente",
+    "cod_producto": null,
+    "nombre_area_funcional": "Servicios de inspección, vigilancia y control ejercidos por la Autoridad Ambiental de acuerdo a la normativa vigente para controlar la contaminación del medio ambiente y el uso irracional de los recursos naturales.",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Protección ambiental y mitigación del cambio climático",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010136,
+    "nombre_actividad": "Realizar acciones para la inspección, vigilancia y control a las actividades comerciales y/o de servicios generadoras de ruido",
+    "created_at": "2025-10-10T09:32:19.861686+00:00",
+    "updated_at": "2025-10-10T09:32:19.861686+00:00",
+    "programa_presupuestal": 6202001,
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2025,
+    "nombre_proyecto": "Mejoramiento de la inspección, vigilancia y control Ambiental en Santiago de  Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "bp": "BP26005379",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T01:34:02.027916"
+}

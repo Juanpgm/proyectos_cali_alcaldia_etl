@@ -1,0 +1,30 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1181",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Carrera 25B Entre Calles 26B Y Placa 26B - 85",
+    "has_geometry": true,
+    "bpin": "2021760010260",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.926856",
+    "has_valid_geometry": true,
+    "upid": "UNP-1181",
+    "comuna_corregimiento": "COMUNA 11",
+    "nombre_up": "Carrera 25B Entre Calle 26 B Y Placa No. 26B - 85",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.51695699999993, 3.4310420000000477, 0.0], [-76.51784999999995, 3.4311550000000466, 0.0]]}",
+    "identificador": "Presupuesto Participativo Urbano",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Presupuesto Participativo",
+    "barrio_vereda": "Aguablanca",
+    "cantidad": 135,
+    "loaded_at": "2025-11-04T20:23:09.926861",
+    "presupuesto_base": 99566777.0
+  },
+  "timestamp": "2025-11-09T01:45:26.886861"
+}

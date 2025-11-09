@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010149",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Bienestar Social",
+    "cod_producto": 4103015,
+    "nombre_area_funcional": "Mujeres víctimas de violencias basadas en género y su núcleo familiar con atención y orientación desde el enfoque de género y diferencial",
+    "nombre_fondo": "Estampilla Prodesarrollo Urbano  (10% Equidad de Género)",
+    "nombre_programa": "Todas las Mujeres Todos los Derechos ",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010149,
+    "created_at": "2025-10-10T09:28:10.471121+00:00",
+    "nombre_actividad": "Realizar acompañamiento psicológico para la implementación del proceso de atención a mujeres víctimas de violencias basadas en género desde la perspectiva de género",
+    "updated_at": "2025-10-10T09:28:10.471121+00:00",
+    "programa_presupuestal": "BP260030271020111",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "ASISTENCIA PRIMARIA A MUJERES VÍCTIMAS DE VIOLENCIAS BASADAS EN GÉNERO EN EL DISTRITO DE SANTIAGO DE CALI",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 41,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Poblaciones Construyendo Territorio",
+    "validador_cuipo": null,
+    "bp": "BP26003027"
+  },
+  "timestamp": "2025-11-09T01:05:37.424186"
+}

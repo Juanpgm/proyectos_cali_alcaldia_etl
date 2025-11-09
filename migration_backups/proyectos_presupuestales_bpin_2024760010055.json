@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010055",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Seguridad y Justicia",
+    "cod_producto": null,
+    "nombre_area_funcional": "Estrategias implementadas para la gestión territorial de la seguridad y convivencia",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Vigilancia y prevención del delito",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010055,
+    "created_at": "2025-10-10T09:25:05.531069+00:00",
+    "nombre_actividad": "Articular la comunicación de la fuerza pública con las comunidades",
+    "updated_at": "2025-10-10T09:25:05.531069+00:00",
+    "programa_presupuestal": 6101004,
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2025,
+    "nombre_proyecto": "Implementación de estrategias para el fortalecimiento de la seguridad y convivencia en Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": null,
+    "validador_cuipo": null,
+    "bp": "BP26005270"
+  },
+  "timestamp": "2025-11-09T01:32:48.614352"
+}

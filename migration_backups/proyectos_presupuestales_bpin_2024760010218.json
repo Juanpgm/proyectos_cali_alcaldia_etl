@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010218",
+  "data": {
+    "nombre_centro_gestor": "Departamento Administrativo de Tecnologías de la Información y las Comunicaciones",
+    "cod_producto": null,
+    "nombre_area_funcional": "Zonas públicas WiFi operando en el Distrito de Santiago de Cali",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Espacios públicos seguros",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010218,
+    "nombre_actividad": "Realizar la administración del Sistema de conectividad de las Zonas WiFi",
+    "created_at": "2025-10-10T09:32:25.652151+00:00",
+    "updated_at": "2025-10-10T09:32:25.652151+00:00",
+    "programa_presupuestal": 6101001,
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2025,
+    "nombre_proyecto": "Fortalecimiento del servicio de internet gratuito en parques y zonas públicas del Distrito de Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "bp": "BP26005264",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T01:35:12.976947"
+}

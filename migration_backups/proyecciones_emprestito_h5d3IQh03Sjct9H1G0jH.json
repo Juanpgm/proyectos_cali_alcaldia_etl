@@ -1,0 +1,23 @@
+{
+  "collection_path": "proyecciones_emprestito",
+  "doc_id": "h5d3IQh03Sjct9H1G0jH",
+  "data": {
+    "nombre_banco": "Banco de Occidente",
+    "nombre_organismo_reducido": "Seguridad",
+    "ultima_actualizacion": "2025-11-08T11:31:07.615580+00:00",
+    "item": "7",
+    "nombre_resumido_proceso": "Sostema monitoreo video vigilancia",
+    "fuente": "google_sheets",
+    "fecha_carga": "2025-11-08T11:31:04.558590",
+    "valor_proyectado": 0,
+    "nombre_generico_proyecto": "Seguridad",
+    "fila_origen": 7,
+    "id_paa": "VIGENCIAS 2026 Y 2027",
+    "fecha_guardado": "2025-11-08T11:31:07.615580+00:00",
+    "referencia_proceso": "",
+    "BP": "BP26005339",
+    "urlProceso": "",
+    "descripcion_bp": "Fortalecimiento del sistema de monitoreo y videovigilancia en Santiago de Cali"
+  },
+  "timestamp": "2025-11-09T00:53:24.443793"
+}

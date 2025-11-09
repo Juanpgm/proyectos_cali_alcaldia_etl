@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2021760010412",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Bienestar Social",
+    "cod_producto": 4103017,
+    "nombre_area_funcional": "Población atendida diariamente en comedores comunitarios y otros modelos de asistencia alimentaria con enfoque de corresponsabilidad",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Seguridad y Soberanía Alimentaria ",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2021760010412,
+    "created_at": "2025-10-10T09:28:05.677817+00:00",
+    "nombre_actividad": "Realizar el servicio de transporte, para las diferentes acciones relacionadas con el proyecto",
+    "updated_at": "2025-10-10T09:28:05.677817+00:00",
+    "programa_presupuestal": "BP260041321010102",
+    "nombre_pospre": "Servicios de alojamiento; servicios de suministro de comidas y bebidas; servicios de transporte; y servicios de distribución de electricidad, gas y agua",
+    "anio": 2024,
+    "nombre_proyecto": "Fortalecimiento del programa para el mejoramiento de la calidad de vida de la poblacion en pobreza extrema a traves de la seguridad alimentaria y el acompañamiento psicosocial en Santiago de  Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 41,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Territorios para la Vida",
+    "validador_cuipo": null,
+    "bp": "BP26004132"
+  },
+  "timestamp": "2025-11-09T01:28:08.032144"
+}

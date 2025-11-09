@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010531",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Cultura",
+    "cod_producto": 3301122,
+    "nombre_area_funcional": "Niños, niñas, mujeres gestantes y madres lactantes beneficiados con experiencias artísticas y culturales",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Cariños, Puro Corazón por la Primera Infancia ",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010531,
+    "created_at": "2025-10-10T09:28:28.322407+00:00",
+    "nombre_actividad": "Realizar  la promoción de las expresiones artísticas y cultural en las Unidades de Transformación Social",
+    "updated_at": "2025-10-10T09:28:28.322407+00:00",
+    "programa_presupuestal": "BP260028851010106",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "AMPLIACIÓN DE LAS EXPRESIONES ARTÍSTICAS EN LA PRIMERA INFANCIA, MUJERES GESTANTES Y MADRES LACTANTES DE SANTIAGO DE CALI",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 33,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Poblaciones Construyendo Territorio",
+    "validador_cuipo": null,
+    "bp": "BP26002885"
+  },
+  "timestamp": "2025-11-09T01:07:29.192400"
+}

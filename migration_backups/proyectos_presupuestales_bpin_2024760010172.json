@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010172",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Gestión del Riesgo de Emergencias y Desastres",
+    "cod_producto": null,
+    "nombre_area_funcional": "Hogares localizados en zonas de riesgo no mitigable reasentados en zonas urbanas y rurales con procesos de concertación y garantía de derechos",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Gestión del Riesgo y Atención de Desastres",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010172,
+    "created_at": "2025-10-10T09:25:48.789333+00:00",
+    "nombre_actividad": "Adquirir servicios logísticos para apoyar el reasentamiento de hogares y liberación del Jarillón del Río Cauca y lagunas",
+    "updated_at": "2025-10-10T09:25:48.789333+00:00",
+    "programa_presupuestal": 6202002,
+    "nombre_pospre": "Servicios financieros y servicios conexos, servicios inmobiliarios y servicios de leasing",
+    "anio": 2025,
+    "nombre_proyecto": "Desarrollo de la estrategia de reasentamiento y protección de los riesgos ocasionados por inundación en el marco del Plan Jarillón de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": null,
+    "validador_cuipo": null,
+    "bp": "BP26005271"
+  },
+  "timestamp": "2025-11-09T01:34:31.808519"
+}

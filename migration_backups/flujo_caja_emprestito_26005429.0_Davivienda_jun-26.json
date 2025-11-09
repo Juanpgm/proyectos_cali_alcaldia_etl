@@ -1,0 +1,19 @@
+{
+  "collection_path": "flujo_caja_emprestito",
+  "doc_id": "26005429.0_Davivienda_jun-26",
+  "data": {
+    "desembolso": 780000000.0,
+    "banco": "Davivienda",
+    "id_registro": "26005429.0_Davivienda_jun-26",
+    "mes": "jun-26",
+    "columna_origen": "jun-26 Desembolso",
+    "bp_proyecto": "26005429.0",
+    "responsable": "Mauricio Jimenez",
+    "fecha_procesamiento": "2025-10-20T11:50:33.098479",
+    "periodo": "2026-06-01T00:00:00",
+    "archivo_origen": "Matriz Emprestito.xlsx",
+    "organismo": "Vivienda",
+    "descripcion_bp": "Fortalecimiento de la oferta habitacional en Santiago de Cali"
+  },
+  "timestamp": "2025-11-09T00:49:17.883719"
+}

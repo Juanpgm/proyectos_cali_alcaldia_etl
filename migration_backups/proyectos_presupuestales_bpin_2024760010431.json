@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010431",
+  "data": {
+    "nombre_centro_gestor": "Secretaría del Deporte y la Recreación",
+    "cod_producto": null,
+    "nombre_area_funcional": "Niñas, niños, adolescentes, jóvenes, adultos y adultos mayores (incluidos con discapacidad) vinculados a actividades deportivas y aprovechamiento del tiempo libre.",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Cali Distrito Deportivo, Cultural y Turístico",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010431,
+    "created_at": "2025-10-10T09:25:34.275893+00:00",
+    "nombre_actividad": "Liderar acciones para la implementación de actividades deportivas y recreativas del Corregimiento La Castilla",
+    "updated_at": "2025-10-10T09:25:34.275893+00:00",
+    "programa_presupuestal": 6102003,
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2025,
+    "nombre_proyecto": "Aprovechamiento del tiempo libre a través de actividades deportivas y recreativas en el corregimiento La Castilla de Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "LA CASTILLA",
+    "origen": "Territorio",
+    "nombre_linea_estrategica": null,
+    "validador_cuipo": null,
+    "bp": "BP26005637"
+  },
+  "timestamp": "2025-11-09T01:38:06.118570"
+}

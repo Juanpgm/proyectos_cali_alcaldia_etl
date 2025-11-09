@@ -1,0 +1,31 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "nvqrIEec8TGcu4cBva6E",
+  "data": {
+    "observaciones": "Modernizacion de la herramienta.\r\nAdquisicon y modernizacion de la herramienta a su ultima version disponible con las actualizaciones correspondientesm asi como los productos ITSM y otros, asi como cumplir con el personal minimo requerido.",
+    "nombre_centro_gestor": "",
+    "fecha_reporte": "2025-10-17T20:40:06.756259+00:00",
+    "referencia_contrato": "4134.010.26.1.0252-2025",
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/1COv9oe71fv0TDf5QRPqgqPA9qUcv7HGl",
+    "archivos_evidencia": [
+      {
+        "type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "size": 20671,
+        "download_url": "https://drive.google.com/uc?id=19T6Nz-VRKOAz5CbACzGPK6sxk6uuI7wp",
+        "url": "https://docs.google.com/document/d/19T6Nz-VRKOAz5CbACzGPK6sxk6uuI7wp/edit?usp=drivesdk&ouid=107631050282737776825&rtpof=true&sd=true",
+        "status": "uploaded_successfully",
+        "drive_id": "19T6Nz-VRKOAz5CbACzGPK6sxk6uuI7wp",
+        "name": "% avances de procesos de contratacion emprestito DATIC.docx"
+      }
+    ],
+    "avance_fisico": 58.0,
+    "avance_financiero": 58.0,
+    "alertas": {
+      "es_alerta": false,
+      "descripcion": "",
+      "tipos": []
+    },
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:42:09.720428"
+}

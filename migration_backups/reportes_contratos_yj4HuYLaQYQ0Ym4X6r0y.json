@@ -1,0 +1,31 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "yj4HuYLaQYQ0Ym4X6r0y",
+  "data": {
+    "nombre_centro_gestor": "",
+    "observaciones": "El contrato se encuentra firmado, sin embargo, no se reporta avance debido a que su ejecución iniciará una vez se aprueben las garantías correspondientes.",
+    "fecha_reporte": "2025-10-24T03:48:29.796840+00:00",
+    "referencia_contrato": "4173.010.26.1.1357-2025",
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/1NqrLGSkwFwKfZtl9A5wqDHyzEDWLD01f",
+    "archivos_evidencia": [
+      {
+        "type": "image/jpeg",
+        "size": 103644,
+        "download_url": "https://drive.google.com/uc?id=1LsnMjtpLz-U-eT63gqclHHoW8-CDYBTJ",
+        "url": "https://drive.google.com/file/d/1LsnMjtpLz-U-eT63gqclHHoW8-CDYBTJ/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1LsnMjtpLz-U-eT63gqclHHoW8-CDYBTJ",
+        "name": "CALI 19.jpg"
+      }
+    ],
+    "avance_fisico": 0.0,
+    "alertas": {
+      "descripcion": "",
+      "es_alerta": false,
+      "tipos": []
+    },
+    "avance_financiero": 0.0,
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:42:22.892551"
+}

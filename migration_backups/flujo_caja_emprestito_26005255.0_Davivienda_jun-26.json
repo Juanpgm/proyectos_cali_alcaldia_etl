@@ -1,0 +1,19 @@
+{
+  "collection_path": "flujo_caja_emprestito",
+  "doc_id": "26005255.0_Davivienda_jun-26",
+  "data": {
+    "banco": "Davivienda",
+    "desembolso": 32082125.0,
+    "id_registro": "26005255.0_Davivienda_jun-26",
+    "mes": "jun-26",
+    "columna_origen": "jun-26 Desembolso",
+    "bp_proyecto": "26005255.0",
+    "responsable": "Esperanza Ramos",
+    "fecha_procesamiento": "2025-10-20T11:50:33.098479",
+    "periodo": "2026-06-01T00:00:00",
+    "archivo_origen": "Matriz Emprestito.xlsx",
+    "organismo": "DATIC",
+    "descripcion_bp": "Implementación de soluciones tecnológicas para el aprovechamiento estratégico de datos en el distrito"
+  },
+  "timestamp": "2025-11-09T00:48:14.818634"
+}

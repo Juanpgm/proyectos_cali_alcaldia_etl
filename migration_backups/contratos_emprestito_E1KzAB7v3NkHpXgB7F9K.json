@@ -1,0 +1,41 @@
+{
+  "collection_path": "contratos_emprestito",
+  "doc_id": "E1KzAB7v3NkHpXgB7F9K",
+  "data": {
+    "nit_contratista": "",
+    "fecha_fin_contrato": "2026-03-31",
+    "ordenador_gasto": "No definido",
+    "sector": "Tecnologías de la Información y las Comunicaciones",
+    "descripcion_proceso": "Sin Descripcion",
+    "nombre_procedimiento": "",
+    "valor_pagado": "0",
+    "urlproceso": {
+      "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.8829706&isFromPublicArea=True&isModal=true&asPopupView=true"
+    },
+    "valor_contrato": 6645250000,
+    "_dataset_source": "jbjy-vk9h",
+    "bpin": 2024760010045,
+    "supervisor": "No definido",
+    "entidad_contratante": "SANTIAGO DE CALI DISTRITO ESPECIAL - DEPARTAMENTO ADMINISTRATIVO DE TECNOLOGIAS DE LA INFORMACION Y LAS COMUNICACIONES",
+    "banco": "Bancolombia",
+    "referencia_contrato": "CO1.PCCNTR.8522233",
+    "nit_entidad": "890399011",
+    "id_contrato": "CO1.PCCNTR.8522233",
+    "fecha_guardado": "2025-11-06T06:28:16.841926+00:00",
+    "modalidad_contratacion": "Licitación pública",
+    "fecha_firma_contrato": null,
+    "bp": "BP26005260",
+    "nombre_centro_gestor": "Departamento Administrativo de Tecnologías de la Información y las Comunicaciones",
+    "version_esquema": "1.1",
+    "representante_legal": "HERNANDO ENRIQUE GIRALDO GARCIA",
+    "fuente_datos": "SECOP_API",
+    "proceso_contractual": "CO1.BDOS.8653798",
+    "fecha_inicio_contrato": null,
+    "nombre_contratista": "",
+    "estado_contrato": "Borrador",
+    "referencia_proceso": "4134.010.32.1.0135-2025",
+    "objeto_contrato": "No definido",
+    "tipo_contrato": "Prestación de servicios"
+  },
+  "timestamp": "2025-11-09T00:47:50.878521"
+}

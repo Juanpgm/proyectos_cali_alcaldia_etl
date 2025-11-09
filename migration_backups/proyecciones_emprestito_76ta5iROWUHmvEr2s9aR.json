@@ -1,0 +1,23 @@
+{
+  "collection_path": "proyecciones_emprestito",
+  "doc_id": "76ta5iROWUHmvEr2s9aR",
+  "data": {
+    "nombre_banco": "DAVIVIENDA",
+    "nombre_organismo_reducido": "Vivienda",
+    "ultima_actualizacion": "2025-11-08T11:31:07.651326+00:00",
+    "item": "116",
+    "nombre_resumido_proceso": "Proyecto 1:Construccion espacio publico manzana usos complementarios Fiscalía",
+    "fuente": "google_sheets",
+    "fecha_carga": "2025-11-08T11:31:04.578126",
+    "valor_proyectado": 0,
+    "nombre_generico_proyecto": "Subsidios para vivienda",
+    "fila_origen": 116,
+    "id_paa": "VIGENCIA 2026",
+    "fecha_guardado": "2025-11-08T11:31:07.651326+00:00",
+    "referencia_proceso": "",
+    "BP": "BP26005429",
+    "urlProceso": "",
+    "descripcion_bp": "BP-5429 Fortalecimiento de la oferta habitacional"
+  },
+  "timestamp": "2025-11-09T00:52:24.975587"
+}

@@ -1,0 +1,40 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "gH0YEVZpPDmZFCVPIZtk",
+  "data": {
+    "nombre_centro_gestor": "",
+    "observaciones": "Información con fecha de corte del 18 de octubre de 2025:\r\nEl CALI 9 registró una ejecución semanal de $1,701,923.60 (0.30% de avance), y el CALI 17 ejecutó $12,882,436.34 (1.80% de avance), con trabajos enfocados en la demolición de enchapes, pisos y el desmonte de elementos existentes.",
+    "fecha_reporte": "2025-10-24T03:26:04.362730+00:00",
+    "referencia_contrato": "4173.010.26.1.1277-2025",
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/1FYVu4r4psU1NBNdjoLJH8ElPmciS9u-N",
+    "archivos_evidencia": [
+      {
+        "type": "image/jpeg",
+        "size": 25738,
+        "download_url": "https://drive.google.com/uc?id=1oGJ2H0RiidSBPjKhhHae2d2Rw-iiV3rV",
+        "url": "https://drive.google.com/file/d/1oGJ2H0RiidSBPjKhhHae2d2Rw-iiV3rV/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1oGJ2H0RiidSBPjKhhHae2d2Rw-iiV3rV",
+        "name": "CALI 17.jpg"
+      },
+      {
+        "type": "image/jpeg",
+        "size": 24228,
+        "download_url": "https://drive.google.com/uc?id=1hV-8cPz6YGFg3sN827Urg5O-VBYFuRvb",
+        "url": "https://drive.google.com/file/d/1hV-8cPz6YGFg3sN827Urg5O-VBYFuRvb/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1hV-8cPz6YGFg3sN827Urg5O-VBYFuRvb",
+        "name": "CALI 9.jpg"
+      }
+    ],
+    "avance_fisico": 1.92,
+    "alertas": {
+      "descripcion": "",
+      "es_alerta": false,
+      "tipos": []
+    },
+    "avance_financiero": 1.92,
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:41:56.453307"
+}

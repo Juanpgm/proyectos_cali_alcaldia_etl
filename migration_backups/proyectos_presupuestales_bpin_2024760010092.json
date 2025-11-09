@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010092",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Movilidad",
+    "cod_producto": null,
+    "nombre_area_funcional": "Espacios de participacion e interaccion con actores viales y comunidad fortalecidos",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Movilidad segura y sostenible",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010092,
+    "created_at": "2025-10-10T09:24:59.106866+00:00",
+    "nombre_actividad": "Realizar mesas de trabajo para la promoción de la Participación, Planeación de la Participación y promoción del Control Social",
+    "updated_at": "2025-10-10T09:24:59.106866+00:00",
+    "programa_presupuestal": 6201003,
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2025,
+    "nombre_proyecto": "Implementación de estrategias para la formación, espacios de participación y promoción en pedagogía para las buenas prácticas en movilidad segura en el Distrito de Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": null,
+    "validador_cuipo": null,
+    "bp": "BP26005473"
+  },
+  "timestamp": "2025-11-09T01:33:21.105506"
+}

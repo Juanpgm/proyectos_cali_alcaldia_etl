@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2023760010166",
+  "data": {
+    "nombre_centro_gestor": "Unidad Administrativa Especial de Servicios Públicos",
+    "cod_producto": null,
+    "nombre_area_funcional": "Plantas de Tratamiento de Agua Residual Doméstica (PTARD) construidas en la zona rural",
+    "nombre_fondo": "SGP-Agua potable y saneamiento básico 12/12",
+    "nombre_programa": "Saneamiento Básico y Tratamiento de Aguas Residuales ",
+    "nombre_dimension": "Cali, Nuestra Casa Común",
+    "tipo_gasto": "Inversión",
+    "bpin": 2023760010166,
+    "created_at": "2025-10-10T09:30:39.400102+00:00",
+    "nombre_actividad": "Realizar la implementación del Nodo IDESC de información de alcantarillado del área rural vereda La Leonera Cabecera - Corregimiento La Leonera",
+    "updated_at": "2025-10-10T09:30:39.400102+00:00",
+    "programa_presupuestal": "BP260048001010101",
+    "nombre_pospre": "Alcantarillas y plantas de tratamiento de agua",
+    "anio": 2024,
+    "nombre_proyecto": "Implementación de infraestructura de saneamiento básico en la zona rural de Santiago de  Cali",
+    "clasificacion_fondo": "Destinación Específica (SGP)",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Soporte Vital para el Desarrollo",
+    "validador_cuipo": null,
+    "bp": "BP26004800"
+  },
+  "timestamp": "2025-11-09T01:31:28.438140"
+}

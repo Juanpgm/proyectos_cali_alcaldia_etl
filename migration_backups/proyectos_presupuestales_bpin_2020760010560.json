@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010560",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Seguridad y Justicia",
+    "cod_producto": 1207014,
+    "nombre_area_funcional": "Población de adultos y adolescentes que incurren en responsabilidad penal, intervenidos con acompañamiento psicosocial y/o procesos de justicia restaurativa",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Fortalecimiento de Sistemas Locales de Justicia y Penitenciarios",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010560,
+    "created_at": "2025-10-10T09:29:21.228279+00:00",
+    "nombre_actividad": "Implementar programa formativo para adultos y jóvenes privados de la libertad, con enfoque de justicia restaurativa.",
+    "updated_at": "2025-10-10T09:29:21.228279+00:00",
+    "programa_presupuestal": "BP260032821010109",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "DESARROLLO DE UNA ESTRATEGIA DE JUSTICIA RESTAURATIVA PARA  ADULTOS Y ADOLESCENTES QUE INCURREN EN RESPONSABILIDAD PENAL EN  CALI",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 12,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Distrito Reconciliado",
+    "validador_cuipo": null,
+    "bp": "BP26003282"
+  },
+  "timestamp": "2025-11-09T01:07:37.120845"
+}

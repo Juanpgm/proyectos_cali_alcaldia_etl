@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1145",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Calle 16 Entre Carrera 100 Y Carrera 86",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.912144",
+    "has_valid_geometry": true,
+    "upid": "UNP-1145",
+    "nombre_up_detalle": "Via Arteria Secundaria",
+    "nombre_up": "Calle 16 Entre Carrera 100 Y Carrera 86",
+    "comuna_corregimiento": "COMUNA 17",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"GeometryCollection\", \"geometries\": [{\"type\": \"MultiLineString\", \"coordinates\": [[[-76.52975307410674, 3.36797253022388, 0.0], [-76.52973117785936, 3.368274388938451, 0.0]], [[-76.52958195619185, 3.370748400304211, 0.0], [-76.52950482296954, 3.3709263617901963, 0.0]]]}, {\"type\": \"LineString\", \"coordinates\": [[-76.52930295151114, 3.3722131800627926, 0.0], [-76.52929967757436, 3.3722619400534746, 0.0]]}, {\"type\": \"LineString\", \"coordinates\": [[-76.52919488562812, 3.3738135999640604, 0.0], [-76.52919184930829, 3.373862133197498, 0.0]]}, {\"type\": \"LineString\", \"coordinates\": [[-76.52980752030004, 3.3673741756790054, 0.0], [-76.52979071921746, 3.3675560696887614, 0.0]]}]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Ciudad Universitaria",
+    "cantidad": 79,
+    "loaded_at": "2025-11-04T20:23:09.912150",
+    "presupuesto_base": 141155468.15
+  },
+  "timestamp": "2025-11-09T01:44:51.900403"
+}

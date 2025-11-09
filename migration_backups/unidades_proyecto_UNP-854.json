@@ -1,0 +1,58 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-854",
+  "data": {
+    "created_at": "2025-11-05T11:34:45.367878",
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -76.486105,
+        3.44724
+      ]
+    },
+    "has_geometry": true,
+    "geometry_type": "Point",
+    "properties": {
+      "processed_timestamp": "2025-11-05T11:34:28.210236",
+      "descripcion_intervencion": "Adecuacion del espacio para la implementacion del Primer taller de autos electricos localizado en una isntitucion educativa oficial en el pais, para lo que se realizaron adecuacion de las cubiertas, cambio de pisos, adecuaciones de las instalaciones electricas del espacio elegido dentro de la sede",
+      "microtio": null,
+      "bpin": "-2147483648",
+      "centros_gravedad": false,
+      "upid": "UNP-854",
+      "nombre_up_detalle": "PRINCIPAL",
+      "tipo_intervencion": "Adecuaciones y mantenimientos",
+      "url_proceso": null,
+      "referencia_contrato": [
+        "4143.010.26.1.1645.2025",
+        "4143.010.26.1.1536.2025"
+      ],
+      "unidad": "UND",
+      "identificador": "Frente de obra ejecutada 2024 - Recursos Propios",
+      "tipo_equipamiento": "Institución Educativa",
+      "fecha_fin": null,
+      "estado": "Entregada",
+      "fecha_inicio": null,
+      "plataforma": "SECOP II",
+      "nombre_centro_gestor": "Secretaría de Educación",
+      "avance_obra": "10.0",
+      "geometry_bounds": null,
+      "direccion": null,
+      "ano": "2024",
+      "geometry_type": null,
+      "dataframe": null,
+      "comuna_corregimiento": "COMUNA 09",
+      "nombre_up": "I.E. Antonio Jose Camacho - Principal",
+      "referencia_proceso": [
+        "4143.010.32.0860-2025",
+        "4143.010.32.0856-2025"
+      ],
+      "fuente_financiacion": "Recursos propios",
+      "cantidad": "1",
+      "barrio_vereda": "Guayaquil",
+      "presupuesto_base": "400000000"
+    },
+    "updated_at": "2025-11-05T11:34:45.367878"
+  },
+  "timestamp": "2025-11-09T01:58:31.339927"
+}

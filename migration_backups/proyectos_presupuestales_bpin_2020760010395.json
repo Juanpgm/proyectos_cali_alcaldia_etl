@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010395",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Desarrollo Económico",
+    "cod_producto": 3604019,
+    "nombre_area_funcional": "Personas vinculadas a rutas para la inserción laboral",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Empleabilidad con Enfoque Diferencial y de Género ",
+    "nombre_dimension": "Cali, Inteligente para la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010395,
+    "created_at": "2025-10-10T09:30:12.190042+00:00",
+    "nombre_actividad": "Realizar la convocatoria y selección de personas",
+    "updated_at": "2025-10-10T09:30:12.190042+00:00",
+    "programa_presupuestal": "BP260031401010104",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Desarrollo de rutas de acercamiento entre la oferta y la demanda laboral a personas desempleadas en Santiago de Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 36,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Empleabilidad y Emprendimiento",
+    "validador_cuipo": null,
+    "bp": "BP26003140"
+  },
+  "timestamp": "2025-11-09T01:06:48.869956"
+}

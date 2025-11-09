@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010392",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Bienestar Social",
+    "cod_producto": null,
+    "nombre_area_funcional": "Personas mayores beneficiadas con servicios de atención integral",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Atención integral a poblaciones",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010392,
+    "nombre_actividad": "Realizar convocatoria, divulgación, inscripción y selección de beneficiarios del proyecto",
+    "created_at": "2025-10-10T09:33:18.395931+00:00",
+    "updated_at": "2025-10-10T09:33:18.395931+00:00",
+    "programa_presupuestal": 6102006,
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2025,
+    "nombre_proyecto": "Servicio de atención integral dirigida a las personas mayores de la Comuna 20 de Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "COMUNA 20",
+    "origen": "Territorio",
+    "bp": "BP26005716",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T01:37:32.903783"
+}

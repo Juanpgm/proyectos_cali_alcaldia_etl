@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1140",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Avenida 3B Entre Calles 40 N Y 43 N",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.909987",
+    "has_valid_geometry": true,
+    "upid": "UNP-1140",
+    "nombre_up_detalle": "Via Local",
+    "nombre_up": "Avenida 3B Entre Calles 40 N Y 43 N",
+    "comuna_corregimiento": "COMUNA 02",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.51968497190414, 3.4765216074486216, 0.0], [-76.51915125806448, 3.4774008242844063, 0.0], [-76.51861121571405, 3.4782705738958017, 0.0]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Vipasa",
+    "cantidad": 460,
+    "loaded_at": "2025-11-04T20:23:09.909991",
+    "presupuesto_base": 481717888.46
+  },
+  "timestamp": "2025-11-09T01:44:47.569054"
+}

@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010649",
+  "data": {
+    "nombre_centro_gestor": "Departamento Administrativo de Gestión del Medio Ambiente ",
+    "cod_producto": 3208010,
+    "nombre_area_funcional": "Colectivos ambientales de gestores de educación y cultura, con enfoque diferencial y de género co-creando procesos para la reconciliación ambiental y la conservación de la estructura ecológica, operando en redes",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Gobernanza, Gobernabilidad y Cultura Ambiental ",
+    "nombre_dimension": "Cali, Nuestra Casa Común",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010649,
+    "created_at": "2025-10-10T09:27:11.668257+00:00",
+    "nombre_actividad": "Desarrollar alianzas sociales con grupos de colectivos ciudadanos para facilitar la comprensión de las conexiones sistémicas de las situaciones y conflictos ambientales",
+    "updated_at": "2025-10-10T09:27:11.668257+00:00",
+    "programa_presupuestal": "BP260028061020105",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Fortalecimiento de colectivos ambientales en prácticas ambientales, educativas y culturales en Santiago de  Cali",
+    "clasificacion_fondo": "Libre destinación (Recursos Propios)",
+    "cod_sector": 32,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Fortalecimiento y Gestión de los Socioecosistemas",
+    "validador_cuipo": null,
+    "bp": "BP26002806"
+  },
+  "timestamp": "2025-11-09T01:08:09.599227"
+}

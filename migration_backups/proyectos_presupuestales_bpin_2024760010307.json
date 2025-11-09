@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010307",
+  "data": {
+    "nombre_centro_gestor": "Departamento Administrativo de Gestión del Medio Ambiente",
+    "cod_producto": null,
+    "nombre_area_funcional": "Parques, zonas verdes y canales de agua lluvia del Distrito de Santiago de Cali, adecuados rehabilitados o con mantenimiento para conservación de fauna y flora, la percepción de seguridad y de mejoramiento de la calidad ambiental",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Protección ambiental y mitigación del cambio climático",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010307,
+    "nombre_actividad": "Realizar la recuperación ambiental y paisajística de parques y zonas verdes priorizados con el presupuesto participativo en la Comuna 1",
+    "created_at": "2025-10-10T09:32:17.904967+00:00",
+    "updated_at": "2025-10-10T09:32:17.904967+00:00",
+    "programa_presupuestal": 6202001,
+    "nombre_pospre": "Servicios de la construcción",
+    "anio": 2025,
+    "nombre_proyecto": "Mejoramiento ambiental y paisajístico de parques y zonas verdes para la conservación de los servicios ecosistémicos en la Comuna 1 de Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "COMUNA 1",
+    "origen": "Territorio",
+    "bp": "BP26005762",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T01:36:23.243663"
+}

@@ -1,0 +1,31 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "MstPd3fdLeBGQb2yMvj5",
+  "data": {
+    "nombre_centro_gestor": "",
+    "fecha_reporte": "2025-10-24T00:36:10.731828+00:00",
+    "observaciones": "El contrato no ha sido iniciado debido a que se encuentra en proceso de Elaboración y Registro Presupuestal de Compromiso (RPC). Los avances se reportarán una vez se cuente con el RPC aprobado y se formalice la orden de inicio.",
+    "avance_fisico": 0.0,
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/1ThjgMExS0SLFK3Bljqmcrvv8yKR6sVJJ",
+    "archivos_evidencia": [
+      {
+        "type": "application/pdf",
+        "size": 1344319,
+        "download_url": "https://drive.google.com/uc?id=1M84AKqTzhzAQS3W4XFY5CbyRUrMmmR2O",
+        "url": "https://drive.google.com/file/d/1M84AKqTzhzAQS3W4XFY5CbyRUrMmmR2O/view?usp=drivesdk",
+        "drive_id": "1M84AKqTzhzAQS3W4XFY5CbyRUrMmmR2O",
+        "status": "uploaded_successfully",
+        "name": "CONTRATO - 4148.010.26.1.1418-2025.pdf"
+      }
+    ],
+    "referencia_contrato": "4148.010.26.1.1418-2025",
+    "avance_financiero": 0.0,
+    "alertas": {
+      "descripcion": "",
+      "es_alerta": false,
+      "tipos": []
+    },
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:41:05.775569"
+}

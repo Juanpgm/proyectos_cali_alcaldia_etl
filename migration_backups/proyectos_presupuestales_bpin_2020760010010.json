@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010010",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Movilidad",
+    "cod_producto": 2409011,
+    "nombre_area_funcional": "Infraestructura física y tecnológica para una atención efectiva integral al usuario realizada",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Regulación, Control y Gestión Inteligente del Tránsito ",
+    "nombre_dimension": "Cali, Nuestra Casa Común",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010010,
+    "created_at": "2025-10-10T09:29:12.020718+00:00",
+    "nombre_actividad": "Desarrollar mantenimientos preventivos a los espacios físicos de atención a la comunidad",
+    "updated_at": "2025-10-10T09:29:12.020718+00:00",
+    "programa_presupuestal": "BP260028131010106",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Mejoramiento DE LA INFRAESTRUCTURA FÍSICA Y TECNOLÓGICA PARA UNA ATENCIÓN EFECTIVA AL USUARIO DE LA SECRETARIA DE MOVILIDAD DE CALI",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 24,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Movilidad Multimodal Sustentable",
+    "validador_cuipo": null,
+    "bp": "BP26002813"
+  },
+  "timestamp": "2025-11-09T00:53:53.344590"
+}

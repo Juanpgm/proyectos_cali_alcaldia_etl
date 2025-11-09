@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010723",
+  "data": {
+    "nombre_centro_gestor": "Departamento Administrativo de Tecnologías de la Información y las Comunicaciones",
+    "cod_producto": 4599023,
+    "nombre_area_funcional": "Modelo Integrado de Planeación y Gestión implementado en DATIC",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Fortalecimiento Institucional",
+    "nombre_dimension": "Cali, Gobierno Incluyente",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010723,
+    "created_at": "2025-10-10T09:27:23.267715+00:00",
+    "nombre_actividad": "Coordinar el uso de las herramientas y metodologías necesarias para la implementación de los sistemas de gestión y control de la entidad en el marco del Modelo integrado de Planeación y gestión - MIPG",
+    "updated_at": "2025-10-10T09:27:23.267715+00:00",
+    "programa_presupuestal": "BP260025571010114",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "Consolidación del Modelo Integrado de Planeación y Gestión –MIPG- en el Departamento Administrativo de las Tecnologías de la Información y las Comunicaciones -DATIC -  de Santiago de  Cali",
+    "clasificacion_fondo": "Libre destinación (Recursos Propios)",
+    "cod_sector": 45,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Gobierno Inteligente",
+    "validador_cuipo": null,
+    "bp": "BP26002557"
+  },
+  "timestamp": "2025-11-09T01:08:27.127241"
+}

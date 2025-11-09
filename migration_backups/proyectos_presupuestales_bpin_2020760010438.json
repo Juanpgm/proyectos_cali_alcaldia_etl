@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010438",
+  "data": {
+    "nombre_centro_gestor": "Departamento Administrativo de Gestión del Medio Ambiente ",
+    "cod_producto": 3204049,
+    "nombre_area_funcional": "Observatorio Ambiental, como un instrumento de reporte, seguimiento y generación de conocimiento para la gestión ambiental, actualizado y operando",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Gestión de Información Estadística y Geográfica para la Evaluación de Resultados  ",
+    "nombre_dimension": "Cali, Gobierno Incluyente",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010438,
+    "created_at": "2025-10-10T09:27:15.981314+00:00",
+    "nombre_actividad": "Realizar documentos de planificación y gestión del Observatorio de Monitoreo Ambiental de la Comuna 22",
+    "updated_at": "2025-10-10T09:27:15.981314+00:00",
+    "programa_presupuestal": "BP260033351010104",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "DESARROLLO DEL OBSERVATORIO AMBIENTAL DE LA COMUNA 22 DE SANTIAGO DE  CALI",
+    "clasificacion_fondo": "Libre destinación (Recursos Propios)",
+    "cod_sector": 32,
+    "comuna": "COMUNA 22",
+    "origen": "Territorio",
+    "nombre_linea_estrategica": "Gobierno Inteligente",
+    "validador_cuipo": null,
+    "bp": "BP26003335"
+  },
+  "timestamp": "2025-11-09T01:07:01.166600"
+}

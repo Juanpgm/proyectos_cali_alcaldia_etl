@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010138",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Bienestar Social",
+    "cod_producto": 4103006,
+    "nombre_area_funcional": "Familias Inscritas en el Programa Más Familias en Acción vinculados a los beneficios del programa",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Equidad Social",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010138,
+    "created_at": "2025-10-10T09:30:46.211606+00:00",
+    "nombre_actividad": "Realizar la articulación de los procesos para la operatividad de los diferentes componentes del Programa Familias en Acción",
+    "updated_at": "2025-10-10T09:30:46.211606+00:00",
+    "programa_presupuestal": "BP260028471010110",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "Apoyo Del Programa Familias en Acción en Santiago de Cali",
+    "clasificacion_fondo": "Libre destinación (Recursos Propios)",
+    "cod_sector": 41,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Poblaciones Construyendo Territorio",
+    "validador_cuipo": null,
+    "bp": "BP26002847"
+  },
+  "timestamp": "2025-11-09T00:54:33.663248"
+}

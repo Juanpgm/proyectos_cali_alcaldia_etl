@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010336",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Bienestar Social",
+    "cod_producto": null,
+    "nombre_area_funcional": "Beneficiarios de la Estrategia de integración social y económica orientada a la superación de la pobreza extrema",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Hambre Cero",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010336,
+    "nombre_actividad": "Realizar documento técnico y metodológico que presente los antecedentes de la población para la estrategia de superación de la pobreza extrema",
+    "created_at": "2025-10-10T09:33:10.583597+00:00",
+    "updated_at": "2025-10-10T09:33:10.583597+00:00",
+    "programa_presupuestal": 6102005,
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2025,
+    "nombre_proyecto": "Implementación de la estrategia de integración social y económica orientada a la superación de la pobreza extrema en Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "bp": "BP26005827",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T01:36:47.366000"
+}

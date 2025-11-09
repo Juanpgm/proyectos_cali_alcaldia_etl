@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010596",
+  "data": {
+    "nombre_centro_gestor": "Departamento Administrativo de Gestión del Medio Ambiente ",
+    "cod_producto": 3202046,
+    "nombre_area_funcional": "Plataforma para contrarrestar la tenencia, comercialización ilegal y el maltrato de fauna silvestre y el control de especies exóticas introducidas, implementada",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Gobernanza, Gobernabilidad y Cultura Ambiental ",
+    "nombre_dimension": "Cali, Nuestra Casa Común",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010596,
+    "created_at": "2025-10-10T09:27:10.506967+00:00",
+    "nombre_actividad": "Realizar el levantamiento de requerimientos del sistema de información para la inspección, vigilancia y control de la fauna silvestre",
+    "updated_at": "2025-10-10T09:27:10.506967+00:00",
+    "programa_presupuestal": "BP260025861010110",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "DESARROLLO DE UNA PLATAFORMA PARA LA CONSERVACIÓN Y CONTROL DEL RECURSO DE FAUNA SILVESTRE Y EXÓTICA EN SANTIAGO DE CALI",
+    "clasificacion_fondo": "Libre destinación (Recursos Propios)",
+    "cod_sector": 32,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Fortalecimiento y Gestión de los Socioecosistemas",
+    "validador_cuipo": null,
+    "bp": "BP26002586"
+  },
+  "timestamp": "2025-11-09T01:07:47.661459"
+}

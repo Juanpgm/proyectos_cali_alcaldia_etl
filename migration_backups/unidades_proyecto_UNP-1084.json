@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1084",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Carrera 102 Entre Calles 13 Y 16  - Carrera 101 Entre Calles 13 Y 15A",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.168938",
+    "has_valid_geometry": true,
+    "upid": "UNP-1084",
+    "nombre_up_detalle": "Via Local",
+    "nombre_up": "Carrera 101 Entre Calles 13 Y 15A",
+    "comuna_corregimiento": "COMUNA 22",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.53129469412006, 3.3667445068665987, 0.0], [-76.53103244917104, 3.366610995853964, 0.0]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Urbanización Ciudad Jardín",
+    "cantidad": 113,
+    "loaded_at": "2025-11-04T20:23:09.168943",
+    "presupuesto_base": 137829960.07
+  },
+  "timestamp": "2025-11-09T01:43:52.320634"
+}

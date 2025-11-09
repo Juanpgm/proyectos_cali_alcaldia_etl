@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010174",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Bienestar Social",
+    "cod_producto": null,
+    "nombre_area_funcional": "Personas mayores beneficiadas con servicios de atención integral en los centros de promoción y protección social",
+    "nombre_fondo": "Estampilla para el bienestar del Adulto mayor",
+    "nombre_programa": "Atención integral a poblaciones",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010174,
+    "nombre_actividad": "Proporcionar un espacio para la protección y el albergue de personas mayores en alto nivel de vulnerabilidad",
+    "created_at": "2025-10-10T09:33:19.564191+00:00",
+    "updated_at": "2025-10-10T09:33:19.564191+00:00",
+    "programa_presupuestal": 6102006,
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2025,
+    "nombre_proyecto": "Servicio en Centros de Atención y Protección Integral dirigida a las personas mayores vulnerables de Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios con Destinacion Especifica",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "bp": "BP26005437",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T01:34:33.580492"
+}

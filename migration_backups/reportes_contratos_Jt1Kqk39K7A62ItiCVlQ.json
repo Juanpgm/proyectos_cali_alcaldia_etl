@@ -1,0 +1,49 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "Jt1Kqk39K7A62ItiCVlQ",
+  "data": {
+    "observaciones": "Información con fecha de corte del 5 de octubre de 2025:\r\nEl C.A.L.I. 9 reportó ejecución en ítems clave como Demolición Enchape Cerámico (211.31 M2), Demolición Piso Enchape-Baldosa+Mortero (463.65 M2) y Desmonte Aparato Sanitario (10.00 UND).\r\nEl C.A.L.I. 17 avanzó en actividades como Cerramiento Tela Fibra Tejida (28.00 M), Demolición Muro Ladrillo Soga (10.05 M2) y Desmonte total del cielo a intervenir.",
+    "nombre_centro_gestor": "",
+    "fecha_reporte": "2025-10-18T01:50:17.265256+00:00",
+    "referencia_contrato": "4173.010.26.1.1277-2025",
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/1VdRW8XPUm9GDL0iLbkPABTxc-cDJQ3Wv",
+    "archivos_evidencia": [
+      {
+        "type": "application/pdf",
+        "size": 3524354,
+        "download_url": "https://drive.google.com/uc?id=1wIEoPlloA_oW8UEk3NzDR78iSmBdMp8y",
+        "url": "https://drive.google.com/file/d/1wIEoPlloA_oW8UEk3NzDR78iSmBdMp8y/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1wIEoPlloA_oW8UEk3NzDR78iSmBdMp8y",
+        "name": "1. Informe Ejecutivo Semanal No 5.pdf"
+      },
+      {
+        "type": "image/jpeg",
+        "size": 30735,
+        "download_url": "https://drive.google.com/uc?id=1TV4JKRBB7E2LRf-n9kYtIIYe-cFhfay-",
+        "url": "https://drive.google.com/file/d/1TV4JKRBB7E2LRf-n9kYtIIYe-cFhfay-/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1TV4JKRBB7E2LRf-n9kYtIIYe-cFhfay-",
+        "name": "CALI 9.jpg"
+      },
+      {
+        "type": "image/jpeg",
+        "size": 27091,
+        "download_url": "https://drive.google.com/uc?id=1Mrke5OLFPNiQY3n9TPc7Zgru7LV4o8qR",
+        "url": "https://drive.google.com/file/d/1Mrke5OLFPNiQY3n9TPc7Zgru7LV4o8qR/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1Mrke5OLFPNiQY3n9TPc7Zgru7LV4o8qR",
+        "name": "CALI 17.jpg"
+      }
+    ],
+    "avance_fisico": 1.13,
+    "avance_financiero": 1.13,
+    "alertas": {
+      "es_alerta": false,
+      "descripcion": "",
+      "tipos": []
+    },
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:40:56.941861"
+}

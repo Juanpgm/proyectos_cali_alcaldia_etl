@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1071",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Avenida 3N Con Calle 24",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.163973",
+    "has_valid_geometry": true,
+    "upid": "UNP-1071",
+    "nombre_up_detalle": "Via Arteria Principal",
+    "nombre_up": "Avenida 3N Con Calle 24",
+    "comuna_corregimiento": "COMUNA 02",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.52386779972885, 3.4666049924141658, 0.0], [-76.52387123309109, 3.466515068497487, 0.0], [-76.52388023977814, 3.466397523242094, 0.0], [-76.52392131310216, 3.466314989170813, 0.0], [-76.52392523624447, 3.4663071072975673, 0.0]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "San Vicente",
+    "cantidad": 27,
+    "loaded_at": "2025-11-04T20:23:09.163976",
+    "presupuesto_base": 124749474.12
+  },
+  "timestamp": "2025-11-09T01:43:39.972463"
+}

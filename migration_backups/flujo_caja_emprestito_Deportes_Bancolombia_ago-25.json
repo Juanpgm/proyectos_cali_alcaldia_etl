@@ -1,0 +1,16 @@
+{
+  "collection_path": "flujo_caja_emprestito",
+  "doc_id": "Deportes_Bancolombia_ago-25",
+  "data": {
+    "desembolso": 0.0,
+    "banco": "Bancolombia",
+    "id_registro": "Deportes_Bancolombia_ago-25",
+    "mes": "ago-25",
+    "fecha_procesamiento": "2025-10-20T11:37:44.610613",
+    "desembolso_real": 0.0,
+    "periodo": "2025-08-01T00:00:00",
+    "archivo_origen": "Matriz Emprestito.xlsx",
+    "organismo": "Deportes"
+  },
+  "timestamp": "2025-11-09T00:50:11.588523"
+}

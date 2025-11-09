@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010056",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Seguridad y Justicia",
+    "cod_producto": null,
+    "nombre_area_funcional": "Subsistema de videovigilancia fortalecido y funcionando",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Vigilancia y prevención del delito",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010056,
+    "created_at": "2025-10-10T09:25:07.034690+00:00",
+    "nombre_actividad": "Realizar mantenimiento de la infraestructura de fibra óptica, nodos y sus componentes",
+    "updated_at": "2025-10-10T09:25:07.034690+00:00",
+    "programa_presupuestal": 6101004,
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2025,
+    "nombre_proyecto": "Fortalecimiento del sistema de monitoreo y videovigilancia en Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": null,
+    "validador_cuipo": null,
+    "bp": "BP26005339"
+  },
+  "timestamp": "2025-11-09T01:32:49.487347"
+}

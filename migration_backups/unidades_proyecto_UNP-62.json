@@ -1,0 +1,52 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-62",
+  "data": {
+    "created_at": "2025-11-05T11:34:33.299212",
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -76.463226,
+        3.417476
+      ]
+    },
+    "has_geometry": true,
+    "geometry_type": "Point",
+    "properties": {
+      "processed_timestamp": "2025-11-05T11:34:28.210236",
+      "descripcion_intervencion": null,
+      "microtio": null,
+      "bpin": "-2147483648",
+      "centros_gravedad": false,
+      "upid": "UNP-62",
+      "nombre_up_detalle": "CARIÑO REMANSOS",
+      "tipo_intervencion": "Adecuaciones y mantenimientos",
+      "url_proceso": "Pendiente",
+      "referencia_contrato": "4146.010.26.1.1154.2024",
+      "unidad": "UND",
+      "identificador": "Mantenimiento Correctivo UTS",
+      "tipo_equipamiento": "UTS",
+      "fecha_fin": "2025-06-10",
+      "estado": "Finalizado",
+      "fecha_inicio": "2024-11-13",
+      "plataforma": "SECOP II",
+      "nombre_centro_gestor": "Secretaría de Bienestar Social",
+      "avance_obra": "100.0",
+      "geometry_bounds": null,
+      "direccion": "Calle 126 # 26 i 5 - Remansos de Comfandi",
+      "ano": "2025",
+      "geometry_type": null,
+      "dataframe": "UTS 2025.xlsx",
+      "comuna_corregimiento": "COMUNA 21",
+      "nombre_up": "UTS CARIÑO REMANSOS",
+      "referencia_proceso": "4146.010.32.1.1158.2024",
+      "fuente_financiacion": "Recursos propios",
+      "cantidad": "1",
+      "barrio_vereda": "Remansos de Comfandi",
+      "presupuesto_base": "240991290"
+    },
+    "updated_at": "2025-11-05T11:34:33.299212"
+  },
+  "timestamp": "2025-11-09T01:54:39.533110"
+}

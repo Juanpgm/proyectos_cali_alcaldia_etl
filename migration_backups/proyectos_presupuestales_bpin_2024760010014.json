@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010014",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Paz y Cultura Ciudadana",
+    "cod_producto": null,
+    "nombre_area_funcional": "Líneas de servicios certificadas del proceso Gestión de Paz y Cultura Ciudadana bajo la norma técnica de gestión de Calidad ISO 9001:2015",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Fortalecimiento institucional",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010014,
+    "created_at": "2025-10-10T09:25:53.388415+00:00",
+    "nombre_actividad": "Apoyar en el mantenimiento y mejora de las politicas de gestion y desempeño institucional MIPG en armonia con el Sistema de Gestión de Calidad en el proceso de Gestión de Paz y Cultura Ciudadana.",
+    "updated_at": "2025-10-10T09:25:53.388415+00:00",
+    "programa_presupuestal": 6302001,
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2025,
+    "nombre_proyecto": "Fortalecimiento de los sistemas de Gestión y control integrados de la Secretaria de Paz y Cultura Ciudadana del Distrito especial de Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": null,
+    "validador_cuipo": null,
+    "bp": "BP26005451"
+  },
+  "timestamp": "2025-11-09T01:32:11.810097"
+}

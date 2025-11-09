@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1044",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Calle 70N Entre Avenida 3N Y 6N",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.153643",
+    "has_valid_geometry": true,
+    "upid": "UNP-1044",
+    "nombre_up_detalle": "Via Arteria Principal",
+    "nombre_up": "Calle 70N Entre Avenida 3N Y 6N",
+    "comuna_corregimiento": "COMUNA 02",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"MultiLineString\", \"coordinates\": [[[-76.5174451028653, 3.492866560675002, 0.0], [-76.51813585208616, 3.4931017601866476, 0.0]], [[-76.51138194536935, 3.490802060797208, 0.0], [-76.5174451028653, 3.492866560675002, 0.0]]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Área en Desarrollo - Parque del Amor",
+    "cantidad": 5442,
+    "loaded_at": "2025-11-04T20:23:09.153647",
+    "presupuesto_base": 8206612972.48
+  },
+  "timestamp": "2025-11-09T01:43:13.553784"
+}

@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2023760010170",
+  "data": {
+    "nombre_centro_gestor": "Departamento Administrativo de Gestión del Medio Ambiente",
+    "cod_producto": null,
+    "nombre_area_funcional": "Áreas de conservación y protección ambiental de la Estructura Ecológica Principal con estrategias implementadas para garantizar su mantenimiento y oferta de servicios ecosistémicos.",
+    "nombre_fondo": "ICLD LEY 99 - Destino Ambiental ",
+    "nombre_programa": "Protección ambiental y mitigación del cambio climático",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2023760010170,
+    "nombre_actividad": "Adquirir insumos, herramientas y elementos varios para el mantenimiento y operación del Parque Ambiental Corazón de Pance",
+    "created_at": "2025-10-10T09:32:24.110006+00:00",
+    "updated_at": "2025-10-10T09:32:24.110006+00:00",
+    "programa_presupuestal": 6202001,
+    "nombre_pospre": "Minerales; electricidad, gas y agua",
+    "anio": 2025,
+    "nombre_proyecto": "IMPLEMENTACIÓN DE ACCIONES PARA POTENCIAR LA OFERTA DE LOS SERVICIOS AMBIENTALES EN EL ECOPARQUE CORAZÓN DE PANCE DE SANTIAGO DE CALI",
+    "clasificacion_fondo": "Recursos Propios con Destinacion Especifica",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "bp": "BP26005090",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T01:31:31.955811"
+}

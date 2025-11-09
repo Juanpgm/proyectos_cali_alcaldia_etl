@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2023760010023",
+  "data": {
+    "nombre_centro_gestor": "Unidad Administrativa Especial de Gestión de Bienes y Servicios",
+    "cod_producto": null,
+    "nombre_area_funcional": "Plan Estratégico de Seguridad vial fortalecido",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Fortalecimiento Institucional",
+    "nombre_dimension": "Cali, Gobierno Incluyente",
+    "tipo_gasto": "Inversión",
+    "bpin": 2023760010023,
+    "created_at": "2025-10-10T09:30:32.955365+00:00",
+    "nombre_actividad": "Realizar procesos de capacitación a servidores públicos y funcionarios identificados.",
+    "updated_at": "2025-10-10T09:30:32.955365+00:00",
+    "programa_presupuestal": "BP260047101010101",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "Fortalecimiento en la implementación de la Metodología del Plan Estratégico de Seguridad Vial en la Alcaldía de Santiago de  Cali",
+    "clasificacion_fondo": "Libre destinación (Recursos Propios)",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Gobierno Inteligente",
+    "validador_cuipo": null,
+    "bp": "BP26004710"
+  },
+  "timestamp": "2025-11-09T01:29:36.206919"
+}

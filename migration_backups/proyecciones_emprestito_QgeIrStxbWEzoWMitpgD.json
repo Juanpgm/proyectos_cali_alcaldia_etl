@@ -1,0 +1,23 @@
+{
+  "collection_path": "proyecciones_emprestito",
+  "doc_id": "QgeIrStxbWEzoWMitpgD",
+  "data": {
+    "nombre_banco": "Banco de Occidente",
+    "nombre_organismo_reducido": "Infraestructura",
+    "ultima_actualizacion": "2025-11-08T11:31:07.613578+00:00",
+    "item": "4",
+    "nombre_resumido_proceso": "Ampliacion Cañas Gordas",
+    "fuente": "google_sheets",
+    "fecha_carga": "2025-11-08T11:31:04.558590",
+    "valor_proyectado": 0,
+    "nombre_generico_proyecto": "Recuperación Malla Vial",
+    "fila_origen": 4,
+    "id_paa": "19888",
+    "fecha_guardado": "2025-11-08T11:31:07.613578+00:00",
+    "referencia_proceso": "",
+    "BP": "BP26005375",
+    "urlProceso": "",
+    "descripcion_bp": "RECUPERACION DE LA INFRAESTRUCTURA VIAL DE SANTIAGO DE CALI"
+  },
+  "timestamp": "2025-11-09T00:52:53.007760"
+}

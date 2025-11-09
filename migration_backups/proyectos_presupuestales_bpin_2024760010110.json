@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010110",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Educación",
+    "cod_producto": null,
+    "nombre_area_funcional": "Instituciones Educativas Oficiales con implementación de la estrategia de atención integral en convivencia escolar",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Cali Educada",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010110,
+    "nombre_actividad": "Realizar formación a docentes y agentes educativos de las IEO focalizadas en resolución de conflictos.",
+    "created_at": "2025-10-10T09:32:34.919056+00:00",
+    "updated_at": "2025-10-10T09:32:34.919056+00:00",
+    "programa_presupuestal": 6102001,
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2025,
+    "nombre_proyecto": "Fortalecimiento de la convivencia escolar y los proyectos pedagógicos transversales en las IEO de Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "bp": "BP26005289",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T01:33:39.258065"
+}

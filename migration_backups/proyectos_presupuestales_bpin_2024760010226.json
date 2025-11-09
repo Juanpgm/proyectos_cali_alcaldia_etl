@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010226",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Cultura",
+    "cod_producto": null,
+    "nombre_area_funcional": "Usuarios beneficiados de los servicios bibliotecarios",
+    "nombre_fondo": "Estampilla procultura ",
+    "nombre_programa": "Cali Distrito Deportivo, Cultural y Turístico",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010226,
+    "created_at": "2025-10-10T09:24:40.365967+00:00",
+    "nombre_actividad": "Diseñar el plan de lectura, escritura y oralidad de la red de Bibliotecas Públicas de Cali",
+    "updated_at": "2025-10-10T09:24:40.365967+00:00",
+    "programa_presupuestal": 6102003,
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2025,
+    "nombre_proyecto": "Fortalecimiento de los procesos de lectura, escritura y oralidad en los espacios bibliotecarios adscritos a la Red de Bibliotecas Públicas de Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios con Destinacion Especifica",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": null,
+    "validador_cuipo": null,
+    "bp": "BP26005318"
+  },
+  "timestamp": "2025-11-09T01:35:19.957263"
+}

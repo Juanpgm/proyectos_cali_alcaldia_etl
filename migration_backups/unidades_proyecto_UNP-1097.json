@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1097",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Carrera 5 Entre Calles 10 Y 5",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.174170",
+    "has_valid_geometry": true,
+    "upid": "UNP-1097",
+    "nombre_up_detalle": "Via Arteria Secundaria",
+    "nombre_up": "Carrera 5 Entre Calles 10 Y 5",
+    "comuna_corregimiento": "COMUNA 03",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.537030174266, 3.449088661852638, 0.0], [-76.53588878362233, 3.4496607892244424, 0.0]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "La Merced",
+    "cantidad": 149,
+    "loaded_at": "2025-11-04T20:23:09.174176",
+    "presupuesto_base": 112797385.26
+  },
+  "timestamp": "2025-11-09T01:44:04.576502"
+}

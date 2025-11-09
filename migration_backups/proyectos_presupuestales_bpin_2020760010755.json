@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010755",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Cultura",
+    "cod_producto": 3301053,
+    "nombre_area_funcional": "Escenarios para las artes escénicas de naturaleza pública fortalecidos con programación cultural y artística",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Ecosistema Artístico ",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010755,
+    "created_at": "2025-10-10T09:28:46.589793+00:00",
+    "nombre_actividad": "Realizar la planeación y apoyo técnico a las acciones de los escenarios culturales",
+    "updated_at": "2025-10-10T09:28:46.589793+00:00",
+    "programa_presupuestal": "BP260027491010118",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "AMPLIACIÓN DE LA OFERTA ARTÍSTICA, CULTURAL Y DE EXHIBICIÓN EN ESCENARIOS DE NATURALEZA PÚBLICA DE SANTIAGO DE CALI",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 33,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Cali Corazón de las Culturas",
+    "validador_cuipo": null,
+    "bp": "BP26002749"
+  },
+  "timestamp": "2025-11-09T01:08:39.427658"
+}

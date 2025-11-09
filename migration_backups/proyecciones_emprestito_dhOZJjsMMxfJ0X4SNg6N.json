@@ -1,0 +1,23 @@
+{
+  "collection_path": "proyecciones_emprestito",
+  "doc_id": "dhOZJjsMMxfJ0X4SNg6N",
+  "data": {
+    "nombre_banco": "DAVIVIENDA-Otro Si",
+    "nombre_organismo_reducido": "Riesgos",
+    "ultima_actualizacion": "2025-11-08T11:31:07.654998+00:00",
+    "item": "130",
+    "nombre_resumido_proceso": "Contrato: Compra de Maquina",
+    "fuente": "google_sheets",
+    "fecha_carga": "2025-11-08T11:31:04.579405",
+    "valor_proyectado": 0,
+    "nombre_generico_proyecto": "Bomberos - Maquina nueva",
+    "fila_origen": 130,
+    "id_paa": "Sin Incluir",
+    "fecha_guardado": "2025-11-08T11:31:07.654998+00:00",
+    "referencia_proceso": "",
+    "BP": "BP26005409",
+    "urlProceso": "",
+    "descripcion_bp": "Fortalecimiento de las instituciones del subsistema nacional de voluntarios de primera respuesta en Santiago de Cali"
+  },
+  "timestamp": "2025-11-09T00:53:17.806689"
+}

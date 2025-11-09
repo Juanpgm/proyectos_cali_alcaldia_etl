@@ -1,0 +1,22 @@
+{
+  "collection_path": "users",
+  "doc_id": "JGIfLJEgfXXIN5Je8UGN5xwUIYv2",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Vivienda Social y Hábitat",
+    "uid": "JGIfLJEgfXXIN5Je8UGN5xwUIYv2",
+    "created_at": "2025-10-10T22:02:32.394721+00:00",
+    "cellphone": "+573156609848",
+    "fullname": "Melisa Oliveros",
+    "is_active": true,
+    "auth_providers": [
+      "password"
+    ],
+    "login_count": 0,
+    "email": "melissaoo9410@gmail.com",
+    "updated_at": "2025-10-10T22:02:32.394728+00:00",
+    "last_login": null,
+    "email_verified": false,
+    "can_use_google_auth": false
+  },
+  "timestamp": "2025-11-09T02:01:01.348388"
+}

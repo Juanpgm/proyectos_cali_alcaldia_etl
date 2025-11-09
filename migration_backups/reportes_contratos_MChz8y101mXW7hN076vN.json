@@ -1,0 +1,49 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "MChz8y101mXW7hN076vN",
+  "data": {
+    "observaciones": "CALI 3:\r\nEl avance reportado es del 0.84%.\r\nSe validan las actividades de demolición de pisos y desmonte. Es importante formalizar en actas el recibido de equipos y materiales de oficina y la gestión del permiso del Ministerio de Cultura, si aplica, para el inicio de las intervenciones. Presenta un avance del 5.01%. Se continua en el avance del refuerzo a la cubierta, instalación de canales de aguas lluvias y montaje de teja UPVC\r\nContinuan actividades preliminares de desmonte de luminarias, aparatos sanitarios, marcos de puertas, entre otros elementos y actividades de demolicion en general.\r\nCALI 17: CALI 9: Continuan actividades avanzando conforme a el cronograma",
+    "fecha_reporte": "2025-11-04T21:50:41.843936+00:00",
+    "nombre_centro_gestor": "",
+    "referencia_contrato": "4173.010.26.1.1277-2025",
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/1nUmogFcSe7HCXknfD7hzAtGqsInM_MGg",
+    "archivos_evidencia": [
+      {
+        "type": "application/pdf",
+        "size": 211995,
+        "download_url": "https://drive.google.com/uc?id=1z8bta_4qz5w0x6VzPnFW3JVkwypDXPDm",
+        "url": "https://drive.google.com/file/d/1z8bta_4qz5w0x6VzPnFW3JVkwypDXPDm/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1z8bta_4qz5w0x6VzPnFW3JVkwypDXPDm",
+        "name": "1. Informe Ejecutivo Semanal No 8-2_compressed.pdf"
+      },
+      {
+        "type": "image/png",
+        "size": 4190143,
+        "download_url": "https://drive.google.com/uc?id=142nm9oXd6qvTHOCd6LwNBqvDDPTodcvE",
+        "url": "https://drive.google.com/file/d/142nm9oXd6qvTHOCd6LwNBqvDDPTodcvE/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "142nm9oXd6qvTHOCd6LwNBqvDDPTodcvE",
+        "name": "Captura de pantalla 2025-11-04 a las 4.48.57 p. m..png"
+      },
+      {
+        "type": "image/png",
+        "size": 1908250,
+        "download_url": "https://drive.google.com/uc?id=1K4oOsCkZftlqpXXap_S_X6WevG9ubmT1",
+        "url": "https://drive.google.com/file/d/1K4oOsCkZftlqpXXap_S_X6WevG9ubmT1/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1K4oOsCkZftlqpXXap_S_X6WevG9ubmT1",
+        "name": "Captura de pantalla 2025-11-04 a las 4.49.39 p. m..png"
+      }
+    ],
+    "avance_fisico": 6.03,
+    "avance_financiero": 6.03,
+    "alertas": {
+      "es_alerta": false,
+      "descripcion": "",
+      "tipos": []
+    },
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:41:03.999423"
+}

@@ -1,0 +1,23 @@
+{
+  "collection_path": "proyecciones_emprestito",
+  "doc_id": "NHf1a15Q0IqSDZDkcL77",
+  "data": {
+    "nombre_banco": "Bancolombia",
+    "nombre_organismo_reducido": "DATIC",
+    "ultima_actualizacion": "2025-11-08T11:31:07.625186+00:00",
+    "item": "27",
+    "nombre_resumido_proceso": "Contrato 16: Interventoria Modernización e Instalación de Zonas WiFi en el Distrito de Santiago de Cali",
+    "fuente": "google_sheets",
+    "fecha_carga": "2025-11-08T11:31:04.563890",
+    "valor_proyectado": 0,
+    "nombre_generico_proyecto": "Internet gratuito en parques",
+    "fila_origen": 27,
+    "id_paa": "19012",
+    "fecha_guardado": "2025-11-08T11:31:07.625186+00:00",
+    "referencia_proceso": "",
+    "BP": "BP26005264",
+    "urlProceso": "Publicado 30 oct",
+    "descripcion_bp": "Fortalecimiento del servicio de internet gratuito en parques y zonas públicas del distrito"
+  },
+  "timestamp": "2025-11-09T00:52:47.625555"
+}

@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1051",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Carrera 8 Con Calle 31",
+    "has_geometry": true,
+    "bpin": "2021760010260",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.156227",
+    "has_valid_geometry": true,
+    "upid": "UNP-1051",
+    "nombre_up_detalle": "Via Arteria Principal",
+    "nombre_up": "Carrera 8 Con Calle 31",
+    "comuna_corregimiento": "COMUNA 08",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.51488165299997, 3.453653227000075, 0.0], [-76.51470261599997, 3.4537036020000755, 0.0]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Industrial",
+    "cantidad": 20,
+    "loaded_at": "2025-11-04T20:23:09.156231",
+    "presupuesto_base": 7102161.92
+  },
+  "timestamp": "2025-11-09T01:43:20.757629"
+}

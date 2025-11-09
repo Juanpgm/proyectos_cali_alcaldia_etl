@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1045",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Avenida 6Ta Norte Entre Calle 70 Y 28",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.154102",
+    "has_valid_geometry": true,
+    "upid": "UNP-1045",
+    "nombre_up_detalle": "Via Arteria Principal",
+    "nombre_up": "Avenida 6Ta Norte Entre Calle 70 Y 35",
+    "comuna_corregimiento": "COMUNA 02",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"GeometryCollection\", \"geometries\": [{\"type\": \"LineString\", \"coordinates\": [[-76.52293858299998, 3.4947522970000477, 0.0], [-76.52367138099999, 3.4928880460000755, 0.0], [-76.52386000999996, 3.4908962800000722, 0.0], [-76.52565920699999, 3.4878138920000765, 0.0], [-76.52566129601605, 3.4877834742670526, 0.0]]}, {\"type\": \"MultiLineString\", \"coordinates\": [[[-76.52571800169626, 3.4851786684285306, 0.0], [-76.52547725592238, 3.4832802568119607, 0.0]], [[-76.52521239687026, 3.482534141957399, 0.0], [-76.52462567199996, 3.481587252000054, 0.0], [-76.52477988631648, 3.4811287123778762, 0.0]]]}, {\"type\": \"LineString\", \"coordinates\": [[-76.52566129601605, 3.4877834742670526, 0.0], [-76.52579726299996, 3.4858036870000433, 0.0], [-76.52571800169626, 3.4851786684285306, 0.0]]}, {\"type\": \"LineString\", \"coordinates\": [[-76.52477988631648, 3.4811287123778762, 0.0], [-76.52538461799998, 3.479330608000055, 0.0], [-76.52543122297266, 3.4792333707593897, 0.0]]}, {\"type\": \"LineString\", \"coordinates\": [[-76.52547725592238, 3.4832802568119607, 0.0], [-76.52542644499994, 3.4828795850000347, 0.0], [-76.52521239687026, 3.482534141957399, 0.0]]}, {\"type\": \"LineString\", \"coordinates\": [[-76.52543122297266, 3.4792333707593897, 0.0], [-76.52621568099994, 3.477596667000057, 0.0], [-76.52664528199995, 3.4759505230000514, 0.0], [-76.52645009099996, 3.4748252900000693, 0.0], [-76.52637009424002, 3.474056619730117, 0.0]]}, {\"type\": \"LineString\", \"coordinates\": [[-76.52637009424002, 3.474056619730117, 0.0], [-76.52628557499997, 3.4732444940000278, 0.0]]}]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Menga",
+    "cantidad": 2269,
+    "loaded_at": "2025-11-04T20:23:09.154108",
+    "presupuesto_base": 5640679040.08
+  },
+  "timestamp": "2025-11-09T01:43:14.438725"
+}

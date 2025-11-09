@@ -1,0 +1,30 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1206",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Cii 3 Entre Cra 56 Hasta Cra 53",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.937117",
+    "has_valid_geometry": true,
+    "upid": "UNP-1206",
+    "comuna_corregimiento": "COMUNA 19",
+    "nombre_up": "Cii 3 Entre Cra 56 Hasta Cra 53",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"MultiLineString\", \"coordinates\": [[[-76.54923256243279, 3.4142005663031227, 0.0], [-76.54932086956245, 3.413450716077705, 0.0], [-76.54938048022495, 3.412631299694794, 0.0], [-76.54945649991748, 3.4117274828371364, 0.0], [-76.54953380564058, 3.410729962018195, 0.0], [-76.5495702830421, 3.410292944563764, 0.0], [-76.54958104801109, 3.410168982610996, 0.0]], [[-76.54958104801109, 3.410168982610996, 0.0], [-76.54965551718834, 3.4093114469657744, 0.0]]]}",
+    "identificador": "Puntos Estrategicos",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "U. D. A. Galindo Plaza de Toros",
+    "cantidad": 542,
+    "loaded_at": "2025-11-04T20:23:09.937122",
+    "presupuesto_base": 1052334286.0
+  },
+  "timestamp": "2025-11-09T01:45:51.459796"
+}

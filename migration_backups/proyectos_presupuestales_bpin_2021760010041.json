@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2021760010041",
+  "data": {
+    "nombre_centro_gestor": "Departamento Administrativo de Gestión del Medio Ambiente ",
+    "cod_producto": 3202012,
+    "nombre_area_funcional": "Ecoparque Pance incluido en la estructura ecológica distrital y adecuado ambiental y paisajísticamente",
+    "nombre_fondo": "Recursos de crédito interno",
+    "nombre_programa": "Conservación de las Cuencas Hidrográficas ",
+    "nombre_dimension": "Cali, Nuestra Casa Común",
+    "tipo_gasto": "Inversión",
+    "bpin": 2021760010041,
+    "created_at": "2025-10-10T09:27:20.193830+00:00",
+    "nombre_actividad": "Construir infraestructura, senderos, puentes, cerramientos y demás instalaciones requeridos para la adecuación del Ecoparque Corazón de Pance",
+    "updated_at": "2025-10-10T09:27:20.193830+00:00",
+    "programa_presupuestal": "BP260036421010201",
+    "nombre_pospre": "Otras obras de ingeniería civil",
+    "anio": 2024,
+    "nombre_proyecto": "IMPLEMENTACIÓN DE ACCIONES PARA LA RECUPERACIÓN DE LOS SERVICIOS AMBIENTALES EN EL ECOPARQUE CORAZÓN DE PANCE DE SANTIAGO DE CALI",
+    "clasificacion_fondo": "Recursos del Crédito",
+    "cod_sector": 32,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Fortalecimiento y Gestión de los Socioecosistemas",
+    "validador_cuipo": null,
+    "bp": "BP26003642"
+  },
+  "timestamp": "2025-11-09T01:09:33.876599"
+}

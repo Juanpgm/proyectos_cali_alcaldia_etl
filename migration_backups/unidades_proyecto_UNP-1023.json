@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1023",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Carrera 31 Entre Calles 14 Y 14C",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.144252",
+    "has_valid_geometry": true,
+    "upid": "UNP-1023",
+    "nombre_up_detalle": "Via Local",
+    "nombre_up": "Carrera 31 Entre Calles 14 Y 14C",
+    "comuna_corregimiento": "COMUNA 10",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.52762002799994, 3.4264379740000663, 0.0], [-76.52688658599999, 3.426486690000047, 0.0]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Cristóbal Colón",
+    "cantidad": 7,
+    "loaded_at": "2025-11-04T20:23:09.144257",
+    "presupuesto_base": 5277952.52
+  },
+  "timestamp": "2025-11-09T01:42:53.307772"
+}

@@ -1,0 +1,30 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1180",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Carrera 35 Entre Calle 25 Y 26",
+    "has_geometry": true,
+    "bpin": "2021760010260",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.926409",
+    "has_valid_geometry": true,
+    "upid": "UNP-1180",
+    "comuna_corregimiento": "COMUNA 11",
+    "nombre_up": "Carrera 35 Entre Calle 25 Y Calle 26",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.52012899999994, 3.421619000000021, 0.0], [-76.52066599999995, 3.4216860000000224, 0.0]]}",
+    "identificador": "Presupuesto Participativo Urbano",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Presupuesto Participativo",
+    "barrio_vereda": "Urbanización Boyaca",
+    "cantidad": 63,
+    "loaded_at": "2025-11-04T20:23:09.926415",
+    "presupuesto_base": 90926038.0
+  },
+  "timestamp": "2025-11-09T01:45:26.010404"
+}

@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2022760010215",
+  "data": {
+    "nombre_centro_gestor": "Unidad Administrativa Especial de Servicios Públicos",
+    "cod_producto": 4003042,
+    "nombre_area_funcional": "Plantas de Tratamiento de Agua Residual Doméstica (PTARD) mejoradas en la zona rural",
+    "nombre_fondo": "Ingresos Corrientes de Libre Destinación",
+    "nombre_programa": "Saneamiento Básico y Tratamiento de Aguas Residuales ",
+    "nombre_dimension": "Cali, Nuestra Casa Común",
+    "tipo_gasto": "Inversión",
+    "bpin": 2022760010215,
+    "created_at": "2025-10-10T09:30:41.687200+00:00",
+    "nombre_actividad": "Realizar interventoría a las obras de mejoramiento PTARD y/o Alcantarillado en la zona rural de Cali",
+    "updated_at": "2025-10-10T09:30:41.687200+00:00",
+    "programa_presupuestal": "BP260043201010214",
+    "nombre_pospre": "Alcantarillas y plantas de tratamiento de agua",
+    "anio": 2024,
+    "nombre_proyecto": "Fortalecimiento de la infraestructura de los sistemas de saneamiento básico en la zona rural de Santiago de Cali",
+    "clasificacion_fondo": "Libre destinación (Recursos Propios)",
+    "cod_sector": 40,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Soporte Vital para el Desarrollo",
+    "validador_cuipo": null,
+    "bp": "BP26004320"
+  },
+  "timestamp": "2025-11-09T01:29:18.704078"
+}

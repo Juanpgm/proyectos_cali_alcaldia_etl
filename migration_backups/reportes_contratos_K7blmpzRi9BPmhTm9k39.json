@@ -1,0 +1,31 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "K7blmpzRi9BPmhTm9k39",
+  "data": {
+    "fecha_reporte": "2025-10-22T15:29:00.857572+00:00",
+    "observaciones": "",
+    "nombre_centro_gestor": "",
+    "avance_fisico": 2.5,
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/1ZO6T1qdRRcJfm0IZsCazosWD6Pk2Ofym",
+    "archivos_evidencia": [
+      {
+        "type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "size": 13393,
+        "download_url": "https://drive.google.com/uc?id=1hJSzWoBgCYBl_0sHElu63YkIuW5GDW-U",
+        "url": "https://docs.google.com/document/d/1hJSzWoBgCYBl_0sHElu63YkIuW5GDW-U/edit?usp=drivesdk&ouid=107631050282737776825&rtpof=true&sd=true",
+        "drive_id": "1hJSzWoBgCYBl_0sHElu63YkIuW5GDW-U",
+        "status": "uploaded_successfully",
+        "name": "Blanco.docx"
+      }
+    ],
+    "referencia_contrato": "4151.010.26.1.0837-2025",
+    "avance_financiero": 0.0,
+    "alertas": {
+      "descripcion": "",
+      "es_alerta": false,
+      "tipos": []
+    },
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:40:57.818164"
+}

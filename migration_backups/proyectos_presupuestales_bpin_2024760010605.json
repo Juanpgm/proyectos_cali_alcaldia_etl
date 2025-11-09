@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010605",
+  "data": {
+    "nombre_centro_gestor": "Unidad Administrativa Especial de Servicios Públicos",
+    "cod_producto": null,
+    "nombre_area_funcional": "Estudios y diseños elaborados para la planeación de los servicios de acueducto y alcantarillado",
+    "nombre_fondo": "CUR 051/17 EMCALI SSF",
+    "nombre_programa": "Planificación para el desarrollo",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010605,
+    "created_at": "2025-10-10T09:26:40.889140+00:00",
+    "nombre_actividad": "Realizar el diagnóstico de los sistemas de acueducto y alcantarillado",
+    "updated_at": "2025-10-10T09:26:40.889140+00:00",
+    "programa_presupuestal": 6201004,
+    "nombre_pospre": "Alcantarillas y plantas de tratamiento de agua",
+    "anio": 2025,
+    "nombre_proyecto": "Formulación del Plan Maestro de Acueducto y Alcantarillado de EMCALI en Santiago de Cali",
+    "clasificacion_fondo": "Otros Recursos con Destinación Especifica",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": null,
+    "validador_cuipo": null,
+    "bp": "BP26005882"
+  },
+  "timestamp": "2025-11-09T01:40:16.422018"
+}

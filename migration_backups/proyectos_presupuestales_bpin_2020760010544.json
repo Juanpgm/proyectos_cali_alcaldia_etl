@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010544",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Cultura",
+    "cod_producto": 3301052,
+    "nombre_area_funcional": "Artistas, gestores y creadores culturales certificados en sus prácticas artísticas y culturales",
+    "nombre_fondo": "Estampilla procultura ",
+    "nombre_programa": "Ecosistema Artístico ",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010544,
+    "created_at": "2025-10-10T09:28:52.331507+00:00",
+    "nombre_actividad": "Realizar la certificación de artistas, gestores y creadores culturales en  Santiago de Cali",
+    "updated_at": "2025-10-10T09:28:52.331507+00:00",
+    "programa_presupuestal": "BP260027471010104",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "APOYO A LOS PROCESOS DE CERTIFICACIÓN DE ARTISTAS, GESTORES Y CREADORES CULTURALES DE SANTIAGO DE CALI",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 33,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Cali Corazón de las Culturas",
+    "validador_cuipo": null,
+    "bp": "BP26002747"
+  },
+  "timestamp": "2025-11-09T01:07:30.982368"
+}

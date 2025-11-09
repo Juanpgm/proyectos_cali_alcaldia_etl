@@ -1,0 +1,23 @@
+{
+  "collection_path": "proyecciones_emprestito",
+  "doc_id": "Z8RZ1CfRRz3IjWtNNQIe",
+  "data": {
+    "nombre_banco": "DAVIVIENDA",
+    "nombre_organismo_reducido": "Participación",
+    "ultima_actualizacion": "2025-11-08T11:31:07.651326+00:00",
+    "item": "114",
+    "nombre_resumido_proceso": "Contrato 7: Mixto",
+    "fuente": "google_sheets",
+    "fecha_carga": "2025-11-08T11:31:04.578126",
+    "valor_proyectado": 0,
+    "nombre_generico_proyecto": "Mantemiento de los Calis",
+    "fila_origen": 114,
+    "id_paa": "VIGENCIA 2026",
+    "fecha_guardado": "2025-11-08T11:31:07.651326+00:00",
+    "referencia_proceso": "",
+    "BP": "BP26005393",
+    "urlProceso": "",
+    "descripcion_bp": "Mantenimiento de la Infraestructura Física de los CALIS que prestan servicios y atención a los ciudadanos en Santiago de Cali."
+  },
+  "timestamp": "2025-11-09T00:53:06.403749"
+}

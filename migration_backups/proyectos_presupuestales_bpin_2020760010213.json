@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010213",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Bienestar Social",
+    "cod_producto": 4102046,
+    "nombre_area_funcional": "Personas participando de estrategias de promoción de los derechos y prevención de sus vulneraciones",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Promoción, Prevención y Garantías de los Derechos de los Niños, Niñas, Adolescentes y Familias ",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010213,
+    "created_at": "2025-10-10T09:28:01.722023+00:00",
+    "nombre_actividad": "Realizar formación y acompañamiento para la promoción de derechos y la participación de los NNA en los consejos consultivos de NNA.",
+    "updated_at": "2025-10-10T09:28:01.722023+00:00",
+    "programa_presupuestal": "BP260026131020105",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "Fortalecimiento a la promoción de Derechos, prevención de vulneraciones y de la alta permanencia en calle de  los niños,niñas y adolescentes en el marco de la  implementación de la política publica  de primera infancia y adolescencia en Santiago de  Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 41,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Poblaciones Construyendo Territorio",
+    "validador_cuipo": null,
+    "bp": "BP26002613"
+  },
+  "timestamp": "2025-11-09T01:06:14.700241"
+}

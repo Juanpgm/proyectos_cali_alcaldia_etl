@@ -1,0 +1,23 @@
+{
+  "collection_path": "proyecciones_emprestito",
+  "doc_id": "Y8XXQa29us9U79ND8Zz9",
+  "data": {
+    "nombre_banco": "DAVIVIENDA-Otro Si",
+    "nombre_organismo_reducido": "cultura",
+    "ultima_actualizacion": "2025-11-08T11:31:07.652830+00:00",
+    "item": "122",
+    "nombre_resumido_proceso": "Contrato 1: Parque Pacífico",
+    "fuente": "google_sheets",
+    "fecha_carga": "2025-11-08T11:31:04.578126",
+    "valor_proyectado": 0,
+    "nombre_generico_proyecto": "Parque pacífico/ cocinas",
+    "fila_origen": 122,
+    "id_paa": "VIGENCIA 2026",
+    "fecha_guardado": "2025-11-08T11:31:07.652830+00:00",
+    "referencia_proceso": "",
+    "BP": "BP26004728",
+    "urlProceso": "",
+    "descripcion_bp": "Implementación del parque de las cocinas, bebidas tradicionales y artesanías del pacífico “parque pacífico” de Santiago de Cali"
+  },
+  "timestamp": "2025-11-09T00:53:04.395251"
+}

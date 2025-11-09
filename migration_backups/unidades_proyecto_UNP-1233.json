@@ -1,0 +1,30 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1233",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Carrera 4 Entre Calles 1 Hasta Calle 3",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:10.782173",
+    "has_valid_geometry": true,
+    "upid": "UNP-1233",
+    "comuna_corregimiento": "COMUNA 03",
+    "nombre_up": "Carrera 4 Entre Calles 1 Hasta Calle 3",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"MultiLineString\", \"coordinates\": [[[-76.54172006980086, 3.4491693580881573, 0.0], [-76.54071659647016, 3.448902318068382, 0.0], [-76.54026287683351, 3.4489651576490203, 0.0], [-76.53966201372357, 3.448999767803306, 0.0]], [[-76.53966201372357, 3.448999767803306, 0.0], [-76.53951014018077, 3.449008515830371, 0.0], [-76.53939521761515, 3.4489988292326084, 0.0], [-76.53932780713257, 3.4489968741065136, 0.0], [-76.5392823338126, 3.4489939279274595, 0.0], [-76.53914514763039, 3.4489989722248438, 0.0], [-76.53887926216817, 3.4490425084051157, 0.0], [-76.53882522910101, 3.449043450894578, 0.0]]]}",
+    "identificador": "Puntos Estrategicos",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "El Peñón",
+    "cantidad": 326,
+    "loaded_at": "2025-11-04T20:23:10.782179",
+    "presupuesto_base": 399107522.0
+  },
+  "timestamp": "2025-11-09T01:46:17.751147"
+}

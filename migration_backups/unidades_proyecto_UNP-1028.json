@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1028",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Avenida 4 Oeste Entre Carrera 1 Y Avenida 2 Oeste Puente Santa Rita",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.146904",
+    "has_valid_geometry": true,
+    "upid": "UNP-1028",
+    "nombre_up_detalle": "Via Arteria Principal",
+    "nombre_up": "Avenida 4 Oeste Entre Carrera 1 Y Avenida 2 Oeste Puente Santa Rita",
+    "comuna_corregimiento": "COMUNA 02",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"MultiLineString\", \"coordinates\": [[[-76.54927324199997, 3.453153845000031, 0.0], [-76.54900568869297, 3.452839924476604, 0.0]], [[-76.54900568869297, 3.452839924476604, 0.0], [-76.54886806799993, 3.452678454000022, 0.0]]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Santa Rita",
+    "cantidad": 8,
+    "loaded_at": "2025-11-04T20:23:09.146912",
+    "presupuesto_base": 12817884.68
+  },
+  "timestamp": "2025-11-09T01:42:57.708941"
+}

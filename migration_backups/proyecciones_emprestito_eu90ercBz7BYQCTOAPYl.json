@@ -1,0 +1,23 @@
+{
+  "collection_path": "proyecciones_emprestito",
+  "doc_id": "eu90ercBz7BYQCTOAPYl",
+  "data": {
+    "nombre_banco": "Bancolombia",
+    "nombre_organismo_reducido": "Vivienda",
+    "ultima_actualizacion": "2025-11-08T11:31:07.638235+00:00",
+    "item": "60",
+    "nombre_resumido_proceso": "Contrato 6. Compra Predios Cristo Rey",
+    "fuente": "google_sheets",
+    "fecha_carga": "2025-11-08T11:31:04.571650",
+    "valor_proyectado": 0,
+    "nombre_generico_proyecto": "Subsidios para vivienda",
+    "fila_origen": 60,
+    "id_paa": "18957",
+    "fecha_guardado": "2025-11-08T11:31:07.638235+00:00",
+    "referencia_proceso": "",
+    "BP": "BP26005429",
+    "urlProceso": "",
+    "descripcion_bp": "Fortalecimiento de la oferta habitacional"
+  },
+  "timestamp": "2025-11-09T00:53:21.130778"
+}

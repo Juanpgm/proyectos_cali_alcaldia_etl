@@ -1,0 +1,23 @@
+{
+  "collection_path": "proyecciones_emprestito",
+  "doc_id": "i4rYYpNCGXMHnjRklnQX",
+  "data": {
+    "nombre_banco": "Bancolombia",
+    "nombre_organismo_reducido": "Deportes",
+    "ultima_actualizacion": "2025-11-08T11:31:07.627703+00:00",
+    "item": "31",
+    "nombre_resumido_proceso": "Contrato 2 Interventoría del contrato 1",
+    "fuente": "google_sheets",
+    "fecha_carga": "2025-11-08T11:31:04.565257",
+    "valor_proyectado": 0,
+    "nombre_generico_proyecto": "Adecuación y mantenimiento de escenarios deportivos",
+    "fila_origen": 31,
+    "id_paa": "18998",
+    "fecha_guardado": "2025-11-08T11:31:07.627703+00:00",
+    "referencia_proceso": "4162.010.32.1.1299-2025",
+    "BP": "BP26005399",
+    "urlProceso": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.8455068",
+    "descripcion_bp": "Conservacion de la infraestructura deportiva y recreativa del distrito especial de Santiago de Cali"
+  },
+  "timestamp": "2025-11-09T00:53:26.430622"
+}

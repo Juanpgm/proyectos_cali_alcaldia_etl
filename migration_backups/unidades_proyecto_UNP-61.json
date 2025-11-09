@@ -1,0 +1,52 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-61",
+  "data": {
+    "created_at": "2025-11-05T11:34:33.297916",
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -76.472095,
+        3.409181
+      ]
+    },
+    "has_geometry": true,
+    "geometry_type": "Point",
+    "properties": {
+      "processed_timestamp": "2025-11-05T11:34:28.210236",
+      "descripcion_intervencion": null,
+      "microtio": null,
+      "bpin": "-2147483648",
+      "centros_gravedad": false,
+      "upid": "UNP-61",
+      "nombre_up_detalle": "POTRERO GRANDE",
+      "tipo_intervencion": "Adecuaciones y mantenimientos",
+      "url_proceso": "Pendiente",
+      "referencia_contrato": "4146.010.26.1.1154.2024",
+      "unidad": "UND",
+      "identificador": "Mantenimiento Correctivo UTS",
+      "tipo_equipamiento": "UTS",
+      "fecha_fin": "2025-06-10",
+      "estado": "Finalizado",
+      "fecha_inicio": "2024-11-13",
+      "plataforma": "SECOP II",
+      "nombre_centro_gestor": "Secretaría de Bienestar Social",
+      "avance_obra": "100.0",
+      "geometry_bounds": null,
+      "direccion": "Calle 121 B #28 b-05 - Potrero Grande",
+      "ano": "2025",
+      "geometry_type": null,
+      "dataframe": "UTS 2025.xlsx",
+      "comuna_corregimiento": "COMUNA 21",
+      "nombre_up": "UTS POTRERO GRANDE",
+      "referencia_proceso": "4146.010.32.1.1158.2024",
+      "fuente_financiacion": "Recursos propios",
+      "cantidad": "1",
+      "barrio_vereda": "Potrero Grande",
+      "presupuesto_base": "317272309"
+    },
+    "updated_at": "2025-11-05T11:34:33.297916"
+  },
+  "timestamp": "2025-11-09T01:54:29.884622"
+}

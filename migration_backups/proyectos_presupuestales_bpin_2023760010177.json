@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2023760010177",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Cultura",
+    "cod_producto": null,
+    "nombre_area_funcional": "\nCreadores y gestores culturales beneficiados con seguridad social en el marco de la ley 666 de 2001 y decretos reglamentarios",
+    "nombre_fondo": "Estampilla procultura Ley 397/97 (seguridad social de los gestores culturales 10%)",
+    "nombre_programa": "Cali Distrito Deportivo, Cultural y Turístico",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2023760010177,
+    "created_at": "2025-10-10T09:24:41.116009+00:00",
+    "nombre_actividad": "Apoyar con recursos económicos a los creadores y gestores culturales, beneficiados con servicio social complementario de BEPS en la Modalidad Anualidad Vitalicia.",
+    "updated_at": "2025-10-10T09:24:41.116009+00:00",
+    "programa_presupuestal": 6102003,
+    "nombre_pospre": "Transferencia a Colpensiones para administración beneficios económicos periódicos (de pensiones)",
+    "anio": 2025,
+    "nombre_proyecto": "Aportes para la vinculación al programa de beneficios económicos periódicos -BEPS- para los creadores y gestores culturales de Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios con Destinacion Especifica",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": null,
+    "validador_cuipo": null,
+    "bp": "BP26004733"
+  },
+  "timestamp": "2025-11-09T01:31:38.091641"
+}

@@ -1,0 +1,30 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1217",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Carrera 6 Entre Calles 10 Hasta 11",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:10.775001",
+    "has_valid_geometry": true,
+    "upid": "UNP-1217",
+    "comuna_corregimiento": "COMUNA 03",
+    "nombre_up": "Carrera 6 Entre Calles 10 Hasta 11",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.53319671070965, 3.450093908562861, 0.0], [-76.53250331810695, 3.450390689308874, 0.0]]}",
+    "identificador": "Puntos Estrategicos",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "San Pedro",
+    "cantidad": 83,
+    "loaded_at": "2025-11-04T20:23:10.775009",
+    "presupuesto_base": 159954811.0
+  },
+  "timestamp": "2025-11-09T01:46:01.987411"
+}

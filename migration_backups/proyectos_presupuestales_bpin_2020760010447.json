@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010447",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Cultura",
+    "cod_producto": null,
+    "nombre_area_funcional": "Eventos de promoción de la cultura a nivel local, distrital e internacional realizados",
+    "nombre_fondo": "Ingresos Corrientes de Libre Destinación",
+    "nombre_programa": "Cali Distrito Deportivo, Cultural y Turístico",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010447,
+    "created_at": "2025-10-10T09:24:42.626092+00:00",
+    "nombre_actividad": "Realizar encuentro artístico para recuperar la identidad y vocación cultural de la comuna 12",
+    "updated_at": "2025-10-10T09:24:42.626092+00:00",
+    "programa_presupuestal": 6102003,
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2025,
+    "nombre_proyecto": "RECUPERACIÓN   DE ESPACIOS  ARTISTICOS Y CULTURALES EN LA COMUNA 12 DE SANTIAGO DE CALI",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "COMUNA 12",
+    "origen": "Territorio",
+    "nombre_linea_estrategica": null,
+    "validador_cuipo": null,
+    "bp": "BP26003214"
+  },
+  "timestamp": "2025-11-09T01:07:05.520132"
+}

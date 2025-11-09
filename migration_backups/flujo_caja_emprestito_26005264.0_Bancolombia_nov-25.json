@@ -1,0 +1,19 @@
+{
+  "collection_path": "flujo_caja_emprestito",
+  "doc_id": "26005264.0_Bancolombia_nov-25",
+  "data": {
+    "banco": "Bancolombia",
+    "desembolso": 11959902.0,
+    "id_registro": "26005264.0_Bancolombia_nov-25",
+    "mes": "nov-25",
+    "columna_origen": "nov-25 Desembolso",
+    "bp_proyecto": "26005264.0",
+    "responsable": "Esperanza Ramos",
+    "fecha_procesamiento": "2025-10-20T11:50:33.074216",
+    "periodo": "2025-11-01T00:00:00",
+    "archivo_origen": "Matriz Emprestito.xlsx",
+    "organismo": "DATIC",
+    "descripcion_bp": "Fortalecimiento del servicio de internet gratuito en parques y zonas públicas del distrito de Santaigo de Cali"
+  },
+  "timestamp": "2025-11-09T00:48:24.104260"
+}

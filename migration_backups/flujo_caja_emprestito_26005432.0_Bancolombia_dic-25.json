@@ -1,0 +1,19 @@
+{
+  "collection_path": "flujo_caja_emprestito",
+  "doc_id": "26005432.0_Bancolombia_dic-25",
+  "data": {
+    "desembolso": 24071146.35,
+    "banco": "Bancolombia",
+    "id_registro": "26005432.0_Bancolombia_dic-25",
+    "mes": "dic-25",
+    "columna_origen": "dic-25 Desembolso",
+    "bp_proyecto": "26005432.0",
+    "responsable": "Esperanza Ramos",
+    "fecha_procesamiento": "2025-10-20T11:50:33.075240",
+    "periodo": "2025-12-01T00:00:00",
+    "archivo_origen": "Matriz Emprestito.xlsx",
+    "organismo": "Bienestar Social",
+    "descripcion_bp": "Fortalecimiento de espacios territoriales con enfoque de género y diferencial dirigidos a mujeres en Santiago de Cali"
+  },
+  "timestamp": "2025-11-09T00:49:18.527422"
+}

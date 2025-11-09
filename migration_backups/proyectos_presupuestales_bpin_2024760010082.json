@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010082",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Salud Pública",
+    "cod_producto": null,
+    "nombre_area_funcional": "Módulos del sistema de información del sector salud interoperables, integrados y en producción",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Fortalecimiento institucional",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010082,
+    "nombre_actividad": "Administrar la infraestructura tecnológica para asegurar la continuidad del negocio.",
+    "created_at": "2025-10-10T09:33:04.396138+00:00",
+    "updated_at": "2025-10-10T09:33:04.396138+00:00",
+    "programa_presupuestal": 6302001,
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2025,
+    "nombre_proyecto": "Fortalecimiento de la infraestructura de las Tecnologías de la Información y las Comunicaciones -TIC- en la Secretaria de Salud de Santiago de   Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "bp": "BP26005481",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T01:33:12.364252"
+}

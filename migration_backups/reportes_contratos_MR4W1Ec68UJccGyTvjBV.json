@@ -1,0 +1,31 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "MR4W1Ec68UJccGyTvjBV",
+  "data": {
+    "nombre_centro_gestor": "",
+    "observaciones": "",
+    "fecha_reporte": "2025-10-30T23:23:38.740232+00:00",
+    "referencia_contrato": "152486",
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/1emBM1DUrd8lsgXOiZbxEsxkySiS2u_Ee",
+    "archivos_evidencia": [
+      {
+        "type": "application/pdf",
+        "size": 1728166,
+        "download_url": "https://drive.google.com/uc?id=1oXltBhGQ73fATV5697ZpLRxP6SctKoVo",
+        "url": "https://drive.google.com/file/d/1oXltBhGQ73fATV5697ZpLRxP6SctKoVo/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1oXltBhGQ73fATV5697ZpLRxP6SctKoVo",
+        "name": "Orden de compra 152486.pdf"
+      }
+    ],
+    "avance_fisico": 0.0,
+    "alertas": {
+      "descripcion": "",
+      "es_alerta": false,
+      "tipos": []
+    },
+    "avance_financiero": 0.0,
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:41:04.907209"
+}

@@ -1,0 +1,23 @@
+{
+  "collection_path": "proyecciones_emprestito",
+  "doc_id": "BSWh8ouYA1iA5E9xb1y2",
+  "data": {
+    "nombre_banco": "DAVIVIENDA",
+    "nombre_organismo_reducido": "Educación",
+    "ultima_actualizacion": "2025-11-08T11:31:07.648819+00:00",
+    "item": "103",
+    "nombre_resumido_proceso": "BECAS",
+    "fuente": "google_sheets",
+    "fecha_carga": "2025-11-08T11:31:04.575751",
+    "valor_proyectado": 0,
+    "nombre_generico_proyecto": "Mi Cali Beca educación Superior",
+    "fila_origen": 103,
+    "id_paa": "",
+    "fecha_guardado": "2025-11-08T11:31:07.648819+00:00",
+    "referencia_proceso": "",
+    "BP": "BP26005788",
+    "urlProceso": "",
+    "descripcion_bp": "Fortalecimiento de la infraestructura física de las sedes Educativas de Santaigo de Cali"
+  },
+  "timestamp": "2025-11-09T00:52:33.661776"
+}

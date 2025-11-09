@@ -1,0 +1,23 @@
+{
+  "collection_path": "proyecciones_emprestito",
+  "doc_id": "hCL5bZvRXOlvYeV7wZLg",
+  "data": {
+    "nombre_banco": "Bancolombia",
+    "nombre_organismo_reducido": "Desarrollo Económico",
+    "ultima_actualizacion": "2025-11-08T11:31:07.629700+00:00",
+    "item": "34",
+    "nombre_resumido_proceso": "Contrato 2: Implementar herramientas tecnológicas que faciliten el acceso a rutas de apropiación digital del conocimiento en el marco del fortalecimiento del talento humano del Distrito de Santiago de Cali.",
+    "fuente": "google_sheets",
+    "fecha_carga": "2025-11-08T11:31:04.565257",
+    "valor_proyectado": 0,
+    "nombre_generico_proyecto": "Becas de habilitación Laboral",
+    "fila_origen": 34,
+    "id_paa": "18993",
+    "fecha_guardado": "2025-11-08T11:31:07.629700+00:00",
+    "referencia_proceso": "",
+    "BP": "BP26005359",
+    "urlProceso": "",
+    "descripcion_bp": "Fortalecimiento de las capacidades del ecosistema laboral para el desarrollo productivo sostenible en el distrito de Santiago de Cali) - MI CALI BECA"
+  },
+  "timestamp": "2025-11-09T00:53:25.099248"
+}

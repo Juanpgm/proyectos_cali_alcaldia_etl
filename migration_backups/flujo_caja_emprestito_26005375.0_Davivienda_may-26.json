@@ -1,0 +1,19 @@
+{
+  "collection_path": "flujo_caja_emprestito",
+  "doc_id": "26005375.0_Davivienda_may-26",
+  "data": {
+    "banco": "Davivienda",
+    "desembolso": 5912893436.0,
+    "id_registro": "26005375.0_Davivienda_may-26",
+    "mes": "may-26",
+    "columna_origen": "may-26 Desembolso",
+    "bp_proyecto": "26005375.0",
+    "responsable": "Mauricio Jimenez",
+    "fecha_procesamiento": "2025-10-20T11:50:33.093426",
+    "periodo": "2026-05-01T00:00:00",
+    "archivo_origen": "Matriz Emprestito.xlsx",
+    "organismo": "Infraestructura",
+    "descripcion_bp": "RECUPERACION DE LA INFRAESTRUCTURA VIAL DE SANTIAGO DE CALI"
+  },
+  "timestamp": "2025-11-09T00:48:45.358591"
+}

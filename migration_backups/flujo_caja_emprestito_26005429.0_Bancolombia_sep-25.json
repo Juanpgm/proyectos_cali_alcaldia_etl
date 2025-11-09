@@ -1,0 +1,19 @@
+{
+  "collection_path": "flujo_caja_emprestito",
+  "doc_id": "26005429.0_Bancolombia_sep-25",
+  "data": {
+    "banco": "Bancolombia",
+    "desembolso": 654227492.0,
+    "id_registro": "26005429.0_Bancolombia_sep-25",
+    "mes": "sep-25",
+    "fecha_procesamiento": "2025-10-20T11:50:33.069016",
+    "bp_proyecto": "26005429.0",
+    "responsable": "Mauricio Jimenez",
+    "columna_origen": "sep-25 Desembolso",
+    "periodo": "2025-09-01T00:00:00",
+    "archivo_origen": "Matriz Emprestito.xlsx",
+    "organismo": "Vivienda",
+    "descripcion_bp": "Fortalecimiento de la oferta habitacional"
+  },
+  "timestamp": "2025-11-09T00:49:15.902172"
+}

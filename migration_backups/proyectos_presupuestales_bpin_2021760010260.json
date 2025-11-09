@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2021760010260",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "cod_producto": 2402116,
+    "nombre_area_funcional": "Vías con mantenimiento y rehabilitación eco sostenible",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Mejoramiento de la Infraestructura Vial ",
+    "nombre_dimension": "Cali, Nuestra Casa Común",
+    "tipo_gasto": "Inversión",
+    "bpin": 2021760010260,
+    "created_at": "2025-10-10T09:28:58.775024+00:00",
+    "nombre_actividad": "Ejecutar obras de mantenimiento de vías en las calles de la comuna 7",
+    "updated_at": "2025-10-10T09:28:58.775024+00:00",
+    "programa_presupuestal": "BP260039701010101",
+    "nombre_pospre": "Servicios de la construcción",
+    "anio": 2024,
+    "nombre_proyecto": "Mantenimiento de vías en la comuna 7 de Santiago de   Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 24,
+    "comuna": "COMUNA 7",
+    "origen": "Territorio",
+    "nombre_linea_estrategica": "Movilidad Multimodal Sustentable",
+    "validador_cuipo": null,
+    "bp": "BP26003970"
+  },
+  "timestamp": "2025-11-09T01:27:37.393486"
+}

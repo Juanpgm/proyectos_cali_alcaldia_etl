@@ -1,0 +1,52 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-367",
+  "data": {
+    "created_at": "2025-11-05T11:34:37.536768",
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -76.488347,
+        3.436522
+      ]
+    },
+    "has_geometry": true,
+    "geometry_type": "Point",
+    "properties": {
+      "processed_timestamp": "2025-11-05T11:34:28.210236",
+      "descripcion_intervencion": null,
+      "microtio": null,
+      "bpin": "-2147483648",
+      "centros_gravedad": false,
+      "upid": "UNP-367",
+      "nombre_up_detalle": "Ejecución del proyecto Ciudadela Recreativa Pondaje y Charco Azul a través de la asignación de subsidios en especie",
+      "tipo_intervencion": "Obra nueva",
+      "url_proceso": null,
+      "referencia_contrato": null,
+      "unidad": "UND",
+      "identificador": "Ciudadela Recreativa Pondaje y Charco Azul",
+      "tipo_equipamiento": "Infraestructura recreativa",
+      "fecha_fin": "30-11-2027",
+      "estado": "En alistamiento",
+      "fecha_inicio": "31-01-2026",
+      "plataforma": null,
+      "nombre_centro_gestor": "Secretaría de Vivienda Social y Habitat",
+      "avance_obra": "0.0",
+      "geometry_bounds": null,
+      "direccion": "DIAGONAL 71A1 ENTRE CARRERA 24 Y DIAGONAL 72C",
+      "ano": "2026",
+      "geometry_type": null,
+      "dataframe": null,
+      "comuna_corregimiento": "COMUNA 13",
+      "nombre_up": "Ciudadela Recreativa Pondaje y Charco Azul ",
+      "referencia_proceso": null,
+      "fuente_financiacion": "Empréstito",
+      "cantidad": "1",
+      "barrio_vereda": "Charco Azul y El Pondaje ",
+      "presupuesto_base": "12811500000"
+    },
+    "updated_at": "2025-11-05T11:34:37.536768"
+  },
+  "timestamp": "2025-11-09T01:50:31.829390"
+}

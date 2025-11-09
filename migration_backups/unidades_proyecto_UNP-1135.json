@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1135",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Carrera 34 Entre Calle 9 Y 6",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.908200",
+    "has_valid_geometry": true,
+    "upid": "UNP-1135",
+    "nombre_up_detalle": "Via Colectora",
+    "nombre_up": "Carrera 34 Entre Calle 9 Y 6",
+    "comuna_corregimiento": "COMUNA 19",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.53751461322283, 3.4261884388423667, 0.0], [-76.53806799747163, 3.4269419587907173, 0.0]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Eucaristico",
+    "cantidad": 527,
+    "loaded_at": "2025-11-04T20:23:09.908204",
+    "presupuesto_base": 397656022.65
+  },
+  "timestamp": "2025-11-09T01:44:42.276891"
+}

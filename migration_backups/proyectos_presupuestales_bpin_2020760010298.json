@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010298",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Salud Pública",
+    "cod_producto": 1905054,
+    "nombre_area_funcional": "Personas con prácticas para el envejecimiento activo y la cultura positiva de la vejez aumentadas",
+    "nombre_fondo": "Coljuegos  25%",
+    "nombre_programa": "Personas Mayores Envejeciendo con Bienestar",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010298,
+    "created_at": "2025-10-10T09:27:54.944882+00:00",
+    "nombre_actividad": "Realizar estrategias de Información, Educación y Comunicación para la Salud (IEC) que promuevan la cultura positiva de la vejez y el envejecimiento activo en la población de Cali.",
+    "updated_at": "2025-10-10T09:27:54.944882+00:00",
+    "programa_presupuestal": "BP260030361010112",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Fortalecimiento de Prácticas Saludables que Promuevan el Envejecimiento Activo y la Cultura Positiva de la Vejez en  Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 19,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Poblaciones Construyendo Territorio",
+    "validador_cuipo": null,
+    "bp": "BP26003036"
+  },
+  "timestamp": "2025-11-09T01:06:32.205615"
+}

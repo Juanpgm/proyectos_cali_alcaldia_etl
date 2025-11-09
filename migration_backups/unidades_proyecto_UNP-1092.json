@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1092",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Calle 25 Entre Carrera 83B Y 83C",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.172201",
+    "has_valid_geometry": true,
+    "upid": "UNP-1092",
+    "nombre_up_detalle": "Via Arteria Principal",
+    "nombre_up": "Calle 25 Entre Carrera 83B Y 83C",
+    "comuna_corregimiento": "COMUNA 17",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.52472464533017, 3.3842708708720664, 0.0], [-76.52472740258037, 3.3841937276328484, 0.0]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "El Ingenio",
+    "cantidad": 2,
+    "loaded_at": "2025-11-04T20:23:09.172205",
+    "presupuesto_base": 710216.19
+  },
+  "timestamp": "2025-11-09T01:44:00.190039"
+}

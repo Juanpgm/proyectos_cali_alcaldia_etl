@@ -1,0 +1,19 @@
+{
+  "collection_path": "flujo_caja_emprestito",
+  "doc_id": "26005399.0_BBVA_may-26",
+  "data": {
+    "banco": "BBVA",
+    "desembolso": 94844156.0,
+    "id_registro": "26005399.0_BBVA_may-26",
+    "mes": "may-26",
+    "columna_origen": "may-26 Desembolso",
+    "bp_proyecto": "26005399.0",
+    "responsable": "Mauricio Jimenez",
+    "fecha_procesamiento": "2025-10-20T11:50:33.088485",
+    "periodo": "2026-05-01T00:00:00",
+    "archivo_origen": "Matriz Emprestito.xlsx",
+    "organismo": "Deportes",
+    "descripcion_bp": "Conservacion de la infraestructura deportiva y recreativa del distrito especial de Santiago de Cali"
+  },
+  "timestamp": "2025-11-09T00:49:02.024856"
+}

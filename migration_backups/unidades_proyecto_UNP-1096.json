@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1096",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Carrera 4 Entre Calles 7 Y 5",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.173773",
+    "has_valid_geometry": true,
+    "upid": "UNP-1096",
+    "nombre_up_detalle": "Via Local",
+    "nombre_up": "Carrera 4 Entre Calles 7 Y 5",
+    "comuna_corregimiento": "COMUNA 03",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.53694407475602, 3.45011694931353, 0.0], [-76.53650269519889, 3.4503281164202955, 0.0]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "La Merced",
+    "cantidad": 41,
+    "loaded_at": "2025-11-04T20:23:09.173776",
+    "presupuesto_base": 30838322.58
+  },
+  "timestamp": "2025-11-09T01:44:03.697157"
+}

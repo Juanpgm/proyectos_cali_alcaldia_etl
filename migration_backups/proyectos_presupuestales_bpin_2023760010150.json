@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2023760010150",
+  "data": {
+    "nombre_centro_gestor": "Secretaría del Deporte y la Recreación",
+    "cod_producto": null,
+    "nombre_area_funcional": "Niñas, niños de primera infancia beneficiados anualmente con experiencias en juego, lúdica y recreación",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Cariños, Puro Corazón por la Primera Infancia ",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2023760010150,
+    "created_at": "2025-10-10T09:29:34.062293+00:00",
+    "nombre_actividad": "Organizar las experiencias de juego, lúdica y recreación para los niños y niñas de primera infancia",
+    "updated_at": "2025-10-10T09:29:34.062293+00:00",
+    "programa_presupuestal": "BP260047051010101",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Recreación con Experiencias de Juego y Lúdica a Niñas y Niños de Primera Infancia de Santiago de Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Poblaciones Construyendo Territorio",
+    "validador_cuipo": null,
+    "bp": "BP26004705"
+  },
+  "timestamp": "2025-11-09T01:31:14.360081"
+}

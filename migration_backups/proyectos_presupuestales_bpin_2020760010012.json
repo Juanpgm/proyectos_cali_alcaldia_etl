@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010012",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Movilidad",
+    "cod_producto": 2409008,
+    "nombre_area_funcional": "Proceso de gestión de tránsito y transporte implementado bajo las políticas institucionales vigentes",
+    "nombre_fondo": "Multas infracciones de tránsito ley 769-02",
+    "nombre_programa": "Fortalecimiento Institucional",
+    "nombre_dimension": "Cali, Gobierno Incluyente",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010012,
+    "created_at": "2025-10-10T09:29:16.615040+00:00",
+    "nombre_actividad": "Planificar y ejecutar los procesos administratvos cumplinedo las politicas de MIPG",
+    "updated_at": "2025-10-10T09:29:16.615040+00:00",
+    "programa_presupuestal": "BP260028631010124",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "Fortalecimiento  del Modelo Integrado de Planeación y Gestión en la Secretaría de Movilidad para dar cumplimiento a las políticas institucionales vigentes  Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 24,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Gobierno Inteligente",
+    "validador_cuipo": null,
+    "bp": "BP26002863"
+  },
+  "timestamp": "2025-11-09T00:53:54.695822"
+}

@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010433",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Cultura",
+    "cod_producto": 3301087,
+    "nombre_area_funcional": "Personas formadas en prácticas artísticas en comunas y corregimientos",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Ecosistema Artístico ",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010433,
+    "created_at": "2025-10-10T09:28:35.297898+00:00",
+    "nombre_actividad": "Realizar talleres en artes para los habitantes del corregimiento El Hormiguero",
+    "updated_at": "2025-10-10T09:28:35.297898+00:00",
+    "programa_presupuestal": "BP260032191010107",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "FORMACIÓN EN PRACTICAS ARTISTICAS Y CULTURALES A HABITANTES DEL CORREGIMIENTO EL HORMIGUERO DE CALI",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 33,
+    "comuna": "EL HORMIGUERO",
+    "origen": "Territorio",
+    "nombre_linea_estrategica": "Cali Corazón de las Culturas",
+    "validador_cuipo": null,
+    "bp": "BP26003219"
+  },
+  "timestamp": "2025-11-09T01:07:00.295355"
+}

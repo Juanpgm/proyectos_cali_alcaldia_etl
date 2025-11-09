@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010301",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Salud Pública",
+    "cod_producto": 1906004,
+    "nombre_area_funcional": "Personas con Tuberculosis diagnosticadas antes de 30 días a partir de la consulta",
+    "nombre_fondo": "Coljuegos  25%",
+    "nombre_programa": "Salud Pública Integral, Una Realidad en los Entornos de Vida Cotidianos",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010301,
+    "created_at": "2025-10-10T09:27:55.330988+00:00",
+    "nombre_actividad": "Realizar acciones en salud pública en el seguimiento a contactos, convivientes, casos especiales y las unidades de análisis de mortalidad evitable",
+    "updated_at": "2025-10-10T09:27:55.330988+00:00",
+    "programa_presupuestal": "BP260033001010129",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Fortalecimiento en la detección de tuberculosis y Hansen en Santiago de Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 19,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Territorios para la Vida",
+    "validador_cuipo": null,
+    "bp": "BP26003300"
+  },
+  "timestamp": "2025-11-09T01:06:33.960152"
+}

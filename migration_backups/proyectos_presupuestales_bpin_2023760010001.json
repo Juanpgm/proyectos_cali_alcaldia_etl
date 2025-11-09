@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2023760010001",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Cultura",
+    "cod_producto": 3301073,
+    "nombre_area_funcional": "Espacios públicos promovidos con programación cultural",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Espacio Público para la Integración SocioEcológica",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2023760010001,
+    "created_at": "2025-10-10T09:28:30.629282+00:00",
+    "nombre_actividad": "Realizar la coordinación de la programación cultural y artística de los espacios públicos",
+    "updated_at": "2025-10-10T09:28:30.630168+00:00",
+    "programa_presupuestal": "BP260045501010104",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Fortalecimiento de la oferta artística y cultural en los espacios públicos de Santiago de Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 33,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Territorios para la Vida",
+    "validador_cuipo": null,
+    "bp": "BP26004550"
+  },
+  "timestamp": "2025-11-09T01:29:25.656291"
+}

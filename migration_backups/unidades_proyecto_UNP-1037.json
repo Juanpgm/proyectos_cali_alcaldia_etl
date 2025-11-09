@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1037",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Calle 52 Con Carrera 2A",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.150895",
+    "has_valid_geometry": true,
+    "upid": "UNP-1037",
+    "nombre_up_detalle": "Via Local",
+    "nombre_up": "Calle 52 Con Carrera 2A",
+    "comuna_corregimiento": "COMUNA 05",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.50217091399998, 3.4675155110000446, 0.0], [-76.50197357599995, 3.4675756340000703, 0.0], [-76.50190600699995, 3.467361378000021, 0.0]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "El Sena",
+    "cantidad": 10,
+    "loaded_at": "2025-11-04T20:23:09.150898",
+    "presupuesto_base": 159176.35
+  },
+  "timestamp": "2025-11-09T01:43:06.545071"
+}

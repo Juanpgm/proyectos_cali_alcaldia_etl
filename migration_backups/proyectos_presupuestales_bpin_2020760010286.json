@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010286",
+  "data": {
+    "nombre_centro_gestor": "Unidad Administrativa Especial de Servicios Públicos",
+    "cod_producto": 4003020,
+    "nombre_area_funcional": "Redes de alcantarillado en el área de prestación de servicio de EMCALI intervenidas",
+    "nombre_fondo": "CUR 625/19 SSF - Recursos Emcali Conpes 3858/16",
+    "nombre_programa": "Prestación de Servicios Públicos Domiciliarios",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010286,
+    "created_at": "2025-10-10T09:30:39.779233+00:00",
+    "nombre_actividad": "Realizar Interventoria de la obra civil de renovación y del suministro de tubería y accesorios de alcantarillado barrio San Luis",
+    "updated_at": "2025-10-10T09:30:39.779233+00:00",
+    "programa_presupuestal": "BP260010011010117",
+    "nombre_pospre": "Alcantarillas y plantas de tratamiento de agua",
+    "anio": 2024,
+    "nombre_proyecto": "Optimización de la red secundaria de alcantarillado en el barrio San Luis de Santiago de   Cali",
+    "clasificacion_fondo": "Otros",
+    "cod_sector": 40,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Territorios para la Vida",
+    "validador_cuipo": null,
+    "bp": "BP26001001"
+  },
+  "timestamp": "2025-11-09T01:06:24.319949"
+}

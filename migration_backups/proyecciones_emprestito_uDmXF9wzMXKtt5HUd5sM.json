@@ -1,0 +1,23 @@
+{
+  "collection_path": "proyecciones_emprestito",
+  "doc_id": "uDmXF9wzMXKtt5HUd5sM",
+  "data": {
+    "nombre_banco": "DAVIVIENDA",
+    "nombre_organismo_reducido": "DATIC",
+    "ultima_actualizacion": "2025-11-08T11:31:07.647811+00:00",
+    "item": "96",
+    "nombre_resumido_proceso": "Contrato 21: I + D + i + Gov - Tech",
+    "fuente": "google_sheets",
+    "fecha_carga": "2025-11-08T11:31:04.575751",
+    "valor_proyectado": 0,
+    "nombre_generico_proyecto": "Soluciones Tecnológicas",
+    "fila_origen": 96,
+    "id_paa": "Sin Incluir",
+    "fecha_guardado": "2025-11-08T11:31:07.647811+00:00",
+    "referencia_proceso": "4134.010.32.1.0215-2025",
+    "BP": "BP26005255",
+    "urlProceso": "https://www.secop.gov.co/CO1BusinessLine/Tendering/ContractNoticeView/Index?Notice=CO1.NTC.8819574",
+    "descripcion_bp": "Implementación soluciones tecnológicas para el aprovechamiento estratégico de datos en el distrito de Santiago de Cali"
+  },
+  "timestamp": "2025-11-09T00:53:45.082519"
+}

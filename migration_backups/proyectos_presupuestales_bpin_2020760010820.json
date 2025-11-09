@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010820",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Educación",
+    "cod_producto": 2201033,
+    "nombre_area_funcional": "Estudiantes con discapacidad y capacidades o talentos excepcionales vinculados a educación inclusiva forma, educación para el trabajo y el desarrollo humano y educación adecuada para la integración",
+    "nombre_fondo": "SGP-Educación-Prestación de servicios CSF",
+    "nombre_programa": "Desarrollando Capacidades, Promoviendo Oportunidades a Población en Situación de Discapacidad",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010820,
+    "created_at": "2025-10-10T09:27:41.495545+00:00",
+    "nombre_actividad": "Apoyar con intérpretes de lengua de señas colombiana a estudiantes sordos de las IEO",
+    "updated_at": "2025-10-10T09:27:41.495545+00:00",
+    "programa_presupuestal": "BP260025641010103",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Fortalecimiento de la atención integral a la población con discapacidad y capacidad y/o talento excepcional para la permanencia en el sistema educativo de Cali",
+    "clasificacion_fondo": "Destinación Específica (SGP)",
+    "cod_sector": 22,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Poblaciones Construyendo Territorio",
+    "validador_cuipo": null,
+    "bp": "BP26002564"
+  },
+  "timestamp": "2025-11-09T01:09:09.388194"
+}

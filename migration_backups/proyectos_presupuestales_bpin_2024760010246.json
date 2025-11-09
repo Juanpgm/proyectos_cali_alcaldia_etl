@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010246",
+  "data": {
+    "nombre_centro_gestor": "Departamento Administrativo de Gestión del Medio Ambiente",
+    "cod_producto": null,
+    "nombre_area_funcional": "Pequeños y Medianos productores rurales con asistencia técnica en producción agroecológica sostenible",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Hambre Cero",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010246,
+    "nombre_actividad": "Brindar asistencia técnica  en producción agroecológica sostenible para fortalecer la Seguridad y Soberanía Alimentaria",
+    "created_at": "2025-10-10T09:32:07.503658+00:00",
+    "updated_at": "2025-10-10T09:32:07.503658+00:00",
+    "programa_presupuestal": 6102005,
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2025,
+    "nombre_proyecto": "Asesoria técnica con enfoque agroecológico a los pequeños y medianos agricultores con el fin de fortalecer la seguridad alimentaria y la autonomía en la producción de alimentos en Santiago de  Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "bp": "BP26005373",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T01:35:35.885868"
+}

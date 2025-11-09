@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2023760010159",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Turismo",
+    "cod_producto": null,
+    "nombre_area_funcional": "Red de puntos información turística operando",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Cali Inteligente ",
+    "nombre_dimension": "Cali, Inteligente para la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2023760010159,
+    "created_at": "2025-10-10T09:30:24.488400+00:00",
+    "nombre_actividad": "Realizar estrategias que aumenten la visibilización de la red de Puntos de información turística.",
+    "updated_at": "2025-10-10T09:30:24.488400+00:00",
+    "programa_presupuestal": "BP260047501010101",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Fortalecimiento de la operación de los Puntos de Información Turística de Santiago de  Cali",
+    "clasificacion_fondo": "Libre destinación (Recursos Propios)",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Territorio Inteligente",
+    "validador_cuipo": null,
+    "bp": "BP26004750"
+  },
+  "timestamp": "2025-11-09T01:31:22.243596"
+}

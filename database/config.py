@@ -59,6 +59,12 @@ try:
             print(f"⚠️  Usando .env genérico (crea {env_path.parent / ('.env.dev' if current_branch == 'dev' else '.env.prod')})")
         else:
             print(f"⚠️  No se encontró archivo de configuración {env_path}")
+    
+    # Cargar variables sensibles desde .env.local (nunca commiteado)
+    env_local_path = project_root / '.env.local'
+    if env_local_path.exists():
+        load_dotenv(env_local_path, override=True)  # override=True prioriza .env.local sobre archivos anteriores
+        print(f"🔐 Variables sensibles cargadas desde .env.local")
             
 except ImportError:
     print("⚠️  python-dotenv no instalado, usando variables de entorno del sistema")
@@ -85,10 +91,19 @@ SHEETS_SERVICE_ACCOUNT_FILE = os.getenv('SHEETS_SERVICE_ACCOUNT_FILE', None)
 # Opción 2: OAuth directo para Sheets (usando cuenta específica)
 SHEETS_OAUTH_TOKEN_FILE = os.getenv('SHEETS_OAUTH_TOKEN_FILE', None)
 
-# Sheets URLs and worksheet configuration (desde variables de entorno)
+# Sheets URLs and worksheet configuration
+# Prioridad: 1) Variables de entorno del sistema, 2) .env.local, 3) .env.dev/.env.prod
+SHEETS_UNIDADES_PROYECTO_URL = os.getenv('SHEETS_UNIDADES_PROYECTO_URL')
+if not SHEETS_UNIDADES_PROYECTO_URL:
+    print("⚠️  SHEETS_UNIDADES_PROYECTO_URL no encontrada en variables de entorno")
+    print("💡 Configúrala en tu sistema:")
+    print("   Windows:  $env:SHEETS_UNIDADES_PROYECTO_URL = 'tu_url'")
+    print("   Linux/Mac: export SHEETS_UNIDADES_PROYECTO_URL='tu_url'")
+    print("   O crea un archivo .env.local con la URL (ver .env.local.example)")
+
 SHEETS_CONFIG = {
     'unidades_proyecto': {
-        'url': os.getenv('SHEETS_UNIDADES_PROYECTO_URL', ''),
+        'url': SHEETS_UNIDADES_PROYECTO_URL or '',
         'worksheet': os.getenv('SHEETS_UNIDADES_PROYECTO_WORKSHEET', 'obras_equipamientos')
     }
 }
@@ -163,7 +178,12 @@ def get_firestore_client():
 def get_sheets_client() -> Optional[gspread.Client]:
     """
     Obtiene cliente autenticado de Google Sheets.
-    Prioriza Service Account > OAuth Token > ADC
+    Prioriza ADC (Workload Identity Federation) > Service Account > OAuth Token
+    
+    ADC es el método recomendado por seguridad:
+    - Sin archivos de credenciales estáticas
+    - Rotación automática de tokens
+    - Auditoría completa
     """
     global _sheets_client
     
@@ -171,43 +191,59 @@ def get_sheets_client() -> Optional[gspread.Client]:
         return _sheets_client
     
     try:
-        # Opción 1: Service Account (más seguro para producción)
-        if SHEETS_SERVICE_ACCOUNT_FILE and os.path.exists(SHEETS_SERVICE_ACCOUNT_FILE):
-            _sheets_client = gspread.service_account(filename=SHEETS_SERVICE_ACCOUNT_FILE)
-            return _sheets_client
-        
-        # Opción 2: OAuth con token guardado
-        if SHEETS_OAUTH_TOKEN_FILE and os.path.exists(SHEETS_OAUTH_TOKEN_FILE):
-            import pickle
-            with open(SHEETS_OAUTH_TOKEN_FILE, 'rb') as token:
-                credentials_obj = pickle.load(token)
-                _sheets_client = gspread.authorize(credentials_obj)
-                return _sheets_client
-        
-        # Opción 3: ADC con scope amplio (fallback)
+        # Opción 1: Application Default Credentials (ADC) - RECOMENDADO
+        # Prioridad: Workload Identity Federation > GOOGLE_APPLICATION_CREDENTIALS > gcloud auth
+        print("🔐 Intentando autenticación con ADC (Workload Identity Federation)...")
         try:
-            # Intentar con cloud-platform scope (más amplio)
+            # Intentar primero con cloud-platform scope (más amplio, incluye Sheets)
             broad_scopes = ['https://www.googleapis.com/auth/cloud-platform']
             credentials_obj, project = default(scopes=broad_scopes)
             
             if credentials_obj:
                 _sheets_client = gspread.authorize(credentials_obj)
+                print("✅ Autenticado con ADC (cloud-platform scope)")
+                print(f"📊 Proyecto detectado: {project}")
                 return _sheets_client
-        except Exception:
-            pass
+        except Exception as e_broad:
+            # Si falla, intentar con scopes específicos de Sheets
+            try:
+                credentials_obj, project = default(scopes=SHEETS_SCOPES)
+                if credentials_obj:
+                    _sheets_client = gspread.authorize(credentials_obj)
+                    print("✅ Autenticado con ADC (Sheets scopes específicos)")
+                    print(f"📊 Proyecto detectado: {project}")
+                    return _sheets_client
+            except Exception as e_specific:
+                print(f"⚠️  ADC no disponible: {str(e_specific)[:100]}")
         
-        # Si falla, intentar con scopes específicos
-        try:
-            credentials_obj, project = default(scopes=SHEETS_SCOPES)
-            if credentials_obj:
+        # Opción 2: Service Account (fallback para casos específicos)
+        if SHEETS_SERVICE_ACCOUNT_FILE and os.path.exists(SHEETS_SERVICE_ACCOUNT_FILE):
+            print("🔑 Usando Service Account como fallback...")
+            _sheets_client = gspread.service_account(filename=SHEETS_SERVICE_ACCOUNT_FILE)
+            print(f"✅ Autenticado con Service Account: {SHEETS_SERVICE_ACCOUNT_FILE}")
+            return _sheets_client
+        
+        # Opción 3: OAuth con token guardado (fallback legacy)
+        if SHEETS_OAUTH_TOKEN_FILE and os.path.exists(SHEETS_OAUTH_TOKEN_FILE):
+            print("🔑 Usando OAuth token como fallback...")
+            import pickle
+            with open(SHEETS_OAUTH_TOKEN_FILE, 'rb') as token:
+                credentials_obj = pickle.load(token)
                 _sheets_client = gspread.authorize(credentials_obj)
+                print("✅ Autenticado con OAuth token")
                 return _sheets_client
-        except Exception:
-            pass
         
-        print("💡 Opciones de autenticación:")
-        print("   1. Service Account: configura SHEETS_SERVICE_ACCOUNT_FILE")
-        print("   2. OAuth: configura SHEETS_OAUTH_TOKEN_FILE") 
+        print("\n" + "="*60)
+        print("❌ No se pudo autenticar con Google Sheets")
+        print("="*60)
+        print("\n💡 Métodos de autenticación (en orden de prioridad):")
+        print("\n1. 🌟 ADC - Application Default Credentials (RECOMENDADO)")
+        print("   Ejecuta: gcloud auth application-default login")
+        print(f"   Proyecto: {PROJECT_ID}")
+        print("\n2. 🔑 Service Account (fallback)")
+        print("   Configura: SHEETS_SERVICE_ACCOUNT_FILE en .env")
+        print("\n3. 🔐 OAuth Token (legacy)")
+        print("   Configura: SHEETS_OAUTH_TOKEN_FILE en .env") 
         print("   3. ADC: gcloud auth application-default login")
         return None
         

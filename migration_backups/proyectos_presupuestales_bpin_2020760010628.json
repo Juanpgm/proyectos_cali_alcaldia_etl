@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010628",
+  "data": {
+    "nombre_centro_gestor": "Unidad Administrativa Especial de Servicios Públicos",
+    "cod_producto": 3301070,
+    "nombre_area_funcional": "Espectáculos anuales visuales y luminosos de alumbrado navideño",
+    "nombre_fondo": "Alumb Acdo 357  (10% navideño)",
+    "nombre_programa": "Marca de Ciudad para un Distrito Especial ",
+    "nombre_dimension": "Cali, Inteligente para la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010628,
+    "created_at": "2025-10-10T09:30:38.633926+00:00",
+    "nombre_actividad": "Realizar el pago de las facturas del servicio de energía de de alumbrado navideño",
+    "updated_at": "2025-10-10T09:30:38.633926+00:00",
+    "programa_presupuestal": "BP260026171010121",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "Implementación del Espectáculo visual y luminoso de Alumbrado Navideño en Santiago de  Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 33,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Posicionamiento Local en el Ámbito Internacional",
+    "validador_cuipo": null,
+    "bp": "BP26002617"
+  },
+  "timestamp": "2025-11-09T01:07:59.051560"
+}

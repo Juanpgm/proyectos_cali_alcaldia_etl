@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010063",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Seguridad y Justicia",
+    "cod_producto": 4599026,
+    "nombre_area_funcional": "Investigaciones producidas por el observatorio de seguridad",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Gestión de Información Estadística y Geográfica para la Evaluación de Resultados  ",
+    "nombre_dimension": "Cali, Gobierno Incluyente",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010063,
+    "created_at": "2025-10-10T09:29:25.817041+00:00",
+    "nombre_actividad": "Aumentar y cualificar el capital humano para la producción de conocimientos basados en evidencias",
+    "updated_at": "2025-10-10T09:29:25.817041+00:00",
+    "programa_presupuestal": "BP260031571010106",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "Fortalecimiento del componente investigativo del Observatorio de Seguridad  de   Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 45,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Gobierno Inteligente",
+    "validador_cuipo": null,
+    "bp": "BP26003157"
+  },
+  "timestamp": "2025-11-09T00:54:06.774557"
+}

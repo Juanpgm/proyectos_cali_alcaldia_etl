@@ -1,0 +1,31 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "cNO2fvPHJ08tSADevmto",
+  "data": {
+    "observaciones": "Se dio inicio a ejecución el 14 de octubre. En apertura de cronograma de proyecto.",
+    "nombre_centro_gestor": "",
+    "fecha_reporte": "2025-10-17T20:57:18.629199+00:00",
+    "referencia_contrato": "151477",
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/1BQVnsWQQa1neGnFBpXsROOanRKwHGHQs",
+    "archivos_evidencia": [
+      {
+        "type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "size": 20671,
+        "download_url": "https://drive.google.com/uc?id=1Xzm60FUZZA93iSGs8oC6Ru_MjZ6ce7m9",
+        "url": "https://docs.google.com/document/d/1Xzm60FUZZA93iSGs8oC6Ru_MjZ6ce7m9/edit?usp=drivesdk&ouid=107631050282737776825&rtpof=true&sd=true",
+        "status": "uploaded_successfully",
+        "drive_id": "1Xzm60FUZZA93iSGs8oC6Ru_MjZ6ce7m9",
+        "name": "% avances de procesos de contratacion emprestito DATIC.docx"
+      }
+    ],
+    "avance_fisico": 5.0,
+    "avance_financiero": 5.0,
+    "alertas": {
+      "es_alerta": false,
+      "descripcion": "",
+      "tipos": []
+    },
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:41:45.078387"
+}

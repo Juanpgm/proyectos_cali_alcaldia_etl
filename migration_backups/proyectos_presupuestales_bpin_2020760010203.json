@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010203",
+  "data": {
+    "nombre_centro_gestor": "Departamento Administrativo de Control Disciplinario Interno",
+    "cod_producto": 4599030,
+    "nombre_area_funcional": "Servidores públicos y ciudadanos orientados en Código Disciplinario",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Fortalecimiento Institucional",
+    "nombre_dimension": "Cali, Gobierno Incluyente",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010203,
+    "created_at": "2025-10-10T09:26:48.518048+00:00",
+    "nombre_actividad": "Medir el impacto de la campaña de prevención de la acción disciplinaria a los organismo y/o dependencias  de la Alcaldía  Santiago de Cali.",
+    "updated_at": "2025-10-10T09:26:48.518048+00:00",
+    "programa_presupuestal": "BP260029621010107",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Difusión del componente preventivo de la ley disciplinaria a los servidores públicos de la Alcaldía y a los ciudadanos de Santiago de Cali..",
+    "clasificacion_fondo": "Libre destinación (Recursos Propios)",
+    "cod_sector": 45,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Gobierno Inteligente",
+    "validador_cuipo": null,
+    "bp": "BP26002962"
+  },
+  "timestamp": "2025-11-09T01:06:07.707720"
+}

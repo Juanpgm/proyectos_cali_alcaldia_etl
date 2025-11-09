@@ -1,0 +1,49 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "lcpXvAccl1cASByE6rNg",
+  "data": {
+    "nombre_centro_gestor": "",
+    "observaciones": "AVANCE DE ACTIVIDADES DE OBRA DE DEMARCACIÓN Y PINTURA EN 11 DE 12 FRENTES ACTIVOS",
+    "fecha_reporte": "2025-10-24T11:11:58.866345+00:00",
+    "referencia_contrato": "4162.010.26.1.3229-2025",
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/1PshwYmoww1iD25SfTkMmwB1bUk7aNeqN",
+    "archivos_evidencia": [
+      {
+        "type": "application/pdf",
+        "size": 119804,
+        "download_url": "https://drive.google.com/uc?id=1OpMJCra09Wel3wdk6_Bz83-ncn51jWNe",
+        "url": "https://drive.google.com/file/d/1OpMJCra09Wel3wdk6_Bz83-ncn51jWNe/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1OpMJCra09Wel3wdk6_Bz83-ncn51jWNe",
+        "name": "RESUMEN PRESENTACIÓN INTERVENTORÍA 3229.pdf"
+      },
+      {
+        "type": "image/jpeg",
+        "size": 196581,
+        "download_url": "https://drive.google.com/uc?id=16rimy8zpzlTiVl_NscpO6VmS5sRHcy6f",
+        "url": "https://drive.google.com/file/d/16rimy8zpzlTiVl_NscpO6VmS5sRHcy6f/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "16rimy8zpzlTiVl_NscpO6VmS5sRHcy6f",
+        "name": "2.jpg"
+      },
+      {
+        "type": "image/jpeg",
+        "size": 189030,
+        "download_url": "https://drive.google.com/uc?id=1Z1YnCtcFBuebtejgTaO3kDJrnQjXBVwn",
+        "url": "https://drive.google.com/file/d/1Z1YnCtcFBuebtejgTaO3kDJrnQjXBVwn/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1Z1YnCtcFBuebtejgTaO3kDJrnQjXBVwn",
+        "name": "1.jpg"
+      }
+    ],
+    "avance_fisico": 3.35,
+    "alertas": {
+      "descripcion": "",
+      "es_alerta": false,
+      "tipos": []
+    },
+    "avance_financiero": 0.0,
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:42:05.319464"
+}

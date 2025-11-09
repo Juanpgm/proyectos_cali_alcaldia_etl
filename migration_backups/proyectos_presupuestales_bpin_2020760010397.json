@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010397",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Desarrollo Económico",
+    "cod_producto": 1702021,
+    "nombre_area_funcional": "Mercados agroecológicos y campesinos realizados",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Fortalecimiento a las Unidades Productivas Rurales y Mercados de Paz ",
+    "nombre_dimension": "Cali, Inteligente para la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010397,
+    "created_at": "2025-10-10T09:30:22.187450+00:00",
+    "nombre_actividad": "Identificar el estado actual de las unidades productivas con prácticas agrícolas de producción limpia",
+    "updated_at": "2025-10-10T09:30:22.187450+00:00",
+    "programa_presupuestal": "BP260031471010105",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "Mejoramiento comercial de los mercados campesinos con prácticas agrícolas de producción limpia de Santiago de Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 17,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Economía Solidaria y del Bien Colectivo",
+    "validador_cuipo": null,
+    "bp": "BP26003147"
+  },
+  "timestamp": "2025-11-09T01:06:49.749846"
+}

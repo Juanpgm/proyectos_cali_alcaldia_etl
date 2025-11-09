@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010234",
+  "data": {
+    "nombre_centro_gestor": "Departamento Administrativo de Control Disciplinario Interno",
+    "cod_producto": null,
+    "nombre_area_funcional": "Investigaciones  de la conducta oficial del servidor público  realizadas",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Fortalecimiento institucional",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010234,
+    "nombre_actividad": "Elaborar un documento preliminar del desarrollo de  investigaciones de la conducta  del servidor público",
+    "created_at": "2025-10-10T09:31:59.828630+00:00",
+    "updated_at": "2025-10-10T09:31:59.828630+00:00",
+    "programa_presupuestal": 6302001,
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2025,
+    "nombre_proyecto": "Fortalecimiento del diagnóstico y evaluación relacionados con la conducta del servidor público en la Administración Central de Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "bp": "BP26005297",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T01:35:27.004611"
+}

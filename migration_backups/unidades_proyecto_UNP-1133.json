@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1133",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Calle 7 Oeste Entre Diagonal 50 Y 51",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.907557",
+    "has_valid_geometry": true,
+    "upid": "UNP-1133",
+    "nombre_up_detalle": "Via Local",
+    "nombre_up": "Calle 7 Oeste Entre Diagonal 50 Y 51",
+    "comuna_corregimiento": "COMUNA 20",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.55840243418018, 3.416067740416555, 0.0], [-76.55839579684745, 3.4160058350376845, 0.0], [-76.5583466285528, 3.415547249673514, 0.0]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "El Cortijo",
+    "cantidad": 68,
+    "loaded_at": "2025-11-04T20:23:09.907561",
+    "presupuesto_base": 24182861.34
+  },
+  "timestamp": "2025-11-09T01:44:40.551664"
+}

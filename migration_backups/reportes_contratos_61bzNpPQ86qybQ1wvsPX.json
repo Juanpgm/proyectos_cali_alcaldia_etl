@@ -1,0 +1,31 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "61bzNpPQ86qybQ1wvsPX",
+  "data": {
+    "nombre_centro_gestor": "",
+    "fecha_reporte": "2025-11-07T15:45:29.364601+00:00",
+    "observaciones": "Continúa la fase de modernización de la plataforma, en la cual se estableció de manera conjunta con el contratista el plan de trabajo que orientará las actividades técnicas, funcionales y de seguimiento necesarias para el cumplimiento de los objetivos del proyecto. Dicho plan define los hitos, cronograma, entregables y responsabilidades de cada parte, permitiendo organizar las tareas de desarrollo, pruebas y despliegue, así como garantizar una ejecución ordenada y alineada con los lineamientos institucionales y las metas establecidas en el contrato.",
+    "avance_fisico": 70.0,
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/1KKk91EB5PpE1WCOStsMNkP70PX_e2aIY",
+    "archivos_evidencia": [
+      {
+        "type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        "size": 16200,
+        "download_url": "https://drive.google.com/uc?id=10-Ccc5Iv0mHpFOyHsU7B8axYT4JGujW3",
+        "url": "https://docs.google.com/spreadsheets/d/10-Ccc5Iv0mHpFOyHsU7B8axYT4JGujW3/edit?usp=drivesdk&ouid=107631050282737776825&rtpof=true&sd=true",
+        "status": "uploaded_successfully",
+        "drive_id": "10-Ccc5Iv0mHpFOyHsU7B8axYT4JGujW3",
+        "name": "41125 Alcaldia de Cali Plan de Trabajo Basis (2).xlsx"
+      }
+    ],
+    "referencia_contrato": "151477",
+    "avance_financiero": 70.0,
+    "alertas": {
+      "es_alerta": false,
+      "descripcion": "",
+      "tipos": []
+    },
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:40:34.126287"
+}

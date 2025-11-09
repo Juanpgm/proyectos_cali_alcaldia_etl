@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2023760010148",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Educación",
+    "cod_producto": null,
+    "nombre_area_funcional": "Población en edad escolar matriculada en el sistema educativo oficial de Santiago de Cali",
+    "nombre_fondo": "SGP-Educación-Prestación de servicios CSF",
+    "nombre_programa": "La Escuela me acoge ",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2023760010148,
+    "created_at": "2025-10-10T09:27:42.287666+00:00",
+    "nombre_actividad": "SUELDO DOCENTES",
+    "updated_at": "2025-10-10T09:27:42.287666+00:00",
+    "programa_presupuestal": "BP260046901010101",
+    "nombre_pospre": "Sueldo Docente Csf",
+    "anio": 2024,
+    "nombre_proyecto": "Administración del pago de la nómina permanente y temporal del personal docente, directivo docente y administrativo de las instituciones educativas oficiales de Santiago de Cali",
+    "clasificacion_fondo": "Destinación Específica (SGP)",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Distrito Educador",
+    "validador_cuipo": null,
+    "bp": "BP26004690"
+  },
+  "timestamp": "2025-11-09T01:31:12.594383"
+}

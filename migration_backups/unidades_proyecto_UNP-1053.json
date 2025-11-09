@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1053",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Carrera 85C Con Calle 14A",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.156831",
+    "has_valid_geometry": true,
+    "upid": "UNP-1053",
+    "nombre_up_detalle": "Via Arteria Secundaria",
+    "nombre_up": "Carrrera 85C Con Calle14A",
+    "comuna_corregimiento": "COMUNA 17",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.53210999699996, 3.3808304900000508, 0.0], [-76.53183927099997, 3.380827694000061, 0.0]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "El Ingenio",
+    "cantidad": 30,
+    "loaded_at": "2025-11-04T20:23:09.156835",
+    "presupuesto_base": 10653242.88
+  },
+  "timestamp": "2025-11-09T01:43:22.517248"
+}

@@ -1,0 +1,22 @@
+{
+  "collection_path": "users",
+  "doc_id": "wwdQWHhKUZYMfZa9OPDnBzuW16W2",
+  "data": {
+    "created_at": "2025-10-04T21:44:33.768731+00:00",
+    "uid": "wwdQWHhKUZYMfZa9OPDnBzuW16W2",
+    "nombre_centro_gestor": "Secretaría de Seguridad y Justicia",
+    "cellphone": "+573195359261",
+    "last_login": "2025-11-05T15:02:10.049150+00:00",
+    "is_active": true,
+    "auth_providers": [
+      "password"
+    ],
+    "fullname": "Juan Pablo Guzmán Martínez",
+    "email": "juan.guzman@cali.gov.co",
+    "email_verified": false,
+    "login_count": 74,
+    "updated_at": "2025-11-05T15:02:10.049154+00:00",
+    "can_use_google_auth": true
+  },
+  "timestamp": "2025-11-09T02:01:16.026404"
+}

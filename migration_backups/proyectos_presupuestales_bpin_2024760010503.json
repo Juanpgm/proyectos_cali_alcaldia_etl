@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010503",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Salud Pública",
+    "cod_producto": null,
+    "nombre_area_funcional": "Instituciones con estrategias de promoción, prevención y hábitos saludables para el fomento del cuidado de la salud y la vida implementadas",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Salud Integral y de Calidad",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010503,
+    "nombre_actividad": "Desarrollar acciones de información, educación y comunicación en salud sexual y reproductiva en la comunidad en general.",
+    "created_at": "2025-10-10T09:32:56.689995+00:00",
+    "updated_at": "2025-10-10T09:32:56.689995+00:00",
+    "programa_presupuestal": 6102004,
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2025,
+    "nombre_proyecto": "Fortalecimiento a la promoción de los derechos sexuales y reproductivos en la comuna 18 en Santiago de  Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "COMUNA 18",
+    "origen": "Territorio",
+    "bp": "BP26005724",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T01:39:07.511245"
+}

@@ -1,0 +1,23 @@
+{
+  "collection_path": "proyecciones_emprestito",
+  "doc_id": "WpOhn9B9bsAAXH97iYac",
+  "data": {
+    "nombre_banco": "IFC",
+    "nombre_organismo_reducido": "MOVILIDAD",
+    "ultima_actualizacion": "2025-11-08T11:31:07.657000+00:00",
+    "item": "139",
+    "nombre_resumido_proceso": "BUSES MIO",
+    "fuente": "google_sheets",
+    "fecha_carga": "2025-11-08T11:31:04.580674",
+    "valor_proyectado": 0,
+    "nombre_generico_proyecto": "BUSES MIO",
+    "fila_origen": 139,
+    "id_paa": "VIGENCIAS 2026 Y 2027",
+    "fecha_guardado": "2025-11-08T11:31:07.657000+00:00",
+    "referencia_proceso": "",
+    "BP": "BP26004729",
+    "urlProceso": "",
+    "descripcion_bp": "Implemtación del sistema inteligente integrado de transporte público en Santaigo de Cali"
+  },
+  "timestamp": "2025-11-09T00:53:03.056564"
+}

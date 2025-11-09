@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010133",
+  "data": {
+    "nombre_centro_gestor": "Departamento Administrativo de Gestión del Medio Ambiente",
+    "cod_producto": null,
+    "nombre_area_funcional": "Personas naturales y/o jurídicas con asistencia técnica y acompañamiento en la implementación de cambios hacia patrones de producción y consumo sostenible y/o la consolidación como negocios verdes.",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Desarrollo productivo",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010133,
+    "nombre_actividad": "Realizar diagnóstico para la recolección de información de las personas naturales y jurídicas con enfoque de sostenibilidad ambiental.",
+    "created_at": "2025-10-10T09:32:07.120119+00:00",
+    "updated_at": "2025-10-10T09:32:07.120119+00:00",
+    "programa_presupuestal": 6102002,
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2025,
+    "nombre_proyecto": "Implementación de acciones para promover la consolidación de Negocios Verdes y cambios hacia patrones de producción y consumo sostenible en Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "bp": "BP26005364",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T01:33:59.400342"
+}

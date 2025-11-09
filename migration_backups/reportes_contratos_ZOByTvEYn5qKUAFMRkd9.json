@@ -1,0 +1,40 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "ZOByTvEYn5qKUAFMRkd9",
+  "data": {
+    "nombre_centro_gestor": "",
+    "fecha_reporte": "2025-11-07T01:49:42.786969+00:00",
+    "observaciones": "\"Avances en el trámite de exención; Elaboración de procesos Elaboración de prototipos Montaje de trámite en la sede electrónica de pruebas, se realizará mesa de trabajo el jueves 6 de noviembre para la entrega de estos avances Se realizará mesa de trabajo el 6 de noviembre con Catastro para la entrega de los trámites en el módulo de pruebas, para aprobación y o captura de observaciones de los mismos por parte de los funcionarios responsables del trámite Pendiente, actas o evidencias adicionales de las mesas de trabajo que se realizaran el jueves 6 de noviembre con las dos subdirecciones de Hacienda",
+    "avance_fisico": 37.0,
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/1PeRFAw72w9B1vapkFvnkgUkm2-_JMEy-",
+    "archivos_evidencia": [
+      {
+        "type": "application/pdf",
+        "size": 221867,
+        "download_url": "https://drive.google.com/uc?id=1dPvJElFhrBUnIiPBlYqkSVcdoSAD55SV",
+        "url": "https://drive.google.com/file/d/1dPvJElFhrBUnIiPBlYqkSVcdoSAD55SV/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1dPvJElFhrBUnIiPBlYqkSVcdoSAD55SV",
+        "name": "Flujo del proceso Exención del impuesto predial.pdf"
+      },
+      {
+        "type": "application/pdf",
+        "size": 3581642,
+        "download_url": "https://drive.google.com/uc?id=1w5GM0Z3qTUzmWzbF54m6KobGbXYEPHTJ",
+        "url": "https://drive.google.com/file/d/1w5GM0Z3qTUzmWzbF54m6KobGbXYEPHTJ/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1w5GM0Z3qTUzmWzbF54m6KobGbXYEPHTJ",
+        "name": "Prototipos Exención del impuesto predial (1).pdf"
+      }
+    ],
+    "referencia_contrato": "4134.010.26.1.0251-2025",
+    "avance_financiero": 37.0,
+    "alertas": {
+      "es_alerta": false,
+      "descripcion": "",
+      "tipos": []
+    },
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:41:36.331019"
+}

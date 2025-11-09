@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1038",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Transversal 103 Con Calle 94",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.151190",
+    "has_valid_geometry": true,
+    "upid": "UNP-1038",
+    "nombre_up_detalle": "Via Arteria Secundaria",
+    "nombre_up": "Transversal 103 Con Calle 94",
+    "comuna_corregimiento": "COMUNA 14",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.47709533399996, 3.4262808160000304, 0.0], [-76.47712397399994, 3.4260565100000235, 0.0]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Promociones Populares B",
+    "cantidad": 95,
+    "loaded_at": "2025-11-04T20:23:09.151193",
+    "presupuesto_base": 33699758.31
+  },
+  "timestamp": "2025-11-09T01:43:07.414944"
+}

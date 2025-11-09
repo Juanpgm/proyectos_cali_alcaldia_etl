@@ -1,0 +1,30 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1172",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Calle 72 D Entre Carrera 28 I Y Carrera 28 J Cambió 72D, Entre Las Carreras 26J Y 26L- Ricardo Balcázar",
+    "has_geometry": true,
+    "bpin": "2021760010260",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.922509",
+    "has_valid_geometry": true,
+    "upid": "UNP-1172",
+    "comuna_corregimiento": "COMUNA 13",
+    "nombre_up": "Calle 72 D Entre Carreras 28 I Y 28 J",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.49286799999999, 3.4350500000000466, 0.0], [-76.49348899999995, 3.4346520000000282, 0.0], [-76.49370299999998, 3.434551000000056, 0.0]]}",
+    "identificador": "Presupuesto Participativo Urbano",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Presupuesto Participativo",
+    "barrio_vereda": "Lleras Restrepo II",
+    "cantidad": 49,
+    "loaded_at": "2025-11-04T20:23:09.922515",
+    "presupuesto_base": 61663190.0
+  },
+  "timestamp": "2025-11-09T01:45:18.162078"
+}

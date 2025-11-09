@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1043",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Avenida 9N Con Calle 56",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.153208",
+    "has_valid_geometry": true,
+    "upid": "UNP-1043",
+    "nombre_up_detalle": "Via Local",
+    "nombre_up": "Avenida 9N Con Calle 56",
+    "comuna_corregimiento": "COMUNA 02",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.52759763999995, 3.4890935870000703, 0.0], [-76.52758724299997, 3.489335145000041, 0.0], [-76.52757710599997, 3.4897462460000384, 0.0], [-76.52757553899994, 3.489920767000058, 0.0], [-76.52756896599999, 3.4899986310000486, 0.0], [-76.52754503399996, 3.490177526000025, 0.0]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Menga",
+    "cantidad": 163,
+    "loaded_at": "2025-11-04T20:23:09.153214",
+    "presupuesto_base": 57882619.65
+  },
+  "timestamp": "2025-11-09T01:43:12.683600"
+}

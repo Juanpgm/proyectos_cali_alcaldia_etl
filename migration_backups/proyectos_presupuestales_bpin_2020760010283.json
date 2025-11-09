@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010283",
+  "data": {
+    "nombre_centro_gestor": "Unidad Administrativa Especial de Servicios Públicos",
+    "cod_producto": 4003029,
+    "nombre_area_funcional": "Redes de acueducto en el área de prestación de servicio de EMCALI intervenidas",
+    "nombre_fondo": "Recursos emcali - conpes 3858/16-  CUR 882/19",
+    "nombre_programa": "Prestación de Servicios Públicos Domiciliarios",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010283,
+    "created_at": "2025-10-10T09:30:43.204531+00:00",
+    "nombre_actividad": "Instalar instrumentación, telemetría y equipo de bombeo en sistema de Acueducto.",
+    "updated_at": "2025-10-10T09:30:43.204531+00:00",
+    "programa_presupuestal": "BP260012211010114",
+    "nombre_pospre": "Acueductos y otros conductos de suministros de aguas, excepto gasoductos",
+    "anio": 2024,
+    "nombre_proyecto": "Optimización centro de control maestro de acueducto y alcantarillado de EMCALI EICE ESP - fase II en Santiago de  Cali",
+    "clasificacion_fondo": "Otros",
+    "cod_sector": 40,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Territorios para la Vida",
+    "validador_cuipo": null,
+    "bp": "BP26001221"
+  },
+  "timestamp": "2025-11-09T01:06:21.685783"
+}

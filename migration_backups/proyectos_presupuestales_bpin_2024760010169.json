@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010169",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Vivienda Social y Hábitat",
+    "cod_producto": null,
+    "nombre_area_funcional": "Suelo para la mitigacion del riesgo por inundacion a lo largo del Jarillon del rio Cauca recuperado",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Vivienda sostenible, saneamiento básico y servicios públicos",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010169,
+    "nombre_actividad": "Realizar los estudios técnicos y jurídicos para la supervisión y tendientes a la adquisición de predios.",
+    "created_at": "2025-10-10T09:33:27.071512+00:00",
+    "updated_at": "2025-10-10T09:33:27.071512+00:00",
+    "programa_presupuestal": 6201002,
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2025,
+    "nombre_proyecto": "Recuperación de suelo para la mitigación del riesgo por inundación a lo largo del Jarillón del río Cauca en Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "bp": "BP26005408",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T01:34:29.192156"
+}

@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2023760010010",
+  "data": {
+    "nombre_centro_gestor": "Departamento Administrativo de Gestión del Medio Ambiente",
+    "cod_producto": null,
+    "nombre_area_funcional": "Laboratorio Ambiental del DAGMA mejorado, en operación y acreditado",
+    "nombre_fondo": "R.B. R.F. Tasa retributiva",
+    "nombre_programa": "Protección ambiental y mitigación del cambio climático",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2023760010010,
+    "created_at": "2025-10-10T09:30:47.711608+00:00",
+    "nombre_actividad": "Estructurar la información que se genera en el DAGMA relacionada con la Calidad del Recurso Hídrico, la Gestión Integral del Recurso Hídrico (GIRH) de Aguas Superficiales para el diseño y desarrollo de sistemas de información geográficos",
+    "updated_at": "2025-10-10T09:30:47.711608+00:00",
+    "programa_presupuestal": "BP260045631010105",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "Diseño e implementación del Centro de Monitoreo Ambiental de Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios con Destinacion Especifica",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": null,
+    "validador_cuipo": null,
+    "bp": "BP26004563"
+  },
+  "timestamp": "2025-11-09T01:29:30.930807"
+}

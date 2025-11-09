@@ -1,0 +1,30 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1214",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Carrera 34 Entre 3 Oeste Hasta Calle 3A",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.940222",
+    "has_valid_geometry": true,
+    "upid": "UNP-1214",
+    "comuna_corregimiento": "COMUNA 19",
+    "nombre_up": "Carrera 34 Entre 3 Oeste Hasta Calle 3A",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.546025855209, 3.435913633207633, 0.0], [-76.54601390231971, 3.4357967717036786, 0.0], [-76.54591902024657, 3.4355946760534835, 0.0], [-76.54580529108131, 3.4355096208723808, 0.0], [-76.5457016711951, 3.435469669389761, 0.0], [-76.54562360644422, 3.435455416934019, 0.0], [-76.54553646483595, 3.4354308897238184, 0.0], [-76.54535851058677, 3.435397305441313, 0.0], [-76.54524584082287, 3.435370008319296, 0.0], [-76.54510975181358, 3.4353732162010147, 0.0]]}",
+    "identificador": "Puntos Estrategicos",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "San Fernando Viejo",
+    "cantidad": 132,
+    "loaded_at": "2025-11-04T20:23:09.940225",
+    "presupuesto_base": 9276131.0
+  },
+  "timestamp": "2025-11-09T01:45:59.347502"
+}

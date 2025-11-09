@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010485",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Salud Pública",
+    "cod_producto": 1906041,
+    "nombre_area_funcional": "Componente de fortalecimiento en salud propia, del Modelo intercultural de cuidado en salud en población afrodescendiente, implementado",
+    "nombre_fondo": "SGP-Salud-Salud pública 11/12",
+    "nombre_programa": "CaliAfro ",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010485,
+    "created_at": "2025-10-10T09:27:56.853629+00:00",
+    "nombre_actividad": "Realizar encuentros comunitarios de salud intercultural en población afrodescendiente, negra, raizal y palenquera",
+    "updated_at": "2025-10-10T09:27:56.853629+00:00",
+    "programa_presupuestal": "BP260033381010107",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Fortalecimiento de los sistemas propios de salud en población negra, afrodescendiente, raizal y palenquera de  Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 19,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Poblaciones Construyendo Territorio",
+    "validador_cuipo": null,
+    "bp": "BP26003338"
+  },
+  "timestamp": "2025-11-09T01:07:15.166648"
+}

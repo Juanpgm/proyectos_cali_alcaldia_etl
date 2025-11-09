@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2021760010387",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Seguridad y Justicia",
+    "cod_producto": 1207025,
+    "nombre_area_funcional": "Personas participando en la estrategia de prevención de la violencia familiar y sexual",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Cali Distrito Previene las Violencias ",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2021760010387,
+    "created_at": "2025-10-10T09:29:17.745962+00:00",
+    "nombre_actividad": "Desarrollar una estrategia integral de prevención de la Violencia Familiar y Sexual con enfoque diferencial desde los servicios de Acceso a la justicia.",
+    "updated_at": "2025-10-10T09:29:17.745962+00:00",
+    "programa_presupuestal": "BP260039031010101",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Implementación de una estrategia integral de prevención y atención de la violencia familiar y sexual desde los servicios de acceso a la justicia con enfoque diferencial en  Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 12,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Distrito Reconciliado",
+    "validador_cuipo": null,
+    "bp": "BP26003903"
+  },
+  "timestamp": "2025-11-09T01:28:01.034893"
+}

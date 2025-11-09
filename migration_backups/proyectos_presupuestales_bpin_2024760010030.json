@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010030",
+  "data": {
+    "nombre_centro_gestor": "Departamento Administrativo de Planeación Municipal",
+    "cod_producto": null,
+    "nombre_area_funcional": "Trámites automatizados o racionalizados",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Trámites rápidos y sin complicaciones",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010030,
+    "nombre_actividad": "Gestionar el ecosistema de trámites de los instrumentos urbanísticos susceptibles de ser automatizados o racionalizados",
+    "created_at": "2025-10-10T09:32:06.725805+00:00",
+    "updated_at": "2025-10-10T09:32:06.725805+00:00",
+    "programa_presupuestal": 6302002,
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2025,
+    "nombre_proyecto": "Implementación de la automatización o racionalización de trámites aplicados a los instrumentos urbanísticos de Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "bp": "BP26005242",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T01:32:25.759536"
+}

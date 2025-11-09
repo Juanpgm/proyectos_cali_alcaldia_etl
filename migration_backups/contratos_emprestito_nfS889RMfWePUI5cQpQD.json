@@ -1,0 +1,42 @@
+{
+  "collection_path": "contratos_emprestito",
+  "doc_id": "nfS889RMfWePUI5cQpQD",
+  "data": {
+    "nit_contratista": "",
+    "fecha_fin_contrato": "2025-12-15",
+    "sector": "deportes",
+    "ordenador_gasto": "ALEXANDER CAMACHO ERAZO",
+    "descripcion_proceso": "Realizar la interventoría integral: técnica; administrativa; financiera; jurídica; social y ambiental al contrato de obra derivado del proceso la licitación pública 4162.010.32.1.1058-2025 Realizar mantenimiento de canchas múltiples y canchas sintéticas de los escenarios y espacios deportivos prior",
+    "nombre_procedimiento": "",
+    "valor_pagado": "0",
+    "urlproceso": {
+      "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.8513287&isFromPublicArea=True&isModal=true&asPopupView=true"
+    },
+    "_dataset_source": "jbjy-vk9h",
+    "bpin": 2024760010466,
+    "valor_contrato": 403605567,
+    "supervisor": "EDGAR ALFREDO MARTINEZ BALANTA",
+    "entidad_contratante": "SANTIAGO DE CALI DISTRITO ESPECIAL - SECRETARIA DEL DEPORTE Y LA RECREACIÓN",
+    "banco": "Bancolombia",
+    "referencia_contrato": "4162.010.26.1.3225-2025",
+    "nit_entidad": "890399011",
+    "id_contrato": "CO1.PCCNTR.8256831",
+    "fecha_guardado": "2025-10-23T02:21:47.227700+00:00",
+    "modalidad_contratacion": "Concurso de méritos abierto",
+    "fecha_firma_contrato": null,
+    "bp": "BP26005399",
+    "nombre_centro_gestor": "Secretaría del Deporte y la Recreación",
+    "version_esquema": "1.1",
+    "representante_legal": "Raul Antonio Ospino Hidalgo",
+    "fuente_datos": "SECOP_API",
+    "proceso_contractual": "CO1.BDOS.8429038",
+    "fecha_inicio_contrato": "2025-09-15",
+    "fecha_actualizacion": "2025-10-23T02:21:47.363163+00:00",
+    "nombre_contratista": "",
+    "estado_contrato": "cedido",
+    "referencia_proceso": "4162.010.32.1.1299-2025",
+    "objeto_contrato": "Realizar la interventoría integral: técnica; administrativa; financiera; jurídica; social y ambiental al contrato de obra derivado del proceso la licitación pública 4162.010.32.1.1058-2025 Realizar mantenimiento de canchas múltiples y canchas sintéticas de los escenarios y espacios deportivos priorizados del Distrito Especial de Santiago de Cali; con recursos del empréstito",
+    "tipo_contrato": "Interventoría"
+  },
+  "timestamp": "2025-11-09T00:48:05.223823"
+}

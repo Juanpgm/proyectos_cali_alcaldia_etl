@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1115",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Carrera 1 Entre Calle 56 Norte Y Calle 71H1 Norte",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.181040",
+    "has_valid_geometry": true,
+    "upid": "UNP-1115",
+    "nombre_up_detalle": "Via Arteria Principal",
+    "nombre_up": "Carrera 1 Entre Calle 56 Norte Y Calle 71H1 Norte",
+    "comuna_corregimiento": "COMUNA 6 - COMUNA 4 - COMUNA 5",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"MultiLineString\", \"coordinates\": [[[-76.49802637749409, 3.4817315651579652, 0.0], [-76.49779331334807, 3.4820044759570803, 0.0]], [[-76.50184900331236, 3.478574844839726, 0.0], [-76.50178495126453, 3.4786336990577347, 0.0], [-76.50166876789638, 3.4787272553086837, 0.0], [-76.50154204467152, 3.4788199635631685, 0.0], [-76.50141315062956, 3.478916040833533, 0.0], [-76.5012815776918, 3.4790155267123, 0.0], [-76.50117120543568, 3.479099648063259, 0.0], [-76.50113477965098, 3.479127410343867, 0.0]]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Calima",
+    "cantidad": 0,
+    "loaded_at": "2025-11-04T20:23:09.181043",
+    "presupuesto_base": 99075158.78
+  },
+  "timestamp": "2025-11-09T01:44:23.006981"
+}

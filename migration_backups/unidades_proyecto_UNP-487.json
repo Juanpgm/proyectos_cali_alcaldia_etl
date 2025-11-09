@@ -1,0 +1,52 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-487",
+  "data": {
+    "created_at": "2025-11-05T11:34:39.840008",
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -76.494364,
+        3.438532
+      ]
+    },
+    "has_geometry": true,
+    "geometry_type": "Point",
+    "properties": {
+      "processed_timestamp": "2025-11-05T11:34:28.210236",
+      "descripcion_intervencion": "RECUPERACION DE SUPERFICIE DE CANCHA MULTIPLE",
+      "microtio": null,
+      "bpin": "0",
+      "centros_gravedad": false,
+      "upid": "UNP-487",
+      "nombre_up_detalle": "RECUPERACION DE SUPERFICIE DE CANCHA MULTIPLE",
+      "tipo_intervencion": "Adecuaciones y mantenimientos",
+      "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticePhases/View?PPI=CO1.PPI.40365146&isFromPublicArea=True&isModal=False",
+      "referencia_contrato": "4162.010.26.1.3229-2025",
+      "unidad": "UND",
+      "identificador": "Grupo Licitación 1",
+      "tipo_equipamiento": "Infraestructura recreo deportiva",
+      "fecha_fin": "2/3/2026",
+      "estado": "En alistamiento",
+      "fecha_inicio": "1/11/2025",
+      "plataforma": "SECOP II",
+      "nombre_centro_gestor": "Secretaría del Deporte y la Recreación",
+      "avance_obra": "10.0",
+      "geometry_bounds": null,
+      "direccion": "TRASVERSAL 54 ENTRE DIAGONAL 28E Y CALLE 70 ENTRE CALLE 55 Y CALLE 56",
+      "ano": "2025",
+      "geometry_type": null,
+      "dataframe": "Secretaría del Deporte y la Recreación.xlsx",
+      "comuna_corregimiento": "COMUNA 12",
+      "nombre_up": "PARQUE RECREATIVO Y CANCHA MÚLTIPLE JULIO RINCÓN",
+      "referencia_proceso": "4162.010.26.1.1058-2025",
+      "fuente_financiacion": "Empréstito",
+      "cantidad": "1",
+      "barrio_vereda": "JULIO RINCON",
+      "presupuesto_base": "32345785"
+    },
+    "updated_at": "2025-11-05T11:34:39.840008"
+  },
+  "timestamp": "2025-11-09T01:52:29.023743"
+}

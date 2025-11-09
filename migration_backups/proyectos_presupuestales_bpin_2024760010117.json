@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010117",
+  "data": {
+    "nombre_centro_gestor": "Unidad Administrativa Especial de Servicios Públicos",
+    "cod_producto": null,
+    "nombre_area_funcional": "Líneas de servicios del Proceso Servicios Públicos certificadas bajo la ISO 9001:2015",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Fortalecimiento institucional",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010117,
+    "created_at": "2025-10-10T09:26:38.601700+00:00",
+    "nombre_actividad": "Mejorar los procesos de planeación y los trámites administrativos de las líneas de atención en el Sistema Integrado de Gestión del proceso de Servicios Públicos",
+    "updated_at": "2025-10-10T09:26:38.601700+00:00",
+    "programa_presupuestal": 6302001,
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2025,
+    "nombre_proyecto": "Fortalecimiento Institucional de la Calidad de las Líneas de Servicio de la Unidad Administrativa Especial de Servicios Públicos de Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": null,
+    "validador_cuipo": null,
+    "bp": "BP26005346"
+  },
+  "timestamp": "2025-11-09T01:33:45.351898"
+}

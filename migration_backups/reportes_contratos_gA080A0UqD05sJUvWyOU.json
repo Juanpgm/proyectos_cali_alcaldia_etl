@@ -1,0 +1,31 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "gA080A0UqD05sJUvWyOU",
+  "data": {
+    "observaciones": "El avance en los productos corresponde a:\r\n1. Implementación del caso de uso: Integración de datos para mejora de la gestión educativa en Santiago de Cali. Se completaron tareas de preparación, perfilamiento y consumo de datos. Se desarrolló en modo de prueba, la solución tecnológica Gestor de información del sector educativo en Santiago de Cali, la cual se encuentra en fase de pruebas funcionales y pruebas de usuario final.\r\n2. Implementación del caso de uso: Integración de datos del ciudadano. Se encuentra operativa en ambiente productivo la solución tecnológica Panel de consulta Datos Integrados del Ciudadano y se desarrolló en ambiente de pruebas un módulo para la integración de nuevos registros de beneficiarios de programas sociales de la Alcaldía, la cual se encuentra en fase de pruebas de usuario final.\r\n3. Se dio inicio a fase de entendimiento de requerimientos técnicos y funcionales de 4 soluciones de inteligencia artificial, 2 para Legal Tech y 2 para canales de atención el ciudadano.",
+    "nombre_centro_gestor": "",
+    "fecha_reporte": "2025-10-19T15:26:51.420468+00:00",
+    "referencia_contrato": "151421",
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/1aQQrCQWeqLQFC56de7L7DCKipCyHUci5",
+    "archivos_evidencia": [
+      {
+        "type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        "size": 11979,
+        "download_url": "https://drive.google.com/uc?id=1LvW8dwbZ3fZIaSIH5_4SAt2HaZMAGvrA",
+        "url": "https://docs.google.com/spreadsheets/d/1LvW8dwbZ3fZIaSIH5_4SAt2HaZMAGvrA/edit?usp=drivesdk&ouid=107631050282737776825&rtpof=true&sd=true",
+        "status": "uploaded_successfully",
+        "drive_id": "1LvW8dwbZ3fZIaSIH5_4SAt2HaZMAGvrA",
+        "name": "Seguimiento Ejecución BP 26005255_2024_2025 (7).xlsx"
+      }
+    ],
+    "avance_fisico": 17.0,
+    "alertas": {
+      "descripcion": "",
+      "es_alerta": false,
+      "tipos": []
+    },
+    "avance_financiero": 17.0,
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:41:55.591513"
+}

@@ -1,0 +1,31 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "IX3FyP0KEdQKYRMDINpn",
+  "data": {
+    "nombre_centro_gestor": "",
+    "fecha_reporte": "2025-11-07T02:58:43.282246+00:00",
+    "observaciones": "",
+    "avance_fisico": 50.0,
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/1SpSMfb74HZEXXnzXnsogY4GElmUMqo05",
+    "archivos_evidencia": [
+      {
+        "type": "application/pdf",
+        "size": 95264,
+        "download_url": "https://drive.google.com/uc?id=1AH73_krp_BnVQGTujwxxPgD5Ktih7eCE",
+        "url": "https://drive.google.com/file/d/1AH73_krp_BnVQGTujwxxPgD5Ktih7eCE/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1AH73_krp_BnVQGTujwxxPgD5Ktih7eCE",
+        "name": "OC 152486 PANAMERICANA.pdf"
+      }
+    ],
+    "referencia_contrato": "152486",
+    "avance_financiero": 50.0,
+    "alertas": {
+      "es_alerta": false,
+      "descripcion": "",
+      "tipos": []
+    },
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:40:52.570248"
+}

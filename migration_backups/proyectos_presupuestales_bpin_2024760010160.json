@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010160",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Educación",
+    "cod_producto": null,
+    "nombre_area_funcional": "Sedes educativas oficiales beneficiadas con dotación",
+    "nombre_fondo": "Sgp-Educación-Calidad Matrícula Oficial",
+    "nombre_programa": "Cali Educada",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010160,
+    "nombre_actividad": "Dotar mobiliario escolar a los directivos docentes y administrativos de las instituciones educativas oficiales.",
+    "created_at": "2025-10-10T09:32:54.762230+00:00",
+    "updated_at": "2025-10-10T09:32:54.762230+00:00",
+    "programa_presupuestal": 6102001,
+    "nombre_pospre": "Otros muebles N.C.P.",
+    "anio": 2025,
+    "nombre_proyecto": "Mejoramiento de la dotación para las Instituciones Educativas Oficiales del Distrito de Santiago de Cali",
+    "clasificacion_fondo": "Recursos con Destinación específica del SGP",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "bp": "BP26005336",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T01:34:21.382380"
+}

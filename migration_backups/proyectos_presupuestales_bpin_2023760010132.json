@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2023760010132",
+  "data": {
+    "nombre_centro_gestor": "Unidad Administrativa Especial de Servicios Públicos",
+    "cod_producto": null,
+    "nombre_area_funcional": "Grandes generadores con tecnologías de aprovechamiento de residuos sólidos orgánicos aplicadas",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Gestión Integral de Residuos Sólidos ",
+    "nombre_dimension": "Cali, Nuestra Casa Común",
+    "tipo_gasto": "Inversión",
+    "bpin": 2023760010132,
+    "created_at": "2025-10-10T09:30:35.204454+00:00",
+    "nombre_actividad": "Implementar alternativas de aprovechamiento de residuos sólidos orgánicos",
+    "updated_at": "2025-10-10T09:30:35.204454+00:00",
+    "programa_presupuestal": "BP260049541010101",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "Ampliación de la tecnología de aprovechamiento de residuos sólidos orgánicos en el corregimiento de Montebello en Santiago de  Cali",
+    "clasificacion_fondo": "Libre destinación (Recursos Propios)",
+    "cod_sector": null,
+    "comuna": "MONTEBELLO",
+    "origen": "Territorio",
+    "nombre_linea_estrategica": "Mitigación del Cambio Climático",
+    "validador_cuipo": null,
+    "bp": "BP26004954"
+  },
+  "timestamp": "2025-11-09T01:31:02.922827"
+}

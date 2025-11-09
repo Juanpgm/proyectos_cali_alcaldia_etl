@@ -1,0 +1,23 @@
+{
+  "collection_path": "proyecciones_emprestito",
+  "doc_id": "ukxg66rbJOfPVTahYiXL",
+  "data": {
+    "nombre_banco": "DAVIVIENDA",
+    "nombre_organismo_reducido": "Vivienda",
+    "ultima_actualizacion": "2025-11-08T11:31:07.651326+00:00",
+    "item": "115",
+    "nombre_resumido_proceso": "Contrato 6 Contrato Subsidios de Mejoramiento de Vivienda",
+    "fuente": "google_sheets",
+    "fecha_carga": "2025-11-08T11:31:04.578126",
+    "valor_proyectado": 0,
+    "nombre_generico_proyecto": "Subsidios para vivienda",
+    "fila_origen": 115,
+    "id_paa": "NO VA AL PAA",
+    "fecha_guardado": "2025-11-08T11:31:07.651326+00:00",
+    "referencia_proceso": "",
+    "BP": "BP26005416",
+    "urlProceso": "Se transfirieron $ 4.932.427.500 al FEV Queda un saldo para traslado porterior por resolucion de $ 3.288.485.000",
+    "descripcion_bp": "Proyecto 2: BP-5416 Contribución a la reducción del déficit cualitativo/subsidios"
+  },
+  "timestamp": "2025-11-09T00:53:45.773032"
+}

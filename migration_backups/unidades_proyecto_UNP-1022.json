@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1022",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Carrera 37A Entre Calles 16 Y 17",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.143767",
+    "has_valid_geometry": true,
+    "upid": "UNP-1022",
+    "nombre_up_detalle": "Via Local",
+    "nombre_up": "Carrera 37A Entre Calles 16 Y 17",
+    "comuna_corregimiento": "COMUNA 10",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.52489473199995, 3.41997217200003, 0.0], [-76.52409757799995, 3.4200041970000257, 0.0]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Cristóbal Colón",
+    "cantidad": 85,
+    "loaded_at": "2025-11-04T20:23:09.143774",
+    "presupuesto_base": 64089423.45
+  },
+  "timestamp": "2025-11-09T01:42:52.434220"
+}

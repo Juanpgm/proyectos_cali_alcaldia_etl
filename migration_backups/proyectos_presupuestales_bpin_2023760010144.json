@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2023760010144",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Educación",
+    "cod_producto": null,
+    "nombre_area_funcional": "Población en edad escolar matriculada en el sistema educativo oficial de Santiago de Cali",
+    "nombre_fondo": "Expedición de Licencias de funcionamiento de establecimientos educativos para el trabajo y el desarrollo humano",
+    "nombre_programa": "La Escuela me acoge ",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2023760010144,
+    "created_at": "2025-10-10T09:27:39.887711+00:00",
+    "nombre_actividad": "Realizar el apoyo a la gestión en las acciones de seguimiento y control a los establecimientos de educación formal y educación para el trabajo y desarrollo humano, en el cumplimiento de la normatividad vigente para la prestación del servicio educativo",
+    "updated_at": "2025-10-10T09:27:39.887711+00:00",
+    "programa_presupuestal": "BP260047021020101",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Fortalecimiento del ejercicio de la función de Inspección, Vigilancia, y Control de los establecimientos de educación formal, informal y, educación para el trabajo y el desarrollo humano en Santiago de Cali",
+    "clasificacion_fondo": "Otros",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Distrito Educador",
+    "validador_cuipo": null,
+    "bp": "BP26004702"
+  },
+  "timestamp": "2025-11-09T01:31:09.945629"
+}

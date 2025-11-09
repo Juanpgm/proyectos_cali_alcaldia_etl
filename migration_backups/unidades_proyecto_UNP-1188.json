@@ -1,0 +1,30 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1188",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Calle 74 A Entre Carrera 11 Y Carrera 15",
+    "has_geometry": true,
+    "bpin": "2021760010260",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.929511",
+    "has_valid_geometry": true,
+    "upid": "UNP-1188",
+    "comuna_corregimiento": "COMUNA 07",
+    "nombre_up": "Calle 74 A Entre Carrera 11 Y Carrera 15",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.48168899999996, 3.446294000000023, 0.0], [-76.48154799999998, 3.4473860000000514, 0.0]]}",
+    "identificador": "Presupuesto Participativo Urbano",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Presupuesto Participativo",
+    "barrio_vereda": "Urbanización El Angel del Hogar",
+    "cantidad": 118,
+    "loaded_at": "2025-11-04T20:23:09.929516",
+    "presupuesto_base": 140796000.0
+  },
+  "timestamp": "2025-11-09T01:45:33.072592"
+}

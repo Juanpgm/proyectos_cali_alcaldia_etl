@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1112",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Avenida 3 Norte Entre Calle  52N  Y 34N",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.179576",
+    "has_valid_geometry": true,
+    "upid": "UNP-1112",
+    "nombre_up_detalle": "Via Arteria Principal",
+    "nombre_up": "Avenida 3 Norte Entre Calle  52N  Y 34N",
+    "comuna_corregimiento": "COMUNA 02",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"GeometryCollection\", \"geometries\": [{\"type\": \"MultiLineString\", \"coordinates\": [[[-76.51367008565843, 3.48381492220784, 0.0], [-76.5145754603228, 3.4823607044962603, 0.0]], [[-76.5145754603228, 3.4823607044962603, 0.0], [-76.51504656300168, 3.481604016810447, 0.0]]]}, {\"type\": \"LineString\", \"coordinates\": [[-76.52121069209265, 3.4717058719750145, 0.0], [-76.52070495609559, 3.4725226008743713, 0.0]]}]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Urbanización La Flora",
+    "cantidad": 0,
+    "loaded_at": "2025-11-04T20:23:09.179581",
+    "presupuesto_base": 443494501.08000004
+  },
+  "timestamp": "2025-11-09T01:44:20.355105"
+}

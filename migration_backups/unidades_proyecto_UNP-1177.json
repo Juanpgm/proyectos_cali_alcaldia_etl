@@ -1,0 +1,30 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1177",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Carrera 28 G Entre Cl 121B Y 122D - Pízamos I",
+    "has_geometry": true,
+    "bpin": "2021760010270",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.924973",
+    "has_valid_geometry": true,
+    "upid": "UNP-1177",
+    "comuna_corregimiento": "COMUNA 21",
+    "nombre_up": "Carrera 28 G Entre Calle 121B - 122D",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.47537239999997, 3.4031250000000455, 0.0], [-76.47535299999998, 3.40309620000005, 0.0], [-76.47532409999997, 3.4030586000000653, 0.0], [-76.47529139999995, 3.40301560000006, 0.0], [-76.47525869999998, 3.4029672000000346, 0.0], [-76.47521929999994, 3.4028807000000256, 0.0], [-76.47517709999994, 3.402800900000045, 0.0], [-76.47511599999996, 3.4027132000000506, 0.0], [-76.47498849999994, 3.4024895000000583, 0.0], [-76.47489499999995, 3.402341100000058, 0.0], [-76.47463789999995, 3.4018992000000594, 0.0], [-76.47431119999999, 3.4013288000000443, 0.0]]}",
+    "identificador": "Presupuesto Participativo Urbano",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Presupuesto Participativo",
+    "barrio_vereda": "Pizamos I",
+    "cantidad": 66,
+    "loaded_at": "2025-11-04T20:23:09.924980",
+    "presupuesto_base": 50827817.0
+  },
+  "timestamp": "2025-11-09T01:45:22.478979"
+}

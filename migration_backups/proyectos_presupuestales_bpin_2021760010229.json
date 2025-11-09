@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2021760010229",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "cod_producto": 2402120,
+    "nombre_area_funcional": "Mantenimiento de puentes peatonales de la zona urbana y rural",
+    "nombre_fondo": "Ingresos Corrientes de Libre Destinación",
+    "nombre_programa": "Movilidad Peatonal ",
+    "nombre_dimension": "Cali, Nuestra Casa Común",
+    "tipo_gasto": "Inversión",
+    "bpin": 2021760010229,
+    "created_at": "2025-10-10T09:29:02.928459+00:00",
+    "nombre_actividad": "Realizar obras de mantenimiento de puentes peatonales en la comuna 14",
+    "updated_at": "2025-10-10T09:29:02.928459+00:00",
+    "programa_presupuestal": "BP260039511010101",
+    "nombre_pospre": "Servicios de la construcción",
+    "anio": 2024,
+    "nombre_proyecto": "Mantenimiento de puentes peatonales en la comuna 14 de Santiago de  Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 24,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Movilidad Multimodal Sustentable",
+    "validador_cuipo": null,
+    "bp": "BP26003951"
+  },
+  "timestamp": "2025-11-09T01:27:20.738755"
+}

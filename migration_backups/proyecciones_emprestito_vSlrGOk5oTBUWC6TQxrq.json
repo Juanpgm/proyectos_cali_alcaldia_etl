@@ -1,0 +1,23 @@
+{
+  "collection_path": "proyecciones_emprestito",
+  "doc_id": "vSlrGOk5oTBUWC6TQxrq",
+  "data": {
+    "nombre_banco": "DAVIVIENDA",
+    "nombre_organismo_reducido": "DATIC",
+    "ultima_actualizacion": "2025-11-08T11:31:07.647013+00:00",
+    "item": "93",
+    "nombre_resumido_proceso": "Contrato 18: Ciudad Inteligente",
+    "fuente": "google_sheets",
+    "fecha_carga": "2025-11-08T11:31:04.574180",
+    "valor_proyectado": 0,
+    "nombre_generico_proyecto": "Soluciones Tecnológicas",
+    "fila_origen": 93,
+    "id_paa": "18939",
+    "fecha_guardado": "2025-11-08T11:31:07.647013+00:00",
+    "referencia_proceso": "4134.010.32.1.0202-2025",
+    "BP": "BP26005255",
+    "urlProceso": "https://www.secop.gov.co/CO1BusinessLine/Tendering/ContractNoticeView/Index?prevCtxLbl=Buscar+procesos&prevCtxUrl=https%3a%2f%2fwww.secop.gov.co%3a443%2fCO1BusinessLine%2fTendering%2fContractNoticeManagement%2fIndex&notice=CO1.NTC.8810787",
+    "descripcion_bp": "Implementación soluciones tecnológicas para el aprovechamiento estratégico de datos en el distrito de Santiago de Cali"
+  },
+  "timestamp": "2025-11-09T00:53:47.117990"
+}

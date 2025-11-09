@@ -1,0 +1,22 @@
+{
+  "collection_path": "users",
+  "doc_id": "Qnh8SMvbLcYcrSvxdYkJGVBd3KX2",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Movilidad",
+    "uid": "Qnh8SMvbLcYcrSvxdYkJGVBd3KX2",
+    "created_at": "2025-10-10T17:20:24.099231+00:00",
+    "cellphone": "+573104131619",
+    "last_login": "2025-10-10T17:21:22.716162+00:00",
+    "is_active": true,
+    "auth_providers": [
+      "password"
+    ],
+    "fullname": "Andres Fernandez",
+    "email": "af.movilidad.cali@gmail.com",
+    "email_verified": false,
+    "login_count": 1,
+    "updated_at": "2025-10-10T17:21:22.716165+00:00",
+    "can_use_google_auth": false
+  },
+  "timestamp": "2025-11-09T02:01:03.097574"
+}

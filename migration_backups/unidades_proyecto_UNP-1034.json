@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1034",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Avenida 8N Con Calle 10 Oeste",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.149770",
+    "has_valid_geometry": true,
+    "upid": "UNP-1034",
+    "nombre_up_detalle": "Via Colectora",
+    "nombre_up": "Avenida 8N Con Calle 10 Oeste",
+    "comuna_corregimiento": "COMUNA 02",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"GeometryCollection\", \"geometries\": [{\"type\": \"MultiLineString\", \"coordinates\": [[[-76.5356924658692, 3.456208072450445, 0.0], [-76.53567439958188, 3.4559716543973757, 0.0], [-76.53567343469622, 3.4559590277584427, 0.0], [-76.53561282300352, 3.4551658533243326, 0.0], [-76.53558815078718, 3.4550616982560873, 0.0]], [[-76.53508724268285, 3.4569117607197133, 0.0], [-76.53533864156066, 3.4567204956161146, 0.0], [-76.53570492935549, 3.4563711714374326, 0.0], [-76.5356924658692, 3.456208072450445, 0.0]]]}, {\"type\": \"LineString\", \"coordinates\": [[-76.53558815078718, 3.4550616982560873, 0.0], [-76.5355678363621, 3.454975939834538, 0.0], [-76.53544818020127, 3.4548401677520197, 0.0], [-76.53543434125422, 3.454824464899248, 0.0]]}]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Granada",
+    "cantidad": 200,
+    "loaded_at": "2025-11-04T20:23:09.149774",
+    "presupuesto_base": 452395930.20000005
+  },
+  "timestamp": "2025-11-09T01:43:03.905848"
+}

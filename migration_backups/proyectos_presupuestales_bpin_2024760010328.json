@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010328",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Gobierno",
+    "cod_producto": null,
+    "nombre_area_funcional": "Estrategia de comunicación implementada para el mejoramiento de la gestión institucional",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Gobierno abierto",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010328,
+    "nombre_actividad": "Realizar la planeación y seguimiento a las actividades que permitan la recolección de información de las diferentes fuentes de la Administración Central Municipal y externas",
+    "created_at": "2025-10-10T09:31:56.655918+00:00",
+    "updated_at": "2025-10-10T09:31:56.655918+00:00",
+    "programa_presupuestal": 6301002,
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2025,
+    "nombre_proyecto": "Divulgación de la gestión pública del Distrito de Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "bp": "BP26005269",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T01:36:40.391630"
+}

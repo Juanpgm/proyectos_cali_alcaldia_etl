@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1033",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Avenida Circunvalación Con Carrera 4",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.149336",
+    "has_valid_geometry": true,
+    "upid": "UNP-1033",
+    "nombre_up_detalle": "Via Arteria Secundaria",
+    "nombre_up": "Avenida Circunvalación Con Carrera 4",
+    "comuna_corregimiento": "COMUNA 03",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.54634700499997, 3.4456144860000677, 0.0], [-76.54625665299994, 3.445684758000027, 0.0], [-76.54618442599997, 3.4458003720000647, 0.0], [-76.54613744899996, 3.4459033550000413, 0.0], [-76.54614140099994, 3.4460283440000694, 0.0], [-76.54614432999995, 3.446120965000034, 0.0], [-76.54614883699998, 3.4462634730000445, 0.0]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Bellavista",
+    "cantidad": 30,
+    "loaded_at": "2025-11-04T20:23:09.149344",
+    "presupuesto_base": 22619796.51
+  },
+  "timestamp": "2025-11-09T01:43:03.004005"
+}

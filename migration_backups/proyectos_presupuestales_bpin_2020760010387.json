@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010387",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Desarrollo Económico",
+    "cod_producto": 3301118,
+    "nombre_area_funcional": "Proyectos de inversión nacional y extranjera para el sector fílmico apoyados",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Territorios Creativos ",
+    "nombre_dimension": "Cali, Inteligente para la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010387,
+    "created_at": "2025-10-10T09:30:10.278656+00:00",
+    "nombre_actividad": "Implementar el diseño de formación pertinente para la producción cinematográfica",
+    "updated_at": "2025-10-10T09:30:10.278656+00:00",
+    "programa_presupuestal": "BP260030841010104",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Producción cinematográfica y audiovisual competitiva en Santiago de Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 33,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Economía Incluyente, Creativa y Clústeres Estratégicos",
+    "validador_cuipo": null,
+    "bp": "BP26003084"
+  },
+  "timestamp": "2025-11-09T01:06:47.118660"
+}

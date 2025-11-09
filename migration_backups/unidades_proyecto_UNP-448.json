@@ -1,0 +1,52 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-448",
+  "data": {
+    "created_at": "2025-11-05T11:34:39.819562",
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -76.5613,
+        3.449839
+      ]
+    },
+    "has_geometry": true,
+    "geometry_type": "Point",
+    "properties": {
+      "processed_timestamp": "2025-11-05T11:34:28.210236",
+      "descripcion_intervencion": "RECUPERACION DE SUPERFICIE DE CANCHA MULTIPLE",
+      "microtio": null,
+      "bpin": "0",
+      "centros_gravedad": false,
+      "upid": "UNP-448",
+      "nombre_up_detalle": "RECUPERACION DE SUPERFICIE DE CANCHA MULTIPLE",
+      "tipo_intervencion": "Adecuaciones y mantenimientos",
+      "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticePhases/View?PPI=CO1.PPI.40365146&isFromPublicArea=True&isModal=False",
+      "referencia_contrato": "4162.010.26.1.3229-2025",
+      "unidad": "UND",
+      "identificador": "Grupo Licitación 1",
+      "tipo_equipamiento": "Infraestructura recreo deportiva",
+      "fecha_fin": "15/12/2025",
+      "estado": "En ejecución",
+      "fecha_inicio": "10/10/2025",
+      "plataforma": "SECOP II",
+      "nombre_centro_gestor": "Secretaría del Deporte y la Recreación",
+      "avance_obra": "5.0",
+      "geometry_bounds": null,
+      "direccion": "AV. 2 OESTE # 20-00",
+      "ano": "2025",
+      "geometry_type": null,
+      "dataframe": "Secretaría del Deporte y la Recreación.xlsx",
+      "comuna_corregimiento": "COMUNA 01",
+      "nombre_up": "CANCHA MÚLTIPLE LA FORTUNA",
+      "referencia_proceso": "4162.010.26.1.1058-2025",
+      "fuente_financiacion": "Empréstito",
+      "cantidad": "1",
+      "barrio_vereda": "Terrón Colorado",
+      "presupuesto_base": "34942836"
+    },
+    "updated_at": "2025-11-05T11:34:39.819562"
+  },
+  "timestamp": "2025-11-09T01:51:51.013320"
+}

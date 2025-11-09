@@ -1,0 +1,30 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1201",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Cra 34 Entre Av Roosevelt Hasta Cll 5",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.934943",
+    "has_valid_geometry": true,
+    "upid": "UNP-1201",
+    "comuna_corregimiento": "COMUNA 19",
+    "nombre_up": "Cra 34 Entre Av Roosevelt Hasta Cll 5",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"GeometryCollection\", \"geometries\": [{\"type\": \"MultiLineString\", \"coordinates\": [[[-76.542553555702, 3.432669041143356, 0.0], [-76.54253344403139, 3.4326561613254385, 0.0]], [[-76.54231860190512, 3.43251857317965, 0.0], [-76.54207157034665, 3.4323603704348216, 0.0], [-76.5420293007508, 3.4323076466641154, 0.0]]]}, {\"type\": \"MultiLineString\", \"coordinates\": [[[-76.54253344403139, 3.4326561613254385, 0.0], [-76.54231860190512, 3.43251857317965, 0.0]], [[-76.5420293007508, 3.4323076466641154, 0.0], [-76.54148956329266, 3.431634420592104, 0.0], [-76.54123018082817, 3.4312580633090306, 0.0], [-76.54045435908137, 3.4302390352033854, 0.0], [-76.53969400567377, 3.4292008830144027, 0.0], [-76.53924311168021, 3.428611229025023, 0.0], [-76.5391577102601, 3.428487377090846, 0.0], [-76.5391154942846, 3.428408440896874, 0.0]]]}]}",
+    "identificador": "Puntos Estrategicos",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "San Fernando Viejo",
+    "cantidad": 610,
+    "loaded_at": "2025-11-04T20:23:09.934949",
+    "presupuesto_base": 2525602287.0
+  },
+  "timestamp": "2025-11-09T01:45:47.110171"
+}

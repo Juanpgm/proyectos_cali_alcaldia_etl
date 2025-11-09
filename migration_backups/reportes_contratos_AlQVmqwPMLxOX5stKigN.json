@@ -1,0 +1,31 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "AlQVmqwPMLxOX5stKigN",
+  "data": {
+    "nombre_centro_gestor": "",
+    "observaciones": "Actividades realizadas:\t\r\n* Calzada sur entre calles 44 y 47:\tConstrucción de losas de concreto pavimento rígido.\r\n* ⁠Calzada norte entre calles 52 y 47:\tConstrucción de losas de concreto pavimento rígido.\r\n* Calzada norte entre calles 72 y 70:\tExcavación a máquina\r\n\tRetiro de material de excavación.\r\n* Calzada sur entre calles 70 y 73:\tDemolición de losas de concreto pavimento.\r\n\tRetiro material de demolí RCD.",
+    "fecha_reporte": "2025-10-31T15:59:00.723160+00:00",
+    "referencia_contrato": "4151.010.26.1.0837-2025",
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/1VoweTm0v7Bg6QCwKFhpit-fdIvRfSjCn",
+    "archivos_evidencia": [
+      {
+        "type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "size": 13393,
+        "download_url": "https://drive.google.com/uc?id=1GPun2aWGXjd8AIDM5iKNpC8I6LRZ6BPN",
+        "url": "https://docs.google.com/document/d/1GPun2aWGXjd8AIDM5iKNpC8I6LRZ6BPN/edit?usp=drivesdk&ouid=107631050282737776825&rtpof=true&sd=true",
+        "status": "uploaded_successfully",
+        "drive_id": "1GPun2aWGXjd8AIDM5iKNpC8I6LRZ6BPN",
+        "name": "Blanco.docx"
+      }
+    ],
+    "avance_fisico": 6.5,
+    "alertas": {
+      "descripcion": "",
+      "es_alerta": false,
+      "tipos": []
+    },
+    "avance_financiero": 0.0,
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:40:40.271652"
+}

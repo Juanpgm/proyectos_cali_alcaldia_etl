@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010124",
+  "data": {
+    "nombre_centro_gestor": "Unidad Administrativa Especial de Protección Animal",
+    "cod_producto": null,
+    "nombre_area_funcional": "Animales domésticos adoptados",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Protección animal",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010124,
+    "created_at": "2025-10-10T09:26:44.280283+00:00",
+    "nombre_actividad": "Realizar acompañamiento en los procesos de adopción de animales",
+    "updated_at": "2025-10-10T09:26:44.280283+00:00",
+    "programa_presupuestal": 6202003,
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2025,
+    "nombre_proyecto": "Mejoramiento de la atención y cuidado integral de los animales en el Centro de Bienestar Animal de Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": null,
+    "validador_cuipo": null,
+    "bp": "BP26005414"
+  },
+  "timestamp": "2025-11-09T01:33:51.491201"
+}

@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010148",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Educación",
+    "cod_producto": null,
+    "nombre_area_funcional": "Estudiantes de las IEO con apoyo financiero para el ingreso y permanencia a programas técnicos, técnico profesional, tecnólogicos y/o profesional",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Cali Educada",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010148,
+    "nombre_actividad": "Acompañar la orientación vocacional y la transición a la vida universitaria de los jóvenes",
+    "created_at": "2025-10-10T09:32:32.986231+00:00",
+    "updated_at": "2025-10-10T09:32:32.986231+00:00",
+    "programa_presupuestal": 6102001,
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2025,
+    "nombre_proyecto": "Implementación de estrategias que permitan mejorar el acceso y la permanencia de los jóvenes a la educación superior en Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "bp": "BP26005488",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T01:34:11.706995"
+}

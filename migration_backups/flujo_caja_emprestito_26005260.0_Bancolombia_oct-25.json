@@ -1,0 +1,19 @@
+{
+  "collection_path": "flujo_caja_emprestito",
+  "doc_id": "26005260.0_Bancolombia_oct-25",
+  "data": {
+    "banco": "Bancolombia",
+    "desembolso": 130000000.0,
+    "id_registro": "26005260.0_Bancolombia_oct-25",
+    "mes": "oct-25",
+    "columna_origen": "oct-25 Desembolso",
+    "bp_proyecto": "26005260.0",
+    "responsable": "Esperanza Ramos",
+    "fecha_procesamiento": "2025-10-20T11:50:33.070024",
+    "periodo": "2025-10-01T00:00:00",
+    "archivo_origen": "Matriz Emprestito.xlsx",
+    "organismo": "DATIC",
+    "descripcion_bp": "Fortalecimiento de la Plataforma Tecnológica de la Alcaldia de Santiago de Cali"
+  },
+  "timestamp": "2025-11-09T00:48:19.468286"
+}

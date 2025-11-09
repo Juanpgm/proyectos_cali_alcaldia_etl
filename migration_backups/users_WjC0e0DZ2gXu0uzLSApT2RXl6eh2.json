@@ -1,0 +1,22 @@
+{
+  "collection_path": "users",
+  "doc_id": "WjC0e0DZ2gXu0uzLSApT2RXl6eh2",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Gestión del Riesgo de Emergencias y Desastres",
+    "uid": "WjC0e0DZ2gXu0uzLSApT2RXl6eh2",
+    "created_at": "2025-10-10T17:41:51.888806+00:00",
+    "cellphone": "+573213198549",
+    "fullname": "Julio Cesar Quimbayo",
+    "is_active": true,
+    "auth_providers": [
+      "password"
+    ],
+    "login_count": 0,
+    "email": "julio.quimbayo@gmail.com",
+    "updated_at": "2025-10-10T17:41:51.888810+00:00",
+    "last_login": null,
+    "email_verified": false,
+    "can_use_google_auth": false
+  },
+  "timestamp": "2025-11-09T02:01:07.360229"
+}

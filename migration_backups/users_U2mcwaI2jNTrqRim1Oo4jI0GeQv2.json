@@ -1,0 +1,22 @@
+{
+  "collection_path": "users",
+  "doc_id": "U2mcwaI2jNTrqRim1Oo4jI0GeQv2",
+  "data": {
+    "nombre_centro_gestor": "Unidad Administrativa Especial de Gestión de Bienes y Servicios",
+    "uid": "U2mcwaI2jNTrqRim1Oo4jI0GeQv2",
+    "created_at": "2025-10-10T22:22:36.282834+00:00",
+    "cellphone": "+573178109369",
+    "last_login": "2025-11-04T19:20:13.731711+00:00",
+    "is_active": true,
+    "auth_providers": [
+      "password"
+    ],
+    "fullname": "Ana Maria",
+    "email": "ana.florez.mun@cali.gov.co",
+    "email_verified": false,
+    "login_count": 1,
+    "updated_at": "2025-11-04T19:20:13.731717+00:00",
+    "can_use_google_auth": true
+  },
+  "timestamp": "2025-11-09T02:01:05.642983"
+}

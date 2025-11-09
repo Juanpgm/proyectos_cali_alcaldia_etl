@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010104",
+  "data": {
+    "nombre_centro_gestor": "Secretaría del Deporte y la Recreación",
+    "cod_producto": 4302007,
+    "nombre_area_funcional": "Investigaciones del sector deporte realizadas en la visión Cali 2036",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Gestión de Información Estadística y Geográfica para la Evaluación de Resultados  ",
+    "nombre_dimension": "Cali, Gobierno Incluyente",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010104,
+    "created_at": "2025-10-10T09:29:47.484745+00:00",
+    "nombre_actividad": "Realizar logística para el desarrollo de diferentes encuentros de recolección de información como insumo de estudios e investigaciones.",
+    "updated_at": "2025-10-10T09:29:47.484745+00:00",
+    "programa_presupuestal": "BP260025621010105",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Desarrollo de investigaciones al servicio del  deporte, la recreación y la actividad física en Santiago de Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 43,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Gobierno Inteligente",
+    "validador_cuipo": null,
+    "bp": "BP26002562"
+  },
+  "timestamp": "2025-11-09T00:54:18.822244"
+}

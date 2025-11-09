@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2023760010052",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Desarrollo Territorial y Participación Ciudadana",
+    "cod_producto": null,
+    "nombre_area_funcional": "Intervenciones (mantenimiento correctivo, preventivo y dotación) realizadas a Centros de Administración Local Integrada",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Equipamientos para el Desarrollo y el Bienestar",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2023760010052,
+    "created_at": "2025-10-10T09:30:28.994086+00:00",
+    "nombre_actividad": "Realizar Intervención de Mantenimiento Correctivo y Preventivo Locativo a la Infraestructura del C.A.L.I 3",
+    "updated_at": "2025-10-10T09:30:28.994086+00:00",
+    "programa_presupuestal": "BP260048121010101",
+    "nombre_pospre": "Servicios de la construcción",
+    "anio": 2024,
+    "nombre_proyecto": "Mantenimiento Correctivo, Preventivo Y Dotación Del Centro De Administración Local Integrada De La Comuna 3 De Santiago De   Cali",
+    "clasificacion_fondo": "Libre destinación (Recursos Propios)",
+    "cod_sector": null,
+    "comuna": "COMUNA 3",
+    "origen": "Territorio",
+    "nombre_linea_estrategica": "Territorios para la Vida",
+    "validador_cuipo": null,
+    "bp": "BP26004812"
+  },
+  "timestamp": "2025-11-09T01:29:58.154615"
+}

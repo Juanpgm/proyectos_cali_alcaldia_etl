@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010132",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Educación",
+    "cod_producto": null,
+    "nombre_area_funcional": "Estudiantes pertenecientes a grupos vulnerables atendidos con estrategias de educación inclusiva",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Cali Educada",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010132,
+    "nombre_actividad": "Proporcionar guías de trabajo por niveles educativos para la atención a la población del Sistema de Responsabilidad Penal Adolescente",
+    "created_at": "2025-10-10T09:32:34.535583+00:00",
+    "updated_at": "2025-10-10T09:32:34.535583+00:00",
+    "programa_presupuestal": 6102001,
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2025,
+    "nombre_proyecto": "Mejoramiento de la atención educativa para los estudiantes pertenecientes al Sistema de Responsabilidad Penal Adolescente del Distrito de Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "bp": "BP26005341",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T01:33:58.525313"
+}

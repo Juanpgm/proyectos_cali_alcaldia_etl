@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010330",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Cultura",
+    "cod_producto": null,
+    "nombre_area_funcional": "Eventos de promoción de la cultura a nivel local, distrital e internacional realizados",
+    "nombre_fondo": "Estampilla procultura ",
+    "nombre_programa": "Cali Distrito Deportivo, Cultural y Turístico",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010330,
+    "nombre_actividad": "Realizar la articulación de eventos de promoción cultural al circuito cultural del Distrito",
+    "created_at": "2025-10-10T09:33:54.783634+00:00",
+    "updated_at": "2025-10-10T09:33:54.783634+00:00",
+    "programa_presupuestal": 6102003,
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2025,
+    "nombre_proyecto": "Desarrollo de eventos de promoción cultural a nivel local, distrital e internacional mediados por la lectura, escritura y oralidad en el Distrito de Santiago de  Cali",
+    "clasificacion_fondo": "Recursos Propios con Destinacion Especifica",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "bp": "BP26005303",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T01:36:42.132220"
+}

@@ -1,0 +1,23 @@
+{
+  "collection_path": "proyecciones_emprestito",
+  "doc_id": "LBo3Hxspj3xSbTq8CVXd",
+  "data": {
+    "nombre_banco": "DAVIVIENDA",
+    "nombre_organismo_reducido": "Desarrollo Económico",
+    "ultima_actualizacion": "2025-11-08T11:31:07.648819+00:00",
+    "item": "99",
+    "nombre_resumido_proceso": "Aunar esfuerzos para apoyar la ejecución de las obras e interventoría del proyecto denominado CONSTRUCCIÓN DEL PROYECTO SENA CENTRO DE FORMACIÓN CALI AVENIDA CUARTA y establecer las condiciones para hacer efectivo el apoyo financiero del Departamento del Valle del Cauca y el Servicio Nacional de Aprendizaje – SENA Regional Valle del Cauca.",
+    "fuente": "google_sheets",
+    "fecha_carga": "2025-11-08T11:31:04.575751",
+    "valor_proyectado": 0,
+    "nombre_generico_proyecto": "Construccion Centro SENA",
+    "fila_origen": 99,
+    "id_paa": "VIGENCIA 2026",
+    "fecha_guardado": "2025-11-08T11:31:07.648819+00:00",
+    "referencia_proceso": "",
+    "BP": "BP26005359",
+    "urlProceso": "",
+    "descripcion_bp": "“Fortalecimiento de las capacidades del ecosistema laboral para el desarrollo productivo sostenible en el Distrito de Santiago de Cali”"
+  },
+  "timestamp": "2025-11-09T00:52:46.305453"
+}

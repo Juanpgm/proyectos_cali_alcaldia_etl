@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2021760010399",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Seguridad y Justicia",
+    "cod_producto": 4501048,
+    "nombre_area_funcional": "Agencias de seguridad y justicia apoyadas en su operatividad",
+    "nombre_fondo": "Contribución sobre Contratos de Obra Pública",
+    "nombre_programa": "Seguridad y Lucha Contra el Delito ",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2021760010399,
+    "created_at": "2025-10-10T09:29:26.572651+00:00",
+    "nombre_actividad": "Implementar la estrategia de seguimiento, monitoreo y evaluación a las acciones ejecutadas por las agencias de Seguridad y Justicia de Cali",
+    "updated_at": "2025-10-10T09:29:26.572651+00:00",
+    "programa_presupuestal": "BP260037651010109",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "FORTALECIMIENTO DE LA OPERATIVIDAD DE LAS AGENCIAS DE SEGURIDAD Y JUSTICIA A TRAVÉS DEL PLAN INTEGRAL DE SEGURIDAD Y CONVIVENCIA CIUDADANA EN SANTIAGO DE CALI.",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 45,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Distrito Reconciliado",
+    "validador_cuipo": null,
+    "bp": "BP26003765"
+  },
+  "timestamp": "2025-11-09T01:28:01.916410"
+}

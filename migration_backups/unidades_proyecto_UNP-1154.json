@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1154",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Carrera 24 Entre Calles 72 Y 72B",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.916010",
+    "has_valid_geometry": true,
+    "upid": "UNP-1154",
+    "nombre_up_detalle": "Via Local",
+    "nombre_up": "Carrera 24 Entre Calles 72 Y 72B",
+    "comuna_corregimiento": "COMUNA 13",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.48989125899357, 3.4416296176173775, 0.0], [-76.48898828589475, 3.4411538978754357, 0.0]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Ulpiano Lloreda",
+    "cantidad": 223,
+    "loaded_at": "2025-11-04T20:23:09.916014",
+    "presupuesto_base": 168140487.39
+  },
+  "timestamp": "2025-11-09T01:45:00.635708"
+}

@@ -1,0 +1,19 @@
+{
+  "collection_path": "flujo_caja_emprestito",
+  "doc_id": "26005500.0_Banco de Occidente_mar-26",
+  "data": {
+    "desembolso": 11239114730.7,
+    "banco": "Banco de Occidente",
+    "id_registro": "26005500.0_Banco de Occidente_mar-26",
+    "mes": "mar-26",
+    "columna_origen": "mar-26 Desembolso",
+    "bp_proyecto": "26005500.0",
+    "responsable": "Esperanza Ramos",
+    "fecha_procesamiento": "2025-10-20T11:50:33.086458",
+    "periodo": "2026-03-01T00:00:00",
+    "archivo_origen": "Matriz Emprestito.xlsx",
+    "organismo": "Seguridad",
+    "descripcion_bp": "Fortalecimiento a la capacidad operativa de las agencias de seguridad y justicia en Santiago de Cali"
+  },
+  "timestamp": "2025-11-09T00:49:23.849260"
+}

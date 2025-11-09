@@ -1,0 +1,19 @@
+{
+  "collection_path": "flujo_caja_emprestito",
+  "doc_id": "26005339.0_Banco de Occidente_dic-25",
+  "data": {
+    "desembolso": 3760885269.0,
+    "banco": "Banco de Occidente",
+    "id_registro": "26005339.0_Banco de Occidente_dic-25",
+    "mes": "dic-25",
+    "columna_origen": "dic-25 Desembolso",
+    "bp_proyecto": "26005339.0",
+    "responsable": "Esperanza Ramos",
+    "fecha_procesamiento": "2025-10-20T11:50:33.080246",
+    "periodo": "2025-12-01T00:00:00",
+    "archivo_origen": "Matriz Emprestito.xlsx",
+    "organismo": "Seguridad",
+    "descripcion_bp": "Fortalecimiento al Sistema de Monitoreo y videovigilancia en Santiago de Cali"
+  },
+  "timestamp": "2025-11-09T00:48:28.797260"
+}

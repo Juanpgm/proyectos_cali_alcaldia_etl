@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010299",
+  "data": {
+    "nombre_centro_gestor": "Unidad Administrativa Especial de Servicios Públicos",
+    "cod_producto": 4003047,
+    "nombre_area_funcional": "Beneficiarios del programa del mínimo vital de agua potable",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Prestación de Servicios Públicos Domiciliarios",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010299,
+    "created_at": "2025-10-10T09:30:34.062944+00:00",
+    "nombre_actividad": "Realizar el apoyo técnico y financiero para el control del minimo vital de agua potable para los estratos 1 y 2",
+    "updated_at": "2025-10-10T09:30:34.062944+00:00",
+    "programa_presupuestal": "BP260025351010108",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "APLICACIÓN DEL PROGRAMA MÍNIMO VITAL DE AGUA POTABLE PARA LOS ESTRATOS 1 Y 2 DE SANTIAGO DE CALI",
+    "clasificacion_fondo": "Libre destinación (Recursos Propios)",
+    "cod_sector": 40,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Territorios para la Vida",
+    "validador_cuipo": null,
+    "bp": "BP26002535"
+  },
+  "timestamp": "2025-11-09T01:06:33.074446"
+}

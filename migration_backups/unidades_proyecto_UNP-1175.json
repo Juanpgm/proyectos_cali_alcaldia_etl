@@ -1,0 +1,30 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1175",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Calle 121 Entre Carrera 26 J Y Carrera 26 K -\nEl Remanso",
+    "has_geometry": true,
+    "bpin": "2021760010270",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.923966",
+    "has_valid_geometry": true,
+    "upid": "UNP-1175",
+    "comuna_corregimiento": "COMUNA 21",
+    "nombre_up": "Calle 121 Entre Carreras 26 J Y 26 K",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.46809399999995, 3.4183400000000574, 0.0], [-76.46815099999998, 3.418322000000046, 0.0], [-76.46821799999998, 3.4182930000000624, 0.0], [-76.46829099999997, 3.4182500000000573, 0.0], [-76.46831699999996, 3.418209000000047, 0.0], [-76.46840999999995, 3.418064000000072, 0.0], [-76.46872899999994, 3.417515000000037, 0.0]]}",
+    "identificador": "Presupuesto Participativo Urbano",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Presupuesto Participativo",
+    "barrio_vereda": "Calimio Desepaz",
+    "cantidad": 35,
+    "loaded_at": "2025-11-04T20:23:09.923971",
+    "presupuesto_base": 51583997.0
+  },
+  "timestamp": "2025-11-09T01:45:20.761407"
+}

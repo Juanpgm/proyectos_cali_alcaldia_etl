@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1129",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Carrera 90 Entre Calle 25 Y 28",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.905823",
+    "has_valid_geometry": true,
+    "upid": "UNP-1129",
+    "nombre_up_detalle": "Via Local",
+    "nombre_up": "Carrera 90 Entre Calle 25 Y 28",
+    "comuna_corregimiento": "COMUNA 17",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.5245081701883, 3.377524241669304, 0.0], [-76.52422022818848, 3.377523337971316, 0.0]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Lili",
+    "cantidad": 32,
+    "loaded_at": "2025-11-04T20:23:09.905826",
+    "presupuesto_base": 24127782.94
+  },
+  "timestamp": "2025-11-09T01:44:36.139310"
+}

@@ -1,0 +1,42 @@
+{
+  "collection_path": "contratos_emprestito",
+  "doc_id": "2UzGRo01T7H71j0k0XCO",
+  "data": {
+    "nit_contratista": "",
+    "fecha_fin_contrato": "2025-12-31",
+    "sector": "Tecnologías de la Información y las Comunicaciones",
+    "ordenador_gasto": "ALEXANDER MONDRAGON VALENCIA",
+    "_dataset_source": "jbjy-vk9h",
+    "nombre_procedimiento": "",
+    "valor_pagado": "0",
+    "urlproceso": {
+      "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.8746169&isFromPublicArea=True&isModal=true&asPopupView=true"
+    },
+    "bpin": 2024760010045,
+    "descripcion_proceso": "Realizar la interventoria tecnica; jurídica; administrativa; financiera; contable y de control presupuestal al contrato que tendrá por objeto: implementar soluciones tecnológicas para modernizar la infraestructura de la entidad; optimizar la gestión de bases de datos y sistemas de información; garan",
+    "valor_contrato": 824287971,
+    "supervisor": "ERMILSON DIAZ MARTINEZ",
+    "entidad_contratante": "SANTIAGO DE CALI DISTRITO ESPECIAL - DEPARTAMENTO ADMINISTRATIVO DE TECNOLOGIAS DE LA INFORMACION Y LAS COMUNICACIONES",
+    "banco": "Bancolombia",
+    "referencia_contrato": "4134.010.26.1.0544-2025",
+    "nit_entidad": "890399011",
+    "id_contrato": "CO1.PCCNTR.8355803",
+    "fecha_guardado": "2025-10-23T02:22:03.287796+00:00",
+    "modalidad_contratacion": "Concurso de méritos abierto",
+    "fecha_firma_contrato": null,
+    "bp": "BP26005260",
+    "nombre_centro_gestor": "Departamento Administrativo de Tecnologías de la Información y las Comunicaciones",
+    "version_esquema": "1.1",
+    "representante_legal": "VISION GANADORA BY VALDES GALEANO S.A.S. VISION GANADORA BY VALDES GALEANO S.A.S",
+    "fuente_datos": "SECOP_API",
+    "proceso_contractual": "CO1.BDOS.8607619",
+    "fecha_inicio_contrato": "2025-10-14",
+    "fecha_actualizacion": "2025-10-23T02:22:03.416593+00:00",
+    "nombre_contratista": "",
+    "estado_contrato": "En ejecución",
+    "referencia_proceso": "4134.010.32.1.0206-2025",
+    "objeto_contrato": "Realizar la interventoria tecnica; jurídica; administrativa; financiera; contable y de control presupuestal al contrato que tendrá por objeto: implementar soluciones tecnológicas para modernizar la infraestructura de la entidad; optimizar la gestión de bases de datos y sistemas de información; garantizar la seguridad informática; fortalecer los sistemas de recuperación ante desastres y respaldo de informacion On-premise para la Alcaldía del Distrito Especial de Santiago de Cali",
+    "tipo_contrato": "Interventoría"
+  },
+  "timestamp": "2025-11-09T00:47:44.476074"
+}

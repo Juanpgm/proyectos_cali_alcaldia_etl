@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010448",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Cultura",
+    "cod_producto": 3301065,
+    "nombre_area_funcional": "Bibliotecas Públicas del proceso de Gestión Cultural certificadas bajo la norma Técnica de Gestión de Calidad ISO 9001:2015",
+    "nombre_fondo": "Estampilla procultura ",
+    "nombre_programa": "Fortalecimiento Institucional",
+    "nombre_dimension": "Cali, Gobierno Incluyente",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010448,
+    "created_at": "2025-10-10T09:28:52.705920+00:00",
+    "nombre_actividad": "Determinar las condiciones técnicas y administrativas para la implementación del proceso de gestión de calidad",
+    "updated_at": "2025-10-10T09:28:52.705920+00:00",
+    "programa_presupuestal": "BP260028621010112",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "Normalización de bibliotecas públicas con proceso de certificación de calidad en Santiago de Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 33,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Gobierno Inteligente",
+    "validador_cuipo": null,
+    "bp": "BP26002862"
+  },
+  "timestamp": "2025-11-09T01:07:06.398457"
+}

@@ -1,0 +1,16 @@
+{
+  "collection_path": "flujo_caja_emprestito",
+  "doc_id": "Infraestructura_IFC_dic-25",
+  "data": {
+    "desembolso": 0.0,
+    "banco": "IFC",
+    "id_registro": "Infraestructura_IFC_dic-25",
+    "mes": "dic-25",
+    "fecha_procesamiento": "2025-10-20T11:37:44.636551",
+    "desembolso_real": 0.0,
+    "periodo": "2025-12-01T00:00:00",
+    "archivo_origen": "Matriz Emprestito.xlsx",
+    "organismo": "Infraestructura"
+  },
+  "timestamp": "2025-11-09T00:51:11.263837"
+}

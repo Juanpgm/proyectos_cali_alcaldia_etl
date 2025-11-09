@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010587",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Salud Pública",
+    "cod_producto": 1905050,
+    "nombre_area_funcional": "Prestadores de servicios de salud que brindan atención de calidad a recién nacidos, aumentadas",
+    "nombre_fondo": "Coljuegos  25%",
+    "nombre_programa": "Cariños, Puro Corazón por la Primera Infancia ",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010587,
+    "created_at": "2025-10-10T09:27:54.569336+00:00",
+    "nombre_actividad": "Realizar acompañamiento a actores del sistema en temáticas relacionadas con la atención en salud en la primera infancia.",
+    "updated_at": "2025-10-10T09:27:54.569336+00:00",
+    "programa_presupuestal": "BP260034041020110",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Fortalecimiento del Modelo de Atención Integral en Salud en menores de un año en Santiago de Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 19,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Poblaciones Construyendo Territorio",
+    "validador_cuipo": null,
+    "bp": "BP26003404"
+  },
+  "timestamp": "2025-11-09T01:07:45.906072"
+}

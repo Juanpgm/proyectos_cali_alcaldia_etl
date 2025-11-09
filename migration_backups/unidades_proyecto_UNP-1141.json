@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1141",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Calle 3 Oeste Entre Carrera 56 Y Calle3A Oeste",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.910393",
+    "has_valid_geometry": true,
+    "upid": "UNP-1141",
+    "nombre_up_detalle": "Via Local",
+    "nombre_up": "Calle 3 Oeste Entre Carrera 56 Y Calle3A Oeste",
+    "comuna_corregimiento": "COMUNA 19",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.5578248546259, 3.4118082986691958, 0.0], [-76.55789143168845, 3.4108836671392395, 0.0], [-76.55792002774712, 3.4104865205853594, 0.0], [-76.5579081147038, 3.4102233626145426, 0.0]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Sector Cañaveralejo Guadalupe",
+    "cantidad": 182,
+    "loaded_at": "2025-11-04T20:23:09.910397",
+    "presupuesto_base": 190592729.78
+  },
+  "timestamp": "2025-11-09T01:44:48.420556"
+}

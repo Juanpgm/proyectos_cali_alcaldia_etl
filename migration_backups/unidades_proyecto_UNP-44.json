@@ -1,0 +1,52 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-44",
+  "data": {
+    "created_at": "2025-11-05T11:34:33.287941",
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -76.5026855980691,
+        3.43360614100335
+      ]
+    },
+    "has_geometry": true,
+    "geometry_type": "Point",
+    "properties": {
+      "processed_timestamp": "2025-11-05T11:34:28.210236",
+      "descripcion_intervencion": null,
+      "microtio": null,
+      "bpin": "-2147483648",
+      "centros_gravedad": false,
+      "upid": "UNP-44",
+      "nombre_up_detalle": "•\tObras Civiles\n•\tAdecuación Paisajistica Y Manejo Ambiental\n•\tSeñaletica\n•\tEstrategia Educativa ",
+      "tipo_intervencion": "Adecuaciones y mantenimientos",
+      "url_proceso": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.6354287&isFromPublicArea=True&isModal=Falsev",
+      "referencia_contrato": "4133.010.27.1.010-2024",
+      "unidad": "UND",
+      "identificador": "Separador Vial",
+      "tipo_equipamiento": "Parques y zonas verdes",
+      "fecha_fin": "30/10/2025",
+      "estado": "En ejecución",
+      "fecha_inicio": "12/7/2024",
+      "plataforma": "SECOP II",
+      "nombre_centro_gestor": "Departamento Administrativo de Gestión del Medio Ambiente",
+      "avance_obra": "35.0",
+      "geometry_bounds": null,
+      "direccion": "Calle 44 entre carreras 23 y 28D",
+      "ano": "2024",
+      "geometry_type": null,
+      "dataframe": "INFORMACION DEL ESTADO POAI 2024 - 2025.xlsx",
+      "comuna_corregimiento": "COMUNA 12",
+      "nombre_up": "Separador Vial Calle 44",
+      "referencia_proceso": "4133.010.27.1.010-2024",
+      "fuente_financiacion": "Recursos propios",
+      "cantidad": "1",
+      "barrio_vereda": "Nueva Floresta",
+      "presupuesto_base": "842407577"
+    },
+    "updated_at": "2025-11-05T11:34:33.287941"
+  },
+  "timestamp": "2025-11-09T01:51:42.983721"
+}

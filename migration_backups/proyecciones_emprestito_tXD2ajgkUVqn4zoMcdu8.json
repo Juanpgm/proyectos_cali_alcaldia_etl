@@ -1,0 +1,23 @@
+{
+  "collection_path": "proyecciones_emprestito",
+  "doc_id": "tXD2ajgkUVqn4zoMcdu8",
+  "data": {
+    "nombre_banco": "Bancolombia",
+    "nombre_organismo_reducido": "Infraestructura",
+    "ultima_actualizacion": "2025-11-08T11:31:07.635717+00:00",
+    "item": "48",
+    "nombre_resumido_proceso": "Contrato 2. Interventoria Licitación Puntos estratégicos vias Cicloinfraestructura.",
+    "fuente": "google_sheets",
+    "fecha_carga": "2025-11-08T11:31:04.568585",
+    "valor_proyectado": 0,
+    "nombre_generico_proyecto": "Malla Vial / licitación",
+    "fila_origen": 48,
+    "id_paa": "18984",
+    "fecha_guardado": "2025-11-08T11:31:07.635717+00:00",
+    "referencia_proceso": "4151.010.32.1.0809-2025",
+    "BP": "BP26005375",
+    "urlProceso": "https://www.secop.gov.co/CO1BusinessLine/Tendering/ContractNoticeView/Index?prevCtxLbl=Buscar+procesos&prevCtxUrl=https%3a%2f%2fwww.secop.gov.co%3a443%2fCO1BusinessLine%2fTendering%2fContractNoticeManagement%2fIndex&notice=CO1.NTC.8505732",
+    "descripcion_bp": "RECUPERACION DE LA INFRAESTRUCTURA VIAL DE SANTIAGO DE CALI"
+  },
+  "timestamp": "2025-11-09T00:53:44.412793"
+}

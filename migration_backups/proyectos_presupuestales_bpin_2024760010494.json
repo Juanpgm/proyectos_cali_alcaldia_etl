@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010494",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Cultura",
+    "cod_producto": null,
+    "nombre_area_funcional": "Infraestructura cultural dotada",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Ordenamiento Territorial e Integración Regional",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010494,
+    "nombre_actividad": "Adquirir elementos tecnologicos  para el centro cultural los naranjos de la Comuna 14",
+    "created_at": "2025-10-10T09:33:52.195828+00:00",
+    "updated_at": "2025-10-10T09:33:52.195828+00:00",
+    "programa_presupuestal": 6201001,
+    "nombre_pospre": "Otro equipo eléctrico y sus partes y piezas",
+    "anio": 2025,
+    "nombre_proyecto": "Dotación a equipamientos culturales de la comuna 14 de Santiago de Cali.",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "COMUNA 14",
+    "origen": "Territorio",
+    "bp": "BP26005632",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T01:38:59.536726"
+}

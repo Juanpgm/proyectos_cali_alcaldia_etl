@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010210",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Gestión del Riesgo de Emergencias y Desastres",
+    "cod_producto": 4503028,
+    "nombre_area_funcional": "Hogares localizados en zonas de riesgo no mitigable por inundaciones reasentados en zonas urbanas y rurales con procesos de concertación y garantía de derechos",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Reducción del Riesgo ",
+    "nombre_dimension": "Cali, Nuestra Casa Común",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010210,
+    "created_at": "2025-10-10T09:29:55.792730+00:00",
+    "nombre_actividad": "Consolidar los expedientes de hogares postulados de los AHDI ubicados en el Jarillón del Río Cauca, Charco Azúl y el Pondaje",
+    "updated_at": "2025-10-10T09:29:55.792730+00:00",
+    "programa_presupuestal": "BP260027411010126",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "Prevención de riesgos físicos y sociales para los habitantes de las zonas aledañas al Jarillón del río Cauca y lagunas Charco Azul y El Pondaje Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 45,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Gestión del Riesgo",
+    "validador_cuipo": null,
+    "bp": "BP26002741"
+  },
+  "timestamp": "2025-11-09T01:06:12.089467"
+}

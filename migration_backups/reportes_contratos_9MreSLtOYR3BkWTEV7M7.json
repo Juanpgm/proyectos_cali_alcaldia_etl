@@ -1,0 +1,31 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "9MreSLtOYR3BkWTEV7M7",
+  "data": {
+    "observaciones": "El contrato se encuentra firmado, sin embargo, no se reporta avance debido a que su ejecución iniciará una vez se aprueben las garantías correspondientes.",
+    "nombre_centro_gestor": "",
+    "fecha_reporte": "2025-10-14T00:04:40.114463+00:00",
+    "referencia_contrato": "4173.010.26.1.1301-2025",
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/1UuN3MhLmOeG3KdT3JOKp4ISgryWogYLI",
+    "archivos_evidencia": [
+      {
+        "type": "image/jpeg",
+        "size": 159871,
+        "download_url": "https://drive.google.com/uc?id=147ZmyA0CKruNk13QKMkx5CLigiNABQBz",
+        "url": "https://drive.google.com/file/d/147ZmyA0CKruNk13QKMkx5CLigiNABQBz/view?usp=drivesdk",
+        "drive_id": "147ZmyA0CKruNk13QKMkx5CLigiNABQBz",
+        "status": "uploaded_successfully",
+        "name": "Interv. C.A.L.I. 19.jpg"
+      }
+    ],
+    "avance_fisico": 0.0,
+    "avance_financiero": 0.0,
+    "alertas": {
+      "es_alerta": false,
+      "descripcion": "",
+      "tipos": []
+    },
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:40:38.488282"
+}

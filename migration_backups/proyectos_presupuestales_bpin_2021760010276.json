@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2021760010276",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Paz y Cultura Ciudadana",
+    "cod_producto": 4502001,
+    "nombre_area_funcional": "Iniciativas institucionales y comunitarias en cultura ciudadana y promoción de nuevas normalidades apoyadas",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Cultura Ciudadana ",
+    "nombre_dimension": "Cali, Gobierno Incluyente",
+    "tipo_gasto": "Inversión",
+    "bpin": 2021760010276,
+    "created_at": "2025-10-10T09:30:07.150667+00:00",
+    "nombre_actividad": "Realizar creaciones artísticas y pedagógicas en torno al autocuidado  visibilizadas en piezas comunicativas en lugares claves de la ciudad.",
+    "updated_at": "2025-10-10T09:30:07.150667+00:00",
+    "programa_presupuestal": "BP260038661010104",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "Implementación de estrategias de Cultura Ciudadana en el cuidado de la vida y la adaptación a nuevos contextos sociales en Santiago de Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 45,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Ciudadanía Activa y Gobernanza",
+    "validador_cuipo": null,
+    "bp": "BP26003866"
+  },
+  "timestamp": "2025-11-09T01:27:46.175306"
+}

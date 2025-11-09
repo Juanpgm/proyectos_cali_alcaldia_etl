@@ -1,0 +1,30 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1224",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Area Parque Loma De La Cruz Carrera 14 Entre Calles 2 Hasta Calle 2A Y Cruces Viales",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:10.777995",
+    "has_valid_geometry": true,
+    "upid": "UNP-1224",
+    "comuna_corregimiento": "COMUNA 03",
+    "nombre_up": "Area Parque Loma De La Cruz Carrera 14 Entre Calles 2 Hasta Calle 2A Y Cruces Viales",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.54051581964933, 3.4434610271047745, 0.0], [-76.54009046280459, 3.4435712093438724, 0.0], [-76.53970886876925, 3.4436285959829434, 0.0]]}",
+    "identificador": "Puntos Estrategicos",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "San Cayetano",
+    "cantidad": 91,
+    "loaded_at": "2025-11-04T20:23:10.777998",
+    "presupuesto_base": 14915084.0
+  },
+  "timestamp": "2025-11-09T01:46:08.984437"
+}

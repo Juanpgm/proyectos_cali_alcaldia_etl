@@ -1,0 +1,31 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "tpBf9FI0zFwXmNWu64Qh",
+  "data": {
+    "nombre_centro_gestor": "",
+    "fecha_reporte": "2025-11-07T01:59:25.815619+00:00",
+    "observaciones": "Dando cumplimiento a las obligaciones contractuales, en este periodo la Interventoría realizo a nivel general actividades de acompañamiento, vigilancia y control en:\r\n- Se realizo seguimiento a las solicitudes realizadas por el contratista hacia la entidad en aras de coordinar las actividades de instalación y configuración a realizar.\r\n- Se realizo visita al Datacenter del piso 1 para continuar con la planeación de la migración de los equipos hacia el piso 15.\r\n- Se realizaron visitas a las diferentes entidades para revisar los recorridos de instalación de Fibra Optica y ultimar detalles de instalación requeridos.\r\n- Se realizo Reunión de seguimiento para revisión de avances del proyecto con la participación de Supervisión, Contratista e Interventoría.",
+    "avance_fisico": 38.0,
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/1HXuHQA4v9DIroqHnLRibBBb4_6Wm_IGa",
+    "archivos_evidencia": [
+      {
+        "type": "application/pdf",
+        "size": 449151,
+        "download_url": "https://drive.google.com/uc?id=1EXYCtHyzagO2JM_xbIEZkHHorS8dpb-k",
+        "url": "https://drive.google.com/file/d/1EXYCtHyzagO2JM_xbIEZkHHorS8dpb-k/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1EXYCtHyzagO2JM_xbIEZkHHorS8dpb-k",
+        "name": "INFORME TECNICO APROBACION PAGO MODERNIZACION[1] (1) FIRMADO.pdf"
+      }
+    ],
+    "referencia_contrato": "4134.010.26.1.0322-2025",
+    "avance_financiero": 38.0,
+    "alertas": {
+      "es_alerta": false,
+      "descripcion": "",
+      "tipos": []
+    },
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:42:16.761746"
+}

@@ -1,0 +1,23 @@
+{
+  "collection_path": "proyecciones_emprestito",
+  "doc_id": "vXVvfkVV7s0Nn3soTqHc",
+  "data": {
+    "nombre_banco": "DAVIVIENDA-Otro Si",
+    "nombre_organismo_reducido": "DATIC",
+    "ultima_actualizacion": "2025-11-08T11:31:07.654998+00:00",
+    "item": "128",
+    "nombre_resumido_proceso": "Contrato 24: Hacienda a un clic",
+    "fuente": "google_sheets",
+    "fecha_carga": "2025-11-08T11:31:04.579405",
+    "valor_proyectado": 0,
+    "nombre_generico_proyecto": "Soluciones Tecnológicas",
+    "fila_origen": 128,
+    "id_paa": "19708",
+    "fecha_guardado": "2025-11-08T11:31:07.654998+00:00",
+    "referencia_proceso": "",
+    "BP": "BP26005255",
+    "urlProceso": "",
+    "descripcion_bp": "Implementación de soluciones tecnológicas para el aprovechamiento estratégico de datos en el distrito"
+  },
+  "timestamp": "2025-11-09T00:53:47.783176"
+}

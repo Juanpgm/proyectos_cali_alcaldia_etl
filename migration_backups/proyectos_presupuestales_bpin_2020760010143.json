@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010143",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Bienestar Social",
+    "cod_producto": 4101031,
+    "nombre_area_funcional": "Eventos conmemorativos para las víctimas como medidas de satisfacción",
+    "nombre_fondo": "Estampilla Prodesarrollo 10% Víctimas de Conflicto Armado",
+    "nombre_programa": "Atención Integral a las Víctimas del Conflicto",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010143,
+    "created_at": "2025-10-10T09:28:18.643954+00:00",
+    "nombre_actividad": "Conmemorar con homenaje de dignificación el día nacional de la memoría y Solidaridad con las Víctimas del Conflicto Armado",
+    "updated_at": "2025-10-10T09:28:18.643954+00:00",
+    "programa_presupuestal": "BP260030131010104",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Elaboración de eventos conmemorativos como medida de satisfacción de las víctimas del conflicto armado en Santiago de Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 41,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Distrito Reconciliado",
+    "validador_cuipo": null,
+    "bp": "BP26003013"
+  },
+  "timestamp": "2025-11-09T00:54:36.352917"
+}

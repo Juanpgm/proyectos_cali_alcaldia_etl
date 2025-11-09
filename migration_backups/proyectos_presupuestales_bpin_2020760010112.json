@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010112",
+  "data": {
+    "nombre_centro_gestor": "Departamento Administrativo de Desarrollo e Innovación Institucional",
+    "cod_producto": 4599001,
+    "nombre_area_funcional": "Sistema de Gestión de Calidad de la entidad, bajo la norma NTC ISO 9001:2015, actualizado",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Fortalecimiento Institucional",
+    "nombre_dimension": "Cali, Gobierno Incluyente",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010112,
+    "created_at": "2025-10-10T09:27:28.242973+00:00",
+    "nombre_actividad": "Elaborar instrumentos de apoyo para el desarrollo de los productos que dan respuesta a los requisitos de la NTC ISO 9001:2015",
+    "updated_at": "2025-10-10T09:27:28.242973+00:00",
+    "programa_presupuestal": "BP260027051010110",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "Actualización Del Sistema de Gestión de Calidad en la Alcaldía de Santiago de Cali",
+    "clasificacion_fondo": "Libre destinación (Recursos Propios)",
+    "cod_sector": 45,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Gobierno Inteligente",
+    "validador_cuipo": null,
+    "bp": "BP26002705"
+  },
+  "timestamp": "2025-11-09T00:54:21.502308"
+}

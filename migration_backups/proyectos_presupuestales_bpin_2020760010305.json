@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010305",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Cultura",
+    "cod_producto": 3301051,
+    "nombre_area_funcional": "Niñas y niños, mujeres gestantes y madres lactantes beneficiadas en procesos de lectura, escritura y oralidad",
+    "nombre_fondo": "Estampilla procultura ",
+    "nombre_programa": "Cariños, Puro Corazón por la Primera Infancia ",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010305,
+    "created_at": "2025-10-10T09:28:49.155821+00:00",
+    "nombre_actividad": "REALIZAR ESTRATEGIAS Y TALLERES DE LECTURA, ESCRITURA Y ORALIDAD MEDIANTE LOS DIFERENTES LENGUAJES Y EXPRESIONES ARTÍSTICAS",
+    "updated_at": "2025-10-10T09:28:49.155821+00:00",
+    "programa_presupuestal": "BP260028361010111",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "Fortalecimiento de estrategias y acciones de lectura, escritura y oralidad en niños, niñas, mujeres gestantes y madres lactantes de  Santiago de  Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 33,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Poblaciones Construyendo Territorio",
+    "validador_cuipo": null,
+    "bp": "BP26002836"
+  },
+  "timestamp": "2025-11-09T01:06:37.443078"
+}

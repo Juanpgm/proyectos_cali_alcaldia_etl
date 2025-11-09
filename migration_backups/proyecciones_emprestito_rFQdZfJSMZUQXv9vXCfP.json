@@ -1,0 +1,23 @@
+{
+  "collection_path": "proyecciones_emprestito",
+  "doc_id": "rFQdZfJSMZUQXv9vXCfP",
+  "data": {
+    "nombre_banco": "Bancolombia",
+    "nombre_organismo_reducido": "DATIC",
+    "ultima_actualizacion": "2025-11-08T11:31:07.626693+00:00",
+    "item": "28",
+    "nombre_resumido_proceso": "Contrato 17: Automatización de Procesos y racionalización de trámites",
+    "fuente": "google_sheets",
+    "fecha_carga": "2025-11-08T11:31:04.563890",
+    "valor_proyectado": 0,
+    "nombre_generico_proyecto": "Servicios en línea al ciudadano",
+    "fila_origen": 28,
+    "id_paa": "18926",
+    "fecha_guardado": "2025-11-08T11:31:07.626693+00:00",
+    "referencia_proceso": "4134.010.32.1.0155-2025",
+    "BP": "BP26005395",
+    "urlProceso": "https://www.secop.gov.co/CO1BusinessLine/Tendering/ContractNoticeView/Index?prevCtxLbl=Buscar+procesos&prevCtxUrl=https%3a%2f%2fwww.secop.gov.co%3a443%2fCO1BusinessLine%2fTendering%2fContractNoticeManagement%2fIndex&notice=CO1.NTC.8687392",
+    "descripcion_bp": "Mejoramiento de la oferta de trámites y servicios en línea a los ciudadanos de Santiago de Cali"
+  },
+  "timestamp": "2025-11-09T00:53:41.081678"
+}

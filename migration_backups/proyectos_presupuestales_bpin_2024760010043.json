@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010043",
+  "data": {
+    "nombre_centro_gestor": "Departamento Administrativo de Tecnologías de la Información y las Comunicaciones",
+    "cod_producto": null,
+    "nombre_area_funcional": "Laboratorios de Innovación Digital, Puntos de Apropiación Digital operando al servicio de la ciudadanía del Distrito de Santiago de Cali",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Ordenamiento Territorial e Integración Regional",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010043,
+    "nombre_actividad": "Realizar diagnóstico y evaluación de las capacidades de infraestructura física de los LID/PAD",
+    "created_at": "2025-10-10T09:32:26.420863+00:00",
+    "updated_at": "2025-10-10T09:32:26.420863+00:00",
+    "programa_presupuestal": 6201001,
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2025,
+    "nombre_proyecto": "Fortalecimiento de los Laboratorios de Innovación y Puntos de Apropiación Digital para la prestación de servicios en el Distrito de Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "bp": "BP26005254",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T01:32:37.913662"
+}

@@ -1,0 +1,19 @@
+{
+  "collection_path": "flujo_caja_emprestito",
+  "doc_id": "26005871.0_Davivienda_ene-26",
+  "data": {
+    "banco": "Davivienda",
+    "desembolso": 98668603.6,
+    "id_registro": "26005871.0_Davivienda_ene-26",
+    "mes": "ene-26",
+    "columna_origen": "ene-26 Desembolso",
+    "bp_proyecto": "26005871.0",
+    "responsable": "Esperanza Ramos",
+    "fecha_procesamiento": "2025-10-20T11:50:33.081294",
+    "periodo": "2026-01-01T00:00:00",
+    "archivo_origen": "Matriz Emprestito.xlsx",
+    "organismo": "Bienestar Social",
+    "descripcion_bp": "Mejoramiento integral de la Casa matria Oriente para la atención de mujeres victimas de bviolencia basadas en género en el marco de las propuestas territoriales de construcción de paz en Santiago de Cali"
+  },
+  "timestamp": "2025-11-09T00:49:31.796161"
+}

@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1120",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Calle 25 Entre Carrera 80 Y 89",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.901507",
+    "has_valid_geometry": true,
+    "upid": "UNP-1120",
+    "nombre_up_detalle": "Via Arteria Principal",
+    "nombre_up": "Calle 25 Entre Carrera 80 Y 89",
+    "comuna_corregimiento": "COMUNA 17",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"GeometryCollection\", \"geometries\": [{\"type\": \"MultiLineString\", \"coordinates\": [[[-76.52519917043557, 3.3879675756143346, 0.0], [-76.5252558980577, 3.3876974479298103, 0.0]], [[-76.52539719534252, 3.3867197968110707, 0.0], [-76.52539674665968, 3.386414447776735, 0.0], [-76.52534531819951, 3.386128095212921, 0.0], [-76.52529104047245, 3.3859377576392653, 0.0], [-76.5251563950091, 3.3854529760561705, 0.0], [-76.52510595050136, 3.3852571025544695, 0.0]]]}, {\"type\": \"LineString\", \"coordinates\": [[-76.52505952040892, 3.382476823253203, 0.0], [-76.5250685653644, 3.3820774375146834, 0.0]]}, {\"type\": \"LineString\", \"coordinates\": [[-76.52503078830179, 3.3848156437387327, 0.0], [-76.52502388744837, 3.3844447813560965, 0.0]]}, {\"type\": \"LineString\", \"coordinates\": [[-76.52462737837985, 3.381995132370845, 0.0], [-76.52463095937048, 3.381595076388499, 0.0], [-76.52464222732631, 3.3811478372803765, 0.0], [-76.5246518726132, 3.3807650035916117, 0.0], [-76.52465368730054, 3.380692976313772, 0.0], [-76.5246573014206, 3.380549527201, 0.0]]}, {\"type\": \"LineString\", \"coordinates\": [[-76.5246247791706, 3.3822855071057245, 0.0], [-76.52462737837985, 3.381995132370845, 0.0]]}, {\"type\": \"LineString\", \"coordinates\": [[-76.52467112503041, 3.3800008498210907, 0.0], [-76.5246806509251, 3.3796186076463894, 0.0]]}, {\"type\": \"LineString\", \"coordinates\": [[-76.52511877156368, 3.379251112096185, 0.0], [-76.52515103537439, 3.378099601031398, 0.0]]}]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Prados del Limonar",
+    "cantidad": 713,
+    "loaded_at": "2025-11-04T20:23:09.901513",
+    "presupuesto_base": 2949584662.64
+  },
+  "timestamp": "2025-11-09T01:44:28.278516"
+}

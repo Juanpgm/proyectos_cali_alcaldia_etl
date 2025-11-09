@@ -1,0 +1,23 @@
+{
+  "collection_path": "proyecciones_emprestito",
+  "doc_id": "nI9jMB2l6CsEit8yRSPq",
+  "data": {
+    "nombre_banco": "IFC",
+    "nombre_organismo_reducido": "PLANEACION",
+    "ultima_actualizacion": "2025-11-08T11:31:07.657000+00:00",
+    "item": "140",
+    "nombre_resumido_proceso": "Tren de Cercanias",
+    "fuente": "google_sheets",
+    "fecha_carga": "2025-11-08T11:31:04.580674",
+    "valor_proyectado": 0,
+    "nombre_generico_proyecto": "Tren de Cercanias",
+    "fila_origen": 140,
+    "id_paa": "VIGENCIAS 2026 Y 2027",
+    "fecha_guardado": "2025-11-08T11:31:07.657000+00:00",
+    "referencia_proceso": "",
+    "BP": "BP260005325",
+    "urlProceso": "",
+    "descripcion_bp": "Tren de Cercanias"
+  },
+  "timestamp": "2025-11-09T00:53:32.446911"
+}

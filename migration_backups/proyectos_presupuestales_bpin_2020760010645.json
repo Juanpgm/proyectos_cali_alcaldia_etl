@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010645",
+  "data": {
+    "nombre_centro_gestor": "Departamento Administrativo de Gestión del Medio Ambiente ",
+    "cod_producto": 3201008,
+    "nombre_area_funcional": "Acciones del Programa de Aire Limpio implementadas",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Gestión de la calidad del aire y disminución y control del impacto sonoro  ",
+    "nombre_dimension": "Cali, Nuestra Casa Común",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010645,
+    "created_at": "2025-10-10T09:27:14.063437+00:00",
+    "nombre_actividad": "Suministrar los consumibles y repuestos necesarios para la operación del Sistema de Vigilancia de Calidad del Aire de Santiago de Cali - SVCASC",
+    "updated_at": "2025-10-10T09:27:14.063437+00:00",
+    "programa_presupuestal": "BP260026831010124",
+    "nombre_pospre": "Otros bienes transportables (excepto productos metálicos, maquinaria y equipo)",
+    "anio": 2024,
+    "nombre_proyecto": "Mejoramiento de las acciones de vigilancia, planificación y gestión de la calidad del aire en Santiago de  Cali",
+    "clasificacion_fondo": "Libre destinación (Recursos Propios)",
+    "cod_sector": 32,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Soporte Vital para el Desarrollo",
+    "validador_cuipo": null,
+    "bp": "BP26002683"
+  },
+  "timestamp": "2025-11-09T01:08:06.974092"
+}

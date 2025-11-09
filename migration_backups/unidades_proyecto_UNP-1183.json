@@ -1,0 +1,30 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1183",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Carrera 35 Entre Calles 34B Y Calle 44 (Diagonal 30)",
+    "has_geometry": true,
+    "bpin": "2021760010260",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.927678",
+    "has_valid_geometry": true,
+    "upid": "UNP-1183",
+    "comuna_corregimiento": "COMUNA 11",
+    "nombre_up": "Carrera 35 Entre Calle 34 B Y Calle 44 (Diagonal 30)",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.50821299999996, 3.42079700000005, 0.0], [-76.50908799999996, 3.420874000000026, 0.0], [-76.50950799999998, 3.4209300000000553, 0.0]]}",
+    "identificador": "Presupuesto Participativo Urbano",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Presupuesto Participativo",
+    "barrio_vereda": "Primavera",
+    "cantidad": 105,
+    "loaded_at": "2025-11-04T20:23:09.927684",
+    "presupuesto_base": 110323299.0
+  },
+  "timestamp": "2025-11-09T01:45:28.669820"
+}

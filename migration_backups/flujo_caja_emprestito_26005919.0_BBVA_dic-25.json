@@ -1,0 +1,19 @@
+{
+  "collection_path": "flujo_caja_emprestito",
+  "doc_id": "26005919.0_BBVA_dic-25",
+  "data": {
+    "desembolso": 3998744000.0,
+    "banco": "BBVA",
+    "id_registro": "26005919.0_BBVA_dic-25",
+    "mes": "dic-25",
+    "columna_origen": "dic-25 Desembolso",
+    "bp_proyecto": "26005919.0",
+    "responsable": "Paola Riveros",
+    "fecha_procesamiento": "2025-10-20T11:50:33.076660",
+    "periodo": "2025-12-01T00:00:00",
+    "archivo_origen": "Matriz Emprestito.xlsx",
+    "organismo": "Salud",
+    "descripcion_bp": "Fortalecimiento de la capacidad de operación de la Red de salud Ladera ESE en Santaigo de Cali"
+  },
+  "timestamp": "2025-11-09T00:49:35.107117"
+}

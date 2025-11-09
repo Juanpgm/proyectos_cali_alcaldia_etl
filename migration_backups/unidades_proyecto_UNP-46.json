@@ -1,0 +1,52 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-46",
+  "data": {
+    "created_at": "2025-11-05T11:34:33.289968",
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -76.489005,
+        3.472794
+      ]
+    },
+    "has_geometry": true,
+    "geometry_type": "Point",
+    "properties": {
+      "processed_timestamp": "2025-11-05T11:34:28.210236",
+      "descripcion_intervencion": null,
+      "microtio": "UTS visitada por el Alcalde",
+      "bpin": "-2147483648",
+      "centros_gravedad": false,
+      "upid": "UNP-46",
+      "nombre_up_detalle": "LAS GARZAS",
+      "tipo_intervencion": "Adecuaciones y mantenimientos",
+      "url_proceso": "Pendiente",
+      "referencia_contrato": "4146.010.26.1.1154.2024",
+      "unidad": "UND",
+      "identificador": "Mantenimiento Correctivo UTS",
+      "tipo_equipamiento": "UTS",
+      "fecha_fin": "2025-06-10",
+      "estado": "Finalizado",
+      "fecha_inicio": "2024-11-13",
+      "plataforma": "SECOP II",
+      "nombre_centro_gestor": "Secretaría de Bienestar Social",
+      "avance_obra": "100.0",
+      "geometry_bounds": null,
+      "direccion": "Cra. 2 #67-39 - Guayacanes",
+      "ano": "2025",
+      "geometry_type": null,
+      "dataframe": "UTS 2025.xlsx",
+      "comuna_corregimiento": "COMUNA 05",
+      "nombre_up": "UTS LAS GARZAS",
+      "referencia_proceso": "4146.010.32.1.1158.2024",
+      "fuente_financiacion": "Recursos propios",
+      "cantidad": "1",
+      "barrio_vereda": "Guayacanes",
+      "presupuesto_base": "263636028"
+    },
+    "updated_at": "2025-11-05T11:34:33.289968"
+  },
+  "timestamp": "2025-11-09T01:52:02.510847"
+}

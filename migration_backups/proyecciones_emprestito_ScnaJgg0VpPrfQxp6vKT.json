@@ -1,0 +1,23 @@
+{
+  "collection_path": "proyecciones_emprestito",
+  "doc_id": "ScnaJgg0VpPrfQxp6vKT",
+  "data": {
+    "nombre_banco": "BBVA",
+    "nombre_organismo_reducido": "Salud",
+    "ultima_actualizacion": "2025-11-08T11:31:07.643161+00:00",
+    "item": "82",
+    "nombre_resumido_proceso": "Hospital Terron Obra/Interventoria y dotación",
+    "fuente": "google_sheets",
+    "fecha_carga": "2025-11-08T11:31:04.574180",
+    "valor_proyectado": 0,
+    "nombre_generico_proyecto": "Hospital Terron",
+    "fila_origen": 82,
+    "id_paa": "19762",
+    "fecha_guardado": "2025-11-08T11:31:07.643161+00:00",
+    "referencia_proceso": "",
+    "BP": "BP26005919",
+    "urlProceso": "https://www.secop.gov.co/CO1BusinessLine/Tendering/ContractNoticeView/Index?prevCtxLbl=Buscar+procesos&prevCtxUrl=https%3a%2f%2fwww.secop.gov.co%3a443%2fCO1BusinessLine%2fTendering%2fContractNoticeManagement%2fIndex&notice=CO1.NTC.9066898",
+    "descripcion_bp": "Fortalecimiento de la capacidad de operación de la Red de salud Ladera ESE en Santaigo de Cali"
+  },
+  "timestamp": "2025-11-09T00:52:56.337620"
+}

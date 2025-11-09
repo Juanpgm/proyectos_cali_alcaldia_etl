@@ -1,0 +1,31 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "VkwUMtrGFhWvSHTrSNAM",
+  "data": {
+    "nombre_centro_gestor": "",
+    "observaciones": "",
+    "fecha_reporte": "2025-10-31T16:32:46.119292+00:00",
+    "referencia_contrato": "152487",
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/1HwQ5SeYOZrUw_sgLTi3TXtAtO8KMj7ON",
+    "archivos_evidencia": [
+      {
+        "type": "application/pdf",
+        "size": 90289,
+        "download_url": "https://drive.google.com/uc?id=1p9KBx-0KRRyhataMNbSy2lhKmIU2Zt2u",
+        "url": "https://drive.google.com/file/d/1p9KBx-0KRRyhataMNbSy2lhKmIU2Zt2u/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1p9KBx-0KRRyhataMNbSy2lhKmIU2Zt2u",
+        "name": "OC 152487 VENEPLAST.pdf"
+      }
+    ],
+    "avance_fisico": 50.0,
+    "alertas": {
+      "descripcion": "",
+      "es_alerta": false,
+      "tipos": []
+    },
+    "avance_financiero": 0.0,
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:41:25.864297"
+}

@@ -1,0 +1,23 @@
+{
+  "collection_path": "proyecciones_emprestito",
+  "doc_id": "YvEYrb7JzMLG6mzZN3CM",
+  "data": {
+    "nombre_banco": "Bancolombia",
+    "nombre_organismo_reducido": "Infraestructura",
+    "ultima_actualizacion": "2025-11-08T11:31:07.633701+00:00",
+    "item": "43",
+    "nombre_resumido_proceso": "Contrato 09: Compra equipos para Maquinaria",
+    "fuente": "google_sheets",
+    "fecha_carga": "2025-11-08T11:31:04.566401",
+    "valor_proyectado": 0,
+    "nombre_generico_proyecto": "Recuperación Malla Vial",
+    "fila_origen": 43,
+    "id_paa": "19140",
+    "fecha_guardado": "2025-11-08T11:31:07.633701+00:00",
+    "referencia_proceso": "",
+    "BP": "BP26005375",
+    "urlProceso": "Publicado tvec",
+    "descripcion_bp": "RECUPERACION DE LA INFRAESTRUCTURA VIAL DE SANTIAGO DE CALI"
+  },
+  "timestamp": "2025-11-09T00:53:05.059819"
+}

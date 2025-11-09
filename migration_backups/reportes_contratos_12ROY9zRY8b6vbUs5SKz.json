@@ -1,0 +1,85 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "12ROY9zRY8b6vbUs5SKz",
+  "data": {
+    "observaciones": "Se levantaron historias de usuarios de los tramites de planeación que no se tenían, se presentó modelos de los tramites de catastro y presentación de los modelos de tramites de impuestos de impuestos y rentas.",
+    "nombre_centro_gestor": "",
+    "fecha_reporte": "2025-10-17T20:35:02.443283+00:00",
+    "referencia_contrato": "4134.010.26.1.0251-2025",
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/1FFlO4idACG2BbyG-YZebRxOLgllKkVFf",
+    "archivos_evidencia": [
+      {
+        "type": "application/pdf",
+        "size": 122600,
+        "download_url": "https://drive.google.com/uc?id=1CKr_y3PlPaNP6IXnhL2otL5BYGwDojmW",
+        "url": "https://drive.google.com/file/d/1CKr_y3PlPaNP6IXnhL2otL5BYGwDojmW/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1CKr_y3PlPaNP6IXnhL2otL5BYGwDojmW",
+        "name": "3. Correo de Alcaldía de Cali - ACTA 4134.020.3.2.361 OCT 8 para revisión.pdf"
+      },
+      {
+        "type": "application/msword",
+        "size": 1088512,
+        "download_url": "https://drive.google.com/uc?id=1LJ9vD4qP8fZ1ZHp_JlviVx341rROROvT",
+        "url": "https://docs.google.com/document/d/1LJ9vD4qP8fZ1ZHp_JlviVx341rROROvT/edit?usp=drivesdk&ouid=107631050282737776825&rtpof=true&sd=true",
+        "status": "uploaded_successfully",
+        "drive_id": "1LJ9vD4qP8fZ1ZHp_JlviVx341rROROvT",
+        "name": "3. ACTA 4134.020.3.2.359 OCT 6.doc"
+      },
+      {
+        "type": "application/pdf",
+        "size": 124607,
+        "download_url": "https://drive.google.com/uc?id=1OzkX1O7XsEK6G69wFHMr1a6w2tSQOKhK",
+        "url": "https://drive.google.com/file/d/1OzkX1O7XsEK6G69wFHMr1a6w2tSQOKhK/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1OzkX1O7XsEK6G69wFHMr1a6w2tSQOKhK",
+        "name": "3. Correo de Alcaldía de Cali - 3. ACTA 4134.020.3.2.352 OCT 1 para revisón.pdf"
+      },
+      {
+        "type": "application/msword",
+        "size": 932352,
+        "download_url": "https://drive.google.com/uc?id=1Jq_Y9LfJ_HKjbzL5U9dJOaQ-muByLmgx",
+        "url": "https://docs.google.com/document/d/1Jq_Y9LfJ_HKjbzL5U9dJOaQ-muByLmgx/edit?usp=drivesdk&ouid=107631050282737776825&rtpof=true&sd=true",
+        "status": "uploaded_successfully",
+        "drive_id": "1Jq_Y9LfJ_HKjbzL5U9dJOaQ-muByLmgx",
+        "name": "3. ACTA 4134.020.3.2.350 SEP 30.doc"
+      },
+      {
+        "type": "application/msword",
+        "size": 7192064,
+        "download_url": "https://drive.google.com/uc?id=1cJJMHks1IJPLGrQAp0vHxea06kZys49H",
+        "url": "https://docs.google.com/document/d/1cJJMHks1IJPLGrQAp0vHxea06kZys49H/edit?usp=drivesdk&ouid=107631050282737776825&rtpof=true&sd=true",
+        "status": "uploaded_successfully",
+        "drive_id": "1cJJMHks1IJPLGrQAp0vHxea06kZys49H",
+        "name": "3. ACTA 4134.020.3.2.345 SEP 24.doc"
+      },
+      {
+        "type": "application/msword",
+        "size": 675840,
+        "download_url": "https://drive.google.com/uc?id=1b-B2nkf8qcQGvIZoaeEnT_qom0nmWwC5",
+        "url": "https://docs.google.com/document/d/1b-B2nkf8qcQGvIZoaeEnT_qom0nmWwC5/edit?usp=drivesdk&ouid=107631050282737776825&rtpof=true&sd=true",
+        "status": "uploaded_successfully",
+        "drive_id": "1b-B2nkf8qcQGvIZoaeEnT_qom0nmWwC5",
+        "name": "3. ACTA 4134.020.3.2.352 OCT 1.doc"
+      },
+      {
+        "type": "application/pdf",
+        "size": 122321,
+        "download_url": "https://drive.google.com/uc?id=1b95V0gvgBp_DxhvSrf4pmO0RtHJM6cT6",
+        "url": "https://drive.google.com/file/d/1b95V0gvgBp_DxhvSrf4pmO0RtHJM6cT6/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1b95V0gvgBp_DxhvSrf4pmO0RtHJM6cT6",
+        "name": "3. Correo de Alcaldía de Cali - ACTA 4134.020.3.2.351 OCT 1 para revisión.pdf"
+      }
+    ],
+    "avance_fisico": 18.0,
+    "avance_financiero": 18.0,
+    "alertas": {
+      "es_alerta": false,
+      "descripcion": "",
+      "tipos": []
+    },
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:40:22.531367"
+}

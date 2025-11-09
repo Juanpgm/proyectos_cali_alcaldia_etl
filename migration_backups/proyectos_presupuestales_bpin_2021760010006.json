@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2021760010006",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Gestión del Riesgo de Emergencias y Desastres",
+    "cod_producto": 4503014,
+    "nombre_area_funcional": "Equipos de Primera Respuesta del Consejo Municipal de Gestión del Riesgo, articulados y fortalecidos",
+    "nombre_fondo": "Sobretasa Bomberil",
+    "nombre_programa": "Manejo del Desastre ",
+    "nombre_dimension": "Cali, Nuestra Casa Común",
+    "tipo_gasto": "Inversión",
+    "bpin": 2021760010006,
+    "created_at": "2025-10-10T09:29:56.980674+00:00",
+    "nombre_actividad": "Realizar reparaciones generales en Estaciones de Bomberos del Benemérito Cuerpo de Bomberos Voluntarios de Cali.",
+    "updated_at": "2025-10-10T09:29:56.980674+00:00",
+    "programa_presupuestal": "BP260036151010137",
+    "nombre_pospre": "Sobretasa bomberil - Cuerpos de Bomberos Voluntarios",
+    "anio": 2024,
+    "nombre_proyecto": "Mejoramiento de la prestación del servicio publico esencial de gestión integral del riesgo contra incendios,  atención de rescates en todas sus modalidades y calamidades conexas  en el Distrito de Santiago de  Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 45,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Gestión del Riesgo",
+    "validador_cuipo": null,
+    "bp": "BP26003615"
+  },
+  "timestamp": "2025-11-09T01:09:30.410373"
+}

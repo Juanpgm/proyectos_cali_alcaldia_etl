@@ -1,0 +1,85 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "U2G5JD5ODGPi5cRAVV3Z",
+  "data": {
+    "nombre_centro_gestor": "",
+    "observaciones": "* Se finalizaron los planes subsidiarios que corresponden al plan de gestión de proyectos y se finaliza la tarea\r\n* Se finalizó las migraciones de las 4 aplicaciones y se realizó la ejecución de las ETLs desde el servidor\r\n* Se realizó el cambio de conexión del repositorio de guardado de archivos de las aplicaciones, falta contenerizarlo para poder cargar la información y que queden en el S3, es la actividad faltante \r\n* Se están contenerizando las aplicaciones de manera específica con el Docker ya instalado, se realizó la contenerización de Reparto\r\n* Se realizaron las actualizaciones de las versiones de Java a Java 25 de los 4 proyectos y se actualizaron las librerías.",
+    "fecha_reporte": "2025-10-30T22:24:50.872189+00:00",
+    "referencia_contrato": "4134.010.26.1.0253-2025",
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/1UqDa5A8x0CJ9zZejwFR3rB8DvHM_vmae",
+    "archivos_evidencia": [
+      {
+        "type": "application/pdf",
+        "size": 336218,
+        "download_url": "https://drive.google.com/uc?id=1HfeTowlLsEWv5rw3sdhmk5U3fTvb23dr",
+        "url": "https://drive.google.com/file/d/1HfeTowlLsEWv5rw3sdhmk5U3fTvb23dr/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1HfeTowlLsEWv5rw3sdhmk5U3fTvb23dr",
+        "name": "1.2.4.1. PLAN DE GESTIÓN DE RIESGOS.docx.pdf"
+      },
+      {
+        "type": "application/pdf",
+        "size": 330875,
+        "download_url": "https://drive.google.com/uc?id=1O5uYsTPHvrB0GzGLk84mhV4NHYKld24C",
+        "url": "https://drive.google.com/file/d/1O5uYsTPHvrB0GzGLk84mhV4NHYKld24C/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1O5uYsTPHvrB0GzGLk84mhV4NHYKld24C",
+        "name": "1.2.1.1. PLAN DE GESTIÓN DEL ALCANCE.docx.pdf"
+      },
+      {
+        "type": "application/pdf",
+        "size": 262640,
+        "download_url": "https://drive.google.com/uc?id=1KPaM-JXW3H2GBmEKH9R79WjXCUejsOnB",
+        "url": "https://drive.google.com/file/d/1KPaM-JXW3H2GBmEKH9R79WjXCUejsOnB/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1KPaM-JXW3H2GBmEKH9R79WjXCUejsOnB",
+        "name": "1.2.1.2.  PLAN DE GESTIÓN DE REQUISITOS.docx.pdf"
+      },
+      {
+        "type": "application/pdf",
+        "size": 200898,
+        "download_url": "https://drive.google.com/uc?id=1WNv3xuvW_qOy7wb9yCZXh0Xhydfl-TTX",
+        "url": "https://drive.google.com/file/d/1WNv3xuvW_qOy7wb9yCZXh0Xhydfl-TTX/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1WNv3xuvW_qOy7wb9yCZXh0Xhydfl-TTX",
+        "name": "1.2.1.3. PRODUCT BACKLOG.xlsx - Backlog.pdf"
+      },
+      {
+        "type": "application/pdf",
+        "size": 174522,
+        "download_url": "https://drive.google.com/uc?id=1MthmEJKwLKR0Ngps2v76lBQvbX2OjU-2",
+        "url": "https://drive.google.com/file/d/1MthmEJKwLKR0Ngps2v76lBQvbX2OjU-2/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1MthmEJKwLKR0Ngps2v76lBQvbX2OjU-2",
+        "name": "1.2.2.1. PLAN DE GESTIÓN DEL CRONOGRAMA.docx.pdf"
+      },
+      {
+        "type": "application/pdf",
+        "size": 281041,
+        "download_url": "https://drive.google.com/uc?id=1KCfJae8f2Qb9-NLGil9unp2NySBovihd",
+        "url": "https://drive.google.com/file/d/1KCfJae8f2Qb9-NLGil9unp2NySBovihd/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1KCfJae8f2Qb9-NLGil9unp2NySBovihd",
+        "name": "1.2.3.1. PLAN DE GESTIÓN DE LAS COMUNICACIONES.docx.pdf"
+      },
+      {
+        "type": "application/pdf",
+        "size": 26223,
+        "download_url": "https://drive.google.com/uc?id=1K9KLmNmcMmYIpeczMM5sBpI9B3P2tYtx",
+        "url": "https://drive.google.com/file/d/1K9KLmNmcMmYIpeczMM5sBpI9B3P2tYtx/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1K9KLmNmcMmYIpeczMM5sBpI9B3P2tYtx",
+        "name": "1.2.3.1.1. MATRIZ DE COMUNICACIONES.xlsx - Hoja1.pdf"
+      }
+    ],
+    "avance_fisico": 41.0,
+    "alertas": {
+      "descripcion": "",
+      "es_alerta": false,
+      "tipos": []
+    },
+    "avance_financiero": 41.0,
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:41:21.479773"
+}

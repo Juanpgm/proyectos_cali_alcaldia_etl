@@ -1,0 +1,42 @@
+{
+  "collection_path": "contratos_emprestito",
+  "doc_id": "B555UMSWuZccUGBD60BF",
+  "data": {
+    "nit_contratista": "",
+    "fecha_fin_contrato": "2025-12-31",
+    "sector": "No aplica/No pertenece",
+    "ordenador_gasto": "LUZ ADRIANA VaSQUEZ TRUJILLO",
+    "descripcion_proceso": "REALIZAR LA INTERVENTORÍA TECNICA; ADMINISTRATIVA; JURIDICA; FINANCIERA; AMBIENTAL Y CONTABLE A LOS CONTRATOS DE OBRA QUE RESULTEN ADJUDICADOS EN EL PROCESO DE LICITACIÓN PÚBLICA No. 4151.010.32.1.0575-2025;  CUYO OBJETO ES: REALIZAR  OBRAS  DE  MANTENIMIENTO  Y  MEJORAMIENTO  DE  VÍAS  EN  LA  ZONA",
+    "nombre_procedimiento": "",
+    "valor_pagado": "0",
+    "urlproceso": {
+      "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.8569500&isFromPublicArea=True&isModal=true&asPopupView=true"
+    },
+    "_dataset_source": "jbjy-vk9h",
+    "bpin": null,
+    "valor_contrato": 1700423323,
+    "supervisor": "SEBASTIAN TARAPUEZ MARTINEZ",
+    "entidad_contratante": "SANTIAGO DE CALI DISTRITO ESPECIAL - SECRETARIA DE INFRAESTRUCTURA",
+    "banco": "Bancolombia",
+    "referencia_contrato": "4151.010.26.1.0932 - 2025",
+    "nit_entidad": "890399011",
+    "id_contrato": "CO1.PCCNTR.8298684",
+    "fecha_guardado": "2025-10-23T02:22:00.592241+00:00",
+    "modalidad_contratacion": "Concurso de méritos abierto",
+    "fecha_firma_contrato": null,
+    "bp": "BP26005375",
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "version_esquema": "1.1",
+    "representante_legal": "OSCAR JAVIER GARZON DIAZ",
+    "fuente_datos": "SECOP_API",
+    "proceso_contractual": "CO1.BDOS.8482731",
+    "fecha_inicio_contrato": "2025-09-17",
+    "fecha_actualizacion": "2025-10-23T02:22:00.726652+00:00",
+    "nombre_contratista": "",
+    "estado_contrato": "En ejecución",
+    "referencia_proceso": "4151.010.32.1.0809-2025",
+    "objeto_contrato": "REALIZAR LA INTERVENTORÍA TECNICA; ADMINISTRATIVA; JURIDICA; FINANCIERA; AMBIENTAL Y CONTABLE A LOS CONTRATOS DE OBRA QUE RESULTEN ADJUDICADOS EN EL PROCESO DE LICITACIÓN PÚBLICA No. 4151.010.32.1.0575-2025;  CUYO OBJETO ES: REALIZAR  OBRAS  DE  MANTENIMIENTO  Y  MEJORAMIENTO  DE  VÍAS  EN  LA  ZONA URBANA Y RURAL DE SANTIAGO DE CALI; EN DESARROLLO DEL PROYECTO DE INVERSIÓN BP-26005375 - RECUPERACIÓN DE LA INFRAESTRUCTURA VIAL DE SANTIAGO DE CALI.",
+    "tipo_contrato": "Interventoría"
+  },
+  "timestamp": "2025-11-09T00:47:48.773975"
+}

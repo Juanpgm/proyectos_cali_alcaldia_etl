@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2023760010006",
+  "data": {
+    "nombre_centro_gestor": "Unidad Administrativa Especial de Servicios Públicos",
+    "cod_producto": 4003042,
+    "nombre_area_funcional": "Plantas de Tratamiento de Agua Residual Doméstica (PTARD) construidas en la zona rural",
+    "nombre_fondo": "R.B. SGPAguaPotableYSaneamienBásico11/12",
+    "nombre_programa": "Saneamiento Básico y Tratamiento de Aguas Residuales ",
+    "nombre_dimension": "Cali, Nuestra Casa Común",
+    "tipo_gasto": "Inversión",
+    "bpin": 2023760010006,
+    "created_at": "2025-10-10T09:30:43.962455+00:00",
+    "nombre_actividad": "Realizar un estudio con alcance de diseño del alcantarillado en el sector La Esperanza y Los Laureles - corregimiento La Elvira Cabecera",
+    "updated_at": "2025-10-10T09:30:43.962455+00:00",
+    "programa_presupuestal": "BP260043211010101",
+    "nombre_pospre": "Alcantarillas y plantas de tratamiento de agua",
+    "anio": 2024,
+    "nombre_proyecto": "Construcción de la infraestructura de los sistemas de saneamiento básico en la zona rural de Santiago de Cali",
+    "clasificacion_fondo": "Destinación Específica (SGP)",
+    "cod_sector": 40,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Soporte Vital para el Desarrollo",
+    "validador_cuipo": null,
+    "bp": "BP26004321"
+  },
+  "timestamp": "2025-11-09T01:29:30.055453"
+}

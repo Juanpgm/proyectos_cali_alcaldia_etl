@@ -1,0 +1,31 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "uqtubATDiAUazRJCuFOV",
+  "data": {
+    "nombre_centro_gestor": "",
+    "fecha_reporte": "2025-11-07T22:53:32.043734+00:00",
+    "observaciones": "el porcentaje general se debe al incremento de solicitudes solucionadas sobre el total de las radicadas, y la socialización de transferencia de conocimiento al personal técnico designado.\r\n\r\nSoporte evidencias: https://drive.google.com/drive/folders/13oQT_VsSF6FZJyaNAN-fU8352T6RygHg",
+    "avance_fisico": 74.0,
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/1A9jA_aWCJbuJVu83Py03jtolGrPS17pD",
+    "archivos_evidencia": [
+      {
+        "type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "size": 13246,
+        "download_url": "https://drive.google.com/uc?id=1ia7gDBHr37tSXyONIRC5b21TB1nqI8ib",
+        "url": "https://docs.google.com/document/d/1ia7gDBHr37tSXyONIRC5b21TB1nqI8ib/edit?usp=drivesdk&ouid=107631050282737776825&rtpof=true&sd=true",
+        "status": "uploaded_successfully",
+        "drive_id": "1ia7gDBHr37tSXyONIRC5b21TB1nqI8ib",
+        "name": "Soporte evidencias MARI.docx"
+      }
+    ],
+    "referencia_contrato": "4134.010.26.1.0252-2025",
+    "avance_financiero": 74.0,
+    "alertas": {
+      "es_alerta": false,
+      "descripcion": "",
+      "tipos": []
+    },
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:42:17.660273"
+}

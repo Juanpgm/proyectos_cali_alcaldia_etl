@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010091",
+  "data": {
+    "nombre_centro_gestor": "Secretaría del Deporte y la Recreación",
+    "cod_producto": null,
+    "nombre_area_funcional": "Sistema de gestión del servicio de deporte y recreación fortalecido",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Fortalecimiento institucional",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010091,
+    "created_at": "2025-10-10T09:25:44.647938+00:00",
+    "nombre_actividad": "Definir lineamientos estratégicos que promuevan el Desarrollo Institucional",
+    "updated_at": "2025-10-10T09:25:44.647938+00:00",
+    "programa_presupuestal": 6302001,
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2025,
+    "nombre_proyecto": "Fortalecimiento de la planificación estratégica del servicio del deporte, recreación y la actividad física en Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": null,
+    "validador_cuipo": null,
+    "bp": "BP26005398"
+  },
+  "timestamp": "2025-11-09T01:33:20.228996"
+}

@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010161",
+  "data": {
+    "nombre_centro_gestor": "Departamento Administrativo de Gestión del Medio Ambiente",
+    "cod_producto": null,
+    "nombre_area_funcional": "Instrumentos de planeación y regulación elaborados para la gobernabilidad ambiental de Santiago de Cali",
+    "nombre_fondo": "Tasas retributivas",
+    "nombre_programa": "Ordenamiento Territorial e Integración Regional",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010161,
+    "created_at": "2025-10-10T09:30:47.329556+00:00",
+    "nombre_actividad": "Proveer apoyo logístico  para el desarrollo de las mesas técnicas en el marco de la Política Publica de Gestion Hidrica",
+    "updated_at": "2025-10-10T09:30:47.329556+00:00",
+    "programa_presupuestal": "BP260053761010104",
+    "nombre_pospre": "Servicios de alojamiento; servicios de suministro de comidas y bebidas; servicios de transporte; y servicios de distribución de electricidad, gas y agua",
+    "anio": 2024,
+    "nombre_proyecto": "Desarrollo de Instrumentos de gestión ambiental para el control de los factores de deterioro de la calidad ambiental en Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios con Destinacion Especifica",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": null,
+    "validador_cuipo": null,
+    "bp": "BP26005376"
+  },
+  "timestamp": "2025-11-09T01:34:22.230709"
+}

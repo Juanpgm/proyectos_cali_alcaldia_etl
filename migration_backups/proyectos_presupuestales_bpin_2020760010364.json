@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010364",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Desarrollo Económico",
+    "cod_producto": 3502022,
+    "nombre_area_funcional": "Pequeñas empresas conectadas y vinculadas comercialmente con empresas líderes de sectores productivos",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Territorios Competitivos ",
+    "nombre_dimension": "Cali, Inteligente para la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010364,
+    "created_at": "2025-10-10T09:30:10.653132+00:00",
+    "nombre_actividad": "Seleccionar los proveedores y compradores para conectar la oferta y demanda de bienes y servicios de mipymes y/o emprendimientos",
+    "updated_at": "2025-10-10T09:30:10.653132+00:00",
+    "programa_presupuestal": "BP260027371010104",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "Implementación de una estrategia de encadenamientos productivos en la ciudad de Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 35,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Economía Incluyente, Creativa y Clústeres Estratégicos",
+    "validador_cuipo": null,
+    "bp": "BP26002737"
+  },
+  "timestamp": "2025-11-09T01:06:41.859324"
+}

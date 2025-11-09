@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2021760010207",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Desarrollo Territorial y Participación Ciudadana",
+    "cod_producto": 4599016,
+    "nombre_area_funcional": "Intervenciones (mantenimiento correctivo, preventivo y dotación) realizadas a Centros de Administración Local Integrada",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Equipamientos para el Desarrollo y el Bienestar",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2021760010207,
+    "created_at": "2025-10-10T09:30:28.608683+00:00",
+    "nombre_actividad": "REALIZAR ACOMPAÑAMIENTO TÉCNICO A LOS PROYECTOS DE MANTENIMIENTO DE LOS CENTROS DE ADMINISTRACION LOCAL INTEGRADA",
+    "updated_at": "2025-10-10T09:30:28.608683+00:00",
+    "programa_presupuestal": "BP260037211020101",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Mantenimiento CORRECTIVO, PREVENTIVO Y DOTACIÓN  A LOS CENTROS DE ADMINISTRACIÓN LOCAL INTEGRADA  DE SANTIAGO DE CALI",
+    "clasificacion_fondo": "Libre destinación (Recursos Propios)",
+    "cod_sector": 45,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Territorios para la Vida",
+    "validador_cuipo": null,
+    "bp": "BP26003721"
+  },
+  "timestamp": "2025-11-09T01:27:11.930481"
+}

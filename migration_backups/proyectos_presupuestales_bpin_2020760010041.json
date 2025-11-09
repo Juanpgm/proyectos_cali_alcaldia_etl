@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010041",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Vivienda Social y Hábitat",
+    "cod_producto": 4001047,
+    "nombre_area_funcional": "Sistema de Gestión Documental de la Secretaría de Vivienda Social y Hábitat con expedientes sistematizados y organizados",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Fortalecimiento Institucional",
+    "nombre_dimension": "Cali, Gobierno Incluyente",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010041,
+    "created_at": "2025-10-10T09:28:25.684543+00:00",
+    "nombre_actividad": "Realizar la reubicación física de expedientes del programa de titulación y actualizar el inventario del archivo de la secretaria de vivienda social y habitat",
+    "updated_at": "2025-10-10T09:28:25.684543+00:00",
+    "programa_presupuestal": "BP260028512010109",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Apoyo en la sistematización y organización del sistema de Gestión documental de la secretaria de vivienda social y hábitat en Santiago de   Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 40,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Gobierno Inteligente",
+    "validador_cuipo": null,
+    "bp": "BP26002851"
+  },
+  "timestamp": "2025-11-09T00:54:01.436969"
+}

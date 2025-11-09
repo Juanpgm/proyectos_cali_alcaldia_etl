@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2021760010224",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Gobierno",
+    "cod_producto": 4599020,
+    "nombre_area_funcional": "Iniciativas colaborativas para seguimiento a problemas específicos, realizadas",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Fortalecimiento Institucional",
+    "nombre_dimension": "Cali, Gobierno Incluyente",
+    "tipo_gasto": "Inversión",
+    "bpin": 2021760010224,
+    "created_at": "2025-10-10T09:26:45.402497+00:00",
+    "nombre_actividad": "Realizar diagnóstico de los procesos, proyectos o problemáticas a transparentar a los que se va a realizar seguimiento y monitoreo.",
+    "updated_at": "2025-10-10T09:26:45.402497+00:00",
+    "programa_presupuestal": "BP260031111010101",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "Implementación de iniciativas colaborativas para seguimiento a problemas específicos en Santiago de  Cali",
+    "clasificacion_fondo": "Libre destinación (Recursos Propios)",
+    "cod_sector": 45,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Gobierno Inteligente",
+    "validador_cuipo": null,
+    "bp": "BP26003111"
+  },
+  "timestamp": "2025-11-09T01:27:18.998691"
+}

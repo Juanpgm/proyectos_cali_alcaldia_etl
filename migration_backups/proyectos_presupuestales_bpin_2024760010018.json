@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010018",
+  "data": {
+    "nombre_centro_gestor": "Departamento Administrativo de Gestión Jurídica Pública",
+    "cod_producto": null,
+    "nombre_area_funcional": "Documentos de lineamientos institucionales que describen, explican y contienen las condiciones necesarias para un adecuado ciclo de defensa jurídica, mejora normativa y prevención del daño antijurídico",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Fortalecimiento institucional",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010018,
+    "nombre_actividad": "Realizar el proceso de actualización  de la información litigiosa de los sistemas de información",
+    "created_at": "2025-10-10T09:31:58.230029+00:00",
+    "updated_at": "2025-10-10T09:31:58.230029+00:00",
+    "programa_presupuestal": 6302001,
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2025,
+    "nombre_proyecto": "Fortalecimiento del ciclo de defensa jurídica y de la política de mejora normativa del Distrito Especial de Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "bp": "BP26005460",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T01:32:15.325962"
+}

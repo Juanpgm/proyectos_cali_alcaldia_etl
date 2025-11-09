@@ -1,0 +1,31 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "y4fGtMmZgVn7iUXE1ul7",
+  "data": {
+    "nombre_centro_gestor": "",
+    "observaciones": "Se dio el inicio con la configuración y despliegue de las maquinas virtuales donde se instalara la plataforma.",
+    "fecha_reporte": "2025-10-14T16:35:54.941793+00:00",
+    "avance_fisico": 14.0,
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/1UW42nldSTq7wz7Mo7KX1uaXVezDgIk8c",
+    "archivos_evidencia": [
+      {
+        "type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "size": 20671,
+        "download_url": "https://drive.google.com/uc?id=1UXFFZe4o44nzR8CIat9fULO4l2DJXUdw",
+        "url": "https://docs.google.com/document/d/1UXFFZe4o44nzR8CIat9fULO4l2DJXUdw/edit?usp=drivesdk&ouid=107631050282737776825&rtpof=true&sd=true",
+        "drive_id": "1UXFFZe4o44nzR8CIat9fULO4l2DJXUdw",
+        "status": "uploaded_successfully",
+        "name": "% avances de procesos de contratacion emprestito DATIC.docx"
+      }
+    ],
+    "referencia_contrato": "4134.010.26.1.0253-2025",
+    "avance_financiero": 0.0,
+    "alertas": {
+      "descripcion": "",
+      "es_alerta": false,
+      "tipos": []
+    },
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:42:21.134302"
+}

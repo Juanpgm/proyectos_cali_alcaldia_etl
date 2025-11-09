@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010713",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Cultura",
+    "cod_producto": 3301051,
+    "nombre_area_funcional": "Expresiones tradicionales de la población afrodescendiente promovidas",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "CaliAfro ",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010713,
+    "created_at": "2025-10-10T09:28:29.492395+00:00",
+    "nombre_actividad": "Realizar el apoyo de promoción y visibilización del circuito cultural",
+    "updated_at": "2025-10-10T09:28:29.492395+00:00",
+    "programa_presupuestal": "BP260027441010107",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Difusión de expresiones tradicionales afro para Santiago de Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 33,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Poblaciones Construyendo Territorio",
+    "validador_cuipo": null,
+    "bp": "BP26002744"
+  },
+  "timestamp": "2025-11-09T01:08:25.359914"
+}

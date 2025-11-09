@@ -1,0 +1,30 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1209",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Av 9 N Entre Av 9A N Hasta Calle 18 N",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.938413",
+    "has_valid_geometry": true,
+    "upid": "UNP-1209",
+    "comuna_corregimiento": "COMUNA 02",
+    "nombre_up": "Av 9 N Entre Av 9A N Hasta Calle 18 N",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"GeometryCollection\", \"geometries\": [{\"type\": \"MultiLineString\", \"coordinates\": [[[-76.5324079079985, 3.4618932619645197, 0.0], [-76.53241294868116, 3.4618780692587947, 0.0]], [[-76.53241294868116, 3.4618780692587947, 0.0], [-76.53246802318068, 3.4617120737532336, 0.0], [-76.53277861843844, 3.461349636176806, 0.0], [-76.53520701989656, 3.4580830727671215, 0.0]]]}, {\"type\": \"LineString\", \"coordinates\": [[-76.53520701989656, 3.4580830727671215, 0.0], [-76.53569024640768, 3.457433060787196, 0.0], [-76.53649272945586, 3.4564037858061174, 0.0], [-76.53777167319681, 3.4556598257807623, 0.0]]}]}",
+    "identificador": "Puntos Estrategicos",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Santa Mónica",
+    "cantidad": 923,
+    "loaded_at": "2025-11-04T20:23:09.938417",
+    "presupuesto_base": 3138060843.0
+  },
+  "timestamp": "2025-11-09T01:45:54.059440"
+}

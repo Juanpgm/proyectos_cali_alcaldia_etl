@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1134",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Diagonal 51 Entre Calle 6 Oeste Y 1B Oeste",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.907856",
+    "has_valid_geometry": true,
+    "upid": "UNP-1134",
+    "nombre_up_detalle": "Via Colectora",
+    "nombre_up": "Diagonal 51 Entre Calle 6 Oeste Y 1B Oeste",
+    "comuna_corregimiento": "COMUNA 20",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.55749170968662, 3.4158281313950956, 0.0], [-76.55697341202999, 3.416056883564567, 0.0], [-76.55647027392703, 3.416300958318346, 0.0], [-76.5559612131099, 3.416540458580656, 0.0]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Siloé",
+    "cantidad": 301,
+    "loaded_at": "2025-11-04T20:23:09.907860",
+    "presupuesto_base": 42257863.42
+  },
+  "timestamp": "2025-11-09T01:44:41.425735"
+}

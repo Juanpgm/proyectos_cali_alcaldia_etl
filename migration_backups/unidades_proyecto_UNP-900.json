@@ -1,0 +1,52 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-900",
+  "data": {
+    "created_at": "2025-11-05T11:34:45.393155",
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -76.476949,
+        3.420261
+      ]
+    },
+    "has_geometry": true,
+    "geometry_type": "Point",
+    "properties": {
+      "processed_timestamp": "2025-11-05T11:34:28.210236",
+      "descripcion_intervencion": "Adecuaciones cerramiento y demolicion bloque que amenazaba ruina",
+      "microtio": null,
+      "bpin": "-2147483648",
+      "centros_gravedad": false,
+      "upid": "UNP-900",
+      "nombre_up_detalle": "REYES ECHANDIA",
+      "tipo_intervencion": "Adecuaciones y mantenimientos",
+      "url_proceso": "Pendiente",
+      "referencia_contrato": "4143.010.26.1.1320-2024",
+      "unidad": "UND",
+      "identificador": "Frente de obra contratada en 2024",
+      "tipo_equipamiento": "Institución Educativa",
+      "fecha_fin": "2024",
+      "estado": "Entregada",
+      "fecha_inicio": "2024",
+      "plataforma": "SECOP II",
+      "nombre_centro_gestor": "Secretaría de Educación",
+      "avance_obra": "10.0",
+      "geometry_bounds": null,
+      "direccion": null,
+      "ano": "2024",
+      "geometry_type": null,
+      "dataframe": null,
+      "comuna_corregimiento": "COMUNA 14",
+      "nombre_up": "I.E. MONSEÑOR RAMON ARCILA",
+      "referencia_proceso": "4143.010.32.0829-2024",
+      "fuente_financiacion": "Recursos propios",
+      "cantidad": "1",
+      "barrio_vereda": "Marroquin I",
+      "presupuesto_base": "29476331"
+    },
+    "updated_at": "2025-11-05T11:34:45.393155"
+  },
+  "timestamp": "2025-11-09T01:59:17.120197"
+}

@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1099",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Carrera 4 Entre Calles 10 Y 9",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.174911",
+    "has_valid_geometry": true,
+    "upid": "UNP-1099",
+    "nombre_up_detalle": "Via Local",
+    "nombre_up": "Carrera 4 Entre Calles 10 Y 9",
+    "comuna_corregimiento": "COMUNA 03",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"MultiLineString\", \"coordinates\": [[[-76.53371906744692, 3.451665746353826, 0.0], [-76.53439159644363, 3.45133796880374, 0.0]], [[-76.53439159644363, 3.45133796880374, 0.0], [-76.53446364683556, 3.45130285284433, 0.0]]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "San Pedro",
+    "cantidad": 223,
+    "loaded_at": "2025-11-04T20:23:09.174914",
+    "presupuesto_base": 336582572.06
+  },
+  "timestamp": "2025-11-09T01:44:06.338976"
+}

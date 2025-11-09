@@ -1,0 +1,52 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-313",
+  "data": {
+    "created_at": "2025-11-05T11:34:37.509075",
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -76.4700551,
+        3.4073579
+      ]
+    },
+    "has_geometry": true,
+    "geometry_type": "Point",
+    "properties": {
+      "processed_timestamp": "2025-11-05T11:34:28.210236",
+      "descripcion_intervencion": null,
+      "microtio": null,
+      "bpin": "0",
+      "centros_gravedad": false,
+      "upid": "UNP-313",
+      "nombre_up_detalle": "Sede Secuendaria (Puesto de Salud)",
+      "tipo_intervencion": "Adecuaciones y mantenimientos",
+      "url_proceso": "Pendiente",
+      "referencia_contrato": "Pendiente",
+      "unidad": "UND",
+      "identificador": "N/A",
+      "tipo_equipamiento": "IPS",
+      "fecha_fin": "2026",
+      "estado": "En alistamiento",
+      "fecha_inicio": "2026",
+      "plataforma": "SECOP II",
+      "nombre_centro_gestor": "Secretaría de Salud Pública",
+      "avance_obra": "0.0",
+      "geometry_bounds": null,
+      "direccion": "Carrera 28C con Calle 123 (esquina)",
+      "ano": "2026",
+      "geometry_type": null,
+      "dataframe": "Proyectos Secretaría de Salud Pública.xlsx",
+      "comuna_corregimiento": "COMUNA 21",
+      "nombre_up": "IPS - POTRERO GRANDE",
+      "referencia_proceso": "Pendiente",
+      "fuente_financiacion": "Ingresos con destinación específica",
+      "cantidad": "1",
+      "barrio_vereda": "Barrio Potrero Grande",
+      "presupuesto_base": "580037844"
+    },
+    "updated_at": "2025-11-05T11:34:37.509075"
+  },
+  "timestamp": "2025-11-09T01:49:38.776748"
+}

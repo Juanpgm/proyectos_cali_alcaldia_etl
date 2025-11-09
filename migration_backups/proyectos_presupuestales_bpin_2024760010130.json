@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010130",
+  "data": {
+    "nombre_centro_gestor": "Departamento Administrativo de Control Interno",
+    "cod_producto": null,
+    "nombre_area_funcional": "Estrategias en la entidad para fomentar la cultura del control con enfoque hacia la prevención de riesgos en la gestión",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Fortalecimiento institucional",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010130,
+    "nombre_actividad": "Realizar alistamiento general y acompañamiento técnico de actividades en el desarrollo del proyecto",
+    "created_at": "2025-10-10T09:31:58.778399+00:00",
+    "updated_at": "2025-10-10T09:31:58.778399+00:00",
+    "programa_presupuestal": 6302001,
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2025,
+    "nombre_proyecto": "Fortalecimiento de estrategias para las buenas prácticas del control interno en la Alcaldía Distrital de Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "bp": "BP26005466",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T01:33:56.777206"
+}

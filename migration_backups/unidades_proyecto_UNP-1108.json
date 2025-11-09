@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1108",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Calle 2 Oeste Entre Carreras 71 Y 76   - Calle 1A Oeste Entre Carreras 74B Y 75",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.178218",
+    "has_valid_geometry": true,
+    "upid": "UNP-1108",
+    "nombre_up_detalle": "Via Local",
+    "nombre_up": "Calle 1A Oeste Entre Carreras 74B Y 75",
+    "comuna_corregimiento": "COMUNA 18",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.55746202484191, 3.3885530879366974, 0.0], [-76.55738830010256, 3.389069773456286, 0.0], [-76.55734775609461, 3.3893539180358156, 0.0]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Mario Correa Rengifo",
+    "cantidad": 241,
+    "loaded_at": "2025-11-04T20:23:09.178222",
+    "presupuesto_base": 85439007.9
+  },
+  "timestamp": "2025-11-09T01:44:15.949186"
+}

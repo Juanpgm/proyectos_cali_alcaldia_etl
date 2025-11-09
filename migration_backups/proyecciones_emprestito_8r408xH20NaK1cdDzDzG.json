@@ -1,0 +1,23 @@
+{
+  "collection_path": "proyecciones_emprestito",
+  "doc_id": "8r408xH20NaK1cdDzDzG",
+  "data": {
+    "nombre_banco": "IFC",
+    "nombre_organismo_reducido": "Infraestructura",
+    "ultima_actualizacion": "2025-11-08T11:31:07.657000+00:00",
+    "item": "138",
+    "nombre_resumido_proceso": "Contrato 4: Recuperación Ciudad de Cali",
+    "fuente": "google_sheets",
+    "fecha_carga": "2025-11-08T11:31:04.580674",
+    "valor_proyectado": 0,
+    "nombre_generico_proyecto": "Recuperación Malla Vial",
+    "fila_origen": 138,
+    "id_paa": "VIGENCIAS 2026 Y 2027",
+    "fecha_guardado": "2025-11-08T11:31:07.657000+00:00",
+    "referencia_proceso": "",
+    "BP": "BP26005375",
+    "urlProceso": "",
+    "descripcion_bp": "RECUPERACION DE LA INFRAESTRUCTURA VIAL DE SANTIAGO DE CALI"
+  },
+  "timestamp": "2025-11-09T00:52:29.026316"
+}

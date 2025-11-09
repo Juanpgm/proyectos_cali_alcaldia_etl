@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010111",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Educación",
+    "cod_producto": null,
+    "nombre_area_funcional": "Estudiantes de las IEO que reciben complemento alimentario",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Hambre Cero",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010111,
+    "nombre_actividad": "Realizar interventoría del Programa de Alimentación Escolar PAE en Santiago de Cali",
+    "created_at": "2025-10-10T09:32:47.065011+00:00",
+    "updated_at": "2025-10-10T09:32:47.065011+00:00",
+    "programa_presupuestal": 6102005,
+    "nombre_pospre": "Servicios de alojamiento; servicios de suministro de comidas y bebidas; servicios de transporte; y servicios de distribución de electricidad, gas y agua",
+    "anio": 2025,
+    "nombre_proyecto": "Fortalecimiento del Programa de Alimentación Escolar en las Instituciones Educativas Oficiales de Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "bp": "BP26005485",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T01:33:40.133434"
+}

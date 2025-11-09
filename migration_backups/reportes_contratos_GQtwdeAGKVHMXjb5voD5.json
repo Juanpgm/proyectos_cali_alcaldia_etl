@@ -1,0 +1,40 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "GQtwdeAGKVHMXjb5voD5",
+  "data": {
+    "nombre_centro_gestor": "",
+    "observaciones": "el avance del 33% corresponde a las siguiente activifdades:\r\n\r\n* Estructuración y socialización de los documentos Kickoff Meeting y Plan de gestión de proyecto.\r\n* Dimensionamiento, solicitud y validación de dudas técnicas para el aprovisionamiento de los servidores de QA y producción en AWS necesarios para el proyecto. \r\n* Solución bloqueantes en AWS por permisos y liberación de puertos 5050, 80 y 5432.\r\n* Revisión, validación y valoración del alcance del listado de incidencias funcionales.\r\n* Entendimiento Diagramas de Flujo módulo de planeación (PAA).\r\n* Instalación PostreSQL - Pentaho\r\n* Instalación de Docker y Docker compose en QA\r\n* Creación de network y volumenes\r\n* Levantar contenedor de PostgreSQL con bases de datos de SSO, Reparto, PGC y PAA.\r\n* Instalación de Pentaho PDI (Apacheho) en servidor de QA\r\n* Desarrollo de ETLs y scripts para migración de Oracle a PosgreSQL.\r\n* Asistencia a las reuniones de entendimiento y seguimiento del proyecto\r\n* Estructuración de los documentos Plan de Gestión del Alcance y Cronograma\r\n* Gestión del Product Backlog\r\n* Elaboración del Plan de Gestión de Requisitos\r\n* Migración del Backend del módulo de REPARTO\r\n* Migración del Backend del módulo de Backend SSO\r\n* Migración del Backend del módulo del módulo precontractual\r\n* Migración Frontend del módulo de REPARTO\r\n* Migración Frontend del módulo de SSO\r\n* Migración Frontend del módulo de PGC\r\n* Migración Frontend del módulo de PAA\"\r\n* Desconexión de Forest ECM y direccionamiento a S3\r\n* Disponibilización del contenedor de PostgreSQL con BD de SSO, REPARTO, PGC, PAA\r\n* Importación de recursos existentes de AWS\r\n* Generación de manifiestos main/vars/outputs",
+    "fecha_reporte": "2025-10-24T20:38:32.665348+00:00",
+    "referencia_contrato": "4134.010.26.1.0253-2025",
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/1UAyxKzbqbmCMekRC3CUcxaCN98r417Qi",
+    "archivos_evidencia": [
+      {
+        "type": "application/pdf",
+        "size": 310932,
+        "download_url": "https://drive.google.com/uc?id=1eDpUsHUKzXtPMVLzGNdHaTWXdJgjCmt0",
+        "url": "https://drive.google.com/file/d/1eDpUsHUKzXtPMVLzGNdHaTWXdJgjCmt0/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1eDpUsHUKzXtPMVLzGNdHaTWXdJgjCmt0",
+        "name": "INFORME DE GESTION N01-VORTEXBIRD SAS.docx.pdf"
+      },
+      {
+        "type": "application/pdf",
+        "size": 260616,
+        "download_url": "https://drive.google.com/uc?id=167PBNu4KjbqLMGfCFQD9j83m2LCpCs-z",
+        "url": "https://drive.google.com/file/d/167PBNu4KjbqLMGfCFQD9j83m2LCpCs-z/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "167PBNu4KjbqLMGfCFQD9j83m2LCpCs-z",
+        "name": "1.2. PLAN DE GESTIÓN DEL PROYECTO V2.docx.pdf"
+      }
+    ],
+    "avance_fisico": 33.0,
+    "alertas": {
+      "descripcion": "",
+      "es_alerta": false,
+      "tipos": []
+    },
+    "avance_financiero": 33.0,
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:40:48.194801"
+}

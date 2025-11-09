@@ -1,0 +1,31 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "Gfxp7Gx73A7RpDvb5fRS",
+  "data": {
+    "nombre_centro_gestor": "",
+    "observaciones": "El proyecto continúa su desarrollo conforme a la planeación, avanzando en las actividades descritas anteriormente y manteniendo el enfoque en la implementación técnica, la validación funcional",
+    "fecha_reporte": "2025-10-30T22:48:09.842287+00:00",
+    "referencia_contrato": "151342",
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/1Go__ggQH_srjXln0YARX1h5qw7lV9aXJ",
+    "archivos_evidencia": [
+      {
+        "type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "size": 874338,
+        "download_url": "https://drive.google.com/uc?id=1UyBjBSQRoyPmw2kjq1rzsZLLzQR17MGJ",
+        "url": "https://docs.google.com/document/d/1UyBjBSQRoyPmw2kjq1rzsZLLzQR17MGJ/edit?usp=drivesdk&ouid=107631050282737776825&rtpof=true&sd=true",
+        "status": "uploaded_successfully",
+        "drive_id": "1UyBjBSQRoyPmw2kjq1rzsZLLzQR17MGJ",
+        "name": "ACTA DE REUNIÓN   SEPT 19 2025.docx"
+      }
+    ],
+    "avance_fisico": 40.0,
+    "alertas": {
+      "descripcion": "",
+      "es_alerta": false,
+      "tipos": []
+    },
+    "avance_financiero": 40.0,
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:40:49.949994"
+}

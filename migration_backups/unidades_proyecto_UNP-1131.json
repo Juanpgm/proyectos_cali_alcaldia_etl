@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1131",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Diagonal 50 Entre Calle 4 Oeste Y 9 Oeste",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.906679",
+    "has_valid_geometry": true,
+    "upid": "UNP-1131",
+    "nombre_up_detalle": "Via Local",
+    "nombre_up": "Diagonal 50 Entre Calle 4 Oeste Y 9 Oeste",
+    "comuna_corregimiento": "COMUNA 20",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"MultiLineString\", \"coordinates\": [[[-76.55691819412345, 3.4169075957306045, 0.0], [-76.55733138767276, 3.416617160837142, 0.0], [-76.55778631097434, 3.4163658479625467, 0.0], [-76.55825816681734, 3.416105180691201, 0.0], [-76.55833938431941, 3.416084103120198, 0.0]], [[-76.55833938431941, 3.416084103120198, 0.0], [-76.55840243418018, 3.416067740416555, 0.0], [-76.55902287900946, 3.416001983298034, 0.0], [-76.55967580430891, 3.415937003852182, 0.0]]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Siloé",
+    "cantidad": 316,
+    "loaded_at": "2025-11-04T20:23:09.906685",
+    "presupuesto_base": 224286273.44
+  },
+  "timestamp": "2025-11-09T01:44:38.779440"
+}

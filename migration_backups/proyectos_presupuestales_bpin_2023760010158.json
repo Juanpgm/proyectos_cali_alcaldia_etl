@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2023760010158",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Turismo",
+    "cod_producto": null,
+    "nombre_area_funcional": "Estudios del sector turismo, realizados",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Gestión de Información Estadística y Geográfica para la Evaluación de Resultados  ",
+    "nombre_dimension": "Cali, Gobierno Incluyente",
+    "tipo_gasto": "Inversión",
+    "bpin": 2023760010158,
+    "created_at": "2025-10-10T09:30:27.849706+00:00",
+    "nombre_actividad": "Realizar estudios e informes estadísticos del sector turístico de la ciudad",
+    "updated_at": "2025-10-10T09:30:27.849706+00:00",
+    "programa_presupuestal": "BP260047601010101",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Desarrollo de un sistema de información del sector turístico en Santiago de   Cali",
+    "clasificacion_fondo": "Libre destinación (Recursos Propios)",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Gobierno Inteligente",
+    "validador_cuipo": null,
+    "bp": "BP26004760"
+  },
+  "timestamp": "2025-11-09T01:31:21.355631"
+}

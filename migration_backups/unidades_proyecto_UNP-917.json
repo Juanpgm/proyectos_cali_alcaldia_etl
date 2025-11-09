@@ -1,0 +1,58 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-917",
+  "data": {
+    "created_at": "2025-11-05T11:34:47.014801",
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -76.514426,
+        3.408904
+      ]
+    },
+    "has_geometry": true,
+    "geometry_type": "Point",
+    "properties": {
+      "processed_timestamp": "2025-11-05T11:34:28.210236",
+      "descripcion_intervencion": "Adecuaciones comedor",
+      "microtio": null,
+      "bpin": "-2147483648",
+      "centros_gravedad": false,
+      "upid": "UNP-917",
+      "nombre_up_detalle": "Alejandro Montaño",
+      "tipo_intervencion": "Adecuaciones y mantenimientos",
+      "url_proceso": "https://community.secop.gov.co/Public/Common/GoogleReCaptcha/Index?previousUrl=https%3a%2f%2fcommunity.secop.gov.co%2fPublic%2fTendering%2fOpportunityDetail%2fIndex%3fnoticeUID%3dCO1.NTC.8297173%26isFromPublicArea%3dTrue%26isModal%3dFalse, https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.8286364&isFromPublicArea=True&isModal=False",
+      "referencia_contrato": [
+        "4143.010.26.1.1518.2025",
+        "4143.010.26.1.1536.2025"
+      ],
+      "unidad": "UND",
+      "identificador": "Presupuesto Participativo 2025",
+      "tipo_equipamiento": "Institución Educativa",
+      "fecha_fin": "31/12/2025",
+      "estado": "En ejecución",
+      "fecha_inicio": "12-09-2025",
+      "plataforma": "SECOP II",
+      "nombre_centro_gestor": "Secretaría de Educación",
+      "avance_obra": "18.0",
+      "geometry_bounds": null,
+      "direccion": null,
+      "ano": "2025",
+      "geometry_type": null,
+      "dataframe": null,
+      "comuna_corregimiento": "COMUNA 16",
+      "nombre_up": "I.E. Donald Rodrigo Tafur",
+      "referencia_proceso": [
+        "4143.010.32.0840-2025",
+        "4143.010.32.0856-2025"
+      ],
+      "fuente_financiacion": "Recursos propios",
+      "cantidad": "1",
+      "barrio_vereda": "Union de Vivienda Popular",
+      "presupuesto_base": "500000000"
+    },
+    "updated_at": "2025-11-05T11:34:47.014801"
+  },
+  "timestamp": "2025-11-09T01:59:32.956402"
+}

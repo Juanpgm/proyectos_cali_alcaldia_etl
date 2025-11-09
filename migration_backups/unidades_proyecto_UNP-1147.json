@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1147",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Avenida 4 Oeste Entre Avenida 5 Oeste Y Calle 3 Oeste",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.913199",
+    "has_valid_geometry": true,
+    "upid": "UNP-1147",
+    "nombre_up_detalle": "Via Arteria Principal",
+    "nombre_up": "Avenida 4 Oeste Entre Avenida 5 Oeste Y Calle 3 Oeste",
+    "comuna_corregimiento": "COMUNA 02",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.54309149308091, 3.45201010526842, 0.0], [-76.54366570570818, 3.452021019894687, 0.0], [-76.5440454286344, 3.452028237472367, 0.0], [-76.54440975109611, 3.4522470263122345, 0.0], [-76.54472106336186, 3.4524339804183337, 0.0], [-76.54519047319425, 3.452790322216376, 0.0], [-76.545324455788, 3.4529769967486037, 0.0], [-76.54555794535091, 3.453352820262343, 0.0], [-76.54571811689075, 3.454009208603745, 0.0]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Normandia",
+    "cantidad": 0,
+    "loaded_at": "2025-11-04T20:23:09.913207",
+    "presupuesto_base": 556748591.43
+  },
+  "timestamp": "2025-11-09T01:44:53.641976"
+}

@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2023760010070",
+  "data": {
+    "nombre_centro_gestor": "Secretaría del Deporte y la Recreación",
+    "cod_producto": null,
+    "nombre_area_funcional": "Niñas, niños, adolescentes, jóvenes y adultos (incluidos con discapacidad) beneficiados anualmente con programas de iniciación y formación deportiva en disciplinas tradicionales y de nuevas tendencias en comunas y corregimientos",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Promoción, Prevención y Garantías de los Derechos de los Niños, Niñas, Adolescentes y Familias ",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2023760010070,
+    "created_at": "2025-10-10T09:29:37.181455+00:00",
+    "nombre_actividad": "Organizar los programas de iniciación y formación deportiva del corregimiento de Montebello",
+    "updated_at": "2025-10-10T09:29:37.181455+00:00",
+    "programa_presupuestal": "BP260049721010101",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Aprovechamiento del Tiempo Libre a Través de Iniciación y Formación Deportiva en el Corregimiento de Montebello de Santiago de Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": null,
+    "comuna": "MONTEBELLO",
+    "origen": "Territorio",
+    "nombre_linea_estrategica": "Poblaciones Construyendo Territorio",
+    "validador_cuipo": null,
+    "bp": "BP26004972"
+  },
+  "timestamp": "2025-11-09T01:30:13.155201"
+}

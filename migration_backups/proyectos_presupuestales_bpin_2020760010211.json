@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010211",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Cultura",
+    "cod_producto": 3302049,
+    "nombre_area_funcional": "Pueblos indígenas organizados, apoyados en la recuperación de sus prácticas culturales ancestrales",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Tejiendo Identidad, para el Buen Vivir de la Población y Comunidades Indígenas",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010211,
+    "created_at": "2025-10-10T09:28:30.249896+00:00",
+    "nombre_actividad": "REALIZAR ACOMPAÑAMIENTO PARA  FORTALECER PRÁCTICAS ANCESTRALES",
+    "updated_at": "2025-10-10T09:28:30.249896+00:00",
+    "programa_presupuestal": "BP260026851010132",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "Desarrollo de acciones de salvaguarda para la conservación, visibilizacion de las expresiones culturales  y practicas ancestrales de pueblos indígenas organizados en  Santiago de Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 33,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Poblaciones Construyendo Territorio",
+    "validador_cuipo": null,
+    "bp": "BP26002685"
+  },
+  "timestamp": "2025-11-09T01:06:12.970854"
+}

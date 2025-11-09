@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010176",
+  "data": {
+    "nombre_centro_gestor": "Departamento Administrativo de Planeación Municipal",
+    "cod_producto": 4503024,
+    "nombre_area_funcional": "Estudios básicos y detallados sobre movimientos en masa ajustados",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Conocimiento del Riesgo ",
+    "nombre_dimension": "Cali, Nuestra Casa Común",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010176,
+    "created_at": "2025-10-10T09:26:56.857491+00:00",
+    "nombre_actividad": "Evaluar detalladamente áreas de desarrollo condicionado por la amenaza o el riesgo por movimientos en masa",
+    "updated_at": "2025-10-10T09:26:56.857491+00:00",
+    "programa_presupuestal": "BP260034061010107",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "Estudios de amenazas, vulnerabilidades y riesgos por movimientos en masa en la zona de ladera urbana y rural en  Cali.",
+    "clasificacion_fondo": "Libre destinación (Recursos Propios)",
+    "cod_sector": 45,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Gestión del Riesgo",
+    "validador_cuipo": null,
+    "bp": "BP26003406"
+  },
+  "timestamp": "2025-11-09T01:05:49.904445"
+}

@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2023760010198",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Bienestar Social",
+    "cod_producto": 4103054,
+    "nombre_area_funcional": "Plan de acción de atención a migrantes y flujos migratorios mixtos formulado e implementado",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Atención Integral a las Víctimas del Conflicto",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2023760010198,
+    "created_at": "2025-10-10T09:30:45.841073+00:00",
+    "nombre_actividad": "Realizar el sistema de información para el registro, seguimiento y consolidación de la población migrante.",
+    "updated_at": "2025-10-10T09:30:45.841073+00:00",
+    "programa_presupuestal": "BP260047231010101",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "Implementación del plan de atención a migrantes y flujos migratorios mixtos en Santiago de  Cali",
+    "clasificacion_fondo": "Libre destinación (Recursos Propios)",
+    "cod_sector": 41,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Distrito Reconciliado",
+    "validador_cuipo": null,
+    "bp": "BP26004723"
+  },
+  "timestamp": "2025-11-09T01:31:54.662113"
+}

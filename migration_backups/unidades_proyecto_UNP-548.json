@@ -1,0 +1,52 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-548",
+  "data": {
+    "created_at": "2025-11-05T11:34:41.224578",
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -76.529409,
+        3.458051
+      ]
+    },
+    "has_geometry": true,
+    "geometry_type": "Point",
+    "properties": {
+      "processed_timestamp": "2025-11-05T11:34:28.210236",
+      "descripcion_intervencion": null,
+      "microtio": null,
+      "bpin": "0",
+      "centros_gravedad": false,
+      "upid": "UNP-548",
+      "nombre_up_detalle": "N/A",
+      "tipo_intervencion": "Adecuaciones y mantenimientos",
+      "url_proceso": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.6476969&isFromPublicArea=True&isModal=False",
+      "referencia_contrato": "4181.010.26.1.539-2024",
+      "unidad": "UND",
+      "identificador": "MANTENIMIENTO DE ESCUDOS",
+      "tipo_equipamiento": "Infraestructura cultural ",
+      "fecha_fin": "30/10/2024",
+      "estado": "Finalizado",
+      "fecha_inicio": "08/10/2024",
+      "plataforma": "SECOP II",
+      "nombre_centro_gestor": "Unidad Administrativa Especial de Gestión de Bienes y Servicios",
+      "avance_obra": "100.0",
+      "geometry_bounds": null,
+      "direccion": "Av. de las Americas #17 Norte-58 a 17 Norte-98",
+      "ano": "2024",
+      "geometry_type": null,
+      "dataframe": null,
+      "comuna_corregimiento": "COMUNA 03",
+      "nombre_up": "AVENIDA LAS AMÉRICAS",
+      "referencia_proceso": "4181.010.26.1.539-2024",
+      "fuente_financiacion": "Recursos propios",
+      "cantidad": "1",
+      "barrio_vereda": "El piloto",
+      "presupuesto_base": "66687600"
+    },
+    "updated_at": "2025-11-05T11:34:41.224578"
+  },
+  "timestamp": "2025-11-09T01:53:28.944078"
+}

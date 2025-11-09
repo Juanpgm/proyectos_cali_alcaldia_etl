@@ -1,0 +1,23 @@
+{
+  "collection_path": "proyecciones_emprestito",
+  "doc_id": "6uSOhaKvgNeVAiSWgcdN",
+  "data": {
+    "nombre_banco": "BBVA",
+    "nombre_organismo_reducido": "Bienes",
+    "ultima_actualizacion": "2025-11-08T11:31:07.639236+00:00",
+    "item": "64",
+    "nombre_resumido_proceso": "Contrato 3: Suministro TORRES DE ENFRIAMIENTO",
+    "fuente": "google_sheets",
+    "fecha_carga": "2025-11-08T11:31:04.571650",
+    "valor_proyectado": 0,
+    "nombre_generico_proyecto": "Remodelación Cam",
+    "fila_origen": 64,
+    "id_paa": "VIGENCIAS 2026 Y 2027",
+    "fecha_guardado": "2025-11-08T11:31:07.639236+00:00",
+    "referencia_proceso": "",
+    "BP": "BP26005296",
+    "urlProceso": "",
+    "descripcion_bp": "Mejoramiento y/o adecuación de las edificaciones propiedad del Distrito de Santiago de Cali"
+  },
+  "timestamp": "2025-11-09T00:52:24.317578"
+}

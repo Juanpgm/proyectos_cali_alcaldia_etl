@@ -1,0 +1,31 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "cDqhlp0ArH2E7AkiQRSD",
+  "data": {
+    "observaciones": "jgc,vioñhñp",
+    "nombre_centro_gestor": "",
+    "fecha_reporte": "2025-10-17T22:30:48.470350+00:00",
+    "referencia_contrato": "4148.010.26.1.1417-2025",
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/1XqugevCtCrGk_C1KstCEWjr8zriSSayi",
+    "archivos_evidencia": [
+      {
+        "type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "size": 52077,
+        "download_url": "https://drive.google.com/uc?id=1mhlO1Em3hNdnRJKx0ANa58FfjZarab5E",
+        "url": "https://docs.google.com/document/d/1mhlO1Em3hNdnRJKx0ANa58FfjZarab5E/edit?usp=drivesdk&ouid=107631050282737776825&rtpof=true&sd=true",
+        "status": "uploaded_successfully",
+        "drive_id": "1mhlO1Em3hNdnRJKx0ANa58FfjZarab5E",
+        "name": "AVISOS CASA BLANCA.docx"
+      }
+    ],
+    "avance_fisico": 0.0,
+    "avance_financiero": 0.0,
+    "alertas": {
+      "es_alerta": false,
+      "descripcion": "",
+      "tipos": []
+    },
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:41:43.343231"
+}

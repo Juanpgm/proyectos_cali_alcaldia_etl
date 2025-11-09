@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2022760010140",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Educación",
+    "cod_producto": 2201070,
+    "nombre_area_funcional": "Instituciones educativas oficiales dotadas",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "La Escuela me acoge ",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2022760010140,
+    "created_at": "2025-10-10T09:27:36.675767+00:00",
+    "nombre_actividad": "Realizar dotación de equipos tecnológicos a las sedes priorizadas de las IEO de la Comuna 3",
+    "updated_at": "2025-10-10T09:27:36.675767+00:00",
+    "programa_presupuestal": "BP260043551010101",
+    "nombre_pospre": "Maquinaria de informática y sus partes, piezas y accesorios",
+    "anio": 2024,
+    "nombre_proyecto": "Dotación de equipos tecnológicos e implementos educativos para las Instituciones Educativas Oficiales de la Comuna 3 de Santiago de Cali",
+    "clasificacion_fondo": "Libre destinación (Recursos Propios)",
+    "cod_sector": 22,
+    "comuna": "COMUNA 3",
+    "origen": "Territorio",
+    "nombre_linea_estrategica": "Distrito Educador",
+    "validador_cuipo": null,
+    "bp": "BP26004355"
+  },
+  "timestamp": "2025-11-09T01:29:04.394434"
+}

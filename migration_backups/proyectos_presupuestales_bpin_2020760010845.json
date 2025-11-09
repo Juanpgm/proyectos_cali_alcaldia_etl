@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010845",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Movilidad",
+    "cod_producto": 2409058,
+    "nombre_area_funcional": "Puntos de Ciclo parqueaderos en la ciudad instalados",
+    "nombre_fondo": "Fondo de Promoción de la Movilidad Sostenible",
+    "nombre_programa": "Movilidad en Bicicleta ",
+    "nombre_dimension": "Cali, Nuestra Casa Común",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010845,
+    "created_at": "2025-10-10T09:29:13.574437+00:00",
+    "nombre_actividad": "Realizar obras preliminares de la construcción de la cicloinfraestructura",
+    "updated_at": "2025-10-10T09:29:13.574437+00:00",
+    "programa_presupuestal": "BP260030581010121",
+    "nombre_pospre": "Servicios de la construcción",
+    "anio": 2024,
+    "nombre_proyecto": "Construcción DE CICLOPARQUEADEROS EN PUNTOS ATRACTORES DE VIAJE EN SANTIAGO DE  Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 24,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Movilidad Multimodal Sustentable",
+    "validador_cuipo": null,
+    "bp": "BP26003058"
+  },
+  "timestamp": "2025-11-09T01:09:19.034167"
+}

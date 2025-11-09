@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010510",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Salud Pública",
+    "cod_producto": null,
+    "nombre_area_funcional": "Instituciones con estrategias de promoción, prevención y hábitos saludables para el fomento del cuidado de la salud y la vida implementadas",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Salud Integral y de Calidad",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010510,
+    "nombre_actividad": "Realizar acciones de información, educación y comunicación en la promoción de hábitos de vida saludables",
+    "created_at": "2025-10-10T09:32:55.917363+00:00",
+    "updated_at": "2025-10-10T09:32:55.917363+00:00",
+    "programa_presupuestal": 6102004,
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2025,
+    "nombre_proyecto": "Fortalecimiento  de hábitos de vida saludable en la población de la comuna  21 de Santiago de  Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "COMUNA 21",
+    "origen": "Territorio",
+    "bp": "BP26005646",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T01:39:13.676313"
+}

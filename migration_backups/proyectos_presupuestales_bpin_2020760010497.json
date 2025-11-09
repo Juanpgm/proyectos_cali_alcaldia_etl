@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010497",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Cultura",
+    "cod_producto": 3301053,
+    "nombre_area_funcional": "Personas víctimas del conflicto armado, vinculadas a procesos artísticos y culturales",
+    "nombre_fondo": "Estampilla procultura ",
+    "nombre_programa": "Atención Integral a las Víctimas del Conflicto",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010497,
+    "created_at": "2025-10-10T09:28:48.542368+00:00",
+    "nombre_actividad": "REALIZAR PRESENTACIONES  ARTÍSTICAS POR PARTE DE GRUPOS CONFORMADOS POR PERSONAS VÍCTIMAS DEL CONFLICTO ARMADO INTERNO",
+    "updated_at": "2025-10-10T09:28:48.542368+00:00",
+    "programa_presupuestal": "BP260028521010108",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Reconstrucción de la memoria cultural y artistica de las organizaciones y comunidades victimas del conflicto en Santiago de   Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 33,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Distrito Reconciliado",
+    "validador_cuipo": null,
+    "bp": "BP26002852"
+  },
+  "timestamp": "2025-11-09T01:07:18.702729"
+}

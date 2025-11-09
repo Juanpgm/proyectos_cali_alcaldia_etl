@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010513",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Salud Pública",
+    "cod_producto": 1905014,
+    "nombre_area_funcional": "Entidades de salud con atención integral de VIH-SIDA-Hepatitis B y C y enfoque diferencial y de género, en la prestación de servicios de salud implementada",
+    "nombre_fondo": "SGP-Salud-Salud pública 11/12",
+    "nombre_programa": "Salud Pública Integral, Una Realidad en los Entornos de Vida Cotidianos",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010513,
+    "created_at": "2025-10-10T09:27:58.947498+00:00",
+    "nombre_actividad": "Realizar proceso de Caracterizacion de poblaciones clave y poblaciones especificas con ó en riesgo de adquirir VIH/SIDA/Hepatitis B y C",
+    "updated_at": "2025-10-10T09:27:58.947498+00:00",
+    "programa_presupuestal": "BP260034081010107",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Implementación de la atención integral del VIH/SIDA Y Hepatitis B y C con enfoque diferencial y de genero en entidades de salud en Santiago de   Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 19,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Territorios para la Vida",
+    "validador_cuipo": null,
+    "bp": "BP26003408"
+  },
+  "timestamp": "2025-11-09T01:07:23.954705"
+}

@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010247",
+  "data": {
+    "nombre_centro_gestor": "Departamento Administrativo de Gestión del Medio Ambiente",
+    "cod_producto": null,
+    "nombre_area_funcional": "Comunidad con fortalecimiento de capacidades en la implementación de técnicas sostenibles que aprovechen eficientemente los recursos naturales y materiales",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Protección ambiental y mitigación del cambio climático",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010247,
+    "nombre_actividad": "Realizar talleres sobre el establecimiento y sostenimiento de huertas agroecológicas bajo la metodología aprender haciendo y métodos de producción sostenible",
+    "created_at": "2025-10-10T09:32:15.536772+00:00",
+    "updated_at": "2025-10-10T09:32:15.536772+00:00",
+    "programa_presupuestal": 6202001,
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2025,
+    "nombre_proyecto": "Fortalecimiento de las capacidades comunitarias en técnicas sostenibles para el desarrollo de huertas urbanas y periurbanas en Santiago de Cali.",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "bp": "BP26005368",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T01:35:36.770856"
+}

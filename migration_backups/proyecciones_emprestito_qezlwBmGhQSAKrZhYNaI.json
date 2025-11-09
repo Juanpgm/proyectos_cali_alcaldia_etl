@@ -1,0 +1,23 @@
+{
+  "collection_path": "proyecciones_emprestito",
+  "doc_id": "qezlwBmGhQSAKrZhYNaI",
+  "data": {
+    "nombre_banco": "Bancolombia",
+    "nombre_organismo_reducido": "DATIC",
+    "ultima_actualizacion": "2025-11-08T11:31:07.624146+00:00",
+    "item": "23",
+    "nombre_resumido_proceso": "Contrato 12: Aplicación Infraestructura Tecnológica (DATIC)",
+    "fuente": "google_sheets",
+    "fecha_carga": "2025-11-08T11:31:04.562891",
+    "valor_proyectado": 0,
+    "nombre_generico_proyecto": "ModernIzacion Plataforma Tecnológica",
+    "fila_origen": 23,
+    "id_paa": "19196",
+    "fecha_guardado": "2025-11-08T11:31:07.624146+00:00",
+    "referencia_proceso": "4134.010.32.1.0212-2025",
+    "BP": "BP26005260",
+    "urlProceso": "https://www.secop.gov.co/CO1BusinessLine/Tendering/ContractNoticeView/Index?prevCtxLbl=Buscar+procesos&prevCtxUrl=https%3a%2f%2fwww.secop.gov.co%3a443%2fCO1BusinessLine%2fTendering%2fContractNoticeManagement%2fIndex&notice=CO1.NTC.8868146",
+    "descripcion_bp": "Fortalecimiento de la Plataforma Tecnológica de la Alcaldia de Santiago de Cali"
+  },
+  "timestamp": "2025-11-09T00:53:40.404464"
+}

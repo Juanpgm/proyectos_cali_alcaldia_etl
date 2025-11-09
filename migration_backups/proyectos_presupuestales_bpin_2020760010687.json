@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010687",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Cultura",
+    "cod_producto": 3301053,
+    "nombre_area_funcional": "Espacios de intercambio intergeneracional promovidos para aprovechar la experiencia y vivencia de las personas mayores",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Personas Mayores Envejeciendo con Bienestar",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010687,
+    "created_at": "2025-10-10T09:28:29.110311+00:00",
+    "nombre_actividad": "Realizar eventos con oferta cultural y artística para las personas mayores en Cali",
+    "updated_at": "2025-10-10T09:28:29.110311+00:00",
+    "programa_presupuestal": "BP260027431020123",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Fortalecimiento de la oferta cultural y artística para el adulto mayor en Santiago de   Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 33,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Poblaciones Construyendo Territorio",
+    "validador_cuipo": null,
+    "bp": "BP26002743"
+  },
+  "timestamp": "2025-11-09T01:08:22.746841"
+}

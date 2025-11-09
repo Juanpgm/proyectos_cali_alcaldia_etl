@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1105",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Carrera 4 Oeste Entre Calle 1 Y 2A",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.177086",
+    "has_valid_geometry": true,
+    "upid": "UNP-1105",
+    "nombre_up_detalle": "Via Arteria Secundaria",
+    "nombre_up": "Carrera 4 Oeste Entre Calle 1 Y 2A",
+    "comuna_corregimiento": "COMUNA 03",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.5410636618144, 3.4489934908554543, 0.0], [-76.54108316037726, 3.4489986130517885, 0.0]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "El Peñón",
+    "cantidad": 2,
+    "loaded_at": "2025-11-04T20:23:09.177090",
+    "presupuesto_base": 710216.19
+  },
+  "timestamp": "2025-11-09T01:44:13.324033"
+}

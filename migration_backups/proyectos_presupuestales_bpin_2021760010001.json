@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2021760010001",
+  "data": {
+    "nombre_centro_gestor": "Departamento Administrativo de Hacienda",
+    "cod_producto": 1305015,
+    "nombre_area_funcional": "Sostenibilidad de los niveles de cumplimiento de las obligaciones tributarias de Impuesto Predial Unificado e ICA en Santiago de Cali y otros",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Gestión Financiera Eficiente",
+    "nombre_dimension": "Cali, Gobierno Incluyente",
+    "tipo_gasto": "Inversión",
+    "bpin": 2021760010001,
+    "created_at": "2025-10-10T09:26:51.175122+00:00",
+    "nombre_actividad": "Generar los documentos de cobro de Impuesto Predial e Industria y Comercio a los contribuyentes",
+    "updated_at": "2025-10-10T09:26:51.175122+00:00",
+    "programa_presupuestal": "BP260036171010109",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "Fortalecimiento de la tributación en Santiago de Cali",
+    "clasificacion_fondo": "Libre destinación (Recursos Propios)",
+    "cod_sector": 13,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Gobierno Inteligente",
+    "validador_cuipo": null,
+    "bp": "BP26003617"
+  },
+  "timestamp": "2025-11-09T01:09:27.755528"
+}

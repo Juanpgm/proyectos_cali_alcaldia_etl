@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1148",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Calle 5 Norte Entre Avenida 1Norte Y 2 Norte",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.913623",
+    "has_valid_geometry": true,
+    "upid": "UNP-1148",
+    "nombre_up_detalle": "Via Local",
+    "nombre_up": "Calle 5 Norte Entre Avenida 1Norte Y 2 Norte",
+    "comuna_corregimiento": "COMUNA 02",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.53791791135107, 3.451516540420299, 0.0], [-76.53807124835654, 3.4518611659655303, 0.0]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Centenario",
+    "cantidad": 41,
+    "loaded_at": "2025-11-04T20:23:09.913628",
+    "presupuesto_base": 30913721.9
+  },
+  "timestamp": "2025-11-09T01:44:54.530771"
+}

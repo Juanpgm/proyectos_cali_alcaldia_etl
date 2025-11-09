@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010205",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Educación",
+    "cod_producto": 2202009,
+    "nombre_area_funcional": "Estudiantes beneficiados con programas de articulación con Instituciones de Educación Superior, de la formación técnica, Tecnológica, para el trabajo y el desarrollo humano (ETDH)",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "La Educación Superior: Potencializando Saberes y Transformando Vidas  ",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010205,
+    "created_at": "2025-10-10T09:27:37.823789+00:00",
+    "nombre_actividad": "Apoyar el acceso de jóvenes de las Instituciones Educativas Oficiales en programas a nivel técnico, tecnológico y/o profesional",
+    "updated_at": "2025-10-10T09:27:37.823789+00:00",
+    "programa_presupuestal": "BP260027962020109",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Desarrollo de estrategias para la articulación de los niveles educativos en los trayectos pedagógicos en Cali",
+    "clasificacion_fondo": "Libre destinación (Recursos Propios)",
+    "cod_sector": 22,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Distrito Educador",
+    "validador_cuipo": null,
+    "bp": "BP26002796"
+  },
+  "timestamp": "2025-11-09T01:06:09.456692"
+}

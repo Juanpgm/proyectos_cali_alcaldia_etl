@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2021760010496",
+  "data": {
+    "nombre_centro_gestor": "Unidad Administrativa Especial de Servicios Públicos",
+    "cod_producto": 3204003,
+    "nombre_area_funcional": "Grandes generadores con tecnologías de aprovechamiento de residuos sólidos orgánicos aplicadas",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Gestión Integral de Residuos Sólidos ",
+    "nombre_dimension": "Cali, Nuestra Casa Común",
+    "tipo_gasto": "Inversión",
+    "bpin": 2021760010496,
+    "created_at": "2025-10-10T09:30:34.827595+00:00",
+    "nombre_actividad": "Actualizar la base de datos de los sectores grandes generadores de  residuos sólidos orgánicos",
+    "updated_at": "2025-10-10T09:30:34.827595+00:00",
+    "programa_presupuestal": "BP260036901010101",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "Aprovechamiento de los residuos sólidos orgánicos en Santiago de  Cali",
+    "clasificacion_fondo": "Libre destinación (Recursos Propios)",
+    "cod_sector": 32,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Mitigación del Cambio Climático",
+    "validador_cuipo": null,
+    "bp": "BP26003690"
+  },
+  "timestamp": "2025-11-09T01:28:33.936983"
+}

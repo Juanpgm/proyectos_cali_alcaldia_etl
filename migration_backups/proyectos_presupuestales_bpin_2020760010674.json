@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010674",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Cultura",
+    "cod_producto": 3302003,
+    "nombre_area_funcional": "Actualización y difusión del inventario de bienes muebles de interés cultural",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Salvaguarda y Protección del Patrimonio Cultural ",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010674,
+    "created_at": "2025-10-10T09:28:34.508442+00:00",
+    "nombre_actividad": "ELABORAR INVENTARIO DE  LOS BIENES MUEBLES EN INSTITUCIONES  PÚBLICAS  Y PRIVADAS",
+    "updated_at": "2025-10-10T09:28:34.508442+00:00",
+    "programa_presupuestal": "BP260028271010115",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "Inventario de Bienes Muebles de Interés Cultural de Santiago de Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 33,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Cali Corazón de las Culturas",
+    "validador_cuipo": null,
+    "bp": "BP26002827"
+  },
+  "timestamp": "2025-11-09T01:08:16.624918"
+}

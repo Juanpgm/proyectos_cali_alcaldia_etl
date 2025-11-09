@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010768",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Paz y Cultura Ciudadana",
+    "cod_producto": 4502038,
+    "nombre_area_funcional": "Personas que participan en la promoción y protección de Derechos Humanos, la naturaleza, los seres sintientes y la prevención de sus vulneraciones",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Derechos Humanos, Paz y Reconciliación  ",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010768,
+    "created_at": "2025-10-10T09:29:58.663761+00:00",
+    "nombre_actividad": "Adquirir materiales y suministros en la realizacion de los procesos de promocion y proteccion de los  DDHH,la naturaleza, los seres sintientes y la prevencion de sus vulneraciones, con la comunidad, mediante jornadas, campanas y/o talleres",
+    "updated_at": "2025-10-10T09:29:58.663761+00:00",
+    "programa_presupuestal": "BP260027821010106",
+    "nombre_pospre": "Otros bienes transportables (excepto productos metálicos, maquinaria y equipo)",
+    "anio": 2024,
+    "nombre_proyecto": "Fortalecimiento de la cultura de Derechos Humanos, de la naturaleza y seres sintientes, su protección y prevención de las vulneraciones y/o violaciones en Santiago de   Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 45,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Distrito Reconciliado",
+    "validador_cuipo": null,
+    "bp": "BP26002782"
+  },
+  "timestamp": "2025-11-09T01:08:49.963696"
+}

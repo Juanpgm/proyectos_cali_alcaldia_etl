@@ -1,0 +1,31 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "2spCGrqabaaaefMKFOXy",
+  "data": {
+    "nombre_centro_gestor": "",
+    "observaciones": "eporte de ejecución ORDEN DE COMPRA 151421 (PROCESO EMPRÉSTITO: MODELOS Y SOLUCIONES IA) 20251030\r\n\r\nCon fecha de corte 2025/10/30 se ha avanzado en la ejecución del 22,2% de los productos del proyecto. \r\n\r\nEl avance en los productos corresponde a:\r\n1. Implementación del caso de uso: Integración de datos para mejora de la gestión educativa en Santiago de Cali. Está operativa la solución tecnológica “Sistema Gestor de Información” que permite la consulta de información de estudiantes y de personal de las Instituciones Educativas del distrito de Santiago de Cali; se avanzó en desarrollo de solución Panel de informes automatizados y Gestión de Proyectos de infraestructura educativa de Secretaría Distrital de Educación. Avance de ejecución del producto 97%.\r\n2. Implementación del caso de uso: Integración de datos del ciudadano. Se encuentra operativa la solución tecnológica Panel de consulta Datos Integrados del Ciudadano y sus módulos complementario de ingesta individual, de ingesta por lote y de verificación y aprobación. Adicionalmente se realizó sesión de transferencia de conocimiento con la Subdirección de Desarrollo Integral y se entregaron documentos técnicos de la solución. Avance de ejecución del producto 100%.\r\n3. Se validó por parte de la secretaría de Desarrollo Territorial los documentos Historia de usuario, realizados por el proveedor para definir el alcance técnico y funcional de la solución de inteligencia artificial para PQRS denominada Gestión automática del correo contactenos@cali.gov.co.\r\n4. Se realizó implementación piloto del modelo de integración de datos provenientes de estaciones IoT de calidad del aire y tráfico. Avance de ejecución del producto 40%.",
+    "fecha_reporte": "2025-10-30T22:29:49.694830+00:00",
+    "referencia_contrato": "151421",
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/1-v0hOwZaDEuSsYPWWdmN9uwyjTVGzXil",
+    "archivos_evidencia": [
+      {
+        "type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        "size": 11690,
+        "download_url": "https://drive.google.com/uc?id=137x-EzRT92Xsn_3iBBAMfN7Jdswus0de",
+        "url": "https://docs.google.com/spreadsheets/d/137x-EzRT92Xsn_3iBBAMfN7Jdswus0de/edit?usp=drivesdk&ouid=107631050282737776825&rtpof=true&sd=true",
+        "status": "uploaded_successfully",
+        "drive_id": "137x-EzRT92Xsn_3iBBAMfN7Jdswus0de",
+        "name": "Seguimiento Ejecución Modelos y soluciones IA_20251030.xlsx"
+      }
+    ],
+    "avance_fisico": 22.0,
+    "alertas": {
+      "descripcion": "",
+      "es_alerta": false,
+      "tipos": []
+    },
+    "avance_financiero": 22.0,
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:40:26.924758"
+}

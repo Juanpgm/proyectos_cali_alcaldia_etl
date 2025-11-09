@@ -1,0 +1,30 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1247",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Calle 9 Entre Carrera 66 Hasta Carrera 39",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:10.789028",
+    "has_valid_geometry": true,
+    "upid": "UNP-1247",
+    "comuna_corregimiento": "COMUNA 19",
+    "nombre_up": "Calle 9 Entre Carrera 66 Hasta Carrera 39",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"MultiLineString\", \"coordinates\": [[[-76.53856142499417, 3.4213972586580024, 0.0], [-76.53853326060147, 3.4214903197225226, 0.0]], [[-76.5393046561233, 3.418941467020337, 0.0], [-76.53856142499417, 3.4213972586580024, 0.0]]]}",
+    "identificador": "Puntos Estrategicos",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Eucaristico",
+    "cantidad": 294,
+    "loaded_at": "2025-11-04T20:23:10.789036",
+    "presupuesto_base": 1094427658.0
+  },
+  "timestamp": "2025-11-09T01:46:30.891522"
+}

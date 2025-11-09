@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2021760010275",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Gestión del Riesgo de Emergencias y Desastres",
+    "cod_producto": 4503019,
+    "nombre_area_funcional": "Sistema integral de información de la gestión del riesgo, diseñado e implementado bajo Arquitectura empresarial",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Conocimiento del Riesgo ",
+    "nombre_dimension": "Cali, Nuestra Casa Común",
+    "tipo_gasto": "Inversión",
+    "bpin": 2021760010275,
+    "created_at": "2025-10-10T09:29:53.891325+00:00",
+    "nombre_actividad": "Desarrollar el Portal del Sistema de Información",
+    "updated_at": "2025-10-10T09:29:53.891325+00:00",
+    "programa_presupuestal": "BP260028461010102",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "Desarrollo e Implementación del Sistema Integral de Información de  la Gestión del Riesgo de Santiago de Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 45,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Gestión del Riesgo",
+    "validador_cuipo": null,
+    "bp": "BP26002846"
+  },
+  "timestamp": "2025-11-09T01:27:45.306667"
+}

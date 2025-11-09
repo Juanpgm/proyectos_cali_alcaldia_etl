@@ -1,0 +1,30 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1202",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Cra 36 Entre Cli 5 Hasta Av Roosevelt",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.935332",
+    "has_valid_geometry": true,
+    "upid": "UNP-1202",
+    "comuna_corregimiento": "COMUNA 19",
+    "nombre_up": "Cra 36 Entre Cli 5 Hasta Av Roosevelt",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"MultiLineString\", \"coordinates\": [[[-76.54353729980653, 3.431059646785343, 0.0], [-76.5435121744333, 3.4310434282568743, 0.0]], [[-76.5435121744333, 3.4310434282568743, 0.0], [-76.54280385321522, 3.4305862040901047, 0.0], [-76.54235032240939, 3.4303045705995032, 0.0], [-76.54151347806453, 3.429200787686227, 0.0], [-76.54030958531905, 3.4275913627512296, 0.0], [-76.53977623878234, 3.426912481625777, 0.0]]]}",
+    "identificador": "Puntos Estrategicos",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "San Fernando Viejo",
+    "cantidad": 627,
+    "loaded_at": "2025-11-04T20:23:09.935337",
+    "presupuesto_base": 1683734858.0
+  },
+  "timestamp": "2025-11-09T01:45:47.958800"
+}

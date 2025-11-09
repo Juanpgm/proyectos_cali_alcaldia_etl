@@ -1,0 +1,67 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "U7m8eJrum6PUrkb2t28F",
+  "data": {
+    "nombre_centro_gestor": "",
+    "observaciones": "Se realizaron mesas de trabajo técnica con las pates interesadas para revisar los anexos técnicos y avanzar en su implementación.",
+    "fecha_reporte": "2025-10-24T21:41:15.391613+00:00",
+    "referencia_contrato": "151342",
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/1Fqa3AcvH5Tli-w1QdnpsWKGx8d0MjftI",
+    "archivos_evidencia": [
+      {
+        "type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        "size": 41822,
+        "download_url": "https://drive.google.com/uc?id=1NHK0FfIBROFjoP71UPnxD0yOkyrvL-t_",
+        "url": "https://docs.google.com/spreadsheets/d/1NHK0FfIBROFjoP71UPnxD0yOkyrvL-t_/edit?usp=drivesdk&ouid=107631050282737776825&rtpof=true&sd=true",
+        "status": "uploaded_successfully",
+        "drive_id": "1NHK0FfIBROFjoP71UPnxD0yOkyrvL-t_",
+        "name": "16-09-2025 Listado de asistencia Proyecto mejoras SAP.xlsx"
+      },
+      {
+        "type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        "size": 41615,
+        "download_url": "https://drive.google.com/uc?id=1RjhMETjmnMd5nA2RH_HDDFWcqbbumtJK",
+        "url": "https://docs.google.com/spreadsheets/d/1RjhMETjmnMd5nA2RH_HDDFWcqbbumtJK/edit?usp=drivesdk&ouid=107631050282737776825&rtpof=true&sd=true",
+        "status": "uploaded_successfully",
+        "drive_id": "1RjhMETjmnMd5nA2RH_HDDFWcqbbumtJK",
+        "name": "19-09-2025 Listado de asistencia Proyecto mejoras SAP.xlsx"
+      },
+      {
+        "type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        "size": 39877,
+        "download_url": "https://drive.google.com/uc?id=1J-FFcp3GFXB_CCCfh07HtYnjArKCBvLl",
+        "url": "https://docs.google.com/spreadsheets/d/1J-FFcp3GFXB_CCCfh07HtYnjArKCBvLl/edit?usp=drivesdk&ouid=107631050282737776825&rtpof=true&sd=true",
+        "status": "uploaded_successfully",
+        "drive_id": "1J-FFcp3GFXB_CCCfh07HtYnjArKCBvLl",
+        "name": "24-09-2025 Listado de asistencia Proyecto mejoras SAP.xlsx"
+      },
+      {
+        "type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "size": 874443,
+        "download_url": "https://drive.google.com/uc?id=10LgOJPTd8EiM3jR0QffUqswevbjzakjX",
+        "url": "https://docs.google.com/document/d/10LgOJPTd8EiM3jR0QffUqswevbjzakjX/edit?usp=drivesdk&ouid=107631050282737776825&rtpof=true&sd=true",
+        "status": "uploaded_successfully",
+        "drive_id": "10LgOJPTd8EiM3jR0QffUqswevbjzakjX",
+        "name": "ACTA DE REUNIÓN   SEPT 16 2025.docx"
+      },
+      {
+        "type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "size": 874338,
+        "download_url": "https://drive.google.com/uc?id=1CbpX0lcmjZDGw_BJ5j9B6dEW9CbSpSof",
+        "url": "https://docs.google.com/document/d/1CbpX0lcmjZDGw_BJ5j9B6dEW9CbSpSof/edit?usp=drivesdk&ouid=107631050282737776825&rtpof=true&sd=true",
+        "status": "uploaded_successfully",
+        "drive_id": "1CbpX0lcmjZDGw_BJ5j9B6dEW9CbSpSof",
+        "name": "ACTA DE REUNIÓN   SEPT 19 2025.docx"
+      }
+    ],
+    "avance_fisico": 40.0,
+    "alertas": {
+      "descripcion": "",
+      "es_alerta": false,
+      "tipos": []
+    },
+    "avance_financiero": 40.0,
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:41:22.368281"
+}

@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2023760010183",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Bienestar Social",
+    "cod_producto": null,
+    "nombre_area_funcional": "Personas mayores atendidas en modalidad hogar larga estancia y hogar de paso",
+    "nombre_fondo": "Estampilla para el bienestar del Adulto mayor",
+    "nombre_programa": "Personas Mayores Envejeciendo con Bienestar",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2023760010183,
+    "created_at": "2025-10-10T09:28:07.239163+00:00",
+    "nombre_actividad": "Proporcionar un espacio para la protección y el albergue de personas mayores en alto nivel de vulnerabilidad.",
+    "updated_at": "2025-10-10T09:28:07.239163+00:00",
+    "programa_presupuestal": "BP260048151010101",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Servicio  DE PROTECCIÓN SOCIAL INTEGRAL EN LA MODALIDAD DE LARGA ESTANCIA PARA LAS PERSONAS MAYORES DEL DISTRITO DE SANTIAGO DE   Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Poblaciones Construyendo Territorio",
+    "validador_cuipo": null,
+    "bp": "BP26004815"
+  },
+  "timestamp": "2025-11-09T01:31:43.334032"
+}

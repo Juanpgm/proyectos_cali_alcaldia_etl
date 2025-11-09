@@ -1,0 +1,31 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "yb6G0IeAnfuTZyuNk5aN",
+  "data": {
+    "observaciones": "El contrato se encuentra en proceso de legalización para poder dar inicio.",
+    "nombre_centro_gestor": "",
+    "fecha_reporte": "2025-10-17T21:49:14.476177+00:00",
+    "referencia_contrato": "4148.010.26.1.1418-2025",
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/17Iqz5UuNz2OFJXPAgYnFuLBrtbQy9Tti",
+    "archivos_evidencia": [
+      {
+        "type": "application/pdf",
+        "size": 1344319,
+        "download_url": "https://drive.google.com/uc?id=1lkK7u8Xr31X5YcdjbQyaq1OsjStetj1W",
+        "url": "https://drive.google.com/file/d/1lkK7u8Xr31X5YcdjbQyaq1OsjStetj1W/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1lkK7u8Xr31X5YcdjbQyaq1OsjStetj1W",
+        "name": "MINUTA DEL CONTRATO-_compressed.pdf"
+      }
+    ],
+    "avance_fisico": 0.0,
+    "avance_financiero": 0.0,
+    "alertas": {
+      "es_alerta": false,
+      "descripcion": "",
+      "tipos": []
+    },
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:42:22.023634"
+}

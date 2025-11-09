@@ -1,0 +1,31 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "aNQtVCpiONoObUmvpWve",
+  "data": {
+    "nombre_centro_gestor": "",
+    "observaciones": "Se encuentra en estructuración  del informe de supervisión de cuenta.",
+    "fecha_reporte": "2025-10-29T22:14:38.690453+00:00",
+    "referencia_contrato": "150273",
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/1NLT7n4ug0yMYsRvOujsjrnqTYvp9RMGH",
+    "archivos_evidencia": [
+      {
+        "type": "application/pdf",
+        "size": 645147,
+        "download_url": "https://drive.google.com/uc?id=17jI71T5uJeDzro9ICxK2j0hcuw8ydrXd",
+        "url": "https://drive.google.com/file/d/17jI71T5uJeDzro9ICxK2j0hcuw8ydrXd/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "17jI71T5uJeDzro9ICxK2j0hcuw8ydrXd",
+        "name": "Correo de Alcaldía de Cali - DOCUMENTOS FACTURA PROVEEDOR - CONWARE S.A -OCI CUOTA 1.pdf"
+      }
+    ],
+    "avance_fisico": 90.0,
+    "alertas": {
+      "descripcion": "",
+      "es_alerta": false,
+      "tipos": []
+    },
+    "avance_financiero": 90.0,
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:41:38.962722"
+}

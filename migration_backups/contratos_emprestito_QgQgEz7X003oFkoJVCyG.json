@@ -1,0 +1,42 @@
+{
+  "collection_path": "contratos_emprestito",
+  "doc_id": "QgQgEz7X003oFkoJVCyG",
+  "data": {
+    "nit_contratista": "",
+    "fecha_fin_contrato": "2026-03-15",
+    "sector": "Cultura",
+    "ordenador_gasto": "No definido",
+    "_dataset_source": "jbjy-vk9h",
+    "nombre_procedimiento": "",
+    "valor_pagado": "0",
+    "urlproceso": {
+      "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.8750788&isFromPublicArea=True&isModal=true&asPopupView=true"
+    },
+    "bpin": 2024760010215,
+    "descripcion_proceso": "INTERVENTORIA TÉCNICA; ADMINISTRATIVA; FINANCIERA Y JURÍDICA DE LAS OBRAS CIVILES PARA LA INTERVENCIÓN DE REPARACIONES LOCATIVAS; MODIFICACIÓN; ADECUACIÓN Y DEMÁS ACTIVIDADES COMPLEMENTARIAS PARA LA CONSERVACIÓN Y MEJORAMIENTO DE LOS EQUIPAMIENTOS CULTURALES Y CENTROS CULTURALES DEL DISTRITO DE SANT",
+    "valor_contrato": 599955458,
+    "supervisor": "No definido",
+    "entidad_contratante": "SANTIAGO DE CALI  DISTRITO ESPECIAL - SECRETARIA DE CULTURA",
+    "banco": "Bancolombia",
+    "referencia_contrato": "4148.010.26.1.1417-2025",
+    "nit_entidad": "890399011",
+    "id_contrato": "CO1.PCCNTR.8372352",
+    "fecha_guardado": "2025-10-23T02:21:53.431727+00:00",
+    "modalidad_contratacion": "Concurso de méritos abierto",
+    "fecha_firma_contrato": null,
+    "bp": "BP26005340",
+    "nombre_centro_gestor": "Secretaría de Cultura",
+    "version_esquema": "1.1",
+    "representante_legal": "JUAN CAMILO RODRIGUEZ AYALA",
+    "fuente_datos": "SECOP_API",
+    "proceso_contractual": "CO1.BDOS.8504464",
+    "fecha_inicio_contrato": "2025-10-17",
+    "fecha_actualizacion": "2025-10-23T02:21:53.566432+00:00",
+    "nombre_contratista": "",
+    "estado_contrato": "En ejecución",
+    "referencia_proceso": "4148.010.32.1.1064-2025",
+    "objeto_contrato": "INTERVENTORIA TÉCNICA; ADMINISTRATIVA; FINANCIERA Y JURÍDICA DE LAS OBRAS CIVILES PARA LA INTERVENCIÓN DE REPARACIONES LOCATIVAS; MODIFICACIÓN; ADECUACIÓN Y DEMÁS ACTIVIDADES COMPLEMENTARIAS PARA LA CONSERVACIÓN Y MEJORAMIENTO DE LOS EQUIPAMIENTOS CULTURALES Y CENTROS CULTURALES DEL DISTRITO DE SANTIAGO DE CALI en el marco del proyecto BP-26005340 denominado Mantenimiento de los equipamientos culturales de Santiago de Cali; del contrato de obra que resulte adjudicado en el proceso de licitaci",
+    "tipo_contrato": "Interventoría"
+  },
+  "timestamp": "2025-11-09T00:47:57.090120"
+}

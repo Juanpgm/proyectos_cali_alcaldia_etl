@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010125",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Salud Pública",
+    "cod_producto": 1905031,
+    "nombre_area_funcional": "Empresas y grupos de trabajo informal de los sectores económicos de Santiago de Cali monitoreados y vigilados frente al cumplimiento de condiciones de seguridad y salud en el trabajo",
+    "nombre_fondo": "SGP-Salud-Salud pública 11/12",
+    "nombre_programa": "Salud Pública Integral, Una Realidad en los Entornos de Vida Cotidianos",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010125,
+    "created_at": "2025-10-10T09:27:57.686738+00:00",
+    "nombre_actividad": "Realizar plan de acompañamiento en la gestión del riesgo laboral.",
+    "updated_at": "2025-10-10T09:27:57.686738+00:00",
+    "programa_presupuestal": "BP260027911010104",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Fortalecimiento de las condiciones de seguridad y salud en el trabajo en empresas, grupos organizados de trabajo informal y población trabajadora en santiago de  Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 19,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Territorios para la Vida",
+    "validador_cuipo": null,
+    "bp": "BP26002791"
+  },
+  "timestamp": "2025-11-09T00:54:27.600752"
+}

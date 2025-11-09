@@ -1,0 +1,23 @@
+{
+  "collection_path": "proyecciones_emprestito",
+  "doc_id": "QlCufZUJCK8A5531mytc",
+  "data": {
+    "nombre_banco": "BBVA",
+    "nombre_organismo_reducido": "Bienes",
+    "ultima_actualizacion": "2025-11-08T11:31:07.638235+00:00",
+    "item": "62",
+    "nombre_resumido_proceso": "Contrato 1: Obra",
+    "fuente": "google_sheets",
+    "fecha_carga": "2025-11-08T11:31:04.571650",
+    "valor_proyectado": 0,
+    "nombre_generico_proyecto": "Remodelación Cam",
+    "fila_origen": 62,
+    "id_paa": "18949",
+    "fecha_guardado": "2025-11-08T11:31:07.638235+00:00",
+    "referencia_proceso": "",
+    "BP": "BP26005296",
+    "urlProceso": "",
+    "descripcion_bp": "Mejoramiento y/o adecuación de las edificaciones propiedad del Distrito de Santiago de Cali (incluidos piso 1,2,3,4,8,11)"
+  },
+  "timestamp": "2025-11-09T00:52:53.676154"
+}

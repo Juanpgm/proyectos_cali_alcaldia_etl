@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010059",
+  "data": {
+    "nombre_centro_gestor": "Unidad Administrativa Especial de Servicios Públicos",
+    "cod_producto": 4599023,
+    "nombre_area_funcional": "Líneas de servicios del Proceso Servicios Públicos certificadas bajo la ISO 9001:2015",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Fortalecimiento Institucional",
+    "nombre_dimension": "Cali, Gobierno Incluyente",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010059,
+    "created_at": "2025-10-10T09:30:37.525062+00:00",
+    "nombre_actividad": "Realizar el diagnóstico del estado de implementación de estos requisitos en el proceso Servicios Públicos",
+    "updated_at": "2025-10-10T09:30:37.525062+00:00",
+    "programa_presupuestal": "BP260025401010109",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "Normalización de Líneas de Servicios bajo la ISO9001-2015 en la UAESP de Santiago de Cali",
+    "clasificacion_fondo": "Libre destinación (Recursos Propios)",
+    "cod_sector": 45,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Gobierno Inteligente",
+    "validador_cuipo": null,
+    "bp": "BP26002540"
+  },
+  "timestamp": "2025-11-09T00:54:05.445695"
+}

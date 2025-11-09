@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1094",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Avenida 2 Norte Con Calle 25",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.172983",
+    "has_valid_geometry": true,
+    "upid": "UNP-1094",
+    "nombre_up_detalle": "Via Colectora",
+    "nombre_up": "Avenida 2 Norte Con Calle 25",
+    "comuna_corregimiento": "COMUNA 02",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"MultiLineString\", \"coordinates\": [[[-76.52138825397886, 3.4627461582731116, 0.0], [-76.52123902568681, 3.4627864680843867, 0.0]], [[-76.52193937257312, 3.4625972891396435, 0.0], [-76.52138825397886, 3.4627461582731116, 0.0]]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Prados del Norte",
+    "cantidad": 73,
+    "loaded_at": "2025-11-04T20:23:09.172989",
+    "presupuesto_base": 110083009.68
+  },
+  "timestamp": "2025-11-09T01:44:01.956435"
+}

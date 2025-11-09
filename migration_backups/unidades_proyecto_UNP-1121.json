@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1121",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Avenida 3 Norte Con Calle 20N",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.902104",
+    "has_valid_geometry": true,
+    "upid": "UNP-1121",
+    "nombre_up_detalle": "Via Arteria Principal",
+    "nombre_up": "Avenida 3 Norte Con Calle 20N",
+    "comuna_corregimiento": "COMUNA 02",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.5278128176388, 3.4601136168750095, 0.0], [-76.52796064266508, 3.4599117729514743, 0.0]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Versalles",
+    "cantidad": 12,
+    "loaded_at": "2025-11-04T20:23:09.902111",
+    "presupuesto_base": 4261297.15
+  },
+  "timestamp": "2025-11-09T01:44:29.150470"
+}

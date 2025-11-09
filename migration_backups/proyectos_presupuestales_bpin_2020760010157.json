@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010157",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Bienestar Social",
+    "cod_producto": 4599025,
+    "nombre_area_funcional": "Red de gestión de información y del conocimiento diseñado y operado al interior del organismo",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Fortalecimiento Institucional",
+    "nombre_dimension": "Cali, Gobierno Incluyente",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010157,
+    "created_at": "2025-10-10T09:28:06.474516+00:00",
+    "nombre_actividad": "Realizar el diseño conceptual y la articulación interinstitucional de los procesos de Planeación y Presupuesto.",
+    "updated_at": "2025-10-10T09:28:06.474516+00:00",
+    "programa_presupuestal": "BP260033841010112",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "Fortalecimiento de la red de gestión de información de la Secretaría de Bienestar Social de Santiago de  Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 45,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Gobierno Inteligente",
+    "validador_cuipo": null,
+    "bp": "BP26003384"
+  },
+  "timestamp": "2025-11-09T01:05:41.903267"
+}

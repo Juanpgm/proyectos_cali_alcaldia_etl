@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010126",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Educación",
+    "cod_producto": null,
+    "nombre_area_funcional": "Estudiantes pertenecientes a grupos vulnerables atendidos con estrategias de educación inclusiva",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Cali Educada",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010126,
+    "nombre_actividad": "Dotar paquetes escolares a estudiantes víctimas del conflicto armado matriculados en las IEO",
+    "created_at": "2025-10-10T09:32:34.145383+00:00",
+    "updated_at": "2025-10-10T09:32:34.145383+00:00",
+    "programa_presupuestal": 6102001,
+    "nombre_pospre": "Otros bienes transportables (excepto productos metálicos, maquinaria y equipo)",
+    "anio": 2025,
+    "nombre_proyecto": "Fortalecimiento de estrategias de educación inclusiva para población víctima, migrante y con vulnerabilidad socioeconómica matriculada en las instituciones educativas oficiales del Distrito de Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "bp": "BP26005333",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T01:33:53.288189"
+}

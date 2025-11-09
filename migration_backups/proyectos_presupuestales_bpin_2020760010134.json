@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010134",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Bienestar Social",
+    "cod_producto": null,
+    "nombre_area_funcional": "Beneficiarios atendidos en el marco de la atención integral a la primera infancia",
+    "nombre_fondo": "R.B. Ingresos Corrientes de Libre Destinación ",
+    "nombre_programa": "Atención integral a poblaciones",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010134,
+    "nombre_actividad": "Realizar el mantenimiento correctivo de la infraestructura",
+    "created_at": "2025-10-10T09:33:25.132547+00:00",
+    "updated_at": "2025-10-10T09:33:25.132547+00:00",
+    "programa_presupuestal": 6102006,
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2025,
+    "nombre_proyecto": "Fortalecimiento de las condiciones físicas y técnicas de las infraestructuras de las unidades de trasformación social de primera infancia en Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "bp": "BP26002756",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T00:54:31.647995"
+}

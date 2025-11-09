@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010826",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Educación",
+    "cod_producto": 2201017,
+    "nombre_area_funcional": "Población en edad escolar matriculada en el sistema educativo oficial de Santiago de Cali",
+    "nombre_fondo": "SGP-Educación-Prestación de servicios CSF",
+    "nombre_programa": "La Escuela me acoge ",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010826,
+    "created_at": "2025-10-10T09:27:41.890965+00:00",
+    "nombre_actividad": "Brindar acceso al servicio educativo a traves de la estrategia de ampliación de cobertura educativa en Santiago de Cali",
+    "updated_at": "2025-10-10T09:27:41.890965+00:00",
+    "programa_presupuestal": "BP260030381040103",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Fortalecimiento del acceso al sistema educativo oficial en Santiago de Cali",
+    "clasificacion_fondo": "Destinación Específica (SGP)",
+    "cod_sector": 22,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Distrito Educador",
+    "validador_cuipo": null,
+    "bp": "BP26003038"
+  },
+  "timestamp": "2025-11-09T01:09:13.747652"
+}

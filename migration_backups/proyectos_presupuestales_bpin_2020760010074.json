@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010074",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Vivienda Social y Hábitat",
+    "cod_producto": 4001001,
+    "nombre_area_funcional": "Adquisición de predios con títulos justificativo de dominio en zonas de riesgo no mitigable por inundaciones",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Reducción del Riesgo ",
+    "nombre_dimension": "Cali, Nuestra Casa Común",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010074,
+    "created_at": "2025-10-10T09:28:24.561701+00:00",
+    "nombre_actividad": "Apoyar las labores tecnicas y juridicas requeridas en el procesos de titulacion de predios.",
+    "updated_at": "2025-10-10T09:28:24.561701+00:00",
+    "programa_presupuestal": "BP260027401010106",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Adquisición de predios titulados localizados en zonas de riesgo no mitigables por inundación en Santiago de  Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 40,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Gestión del Riesgo",
+    "validador_cuipo": null,
+    "bp": "BP26002740"
+  },
+  "timestamp": "2025-11-09T00:54:10.118596"
+}

@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010746",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "cod_producto": 2402128,
+    "nombre_area_funcional": "Vías y andenes adecuados con inclusión social",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Espacio Público para la Integración SocioEcológica",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010746,
+    "created_at": "2025-10-10T09:28:55.370044+00:00",
+    "nombre_actividad": "REALIZAR ADECUACIÓN DE ANDENES - GRUPO OPERATIVO EN OBRA EN ZONA URBANA DE CALI.",
+    "updated_at": "2025-10-10T09:28:55.370044+00:00",
+    "programa_presupuestal": "BP260030151010115",
+    "nombre_pospre": "Servicios de la construcción",
+    "anio": 2024,
+    "nombre_proyecto": "Adecuación de vías y andenes en Santiago de Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 24,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Territorios para la Vida",
+    "validador_cuipo": null,
+    "bp": "BP26003015"
+  },
+  "timestamp": "2025-11-09T01:08:35.044712"
+}

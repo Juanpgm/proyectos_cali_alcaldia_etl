@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010762",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Cultura",
+    "cod_producto": 3301051,
+    "nombre_area_funcional": "Contenidos audiovisuales o cinematográficos, artísticos, culturales y de formación entregados a través de plataformas",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Ecosistema Artístico ",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010762,
+    "created_at": "2025-10-10T09:28:46.218000+00:00",
+    "nombre_actividad": "Realizar diplomado en medios audiovisuales",
+    "updated_at": "2025-10-10T09:28:46.218000+00:00",
+    "programa_presupuestal": "BP260028601010108",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Apoyo a la producción audiovisual en Santiago de  Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 33,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Cali Corazón de las Culturas",
+    "validador_cuipo": null,
+    "bp": "BP26002860"
+  },
+  "timestamp": "2025-11-09T01:08:45.584647"
+}

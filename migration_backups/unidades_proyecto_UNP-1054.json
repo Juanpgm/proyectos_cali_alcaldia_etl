@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1054",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Carrera 86 Con Calle 13",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.157331",
+    "has_valid_geometry": true,
+    "upid": "UNP-1054",
+    "nombre_up_detalle": "Via Arteria Secundaria",
+    "nombre_up": "Carrera 86 Con Calle 13",
+    "comuna_corregimiento": "COMUNA 17",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.53769001399996, 3.3806056730000478, 0.0], [-76.53767281099994, 3.380554306000022, 0.0], [-76.53764378699998, 3.380516238000041, 0.0], [-76.53758606899999, 3.380479378000075, 0.0], [-76.53751828699995, 3.3804345530000433, 0.0]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "El Ingenio",
+    "cantidad": 25,
+    "loaded_at": "2025-11-04T20:23:09.157341",
+    "presupuesto_base": 8877702.4
+  },
+  "timestamp": "2025-11-09T01:43:23.380229"
+}

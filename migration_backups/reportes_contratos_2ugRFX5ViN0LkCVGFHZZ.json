@@ -1,0 +1,31 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "2ugRFX5ViN0LkCVGFHZZ",
+  "data": {
+    "nombre_centro_gestor": "",
+    "observaciones": "Con fecha de corte 2025/10/23 se ha avanzado en la ejecución del 20% de los productos del proyecto. \r\nEl avance en los productos corresponde a:\r\n1. Implementación del caso de uso: Integración de datos para mejora de la gestión educativa en Santiago de Cali. Se desplegó en servidor de nube la solución tecnológica “Sistema Gestor de Información” que permite la consulta de toda la información asociada a estudiantes y a personal de las Instituciones Educativas del distrito de Santiago de Cali; se encuentra en desarrollo solución tecnológica Gestión de Proyectos de infraestructura educativa de Secretaría Distrital de Educación. Avance de ejecución del producto 95%.\r\n2. Implementación del caso de uso: Integración de datos del ciudadano. Se encuentra operativa la solución tecnológica Panel de consulta Datos Integrados del Ciudadano y se desplegaron en ambiente productivo las soluciones módulo de ingesta individual, módulo de ingesta por lote y Módulo de verificación y aprobación, que permiten la integración de nuevos registros de personas beneficiarias de programas sociales a base de datos de caracterización del ciudadano. Avance de ejecución del producto 93%.\r\n3. Se completaron requerimientos de información solicitados por el proveedor para entendimiento de requerimientos técnicos y funcionales de 4 soluciones de inteligencia artificial, 2 para Legal Tech y 2 para canales de atención el ciudadano. \r\n\r\n\r\nImplementación de 2 modelos de integración de datos del ciudadano denominados: Panel de consulta Datos Integrados del Ciudadano, y Gestor de Información del sector educativo en Santiago de Cali, cada uno con avance del 90% de avance.",
+    "fecha_reporte": "2025-10-24T17:56:05.673822+00:00",
+    "referencia_contrato": "151421",
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/1q2wTixRfa2ZPqEpXL4Z61K_-BBuS9mY3",
+    "archivos_evidencia": [
+      {
+        "type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        "size": 11966,
+        "download_url": "https://drive.google.com/uc?id=1frw7haE3fgFK9zRCp3ShymAcuIZa1zEw",
+        "url": "https://docs.google.com/spreadsheets/d/1frw7haE3fgFK9zRCp3ShymAcuIZa1zEw/edit?usp=drivesdk&ouid=107631050282737776825&rtpof=true&sd=true",
+        "status": "uploaded_successfully",
+        "drive_id": "1frw7haE3fgFK9zRCp3ShymAcuIZa1zEw",
+        "name": "Seguimiento Ejecución modelos y soluciones IA_20251023.xlsx"
+      }
+    ],
+    "avance_fisico": 20.0,
+    "alertas": {
+      "descripcion": "",
+      "es_alerta": false,
+      "tipos": []
+    },
+    "avance_financiero": 20.0,
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:40:27.785265"
+}

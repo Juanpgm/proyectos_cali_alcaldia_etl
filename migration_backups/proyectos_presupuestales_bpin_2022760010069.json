@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2022760010069",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Vivienda Social y Hábitat",
+    "cod_producto": 4001007,
+    "nombre_area_funcional": "Suelo gestionado para construcción de vivienda VIS y VIP",
+    "nombre_fondo": "Ingresos Corrientes de Libre Destinación",
+    "nombre_programa": "Dignificando la Vivienda",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2022760010069,
+    "created_at": "2025-10-10T09:28:26.438436+00:00",
+    "nombre_actividad": "Adquirir predios que hacen parte del suelo potencial para el desarrollo de proyectos de vivienda y/o hábitat",
+    "updated_at": "2025-10-10T09:28:26.438436+00:00",
+    "programa_presupuestal": "BP260042101010101",
+    "nombre_pospre": "Tierras y terrenos",
+    "anio": 2024,
+    "nombre_proyecto": "Adquisición de suelo apto para el desarrollo de proyectos de vivienda VIP, VIS y hábitat en Santiago de   Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 40,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Territorios para la Vida",
+    "validador_cuipo": null,
+    "bp": "BP26004210"
+  },
+  "timestamp": "2025-11-09T01:28:44.058503"
+}

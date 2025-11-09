@@ -1,0 +1,23 @@
+{
+  "collection_path": "proyecciones_emprestito",
+  "doc_id": "W5tWLbY1kEHmFNX3aqG9",
+  "data": {
+    "nombre_banco": "DAVIVIENDA",
+    "nombre_organismo_reducido": "Desarrollo Económico",
+    "ultima_actualizacion": "2025-11-08T11:31:07.648819+00:00",
+    "item": "101",
+    "nombre_resumido_proceso": "Contrato de Promoción del Centro de Ciencia, Arte y Tecnología del Distrito de Santiago de Cali",
+    "fuente": "google_sheets",
+    "fecha_carga": "2025-11-08T11:31:04.575751",
+    "valor_proyectado": 0,
+    "nombre_generico_proyecto": "YAWA",
+    "fila_origen": 101,
+    "id_paa": "VIGENCIA 2026",
+    "fecha_guardado": "2025-11-08T11:31:07.648819+00:00",
+    "referencia_proceso": "",
+    "BP": "BP26005258",
+    "urlProceso": "",
+    "descripcion_bp": "\"Construcción y operación del Centro de Ciencia, Arte y Tecnología del distrito de Santiago de Cali\""
+  },
+  "timestamp": "2025-11-09T00:53:02.387796"
+}

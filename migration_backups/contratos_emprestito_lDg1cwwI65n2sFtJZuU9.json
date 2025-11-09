@@ -1,0 +1,41 @@
+{
+  "collection_path": "contratos_emprestito",
+  "doc_id": "lDg1cwwI65n2sFtJZuU9",
+  "data": {
+    "nit_contratista": "",
+    "fecha_fin_contrato": "2026-03-15",
+    "sector": "Tecnologías de la Información y las Comunicaciones",
+    "ordenador_gasto": "ALEXANDER MONDRAGON VALENCIA",
+    "valor_contrato": 2346975000,
+    "nombre_procedimiento": "",
+    "valor_pagado": "0",
+    "urlproceso": {
+      "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.8790015&isFromPublicArea=True&isModal=true&asPopupView=true"
+    },
+    "descripcion_proceso": "Implementar una solución Web en la infraestructura nube del Distrito de Santiago de Cali; adaptada a sus necesidades institucionales; mediante prácticas modernas de desarrollo y gestión de aplicaciones.",
+    "bpin": 2024760010045,
+    "_dataset_source": "jbjy-vk9h",
+    "supervisor": "ERMILSON DIAZ MARTINEZ",
+    "entidad_contratante": "SANTIAGO DE CALI DISTRITO ESPECIAL - DEPARTAMENTO ADMINISTRATIVO DE TECNOLOGIAS DE LA INFORMACION Y LAS COMUNICACIONES",
+    "banco": "Bancolombia",
+    "referencia_contrato": "4134.010.26.1.0241-2025",
+    "nit_entidad": "890399011",
+    "fecha_guardado": "2025-10-29T02:29:17.415399+00:00",
+    "id_contrato": "CO1.PCCNTR.8482564",
+    "modalidad_contratacion": "Licitación pública",
+    "fecha_firma_contrato": null,
+    "bp": "BP26005260",
+    "nombre_centro_gestor": "Departamento Administrativo de Tecnologías de la Información y las Comunicaciones",
+    "version_esquema": "1.1",
+    "representante_legal": "Edilberto Pacheco Posso",
+    "fuente_datos": "SECOP_API",
+    "proceso_contractual": "CO1.BDOS.8600397",
+    "fecha_inicio_contrato": null,
+    "nombre_contratista": "",
+    "estado_contrato": "Aprobado",
+    "referencia_proceso": "4134.010.32.1.0139-2025",
+    "objeto_contrato": "Implementar una solución Web en la infraestructura nube del Distrito de Santiago de Cali; adaptada a sus necesidades institucionales; mediante prácticas modernas de desarrollo y gestión de aplicaciones.",
+    "tipo_contrato": "Prestación de servicios"
+  },
+  "timestamp": "2025-11-09T00:48:04.554551"
+}

@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1089",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Calle 5B3 Entre Carrera 36B Y 38BIS",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.171207",
+    "has_valid_geometry": true,
+    "upid": "UNP-1089",
+    "nombre_up_detalle": "Via Local",
+    "nombre_up": "Calle 5B3 Entre Carrera 36B Y 38BIS",
+    "comuna_corregimiento": "COMUNA 19",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.5416059581371, 3.4278316419409975, 0.0], [-76.54376449856032, 3.4262251345361543, 0.0]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "San Fernando Nuevo",
+    "cantidad": 597,
+    "loaded_at": "2025-11-04T20:23:09.171211",
+    "presupuesto_base": 449983151.91
+  },
+  "timestamp": "2025-11-09T01:43:56.661738"
+}

@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010104",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Educación",
+    "cod_producto": null,
+    "nombre_area_funcional": "Establecimientos educativos en operación",
+    "nombre_fondo": "SGP-Educación-Calidad  por gratuidad",
+    "nombre_programa": "Cali Educada",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010104,
+    "nombre_actividad": "Transferir los recursos de gratuidad educativa a los fondos de servicios educativos de las IEO de la zona urbana de Santiago de Cali",
+    "created_at": "2025-10-10T09:32:51.271177+00:00",
+    "updated_at": "2025-10-10T09:32:51.271177+00:00",
+    "programa_presupuestal": 6102001,
+    "nombre_pospre": "Fondos de Servicios Educativos de las Instituciones de Preescolar, Básica y Media",
+    "anio": 2025,
+    "nombre_proyecto": "Fortalecimiento de la gestión financiera de los fondos de servicios educativos de las Instituciones Educativas Oficiales de Santiago de Cali",
+    "clasificacion_fondo": "Recursos con Destinación específica del SGP",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "bp": "BP26005257",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T01:33:34.014467"
+}

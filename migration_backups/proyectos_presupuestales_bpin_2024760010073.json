@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010073",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Salud Pública",
+    "cod_producto": null,
+    "nombre_area_funcional": "Servicios de urgencias, cirugia plastica, Transporte Asistencial basico y medicalizado y ginecologia oncologica certificados",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Gestión del Riesgo y Atención de Desastres",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010073,
+    "nombre_actividad": "Implementar el Registro Especial de Prestadores REPS",
+    "created_at": "2025-10-10T09:33:04.009878+00:00",
+    "updated_at": "2025-10-10T09:33:04.009878+00:00",
+    "programa_presupuestal": 6202002,
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2025,
+    "nombre_proyecto": "Mejoramiento del Sistema Único de Habilitación a los Prestadores de Servicio de Salud de Santiago de  Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "bp": "BP26005446",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T01:33:04.458841"
+}

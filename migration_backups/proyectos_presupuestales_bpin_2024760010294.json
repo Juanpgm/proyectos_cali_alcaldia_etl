@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010294",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "cod_producto": null,
+    "nombre_area_funcional": "Sistema de información para la gestión de la infraestructura vial implementado",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Gobierno abierto",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010294,
+    "created_at": "2025-10-10T09:24:56.504640+00:00",
+    "nombre_actividad": "Elaborar diseño y desarrollo del Sistema de Información, recopilación de información existente, protocolos para estandarización de datos y formulación de casos de uso.",
+    "updated_at": "2025-10-10T09:24:56.504640+00:00",
+    "programa_presupuestal": 6301002,
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2025,
+    "nombre_proyecto": "Implementación del sistema de información para la gestión de la infraestructura vial en Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": null,
+    "validador_cuipo": null,
+    "bp": "BP26005331"
+  },
+  "timestamp": "2025-11-09T01:36:12.682753"
+}

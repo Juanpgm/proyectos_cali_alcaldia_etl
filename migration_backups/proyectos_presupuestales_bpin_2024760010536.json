@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010536",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Cultura",
+    "cod_producto": null,
+    "nombre_area_funcional": "Infraestructura cultural dotada",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Ordenamiento Territorial e Integración Regional",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010536,
+    "nombre_actividad": "Adquirir dotación  para las Bibliotecas Publicas del corregimiento de Pichinde",
+    "created_at": "2025-10-10T09:33:53.990602+00:00",
+    "updated_at": "2025-10-10T09:33:53.990602+00:00",
+    "programa_presupuestal": 6201001,
+    "nombre_pospre": "Maquinaria de informática y sus partes, piezas y accesorios",
+    "anio": 2025,
+    "nombre_proyecto": "Dotación a equipamientos culturales del Corregimiento de Pichindé de Santiago de   Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "PICHINDE",
+    "origen": "Territorio",
+    "bp": "BP26005799",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T01:39:36.984870"
+}

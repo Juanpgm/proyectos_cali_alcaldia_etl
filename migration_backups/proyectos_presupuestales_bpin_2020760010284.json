@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010284",
+  "data": {
+    "nombre_centro_gestor": "Unidad Administrativa Especial de Servicios Públicos",
+    "cod_producto": null,
+    "nombre_area_funcional": "Redes de acueducto en el área de prestación de servicio de EMCALI intervenidas",
+    "nombre_fondo": "CUR 880/19 SSF - Recursos Emcali Conpes 3858/16",
+    "nombre_programa": "Prestación de Servicios Públicos Domiciliarios",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010284,
+    "created_at": "2025-10-10T09:30:40.529361+00:00",
+    "nombre_actividad": "Realizar seguimiento de la Obra Civil de renovación de Redes y  del suministro de tubería, accesorios y válvulas de los barrios San Luis y San Carlos",
+    "updated_at": "2025-10-10T09:30:40.529361+00:00",
+    "programa_presupuestal": "BP260015941010121",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "Optimización Redes de acueducto en los barrios san Luis y San Carlos de Santiago de  Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Territorios para la Vida",
+    "validador_cuipo": null,
+    "bp": "BP26001594"
+  },
+  "timestamp": "2025-11-09T01:06:22.564679"
+}

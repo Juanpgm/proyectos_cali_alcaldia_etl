@@ -1,0 +1,31 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "OigBHYxpPvKrJgBGMzi4",
+  "data": {
+    "observaciones": "El proceso se encuentra adjudicado, esta en fase de perfeccionamiento para dar inicio a su ejecución. dentro de su planificación esta su avance físico del 50% al finalizar noviembre.",
+    "nombre_centro_gestor": "",
+    "fecha_reporte": "2025-10-13T20:39:02.795111+00:00",
+    "referencia_contrato": "4134.010.26.1.0544-2025",
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/1Ig1toQARTPdQG5z-5QTYiblUeaQPT0-i",
+    "archivos_evidencia": [
+      {
+        "type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "size": 20671,
+        "download_url": "https://drive.google.com/uc?id=1upRz6ymcWR8Hp2xJZSa-xAuTqcX-Sdu-",
+        "url": "https://docs.google.com/document/d/1upRz6ymcWR8Hp2xJZSa-xAuTqcX-Sdu-/edit?usp=drivesdk&ouid=107631050282737776825&rtpof=true&sd=true",
+        "drive_id": "1upRz6ymcWR8Hp2xJZSa-xAuTqcX-Sdu-",
+        "status": "uploaded_successfully",
+        "name": "% avances de procesos de contratacion emprestito DATIC.docx"
+      }
+    ],
+    "avance_fisico": 0.0,
+    "avance_financiero": 0.0,
+    "alertas": {
+      "es_alerta": false,
+      "descripcion": "",
+      "tipos": []
+    },
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:41:08.404093"
+}

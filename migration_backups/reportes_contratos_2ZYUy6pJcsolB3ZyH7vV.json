@@ -1,0 +1,31 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "2ZYUy6pJcsolB3ZyH7vV",
+  "data": {
+    "nombre_centro_gestor": "",
+    "fecha_reporte": "2025-11-07T15:17:02.889072+00:00",
+    "observaciones": "Dando cumplimiento a las obligaciones contractuales, en este periodo la Interventoria realizo a nivel general actividades de acompañamiento, vigilancia y control en:\r\n- Se realizo seguimiento a las solicitudes realizadas por el contratista hacia la entidad en aras de coordinar las actividades de instalacion y configuracion a realizar.\r\n- Se realizo visita al Datacenter del piso 1 para continuar con la planeacion de la migracion de los equipos hacia el piso 15.\r\n- Se realizaron visitas a las diferentes entidades para revisar los recorridos de instalación de Fibra Optica y ultimar detalles de instalación requeridos.\r\n- Se realizo reunion de seguimiento para revision de avances del proyecto con la participacion de Supervision, Contratista e Interventoria.",
+    "avance_fisico": 39.0,
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/1Z6forWB8mertNEMlC_X0aVzG_44ohH-E",
+    "archivos_evidencia": [
+      {
+        "type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        "size": 15246,
+        "download_url": "https://drive.google.com/uc?id=1rMrqerQ1yL3P_58wc_v9XkHoxPUMOre6",
+        "url": "https://docs.google.com/spreadsheets/d/1rMrqerQ1yL3P_58wc_v9XkHoxPUMOre6/edit?usp=drivesdk&ouid=107631050282737776825&rtpof=true&sd=true",
+        "status": "uploaded_successfully",
+        "drive_id": "1rMrqerQ1yL3P_58wc_v9XkHoxPUMOre6",
+        "name": "AVANCE_INTERVENTORIA_MODERNIZACION.xlsx"
+      }
+    ],
+    "referencia_contrato": "4134.010.26.1.0544-2025",
+    "avance_financiero": 39.0,
+    "alertas": {
+      "es_alerta": false,
+      "descripcion": "",
+      "tipos": []
+    },
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:40:26.032211"
+}

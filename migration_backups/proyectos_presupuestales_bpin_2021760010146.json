@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2021760010146",
+  "data": {
+    "nombre_centro_gestor": "Departamento Administrativo de Gestión del Medio Ambiente",
+    "cod_producto": null,
+    "nombre_area_funcional": "Parques, zonas verdes y canales de agua lluvia del Distrito de Santiago de Cali, adecuados rehabilitados o con mantenimiento para conservación de fauna y flora, la percepción de seguridad y de mejoramiento de la calidad ambiental",
+    "nombre_fondo": "Aportes urbanísticos por mayor edificabilidad",
+    "nombre_programa": "Protección ambiental y mitigación del cambio climático",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2021760010146,
+    "nombre_actividad": "Realizar labores de recuperación ambiental y paisajística en el parque del barrio San Joaquín, ubicado en la Carrera 93 entre Calles 16 y 17 - Comuna 17",
+    "created_at": "2025-10-10T09:32:25.263957+00:00",
+    "updated_at": "2025-10-10T09:32:25.265446+00:00",
+    "programa_presupuestal": 6202001,
+    "nombre_pospre": "Servicios de la construcción",
+    "anio": 2025,
+    "nombre_proyecto": "RECUPERACIÓN AMBIENTAL Y PAISAJÍSTICA EN ZONAS VERDES Y PARQUES DE SANTIAGO DE CALI",
+    "clasificacion_fondo": "Recursos Propios con Destinacion Especifica",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "bp": "BP26002733",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T01:27:00.485249"
+}

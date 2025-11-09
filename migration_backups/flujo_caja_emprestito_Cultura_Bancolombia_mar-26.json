@@ -1,0 +1,16 @@
+{
+  "collection_path": "flujo_caja_emprestito",
+  "doc_id": "Cultura_Bancolombia_mar-26",
+  "data": {
+    "banco": "Bancolombia",
+    "desembolso": 89993319.0,
+    "id_registro": "Cultura_Bancolombia_mar-26",
+    "mes": "mar-26",
+    "fecha_procesamiento": "2025-10-20T11:37:44.604616",
+    "desembolso_real": 0.0,
+    "periodo": "2026-03-01T00:00:00",
+    "archivo_origen": "Matriz Emprestito.xlsx",
+    "organismo": "Cultura"
+  },
+  "timestamp": "2025-11-09T00:50:00.243484"
+}

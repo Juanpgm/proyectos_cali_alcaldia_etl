@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010212",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Cultura",
+    "cod_producto": null,
+    "nombre_area_funcional": "Personas con acceso a la oferta artística y cultural con enfoque poblacional",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Cali Distrito Deportivo, Cultural y Turístico",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010212,
+    "nombre_actividad": "Realizar la transversalización del enfoque de género en la gestión pública cultural, artística y de saberes, en el marco de la implementación de la Política Pública \"Reconocimiento, equidad de género e igualdad de oportunidades 2022-2031\"  y del Sistema Distrital del Cuidado de Cali",
+    "created_at": "2025-10-10T09:33:39.981424+00:00",
+    "updated_at": "2025-10-10T09:33:39.981424+00:00",
+    "programa_presupuestal": 6102003,
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2025,
+    "nombre_proyecto": "Fortalecimiento de expresiones artísticas, culturales y patrimoniales con enfoque poblacional, diferencial y de género en el distrito de Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "bp": "BP26005356",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T01:35:07.731180"
+}

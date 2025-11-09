@@ -1,0 +1,22 @@
+{
+  "collection_path": "users",
+  "doc_id": "9qxJ3RaRXUSZxO1vzgSs8Io04W72",
+  "data": {
+    "nombre_centro_gestor": "Secretaría del Deporte y la Recreación",
+    "uid": "9qxJ3RaRXUSZxO1vzgSs8Io04W72",
+    "created_at": "2025-10-10T17:40:46.001363+00:00",
+    "cellphone": "+573245978549",
+    "fullname": "Edwin Hurtado",
+    "is_active": true,
+    "auth_providers": [
+      "password"
+    ],
+    "login_count": 0,
+    "email": "edwin.hurtado@cali.gov.co",
+    "updated_at": "2025-10-10T17:40:46.001368+00:00",
+    "last_login": null,
+    "email_verified": false,
+    "can_use_google_auth": true
+  },
+  "timestamp": "2025-11-09T02:00:57.885104"
+}

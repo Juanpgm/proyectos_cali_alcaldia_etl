@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2023760010153",
+  "data": {
+    "nombre_centro_gestor": "Secretaría del Deporte y la Recreación",
+    "cod_producto": null,
+    "nombre_area_funcional": "Eventos deportivos y recreativos de innovación locales, nacionales e internacionales, realizados",
+    "nombre_fondo": "Tasa Prodeporte 10% Alimentación y transporte",
+    "nombre_programa": "Marca de Ciudad para un Distrito Especial ",
+    "nombre_dimension": "Cali, Inteligente para la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2023760010153,
+    "created_at": "2025-10-10T09:29:48.261191+00:00",
+    "nombre_actividad": "Apoyar con logística el desarrollo deportivo, la actividad física y la recreación comunitaria en los diferentes territorios",
+    "updated_at": "2025-10-10T09:29:48.261191+00:00",
+    "programa_presupuestal": "BP260047261010115",
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2024,
+    "nombre_proyecto": "Desarrollo de Eventos Deportivos y Recreativos de Innovación Locales, Nacionales e Internacionales en Santiago de Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Posicionamiento Local en el Ámbito Internacional",
+    "validador_cuipo": null,
+    "bp": "BP26004726"
+  },
+  "timestamp": "2025-11-09T01:31:16.993613"
+}

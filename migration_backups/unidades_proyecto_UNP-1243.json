@@ -1,0 +1,30 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1243",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Perimetro Del Parque El Peñon",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:10.786648",
+    "has_valid_geometry": true,
+    "upid": "UNP-1243",
+    "comuna_corregimiento": "COMUNA 03",
+    "nombre_up": "Perimetro Del Parque El Peñon",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.54303758881366, 3.4501109938273657, 0.0], [-76.54279461627846, 3.4498668108047355, 0.0]]}",
+    "identificador": "Puntos Estrategicos",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "El Peñón",
+    "cantidad": 38,
+    "loaded_at": "2025-11-04T20:23:10.786655",
+    "presupuesto_base": 93540825.0
+  },
+  "timestamp": "2025-11-09T01:46:27.379270"
+}

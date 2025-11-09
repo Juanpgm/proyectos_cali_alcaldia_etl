@@ -1,0 +1,31 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "qydpiwCGpeXg4lDzlNLl",
+  "data": {
+    "nombre_centro_gestor": "",
+    "observaciones": "Durante el periodo reportado se avanzó en la finalización de las Historias de Usuario del panel administrativo y la aplicación móvil, la validación de la línea gráfica con el equipo de comunicaciones de DATIC, y la implementación del sistema de roles y permisos dinámico.\r\n\r\nSe desarrollaron las APIs de conexión entre la app y el panel administrativo, configurando el ambiente de pruebas. Además, se logró la integración de publicaciones, eventos y trámites de la Sede Electrónica mediante los servicios de Nexura Platform y SAUL, y se avanza en la estructuración del contenido que será administrado desde el panel.",
+    "fecha_reporte": "2025-10-30T22:38:08.391733+00:00",
+    "referencia_contrato": "151303",
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/16hjyh6oU1tsS5Iagin0XnNzqLXix-0Tw",
+    "archivos_evidencia": [
+      {
+        "type": "application/pdf",
+        "size": 5695528,
+        "download_url": "https://drive.google.com/uc?id=15fd4d0lREKhWIIYo9x60TxNqCRNkkXGe",
+        "url": "https://drive.google.com/file/d/15fd4d0lREKhWIIYo9x60TxNqCRNkkXGe/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "15fd4d0lREKhWIIYo9x60TxNqCRNkkXGe",
+        "name": "Informe_Avance_2025-10-29.pdf"
+      }
+    ],
+    "avance_fisico": 30.0,
+    "alertas": {
+      "descripcion": "",
+      "es_alerta": false,
+      "tipos": []
+    },
+    "avance_financiero": 30.0,
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:42:15.019350"
+}

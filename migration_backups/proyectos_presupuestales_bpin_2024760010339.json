@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010339",
+  "data": {
+    "nombre_centro_gestor": "Departamento Administrativo de Desarrollo e Innovación Institucional",
+    "cod_producto": null,
+    "nombre_area_funcional": "Archivo de la Alcaldía distrital de Santiago de Cali optimizado",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Trámites rápidos y sin complicaciones",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010339,
+    "nombre_actividad": "Realizar la valoración de los documentos de archivos de fondos acumulados para su organización, inventario y digitalización",
+    "created_at": "2025-10-10T09:32:30.665030+00:00",
+    "updated_at": "2025-10-10T09:32:30.665030+00:00",
+    "programa_presupuestal": 6302002,
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2025,
+    "nombre_proyecto": "Aplicación de la ley general de archivo al patrimonio documental en la Alcaldía Distrital de Santiago  Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "bp": "BP26005865",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T01:36:49.988096"
+}

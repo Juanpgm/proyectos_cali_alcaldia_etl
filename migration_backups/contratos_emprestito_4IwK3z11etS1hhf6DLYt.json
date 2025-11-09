@@ -1,0 +1,42 @@
+{
+  "collection_path": "contratos_emprestito",
+  "doc_id": "4IwK3z11etS1hhf6DLYt",
+  "data": {
+    "nit_contratista": "",
+    "fecha_fin_contrato": "2026-03-31",
+    "ordenador_gasto": "SARA MERCEDES RODAS SOTO",
+    "sector": "Educación Nacional",
+    "_dataset_source": "jbjy-vk9h",
+    "nombre_procedimiento": "",
+    "valor_pagado": "0",
+    "urlproceso": {
+      "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.8725902&isFromPublicArea=True&isModal=true&asPopupView=true"
+    },
+    "bpin": null,
+    "descripcion_proceso": "REALIZAR LA INTERVENTORÍA DE OBRAS PARA LA ADECUACIÓN DE LAS IEO LUIS FERNANDO CAICEDO SEDE PRINCIPAL; ISAÍAS GAMBOA SEDE PRINCIPAL; FELIDIA SEDE REPÚBLICA DE CUBA; FELIDIA SEDE CRISTÓBAL COLON; LOS ANDES SEDE JUAN PABLO I; VEINTE DE JULIO SEDE CRISTINA SERRANO; SANTA FE SEDE ESTADO DE PUERTO RICO;",
+    "valor_contrato": 462355732,
+    "supervisor": "No definido",
+    "entidad_contratante": "SECRETARIA DE EDUCACION DE CALI",
+    "banco": "Bancolombia",
+    "referencia_contrato": "4143.010.26.1.1741.2025",
+    "nit_entidad": "890399011",
+    "id_contrato": "CO1.PCCNTR.8426315",
+    "fecha_guardado": "2025-11-04T15:49:30.486069+00:00",
+    "modalidad_contratacion": "Concurso de méritos abierto",
+    "fecha_firma_contrato": null,
+    "bp": "BP226004701",
+    "nombre_centro_gestor": "Secretaría de Educación",
+    "version_esquema": "1.1",
+    "representante_legal": "ARMANDO LEON JIMENEZ",
+    "fuente_datos": "SECOP_API",
+    "proceso_contractual": "CO1.BDOS.8642298",
+    "fecha_inicio_contrato": "2025-10-31",
+    "fecha_actualizacion": "2025-11-06T06:28:16.326645+00:00",
+    "nombre_contratista": "",
+    "estado_contrato": "En ejecución",
+    "referencia_proceso": "4143.010.32.1544-2025",
+    "objeto_contrato": "REALIZAR LA INTERVENTORÍA DE OBRAS PARA LA ADECUACIÓN DE LAS IEO LUIS FERNANDO CAICEDO SEDE PRINCIPAL; ISAÍAS GAMBOA SEDE PRINCIPAL; FELIDIA SEDE REPÚBLICA DE CUBA; FELIDIA SEDE CRISTÓBAL COLON; LOS ANDES SEDE JUAN PABLO I; VEINTE DE JULIO SEDE CRISTINA SERRANO; SANTA FE SEDE ESTADO DE PUERTO RICO; JUAN DE AMPUDIA SEDE ONCE DE NOVIEMBRE; SIMÓN RODRÍGUEZ SEDE MARÍA PANESSO; Y VILLA COLOMBIA SEDE SANTÍSIMA TRINIDAD",
+    "tipo_contrato": "Interventoría"
+  },
+  "timestamp": "2025-11-09T00:47:45.974371"
+}

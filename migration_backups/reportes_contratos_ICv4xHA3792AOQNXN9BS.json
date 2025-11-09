@@ -1,0 +1,40 @@
+{
+  "collection_path": "reportes_contratos",
+  "doc_id": "ICv4xHA3792AOQNXN9BS",
+  "data": {
+    "nombre_centro_gestor": "",
+    "observaciones": "se presentó el modelo de revisión de avalúo y se hizo mesa de trabajo entre DATIC y NEXURA, para organizar las evidencias, revisar los avances y se lograros obtener los ajustes en convenios con AND para la autenticación digital en gov.co para la nueva sede electrónica y se dieron accesos para Nexura en el servidor SAUL; también se solicitó el API para conectarse con el sistema SIGAT de la Subdirección de Catastro a fin de poder traer y llevar la información correcta de los predios",
+    "fecha_reporte": "2025-10-24T19:50:44.572048+00:00",
+    "referencia_contrato": "4134.010.26.1.0251-2025",
+    "url_carpeta_drive": "https://drive.google.com/drive/folders/10LCFAsmF8TMTgvh656wDeM8wtiSX0oBg",
+    "archivos_evidencia": [
+      {
+        "type": "application/pdf",
+        "size": 133948,
+        "download_url": "https://drive.google.com/uc?id=1K-n0RKYMHa2ytNazu15wG24hNZr1lQzJ",
+        "url": "https://drive.google.com/file/d/1K-n0RKYMHa2ytNazu15wG24hNZr1lQzJ/view?usp=drivesdk",
+        "status": "uploaded_successfully",
+        "drive_id": "1K-n0RKYMHa2ytNazu15wG24hNZr1lQzJ",
+        "name": "3. Correo de Alcaldía de Cali - 3. ACTA 4134.020.3.2.364 OCT 8 para revisión.pdf"
+      },
+      {
+        "type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        "size": 45697,
+        "download_url": "https://drive.google.com/uc?id=15NNrzR9umF_-D8WX8lbun69ctMV47lKc",
+        "url": "https://docs.google.com/spreadsheets/d/15NNrzR9umF_-D8WX8lbun69ctMV47lKc/edit?usp=drivesdk&ouid=107631050282737776825&rtpof=true&sd=true",
+        "status": "uploaded_successfully",
+        "drive_id": "15NNrzR9umF_-D8WX8lbun69ctMV47lKc",
+        "name": "Seguimiento CUOTA 1 ENTREGABLES TECNICOS .xlsx"
+      }
+    ],
+    "avance_fisico": 22.0,
+    "alertas": {
+      "descripcion": "",
+      "es_alerta": false,
+      "tipos": []
+    },
+    "avance_financiero": 22.0,
+    "estado_reporte": "activo"
+  },
+  "timestamp": "2025-11-09T01:40:51.701529"
+}

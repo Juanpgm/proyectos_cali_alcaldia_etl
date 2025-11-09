@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010464",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Salud Pública",
+    "cod_producto": 1905028,
+    "nombre_area_funcional": "Programa de Promoción y Atención Integral a la Malnutrición implementado en las instituciones",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Salud Pública Integral, Una Realidad en los Entornos de Vida Cotidianos",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010464,
+    "created_at": "2025-10-10T09:27:48.093756+00:00",
+    "nombre_actividad": "Realizar monitoreo a indicadores nutricionales en los diferentes  cursos de vida",
+    "updated_at": "2025-10-10T09:27:48.093756+00:00",
+    "programa_presupuestal": "BP260030551010120",
+    "nombre_pospre": "Otras máquinas para usos generales y sus partes y piezas",
+    "anio": 2024,
+    "nombre_proyecto": "Fortalecimiento de la seguridad alimentaria y nutricional en Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 19,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Territorios para la Vida",
+    "validador_cuipo": null,
+    "bp": "BP26003055"
+  },
+  "timestamp": "2025-11-09T01:07:10.784350"
+}

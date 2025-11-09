@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010033",
+  "data": {
+    "nombre_centro_gestor": "Departamento Administrativo de Planeación Municipal",
+    "cod_producto": null,
+    "nombre_area_funcional": "Hogares encuestados bajo la modalidad de demanda para la focalización del gasto público - Sisbén",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Planificación para el desarrollo",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010033,
+    "nombre_actividad": "Ejecutar y reportar encuestas del Sisben al Departamento Nacional de Planeación - DNP",
+    "created_at": "2025-10-10T09:32:05.543331+00:00",
+    "updated_at": "2025-10-10T09:32:05.543331+00:00",
+    "programa_presupuestal": 6201004,
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2025,
+    "nombre_proyecto": "Actualización del Sistema de Identificación de Potenciales Beneficiarios de Programas Sociales del Estado - SISBEN en Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "bp": "BP26005240",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T01:32:28.383858"
+}

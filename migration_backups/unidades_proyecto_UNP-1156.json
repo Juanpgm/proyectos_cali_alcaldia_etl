@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1156",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Calle 27 Entre Carreras 35 Y 36A",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.916681",
+    "has_valid_geometry": true,
+    "upid": "UNP-1156",
+    "nombre_up_detalle": "Via Local",
+    "nombre_up": "Calle 27 Entre Carreras 35 Y 36A",
+    "comuna_corregimiento": "COMUNA 11",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.5172016070075, 3.4215322507734545, 0.0], [-76.51726906815153, 3.420711372632798, 0.0]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "El Jardín",
+    "cantidad": 240,
+    "loaded_at": "2025-11-04T20:23:09.916685",
+    "presupuesto_base": 251331072.24
+  },
+  "timestamp": "2025-11-09T01:45:02.365308"
+}

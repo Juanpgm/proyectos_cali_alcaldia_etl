@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010567",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Cultura",
+    "cod_producto": null,
+    "nombre_area_funcional": "Infraestructura Cultural del Distrito con mantenimiento y/o adecuaciones",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Ordenamiento Territorial e Integración Regional",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010567,
+    "nombre_actividad": "Realizar obras de mejoramiento a biblioteca del corregimiento  la paz",
+    "created_at": "2025-10-10T09:33:51.030037+00:00",
+    "updated_at": "2025-10-10T09:33:51.030037+00:00",
+    "programa_presupuestal": 6201001,
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2025,
+    "nombre_proyecto": "Mejoramiento a Biblioteca de la Red Pública en el Corregimiento de la Paz de Santiago de  Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "LA PAZ",
+    "origen": "Territorio",
+    "bp": "BP26005728",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T01:40:04.500719"
+}

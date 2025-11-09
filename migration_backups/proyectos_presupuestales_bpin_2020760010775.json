@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010775",
+  "data": {
+    "nombre_centro_gestor": "Departamento Administrativo de Gestión del Medio Ambiente ",
+    "cod_producto": 3202038,
+    "nombre_area_funcional": "Vivero Distrital ampliado y conectado con red de viveros",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Conectividad Ecológica y Recuperación de Coberturas Verdes ",
+    "nombre_dimension": "Cali, Nuestra Casa Común",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010775,
+    "created_at": "2025-10-10T09:27:09.728148+00:00",
+    "nombre_actividad": "Realizar el proceso de propagación técnica de  individuos vegetales como apoyo a los procesos de restauración de los predios públios administrados por el DAGMA y/o otras áreas de interes ambiental.",
+    "updated_at": "2025-10-10T09:27:09.728148+00:00",
+    "programa_presupuestal": "BP260025991010116",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "FORTALECIMIENTO EN LA PRODUCCIÓN Y CONSERVACIÓN  DE ESPECIES VEGETALES A TRAVÉS DE LA RED DE VIVEROS DE SANTIAGO DE CALI",
+    "clasificacion_fondo": "Libre destinación (Recursos Propios)",
+    "cod_sector": 32,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Fortalecimiento y Gestión de los Socioecosistemas",
+    "validador_cuipo": null,
+    "bp": "BP26002599"
+  },
+  "timestamp": "2025-11-09T01:08:54.357925"
+}

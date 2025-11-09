@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1072",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Carrera 84 Con Calle 48 BIS",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.164272",
+    "has_valid_geometry": true,
+    "upid": "UNP-1072",
+    "nombre_up_detalle": "Via Local",
+    "nombre_up": "Carrera 84 Con Calle 48 BIS",
+    "comuna_corregimiento": "COMUNA 17",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.51610926242007, 3.382208700191835, 0.0], [-76.51544276163335, 3.3822107988868875, 0.0], [-76.51543319472844, 3.3822108290079997, 0.0]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Caney",
+    "cantidad": 19,
+    "loaded_at": "2025-11-04T20:23:09.164275",
+    "presupuesto_base": 6747053.82
+  },
+  "timestamp": "2025-11-09T01:43:40.847406"
+}

@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1066",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Calle 48 Entre Carreras 80 Y 86",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.162202",
+    "has_valid_geometry": true,
+    "upid": "UNP-1066",
+    "nombre_up_detalle": "Via Arteria Principal",
+    "nombre_up": "Calle 48 Entre Carreras 80 Y 86",
+    "comuna_corregimiento": "COMUNA 17",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.51643012026027, 3.388580178440249, 0.0], [-76.51646642031808, 3.386275929968176, 0.0], [-76.51647499314018, 3.3851986461711716, 0.0], [-76.51645050829352, 3.3837415125515222, 0.0], [-76.51640286495852, 3.380462193209046, 0.0], [-76.5164028916743, 3.380104555535973, 0.0], [-76.51642122734572, 3.379321544274779, 0.0], [-76.51642122671225, 3.379321448654683, 0.0]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Caney",
+    "cantidad": 7,
+    "loaded_at": "2025-11-04T20:23:09.162208",
+    "presupuesto_base": 16725591.32
+  },
+  "timestamp": "2025-11-09T01:43:34.725516"
+}

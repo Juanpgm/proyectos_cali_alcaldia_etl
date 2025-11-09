@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010146",
+  "data": {
+    "nombre_centro_gestor": "Unidad Administrativa Especial de Servicios Públicos",
+    "cod_producto": null,
+    "nombre_area_funcional": "Implementación  del esquema de Aprovechamiento de Residuos de Construcción y Demolición en el Distrito de Cali",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Protección ambiental y mitigación del cambio climático",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010146,
+    "created_at": "2025-10-10T09:26:37.449224+00:00",
+    "nombre_actividad": "Realizar el apoyo técnico a las actividades relacionadas en fomentar el aprovechamiento de los Residuos de Construcción y Demolición -RCD.",
+    "updated_at": "2025-10-10T09:26:37.449224+00:00",
+    "programa_presupuestal": 6202001,
+    "nombre_pospre": "Servicios prestados a las empresas y servicios de producción ",
+    "anio": 2025,
+    "nombre_proyecto": "Desarrollo del esquema de aprovechamiento de Residuos de Construcción y Demolición - RCD en el Distrito de Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": null,
+    "validador_cuipo": null,
+    "bp": "BP26005312"
+  },
+  "timestamp": "2025-11-09T01:34:09.953807"
+}

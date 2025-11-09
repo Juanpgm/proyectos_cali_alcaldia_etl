@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2020760010201",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Salud Pública",
+    "cod_producto": 1901003,
+    "nombre_area_funcional": "Rutas Integrales de Atención para poblaciones en riesgo en el marco del MAITE implementadas",
+    "nombre_fondo": "SGP-Salud-Salud pública 11/12",
+    "nombre_programa": "Salud Pública Integral, Una Realidad en los Entornos de Vida Cotidianos",
+    "nombre_dimension": "Cali, Solidaria por la Vida",
+    "tipo_gasto": "Inversión",
+    "bpin": 2020760010201,
+    "created_at": "2025-10-10T09:27:58.146789+00:00",
+    "nombre_actividad": "Realizar el plan de intervenciones colectivas(PIC) y de gestion de la Salud Pública  armonizado con las RIAS y por entronos.",
+    "updated_at": "2025-10-10T09:27:58.146789+00:00",
+    "programa_presupuestal": "BP260027941010109",
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2024,
+    "nombre_proyecto": "Implementación de Rutas integrales de atención en salud en el marco del Modelo de Acción Integral Territorial -MAITE- en Santiago de Cali",
+    "clasificacion_fondo": "Destinación Específica (Recursos Propios)",
+    "cod_sector": 19,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "nombre_linea_estrategica": "Territorios para la Vida",
+    "validador_cuipo": null,
+    "bp": "BP26002794"
+  },
+  "timestamp": "2025-11-09T01:06:06.822155"
+}

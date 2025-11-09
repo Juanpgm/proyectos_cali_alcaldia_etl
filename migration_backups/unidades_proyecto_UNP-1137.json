@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1137",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Carrera 80 Entre Calle 1 Y 2",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.909013",
+    "has_valid_geometry": true,
+    "upid": "UNP-1137",
+    "nombre_up_detalle": "Via Local",
+    "nombre_up": "Carrera 80 Entre Calle 1 Y 2",
+    "comuna_corregimiento": "COMUNA 18",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"MultiLineString\", \"coordinates\": [[[-76.55525638625998, 3.3856731041431067, 0.0], [-76.55458609652884, 3.385694292945436, 0.0], [-76.55416287209518, 3.3857151198491366, 0.0], [-76.55362105717354, 3.3857324082618634, 0.0]], [[-76.55362105717354, 3.3857324082618634, 0.0], [-76.55336226140166, 3.3857406660043834, 0.0]]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Prados del Sur",
+    "cantidad": 34,
+    "loaded_at": "2025-11-04T20:23:09.909018",
+    "presupuesto_base": 24147350.52
+  },
+  "timestamp": "2025-11-09T01:44:44.061772"
+}

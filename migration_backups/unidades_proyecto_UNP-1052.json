@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1052",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Calle 40 Con Carrera 42A",
+    "has_geometry": true,
+    "bpin": "2022760010010",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.156539",
+    "has_valid_geometry": true,
+    "upid": "UNP-1052",
+    "nombre_up_detalle": "Via Colectora",
+    "nombre_up": "Calle 40 Con Carrera 42A",
+    "comuna_corregimiento": "COMUNA 16",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.51235170099994, 3.4110315790000527, 0.0], [-76.51211995099999, 3.411253400000021, 0.0]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Unión de Vivienda Popular",
+    "cantidad": 75,
+    "loaded_at": "2025-11-04T20:23:09.156542",
+    "presupuesto_base": 56549491.28
+  },
+  "timestamp": "2025-11-09T01:43:21.630113"
+}

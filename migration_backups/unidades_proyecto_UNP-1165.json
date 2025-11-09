@@ -1,0 +1,31 @@
+{
+  "collection_path": "unidades_proyecto",
+  "doc_id": "UNP-1165",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "avance_obra": 100.0,
+    "direccion": "Carrera 7B Con Calle 70",
+    "has_geometry": true,
+    "bpin": "2023760010180",
+    "ano": "2024",
+    "geometry_type": "LineString",
+    "centros_gravedad": false,
+    "updated_at": "2025-11-04T20:23:09.919671",
+    "has_valid_geometry": true,
+    "upid": "UNP-1165",
+    "nombre_up_detalle": "Via Local",
+    "nombre_up": "Carrera 7B Con Calle 70",
+    "comuna_corregimiento": "COMUNA 07",
+    "clase_obra": "Obra Vial",
+    "geometry": "{\"type\": \"LineString\", \"coordinates\": [[-76.48309580790803, 3.4643753072464305, 0.0], [-76.48307019594228, 3.4643834637421302, 0.0]]}",
+    "identificador": "Grupo Operativo",
+    "tipo_equipamiento": "Vías",
+    "estado": "Finalizado",
+    "fuente_financiacion": "Recursos Propios",
+    "barrio_vereda": "Alfonso Lopez I",
+    "cantidad": 2,
+    "loaded_at": "2025-11-04T20:23:09.919674",
+    "presupuesto_base": 1583385.76
+  },
+  "timestamp": "2025-11-09T01:45:11.137401"
+}

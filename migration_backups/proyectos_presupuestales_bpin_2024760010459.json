@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010459",
+  "data": {
+    "nombre_centro_gestor": "Secretaría del Deporte y la Recreación",
+    "cod_producto": null,
+    "nombre_area_funcional": "Escenarios deportivos y recreativos de Santiago de Cali adecuados, intervenidos y construidos",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Ordenamiento Territorial e Integración Regional",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010459,
+    "created_at": "2025-10-10T09:25:42.733170+00:00",
+    "nombre_actividad": "Realizar adecuaciones a la infraestructura del escenario Quintas del Refugio en la comuna 18",
+    "updated_at": "2025-10-10T09:25:42.733170+00:00",
+    "programa_presupuestal": 6201001,
+    "nombre_pospre": "Servicios de la construcción",
+    "anio": 2025,
+    "nombre_proyecto": "Renovación de la infraestructura deportiva y recreativa de la comuna 18 del Distrito Especial de Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "COMUNA 18",
+    "origen": "Territorio",
+    "nombre_linea_estrategica": null,
+    "validador_cuipo": null,
+    "bp": "BP26005678"
+  },
+  "timestamp": "2025-11-09T01:38:29.716910"
+}

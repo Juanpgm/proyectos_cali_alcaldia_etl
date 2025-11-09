@@ -1,0 +1,29 @@
+{
+  "collection_path": "proyectos_presupuestales",
+  "doc_id": "bpin_2024760010170",
+  "data": {
+    "nombre_centro_gestor": "Secretaría de Vivienda Social y Hábitat",
+    "cod_producto": null,
+    "nombre_area_funcional": "Sistemas de informacion integrados e implementados",
+    "nombre_fondo": "Ingresos corrientes de Libre Destinación",
+    "nombre_programa": "Fortalecimiento institucional",
+    "nombre_dimension": null,
+    "tipo_gasto": "Inversión",
+    "bpin": 2024760010170,
+    "nombre_actividad": "Realizar el mejoramiento continuo de los productos y servicios.",
+    "created_at": "2025-10-10T09:33:27.831088+00:00",
+    "updated_at": "2025-10-10T09:33:27.831088+00:00",
+    "programa_presupuestal": 6302001,
+    "nombre_pospre": "Servicios para la comunidad, sociales y personales",
+    "anio": 2025,
+    "nombre_proyecto": "Implementación de los Sistemas de Información en la Secretaría de Vivienda Social y Hábitat de Santiago de Cali",
+    "clasificacion_fondo": "Recursos Propios de Libre Destinación",
+    "cod_sector": null,
+    "comuna": "SANTIAGO DE CALI",
+    "origen": "Organismo",
+    "bp": "BP26005407",
+    "validador_cuipo": null,
+    "nombre_linea_estrategica": null
+  },
+  "timestamp": "2025-11-09T01:34:30.083695"
+}
