@@ -1,0 +1,283 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "analytics_contratos_weekly",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "anio",
+          "order": "DESCENDING"
+        },
+        {
+          "fieldPath": "semana",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "analytics_contratos_weekly",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "anio",
+          "order": "DESCENDING"
+        },
+        {
+          "fieldPath": "semana",
+          "order": "DESCENDING"
+        },
+        {
+          "fieldPath": "banco",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "analytics_contratos_weekly",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "anio",
+          "order": "DESCENDING"
+        },
+        {
+          "fieldPath": "semana",
+          "order": "DESCENDING"
+        },
+        {
+          "fieldPath": "nombre_centro_gestor",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "analytics_contratos_weekly",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "bp",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "anio",
+          "order": "DESCENDING"
+        },
+        {
+          "fieldPath": "semana",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "analytics_flujo_caja_banco",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "anio",
+          "order": "DESCENDING"
+        },
+        {
+          "fieldPath": "trimestre",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "analytics_flujo_caja_banco",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "banco",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "anio",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "analytics_avance_proyectos",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "upid",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "fecha_snapshot",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "analytics_avance_proyectos",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "bp",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "fecha_snapshot",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "analytics_geoanalysis",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "tipo_zona",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "inversion_total",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "analytics_geoanalysis",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "tipo_zona",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "nombre",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "contratos_emprestito",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "estado_contrato",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "fecha_inicio_contrato",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "contratos_emprestito",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "banco",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "fecha_inicio_contrato",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "contratos_emprestito",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "nombre_centro_gestor",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "fecha_inicio_contrato",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "reportes_contratos",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "referencia_contrato",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "fecha_reporte",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "reportes_contratos",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "bp",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "fecha_reporte",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "flujo_caja_emprestito",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "banco",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "periodo",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "unidades_proyecto",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "comuna_corregimiento",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "estado",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "unidades_proyecto",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "estado",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "tipo_intervencion",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "unidades_proyecto",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "nombre_centro_gestor",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "estado",
+          "order": "ASCENDING"
+        }
+      ]
+    }
+  ],
+  "fieldOverrides": []
+}
