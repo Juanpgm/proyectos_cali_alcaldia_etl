@@ -115,6 +115,9 @@ datasets/
 *.backup
 *.old
 
+# Migration backups
+migration_backups/
+
 # ETL Pipeline Input/Output directories (never commit data files)
 transformation_app/app_inputs/
 transformation_app/app_outputs/
