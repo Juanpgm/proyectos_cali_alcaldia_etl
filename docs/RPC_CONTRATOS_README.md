@@ -50,26 +50,26 @@ La colección `rpc_contratos_emprestito` en Firestore contiene documentos con la
   "beneficiario": "JUAN PABLO GUZMAN MARTINEZ",
   "documento_identificacion": "4500357611",
   "contrato_rpc": "Contrato-456",
-  
+
   // Fechas (formato DD/MM/YYYY)
   "fecha_contabilizacion": "15/03/2026",
   "fecha_impresion": "16/03/2026",
   "plazo_contrato": "31/03/2026",  // Fecha de terminación
-  
+
   // Estado y descripción
   "estado_liberacion": "Liberado",
   "descripcion_rpc": "Realizar Interventoría a las obras de...",
-  
+
   // Valores monetarios
   "valor_rpc": 170248807.00,
-  
+
   // Códigos presupuestales
   "bp": "BP-2600470101/01/02",
   "cdp_asociados": ["CDP-123", "CDP-456"],
-  
+
   // Centro gestor
   "nombre_centro_gestor": "SECRETARIA DE EDUCACION",
-  
+
   // Metadata
   "metadata": {
     "source_file": "RPC 4500357611.pdf",
@@ -77,7 +77,7 @@ La colección `rpc_contratos_emprestito` en Firestore contiene documentos con la
     "pdf_pages": 2,
     "transformed_at": "2025-11-09T10:30:15"
   },
-  
+
   // Timestamps
   "created_at": "2025-11-09T10:30:20",
   "updated_at": "2025-11-09T10:30:20"
@@ -104,6 +104,7 @@ Las nuevas dependencias incluidas:
 ### 2. Instalar Tesseract OCR
 
 **Windows:**
+
 ```powershell
 # Con Chocolatey
 choco install tesseract
@@ -113,16 +114,19 @@ choco install tesseract
 ```
 
 **Linux:**
+
 ```bash
 sudo apt-get install tesseract-ocr tesseract-ocr-spa
 ```
 
 **macOS:**
+
 ```bash
 brew install tesseract tesseract-lang
 ```
 
 Verifica la instalación:
+
 ```powershell
 tesseract --version
 ```
@@ -130,6 +134,7 @@ tesseract --version
 ### 3. Configurar Google Gemini API Key
 
 **Obtener API Key:**
+
 1. Ve a [Google AI Studio](https://makersuite.google.com/app/apikey)
 2. Crea una nueva API key
 3. Copia la key
@@ -163,6 +168,7 @@ python test_rpc_contratos.py
 ```
 
 Este script:
+
 - ✅ Verifica todos los requisitos
 - ✅ Te permite probar con un PDF individual
 - ✅ O ejecutar el pipeline completo
@@ -182,6 +188,7 @@ python pipelines/rpc_contratos_emprestito_pipeline.py context/ --collection rpc_
 ```
 
 **Opciones disponibles:**
+
 - `--collection`: Nombre de colección en Firestore (default: `rpc_contratos_emprestito`)
 - `--no-save-intermediate`: No guardar archivos JSON/CSV intermedios
 - `--no-update`: No actualizar documentos existentes
@@ -215,7 +222,7 @@ extracted = extract_rpc_from_pdf("path/to/rpc.pdf")
 # Transformar y validar
 if extracted:
     transformed = transform_rpc_data(extracted)
-    
+
     # Verificar validación
     if transformed['validation']['is_valid']:
         print("✅ Datos válidos")
@@ -226,24 +233,29 @@ if extracted:
 ## 🔍 Campos Extraídos
 
 ### Identificación
+
 - **numero_rpc**: Número del RPC (ej: "RPC-12345")
 - **contrato_rpc**: Número del contrato asociado
 - **documento_identificacion**: NIT o CC del beneficiario (solo números)
 
 ### Beneficiario
+
 - **beneficiario**: Nombre completo del beneficiario
 
 ### Fechas (formato DD/MM/YYYY)
+
 - **fecha_contabilizacion**: Fecha de contabilización
 - **fecha_impresion**: Fecha de impresión del documento
 - **plazo_contrato**: **Fecha de terminación del contrato** (no confundir con fecha de inicio)
 
 ### Financiero
+
 - **valor_rpc**: Valor monetario (numérico, sin símbolos)
 - **bp**: Código BP (Budget Planning/Proyecto)
 - **cdp_asociados**: Lista de CDPs relacionados
 
 ### Administrativo
+
 - **estado_liberacion**: Estado del RPC (Liberado, Pendiente, etc.)
 - **descripcion_rpc**: Descripción o concepto del RPC
 - **nombre_centro_gestor**: Secretaría o centro responsable
@@ -253,7 +265,9 @@ if extracted:
 El sistema implementa lógica especial para campos que aparecen en ubicaciones específicas:
 
 ### 1. Documento de Identificación
+
 Aparece **después de "Beneficiario:"** y **ANTES del nombre**:
+
 ```
 Beneficiario: 4500357611 JUAN PABLO GUZMAN MARTINEZ
               ↑↑↑↑↑↑↑↑↑↑
@@ -261,12 +275,15 @@ Beneficiario: 4500357611 JUAN PABLO GUZMAN MARTINEZ
 ```
 
 ### 2. Plazo del Contrato
+
 Es la **fecha de TERMINACIÓN** (no de inicio). Busca:
+
 - "Fecha de terminación del contrato"
 - "Plazo del contrato"
 - Generalmente aparece con **flecha roja** en las imágenes
 
 ### 3. BP (Budget Planning)
+
 El código BP aparece en un **recuadro azul** en el documento.
 Formato típico: `BP-2600470101/01/02`
 

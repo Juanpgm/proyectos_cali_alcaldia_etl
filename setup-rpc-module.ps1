@@ -11,7 +11,8 @@ Write-Host "1️⃣ Verificando Python..." -ForegroundColor Yellow
 try {
     $pythonVersion = python --version 2>&1
     Write-Host "   ✅ $pythonVersion" -ForegroundColor Green
-} catch {
+}
+catch {
     Write-Host "   ❌ Python no encontrado" -ForegroundColor Red
     Write-Host "   💡 Instala Python 3.10+ desde https://python.org" -ForegroundColor Yellow
     exit 1
@@ -23,7 +24,8 @@ Write-Host "2️⃣ Instalando dependencias Python..." -ForegroundColor Yellow
 try {
     pip install -r requirements.txt --quiet
     Write-Host "   ✅ Dependencias instaladas" -ForegroundColor Green
-} catch {
+}
+catch {
     Write-Host "   ❌ Error instalando dependencias" -ForegroundColor Red
     Write-Host "   💡 Ejecuta manualmente: pip install -r requirements.txt" -ForegroundColor Yellow
     exit 1
@@ -35,7 +37,8 @@ Write-Host "3️⃣ Verificando Tesseract OCR..." -ForegroundColor Yellow
 try {
     $tesseractVersion = tesseract --version 2>&1 | Select-String "tesseract"
     Write-Host "   ✅ $tesseractVersion" -ForegroundColor Green
-} catch {
+}
+catch {
     Write-Host "   ❌ Tesseract no encontrado" -ForegroundColor Red
     Write-Host "   💡 Instala Tesseract:" -ForegroundColor Yellow
     Write-Host "      - Con Chocolatey: choco install tesseract" -ForegroundColor Gray
@@ -80,13 +83,15 @@ if (-not $existingKey) {
             $content = $content | Where-Object { $_ -notmatch "^GEMINI_API_KEY=" }
             $content += "GEMINI_API_KEY=$apiKey"
             $content | Set-Content $envLocalPath
-        } else {
+        }
+        else {
             # Create new
             "# RPC Contratos Module Configuration`nGEMINI_API_KEY=$apiKey" | Set-Content $envLocalPath
         }
         
         Write-Host "   ✅ API Key configurada y guardada en .env.local" -ForegroundColor Green
-    } else {
+    }
+    else {
         Write-Host "   ⚠️ No se configuró API Key" -ForegroundColor Yellow
         Write-Host "   💡 Configura manualmente: `$env:GEMINI_API_KEY = 'tu_key'" -ForegroundColor Gray
     }
@@ -100,11 +105,13 @@ try {
     
     if ($firebaseTest -match "OK") {
         Write-Host "   ✅ Conexión a Firebase exitosa" -ForegroundColor Green
-    } else {
+    }
+    else {
         Write-Host "   ❌ No se pudo conectar a Firebase" -ForegroundColor Red
         Write-Host "   💡 Ejecuta: gcloud auth application-default login" -ForegroundColor Yellow
     }
-} catch {
+}
+catch {
     Write-Host "   ⚠️ No se pudo verificar Firebase" -ForegroundColor Yellow
 }
 
@@ -121,11 +128,13 @@ if (Test-Path $contextPath) {
         foreach ($file in $rpcFiles) {
             Write-Host "      - $($file.Name)" -ForegroundColor Gray
         }
-    } else {
+    }
+    else {
         Write-Host "   ⚠️ No se encontraron PDFs RPC en context/" -ForegroundColor Yellow
         Write-Host "   💡 Copia tus PDFs RPC a la carpeta context/" -ForegroundColor Gray
     }
-} else {
+}
+else {
     Write-Host "   ⚠️ Carpeta context/ no encontrada" -ForegroundColor Yellow
     New-Item -ItemType Directory -Path $contextPath -Force | Out-Null
     Write-Host "   ✅ Carpeta context/ creada" -ForegroundColor Green
@@ -145,13 +154,15 @@ Write-Host "✅ Dependencias" -ForegroundColor Green
 
 if (Get-Command tesseract -ErrorAction SilentlyContinue) {
     Write-Host "✅ Tesseract OCR" -ForegroundColor Green
-} else {
+}
+else {
     Write-Host "⚠️ Tesseract OCR (opcional para OCR)" -ForegroundColor Yellow
 }
 
 if ($env:GEMINI_API_KEY) {
     Write-Host "✅ Gemini API Key" -ForegroundColor Green
-} else {
+}
+else {
     Write-Host "❌ Gemini API Key (requerido)" -ForegroundColor Red
     $allGood = $false
 }
@@ -171,7 +182,8 @@ if ($allGood) {
     Write-Host "  2. python pipelines\rpc_contratos_emprestito_pipeline.py context\  # Pipeline completo" -ForegroundColor White
     Write-Host ""
     Write-Host "📖 Documentación: docs\RPC_CONTRATOS_README.md" -ForegroundColor Gray
-} else {
+}
+else {
     Write-Host "⚠️ Configuración incompleta" -ForegroundColor Yellow
     Write-Host ""
     Write-Host "Pendientes:" -ForegroundColor Yellow

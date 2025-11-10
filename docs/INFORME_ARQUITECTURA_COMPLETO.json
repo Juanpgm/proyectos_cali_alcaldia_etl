@@ -1,0 +1,208 @@
+{
+  "metadata": {
+    "fecha_analisis": "2025-11-09T23:16:06.244697",
+    "version": "2.0",
+    "proyecto": "CaliTrack - Sistema Analítico de Proyectos"
+  },
+  "componentes": {},
+  "integraciones": [],
+  "colecciones_firebase": {
+    "operacionales": {
+      "proyectos_presupuestales": {
+        "estimado_docs": 1254,
+        "proposito": "Proyectos con información presupuestal",
+        "tipo": "OLTP"
+      },
+      "contratos_emprestito": {
+        "estimado_docs": 33,
+        "proposito": "Contratos de préstamos bancarios",
+        "tipo": "OLTP"
+      },
+      "reportes_contratos": {
+        "estimado_docs": 145,
+        "proposito": "Reportes de avance de contratos",
+        "tipo": "OLTP"
+      },
+      "unidades_proyecto": {
+        "estimado_docs": 1251,
+        "proposito": "Unidades de proyecto con geometría GeoJSON",
+        "tipo": "OLTP"
+      },
+      "flujo_caja_emprestito": {
+        "estimado_docs": 500,
+        "proposito": "Flujos de caja de contratos",
+        "tipo": "OLTP"
+      },
+      "procesos_emprestito": {
+        "estimado_docs": 40,
+        "proposito": "Procesos de contratación",
+        "tipo": "OLTP"
+      },
+      "rpc_contratos_emprestito": {
+        "estimado_docs": 0,
+        "proposito": "Contratos RPC extraídos con IA desde PDFs",
+        "tipo": "OLTP",
+        "status": "Nuevo - En implementación"
+      }
+    },
+    "analiticas": {
+      "analytics_contratos_monthly": {
+        "estimado_docs": 450,
+        "proposito": "Agregaciones mensuales de contratos",
+        "tipo": "OLAP",
+        "actualizacion": "Incremental diario"
+      },
+      "analytics_kpi_dashboard": {
+        "estimado_docs": 365,
+        "proposito": "KPIs globales diarios",
+        "tipo": "OLAP",
+        "actualizacion": "Overwrite diario"
+      },
+      "analytics_avance_proyectos": {
+        "estimado_docs": "1251 x snapshots",
+        "proposito": "Histórico de progreso de proyectos",
+        "tipo": "OLAP",
+        "actualizacion": "Solo inserts"
+      },
+      "analytics_geoanalysis": {
+        "estimado_docs": 25,
+        "proposito": "Análisis por comuna/corregimiento",
+        "tipo": "OLAP",
+        "actualizacion": "Incremental"
+      },
+      "analytics_emprestito_por_banco": {
+        "estimado_docs": 10,
+        "proposito": "Agregaciones por banco financiador",
+        "tipo": "OLAP",
+        "actualizacion": "Diario/Semanal"
+      },
+      "analytics_emprestito_por_centro_gestor": {
+        "estimado_docs": 20,
+        "proposito": "Agregaciones por centro gestor",
+        "tipo": "OLAP",
+        "actualizacion": "Diario/Semanal"
+      },
+      "analytics_emprestito_resumen_anual": {
+        "estimado_docs": 5,
+        "proposito": "Resúmenes anuales de empréstitos",
+        "tipo": "OLAP",
+        "actualizacion": "Diario"
+      },
+      "analytics_emprestito_series_temporales_diarias": {
+        "estimado_docs": 365,
+        "proposito": "Series temporales diarias para gráficos",
+        "tipo": "OLAP",
+        "actualizacion": "Diario"
+      }
+    }
+  },
+  "pipelines_etl": {
+    "rpc_contratos_emprestito_pipeline": {
+      "archivo": "a:\\programing_workspace\\proyectos_cali_alcaldia_etl\\pipelines\\rpc_contratos_emprestito_pipeline.py",
+      "lineas_codigo": 543,
+      "fecha_modificacion": "2025-11-09T22:21:04.006298"
+    },
+    "unidades_proyecto_pipeline": {
+      "archivo": "a:\\programing_workspace\\proyectos_cali_alcaldia_etl\\pipelines\\unidades_proyecto_pipeline.py",
+      "lineas_codigo": 674,
+      "fecha_modificacion": "2025-11-09T00:02:09.535077"
+    }
+  },
+  "endpoints_api": {},
+  "componentes_frontend": {},
+  "metricas": {
+    "total_lineas_codigo": 17427,
+    "archivos_python": 36,
+    "archivos_documentacion": 14,
+    "colecciones_firebase": 15,
+    "pipelines_etl": 2,
+    "cloud_functions": 3
+  },
+  "recomendaciones": [
+    {
+      "prioridad": "Alta",
+      "categoria": "Monitoreo",
+      "titulo": "Implementar alertas automáticas de pipeline",
+      "descripcion": "Configurar Cloud Monitoring para enviar alertas si los pipelines ETL fallan o tardan más de lo esperado"
+    },
+    {
+      "prioridad": "Alta",
+      "categoria": "Seguridad",
+      "titulo": "Auditoría de permisos Firebase",
+      "descripcion": "Revisar y documentar reglas de seguridad de Firestore para cada colección"
+    },
+    {
+      "prioridad": "Media",
+      "categoria": "Performance",
+      "titulo": "Optimizar queries de frontend",
+      "descripcion": "Implementar paginación y lazy loading en dashboards con muchos datos"
+    },
+    {
+      "prioridad": "Media",
+      "categoria": "Testing",
+      "titulo": "Aumentar cobertura de pruebas",
+      "descripcion": "Crear suite de pruebas unitarias para módulos de transformación y validación"
+    },
+    {
+      "prioridad": "Media",
+      "categoria": "Documentación",
+      "titulo": "Documentar casos de uso completos",
+      "descripcion": "Crear guía end-to-end desde carga de datos hasta visualización en frontend"
+    },
+    {
+      "prioridad": "Baja",
+      "categoria": "ML/AI",
+      "titulo": "Predicción de retrasos de proyectos",
+      "descripcion": "Entrenar modelo ML con histórico de avance para predecir proyectos en riesgo"
+    }
+  ],
+  "cloud_functions": {
+    "analytics_aggregations": {
+      "archivo": "a:\\programing_workspace\\proyectos_cali_alcaldia_etl\\cloud_functions\\analytics_aggregations.py",
+      "lineas_codigo": 716,
+      "proposito": "Cloud Functions para Agregaciones Analíticas - Data Warehouse Arquitectura: Constellation Schema con agregaciones semanales  Este módulo implementa Cloud Functions que generan colecciones analíticas p"
+    },
+    "analytics_functions": {
+      "archivo": "a:\\programing_workspace\\proyectos_cali_alcaldia_etl\\cloud_functions\\analytics_functions.py",
+      "lineas_codigo": 645,
+      "proposito": "Cloud Functions para Actualización de Colecciones Analíticas ===============================================================  Este módulo contiene Cloud Functions de Firebase que mantienen actualizada"
+    },
+    "emprestito_analytics": {
+      "archivo": "a:\\programing_workspace\\proyectos_cali_alcaldia_etl\\cloud_functions\\emprestito_analytics.py",
+      "lineas_codigo": 960,
+      "proposito": "Cloud Functions Adicionales para Análisis de Empréstito Colecciones optimizadas para EmprestitoAdvancedDashboard  Este módulo complementa analytics_aggregations.py con funciones específicas para el da"
+    }
+  },
+  "modulos_extraccion": {
+    "contracting_dacp_sheets": {
+      "archivo": "a:\\programing_workspace\\proyectos_cali_alcaldia_etl\\extraction_app\\data_extraction_contracting_dacp_sheets.py",
+      "lineas_codigo": 768,
+      "fuente": "Google Sheets"
+    },
+    "contratos_emprestito": {
+      "archivo": "a:\\programing_workspace\\proyectos_cali_alcaldia_etl\\extraction_app\\data_extraction_contratos_emprestito.py",
+      "lineas_codigo": 593,
+      "fuente": "Firestore (colecciones empréstito)"
+    },
+    "paa_dacp_sheet": {
+      "archivo": "a:\\programing_workspace\\proyectos_cali_alcaldia_etl\\extraction_app\\data_extraction_paa_dacp_sheet.py",
+      "lineas_codigo": 213,
+      "fuente": "Desconocida"
+    },
+    "procesos_emprestito": {
+      "archivo": "a:\\programing_workspace\\proyectos_cali_alcaldia_etl\\extraction_app\\data_extraction_procesos_emprestito.py",
+      "lineas_codigo": 440,
+      "fuente": "Firestore (colecciones empréstito)"
+    },
+    "rpc_contratos": {
+      "archivo": "a:\\programing_workspace\\proyectos_cali_alcaldia_etl\\extraction_app\\data_extraction_rpc_contratos.py",
+      "lineas_codigo": 526,
+      "fuente": "PDFs con IA (Gemini + OCR)"
+    },
+    "unidades_proyecto": {
+      "archivo": "a:\\programing_workspace\\proyectos_cali_alcaldia_etl\\extraction_app\\data_extraction_unidades_proyecto.py",
+      "lineas_codigo": 363,
+      "fuente": "Google Sheets (Unidades de Proyecto)"
+    }
+  }
+}

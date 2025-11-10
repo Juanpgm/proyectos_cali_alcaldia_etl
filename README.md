@@ -66,6 +66,7 @@ Sistema ETL con **Inteligencia Artificial** para procesar documentos RPC desde P
 - 🔥 **Firebase Firestore**: Colección `rpc_contratos_emprestito`
 
 **Inicio rápido:**
+
 ```powershell
 # 1. Instalar dependencias
 pip install -r requirements.txt

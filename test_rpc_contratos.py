@@ -42,11 +42,11 @@ def check_prerequisites():
     if check_tesseract_installation():
         print("   ✅ Instalado y accesible")
     else:
-        print("   ❌ No instalado o no accesible")
-        print("   💡 Instala Tesseract:")
+        print("   ⚠️ No instalado o no accesible")
+        print("   💡 Instala Tesseract para PDFs escaneados:")
         print("      Windows: choco install tesseract")
         print("      O descarga: https://github.com/UB-Mannheim/tesseract/wiki")
-        all_ok = False
+        print("   ℹ️ Continuará con extracción de texto sin OCR")
     
     # Check Gemini API Key
     print("\n2. Gemini API Key:")
@@ -87,10 +87,14 @@ def check_prerequisites():
                 print(f"      - {pdf.name}")
         else:
             print("   ⚠️ No se encontraron PDFs RPC en context/")
-            all_ok = False
     else:
         print("   ❌ Directorio context/ no encontrado")
         all_ok = False
+    
+    # Allow continuation even if Tesseract missing (will work for text-based PDFs)
+    if not check_tesseract_installation():
+        print("\n⚠️ Tesseract no disponible, pero se puede continuar con PDFs de texto")
+        all_ok = True  # Override to allow text-based extraction
     
     return all_ok, context_dir if context_dir.exists() else None
 

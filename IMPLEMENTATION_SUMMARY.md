@@ -9,7 +9,9 @@ Se ha implementado **exitosamente** un sistema ETL completo para procesar contra
 ## ✅ Archivos Creados
 
 ### 1. **Dependencias y Configuración**
+
 - ✅ `requirements.txt` - Actualizado con dependencias IA/OCR:
+
   - `google-generativeai` (Gemini AI)
   - `PyPDF2`, `pdf2image`, `pytesseract` (procesamiento PDF)
   - `Pillow`, `tqdm`, `pandas` (utilidades)
@@ -20,6 +22,7 @@ Se ha implementado **exitosamente** un sistema ETL completo para procesar contra
 ### 2. **Módulos Core (Arquitectura Funcional)**
 
 #### Utils
+
 - ✅ `utils/pdf_processing.py` (350+ líneas)
   - Extracción de texto con PyPDF2
   - OCR con Tesseract para PDFs escaneados
@@ -28,6 +31,7 @@ Se ha implementado **exitosamente** un sistema ETL completo para procesar contra
   - Función híbrida (intenta texto, fallback a OCR)
 
 #### Extraction
+
 - ✅ `extraction_app/data_extraction_rpc_contratos.py` (450+ líneas)
   - Integración con **Google Gemini AI**
   - Prompts estructurados para extracción de 13 campos
@@ -38,6 +42,7 @@ Se ha implementado **exitosamente** un sistema ETL completo para procesar contra
     - `bp` (código en recuadro azul)
 
 #### Transformation
+
 - ✅ `transformation_app/data_transformation_rpc_contratos.py` (400+ líneas)
   - Validación de 13 campos
   - Normalización automática:
@@ -50,6 +55,7 @@ Se ha implementado **exitosamente** un sistema ETL completo para procesar contra
   - Manejo de advertencias y errores
 
 #### Load
+
 - ✅ `load_app/data_loading_rpc_contratos.py` (350+ líneas)
   - Operaciones batch a Firebase (500 docs/batch)
   - Generación automática de IDs únicos
@@ -61,6 +67,7 @@ Se ha implementado **exitosamente** un sistema ETL completo para procesar contra
     - Estadísticas de colección
 
 ### 3. **Pipeline Principal**
+
 - ✅ `pipelines/rpc_contratos_emprestito_pipeline.py` (500+ líneas)
   - Orquesta ETL completo: PDF → Gemini AI → Firebase
   - Procesamiento batch de múltiples PDFs
@@ -70,7 +77,9 @@ Se ha implementado **exitosamente** un sistema ETL completo para procesar contra
   - Generación de archivos intermedios (JSON/CSV)
 
 ### 4. **Testing y Documentación**
+
 - ✅ `test_rpc_contratos.py` (250+ líneas)
+
   - Script interactivo de prueba
   - Verificación de requisitos previos
   - Prueba de PDF individual
@@ -78,6 +87,7 @@ Se ha implementado **exitosamente** un sistema ETL completo para procesar contra
   - Menú amigable para usuarios
 
 - ✅ `docs/RPC_CONTRATOS_README.md` (350+ líneas)
+
   - Guía completa de uso
   - Arquitectura detallada
   - Esquema de datos Firestore
@@ -100,25 +110,25 @@ Se ha implementado **exitosamente** un sistema ETL completo para procesar contra
   "numero_rpc": "RPC-12345",
   "contrato_rpc": "Contrato-456",
   "documento_identificacion": "4500357611",
-  
+
   // Beneficiario
   "beneficiario": "Juan Pablo Guzman Martinez",
-  
+
   // Fechas (DD/MM/YYYY)
   "fecha_contabilizacion": "15/03/2026",
   "fecha_impresion": "16/03/2026",
   "plazo_contrato": "31/03/2026",
-  
+
   // Financiero
   "valor_rpc": 170248807.00,
   "bp": "BP-2600470101/01/02",
   "cdp_asociados": ["CDP-123", "CDP-456"],
-  
+
   // Administrativo
   "estado_liberacion": "Liberado",
   "descripcion_rpc": "Realizar Interventoría...",
   "nombre_centro_gestor": "SECRETARIA DE EDUCACION",
-  
+
   // Metadata
   "metadata": {...},
   "created_at": "2025-11-09T...",
@@ -131,30 +141,35 @@ Se ha implementado **exitosamente** un sistema ETL completo para procesar contra
 ## 🎯 Características Implementadas
 
 ### ✅ Extracción Inteligente con IA
+
 - **Google Gemini Pro** para interpretar PDFs complejos
 - **Prompts estructurados** con instrucciones específicas
 - **Retry logic** para manejar fallos temporales
 - **Parsing automático** de respuestas JSON
 
 ### ✅ OCR Automático
+
 - **Detección automática** de PDFs escaneados vs. texto
 - **Preprocesamiento de imágenes** para mejor calidad
 - **Conversión PDF → Imágenes** con DPI configurable
 - **Fallback inteligente**: Texto → OCR si falla
 
 ### ✅ Validación Robusta
+
 - **13 campos validados** con reglas específicas
 - **Normalización automática** de formatos
 - **Reportes de validación** con errores y advertencias
 - **Campos requeridos** vs. opcionales
 
 ### ✅ Carga Optimizada
+
 - **Batch operations** (500 documentos por batch)
 - **IDs únicos generados** automáticamente
 - **Actualización inteligente** de registros existentes
 - **Timestamps automáticos** (created_at, updated_at)
 
 ### ✅ Arquitectura de Producción
+
 - **Programación funcional** en todos los módulos
 - **Composición de funciones** (`pipe`, `compose`)
 - **Manejo de errores** con `@safe_execute`
@@ -166,11 +181,13 @@ Se ha implementado **exitosamente** un sistema ETL completo para procesar contra
 ## 🚀 Cómo Usar (Quick Start)
 
 ### 1. Instalación Automática (Windows)
+
 ```powershell
 .\setup-rpc-module.ps1
 ```
 
 ### 2. Instalación Manual
+
 ```powershell
 # Dependencias
 pip install -r requirements.txt
@@ -186,11 +203,13 @@ gcloud auth application-default login
 ```
 
 ### 3. Ejecutar Prueba
+
 ```powershell
 python test_rpc_contratos.py
 ```
 
 ### 4. Procesar PDFs
+
 ```powershell
 # Un solo PDF
 python pipelines\rpc_contratos_emprestito_pipeline.py "context\RPC 4500357611.pdf"
@@ -241,6 +260,7 @@ python pipelines\rpc_contratos_emprestito_pipeline.py context\
 ## 🎓 Patrones de Código Implementados
 
 ### 1. Programación Funcional
+
 ```python
 # Composición de funciones
 result = pipe(
@@ -252,6 +272,7 @@ result = pipe(
 ```
 
 ### 2. Manejo Seguro de Errores
+
 ```python
 @safe_execute(default_value=None)
 def process_pdf(path):
@@ -259,6 +280,7 @@ def process_pdf(path):
 ```
 
 ### 3. Logging Decorado
+
 ```python
 @log_step("EXTRACCIÓN DE DATOS")
 def run_extraction(pdf_source):
@@ -320,16 +342,19 @@ def run_extraction(pdf_source):
 ## 🚀 Próximos Pasos Sugeridos
 
 ### Corto Plazo
+
 1. **Ejecutar pruebas** con los 2 PDFs en `context/`
 2. **Validar datos** en Firebase Console
 3. **Ajustar prompts** de Gemini si es necesario
 
 ### Mediano Plazo
+
 1. **Automatizar con GitHub Actions**
 2. **Agregar más PDFs** de prueba
 3. **Monitoreo y alertas**
 
 ### Largo Plazo
+
 1. **Integración con frontend**
 2. **Analytics y reportes**
 3. **Exportación a Excel/CSV**
@@ -339,6 +364,7 @@ def run_extraction(pdf_source):
 ## 📞 Soporte
 
 Para cualquier duda:
+
 - 📖 Ver `docs/RPC_CONTRATOS_README.md`
 - 🧪 Ejecutar `python test_rpc_contratos.py`
 - 💻 Revisar logs detallados en consola

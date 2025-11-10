@@ -13,16 +13,37 @@ Implementa programación funcional para operaciones limpias y componibles.
 
 import os
 import io
+import warnings
+import logging
 from typing import List, Optional, Tuple, Callable, Any, Dict
 from functools import wraps, reduce
 from pathlib import Path
 import re
 
+# Suppress PyPDF2 warnings and logs
+warnings.filterwarnings('ignore', category=UserWarning, module='PyPDF2')
+warnings.filterwarnings('ignore', category=DeprecationWarning, module='PyPDF2')
+logging.getLogger('PyPDF2').setLevel(logging.ERROR)
+
 # PDF processing
 import PyPDF2
-from pdf2image import convert_from_path, convert_from_bytes
-from PIL import Image, ImageEnhance, ImageFilter
-import pytesseract
+try:
+    from pdf2image import convert_from_path, convert_from_bytes
+except ImportError:
+    convert_from_path = None
+    convert_from_bytes = None
+
+try:
+    from PIL import Image, ImageEnhance, ImageFilter
+except ImportError:
+    Image = None
+    ImageEnhance = None
+    ImageFilter = None
+
+try:
+    import pytesseract
+except ImportError:
+    pytesseract = None
 
 # Functional programming utilities
 def compose(*functions: Callable) -> Callable:
@@ -76,7 +97,7 @@ def apply_threshold(image: Image.Image, threshold: int = 150) -> Image.Image:
     return image.point(lambda x: 0 if x < threshold else 255, '1')
 
 
-def preprocess_image_for_ocr(image: Image.Image) -> Image.Image:
+def preprocess_image_for_ocr(image) -> Optional[Any]:
     """
     Preprocess image for optimal OCR using functional composition.
     
@@ -84,8 +105,11 @@ def preprocess_image_for_ocr(image: Image.Image) -> Image.Image:
         image: PIL Image object
         
     Returns:
-        Preprocessed PIL Image
+        Preprocessed PIL Image or None if PIL not available
     """
+    if Image is None or ImageEnhance is None:
+        return None
+        
     return pipe(
         image,
         convert_to_grayscale,
@@ -116,7 +140,10 @@ def extract_text_with_pypdf2(pdf_path: str) -> str:
     text_parts = []
     
     with open(pdf_path, 'rb') as file:
-        pdf_reader = PyPDF2.PdfReader(file)
+        # Suppress warnings during PDF reading
+        with warnings.catch_warnings():
+            warnings.simplefilter("ignore")
+            pdf_reader = PyPDF2.PdfReader(file, strict=False)
         
         for page_num in range(len(pdf_reader.pages)):
             page = pdf_reader.pages[page_num]
@@ -152,7 +179,7 @@ def convert_pdf_to_images(pdf_path: str, dpi: int = 300) -> List[Image.Image]:
 
 # OCR text extraction
 @safe_execute(default_value="")
-def extract_text_from_image(image: Image.Image, lang: str = 'spa') -> str:
+def extract_text_from_image(image, lang: str = 'spa') -> str:
     """
     Extract text from image using Tesseract OCR.
     
@@ -163,8 +190,14 @@ def extract_text_from_image(image: Image.Image, lang: str = 'spa') -> str:
     Returns:
         Extracted text as string
     """
+    if pytesseract is None:
+        print("⚠️ Tesseract no disponible, retornando texto vacío")
+        return ""
+        
     # Preprocess image for better OCR
     processed_image = preprocess_image_for_ocr(image)
+    if processed_image is None:
+        processed_image = image
     
     # Perform OCR
     custom_config = r'--oem 3 --psm 6'
@@ -190,6 +223,10 @@ def extract_text_with_ocr(pdf_path: str, lang: str = 'spa', dpi: int = 300) -> s
     Returns:
         Extracted text as string
     """
+    if pytesseract is None or convert_from_path is None:
+        print("⚠️ OCR no disponible (Tesseract o pdf2image no instalados)")
+        return ""
+        
     print(f"📄 Extrayendo texto con OCR de: {Path(pdf_path).name}")
     
     # Convert PDF to images
@@ -236,6 +273,14 @@ def extract_text_hybrid(pdf_path: str, min_text_length: int = 100) -> str:
         return text
     
     # Fallback to OCR
+    if pytesseract is None or convert_from_path is None:
+        print("⚠️ OCR no disponible - PDF probablemente escaneado")
+        print("💡 Para procesar PDFs escaneados, instala:")
+        print("   Windows: choco install tesseract poppler")
+        print("   Linux: sudo apt-get install tesseract-ocr poppler-utils")
+        print("   Mac: brew install tesseract poppler")
+        return ""
+    
     print("2️⃣ Texto insuficiente, usando OCR...")
     text = extract_text_with_ocr(pdf_path)
     

@@ -97,11 +97,25 @@ def initialize_gemini() -> Optional[genai.GenerativeModel]:
     
     genai.configure(api_key=GEMINI_API_KEY)
     
-    # Use Gemini Pro model (best for text analysis)
-    model = genai.GenerativeModel('gemini-pro')
+    # Try different Gemini models in order of preference
+    models_to_try = [
+        'gemini-pro',  # Legacy stable model
+        'models/gemini-pro',  # With models/ prefix
+        'gemini-1.5-flash',  # Newer model
+        'gemini-1.0-pro',  # Alternative stable model
+    ]
     
-    print("✅ Gemini AI inicializado")
-    return model
+    for model_name in models_to_try:
+        try:
+            model = genai.GenerativeModel(model_name)
+            print(f"✅ Gemini AI inicializado (modelo: {model_name})")
+            return model
+        except Exception as e:
+            print(f"⚠️ No se pudo usar {model_name}: {str(e)[:50]}")
+            continue
+    
+    print("❌ No se pudo inicializar ningún modelo Gemini")
+    return None
 
 
 # Prompt engineering for RPC extraction
