@@ -127,3 +127,7 @@ extraction_app/app_inputs/
 transformation_app/app_outputs/**/temp_*
 transformation_app/app_outputs/**/*_incremental.geojson
 extraction_app/app_inputs/**/temp_*
+
+# Context files
+context
+context/
