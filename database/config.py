@@ -13,11 +13,13 @@ Implementa programación funcional para configuración segura y escalable.
 import os
 import firebase_admin
 from firebase_admin import credentials, firestore
-import gspread
 from google.auth import default
+from googleapiclient.discovery import build
+from googleapiclient.http import MediaIoBaseDownload
 from typing import Optional, List, Dict, Any, Callable
 from pathlib import Path
 from functools import wraps, lru_cache
+import io
 
 # Cargar variables de entorno desde .env basado en la rama de Git
 try:
@@ -62,6 +64,12 @@ try:
             print(f"⚠️  Usando .env genérico (crea {env_path.parent / ('.env.dev' if current_branch == 'dev' else '.env.prod')})")
         else:
             print(f"⚠️  No se encontró archivo de configuración {env_path}")
+    
+    # Siempre cargar .env.local al final (sobrescribe otras configuraciones)
+    env_local_path = project_root / '.env.local'
+    if env_local_path.exists():
+        load_dotenv(env_local_path, override=True)
+        print(f"✅ Variables locales cargadas desde {env_local_path.name}")
             
 except ImportError:
     print("⚠️  python-dotenv no instalado, usando variables de entorno del sistema")
@@ -69,35 +77,27 @@ except ImportError:
 # Variables globales para singletons
 _firebase_app = None
 _firestore_client = None
-_sheets_client = None
+_drive_service = None
 
 # Configuración centralizada desde variables de entorno
 PROJECT_ID = os.getenv('FIREBASE_PROJECT_ID', os.getenv('GOOGLE_CLOUD_PROJECT', 'dev-test-e778d'))
 BATCH_SIZE = int(os.getenv('FIRESTORE_BATCH_SIZE', '500'))
 TIMEOUT = int(os.getenv('FIRESTORE_TIMEOUT', '30'))
 
-# Google Sheets configuration (cuenta separada de Firebase)
-SHEETS_SCOPES = [
-    'https://www.googleapis.com/auth/spreadsheets',
+# Google Drive configuration
+DRIVE_SCOPES = [
     'https://www.googleapis.com/auth/drive.readonly'
 ]
 
-# Opción 1: Service Account para Sheets (más seguro)
-SHEETS_SERVICE_ACCOUNT_FILE = os.getenv('SHEETS_SERVICE_ACCOUNT_FILE', None)
+# Drive folder configuration (desde variables de entorno)
+# IMPORTANTE: Configurar en .env.dev o .env.prod, NO hardcodear aquí
+DRIVE_FOLDER_ID = os.getenv('DRIVE_UNIDADES_PROYECTO_FOLDER_ID')
 
-# Opción 2: OAuth directo para Sheets (usando cuenta específica)
-SHEETS_OAUTH_TOKEN_FILE = os.getenv('SHEETS_OAUTH_TOKEN_FILE', None)
-
-# Sheets URLs and worksheet configuration (desde variables de entorno)
-SHEETS_CONFIG = {
-    'unidades_proyecto': {
-        'url': os.getenv('SHEETS_UNIDADES_PROYECTO_URL', ''),
-        'worksheet': os.getenv('SHEETS_UNIDADES_PROYECTO_WORKSHEET', 'obras_equipamientos')
-    }
-}
+# Service Account configuration (usado para Drive y Firebase)
+SERVICE_ACCOUNT_FILE = os.getenv('SERVICE_ACCOUNT_FILE', None)
 
 # Configuración de logging seguro (sin exponer información sensible)
-SECURE_LOGGING = True
+SECURE_LOGGING = False
 
 
 # Decorador para logging seguro
@@ -160,115 +160,6 @@ def get_firestore_client():
     return _firestore_client
 
 
-# Funciones para Google Sheets (cuenta independiente de Firebase)
-@lru_cache(maxsize=1)
-@secure_log
-def get_sheets_client() -> Optional[gspread.Client]:
-    """
-    Obtiene cliente autenticado de Google Sheets.
-    Prioriza Service Account > OAuth Token > ADC
-    """
-    global _sheets_client
-    
-    if _sheets_client:
-        return _sheets_client
-    
-    try:
-        # Opción 1: Service Account (más seguro para producción)
-        if SHEETS_SERVICE_ACCOUNT_FILE and os.path.exists(SHEETS_SERVICE_ACCOUNT_FILE):
-            _sheets_client = gspread.service_account(filename=SHEETS_SERVICE_ACCOUNT_FILE)
-            return _sheets_client
-        
-        # Opción 2: OAuth con token guardado
-        if SHEETS_OAUTH_TOKEN_FILE and os.path.exists(SHEETS_OAUTH_TOKEN_FILE):
-            import pickle
-            with open(SHEETS_OAUTH_TOKEN_FILE, 'rb') as token:
-                credentials_obj = pickle.load(token)
-                _sheets_client = gspread.authorize(credentials_obj)
-                return _sheets_client
-        
-        # Opción 3: ADC con scope amplio (fallback)
-        try:
-            # Intentar con cloud-platform scope (más amplio)
-            broad_scopes = ['https://www.googleapis.com/auth/cloud-platform']
-            credentials_obj, project = default(scopes=broad_scopes)
-            
-            if credentials_obj:
-                _sheets_client = gspread.authorize(credentials_obj)
-                return _sheets_client
-        except Exception:
-            pass
-        
-        # Si falla, intentar con scopes específicos
-        try:
-            credentials_obj, project = default(scopes=SHEETS_SCOPES)
-            if credentials_obj:
-                _sheets_client = gspread.authorize(credentials_obj)
-                return _sheets_client
-        except Exception:
-            pass
-        
-        print("💡 Opciones de autenticación:")
-        print("   1. Service Account: configura SHEETS_SERVICE_ACCOUNT_FILE")
-        print("   2. OAuth: configura SHEETS_OAUTH_TOKEN_FILE") 
-        print("   3. ADC: gcloud auth application-default login")
-        return None
-        
-    except Exception as e:
-        if not SECURE_LOGGING:
-            print(f"❌ Error autenticando Google Sheets: {e}")
-        print("💡 Verifica:")
-        print("   - Permisos en la hoja de cálculo")
-        print("   - APIs habilitadas (sheets.googleapis.com)")
-        print("   - Configuración de credenciales")
-        return None
-
-
-@secure_log
-def open_spreadsheet_by_url(url: str) -> Optional[gspread.Spreadsheet]:
-    """Abre una hoja de cálculo usando su URL de forma segura."""
-    try:
-        client = get_sheets_client()
-        if not client:
-            return None
-        
-        # Extraer ID de la URL de forma segura
-        if '/d/' in url:
-            sheet_id = url.split('/d/')[1].split('/')[0]
-        else:
-            raise ValueError("URL inválida")
-        
-        spreadsheet = client.open_by_key(sheet_id)
-        return spreadsheet
-        
-    except Exception as e:
-        if not SECURE_LOGGING:
-            print(f"❌ Error abriendo hoja: {e}")
-        raise
-
-
-@secure_log
-def get_worksheet_data(spreadsheet: gspread.Spreadsheet, worksheet_name: str) -> Optional[list]:
-    """Obtiene datos de una hoja específica de forma segura."""
-    try:
-        worksheet = spreadsheet.worksheet(worksheet_name)
-        data = worksheet.get_all_values()
-        return data
-        
-    except gspread.WorksheetNotFound:
-        if not SECURE_LOGGING:
-            print(f"❌ Hoja '{worksheet_name}' no encontrada")
-        available_sheets = [ws.title for ws in spreadsheet.worksheets()]
-        if not SECURE_LOGGING:
-            print(f"📋 Hojas disponibles: {available_sheets}")
-        return None
-        
-    except Exception as e:
-        if not SECURE_LOGGING:
-            print(f"❌ Error obteniendo datos: {e}")
-        return None
-
-
 @secure_log
 def test_connection() -> bool:
     """Prueba la conexión a Firestore de forma segura."""
@@ -308,19 +199,136 @@ def test_connection() -> bool:
         return False
 
 
+# Funciones para Google Drive
+@lru_cache(maxsize=1)
 @secure_log
-def test_sheets_connection() -> bool:
-    """Prueba la conexión a Google Sheets de forma segura."""
+def get_drive_service():
+    """
+    Obtiene el servicio de Google Drive autenticado.
+    Utiliza Application Default Credentials (ADC).
+    """
+    global _drive_service
+    
+    if _drive_service:
+        return _drive_service
+    
     try:
-        client = get_sheets_client()
-        if not client:
-            return False
-        return True
+        # Opción 1: Service Account (más seguro para producción)
+        if SERVICE_ACCOUNT_FILE and os.path.exists(SERVICE_ACCOUNT_FILE):
+            from google.oauth2 import service_account
+            credentials_obj = service_account.Credentials.from_service_account_file(
+                SERVICE_ACCOUNT_FILE,
+                scopes=DRIVE_SCOPES
+            )
+            _drive_service = build('drive', 'v3', credentials=credentials_obj)
+            print("✅ Google Drive autenticado con Service Account")
+            return _drive_service
+        
+        # Opción 2: Application Default Credentials
+        try:
+            credentials_obj, project = default(scopes=DRIVE_SCOPES)
+            _drive_service = build('drive', 'v3', credentials=credentials_obj)
+            print("✅ Google Drive autenticado con ADC")
+            return _drive_service
+        except Exception as e:
+            if not SECURE_LOGGING:
+                print(f"❌ Error con ADC: {e}")
+        
+        print("💡 Opciones de autenticación:")
+        print("   1. Service Account: configura SERVICE_ACCOUNT_FILE en .env")
+        print("   2. ADC (WIF): gcloud auth application-default login --scopes=https://www.googleapis.com/auth/drive.readonly")
+        return None
         
     except Exception as e:
         if not SECURE_LOGGING:
-            print(f"❌ Error en prueba de conexión: {e}")
-        return False
+            print(f"❌ Error autenticando Google Drive: {e}")
+        return None
+
+
+@secure_log
+def list_excel_files_in_folder(folder_id: str) -> List[Dict[str, str]]:
+    """
+    Lista todos los archivos Excel (.xlsx) en una carpeta de Google Drive.
+    
+    Args:
+        folder_id: ID de la carpeta de Google Drive
+        
+    Returns:
+        Lista de diccionarios con 'id' y 'name' de cada archivo Excel
+    """
+    try:
+        service = get_drive_service()
+        if not service:
+            return []
+        
+        # Buscar archivos Excel en la carpeta
+        query = f"'{folder_id}' in parents and (mimeType='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' or mimeType='application/vnd.ms-excel') and trashed=false"
+        
+        results = service.files().list(
+            q=query,
+            fields="files(id, name, mimeType)",
+            pageSize=100
+        ).execute()
+        
+        files = results.get('files', [])
+        
+        if not files:
+            print(f"⚠️  No se encontraron archivos Excel en la carpeta")
+            return []
+        
+        print(f"✅ Encontrados {len(files)} archivos Excel")
+        for file in files:
+            # Mostrar solo nombre parcial por seguridad
+            name_display = file['name'][:30] + "..." if len(file['name']) > 30 else file['name']
+            print(f"   - {name_display}")
+        
+        return files
+        
+    except Exception as e:
+        if not SECURE_LOGGING:
+            print(f"❌ Error listando archivos: {e}")
+        return []
+
+
+@secure_log
+def download_excel_file(file_id: str, file_name: str) -> Optional[io.BytesIO]:
+    """
+    Descarga un archivo Excel desde Google Drive a memoria.
+    
+    Args:
+        file_id: ID del archivo en Google Drive
+        file_name: Nombre del archivo (para logging)
+        
+    Returns:
+        BytesIO con el contenido del archivo o None si falla
+    """
+    try:
+        service = get_drive_service()
+        if not service:
+            return None
+        
+        request = service.files().get_media(fileId=file_id)
+        file_buffer = io.BytesIO()
+        downloader = MediaIoBaseDownload(file_buffer, request)
+        
+        done = False
+        while not done:
+            status, done = downloader.next_chunk()
+            if status:
+                progress = int(status.progress() * 100)
+                if progress % 25 == 0:  # Mostrar cada 25%
+                    name_display = file_name[:30] + "..." if len(file_name) > 30 else file_name
+                    print(f"   Descargando {name_display}: {progress}%")
+        
+        file_buffer.seek(0)  # Volver al inicio del buffer
+        name_display = file_name[:30] + "..." if len(file_name) > 30 else file_name
+        print(f"✅ Descargado: {name_display}")
+        return file_buffer
+        
+    except Exception as e:
+        if not SECURE_LOGGING:
+            print(f"❌ Error descargando archivo '{file_name}': {e}")
+        return None
 
 
 @secure_log

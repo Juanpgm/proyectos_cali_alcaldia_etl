@@ -1,29 +1,36 @@
 # -*- coding: utf-8 -*-
 """
-Data extraction module for project units (unidades de proyecto) from Google Sheets.
+Data extraction module for project units (unidades de proyecto) from Google Drive Excel files.
 Implements functional programming patterns for clean, scalable, and reusable data extraction.
 Uses Workload Identity Federation for secure authentication.
+Reads multiple Excel files from a Google Drive folder and concatenates them into a single DataFrame.
 """
 
 import os
 import json
 import sys
 import pandas as pd
-import gspread
-from typing import Optional, List, Callable, Any
+import io
+from typing import Optional, List, Callable, Any, Dict
 from functools import reduce, wraps
 
 # Add database config to path for centralized configuration
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'database'))
 
 try:
-    from config import get_sheets_client, open_spreadsheet_by_url, SHEETS_CONFIG
+    from config import (
+        get_drive_service, 
+        list_excel_files_in_folder, 
+        download_excel_file,
+        DRIVE_FOLDER_ID
+    )
 except ImportError as e:
     print(f"Warning: Could not import from config module: {e}")
     # Fallback imports or alternative configuration
-    get_sheets_client = None
-    open_spreadsheet_by_url = None
-    SHEETS_CONFIG = {}
+    get_drive_service = None
+    list_excel_files_in_folder = None
+    download_excel_file = None
+    DRIVE_FOLDER_ID = None
 
 
 # Functional composition utilities
@@ -60,36 +67,86 @@ def safe_execute(func: Callable, default_value: Any = None) -> Callable:
 
 
 # Pure functions for data processing using centralized configuration
-# Note: get_sheets_client is now imported from config.py
+# Note: get_drive_service and related functions are now imported from config.py
 
 
-def extract_sheet_id(url: str) -> str:
-    """Extract sheet ID from Google Sheets URL using functional approach."""
-    if '/d/' not in url:
-        raise ValueError(f"Invalid Google Sheets URL format: {url}")
+@safe_execute
+def read_excel_file_to_dataframe(file_buffer: io.BytesIO, file_name: str) -> Optional[pd.DataFrame]:
+    """
+    Lee un archivo Excel desde un buffer en memoria y retorna un DataFrame.
+    Lee BPIN como string para evitar problemas de overflow con números grandes.
     
-    return pipe(
-        url,
-        lambda x: x.split('/d/')[1],
-        lambda x: x.split('/edit')[0] if '/edit' in x else x.split('/')[0]
-    )
-
-
-@safe_execute
-def connect_to_sheet(sheet_url: str) -> Optional[gspread.Spreadsheet]:
-    """Connect to a Google Spreadsheet using Workload Identity."""
-    return open_spreadsheet_by_url(sheet_url)
-
-
-@safe_execute
-def get_sheet_data(spreadsheet: gspread.Spreadsheet, worksheet_name: str) -> Optional[List[List[str]]]:
-    """Get all data from a specific worksheet using centralized configuration."""
+    Args:
+        file_buffer: Buffer con el contenido del archivo Excel
+        file_name: Nombre del archivo (para logging)
+        
+    Returns:
+        DataFrame con los datos del Excel o None si falla
+    """
     try:
-        worksheet = spreadsheet.worksheet(worksheet_name)
-        return worksheet.get_all_values()
+        # Definir tipos de dato específicos para columnas problemáticas
+        # BPIN se lee como string para evitar overflow de int32
+        dtype_spec = {
+            'BPIN': str,
+            'bpin': str,
+            'Bpin': str
+        }
+        
+        # Intentar leer el Excel (probará automáticamente con openpyxl y xlrd)
+        df = pd.read_excel(file_buffer, engine='openpyxl', dtype=dtype_spec)
+        
+        if df.empty:
+            print(f"⚠️  Archivo vacío: {file_name}")
+            return None
+        
+        name_display = file_name[:30] + "..." if len(file_name) > 30 else file_name
+        print(f"✅ Leído: {name_display} ({len(df)} filas, {len(df.columns)} columnas)")
+        return df
+        
     except Exception as e:
-        print(f"Error accessing worksheet '{worksheet_name}': {e}")
-        return None
+        # Intentar con xlrd para archivos .xls más antiguos
+        try:
+            file_buffer.seek(0)  # Volver al inicio
+            
+            # Intentar con dtype_spec para xlrd también
+            dtype_spec = {
+                'BPIN': str,
+                'bpin': str,
+                'Bpin': str
+            }
+            
+            df = pd.read_excel(file_buffer, engine='xlrd', dtype=dtype_spec)
+            
+            if df.empty:
+                print(f"⚠️  Archivo vacío: {file_name}")
+                return None
+            
+            name_display = file_name[:30] + "..." if len(file_name) > 30 else file_name
+            print(f"✅ Leído (xlrd): {name_display} ({len(df)} filas, {len(df.columns)} columnas)")
+            return df
+        except Exception as e2:
+            print(f"❌ Error leyendo {file_name}: {e}")
+            print(f"   También falló con xlrd: {e2}")
+            return None
+
+
+@safe_execute
+def get_excel_files_from_drive(folder_id: str) -> List[Dict[str, Any]]:
+    """
+    Obtiene lista de archivos Excel desde una carpeta de Google Drive.
+    
+    Args:
+        folder_id: ID de la carpeta de Google Drive
+        
+    Returns:
+        Lista de diccionarios con información de archivos
+    """
+    if not folder_id:
+        print("❌ No se proporcionó ID de carpeta de Drive")
+        return []
+    
+    files = list_excel_files_in_folder(folder_id)
+    return files if files else []
 
 
 def clean_column_name(col_name: str) -> str:
@@ -123,20 +180,57 @@ def filter_empty_rows(data: List[List[str]]) -> List[List[str]]:
     return list(filter(lambda row: any(cell.strip() for cell in row), data))
 
 
-def convert_to_dataframe(data: List[List[str]]) -> pd.DataFrame:
-    """Convert raw sheet data to pandas DataFrame using functional approach."""
-    if not data:
+def normalize_dataframe_columns(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Normaliza los nombres de columnas de un DataFrame.
+    
+    Args:
+        df: DataFrame con columnas a normalizar
+        
+    Returns:
+        DataFrame con columnas normalizadas
+    """
+    if df.empty:
+        return df
+    
+    df_copy = df.copy()
+    df_copy.columns = normalize_columns(df_copy.columns.astype(str).tolist())
+    
+    # Reemplazar valores vacíos con NaN
+    df_copy = df_copy.replace('', pd.NA)
+    
+    return df_copy
+
+
+def concatenate_dataframes(dataframes: List[pd.DataFrame]) -> pd.DataFrame:
+    """
+    Concatena múltiples DataFrames verticalmente (uno debajo del otro).
+    
+    Args:
+        dataframes: Lista de DataFrames a concatenar
+        
+    Returns:
+        DataFrame concatenado con todos los datos
+    """
+    if not dataframes:
+        print("⚠️  No hay DataFrames para concatenar")
         return pd.DataFrame()
     
-    # Functional pipeline for data conversion
-    headers = normalize_columns(data[0])
-    rows = filter_empty_rows(data[1:])
+    # Filtrar DataFrames vacíos
+    valid_dfs = [df for df in dataframes if not df.empty]
     
-    # Create DataFrame and replace empty strings with NaN
-    return pipe(
-        pd.DataFrame(rows, columns=headers),
-        lambda df: df.replace('', pd.NA)
-    )
+    if not valid_dfs:
+        print("⚠️  Todos los DataFrames están vacíos")
+        return pd.DataFrame()
+    
+    # Concatenar verticalmente (axis=0)
+    concatenated = pd.concat(valid_dfs, axis=0, ignore_index=True)
+    
+    print(f"✅ Concatenados {len(valid_dfs)} DataFrames:")
+    print(f"   - Total de filas: {len(concatenated)}")
+    print(f"   - Total de columnas: {len(concatenated.columns)}")
+    
+    return concatenated
 
 
 def validate_required_columns(df: pd.DataFrame, required_columns: List[str]) -> bool:
@@ -159,6 +253,12 @@ def standardize_data_structure(df: pd.DataFrame) -> pd.DataFrame:
     # Create a copy to avoid mutations
     standardized_df = df.copy()
     
+    # Handle empty column name that contains centro gestor data
+    if '' in standardized_df.columns:
+        # Rename empty column to 'nombre_centro_gestor'
+        standardized_df = standardized_df.rename(columns={'': 'nombre_centro_gestor'})
+        print(f"✓ Renamed empty column to 'nombre_centro_gestor'")
+    
     # Column standardization mapping
     column_mapping = {
         'fuente_de_financiacion': 'fuente_financiacion',
@@ -174,9 +274,8 @@ def standardize_data_structure(df: pd.DataFrame) -> pd.DataFrame:
         if source_col in standardized_df.columns and target_col not in standardized_df.columns:
             standardized_df[target_col] = standardized_df[source_col]
     
-    # Ensure required columns exist with default values
+    # Ensure required columns exist with default values (only if they don't exist)
     required_defaults = {
-        'bpin': 0,
         'presupuesto_base': 0,
         'avance_obra': 0,
         'centros_gravedad': False
@@ -185,6 +284,13 @@ def standardize_data_structure(df: pd.DataFrame) -> pd.DataFrame:
     for col, default_value in required_defaults.items():
         if col not in standardized_df.columns:
             standardized_df[col] = default_value
+    
+    # Handle BPIN column separately - preserve existing data
+    # After normalization, BPIN becomes 'bpin' in lowercase
+    if 'bpin' not in standardized_df.columns:
+        # Only create if it doesn't exist - never overwrite
+        standardized_df['bpin'] = None
+        print(f"⚠️  Warning: No BPIN column found in data")
     
     print(f"✓ Data standardization complete: {len(standardized_df.columns)} columns")
     return standardized_df
@@ -218,54 +324,89 @@ def save_as_json(data: pd.DataFrame, output_path: str) -> bool:
 
 
 # Main extraction pipeline using functional composition with Workload Identity
-def create_extraction_pipeline() -> Callable[[str, str], Optional[pd.DataFrame]]:
+def create_extraction_pipeline() -> Callable[[str], Optional[pd.DataFrame]]:
     """
     Create a reusable extraction pipeline using Workload Identity Federation.
+    Extracts data from multiple Excel files in a Google Drive folder.
     Returns a configured extraction function.
     """
     
-    def extraction_pipeline(sheet_url: str, worksheet_name: str) -> Optional[pd.DataFrame]:
-        """Functional pipeline for secure data extraction."""
+    def extraction_pipeline(folder_id: str) -> Optional[pd.DataFrame]:
+        """Functional pipeline for secure data extraction from Google Drive Excel files."""
         
         try:
             print("="*80)
-            print("FUNCTIONAL DATA EXTRACTION PIPELINE (WORKLOAD IDENTITY)")
+            print("FUNCTIONAL DATA EXTRACTION PIPELINE - GOOGLE DRIVE EXCEL FILES")
             print("="*80)
             
             # Step 1: Secure authentication using Workload Identity
             print("\n1. Authenticating with Workload Identity Federation...")
-            client = get_sheets_client()
-            if not client:
+            service = get_drive_service()
+            if not service:
                 print("✗ Authentication failed")
-                print("🔧 Run: gcloud auth application-default login --scopes=https://www.googleapis.com/auth/spreadsheets,https://www.googleapis.com/auth/drive.readonly")
+                print("🔧 Run: gcloud auth application-default login --scopes=https://www.googleapis.com/auth/drive.readonly")
                 return None
             print("✓ Authentication successful with Workload Identity")
             
-            # Step 2: Data extraction pipeline
-            print(f"\n2. Extracting data from: {worksheet_name}")
-            spreadsheet = connect_to_sheet(sheet_url)
-            if not spreadsheet:
+            # Step 2: List Excel files in Drive folder
+            print(f"\n2. Listing Excel files in Drive folder...")
+            folder_display = folder_id[:10] + "***" if len(folder_id) > 10 else folder_id
+            print(f"   Folder ID: {folder_display}")
+            
+            excel_files = get_excel_files_from_drive(folder_id)
+            if not excel_files:
+                print("✗ No Excel files found in folder")
                 return None
             
-            raw_data = get_sheet_data(spreadsheet, worksheet_name)
-            if not raw_data:
+            print(f"✓ Found {len(excel_files)} Excel files")
+            
+            # Step 3: Download and read each Excel file
+            print(f"\n3. Downloading and reading Excel files...")
+            dataframes = []
+            
+            for i, file_info in enumerate(excel_files, 1):
+                file_id = file_info['id']
+                file_name = file_info['name']
+                
+                print(f"\n   [{i}/{len(excel_files)}] Processing: {file_name}")
+                
+                # Download file to memory
+                file_buffer = download_excel_file(file_id, file_name)
+                if not file_buffer:
+                    print(f"   ⚠️  Skipping file due to download error")
+                    continue
+                
+                # Read Excel to DataFrame
+                df = read_excel_file_to_dataframe(file_buffer, file_name)
+                if df is not None and not df.empty:
+                    # Normalize column names
+                    df = normalize_dataframe_columns(df)
+                    dataframes.append(df)
+                else:
+                    print(f"   ⚠️  Skipping empty or invalid file")
+            
+            if not dataframes:
+                print("\n✗ No valid data extracted from any file")
                 return None
             
-            # Mostrar título de forma segura
-            title_display = spreadsheet.title[:20] + "***" if len(spreadsheet.title) > 20 else spreadsheet.title
-            print(f"✓ Extracted {len(raw_data)} rows from '{title_display}'")
+            # Step 4: Concatenate all DataFrames
+            print(f"\n4. Concatenating data from all files...")
+            combined_df = concatenate_dataframes(dataframes)
             
-            # Step 3: Data transformation pipeline
-            print(f"\n3. Converting and standardizing data...")
-            df = pipe(
-                raw_data,
-                convert_to_dataframe,
-                standardize_data_structure
-            )
+            if combined_df.empty:
+                print("✗ Combined DataFrame is empty")
+                return None
             
-            print(f"✓ Created DataFrame: {len(df)} rows, {len(df.columns)} columns")
+            # Step 5: Standardize data structure
+            print(f"\n5. Standardizing data structure...")
+            final_df = standardize_data_structure(combined_df)
             
-            return df
+            print(f"\n✓ Extraction completed successfully!")
+            print(f"   - Files processed: {len(dataframes)}")
+            print(f"   - Total rows: {len(final_df)}")
+            print(f"   - Total columns: {len(final_df.columns)}")
+            
+            return final_df
             
         except Exception as e:
             print(f"✗ Pipeline failed: {e}")
@@ -277,65 +418,72 @@ def create_extraction_pipeline() -> Callable[[str, str], Optional[pd.DataFrame]]
 
 
 def extract_unidades_proyecto_data(
-    sheet_url: str = None,
-    worksheet_name: str = None
+    folder_id: str = None
 ) -> Optional[pd.DataFrame]:
     """
-    Extract unidades de proyecto data directly to memory (no file saving).
+    Extract unidades de proyecto data from Google Drive Excel files directly to memory.
     Perfect for in-memory processing without temporary files.
     
     Args:
-        sheet_url: Google Sheets URL (uses config if None)
-        worksheet_name: Worksheet name (uses config if None)
+        folder_id: Google Drive folder ID (uses config if None)
         
     Returns:
         DataFrame with extracted data or None if failed
     """
     
-    # Use centralized configuration if parameters not provided
-    if sheet_url is None:
-        sheet_url = SHEETS_CONFIG['unidades_proyecto']['url']
-    if worksheet_name is None:
-        worksheet_name = SHEETS_CONFIG['unidades_proyecto']['worksheet']
+    # Use centralized configuration if parameter not provided
+    if folder_id is None:
+        folder_id = DRIVE_FOLDER_ID
     
-    print("🚀 Extracting data directly to memory (no temporary files)")
+    if not folder_id:
+        print("❌ No folder ID provided and DRIVE_FOLDER_ID not configured")
+        return None
+    
+    print("🚀 Extracting data from Google Drive Excel files directly to memory")
     
     # Create extraction pipeline
     extract_data = create_extraction_pipeline()
     
     # Extract data
-    df = extract_data(sheet_url, worksheet_name)
+    df = extract_data(folder_id)
     
     if df is not None:
-        print(f"✓ Extraction completed successfully!")
+        print(f"\n✓ Extraction completed successfully!")
         print(f"  - Records extracted: {len(df)}")
         print(f"  - Data ready for in-memory processing")
         return df
     else:
-        print(f"✗ Data extraction failed")
+        print(f"\n✗ Data extraction failed")
         return None
 
 
 def extract_and_save_unidades_proyecto(
-    sheet_url: str = None,
-    worksheet_name: str = None
+    folder_id: str = None
 ) -> Optional[pd.DataFrame]:
     """
-    Main function to extract unidades de proyecto data and save as JSON.
+    Main function to extract unidades de proyecto data from Google Drive and save as JSON.
     Implements complete functional pipeline using centralized configuration.
+    
+    Args:
+        folder_id: Google Drive folder ID (uses config if None)
+        
+    Returns:
+        DataFrame with extracted data or None if failed
     """
     
-    # Use centralized configuration if parameters not provided
-    if sheet_url is None:
-        sheet_url = SHEETS_CONFIG['unidades_proyecto']['url']
-    if worksheet_name is None:
-        worksheet_name = SHEETS_CONFIG['unidades_proyecto']['worksheet']
+    # Use centralized configuration if parameter not provided
+    if folder_id is None:
+        folder_id = DRIVE_FOLDER_ID
+    
+    if not folder_id:
+        print("❌ No folder ID provided and DRIVE_FOLDER_ID not configured")
+        return None
     
     # Create extraction pipeline
     extract_data = create_extraction_pipeline()
     
     # Extract data
-    df = extract_data(sheet_url, worksheet_name)
+    df = extract_data(folder_id)
     
     if df is not None:
         # Create output directory and save JSON
@@ -384,7 +532,7 @@ if __name__ == "__main__":
     """
     Main execution block for testing the extraction pipeline.
     """
-    print("Starting Google Sheets extraction process...")
+    print("Starting Google Drive Excel extraction process...")
     
     # Run the complete extraction pipeline
     df_result = extract_and_save_unidades_proyecto()
@@ -401,8 +549,13 @@ if __name__ == "__main__":
         print(f"\nSample data (first 2 records):")
         print(df_result.head(2).to_string())
         
+        # Show column names
+        print(f"\nColumn names ({len(df_result.columns)} columns):")
+        for i, col in enumerate(df_result.columns, 1):
+            print(f"  {i}. {col}")
+        
     else:
         print("\n" + "="*60)
         print("EXTRACTION FAILED")
         print("="*60)
-        print("✗ Could not extract data from Google Sheets")
+        print("✗ Could not extract data from Google Drive Excel files")

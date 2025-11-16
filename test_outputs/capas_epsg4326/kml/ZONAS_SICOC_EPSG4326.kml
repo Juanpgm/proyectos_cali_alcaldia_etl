@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document id="root_doc">
+<Schema name="ZONAS_SICOC_EPSG4326" id="ZONAS_SICOC_EPSG4326">
+	<SimpleField name="Direccion" type="string"></SimpleField>
+	<SimpleField name="Barrios" type="string"></SimpleField>
+	<SimpleField name="Shape__Are" type="float"></SimpleField>
+	<SimpleField name="Shape__Len" type="float"></SimpleField>
+</Schema>
+<Folder><name>ZONAS_SICOC_EPSG4326</name>
+  <Placemark id="ZONAS_SICOC_EPSG4326.1">
+	<name>Cra 10 &amp; Cra 14 entre Cl 15 &amp; Cl 20</name>
+	<description>E9</description>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#ZONAS_SICOC_EPSG4326">
+		<SimpleData name="Direccion">2.61103186237e-05</SimpleData>
+		<SimpleData name="Barrios">0.0205690039526</SimpleData>
+	</SchemaData></ExtendedData>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>-76.523077144,3.44950329400007 -76.522163431,3.44630529800003 -76.5216304319999,3.44430655100007 -76.524490477,3.44363575600005 -76.5263132109999,3.44301212400006 -76.527738614,3.44832704000004 -76.523077144,3.44950329400007</coordinates></LinearRing></outerBoundaryIs></Polygon>
+  </Placemark>
+  <Placemark id="ZONAS_SICOC_EPSG4326.2">
+	<name>Cl 26 &amp; Cl 31 entre Cra 17 &amp; 17f</name>
+	<description>E8</description>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#ZONAS_SICOC_EPSG4326">
+		<SimpleData name="Direccion">1.35459411384e-05</SimpleData>
+		<SimpleData name="Barrios">0.0154313584352</SimpleData>
+	</SchemaData></ExtendedData>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>-76.5184194839999,3.44267857900007 -76.5141840429999,3.44327344500005 -76.512994313,3.44053706400007 -76.518395689,3.43994219900003 -76.5184194839999,3.44267857900007</coordinates></LinearRing></outerBoundaryIs></Polygon>
+  </Placemark>
+  <Placemark id="ZONAS_SICOC_EPSG4326.3">
+	<name>Cra 73 &amp; Cra 87 Oeste entre Cl 2a Oe &amp; Cl 4a Oe</name>
+	<description>E18</description>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#ZONAS_SICOC_EPSG4326">
+		<SimpleData name="Direccion">3.09592764368e-05</SimpleData>
+		<SimpleData name="Barrios">0.0234460091783</SimpleData>
+	</SchemaData></ExtendedData>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>-76.5604406309999,3.39063066900007 -76.556138565,3.39042127600004 -76.557985026,3.38280700200005 -76.5618302359999,3.38334000100002 -76.5604406309999,3.39063066900007</coordinates></LinearRing></outerBoundaryIs></Polygon>
+  </Placemark>
+  <Placemark id="ZONAS_SICOC_EPSG4326.4">
+	<name>Dg 26p18 &amp; Cra 27 entre Tv 103 &amp; 108</name>
+	<description>E14</description>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#ZONAS_SICOC_EPSG4326">
+		<SimpleData name="Direccion">1.13650319203e-05</SimpleData>
+		<SimpleData name="Barrios">0.0139483829261</SimpleData>
+	</SchemaData></ExtendedData>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>-76.478302282,3.42119616500003 -76.476755951,3.41998740300005 -76.474807046,3.41811921200002 -76.475975488,3.41610412400007 -76.479002162,3.41776022800002 -76.478302282,3.42119616500003</coordinates></LinearRing></outerBoundaryIs></Polygon>
+  </Placemark>
+  <Placemark id="ZONAS_SICOC_EPSG4326.5">
+	<name>Cra 31 &amp; 34 entre Cl 46 &amp; 48 A</name>
+	<description>E13 y E15</description>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#ZONAS_SICOC_EPSG4326">
+		<SimpleData name="Direccion">1.43416715056e-05</SimpleData>
+		<SimpleData name="Barrios">0.0152877045989</SimpleData>
+	</SchemaData></ExtendedData>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>-76.501250281,3.41385680100007 -76.498002317,3.41681923000004 -76.4957371369999,3.41437293100006 -76.4989065789999,3.41153185500002 -76.501250281,3.41385680100007</coordinates></LinearRing></outerBoundaryIs></Polygon>
+  </Placemark>
+  <Placemark id="ZONAS_SICOC_EPSG4326.6">
+	<name>Cra 95 &amp; 100 entre Cl 1 bis &amp; 3a Oeste</name>
+	<description>E18</description>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#ZONAS_SICOC_EPSG4326">
+		<SimpleData name="Direccion">2.15579531606e-05</SimpleData>
+		<SimpleData name="Barrios">0.019757346557</SimpleData>
+	</SchemaData></ExtendedData>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>-76.555791335,3.37164587700005 -76.550279475,3.37455956700006 -76.548209344,3.37146626800006 -76.554634917,3.36897612200005 -76.555791335,3.37164587700005</coordinates></LinearRing></outerBoundaryIs></Polygon>
+  </Placemark>
+  <Placemark id="ZONAS_SICOC_EPSG4326.7">
+	<name>Cra 49 &amp; Cra 52 Oe entre Cl 8 &amp; 13 Oe</name>
+	<description>E20</description>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#ZONAS_SICOC_EPSG4326">
+		<SimpleData name="Direccion">1.18303677551e-05</SimpleData>
+		<SimpleData name="Barrios">0.0157196848888</SimpleData>
+	</SchemaData></ExtendedData>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>-76.563399265,3.41778283300005 -76.562835333,3.41895114800008 -76.559518447,3.42230583200006 -76.558066975,3.42166337800006 -76.561538191,3.41677067000006 -76.563399265,3.41778283300005</coordinates></LinearRing></outerBoundaryIs></Polygon>
+  </Placemark>
+  <Placemark id="ZONAS_SICOC_EPSG4326.8">
+	<name>Cl 81 &amp; Cl 91 entre Cra 28E6 &amp; Cra 29</name>
+	<description>E15</description>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#ZONAS_SICOC_EPSG4326">
+		<SimpleData name="Direccion">1.07671111633e-05</SimpleData>
+		<SimpleData name="Barrios">0.0131597483543</SimpleData>
+	</SchemaData></ExtendedData>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>-76.490215399,3.41106567900005 -76.492190352,3.41332616700004 -76.48985848,3.41556286000002 -76.487407635,3.41325478300007 -76.490215399,3.41106567900005</coordinates></LinearRing></outerBoundaryIs></Polygon>
+  </Placemark>
+  <Placemark id="ZONAS_SICOC_EPSG4326.9">
+	<name>Cra 22 &amp; Cra 24C entre Cl 33F &amp; Cl 42</name>
+	<description>E12</description>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#ZONAS_SICOC_EPSG4326">
+		<SimpleData name="Direccion">2.92283427008e-05</SimpleData>
+		<SimpleData name="Barrios">0.0221692581996</SimpleData>
+	</SchemaData></ExtendedData>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>-76.509228483,3.43914331900004 -76.502744451,3.44080894200005 -76.5015547209999,3.43682334400006 -76.508068495,3.43480080200004 -76.509228483,3.43914331900004</coordinates></LinearRing></outerBoundaryIs></Polygon>
+  </Placemark>
+  <Placemark id="ZONAS_SICOC_EPSG4326.10">
+	<name>Cra 41B &amp; 47A entre Cl 44 &amp; Cl 54</name>
+	<description>E15 y E16</description>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#ZONAS_SICOC_EPSG4326">
+		<SimpleData name="Direccion">0.000109678129549</SimpleData>
+		<SimpleData name="Barrios">0.0424370245573</SimpleData>
+	</SchemaData></ExtendedData>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>-76.515629566,3.40282260700008 -76.506617357,3.41132918000005 -76.500609219,3.40460720300007 -76.509621426,3.39636832000002 -76.515629566,3.40282260700008</coordinates></LinearRing></outerBoundaryIs></Polygon>
+  </Placemark>
+  <Placemark id="ZONAS_SICOC_EPSG4326.11">
+	<name>Cra 25 &amp; 32 entre calles 19 y 26B</name>
+	<description>E10 y E11</description>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#ZONAS_SICOC_EPSG4326">
+		<SimpleData name="Direccion">0</SimpleData>
+		<SimpleData name="Barrios">0</SimpleData>
+	</SchemaData></ExtendedData>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>-76.5225944033622,3.42569771568691 -76.5223361075626,3.429353594698 -76.5222367630242,3.43243327538659 -76.5205876436877,3.4324730132019 -76.5197730184731,3.43251275101727 -76.5196538050272,3.43316842497029 -76.5183821949365,3.43300947370903 -76.5172297982917,3.43277104681698 -76.5180841613213,3.42883700309864 -76.5183821949365,3.42534007534891 -76.5225944033622,3.42569771568691</coordinates></LinearRing></outerBoundaryIs></Polygon>
+  </Placemark>
+</Folder>
+</Document></kml>

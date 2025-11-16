@@ -121,10 +121,15 @@ def prepare_document_data(feature: Dict[str, Any]) -> Optional[Dict[str, Any]]:
     properties = feature.get('properties', {})
     geometry = feature.get('geometry')
     
-    # Serialize properties for Firebase compatibility
+    # Serialize properties for Firebase compatibility (filter out invalid keys)
     serialized_properties = {}
     for key, value in properties.items():
-        serialized_properties[key] = serialize_for_firebase(value)
+        # Skip invalid keys (empty strings, None, or whitespace-only strings)
+        if not key or not isinstance(key, str) or not key.strip():
+            continue
+        # Use clean key (remove any whitespace)
+        clean_key = key.strip()
+        serialized_properties[clean_key] = serialize_for_firebase(value)
     
     # Create document data
     document_data = {

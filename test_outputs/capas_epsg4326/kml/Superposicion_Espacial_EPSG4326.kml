@@ -1,0 +1,877 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document id="root_doc">
+<Schema name="Superposicion_Espacial_EPSG4326" id="Superposicion_Espacial_EPSG4326">
+	<SimpleField name="upid" type="string"></SimpleField>
+	<SimpleField name="has_valid_geometry" type="int"></SimpleField>
+	<SimpleField name="nombre_up" type="string"></SimpleField>
+	<SimpleField name="comuna_corregimiento" type="string"></SimpleField>
+	<SimpleField name="barrio_vereda" type="string"></SimpleField>
+	<SimpleField name="estado" type="string"></SimpleField>
+	<SimpleField name="direccion" type="string"></SimpleField>
+	<SimpleField name="ano" type="string"></SimpleField>
+	<SimpleField name="presupuesto_base" type="int"></SimpleField>
+	<SimpleField name="presupuesto_total_up" type="string"></SimpleField>
+	<SimpleField name="avance_obra" type="float"></SimpleField>
+	<SimpleField name="bpin" type="float"></SimpleField>
+	<SimpleField name="tipo_intervencion" type="string"></SimpleField>
+	<SimpleField name="clase_obra" type="string"></SimpleField>
+	<SimpleField name="nombre_centro_gestor" type="string"></SimpleField>
+	<SimpleField name="centro_gestor" type="string"></SimpleField>
+	<SimpleField name="tipo_equipamiento" type="string"></SimpleField>
+	<SimpleField name="fuente_financiacion" type="string"></SimpleField>
+	<SimpleField name="index_right" type="float"></SimpleField>
+	<SimpleField name="Direccion" type="string"></SimpleField>
+	<SimpleField name="Barrios" type="string"></SimpleField>
+	<SimpleField name="Shape__Are" type="float"></SimpleField>
+	<SimpleField name="Shape__Len" type="float"></SimpleField>
+</Schema>
+<Folder><name>Superposicion_Espacial_EPSG4326</name>
+  <Placemark id="Superposicion_Espacial_EPSG4326.1">
+	<name>UNP-1108</name>
+	<description>1</description>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#Superposicion_Espacial_EPSG4326">
+		<SimpleData name="upid">Calle 1A Oeste Entre Carreras 74B Y 75</SimpleData>
+		<SimpleData name="has_valid_geometry">0</SimpleData>
+		<SimpleData name="nombre_up">Mario Correa Rengifo</SimpleData>
+		<SimpleData name="comuna_corregimiento">Finalizado</SimpleData>
+		<SimpleData name="barrio_vereda">Calle 2 Oeste Entre Carreras 71 Y 76   - Calle 1A Oeste Entre Carreras 74B Y 75</SimpleData>
+		<SimpleData name="estado">2024</SimpleData>
+		<SimpleData name="direccion">85439007</SimpleData>
+		<SimpleData name="presupuesto_base">100</SimpleData>
+		<SimpleData name="presupuesto_total_up">2023760010180</SimpleData>
+		<SimpleData name="bpin">0</SimpleData>
+		<SimpleData name="tipo_intervencion">Secretaría de Infraestructura</SimpleData>
+		<SimpleData name="nombre_centro_gestor">Vías</SimpleData>
+		<SimpleData name="centro_gestor">Recursos Propios</SimpleData>
+		<SimpleData name="tipo_equipamiento">2</SimpleData>
+		<SimpleData name="fuente_financiacion">Cra 73 &amp; Cra 87 Oeste entre Cl 2a Oe &amp; Cl 4a Oe</SimpleData>
+		<SimpleData name="index_right">0</SimpleData>
+		<SimpleData name="Direccion">3.09592764368e-05</SimpleData>
+		<SimpleData name="Barrios">0.0234460091783</SimpleData>
+	</SchemaData></ExtendedData>
+      <LineString><coordinates>-76.5574620248419,3.3885530879367,0 -76.5573883001026,3.38906977345629,0 -76.5573477560946,3.38935391803582,0</coordinates></LineString>
+  </Placemark>
+  <Placemark id="Superposicion_Espacial_EPSG4326.2">
+	<name>UNP-1110</name>
+	<description>1</description>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#Superposicion_Espacial_EPSG4326">
+		<SimpleData name="upid">Calle 2 Oeste Entre Carreras 71 Y 76</SimpleData>
+		<SimpleData name="has_valid_geometry">0</SimpleData>
+		<SimpleData name="nombre_up">Lourdes</SimpleData>
+		<SimpleData name="comuna_corregimiento">Finalizado</SimpleData>
+		<SimpleData name="barrio_vereda">Calle 2 Oeste Entre Carreras 71 Y 76   - Calle 1A Oeste Entre Carreras 74B Y 75</SimpleData>
+		<SimpleData name="estado">2024</SimpleData>
+		<SimpleData name="direccion">170878015</SimpleData>
+		<SimpleData name="presupuesto_base">100</SimpleData>
+		<SimpleData name="presupuesto_total_up">2023760010180</SimpleData>
+		<SimpleData name="bpin">0</SimpleData>
+		<SimpleData name="tipo_intervencion">Secretaría de Infraestructura</SimpleData>
+		<SimpleData name="nombre_centro_gestor">Vías</SimpleData>
+		<SimpleData name="centro_gestor">Recursos Propios</SimpleData>
+		<SimpleData name="tipo_equipamiento">2</SimpleData>
+		<SimpleData name="fuente_financiacion">Cra 73 &amp; Cra 87 Oeste entre Cl 2a Oe &amp; Cl 4a Oe</SimpleData>
+		<SimpleData name="index_right">0</SimpleData>
+		<SimpleData name="Direccion">3.09592764368e-05</SimpleData>
+		<SimpleData name="Barrios">0.0234460091783</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><LineString><coordinates>-76.5575137847784,3.39018584333856,0 -76.5575282064677,3.3901367225419,0</coordinates></LineString><LineString><coordinates>-76.5575282064677,3.3901367225419,0 -76.5575805781675,3.38995834263456,0 -76.557693015509,3.38957537672855,0 -76.5577355459889,3.38943051619907,0 -76.5579226376478,3.3889659900233,0 -76.557998220079,3.38877848342611,0 -76.5580415301885,3.38867088262795,0 -76.5580627699809,3.38840594027942,0</coordinates></LineString></MultiGeometry>
+  </Placemark>
+  <Placemark id="Superposicion_Espacial_EPSG4326.3">
+	<name>UNP-225</name>
+	<description>1</description>
+	<ExtendedData><SchemaData schemaUrl="#Superposicion_Espacial_EPSG4326">
+		<SimpleData name="upid">POLIDEPORTIVO REPÚBLICA DE ISRAEL</SimpleData>
+		<SimpleData name="has_valid_geometry">0</SimpleData>
+		<SimpleData name="nombre_up">REPUBLICA DE ISRAEL</SimpleData>
+		<SimpleData name="comuna_corregimiento">En alistamiento</SimpleData>
+		<SimpleData name="barrio_vereda">CARRERA 43 Y 43B CON CALLE 44 Y 46</SimpleData>
+		<SimpleData name="estado">2025</SimpleData>
+		<SimpleData name="direccion">110664112</SimpleData>
+		<SimpleData name="presupuesto_base">0</SimpleData>
+		<SimpleData name="avance_obra">0</SimpleData>
+		<SimpleData name="tipo_intervencion">Secretaría del Deporte y la Recreación</SimpleData>
+		<SimpleData name="nombre_centro_gestor">Infraestructura recreo deportiva</SimpleData>
+		<SimpleData name="centro_gestor">Empréstito</SimpleData>
+		<SimpleData name="tipo_equipamiento">9</SimpleData>
+		<SimpleData name="fuente_financiacion">Cra 41B &amp; 47A entre Cl 44 &amp; Cl 54</SimpleData>
+		<SimpleData name="index_right">0</SimpleData>
+		<SimpleData name="Direccion">0.000109678129549</SimpleData>
+		<SimpleData name="Barrios">0.0424370245573</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-76.511124,3.406006</coordinates></Point>
+  </Placemark>
+  <Placemark id="Superposicion_Espacial_EPSG4326.4">
+	<name>UNP-261</name>
+	<description>1</description>
+	<ExtendedData><SchemaData schemaUrl="#Superposicion_Espacial_EPSG4326">
+		<SimpleData name="upid">biblioteca publica arco iris</SimpleData>
+		<SimpleData name="has_valid_geometry">0</SimpleData>
+		<SimpleData name="nombre_up">Mójica II</SimpleData>
+		<SimpleData name="comuna_corregimiento">En alistamiento</SimpleData>
+		<SimpleData name="barrio_vereda">Cl. 85a No. 28e6 -102</SimpleData>
+		<SimpleData name="estado">2025</SimpleData>
+		<SimpleData name="direccion">651777804</SimpleData>
+		<SimpleData name="presupuesto_base">0</SimpleData>
+		<SimpleData name="presupuesto_total_up">2147483648</SimpleData>
+		<SimpleData name="avance_obra">0</SimpleData>
+		<SimpleData name="tipo_intervencion">Secretaría de Cultura</SimpleData>
+		<SimpleData name="nombre_centro_gestor">Bibliotecas</SimpleData>
+		<SimpleData name="centro_gestor">Empréstito</SimpleData>
+		<SimpleData name="tipo_equipamiento">7</SimpleData>
+		<SimpleData name="fuente_financiacion">Cl 81 &amp; Cl 91 entre Cra 28E6 &amp; Cra 29</SimpleData>
+		<SimpleData name="index_right">0</SimpleData>
+		<SimpleData name="Direccion">1.07671111633e-05</SimpleData>
+		<SimpleData name="Barrios">0.0131597483543</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-76.489484,3.412772</coordinates></Point>
+  </Placemark>
+  <Placemark id="Superposicion_Espacial_EPSG4326.5">
+	<name>UNP-311</name>
+	<description>1</description>
+	<ExtendedData><SchemaData schemaUrl="#Superposicion_Espacial_EPSG4326">
+		<SimpleData name="upid">IPS - EL VALLADO</SimpleData>
+		<SimpleData name="has_valid_geometry">0</SimpleData>
+		<SimpleData name="nombre_up">El Vallado</SimpleData>
+		<SimpleData name="comuna_corregimiento">En alistamiento</SimpleData>
+		<SimpleData name="barrio_vereda">Carrera 41B con Calle 51</SimpleData>
+		<SimpleData name="estado">2026</SimpleData>
+		<SimpleData name="direccion">644482338</SimpleData>
+		<SimpleData name="presupuesto_base">0</SimpleData>
+		<SimpleData name="avance_obra">0</SimpleData>
+		<SimpleData name="tipo_intervencion">Secretaría de Salud Pública</SimpleData>
+		<SimpleData name="nombre_centro_gestor">IPS</SimpleData>
+		<SimpleData name="centro_gestor">Ingresos con destinación específica</SimpleData>
+		<SimpleData name="tipo_equipamiento">9</SimpleData>
+		<SimpleData name="fuente_financiacion">Cra 41B &amp; 47A entre Cl 44 &amp; Cl 54</SimpleData>
+		<SimpleData name="index_right">0</SimpleData>
+		<SimpleData name="Direccion">0.000109678129549</SimpleData>
+		<SimpleData name="Barrios">0.0424370245573</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-76.5028765,3.4062432</coordinates></Point>
+  </Placemark>
+  <Placemark id="Superposicion_Espacial_EPSG4326.6">
+	<name>UNP-338</name>
+	<description>1</description>
+	<ExtendedData><SchemaData schemaUrl="#Superposicion_Espacial_EPSG4326">
+		<SimpleData name="upid">POLIDEPORTIVO SAN CRISTOBAL</SimpleData>
+		<SimpleData name="has_valid_geometry">0</SimpleData>
+		<SimpleData name="nombre_up">SAN CRISTOBAL</SimpleData>
+		<SimpleData name="comuna_corregimiento">En ejecución</SimpleData>
+		<SimpleData name="barrio_vereda">CARRERAS 26 Y 28 CON CALLES 23 Y 25</SimpleData>
+		<SimpleData name="estado">2025</SimpleData>
+		<SimpleData name="direccion">119029132</SimpleData>
+		<SimpleData name="presupuesto_base">50</SimpleData>
+		<SimpleData name="avance_obra">0</SimpleData>
+		<SimpleData name="tipo_intervencion">Secretaría del Deporte y la Recreación</SimpleData>
+		<SimpleData name="nombre_centro_gestor">Infraestructura recreo deportiva</SimpleData>
+		<SimpleData name="centro_gestor">Empréstito</SimpleData>
+		<SimpleData name="tipo_equipamiento">10</SimpleData>
+		<SimpleData name="fuente_financiacion">Cra 25 &amp; 32 entre calles 19 y 26B</SimpleData>
+		<SimpleData name="index_right">0</SimpleData>
+		<SimpleData name="Direccion">0</SimpleData>
+		<SimpleData name="Barrios">0</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-76.520465,3.430391</coordinates></Point>
+  </Placemark>
+  <Placemark id="Superposicion_Espacial_EPSG4326.7">
+	<name>UNP-349</name>
+	<description>1</description>
+	<ExtendedData><SchemaData schemaUrl="#Superposicion_Espacial_EPSG4326">
+		<SimpleData name="upid">IPS - AGUA BLANCA</SimpleData>
+		<SimpleData name="has_valid_geometry">0</SimpleData>
+		<SimpleData name="nombre_up">Aguablanca</SimpleData>
+		<SimpleData name="comuna_corregimiento">En ejecución</SimpleData>
+		<SimpleData name="barrio_vereda">Carrera 25A No. 25-105</SimpleData>
+		<SimpleData name="estado">2025</SimpleData>
+		<SimpleData name="direccion">591006425</SimpleData>
+		<SimpleData name="presupuesto_base">65</SimpleData>
+		<SimpleData name="avance_obra">0</SimpleData>
+		<SimpleData name="tipo_intervencion">Secretaría de Salud Pública</SimpleData>
+		<SimpleData name="nombre_centro_gestor">IPS</SimpleData>
+		<SimpleData name="centro_gestor">Ingresos con destinación específica</SimpleData>
+		<SimpleData name="tipo_equipamiento">10</SimpleData>
+		<SimpleData name="fuente_financiacion">Cra 25 &amp; 32 entre calles 19 y 26B</SimpleData>
+		<SimpleData name="index_right">0</SimpleData>
+		<SimpleData name="Direccion">0</SimpleData>
+		<SimpleData name="Barrios">0</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-76.5187989,3.4319773</coordinates></Point>
+  </Placemark>
+  <Placemark id="Superposicion_Espacial_EPSG4326.8">
+	<name>UNP-35</name>
+	<description>1</description>
+	<ExtendedData><SchemaData schemaUrl="#Superposicion_Espacial_EPSG4326">
+		<SimpleData name="upid">IPS - INTERVENIDAS</SimpleData>
+		<SimpleData name="has_valid_geometry">0</SimpleData>
+		<SimpleData name="nombre_up">Puertas del Sol</SimpleData>
+		<SimpleData name="comuna_corregimiento">En alistamiento</SimpleData>
+		<SimpleData name="barrio_vereda">Transversal 103 diagonal 26P-15</SimpleData>
+		<SimpleData name="estado">2025</SimpleData>
+		<SimpleData name="direccion">501998051</SimpleData>
+		<SimpleData name="presupuesto_base">0</SimpleData>
+		<SimpleData name="avance_obra">0</SimpleData>
+		<SimpleData name="tipo_intervencion">Secretaría de Salud Pública</SimpleData>
+		<SimpleData name="nombre_centro_gestor">IPS</SimpleData>
+		<SimpleData name="centro_gestor">Ingresos con destinación específica</SimpleData>
+		<SimpleData name="tipo_equipamiento">3</SimpleData>
+		<SimpleData name="fuente_financiacion">Dg 26p18 &amp; Cra 27 entre Tv 103 &amp; 108</SimpleData>
+		<SimpleData name="index_right">0</SimpleData>
+		<SimpleData name="Direccion">1.13650319203e-05</SimpleData>
+		<SimpleData name="Barrios">0.0139483829261</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-76.4781661,3.4205896</coordinates></Point>
+  </Placemark>
+  <Placemark id="Superposicion_Espacial_EPSG4326.9">
+	<name>UNP-444</name>
+	<description>1</description>
+	<ExtendedData><SchemaData schemaUrl="#Superposicion_Espacial_EPSG4326">
+		<SimpleData name="upid">Subsidios de Mejoramiento de Vivienda</SimpleData>
+		<SimpleData name="has_valid_geometry">0</SimpleData>
+		<SimpleData name="nombre_up">BARRIO OBRERO</SimpleData>
+		<SimpleData name="comuna_corregimiento">En alistamiento</SimpleData>
+		<SimpleData name="barrio_vereda">CARRERA 11 #19-20</SimpleData>
+		<SimpleData name="direccion">13511436</SimpleData>
+		<SimpleData name="presupuesto_base">0</SimpleData>
+		<SimpleData name="presupuesto_total_up">2147483648</SimpleData>
+		<SimpleData name="avance_obra">0</SimpleData>
+		<SimpleData name="tipo_intervencion">Secretaría de Vivienda Social y Habitat</SimpleData>
+		<SimpleData name="nombre_centro_gestor">Vivienda mejoramiento</SimpleData>
+		<SimpleData name="centro_gestor">Empréstito</SimpleData>
+		<SimpleData name="tipo_equipamiento">0</SimpleData>
+		<SimpleData name="fuente_financiacion">Cra 10 &amp; Cra 14 entre Cl 15 &amp; Cl 20</SimpleData>
+		<SimpleData name="index_right">0</SimpleData>
+		<SimpleData name="Direccion">2.61103186237e-05</SimpleData>
+		<SimpleData name="Barrios">0.0205690039526</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-76.52362,3.448017</coordinates></Point>
+  </Placemark>
+  <Placemark id="Superposicion_Espacial_EPSG4326.10">
+	<name>UNP-530</name>
+	<description>1</description>
+	<ExtendedData><SchemaData schemaUrl="#Superposicion_Espacial_EPSG4326">
+		<SimpleData name="upid">biblioteca pública arco iris</SimpleData>
+		<SimpleData name="has_valid_geometry">0</SimpleData>
+		<SimpleData name="nombre_up">Mójica II</SimpleData>
+		<SimpleData name="comuna_corregimiento">En ejecución</SimpleData>
+		<SimpleData name="barrio_vereda">Cra. 26t No. 72w-31</SimpleData>
+		<SimpleData name="estado">2025</SimpleData>
+		<SimpleData name="direccion">15077676</SimpleData>
+		<SimpleData name="presupuesto_base">80</SimpleData>
+		<SimpleData name="presupuesto_total_up">2147483648</SimpleData>
+		<SimpleData name="avance_obra">0</SimpleData>
+		<SimpleData name="tipo_intervencion">Secretaría de Cultura</SimpleData>
+		<SimpleData name="nombre_centro_gestor">Bibliotecas</SimpleData>
+		<SimpleData name="centro_gestor">Recursos propios</SimpleData>
+		<SimpleData name="tipo_equipamiento">7</SimpleData>
+		<SimpleData name="fuente_financiacion">Cl 81 &amp; Cl 91 entre Cra 28E6 &amp; Cra 29</SimpleData>
+		<SimpleData name="index_right">0</SimpleData>
+		<SimpleData name="Direccion">1.07671111633e-05</SimpleData>
+		<SimpleData name="Barrios">0.0131597483543</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-76.489484,3.412772</coordinates></Point>
+  </Placemark>
+  <Placemark id="Superposicion_Espacial_EPSG4326.11">
+	<name>UNP-589</name>
+	<description>1</description>
+	<ExtendedData><SchemaData schemaUrl="#Superposicion_Espacial_EPSG4326">
+		<SimpleData name="upid">Subsidios de Mejoramiento de Vivienda</SimpleData>
+		<SimpleData name="has_valid_geometry">0</SimpleData>
+		<SimpleData name="nombre_up">EL VERGEL</SimpleData>
+		<SimpleData name="comuna_corregimiento">En alistamiento</SimpleData>
+		<SimpleData name="barrio_vereda">CALLE 47 # 33C - 55</SimpleData>
+		<SimpleData name="direccion">13508030</SimpleData>
+		<SimpleData name="presupuesto_base">0</SimpleData>
+		<SimpleData name="presupuesto_total_up">2147483648</SimpleData>
+		<SimpleData name="avance_obra">0</SimpleData>
+		<SimpleData name="tipo_intervencion">Secretaría de Vivienda Social y Habitat</SimpleData>
+		<SimpleData name="nombre_centro_gestor">Vivienda mejoramiento</SimpleData>
+		<SimpleData name="centro_gestor">Empréstito</SimpleData>
+		<SimpleData name="tipo_equipamiento">4</SimpleData>
+		<SimpleData name="fuente_financiacion">Cra 31 &amp; 34 entre Cl 46 &amp; 48 A</SimpleData>
+		<SimpleData name="index_right">0</SimpleData>
+		<SimpleData name="Direccion">1.43416715056e-05</SimpleData>
+		<SimpleData name="Barrios">0.0152877045989</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-76.499723,3.412817</coordinates></Point>
+  </Placemark>
+  <Placemark id="Superposicion_Espacial_EPSG4326.12">
+	<name>UNP-592</name>
+	<description>1</description>
+	<ExtendedData><SchemaData schemaUrl="#Superposicion_Espacial_EPSG4326">
+		<SimpleData name="upid">Subsidios de Mejoramiento de Vivienda</SimpleData>
+		<SimpleData name="has_valid_geometry">0</SimpleData>
+		<SimpleData name="nombre_up">MANUELA BELTRAN</SimpleData>
+		<SimpleData name="comuna_corregimiento">En alistamiento</SimpleData>
+		<SimpleData name="barrio_vereda">CARRERA 26T # 106 - 04 APT 101</SimpleData>
+		<SimpleData name="direccion">13499172</SimpleData>
+		<SimpleData name="presupuesto_base">0</SimpleData>
+		<SimpleData name="presupuesto_total_up">2147483648</SimpleData>
+		<SimpleData name="avance_obra">0</SimpleData>
+		<SimpleData name="tipo_intervencion">Secretaría de Vivienda Social y Habitat</SimpleData>
+		<SimpleData name="nombre_centro_gestor">Vivienda mejoramiento</SimpleData>
+		<SimpleData name="centro_gestor">Empréstito</SimpleData>
+		<SimpleData name="tipo_equipamiento">3</SimpleData>
+		<SimpleData name="fuente_financiacion">Dg 26p18 &amp; Cra 27 entre Tv 103 &amp; 108</SimpleData>
+		<SimpleData name="index_right">0</SimpleData>
+		<SimpleData name="Direccion">1.13650319203e-05</SimpleData>
+		<SimpleData name="Barrios">0.0139483829261</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-76.476726,3.41772</coordinates></Point>
+  </Placemark>
+  <Placemark id="Superposicion_Espacial_EPSG4326.13">
+	<name>UNP-597</name>
+	<description>1</description>
+	<ExtendedData><SchemaData schemaUrl="#Superposicion_Espacial_EPSG4326">
+		<SimpleData name="upid">Subsidios de Mejoramiento de Vivienda</SimpleData>
+		<SimpleData name="has_valid_geometry">0</SimpleData>
+		<SimpleData name="nombre_up">MANUELA BELTRAN</SimpleData>
+		<SimpleData name="comuna_corregimiento">En alistamiento</SimpleData>
+		<SimpleData name="barrio_vereda">CALLE 107 # 26 O - 31</SimpleData>
+		<SimpleData name="direccion">13146199</SimpleData>
+		<SimpleData name="presupuesto_base">0</SimpleData>
+		<SimpleData name="presupuesto_total_up">2147483648</SimpleData>
+		<SimpleData name="avance_obra">0</SimpleData>
+		<SimpleData name="tipo_intervencion">Secretaría de Vivienda Social y Habitat</SimpleData>
+		<SimpleData name="nombre_centro_gestor">Vivienda mejoramiento</SimpleData>
+		<SimpleData name="centro_gestor">Empréstito</SimpleData>
+		<SimpleData name="tipo_equipamiento">3</SimpleData>
+		<SimpleData name="fuente_financiacion">Dg 26p18 &amp; Cra 27 entre Tv 103 &amp; 108</SimpleData>
+		<SimpleData name="index_right">0</SimpleData>
+		<SimpleData name="Direccion">1.13650319203e-05</SimpleData>
+		<SimpleData name="Barrios">0.0139483829261</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-76.475471,3.418544</coordinates></Point>
+  </Placemark>
+  <Placemark id="Superposicion_Espacial_EPSG4326.14">
+	<name>UNP-610</name>
+	<description>1</description>
+	<ExtendedData><SchemaData schemaUrl="#Superposicion_Espacial_EPSG4326">
+		<SimpleData name="upid">Subsidios de Mejoramiento de Vivienda</SimpleData>
+		<SimpleData name="has_valid_geometry">0</SimpleData>
+		<SimpleData name="nombre_up">EL VALLADO</SimpleData>
+		<SimpleData name="comuna_corregimiento">En alistamiento</SimpleData>
+		<SimpleData name="barrio_vereda">CARRERA 41C # 48 - 81</SimpleData>
+		<SimpleData name="direccion">13522028</SimpleData>
+		<SimpleData name="presupuesto_base">0</SimpleData>
+		<SimpleData name="presupuesto_total_up">2147483648</SimpleData>
+		<SimpleData name="avance_obra">0</SimpleData>
+		<SimpleData name="tipo_intervencion">Secretaría de Vivienda Social y Habitat</SimpleData>
+		<SimpleData name="nombre_centro_gestor">Vivienda mejoramiento</SimpleData>
+		<SimpleData name="centro_gestor">Empréstito</SimpleData>
+		<SimpleData name="tipo_equipamiento">9</SimpleData>
+		<SimpleData name="fuente_financiacion">Cra 41B &amp; 47A entre Cl 44 &amp; Cl 54</SimpleData>
+		<SimpleData name="index_right">0</SimpleData>
+		<SimpleData name="Direccion">0.000109678129549</SimpleData>
+		<SimpleData name="Barrios">0.0424370245573</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-76.503716,3.407259</coordinates></Point>
+  </Placemark>
+  <Placemark id="Superposicion_Espacial_EPSG4326.15">
+	<name>UNP-612</name>
+	<description>1</description>
+	<ExtendedData><SchemaData schemaUrl="#Superposicion_Espacial_EPSG4326">
+		<SimpleData name="upid">Subsidios de Mejoramiento de Vivienda</SimpleData>
+		<SimpleData name="has_valid_geometry">0</SimpleData>
+		<SimpleData name="nombre_up">MOJICA</SimpleData>
+		<SimpleData name="comuna_corregimiento">En alistamiento</SimpleData>
+		<SimpleData name="barrio_vereda">CALLE 83B # 28E 6 - 97</SimpleData>
+		<SimpleData name="direccion">13514240</SimpleData>
+		<SimpleData name="presupuesto_base">0</SimpleData>
+		<SimpleData name="presupuesto_total_up">2147483648</SimpleData>
+		<SimpleData name="avance_obra">0</SimpleData>
+		<SimpleData name="tipo_intervencion">Secretaría de Vivienda Social y Habitat</SimpleData>
+		<SimpleData name="nombre_centro_gestor">Vivienda mejoramiento</SimpleData>
+		<SimpleData name="centro_gestor">Empréstito</SimpleData>
+		<SimpleData name="tipo_equipamiento">7</SimpleData>
+		<SimpleData name="fuente_financiacion">Cl 81 &amp; Cl 91 entre Cra 28E6 &amp; Cra 29</SimpleData>
+		<SimpleData name="index_right">0</SimpleData>
+		<SimpleData name="Direccion">1.07671111633e-05</SimpleData>
+		<SimpleData name="Barrios">0.0131597483543</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-76.489723,3.413286</coordinates></Point>
+  </Placemark>
+  <Placemark id="Superposicion_Espacial_EPSG4326.16">
+	<name>UNP-615</name>
+	<description>1</description>
+	<ExtendedData><SchemaData schemaUrl="#Superposicion_Espacial_EPSG4326">
+		<SimpleData name="upid">Subsidios de Mejoramiento de Vivienda</SimpleData>
+		<SimpleData name="has_valid_geometry">0</SimpleData>
+		<SimpleData name="nombre_up">SUCRE</SimpleData>
+		<SimpleData name="comuna_corregimiento">En alistamiento</SimpleData>
+		<SimpleData name="barrio_vereda">CALLE 18 # 13-32</SimpleData>
+		<SimpleData name="direccion">13515407</SimpleData>
+		<SimpleData name="presupuesto_base">0</SimpleData>
+		<SimpleData name="presupuesto_total_up">2147483648</SimpleData>
+		<SimpleData name="avance_obra">0</SimpleData>
+		<SimpleData name="tipo_intervencion">Secretaría de Vivienda Social y Habitat</SimpleData>
+		<SimpleData name="nombre_centro_gestor">Vivienda mejoramiento</SimpleData>
+		<SimpleData name="centro_gestor">Empréstito</SimpleData>
+		<SimpleData name="tipo_equipamiento">0</SimpleData>
+		<SimpleData name="fuente_financiacion">Cra 10 &amp; Cra 14 entre Cl 15 &amp; Cl 20</SimpleData>
+		<SimpleData name="index_right">0</SimpleData>
+		<SimpleData name="Direccion">2.61103186237e-05</SimpleData>
+		<SimpleData name="Barrios">0.0205690039526</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-76.524109,3.444951</coordinates></Point>
+  </Placemark>
+  <Placemark id="Superposicion_Espacial_EPSG4326.17">
+	<name>UNP-625</name>
+	<description>1</description>
+	<ExtendedData><SchemaData schemaUrl="#Superposicion_Espacial_EPSG4326">
+		<SimpleData name="upid">Subsidios de Mejoramiento de Vivienda</SimpleData>
+		<SimpleData name="has_valid_geometry">0</SimpleData>
+		<SimpleData name="nombre_up">SUCRE</SimpleData>
+		<SimpleData name="comuna_corregimiento">En alistamiento</SimpleData>
+		<SimpleData name="barrio_vereda">CALLE 20 # 13-52</SimpleData>
+		<SimpleData name="direccion">13172383</SimpleData>
+		<SimpleData name="presupuesto_base">0</SimpleData>
+		<SimpleData name="presupuesto_total_up">2147483648</SimpleData>
+		<SimpleData name="avance_obra">0</SimpleData>
+		<SimpleData name="tipo_intervencion">Secretaría de Vivienda Social y Habitat</SimpleData>
+		<SimpleData name="nombre_centro_gestor">Vivienda mejoramiento</SimpleData>
+		<SimpleData name="centro_gestor">Empréstito</SimpleData>
+		<SimpleData name="tipo_equipamiento">0</SimpleData>
+		<SimpleData name="fuente_financiacion">Cra 10 &amp; Cra 14 entre Cl 15 &amp; Cl 20</SimpleData>
+		<SimpleData name="index_right">0</SimpleData>
+		<SimpleData name="Direccion">2.61103186237e-05</SimpleData>
+		<SimpleData name="Barrios">0.0205690039526</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-76.5223,3.445181</coordinates></Point>
+  </Placemark>
+  <Placemark id="Superposicion_Espacial_EPSG4326.18">
+	<name>UNP-626</name>
+	<description>1</description>
+	<ExtendedData><SchemaData schemaUrl="#Superposicion_Espacial_EPSG4326">
+		<SimpleData name="upid">Subsidios de Mejoramiento de Vivienda</SimpleData>
+		<SimpleData name="has_valid_geometry">0</SimpleData>
+		<SimpleData name="nombre_up">SUCRE</SimpleData>
+		<SimpleData name="comuna_corregimiento">En alistamiento</SimpleData>
+		<SimpleData name="barrio_vereda">CARRERA 13 # 17 - 28</SimpleData>
+		<SimpleData name="direccion">13523081</SimpleData>
+		<SimpleData name="presupuesto_base">0</SimpleData>
+		<SimpleData name="presupuesto_total_up">2147483648</SimpleData>
+		<SimpleData name="avance_obra">0</SimpleData>
+		<SimpleData name="tipo_intervencion">Secretaría de Vivienda Social y Habitat</SimpleData>
+		<SimpleData name="nombre_centro_gestor">Vivienda mejoramiento</SimpleData>
+		<SimpleData name="centro_gestor">Empréstito</SimpleData>
+		<SimpleData name="tipo_equipamiento">0</SimpleData>
+		<SimpleData name="fuente_financiacion">Cra 10 &amp; Cra 14 entre Cl 15 &amp; Cl 20</SimpleData>
+		<SimpleData name="index_right">0</SimpleData>
+		<SimpleData name="Direccion">2.61103186237e-05</SimpleData>
+		<SimpleData name="Barrios">0.0205690039526</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-76.5244,3.445041</coordinates></Point>
+  </Placemark>
+  <Placemark id="Superposicion_Espacial_EPSG4326.19">
+	<name>UNP-627</name>
+	<description>1</description>
+	<ExtendedData><SchemaData schemaUrl="#Superposicion_Espacial_EPSG4326">
+		<SimpleData name="upid">Subsidios de Mejoramiento de Vivienda</SimpleData>
+		<SimpleData name="has_valid_geometry">0</SimpleData>
+		<SimpleData name="nombre_up">SUCRE</SimpleData>
+		<SimpleData name="comuna_corregimiento">En alistamiento</SimpleData>
+		<SimpleData name="barrio_vereda">CALLE 20 # 12 -35</SimpleData>
+		<SimpleData name="direccion">13512155</SimpleData>
+		<SimpleData name="presupuesto_base">0</SimpleData>
+		<SimpleData name="presupuesto_total_up">2147483648</SimpleData>
+		<SimpleData name="avance_obra">0</SimpleData>
+		<SimpleData name="tipo_intervencion">Secretaría de Vivienda Social y Habitat</SimpleData>
+		<SimpleData name="nombre_centro_gestor">Vivienda mejoramiento</SimpleData>
+		<SimpleData name="centro_gestor">Empréstito</SimpleData>
+		<SimpleData name="tipo_equipamiento">0</SimpleData>
+		<SimpleData name="fuente_financiacion">Cra 10 &amp; Cra 14 entre Cl 15 &amp; Cl 20</SimpleData>
+		<SimpleData name="index_right">0</SimpleData>
+		<SimpleData name="Direccion">2.61103186237e-05</SimpleData>
+		<SimpleData name="Barrios">0.0205690039526</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-76.522008,3.445563</coordinates></Point>
+  </Placemark>
+  <Placemark id="Superposicion_Espacial_EPSG4326.20">
+	<name>UNP-628</name>
+	<description>1</description>
+	<ExtendedData><SchemaData schemaUrl="#Superposicion_Espacial_EPSG4326">
+		<SimpleData name="upid">Subsidios de Mejoramiento de Vivienda</SimpleData>
+		<SimpleData name="has_valid_geometry">0</SimpleData>
+		<SimpleData name="nombre_up">BARRIO OBRERO</SimpleData>
+		<SimpleData name="comuna_corregimiento">En alistamiento</SimpleData>
+		<SimpleData name="barrio_vereda">CALLE 20 # 12 - 53</SimpleData>
+		<SimpleData name="direccion">13396944</SimpleData>
+		<SimpleData name="presupuesto_base">0</SimpleData>
+		<SimpleData name="presupuesto_total_up">2147483648</SimpleData>
+		<SimpleData name="avance_obra">0</SimpleData>
+		<SimpleData name="tipo_intervencion">Secretaría de Vivienda Social y Habitat</SimpleData>
+		<SimpleData name="nombre_centro_gestor">Vivienda mejoramiento</SimpleData>
+		<SimpleData name="centro_gestor">Empréstito</SimpleData>
+		<SimpleData name="tipo_equipamiento">0</SimpleData>
+		<SimpleData name="fuente_financiacion">Cra 10 &amp; Cra 14 entre Cl 15 &amp; Cl 20</SimpleData>
+		<SimpleData name="index_right">0</SimpleData>
+		<SimpleData name="Direccion">2.61103186237e-05</SimpleData>
+		<SimpleData name="Barrios">0.0205690039526</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-76.521983,3.445401</coordinates></Point>
+  </Placemark>
+  <Placemark id="Superposicion_Espacial_EPSG4326.21">
+	<name>UNP-629</name>
+	<description>1</description>
+	<ExtendedData><SchemaData schemaUrl="#Superposicion_Espacial_EPSG4326">
+		<SimpleData name="upid">Subsidios de Mejoramiento de Vivienda</SimpleData>
+		<SimpleData name="has_valid_geometry">0</SimpleData>
+		<SimpleData name="nombre_up">SUCRE</SimpleData>
+		<SimpleData name="comuna_corregimiento">En alistamiento</SimpleData>
+		<SimpleData name="barrio_vereda">CARRERA 12 # 19 - 18</SimpleData>
+		<SimpleData name="direccion">13519370</SimpleData>
+		<SimpleData name="presupuesto_base">0</SimpleData>
+		<SimpleData name="presupuesto_total_up">2147483648</SimpleData>
+		<SimpleData name="avance_obra">0</SimpleData>
+		<SimpleData name="tipo_intervencion">Secretaría de Vivienda Social y Habitat</SimpleData>
+		<SimpleData name="nombre_centro_gestor">Vivienda mejoramiento</SimpleData>
+		<SimpleData name="centro_gestor">Empréstito</SimpleData>
+		<SimpleData name="tipo_equipamiento">0</SimpleData>
+		<SimpleData name="fuente_financiacion">Cra 10 &amp; Cra 14 entre Cl 15 &amp; Cl 20</SimpleData>
+		<SimpleData name="index_right">0</SimpleData>
+		<SimpleData name="Direccion">2.61103186237e-05</SimpleData>
+		<SimpleData name="Barrios">0.0205690039526</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-76.523037,3.445825</coordinates></Point>
+  </Placemark>
+  <Placemark id="Superposicion_Espacial_EPSG4326.22">
+	<name>UNP-673</name>
+	<description>1</description>
+	<ExtendedData><SchemaData schemaUrl="#Superposicion_Espacial_EPSG4326">
+		<SimpleData name="upid">Subsidios de Mejoramiento de Vivienda</SimpleData>
+		<SimpleData name="has_valid_geometry">0</SimpleData>
+		<SimpleData name="nombre_up">EL VERGEL</SimpleData>
+		<SimpleData name="comuna_corregimiento">En alistamiento</SimpleData>
+		<SimpleData name="barrio_vereda">CALLE 46 BIS # 34 - 19</SimpleData>
+		<SimpleData name="direccion">8331036</SimpleData>
+		<SimpleData name="presupuesto_base">0</SimpleData>
+		<SimpleData name="presupuesto_total_up">2147483648</SimpleData>
+		<SimpleData name="avance_obra">0</SimpleData>
+		<SimpleData name="tipo_intervencion">Secretaría de Vivienda Social y Habitat</SimpleData>
+		<SimpleData name="nombre_centro_gestor">Vivienda mejoramiento</SimpleData>
+		<SimpleData name="centro_gestor">Empréstito</SimpleData>
+		<SimpleData name="tipo_equipamiento">4</SimpleData>
+		<SimpleData name="fuente_financiacion">Cra 31 &amp; 34 entre Cl 46 &amp; 48 A</SimpleData>
+		<SimpleData name="index_right">0</SimpleData>
+		<SimpleData name="Direccion">1.43416715056e-05</SimpleData>
+		<SimpleData name="Barrios">0.0152877045989</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-76.500779,3.413477</coordinates></Point>
+  </Placemark>
+  <Placemark id="Superposicion_Espacial_EPSG4326.23">
+	<name>UNP-676</name>
+	<description>1</description>
+	<ExtendedData><SchemaData schemaUrl="#Superposicion_Espacial_EPSG4326">
+		<SimpleData name="upid">Subsidios de Mejoramiento de Vivienda</SimpleData>
+		<SimpleData name="has_valid_geometry">0</SimpleData>
+		<SimpleData name="nombre_up">JOSE MANUEL MARROQUIN I ETAPA</SimpleData>
+		<SimpleData name="comuna_corregimiento">En alistamiento</SimpleData>
+		<SimpleData name="barrio_vereda">CARRERA 26 S # 103 A - 25 APT 102</SimpleData>
+		<SimpleData name="direccion">13461612</SimpleData>
+		<SimpleData name="presupuesto_base">0</SimpleData>
+		<SimpleData name="presupuesto_total_up">2147483648</SimpleData>
+		<SimpleData name="avance_obra">0</SimpleData>
+		<SimpleData name="tipo_intervencion">Secretaría de Vivienda Social y Habitat</SimpleData>
+		<SimpleData name="nombre_centro_gestor">Vivienda mejoramiento</SimpleData>
+		<SimpleData name="centro_gestor">Empréstito</SimpleData>
+		<SimpleData name="tipo_equipamiento">3</SimpleData>
+		<SimpleData name="fuente_financiacion">Dg 26p18 &amp; Cra 27 entre Tv 103 &amp; 108</SimpleData>
+		<SimpleData name="index_right">0</SimpleData>
+		<SimpleData name="Direccion">1.13650319203e-05</SimpleData>
+		<SimpleData name="Barrios">0.0139483829261</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-76.477495,3.418489</coordinates></Point>
+  </Placemark>
+  <Placemark id="Superposicion_Espacial_EPSG4326.24">
+	<name>UNP-741</name>
+	<description>1</description>
+	<ExtendedData><SchemaData schemaUrl="#Superposicion_Espacial_EPSG4326">
+		<SimpleData name="upid">Subsidios de Mejoramiento de Vivienda</SimpleData>
+		<SimpleData name="has_valid_geometry">0</SimpleData>
+		<SimpleData name="nombre_up">LAUREANO GOMEZ</SimpleData>
+		<SimpleData name="comuna_corregimiento">En alistamiento</SimpleData>
+		<SimpleData name="barrio_vereda">CARRERA 30C # 48-63 PISO 2</SimpleData>
+		<SimpleData name="direccion">13508348</SimpleData>
+		<SimpleData name="presupuesto_base">0</SimpleData>
+		<SimpleData name="presupuesto_total_up">2147483648</SimpleData>
+		<SimpleData name="avance_obra">0</SimpleData>
+		<SimpleData name="tipo_intervencion">Secretaría de Vivienda Social y Habitat</SimpleData>
+		<SimpleData name="nombre_centro_gestor">Vivienda mejoramiento</SimpleData>
+		<SimpleData name="centro_gestor">Empréstito</SimpleData>
+		<SimpleData name="tipo_equipamiento">4</SimpleData>
+		<SimpleData name="fuente_financiacion">Cra 31 &amp; 34 entre Cl 46 &amp; 48 A</SimpleData>
+		<SimpleData name="index_right">0</SimpleData>
+		<SimpleData name="Direccion">1.43416715056e-05</SimpleData>
+		<SimpleData name="Barrios">0.0152877045989</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-76.496006,3.414638</coordinates></Point>
+  </Placemark>
+  <Placemark id="Superposicion_Espacial_EPSG4326.25">
+	<name>UNP-742</name>
+	<description>1</description>
+	<ExtendedData><SchemaData schemaUrl="#Superposicion_Espacial_EPSG4326">
+		<SimpleData name="upid">Subsidios de Mejoramiento de Vivienda</SimpleData>
+		<SimpleData name="has_valid_geometry">0</SimpleData>
+		<SimpleData name="nombre_up">LAUREANO GOMEZ</SimpleData>
+		<SimpleData name="comuna_corregimiento">En alistamiento</SimpleData>
+		<SimpleData name="barrio_vereda">CARRERA 32C # 48-42</SimpleData>
+		<SimpleData name="direccion">13511412</SimpleData>
+		<SimpleData name="presupuesto_base">0</SimpleData>
+		<SimpleData name="presupuesto_total_up">2147483648</SimpleData>
+		<SimpleData name="avance_obra">0</SimpleData>
+		<SimpleData name="tipo_intervencion">Secretaría de Vivienda Social y Habitat</SimpleData>
+		<SimpleData name="nombre_centro_gestor">Vivienda mejoramiento</SimpleData>
+		<SimpleData name="centro_gestor">Empréstito</SimpleData>
+		<SimpleData name="tipo_equipamiento">4</SimpleData>
+		<SimpleData name="fuente_financiacion">Cra 31 &amp; 34 entre Cl 46 &amp; 48 A</SimpleData>
+		<SimpleData name="index_right">0</SimpleData>
+		<SimpleData name="Direccion">1.43416715056e-05</SimpleData>
+		<SimpleData name="Barrios">0.0152877045989</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-76.497301,3.413594</coordinates></Point>
+  </Placemark>
+  <Placemark id="Superposicion_Espacial_EPSG4326.26">
+	<name>UNP-750</name>
+	<description>1</description>
+	<ExtendedData><SchemaData schemaUrl="#Superposicion_Espacial_EPSG4326">
+		<SimpleData name="upid">Subsidios de Mejoramiento de Vivienda</SimpleData>
+		<SimpleData name="has_valid_geometry">0</SimpleData>
+		<SimpleData name="nombre_up">LOS COMUNEROS I ETAPA</SimpleData>
+		<SimpleData name="comuna_corregimiento">En alistamiento</SimpleData>
+		<SimpleData name="barrio_vereda">CALLE 80 # 28F-40</SimpleData>
+		<SimpleData name="direccion">13463174</SimpleData>
+		<SimpleData name="presupuesto_base">0</SimpleData>
+		<SimpleData name="presupuesto_total_up">2147483648</SimpleData>
+		<SimpleData name="avance_obra">0</SimpleData>
+		<SimpleData name="tipo_intervencion">Secretaría de Vivienda Social y Habitat</SimpleData>
+		<SimpleData name="nombre_centro_gestor">Vivienda mejoramiento</SimpleData>
+		<SimpleData name="centro_gestor">Empréstito</SimpleData>
+		<SimpleData name="tipo_equipamiento">7</SimpleData>
+		<SimpleData name="fuente_financiacion">Cl 81 &amp; Cl 91 entre Cra 28E6 &amp; Cra 29</SimpleData>
+		<SimpleData name="index_right">0</SimpleData>
+		<SimpleData name="Direccion">1.07671111633e-05</SimpleData>
+		<SimpleData name="Barrios">0.0131597483543</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-76.491125,3.414345</coordinates></Point>
+  </Placemark>
+  <Placemark id="Superposicion_Espacial_EPSG4326.27">
+	<name>UNP-751</name>
+	<description>1</description>
+	<ExtendedData><SchemaData schemaUrl="#Superposicion_Espacial_EPSG4326">
+		<SimpleData name="upid">Subsidios de Mejoramiento de Vivienda</SimpleData>
+		<SimpleData name="has_valid_geometry">0</SimpleData>
+		<SimpleData name="nombre_up">LOS COMUNEROS I ETAPA</SimpleData>
+		<SimpleData name="comuna_corregimiento">En alistamiento</SimpleData>
+		<SimpleData name="barrio_vereda">CALLE 82 # 28F-82</SimpleData>
+		<SimpleData name="direccion">13514266</SimpleData>
+		<SimpleData name="presupuesto_base">0</SimpleData>
+		<SimpleData name="presupuesto_total_up">2147483648</SimpleData>
+		<SimpleData name="avance_obra">0</SimpleData>
+		<SimpleData name="tipo_intervencion">Secretaría de Vivienda Social y Habitat</SimpleData>
+		<SimpleData name="nombre_centro_gestor">Vivienda mejoramiento</SimpleData>
+		<SimpleData name="centro_gestor">Empréstito</SimpleData>
+		<SimpleData name="tipo_equipamiento">7</SimpleData>
+		<SimpleData name="fuente_financiacion">Cl 81 &amp; Cl 91 entre Cra 28E6 &amp; Cra 29</SimpleData>
+		<SimpleData name="index_right">0</SimpleData>
+		<SimpleData name="Direccion">1.07671111633e-05</SimpleData>
+		<SimpleData name="Barrios">0.0131597483543</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-76.490912,3.413646</coordinates></Point>
+  </Placemark>
+  <Placemark id="Superposicion_Espacial_EPSG4326.28">
+	<name>UNP-762</name>
+	<description>1</description>
+	<ExtendedData><SchemaData schemaUrl="#Superposicion_Espacial_EPSG4326">
+		<SimpleData name="upid">Subsidios de Mejoramiento de Vivienda</SimpleData>
+		<SimpleData name="has_valid_geometry">0</SimpleData>
+		<SimpleData name="nombre_up">LOS COMUNEROS I ETAPA</SimpleData>
+		<SimpleData name="comuna_corregimiento">En alistamiento</SimpleData>
+		<SimpleData name="barrio_vereda">CARRERA 28F #81-22</SimpleData>
+		<SimpleData name="direccion">13508020</SimpleData>
+		<SimpleData name="presupuesto_base">0</SimpleData>
+		<SimpleData name="presupuesto_total_up">2147483648</SimpleData>
+		<SimpleData name="avance_obra">0</SimpleData>
+		<SimpleData name="tipo_intervencion">Secretaría de Vivienda Social y Habitat</SimpleData>
+		<SimpleData name="nombre_centro_gestor">Vivienda mejoramiento</SimpleData>
+		<SimpleData name="centro_gestor">Empréstito</SimpleData>
+		<SimpleData name="tipo_equipamiento">7</SimpleData>
+		<SimpleData name="fuente_financiacion">Cl 81 &amp; Cl 91 entre Cra 28E6 &amp; Cra 29</SimpleData>
+		<SimpleData name="index_right">0</SimpleData>
+		<SimpleData name="Direccion">1.07671111633e-05</SimpleData>
+		<SimpleData name="Barrios">0.0131597483543</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-76.49057,3.414088</coordinates></Point>
+  </Placemark>
+  <Placemark id="Superposicion_Espacial_EPSG4326.29">
+	<name>UNP-767</name>
+	<description>1</description>
+	<ExtendedData><SchemaData schemaUrl="#Superposicion_Espacial_EPSG4326">
+		<SimpleData name="upid">Subsidios de Mejoramiento de Vivienda</SimpleData>
+		<SimpleData name="has_valid_geometry">0</SimpleData>
+		<SimpleData name="nombre_up">EL VALLADO</SimpleData>
+		<SimpleData name="comuna_corregimiento">En alistamiento</SimpleData>
+		<SimpleData name="barrio_vereda">CARRERA 41B # 52-02</SimpleData>
+		<SimpleData name="direccion">13520530</SimpleData>
+		<SimpleData name="presupuesto_base">0</SimpleData>
+		<SimpleData name="presupuesto_total_up">2147483648</SimpleData>
+		<SimpleData name="avance_obra">0</SimpleData>
+		<SimpleData name="tipo_intervencion">Secretaría de Vivienda Social y Habitat</SimpleData>
+		<SimpleData name="nombre_centro_gestor">Vivienda mejoramiento</SimpleData>
+		<SimpleData name="centro_gestor">Empréstito</SimpleData>
+		<SimpleData name="tipo_equipamiento">9</SimpleData>
+		<SimpleData name="fuente_financiacion">Cra 41B &amp; 47A entre Cl 44 &amp; Cl 54</SimpleData>
+		<SimpleData name="index_right">0</SimpleData>
+		<SimpleData name="Direccion">0.000109678129549</SimpleData>
+		<SimpleData name="Barrios">0.0424370245573</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-76.501905,3.405563</coordinates></Point>
+  </Placemark>
+  <Placemark id="Superposicion_Espacial_EPSG4326.30">
+	<name>UNP-771</name>
+	<description>1</description>
+	<ExtendedData><SchemaData schemaUrl="#Superposicion_Espacial_EPSG4326">
+		<SimpleData name="upid">Subsidios de Mejoramiento de Vivienda</SimpleData>
+		<SimpleData name="has_valid_geometry">0</SimpleData>
+		<SimpleData name="nombre_up">LOS COMUNEROS I ETAPA</SimpleData>
+		<SimpleData name="comuna_corregimiento">En alistamiento</SimpleData>
+		<SimpleData name="barrio_vereda">CALLE 82 # 28F-51</SimpleData>
+		<SimpleData name="direccion">11659331</SimpleData>
+		<SimpleData name="presupuesto_base">0</SimpleData>
+		<SimpleData name="presupuesto_total_up">2147483648</SimpleData>
+		<SimpleData name="avance_obra">0</SimpleData>
+		<SimpleData name="tipo_intervencion">Secretaría de Vivienda Social y Habitat</SimpleData>
+		<SimpleData name="nombre_centro_gestor">Vivienda mejoramiento</SimpleData>
+		<SimpleData name="centro_gestor">Empréstito</SimpleData>
+		<SimpleData name="tipo_equipamiento">7</SimpleData>
+		<SimpleData name="fuente_financiacion">Cl 81 &amp; Cl 91 entre Cra 28E6 &amp; Cra 29</SimpleData>
+		<SimpleData name="index_right">0</SimpleData>
+		<SimpleData name="Direccion">1.07671111633e-05</SimpleData>
+		<SimpleData name="Barrios">0.0131597483543</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-76.490622,3.413653</coordinates></Point>
+  </Placemark>
+  <Placemark id="Superposicion_Espacial_EPSG4326.31">
+	<name>UNP-773</name>
+	<description>1</description>
+	<ExtendedData><SchemaData schemaUrl="#Superposicion_Espacial_EPSG4326">
+		<SimpleData name="upid">Subsidios de Mejoramiento de Vivienda</SimpleData>
+		<SimpleData name="has_valid_geometry">0</SimpleData>
+		<SimpleData name="nombre_up">EL VALLADO</SimpleData>
+		<SimpleData name="comuna_corregimiento">En alistamiento</SimpleData>
+		<SimpleData name="barrio_vereda">CARRERA 41 C #48-75</SimpleData>
+		<SimpleData name="direccion">13508007</SimpleData>
+		<SimpleData name="presupuesto_base">0</SimpleData>
+		<SimpleData name="presupuesto_total_up">2147483648</SimpleData>
+		<SimpleData name="avance_obra">0</SimpleData>
+		<SimpleData name="tipo_intervencion">Secretaría de Vivienda Social y Habitat</SimpleData>
+		<SimpleData name="nombre_centro_gestor">Vivienda mejoramiento</SimpleData>
+		<SimpleData name="centro_gestor">Empréstito</SimpleData>
+		<SimpleData name="tipo_equipamiento">9</SimpleData>
+		<SimpleData name="fuente_financiacion">Cra 41B &amp; 47A entre Cl 44 &amp; Cl 54</SimpleData>
+		<SimpleData name="index_right">0</SimpleData>
+		<SimpleData name="Direccion">0.000109678129549</SimpleData>
+		<SimpleData name="Barrios">0.0424370245573</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-76.503753,3.407299</coordinates></Point>
+  </Placemark>
+  <Placemark id="Superposicion_Espacial_EPSG4326.32">
+	<name>UNP-781</name>
+	<description>1</description>
+	<ExtendedData><SchemaData schemaUrl="#Superposicion_Espacial_EPSG4326">
+		<SimpleData name="upid">Subsidios de Mejoramiento de Vivienda</SimpleData>
+		<SimpleData name="has_valid_geometry">0</SimpleData>
+		<SimpleData name="nombre_up">LOS COMUNEROS I ETAPA</SimpleData>
+		<SimpleData name="comuna_corregimiento">En alistamiento</SimpleData>
+		<SimpleData name="barrio_vereda">CALLE 80 # 28F-83</SimpleData>
+		<SimpleData name="direccion">13435234</SimpleData>
+		<SimpleData name="presupuesto_base">0</SimpleData>
+		<SimpleData name="presupuesto_total_up">2147483648</SimpleData>
+		<SimpleData name="avance_obra">0</SimpleData>
+		<SimpleData name="tipo_intervencion">Secretaría de Vivienda Social y Habitat</SimpleData>
+		<SimpleData name="nombre_centro_gestor">Vivienda mejoramiento</SimpleData>
+		<SimpleData name="centro_gestor">Empréstito</SimpleData>
+		<SimpleData name="tipo_equipamiento">7</SimpleData>
+		<SimpleData name="fuente_financiacion">Cl 81 &amp; Cl 91 entre Cra 28E6 &amp; Cra 29</SimpleData>
+		<SimpleData name="index_right">0</SimpleData>
+		<SimpleData name="Direccion">1.07671111633e-05</SimpleData>
+		<SimpleData name="Barrios">0.0131597483543</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-76.491259,3.414033</coordinates></Point>
+  </Placemark>
+  <Placemark id="Superposicion_Espacial_EPSG4326.33">
+	<name>UNP-884</name>
+	<description>1</description>
+	<ExtendedData><SchemaData schemaUrl="#Superposicion_Espacial_EPSG4326">
+		<SimpleData name="upid">I.E. Francisco de Paula Santander</SimpleData>
+		<SimpleData name="has_valid_geometry">0</SimpleData>
+		<SimpleData name="nombre_up">El Jardin</SimpleData>
+		<SimpleData name="comuna_corregimiento">Finalizado</SimpleData>
+		<SimpleData name="estado">2024</SimpleData>
+		<SimpleData name="direccion">13742215</SimpleData>
+		<SimpleData name="presupuesto_base">100</SimpleData>
+		<SimpleData name="presupuesto_total_up">2147483648</SimpleData>
+		<SimpleData name="avance_obra">0</SimpleData>
+		<SimpleData name="tipo_intervencion">Secretaría de Educación</SimpleData>
+		<SimpleData name="nombre_centro_gestor">Institución Educativa</SimpleData>
+		<SimpleData name="centro_gestor">Recursos propios</SimpleData>
+		<SimpleData name="tipo_equipamiento">10</SimpleData>
+		<SimpleData name="fuente_financiacion">Cra 25 &amp; 32 entre calles 19 y 26B</SimpleData>
+		<SimpleData name="index_right">0</SimpleData>
+		<SimpleData name="Direccion">0</SimpleData>
+		<SimpleData name="Barrios">0</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-76.519481,3.426008</coordinates></Point>
+  </Placemark>
+  <Placemark id="Superposicion_Espacial_EPSG4326.34">
+	<name>UNP-888</name>
+	<description>1</description>
+	<ExtendedData><SchemaData schemaUrl="#Superposicion_Espacial_EPSG4326">
+		<SimpleData name="upid">I.E. Francisco de Paula Santander</SimpleData>
+		<SimpleData name="has_valid_geometry">0</SimpleData>
+		<SimpleData name="nombre_up">El Jardin</SimpleData>
+		<SimpleData name="comuna_corregimiento">Finalizado</SimpleData>
+		<SimpleData name="estado">2024</SimpleData>
+		<SimpleData name="direccion">44866303</SimpleData>
+		<SimpleData name="presupuesto_base">100</SimpleData>
+		<SimpleData name="presupuesto_total_up">2147483648</SimpleData>
+		<SimpleData name="avance_obra">0</SimpleData>
+		<SimpleData name="tipo_intervencion">Secretaría de Educación</SimpleData>
+		<SimpleData name="nombre_centro_gestor">Institución Educativa</SimpleData>
+		<SimpleData name="centro_gestor">Recursos propios</SimpleData>
+		<SimpleData name="tipo_equipamiento">10</SimpleData>
+		<SimpleData name="fuente_financiacion">Cra 25 &amp; 32 entre calles 19 y 26B</SimpleData>
+		<SimpleData name="index_right">0</SimpleData>
+		<SimpleData name="Direccion">0</SimpleData>
+		<SimpleData name="Barrios">0</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-76.519481,3.426008</coordinates></Point>
+  </Placemark>
+  <Placemark id="Superposicion_Espacial_EPSG4326.35">
+	<name>UNP-929</name>
+	<description>1</description>
+	<ExtendedData><SchemaData schemaUrl="#Superposicion_Espacial_EPSG4326">
+		<SimpleData name="upid">I.E. JUAN PABLO II</SimpleData>
+		<SimpleData name="has_valid_geometry">0</SimpleData>
+		<SimpleData name="nombre_up">Prados del Sur</SimpleData>
+		<SimpleData name="comuna_corregimiento">Finalizado</SimpleData>
+		<SimpleData name="estado">2024</SimpleData>
+		<SimpleData name="direccion">5890509</SimpleData>
+		<SimpleData name="presupuesto_base">100</SimpleData>
+		<SimpleData name="presupuesto_total_up">2147483648</SimpleData>
+		<SimpleData name="avance_obra">0</SimpleData>
+		<SimpleData name="tipo_intervencion">Secretaría de Educación</SimpleData>
+		<SimpleData name="nombre_centro_gestor">Institución Educativa</SimpleData>
+		<SimpleData name="centro_gestor">Recursos propios</SimpleData>
+		<SimpleData name="tipo_equipamiento">2</SimpleData>
+		<SimpleData name="fuente_financiacion">Cra 73 &amp; Cra 87 Oeste entre Cl 2a Oe &amp; Cl 4a Oe</SimpleData>
+		<SimpleData name="index_right">0</SimpleData>
+		<SimpleData name="Direccion">3.09592764368e-05</SimpleData>
+		<SimpleData name="Barrios">0.0234460091783</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-76.559786,3.388144</coordinates></Point>
+  </Placemark>
+</Folder>
+</Document></kml>
