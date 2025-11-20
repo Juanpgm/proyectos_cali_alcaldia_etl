@@ -1,0 +1,766 @@
+[
+  {
+    "document_id": "IDX_1",
+    "upid": null,
+    "nombre_up": "",
+    "nombre_centro_gestor": "Centro de Pruebas B",
+    "record_index": 1,
+    "report_id": "QC_20251120_031008_de6cf2d0",
+    "report_timestamp": "2025-11-20T03:10:08.169508",
+    "total_issues": 10,
+    "max_severity": "CRITICAL",
+    "severity_counts": {
+      "CRITICAL": 6,
+      "HIGH": 4
+    },
+    "dimension_counts": {
+      "Completitud": 7,
+      "Exactitud Posicional": 1,
+      "Exactitud Temática": 1,
+      "Calidad Temporal": 1
+    },
+    "affected_fields": [
+      "comuna_corregimiento",
+      "avance_obra",
+      "nombre_up",
+      "estado",
+      "upid",
+      "upid/bpin/identificador",
+      "direccion",
+      "geometry",
+      "tipo_intervencion",
+      "fecha_inicio"
+    ],
+    "affected_fields_count": 10,
+    "issues": [
+      {
+        "rule_id": "CO001",
+        "rule_name": "Campos obligatorios presentes",
+        "dimension": "Completitud",
+        "severity": "CRITICAL",
+        "field_name": "comuna_corregimiento",
+        "current_value": null,
+        "expected_value": "Valor requerido",
+        "details": "Campo obligatorio vacío o nulo: comuna_corregimiento",
+        "suggestion": "Completar el campo comuna_corregimiento",
+        "detected_at": "2025-11-20T03:10:08.167505"
+      },
+      {
+        "rule_id": "CO001",
+        "rule_name": "Campos obligatorios presentes",
+        "dimension": "Completitud",
+        "severity": "CRITICAL",
+        "field_name": "avance_obra",
+        "current_value": null,
+        "expected_value": "Valor requerido",
+        "details": "Campo obligatorio vacío o nulo: avance_obra",
+        "suggestion": "Completar el campo avance_obra",
+        "detected_at": "2025-11-20T03:10:08.167505"
+      },
+      {
+        "rule_id": "CO001",
+        "rule_name": "Campos obligatorios presentes",
+        "dimension": "Completitud",
+        "severity": "CRITICAL",
+        "field_name": "nombre_up",
+        "current_value": null,
+        "expected_value": "Valor requerido",
+        "details": "Campo obligatorio vacío o nulo: nombre_up",
+        "suggestion": "Completar el campo nombre_up",
+        "detected_at": "2025-11-20T03:10:08.167505"
+      },
+      {
+        "rule_id": "CO001",
+        "rule_name": "Campos obligatorios presentes",
+        "dimension": "Completitud",
+        "severity": "CRITICAL",
+        "field_name": "estado",
+        "current_value": null,
+        "expected_value": "Valor requerido",
+        "details": "Campo obligatorio vacío o nulo: estado",
+        "suggestion": "Completar el campo estado",
+        "detected_at": "2025-11-20T03:10:08.167505"
+      },
+      {
+        "rule_id": "CO001",
+        "rule_name": "Campos obligatorios presentes",
+        "dimension": "Completitud",
+        "severity": "CRITICAL",
+        "field_name": "upid",
+        "current_value": null,
+        "expected_value": "Valor requerido",
+        "details": "Campo obligatorio vacío o nulo: upid",
+        "suggestion": "Completar el campo upid",
+        "detected_at": "2025-11-20T03:10:08.167505"
+      },
+      {
+        "rule_id": "CO003",
+        "rule_name": "Identificador único presente",
+        "dimension": "Completitud",
+        "severity": "CRITICAL",
+        "field_name": "upid/bpin/identificador",
+        "current_value": null,
+        "expected_value": "Al menos uno requerido",
+        "details": "No existe ningún identificador único para el registro",
+        "suggestion": "Asignar UPID, BPIN o Identificador",
+        "detected_at": "2025-11-20T03:10:08.167505"
+      },
+      {
+        "rule_id": "CO006",
+        "rule_name": "Dirección presente",
+        "dimension": "Completitud",
+        "severity": "HIGH",
+        "field_name": "direccion",
+        "current_value": null,
+        "expected_value": "Dirección válida",
+        "details": "Registro sin dirección física",
+        "suggestion": "Completar la dirección del proyecto",
+        "detected_at": "2025-11-20T03:10:08.167505"
+      },
+      {
+        "rule_id": "PA001",
+        "rule_name": "Coordenadas dentro del bounding box de Cali",
+        "dimension": "Exactitud Posicional",
+        "severity": "HIGH",
+        "field_name": "geometry",
+        "current_value": "(-80.000000, 10.000000)",
+        "expected_value": "Lat: 3.35-3.56, Lon: -76.6--76.4",
+        "details": "Coordenadas fuera del área de Cali: (-80.000000, 10.000000)",
+        "suggestion": "Verificar y corregir coordenadas o sistema de referencia",
+        "detected_at": "2025-11-20T03:10:08.167505"
+      },
+      {
+        "rule_id": "TA002",
+        "rule_name": "Tipo de intervención válido",
+        "dimension": "Exactitud Temática",
+        "severity": "HIGH",
+        "field_name": "tipo_intervencion",
+        "current_value": "Tipo Inválido",
+        "expected_value": "Construcción Nueva, Rehabilitación, Ampliación, Adecuaciones y Mantenimientos, Mejoramiento",
+        "details": "Tipo de intervención no estándar: \"Tipo Inválido\"",
+        "suggestion": "Usar uno de: Construcción Nueva, Rehabilitación, Ampliación, Adecuaciones y Mantenimientos, Mejoramiento",
+        "detected_at": "2025-11-20T03:10:08.167505"
+      },
+      {
+        "rule_id": "TQ002",
+        "rule_name": "Formato de fecha válido",
+        "dimension": "Calidad Temporal",
+        "severity": "HIGH",
+        "field_name": "fecha_inicio",
+        "current_value": "2024-13-45",
+        "expected_value": "Fecha válida (DD/MM/YYYY o YYYY-MM-DD)",
+        "details": "Formato de fecha inválido en fecha_inicio: \"2024-13-45\"",
+        "suggestion": "Corregir al formato DD/MM/YYYY o YYYY-MM-DD",
+        "detected_at": "2025-11-20T03:10:08.168505"
+      }
+    ],
+    "priority": "URGENT",
+    "requires_immediate_action": true,
+    "created_at": "2025-11-20T03:10:08.169508",
+    "updated_at": "2025-11-20T03:10:08.169508"
+  },
+  {
+    "document_id": "IDX_2",
+    "upid": null,
+    "nombre_up": "Proyecto Incompleto",
+    "nombre_centro_gestor": "Centro de Pruebas C",
+    "record_index": 2,
+    "report_id": "QC_20251120_031008_de6cf2d0",
+    "report_timestamp": "2025-11-20T03:10:08.169508",
+    "total_issues": 8,
+    "max_severity": "CRITICAL",
+    "severity_counts": {
+      "CRITICAL": 7,
+      "HIGH": 1
+    },
+    "dimension_counts": {
+      "Completitud": 8
+    },
+    "affected_fields": [
+      "comuna_corregimiento",
+      "ano",
+      "avance_obra",
+      "estado",
+      "upid",
+      "tipo_intervencion",
+      "upid/bpin/identificador",
+      "direccion"
+    ],
+    "affected_fields_count": 8,
+    "issues": [
+      {
+        "rule_id": "CO001",
+        "rule_name": "Campos obligatorios presentes",
+        "dimension": "Completitud",
+        "severity": "CRITICAL",
+        "field_name": "comuna_corregimiento",
+        "current_value": null,
+        "expected_value": "Valor requerido",
+        "details": "Campo obligatorio vacío o nulo: comuna_corregimiento",
+        "suggestion": "Completar el campo comuna_corregimiento",
+        "detected_at": "2025-11-20T03:10:08.168505"
+      },
+      {
+        "rule_id": "CO001",
+        "rule_name": "Campos obligatorios presentes",
+        "dimension": "Completitud",
+        "severity": "CRITICAL",
+        "field_name": "ano",
+        "current_value": null,
+        "expected_value": "Valor requerido",
+        "details": "Campo obligatorio vacío o nulo: ano",
+        "suggestion": "Completar el campo ano",
+        "detected_at": "2025-11-20T03:10:08.168505"
+      },
+      {
+        "rule_id": "CO001",
+        "rule_name": "Campos obligatorios presentes",
+        "dimension": "Completitud",
+        "severity": "CRITICAL",
+        "field_name": "avance_obra",
+        "current_value": null,
+        "expected_value": "Valor requerido",
+        "details": "Campo obligatorio vacío o nulo: avance_obra",
+        "suggestion": "Completar el campo avance_obra",
+        "detected_at": "2025-11-20T03:10:08.168505"
+      },
+      {
+        "rule_id": "CO001",
+        "rule_name": "Campos obligatorios presentes",
+        "dimension": "Completitud",
+        "severity": "CRITICAL",
+        "field_name": "estado",
+        "current_value": null,
+        "expected_value": "Valor requerido",
+        "details": "Campo obligatorio vacío o nulo: estado",
+        "suggestion": "Completar el campo estado",
+        "detected_at": "2025-11-20T03:10:08.168505"
+      },
+      {
+        "rule_id": "CO001",
+        "rule_name": "Campos obligatorios presentes",
+        "dimension": "Completitud",
+        "severity": "CRITICAL",
+        "field_name": "upid",
+        "current_value": null,
+        "expected_value": "Valor requerido",
+        "details": "Campo obligatorio vacío o nulo: upid",
+        "suggestion": "Completar el campo upid",
+        "detected_at": "2025-11-20T03:10:08.168505"
+      },
+      {
+        "rule_id": "CO001",
+        "rule_name": "Campos obligatorios presentes",
+        "dimension": "Completitud",
+        "severity": "CRITICAL",
+        "field_name": "tipo_intervencion",
+        "current_value": null,
+        "expected_value": "Valor requerido",
+        "details": "Campo obligatorio vacío o nulo: tipo_intervencion",
+        "suggestion": "Completar el campo tipo_intervencion",
+        "detected_at": "2025-11-20T03:10:08.168505"
+      },
+      {
+        "rule_id": "CO003",
+        "rule_name": "Identificador único presente",
+        "dimension": "Completitud",
+        "severity": "CRITICAL",
+        "field_name": "upid/bpin/identificador",
+        "current_value": null,
+        "expected_value": "Al menos uno requerido",
+        "details": "No existe ningún identificador único para el registro",
+        "suggestion": "Asignar UPID, BPIN o Identificador",
+        "detected_at": "2025-11-20T03:10:08.168505"
+      },
+      {
+        "rule_id": "CO006",
+        "rule_name": "Dirección presente",
+        "dimension": "Completitud",
+        "severity": "HIGH",
+        "field_name": "direccion",
+        "current_value": null,
+        "expected_value": "Dirección válida",
+        "details": "Registro sin dirección física",
+        "suggestion": "Completar la dirección del proyecto",
+        "detected_at": "2025-11-20T03:10:08.168505"
+      }
+    ],
+    "priority": "URGENT",
+    "requires_immediate_action": true,
+    "created_at": "2025-11-20T03:10:08.169508",
+    "updated_at": "2025-11-20T03:10:08.169508"
+  },
+  {
+    "document_id": "IDX_0",
+    "upid": null,
+    "nombre_up": "Proyecto Prueba Perfecto",
+    "nombre_centro_gestor": "Centro de Pruebas A",
+    "record_index": 0,
+    "report_id": "QC_20251120_031008_de6cf2d0",
+    "report_timestamp": "2025-11-20T03:10:08.169508",
+    "total_issues": 7,
+    "max_severity": "CRITICAL",
+    "severity_counts": {
+      "CRITICAL": 5,
+      "HIGH": 2
+    },
+    "dimension_counts": {
+      "Completitud": 6,
+      "Exactitud Temática": 1
+    },
+    "affected_fields": [
+      "comuna_corregimiento",
+      "avance_obra",
+      "estado",
+      "upid",
+      "upid/bpin/identificador",
+      "direccion",
+      "tipo_intervencion"
+    ],
+    "affected_fields_count": 7,
+    "issues": [
+      {
+        "rule_id": "CO001",
+        "rule_name": "Campos obligatorios presentes",
+        "dimension": "Completitud",
+        "severity": "CRITICAL",
+        "field_name": "comuna_corregimiento",
+        "current_value": null,
+        "expected_value": "Valor requerido",
+        "details": "Campo obligatorio vacío o nulo: comuna_corregimiento",
+        "suggestion": "Completar el campo comuna_corregimiento",
+        "detected_at": "2025-11-20T03:10:08.164506"
+      },
+      {
+        "rule_id": "CO001",
+        "rule_name": "Campos obligatorios presentes",
+        "dimension": "Completitud",
+        "severity": "CRITICAL",
+        "field_name": "avance_obra",
+        "current_value": null,
+        "expected_value": "Valor requerido",
+        "details": "Campo obligatorio vacío o nulo: avance_obra",
+        "suggestion": "Completar el campo avance_obra",
+        "detected_at": "2025-11-20T03:10:08.164506"
+      },
+      {
+        "rule_id": "CO001",
+        "rule_name": "Campos obligatorios presentes",
+        "dimension": "Completitud",
+        "severity": "CRITICAL",
+        "field_name": "estado",
+        "current_value": null,
+        "expected_value": "Valor requerido",
+        "details": "Campo obligatorio vacío o nulo: estado",
+        "suggestion": "Completar el campo estado",
+        "detected_at": "2025-11-20T03:10:08.164506"
+      },
+      {
+        "rule_id": "CO001",
+        "rule_name": "Campos obligatorios presentes",
+        "dimension": "Completitud",
+        "severity": "CRITICAL",
+        "field_name": "upid",
+        "current_value": null,
+        "expected_value": "Valor requerido",
+        "details": "Campo obligatorio vacío o nulo: upid",
+        "suggestion": "Completar el campo upid",
+        "detected_at": "2025-11-20T03:10:08.164506"
+      },
+      {
+        "rule_id": "CO003",
+        "rule_name": "Identificador único presente",
+        "dimension": "Completitud",
+        "severity": "CRITICAL",
+        "field_name": "upid/bpin/identificador",
+        "current_value": null,
+        "expected_value": "Al menos uno requerido",
+        "details": "No existe ningún identificador único para el registro",
+        "suggestion": "Asignar UPID, BPIN o Identificador",
+        "detected_at": "2025-11-20T03:10:08.164506"
+      },
+      {
+        "rule_id": "CO006",
+        "rule_name": "Dirección presente",
+        "dimension": "Completitud",
+        "severity": "HIGH",
+        "field_name": "direccion",
+        "current_value": null,
+        "expected_value": "Dirección válida",
+        "details": "Registro sin dirección física",
+        "suggestion": "Completar la dirección del proyecto",
+        "detected_at": "2025-11-20T03:10:08.164506"
+      },
+      {
+        "rule_id": "TA002",
+        "rule_name": "Tipo de intervención válido",
+        "dimension": "Exactitud Temática",
+        "severity": "HIGH",
+        "field_name": "tipo_intervencion",
+        "current_value": "Nueva construcción",
+        "expected_value": "Construcción Nueva, Rehabilitación, Ampliación, Adecuaciones y Mantenimientos, Mejoramiento",
+        "details": "Tipo de intervención no estándar: \"Nueva construcción\"",
+        "suggestion": "¿Quisiste decir \"Construcción Nueva\"?",
+        "detected_at": "2025-11-20T03:10:08.166506"
+      }
+    ],
+    "priority": "URGENT",
+    "requires_immediate_action": true,
+    "created_at": "2025-11-20T03:10:08.169508",
+    "updated_at": "2025-11-20T03:10:08.169508"
+  },
+  {
+    "document_id": "IDX_3",
+    "upid": null,
+    "nombre_up": "Proyecto Geometría Inválida",
+    "nombre_centro_gestor": "Centro de Pruebas D",
+    "record_index": 3,
+    "report_id": "QC_20251120_031008_de6cf2d0",
+    "report_timestamp": "2025-11-20T03:10:08.169508",
+    "total_issues": 7,
+    "max_severity": "CRITICAL",
+    "severity_counts": {
+      "CRITICAL": 6,
+      "HIGH": 1
+    },
+    "dimension_counts": {
+      "Completitud": 7
+    },
+    "affected_fields": [
+      "comuna_corregimiento",
+      "avance_obra",
+      "estado",
+      "upid",
+      "tipo_intervencion",
+      "upid/bpin/identificador",
+      "direccion"
+    ],
+    "affected_fields_count": 7,
+    "issues": [
+      {
+        "rule_id": "CO001",
+        "rule_name": "Campos obligatorios presentes",
+        "dimension": "Completitud",
+        "severity": "CRITICAL",
+        "field_name": "comuna_corregimiento",
+        "current_value": null,
+        "expected_value": "Valor requerido",
+        "details": "Campo obligatorio vacío o nulo: comuna_corregimiento",
+        "suggestion": "Completar el campo comuna_corregimiento",
+        "detected_at": "2025-11-20T03:10:08.168505"
+      },
+      {
+        "rule_id": "CO001",
+        "rule_name": "Campos obligatorios presentes",
+        "dimension": "Completitud",
+        "severity": "CRITICAL",
+        "field_name": "avance_obra",
+        "current_value": null,
+        "expected_value": "Valor requerido",
+        "details": "Campo obligatorio vacío o nulo: avance_obra",
+        "suggestion": "Completar el campo avance_obra",
+        "detected_at": "2025-11-20T03:10:08.168505"
+      },
+      {
+        "rule_id": "CO001",
+        "rule_name": "Campos obligatorios presentes",
+        "dimension": "Completitud",
+        "severity": "CRITICAL",
+        "field_name": "estado",
+        "current_value": null,
+        "expected_value": "Valor requerido",
+        "details": "Campo obligatorio vacío o nulo: estado",
+        "suggestion": "Completar el campo estado",
+        "detected_at": "2025-11-20T03:10:08.168505"
+      },
+      {
+        "rule_id": "CO001",
+        "rule_name": "Campos obligatorios presentes",
+        "dimension": "Completitud",
+        "severity": "CRITICAL",
+        "field_name": "upid",
+        "current_value": null,
+        "expected_value": "Valor requerido",
+        "details": "Campo obligatorio vacío o nulo: upid",
+        "suggestion": "Completar el campo upid",
+        "detected_at": "2025-11-20T03:10:08.168505"
+      },
+      {
+        "rule_id": "CO001",
+        "rule_name": "Campos obligatorios presentes",
+        "dimension": "Completitud",
+        "severity": "CRITICAL",
+        "field_name": "tipo_intervencion",
+        "current_value": null,
+        "expected_value": "Valor requerido",
+        "details": "Campo obligatorio vacío o nulo: tipo_intervencion",
+        "suggestion": "Completar el campo tipo_intervencion",
+        "detected_at": "2025-11-20T03:10:08.168505"
+      },
+      {
+        "rule_id": "CO003",
+        "rule_name": "Identificador único presente",
+        "dimension": "Completitud",
+        "severity": "CRITICAL",
+        "field_name": "upid/bpin/identificador",
+        "current_value": null,
+        "expected_value": "Al menos uno requerido",
+        "details": "No existe ningún identificador único para el registro",
+        "suggestion": "Asignar UPID, BPIN o Identificador",
+        "detected_at": "2025-11-20T03:10:08.168505"
+      },
+      {
+        "rule_id": "CO006",
+        "rule_name": "Dirección presente",
+        "dimension": "Completitud",
+        "severity": "HIGH",
+        "field_name": "direccion",
+        "current_value": null,
+        "expected_value": "Dirección válida",
+        "details": "Registro sin dirección física",
+        "suggestion": "Completar la dirección del proyecto",
+        "detected_at": "2025-11-20T03:10:08.168505"
+      }
+    ],
+    "priority": "URGENT",
+    "requires_immediate_action": true,
+    "created_at": "2025-11-20T03:10:08.169508",
+    "updated_at": "2025-11-20T03:10:08.169508"
+  },
+  {
+    "document_id": "IDX_4",
+    "upid": null,
+    "nombre_up": "Proyecto Estado Inconsistente",
+    "nombre_centro_gestor": "Centro de Pruebas E",
+    "record_index": 4,
+    "report_id": "QC_20251120_031008_de6cf2d0",
+    "report_timestamp": "2025-11-20T03:10:08.169508",
+    "total_issues": 7,
+    "max_severity": "CRITICAL",
+    "severity_counts": {
+      "CRITICAL": 6,
+      "HIGH": 1
+    },
+    "dimension_counts": {
+      "Completitud": 7
+    },
+    "affected_fields": [
+      "comuna_corregimiento",
+      "avance_obra",
+      "estado",
+      "upid",
+      "tipo_intervencion",
+      "upid/bpin/identificador",
+      "direccion"
+    ],
+    "affected_fields_count": 7,
+    "issues": [
+      {
+        "rule_id": "CO001",
+        "rule_name": "Campos obligatorios presentes",
+        "dimension": "Completitud",
+        "severity": "CRITICAL",
+        "field_name": "comuna_corregimiento",
+        "current_value": null,
+        "expected_value": "Valor requerido",
+        "details": "Campo obligatorio vacío o nulo: comuna_corregimiento",
+        "suggestion": "Completar el campo comuna_corregimiento",
+        "detected_at": "2025-11-20T03:10:08.168505"
+      },
+      {
+        "rule_id": "CO001",
+        "rule_name": "Campos obligatorios presentes",
+        "dimension": "Completitud",
+        "severity": "CRITICAL",
+        "field_name": "avance_obra",
+        "current_value": null,
+        "expected_value": "Valor requerido",
+        "details": "Campo obligatorio vacío o nulo: avance_obra",
+        "suggestion": "Completar el campo avance_obra",
+        "detected_at": "2025-11-20T03:10:08.168505"
+      },
+      {
+        "rule_id": "CO001",
+        "rule_name": "Campos obligatorios presentes",
+        "dimension": "Completitud",
+        "severity": "CRITICAL",
+        "field_name": "estado",
+        "current_value": null,
+        "expected_value": "Valor requerido",
+        "details": "Campo obligatorio vacío o nulo: estado",
+        "suggestion": "Completar el campo estado",
+        "detected_at": "2025-11-20T03:10:08.168505"
+      },
+      {
+        "rule_id": "CO001",
+        "rule_name": "Campos obligatorios presentes",
+        "dimension": "Completitud",
+        "severity": "CRITICAL",
+        "field_name": "upid",
+        "current_value": null,
+        "expected_value": "Valor requerido",
+        "details": "Campo obligatorio vacío o nulo: upid",
+        "suggestion": "Completar el campo upid",
+        "detected_at": "2025-11-20T03:10:08.168505"
+      },
+      {
+        "rule_id": "CO001",
+        "rule_name": "Campos obligatorios presentes",
+        "dimension": "Completitud",
+        "severity": "CRITICAL",
+        "field_name": "tipo_intervencion",
+        "current_value": null,
+        "expected_value": "Valor requerido",
+        "details": "Campo obligatorio vacío o nulo: tipo_intervencion",
+        "suggestion": "Completar el campo tipo_intervencion",
+        "detected_at": "2025-11-20T03:10:08.168505"
+      },
+      {
+        "rule_id": "CO003",
+        "rule_name": "Identificador único presente",
+        "dimension": "Completitud",
+        "severity": "CRITICAL",
+        "field_name": "upid/bpin/identificador",
+        "current_value": null,
+        "expected_value": "Al menos uno requerido",
+        "details": "No existe ningún identificador único para el registro",
+        "suggestion": "Asignar UPID, BPIN o Identificador",
+        "detected_at": "2025-11-20T03:10:08.168505"
+      },
+      {
+        "rule_id": "CO006",
+        "rule_name": "Dirección presente",
+        "dimension": "Completitud",
+        "severity": "HIGH",
+        "field_name": "direccion",
+        "current_value": null,
+        "expected_value": "Dirección válida",
+        "details": "Registro sin dirección física",
+        "suggestion": "Completar la dirección del proyecto",
+        "detected_at": "2025-11-20T03:10:08.168505"
+      }
+    ],
+    "priority": "URGENT",
+    "requires_immediate_action": true,
+    "created_at": "2025-11-20T03:10:08.169508",
+    "updated_at": "2025-11-20T03:10:08.169508"
+  },
+  {
+    "document_id": "IDX_5",
+    "upid": null,
+    "nombre_up": "Proyecto Prueba B",
+    "nombre_centro_gestor": "Centro de Pruebas A",
+    "record_index": 5,
+    "report_id": "QC_20251120_031008_de6cf2d0",
+    "report_timestamp": "2025-11-20T03:10:08.169508",
+    "total_issues": 7,
+    "max_severity": "CRITICAL",
+    "severity_counts": {
+      "CRITICAL": 6,
+      "HIGH": 1
+    },
+    "dimension_counts": {
+      "Completitud": 7
+    },
+    "affected_fields": [
+      "comuna_corregimiento",
+      "avance_obra",
+      "estado",
+      "upid",
+      "tipo_intervencion",
+      "upid/bpin/identificador",
+      "direccion"
+    ],
+    "affected_fields_count": 7,
+    "issues": [
+      {
+        "rule_id": "CO001",
+        "rule_name": "Campos obligatorios presentes",
+        "dimension": "Completitud",
+        "severity": "CRITICAL",
+        "field_name": "comuna_corregimiento",
+        "current_value": null,
+        "expected_value": "Valor requerido",
+        "details": "Campo obligatorio vacío o nulo: comuna_corregimiento",
+        "suggestion": "Completar el campo comuna_corregimiento",
+        "detected_at": "2025-11-20T03:10:08.168505"
+      },
+      {
+        "rule_id": "CO001",
+        "rule_name": "Campos obligatorios presentes",
+        "dimension": "Completitud",
+        "severity": "CRITICAL",
+        "field_name": "avance_obra",
+        "current_value": null,
+        "expected_value": "Valor requerido",
+        "details": "Campo obligatorio vacío o nulo: avance_obra",
+        "suggestion": "Completar el campo avance_obra",
+        "detected_at": "2025-11-20T03:10:08.168505"
+      },
+      {
+        "rule_id": "CO001",
+        "rule_name": "Campos obligatorios presentes",
+        "dimension": "Completitud",
+        "severity": "CRITICAL",
+        "field_name": "estado",
+        "current_value": null,
+        "expected_value": "Valor requerido",
+        "details": "Campo obligatorio vacío o nulo: estado",
+        "suggestion": "Completar el campo estado",
+        "detected_at": "2025-11-20T03:10:08.168505"
+      },
+      {
+        "rule_id": "CO001",
+        "rule_name": "Campos obligatorios presentes",
+        "dimension": "Completitud",
+        "severity": "CRITICAL",
+        "field_name": "upid",
+        "current_value": null,
+        "expected_value": "Valor requerido",
+        "details": "Campo obligatorio vacío o nulo: upid",
+        "suggestion": "Completar el campo upid",
+        "detected_at": "2025-11-20T03:10:08.168505"
+      },
+      {
+        "rule_id": "CO001",
+        "rule_name": "Campos obligatorios presentes",
+        "dimension": "Completitud",
+        "severity": "CRITICAL",
+        "field_name": "tipo_intervencion",
+        "current_value": null,
+        "expected_value": "Valor requerido",
+        "details": "Campo obligatorio vacío o nulo: tipo_intervencion",
+        "suggestion": "Completar el campo tipo_intervencion",
+        "detected_at": "2025-11-20T03:10:08.168505"
+      },
+      {
+        "rule_id": "CO003",
+        "rule_name": "Identificador único presente",
+        "dimension": "Completitud",
+        "severity": "CRITICAL",
+        "field_name": "upid/bpin/identificador",
+        "current_value": null,
+        "expected_value": "Al menos uno requerido",
+        "details": "No existe ningún identificador único para el registro",
+        "suggestion": "Asignar UPID, BPIN o Identificador",
+        "detected_at": "2025-11-20T03:10:08.168505"
+      },
+      {
+        "rule_id": "CO006",
+        "rule_name": "Dirección presente",
+        "dimension": "Completitud",
+        "severity": "HIGH",
+        "field_name": "direccion",
+        "current_value": null,
+        "expected_value": "Dirección válida",
+        "details": "Registro sin dirección física",
+        "suggestion": "Completar la dirección del proyecto",
+        "detected_at": "2025-11-20T03:10:08.168505"
+      }
+    ],
+    "priority": "URGENT",
+    "requires_immediate_action": true,
+    "created_at": "2025-11-20T03:10:08.169508",
+    "updated_at": "2025-11-20T03:10:08.169508"
+  }
+]

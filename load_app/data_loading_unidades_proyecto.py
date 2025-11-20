@@ -376,31 +376,26 @@ def prepare_document_data(feature: Dict[str, Any]) -> Optional[Dict[str, Any]]:
 def get_document_id(feature: Dict[str, Any]) -> Optional[str]:
     """
     Extract document ID from feature properties.
-    Uses upid as primary key, falls back to index-based ID.
+    Uses ONLY upid as primary key for consistency across all centros gestores.
+    IMPORTANTE: Todas las unidades de proyecto DEBEN tener upid generado.
     
     Args:
         feature: GeoJSON feature object
         
     Returns:
-        String ID for Firebase document
+        String ID for Firebase document (upid) or None if not available
     """
     properties = feature.get('properties', {})
     
-    # Primary: Use upid if available
+    # CAMBIO CRÍTICO: SOLO usar upid como identificador
+    # Esto garantiza que todas las unidades (incluidas vías de Secretaría de Infraestructura)
+    # usen el mismo formato de identificador en Firebase
     upid = properties.get('upid')
     if upid and isinstance(upid, str) and upid.strip():
         return upid.strip()
     
-    # Fallback: Use identificador
-    identificador = properties.get('identificador')
-    if identificador and str(identificador).strip():
-        return f"ID-{str(identificador).strip()}"
-    
-    # Last resort: Use bpin if available
-    bpin = properties.get('bpin')
-    if bpin and str(bpin).strip():
-        return f"BPIN-{str(bpin).strip()}"
-    
+    # Si no tiene upid, es un error de datos - no cargar
+    # Esto fuerza a que el pipeline de transformación genere upid siempre
     return None
 
 

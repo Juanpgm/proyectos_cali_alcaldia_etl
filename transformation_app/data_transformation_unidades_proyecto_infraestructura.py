@@ -529,6 +529,11 @@ def export_to_geojson(gdf_combined, output_path):
     gdf_filtered['cantidad'] = gdf_filtered['cantidad'].astype(str)
     gdf_filtered['presupuesto_base'] = gdf_filtered['presupuesto_base'].astype(str)
     
+    # GENERAR UPID PARA TODOS LOS REGISTROS
+    print(f"\n🔢 Generando UPIDs...")
+    gdf_filtered['upid'] = [f"UNP-{i+1:04d}" for i in range(len(gdf_filtered))]
+    print(f"✓ UPIDs generados: desde UNP-0001 hasta UNP-{len(gdf_filtered):04d}")
+    
     # Agregar campos requeridos
     gdf_filtered['tipo_equipamiento'] = 'Vias'
     gdf_filtered['centros_gravedad'] = False
@@ -567,6 +572,7 @@ def export_to_geojson(gdf_combined, output_path):
                 "coordinates": coords
             },
             "properties": {
+                "upid": row['upid'],
                 "geometry_type": geom_type,
                 "has_geometry": True,
                 "centros_gravedad": False,

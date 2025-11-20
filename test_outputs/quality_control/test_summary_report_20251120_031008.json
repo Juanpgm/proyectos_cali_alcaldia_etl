@@ -1,0 +1,118 @@
+{
+  "document_id": "summary_QC_20251120_031008_de6cf2d0",
+  "report_id": "QC_20251120_031008_de6cf2d0",
+  "report_timestamp": "2025-11-20T03:10:08.169508",
+  "report_type": "QUALITY_CONTROL_SUMMARY",
+  "total_records_validated": 6,
+  "records_with_issues": 6,
+  "records_without_issues": 0,
+  "error_rate": 100.0,
+  "total_issues_found": 46,
+  "global_quality_score": 0,
+  "severity_distribution": {
+    "CRITICAL": 36,
+    "HIGH": 10
+  },
+  "dimension_distribution": {
+    "Completitud": 42,
+    "Exactitud Posicional": 1,
+    "Exactitud Temática": 2,
+    "Calidad Temporal": 1
+  },
+  "total_centros_gestores": 5,
+  "centros_require_attention": 0,
+  "top_problematic_centros": [
+    {
+      "nombre": "Centro de Pruebas A",
+      "issues": 14,
+      "error_rate": 0,
+      "quality_score": 100.0
+    },
+    {
+      "nombre": "Centro de Pruebas B",
+      "issues": 10,
+      "error_rate": 0,
+      "quality_score": 100.0
+    },
+    {
+      "nombre": "Centro de Pruebas C",
+      "issues": 8,
+      "error_rate": 0,
+      "quality_score": 100.0
+    },
+    {
+      "nombre": "Centro de Pruebas D",
+      "issues": 7,
+      "error_rate": 0,
+      "quality_score": 100.0
+    },
+    {
+      "nombre": "Centro de Pruebas E",
+      "issues": 7,
+      "error_rate": 0,
+      "quality_score": 100.0
+    }
+  ],
+  "top_quality_centros": [
+    {
+      "nombre": "Centro de Pruebas A",
+      "issues": 14,
+      "error_rate": 0,
+      "quality_score": 100.0
+    },
+    {
+      "nombre": "Centro de Pruebas B",
+      "issues": 10,
+      "error_rate": 0,
+      "quality_score": 100.0
+    },
+    {
+      "nombre": "Centro de Pruebas C",
+      "issues": 8,
+      "error_rate": 0,
+      "quality_score": 100.0
+    },
+    {
+      "nombre": "Centro de Pruebas D",
+      "issues": 7,
+      "error_rate": 0,
+      "quality_score": 100.0
+    },
+    {
+      "nombre": "Centro de Pruebas E",
+      "issues": 7,
+      "error_rate": 0,
+      "quality_score": 100.0
+    }
+  ],
+  "recommendations": [
+    {
+      "priority": "URGENT",
+      "category": "Problemas Críticos",
+      "recommendation": "Se detectaron 36 problemas CRÍTICOS que deben corregirse inmediatamente antes de usar los datos en producción."
+    },
+    {
+      "priority": "HIGH",
+      "category": "Área Problemática Principal",
+      "recommendation": "La dimensión 'Completitud' tiene más problemas (42). Enfocar esfuerzos de corrección en esta área."
+    },
+    {
+      "priority": "HIGH",
+      "category": "Calidad General",
+      "recommendation": "Score de calidad global es 0.0%. Se recomienda implementar proceso sistemático de revisión y corrección de datos."
+    }
+  ],
+  "system_status": "CRITICAL",
+  "requires_immediate_action": true,
+  "created_at": "2025-11-20T03:10:08.169508",
+  "updated_at": "2025-11-20T03:10:08.169508",
+  "validation_engine_version": "1.0",
+  "iso_standard": "ISO 19157",
+  "dimensions_evaluated": [
+    "Consistencia Lógica",
+    "Completitud",
+    "Exactitud Posicional",
+    "Exactitud Temática",
+    "Calidad Temporal"
+  ]
+}

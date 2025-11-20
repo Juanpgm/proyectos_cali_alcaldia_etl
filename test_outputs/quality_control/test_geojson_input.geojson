@@ -1,0 +1,125 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "UPID": "UP-TEST-001",
+        "nombre_up": "Proyecto Prueba Perfecto",
+        "nombre_centro_gestor": "Centro de Pruebas A",
+        "contrato": "CT-2024-001",
+        "ubicacion": "Cali, Valle del Cauca",
+        "avance_porcentaje": 75.5,
+        "estado_obra": "En ejecución",
+        "fecha_inicio": "2024-01-15",
+        "presupuesto_total": 1500000000,
+        "presupuesto_ejecutado": 1125000000,
+        "ano": 2024,
+        "tipo_intervencion": "Nueva construcción"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.5225,
+          3.4516
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "UPID": "UP-TEST-002",
+        "nombre_up": "",
+        "nombre_centro_gestor": "Centro de Pruebas B",
+        "contrato": null,
+        "ubicacion": "Cali",
+        "avance_porcentaje": 150,
+        "estado_obra": "Terminado",
+        "fecha_inicio": "2024-13-45",
+        "presupuesto_total": -500000,
+        "presupuesto_ejecutado": 2000000,
+        "ano": 2030,
+        "tipo_intervencion": "Tipo Inválido"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -80.0,
+          10.0
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "UPID": "UP-TEST-003",
+        "nombre_up": "Proyecto Incompleto",
+        "nombre_centro_gestor": "Centro de Pruebas C",
+        "avance_porcentaje": 50,
+        "estado_obra": "En ejecución"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.53,
+          3.44
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "UPID": "UP-TEST-004",
+        "nombre_up": "Proyecto Geometría Inválida",
+        "nombre_centro_gestor": "Centro de Pruebas D",
+        "contrato": "CT-2024-004",
+        "avance_porcentaje": 30,
+        "estado_obra": "En ejecución",
+        "ano": 2024
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "UPID": "UP-TEST-005",
+        "nombre_up": "Proyecto Estado Inconsistente",
+        "nombre_centro_gestor": "Centro de Pruebas E",
+        "contrato": "CT-2024-005",
+        "avance_porcentaje": 0,
+        "estado_obra": "Terminado",
+        "fecha_inicio": "2024-06-01",
+        "ano": 2024
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.52,
+          3.45
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "UPID": "UP-TEST-006",
+        "nombre_up": "Proyecto Prueba B",
+        "nombre_centro_gestor": "Centro de Pruebas A",
+        "contrato": "CT-2024-006",
+        "ubicacion": "Cali",
+        "avance_porcentaje": -5,
+        "estado_obra": "En ejecución",
+        "fecha_inicio": "2024-03-01",
+        "presupuesto_total": 800000000,
+        "ano": 2024
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.525,
+          3.452
+        ]
+      }
+    }
+  ]
+}

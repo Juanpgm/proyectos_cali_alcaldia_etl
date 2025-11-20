@@ -30,8 +30,17 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 # Importar módulos del proyecto
 from extraction_app.data_extraction_unidades_proyecto import extract_and_save_unidades_proyecto
 from transformation_app.data_transformation_unidades_proyecto import transform_and_save_unidades_proyecto
+from transformation_app.data_transformation_unidades_proyecto_infraestructura import main as transform_infraestructura
 from load_app.data_loading_unidades_proyecto import load_unidades_proyecto_to_firebase
+from load_app.data_loading_unidades_proyecto_infraestructura import load_infraestructura_vial_to_firebase
+from load_app.data_loading_quality_control import load_quality_reports_to_firebase
 from database.config import get_firestore_client, secure_log
+
+# Importar módulos de control de calidad
+from utils.quality_control import validate_geojson, DataQualityValidator
+from utils.quality_reporter import QualityReporter
+from utils.quality_s3_exporter import export_quality_reports_to_s3
+from utils.quality_control_firebase import run_quality_control_on_firebase_data
 
 
 # Utilidades de programación funcional
@@ -361,6 +370,18 @@ def run_transformation(extracted_data: Optional[pd.DataFrame] = None) -> Optiona
         return transform_and_save_unidades_proyecto(upload_to_s3=True)
 
 
+@log_step("TRANSFORMACIÓN DE INFRAESTRUCTURA")
+@safe_execute
+def run_transformation_infraestructura() -> bool:
+    """
+    Ejecuta el proceso de transformación de datos de infraestructura vial.
+    
+    Returns:
+        True si la transformación fue exitosa, False en caso contrario
+    """
+    return transform_infraestructura()
+
+
 @log_step("VERIFICACIÓN INCREMENTAL")
 @safe_execute
 def verify_and_prepare_incremental_load(
@@ -442,6 +463,144 @@ def run_incremental_load(incremental_geojson_path: str, collection_name: str = "
         use_s3=use_s3,
         s3_key="up-geodata/unidades_proyecto_transformed/current/unidades_proyecto_transformed.geojson.gz"  # Usar versión CURRENT desde S3
     )
+
+
+@log_step("CARGA INFRAESTRUCTURA A FIREBASE")
+@safe_execute
+def run_load_infraestructura(collection_name: str = "unidades_proyecto") -> bool:
+    """
+    Ejecuta la carga de datos de infraestructura vial a Firebase.
+    
+    Args:
+        collection_name: Nombre de la colección en Firebase
+        
+    Returns:
+        True si la carga fue exitosa, False en caso contrario
+    """
+    # El módulo de infraestructura carga desde context/unidades_proyecto.geojson
+    return load_infraestructura_vial_to_firebase(
+        input_file=None,  # Usa ruta por defecto
+        collection_name=collection_name,
+        batch_size=100
+    )
+
+
+@log_step("CONTROL DE CALIDAD DE DATOS")
+@safe_execute
+def run_quality_control(
+    geojson_path: str,
+    enable_firebase_upload: bool = True,
+    enable_s3_upload: bool = True
+) -> Optional[Dict[str, Any]]:
+    """
+    Ejecuta validaciones de control de calidad sobre datos transformados.
+    
+    Este paso NO altera los datos originales, solo genera reportes detallados
+    que se cargan a Firebase y S3 para administración y corrección de datos.
+    
+    Args:
+        geojson_path: Ruta al archivo GeoJSON transformado
+        enable_firebase_upload: Si True, carga reportes a Firebase
+        enable_s3_upload: Si True, exporta reportes a S3
+        
+    Returns:
+        Diccionario con estadísticas de control de calidad o None si falla
+    """
+    try:
+        print(f"\n📋 Ejecutando validaciones ISO 19157...")
+        
+        # 1. Validar GeoJSON completo
+        validation_result = validate_geojson(geojson_path, verbose=False)
+        
+        if not validation_result or 'issues' not in validation_result:
+            print("⚠️ No se pudieron generar reportes de calidad")
+            return None
+        
+        print(f"  ✓ Validados: {validation_result['total_records']} registros")
+        print(f"  ✓ Problemas detectados: {validation_result['total_issues']}")
+        print(f"  ✓ Score de calidad: {validation_result['statistics']['quality_score']:.2f}/100")
+        
+        # 2. Generar reportes detallados
+        print(f"\n📊 Generando reportes detallados...")
+        
+        reporter = QualityReporter()
+        
+        # Reporte por registro
+        record_reports = reporter.generate_record_level_report(validation_result['issues'])
+        print(f"  ✓ Reportes por registro: {len(record_reports)}")
+        
+        # Contar registros totales por centro gestor
+        import json
+        with open(geojson_path, 'r', encoding='utf-8') as f:
+            geojson_data = json.load(f)
+        
+        total_by_centro = {}
+        for feature in geojson_data.get('features', []):
+            centro = feature.get('properties', {}).get('nombre_centro_gestor', 'Sin Centro Gestor')
+            total_by_centro[centro] = total_by_centro.get(centro, 0) + 1
+        
+        # Reporte por centro gestor
+        centro_reports = reporter.generate_centro_gestor_report(
+            validation_result['issues'],
+            total_by_centro
+        )
+        print(f"  ✓ Reportes por centro gestor: {len(centro_reports)}")
+        
+        # Reporte resumen
+        summary_report = reporter.generate_summary_report(
+            record_reports,
+            centro_reports,
+            validation_result['total_records'],
+            validation_result['statistics']
+        )
+        print(f"  ✓ Reporte resumen generado")
+        
+        # 3. Cargar a Firebase (si está habilitado)
+        if enable_firebase_upload:
+            print(f"\n🔥 Cargando reportes a Firebase...")
+            firebase_stats = load_quality_reports_to_firebase(
+                record_reports=record_reports,
+                centro_reports=centro_reports,
+                summary_report=summary_report,
+                batch_size=100,
+                verbose=False
+            )
+            print(f"  ✓ Cargados a Firebase: {firebase_stats.get('records_loaded', 0) + firebase_stats.get('centros_loaded', 0) + firebase_stats.get('summary_loaded', 0)} documentos")
+        
+        # 4. Exportar a S3 (si está habilitado)
+        if enable_s3_upload:
+            print(f"\n☁️  Exportando reportes a S3...")
+            try:
+                s3_stats = export_quality_reports_to_s3(
+                    record_reports=record_reports,
+                    centro_reports=centro_reports,
+                    summary_report=summary_report,
+                    validation_stats=validation_result['statistics'],
+                    report_id=reporter.report_id,
+                    verbose=False
+                )
+                print(f"  ✓ Exportados a S3: {s3_stats.get('files_uploaded', 0)} archivos")
+            except Exception as e:
+                print(f"  ⚠️ No se pudo exportar a S3: {e}")
+                print(f"  ℹ️  Los reportes siguen disponibles en Firebase")
+        
+        # 5. Retornar estadísticas
+        return {
+            'quality_score': validation_result['statistics']['quality_score'],
+            'total_issues': validation_result['total_issues'],
+            'records_with_issues': validation_result['records_with_issues'],
+            'severity_counts': validation_result['statistics']['by_severity'],
+            'dimension_counts': validation_result['statistics']['by_dimension'],
+            'report_id': reporter.report_id,
+            'firebase_uploaded': enable_firebase_upload,
+            's3_uploaded': enable_s3_upload
+        }
+        
+    except Exception as e:
+        print(f"❌ Error en control de calidad: {e}")
+        import traceback
+        traceback.print_exc()
+        return None
 
 
 # Pipeline principal
@@ -542,6 +701,32 @@ def create_unidades_proyecto_pipeline() -> Callable[[], Dict[str, Any]]:
                 print("✅ No hay cambios para cargar - datos actualizados")
                 results['load_success'] = True  # No había nada que cargar
                 results['records_uploaded'] = 0
+            
+            # PASO 5: Control de Calidad sobre datos COMPLETOS en Firebase
+            # (Se ejecuta DESPUÉS de la carga para validar el conjunto completo)
+            if results['load_success']:
+                print(f"\n{'='*60}")
+                print("📊 PASO 5: CONTROL DE CALIDAD (DATOS COMPLETOS)")
+                print("="*60)
+                
+                # Esperar 3 segundos para que Firebase complete conversiones internas
+                print("\n⏳ Esperando 3 segundos para que Firebase complete conversiones...")
+                import time
+                time.sleep(3)
+                print("   ✓ Continuando con análisis de calidad\n")
+                
+                quality_result = run_quality_control_on_firebase_data(
+                    collection_name=collection_name,
+                    enable_firebase_upload=True,
+                    enable_s3_upload=True,
+                    verbose=True
+                )
+                
+                if quality_result:
+                    results['quality_control'] = quality_result
+                    print(f"\n✅ Control de calidad completado")
+                else:
+                    print(f"\n⚠️ Control de calidad falló, pero el pipeline continúa")
             
             # Calcular resultados finales
             pipeline_end = datetime.now()

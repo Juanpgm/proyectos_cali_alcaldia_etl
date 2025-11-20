@@ -1,0 +1,451 @@
+{
+  "report_id": "QC_20251120_033736_38dd538b",
+  "generated_at": "2025-11-20T03:37:36.389287",
+  "version": "2.0",
+  "filters": {
+    "severities": [
+      "CRITICAL",
+      "HIGH"
+    ],
+    "dimensions": [
+      "Completitud",
+      "Consistencia Lógica",
+      "Exactitud Posicional"
+    ],
+    "priorities": [
+      "P0",
+      "P2"
+    ],
+    "statuses": [
+      "BUENO",
+      "DEFICIENTE"
+    ],
+    "centros_gestores": [
+      "Centro A",
+      "Centro B"
+    ],
+    "rule_ids": [
+      "R001"
+    ],
+    "field_names": [
+      "upid"
+    ]
+  },
+  "ranges": {
+    "quality_score": {
+      "min": 65.5,
+      "max": 88.0,
+      "average": 76.75,
+      "median": 88.0,
+      "step": 5
+    },
+    "error_rate": {
+      "min": 12.5,
+      "max": 30.0,
+      "average": 21.25,
+      "median": 30.0,
+      "step": 1
+    },
+    "issue_count": {
+      "min": 15,
+      "max": 50,
+      "average": 32.5,
+      "median": 50,
+      "step": 1
+    }
+  },
+  "tabs": {
+    "main_tabs": [
+      {
+        "id": "overview",
+        "label": "Resumen General",
+        "icon": "dashboard"
+      },
+      {
+        "id": "by_centro",
+        "label": "Por Centro Gestor",
+        "icon": "building"
+      },
+      {
+        "id": "by_severity",
+        "label": "Por Severidad",
+        "icon": "warning"
+      },
+      {
+        "id": "by_dimension",
+        "label": "Por Dimensión ISO",
+        "icon": "layers"
+      },
+      {
+        "id": "records",
+        "label": "Registros Detallados",
+        "icon": "list"
+      }
+    ],
+    "severity_tabs": [
+      {
+        "id": "critical",
+        "label": "Críticos",
+        "color": "red",
+        "count": 10
+      },
+      {
+        "id": "high",
+        "label": "Altos",
+        "color": "orange",
+        "count": 25
+      },
+      {
+        "id": "medium",
+        "label": "Medios",
+        "color": "yellow",
+        "count": 23
+      },
+      {
+        "id": "low",
+        "label": "Bajos",
+        "color": "blue",
+        "count": 7
+      }
+    ],
+    "priority_tabs": [
+      {
+        "id": "p0",
+        "label": "P0 - Crítico",
+        "color": "red"
+      },
+      {
+        "id": "p1",
+        "label": "P1 - Alto",
+        "color": "orange"
+      },
+      {
+        "id": "p2",
+        "label": "P2 - Medio",
+        "color": "yellow"
+      },
+      {
+        "id": "p3",
+        "label": "P3 - Bajo",
+        "color": "green"
+      }
+    ]
+  },
+  "tables": {
+    "centro_gestor_table": {
+      "columns": [
+        {
+          "id": "nombre_centro_gestor",
+          "label": "Centro Gestor",
+          "type": "string",
+          "sortable": true,
+          "filterable": true
+        },
+        {
+          "id": "total_records",
+          "label": "Total Registros",
+          "type": "number",
+          "sortable": true
+        },
+        {
+          "id": "records_with_issues",
+          "label": "Con Problemas",
+          "type": "number",
+          "sortable": true
+        },
+        {
+          "id": "error_rate",
+          "label": "Tasa Error (%)",
+          "type": "number",
+          "sortable": true,
+          "format": "percentage"
+        },
+        {
+          "id": "quality_score",
+          "label": "Score Calidad",
+          "type": "number",
+          "sortable": true,
+          "colorize": true
+        },
+        {
+          "id": "priority",
+          "label": "Prioridad",
+          "type": "badge",
+          "sortable": true,
+          "filterable": true
+        },
+        {
+          "id": "status",
+          "label": "Estado",
+          "type": "badge",
+          "sortable": true,
+          "filterable": true
+        }
+      ],
+      "default_sort": {
+        "column": "quality_score",
+        "direction": "asc"
+      },
+      "items_per_page": 20,
+      "exportable": true
+    },
+    "record_table": {
+      "columns": [
+        {
+          "id": "upid",
+          "label": "UPID",
+          "type": "string",
+          "sortable": true,
+          "filterable": true
+        },
+        {
+          "id": "nombre_up",
+          "label": "Nombre UP",
+          "type": "string",
+          "sortable": true,
+          "filterable": true
+        },
+        {
+          "id": "nombre_centro_gestor",
+          "label": "Centro Gestor",
+          "type": "string",
+          "sortable": true,
+          "filterable": true
+        },
+        {
+          "id": "total_issues",
+          "label": "Total Problemas",
+          "type": "number",
+          "sortable": true
+        },
+        {
+          "id": "max_severity",
+          "label": "Severidad Máx.",
+          "type": "badge",
+          "sortable": true,
+          "filterable": true
+        },
+        {
+          "id": "priority",
+          "label": "Prioridad",
+          "type": "badge",
+          "sortable": true,
+          "filterable": true
+        }
+      ],
+      "default_sort": {
+        "column": "total_issues",
+        "direction": "desc"
+      },
+      "items_per_page": 50,
+      "expandable": true
+    }
+  },
+  "charts": {
+    "severity_distribution": {
+      "type": "pie",
+      "data_key": "severity_distribution",
+      "colors": {
+        "CRITICAL": "#ef4444",
+        "HIGH": "#f97316",
+        "MEDIUM": "#eab308",
+        "LOW": "#3b82f6"
+      }
+    },
+    "dimension_distribution": {
+      "type": "bar",
+      "data_key": "dimension_distribution",
+      "orientation": "horizontal"
+    },
+    "quality_score_by_centro": {
+      "type": "bar",
+      "data_key": "quality_score",
+      "sort": "ascending",
+      "color_thresholds": [
+        {
+          "max": 50,
+          "color": "#ef4444"
+        },
+        {
+          "max": 70,
+          "color": "#f97316"
+        },
+        {
+          "max": 85,
+          "color": "#eab308"
+        },
+        {
+          "max": 100,
+          "color": "#22c55e"
+        }
+      ]
+    }
+  },
+  "grouping": [
+    {
+      "id": "by_centro",
+      "label": "Por Centro Gestor",
+      "field": "nombre_centro_gestor"
+    },
+    {
+      "id": "by_severity",
+      "label": "Por Severidad",
+      "field": "max_severity"
+    },
+    {
+      "id": "by_priority",
+      "label": "Por Prioridad",
+      "field": "priority"
+    },
+    {
+      "id": "by_dimension",
+      "label": "Por Dimensión ISO",
+      "field": "dimension"
+    },
+    {
+      "id": "by_rule",
+      "label": "Por Regla Violada",
+      "field": "rule_id"
+    }
+  ],
+  "sorting": [
+    {
+      "id": "quality_asc",
+      "label": "Calidad: Menor a Mayor",
+      "field": "quality_score",
+      "direction": "asc"
+    },
+    {
+      "id": "quality_desc",
+      "label": "Calidad: Mayor a Menor",
+      "field": "quality_score",
+      "direction": "desc"
+    },
+    {
+      "id": "issues_desc",
+      "label": "Problemas: Mayor a Menor",
+      "field": "total_issues",
+      "direction": "desc"
+    },
+    {
+      "id": "issues_asc",
+      "label": "Problemas: Menor a Mayor",
+      "field": "total_issues",
+      "direction": "asc"
+    },
+    {
+      "id": "error_rate_desc",
+      "label": "Tasa Error: Mayor a Menor",
+      "field": "error_rate",
+      "direction": "desc"
+    },
+    {
+      "id": "name_asc",
+      "label": "Nombre: A-Z",
+      "field": "nombre_centro_gestor",
+      "direction": "asc"
+    }
+  ],
+  "colors": {
+    "severities": {
+      "CRITICAL": {
+        "bg": "#fee2e2",
+        "text": "#991b1b",
+        "border": "#ef4444"
+      },
+      "HIGH": {
+        "bg": "#ffedd5",
+        "text": "#9a3412",
+        "border": "#f97316"
+      },
+      "MEDIUM": {
+        "bg": "#fef3c7",
+        "text": "#854d0e",
+        "border": "#eab308"
+      },
+      "LOW": {
+        "bg": "#dbeafe",
+        "text": "#1e40af",
+        "border": "#3b82f6"
+      }
+    },
+    "priorities": {
+      "P0": {
+        "bg": "#fee2e2",
+        "text": "#991b1b",
+        "border": "#ef4444"
+      },
+      "P1": {
+        "bg": "#ffedd5",
+        "text": "#9a3412",
+        "border": "#f97316"
+      },
+      "P2": {
+        "bg": "#fef3c7",
+        "text": "#854d0e",
+        "border": "#eab308"
+      },
+      "P3": {
+        "bg": "#d1fae5",
+        "text": "#065f46",
+        "border": "#22c55e"
+      }
+    },
+    "statuses": {
+      "EXCELENTE": {
+        "bg": "#d1fae5",
+        "text": "#065f46",
+        "border": "#22c55e"
+      },
+      "BUENO": {
+        "bg": "#dbeafe",
+        "text": "#1e40af",
+        "border": "#3b82f6"
+      },
+      "ACEPTABLE": {
+        "bg": "#fef3c7",
+        "text": "#854d0e",
+        "border": "#eab308"
+      },
+      "DEFICIENTE": {
+        "bg": "#ffedd5",
+        "text": "#9a3412",
+        "border": "#f97316"
+      },
+      "CRITICO": {
+        "bg": "#fee2e2",
+        "text": "#991b1b",
+        "border": "#ef4444"
+      }
+    }
+  },
+  "counts": {
+    "total_centros": 2,
+    "total_records": 180,
+    "records_with_issues": 40,
+    "total_issues": 65,
+    "centros_require_attention": 0
+  },
+  "icons": {
+    "severities": {
+      "CRITICAL": "alert-circle",
+      "HIGH": "alert-triangle",
+      "MEDIUM": "info",
+      "LOW": "check-circle"
+    },
+    "dimensions": {
+      "Consistencia Lógica": "check-square",
+      "Completitud": "clipboard-list",
+      "Exactitud Posicional": "map-pin",
+      "Exactitud Temática": "tag",
+      "Calidad Temporal": "clock"
+    }
+  },
+  "tooltips": {
+    "quality_score": "Score de calidad calculado según ISO 19157 (0-100). Mayor es mejor.",
+    "error_rate": "Porcentaje de registros con al menos un problema de calidad.",
+    "severity": "Nivel de impacto del problema: CRITICAL (bloquea uso), HIGH (impacto significativo), MEDIUM (impacto moderado), LOW (mejora recomendada).",
+    "priority": "Prioridad de corrección: P0 (inmediato), P1 (urgente), P2 (programado), P3 (cuando sea posible).",
+    "dimensions": "Dimensiones de calidad según ISO 19157: estándar internacional para calidad de datos geoespaciales."
+  }
+}

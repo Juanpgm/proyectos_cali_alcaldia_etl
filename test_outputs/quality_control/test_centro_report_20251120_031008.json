@@ -1,0 +1,383 @@
+[
+  {
+    "document_id": "centro_de_pruebas_a",
+    "nombre_centro_gestor": "Centro de Pruebas A",
+    "report_id": "QC_20251120_031008_de6cf2d0",
+    "report_timestamp": "2025-11-20T03:10:08.169508",
+    "total_records": 0,
+    "records_with_issues": 0,
+    "records_without_issues": 0,
+    "error_rate": 0,
+    "quality_score": 100.0,
+    "total_issues": 14,
+    "severity_counts": {
+      "CRITICAL": 11,
+      "HIGH": 3
+    },
+    "dimension_counts": {
+      "Completitud": 13,
+      "Exactitud Temática": 1
+    },
+    "top_problematic_fields": [
+      {
+        "field": "comuna_corregimiento",
+        "count": 2
+      },
+      {
+        "field": "avance_obra",
+        "count": 2
+      },
+      {
+        "field": "estado",
+        "count": 2
+      },
+      {
+        "field": "upid",
+        "count": 2
+      },
+      {
+        "field": "upid/bpin/identificador",
+        "count": 2
+      },
+      {
+        "field": "direccion",
+        "count": 2
+      },
+      {
+        "field": "tipo_intervencion",
+        "count": 2
+      }
+    ],
+    "top_violated_rules": [
+      {
+        "rule_id": "CO001",
+        "count": 9
+      },
+      {
+        "rule_id": "CO003",
+        "count": 2
+      },
+      {
+        "rule_id": "CO006",
+        "count": 2
+      },
+      {
+        "rule_id": "TA002",
+        "count": 1
+      }
+    ],
+    "affected_records": [],
+    "affected_records_count": 0,
+    "status": "EXCELLENT",
+    "requires_attention": false,
+    "created_at": "2025-11-20T03:10:08.169508",
+    "updated_at": "2025-11-20T03:10:08.169508"
+  },
+  {
+    "document_id": "centro_de_pruebas_b",
+    "nombre_centro_gestor": "Centro de Pruebas B",
+    "report_id": "QC_20251120_031008_de6cf2d0",
+    "report_timestamp": "2025-11-20T03:10:08.169508",
+    "total_records": 0,
+    "records_with_issues": 0,
+    "records_without_issues": 0,
+    "error_rate": 0,
+    "quality_score": 100.0,
+    "total_issues": 10,
+    "severity_counts": {
+      "CRITICAL": 6,
+      "HIGH": 4
+    },
+    "dimension_counts": {
+      "Completitud": 7,
+      "Exactitud Posicional": 1,
+      "Exactitud Temática": 1,
+      "Calidad Temporal": 1
+    },
+    "top_problematic_fields": [
+      {
+        "field": "comuna_corregimiento",
+        "count": 1
+      },
+      {
+        "field": "avance_obra",
+        "count": 1
+      },
+      {
+        "field": "nombre_up",
+        "count": 1
+      },
+      {
+        "field": "estado",
+        "count": 1
+      },
+      {
+        "field": "upid",
+        "count": 1
+      },
+      {
+        "field": "upid/bpin/identificador",
+        "count": 1
+      },
+      {
+        "field": "direccion",
+        "count": 1
+      },
+      {
+        "field": "geometry",
+        "count": 1
+      },
+      {
+        "field": "tipo_intervencion",
+        "count": 1
+      },
+      {
+        "field": "fecha_inicio",
+        "count": 1
+      }
+    ],
+    "top_violated_rules": [
+      {
+        "rule_id": "CO001",
+        "count": 5
+      },
+      {
+        "rule_id": "CO003",
+        "count": 1
+      },
+      {
+        "rule_id": "CO006",
+        "count": 1
+      },
+      {
+        "rule_id": "PA001",
+        "count": 1
+      },
+      {
+        "rule_id": "TA002",
+        "count": 1
+      },
+      {
+        "rule_id": "TQ002",
+        "count": 1
+      }
+    ],
+    "affected_records": [],
+    "affected_records_count": 0,
+    "status": "EXCELLENT",
+    "requires_attention": false,
+    "created_at": "2025-11-20T03:10:08.169508",
+    "updated_at": "2025-11-20T03:10:08.169508"
+  },
+  {
+    "document_id": "centro_de_pruebas_c",
+    "nombre_centro_gestor": "Centro de Pruebas C",
+    "report_id": "QC_20251120_031008_de6cf2d0",
+    "report_timestamp": "2025-11-20T03:10:08.169508",
+    "total_records": 0,
+    "records_with_issues": 0,
+    "records_without_issues": 0,
+    "error_rate": 0,
+    "quality_score": 100.0,
+    "total_issues": 8,
+    "severity_counts": {
+      "CRITICAL": 7,
+      "HIGH": 1
+    },
+    "dimension_counts": {
+      "Completitud": 8
+    },
+    "top_problematic_fields": [
+      {
+        "field": "comuna_corregimiento",
+        "count": 1
+      },
+      {
+        "field": "ano",
+        "count": 1
+      },
+      {
+        "field": "avance_obra",
+        "count": 1
+      },
+      {
+        "field": "estado",
+        "count": 1
+      },
+      {
+        "field": "upid",
+        "count": 1
+      },
+      {
+        "field": "tipo_intervencion",
+        "count": 1
+      },
+      {
+        "field": "upid/bpin/identificador",
+        "count": 1
+      },
+      {
+        "field": "direccion",
+        "count": 1
+      }
+    ],
+    "top_violated_rules": [
+      {
+        "rule_id": "CO001",
+        "count": 6
+      },
+      {
+        "rule_id": "CO003",
+        "count": 1
+      },
+      {
+        "rule_id": "CO006",
+        "count": 1
+      }
+    ],
+    "affected_records": [],
+    "affected_records_count": 0,
+    "status": "EXCELLENT",
+    "requires_attention": false,
+    "created_at": "2025-11-20T03:10:08.169508",
+    "updated_at": "2025-11-20T03:10:08.169508"
+  },
+  {
+    "document_id": "centro_de_pruebas_d",
+    "nombre_centro_gestor": "Centro de Pruebas D",
+    "report_id": "QC_20251120_031008_de6cf2d0",
+    "report_timestamp": "2025-11-20T03:10:08.169508",
+    "total_records": 0,
+    "records_with_issues": 0,
+    "records_without_issues": 0,
+    "error_rate": 0,
+    "quality_score": 100.0,
+    "total_issues": 7,
+    "severity_counts": {
+      "CRITICAL": 6,
+      "HIGH": 1
+    },
+    "dimension_counts": {
+      "Completitud": 7
+    },
+    "top_problematic_fields": [
+      {
+        "field": "comuna_corregimiento",
+        "count": 1
+      },
+      {
+        "field": "avance_obra",
+        "count": 1
+      },
+      {
+        "field": "estado",
+        "count": 1
+      },
+      {
+        "field": "upid",
+        "count": 1
+      },
+      {
+        "field": "tipo_intervencion",
+        "count": 1
+      },
+      {
+        "field": "upid/bpin/identificador",
+        "count": 1
+      },
+      {
+        "field": "direccion",
+        "count": 1
+      }
+    ],
+    "top_violated_rules": [
+      {
+        "rule_id": "CO001",
+        "count": 5
+      },
+      {
+        "rule_id": "CO003",
+        "count": 1
+      },
+      {
+        "rule_id": "CO006",
+        "count": 1
+      }
+    ],
+    "affected_records": [],
+    "affected_records_count": 0,
+    "status": "EXCELLENT",
+    "requires_attention": false,
+    "created_at": "2025-11-20T03:10:08.169508",
+    "updated_at": "2025-11-20T03:10:08.169508"
+  },
+  {
+    "document_id": "centro_de_pruebas_e",
+    "nombre_centro_gestor": "Centro de Pruebas E",
+    "report_id": "QC_20251120_031008_de6cf2d0",
+    "report_timestamp": "2025-11-20T03:10:08.169508",
+    "total_records": 0,
+    "records_with_issues": 0,
+    "records_without_issues": 0,
+    "error_rate": 0,
+    "quality_score": 100.0,
+    "total_issues": 7,
+    "severity_counts": {
+      "CRITICAL": 6,
+      "HIGH": 1
+    },
+    "dimension_counts": {
+      "Completitud": 7
+    },
+    "top_problematic_fields": [
+      {
+        "field": "comuna_corregimiento",
+        "count": 1
+      },
+      {
+        "field": "avance_obra",
+        "count": 1
+      },
+      {
+        "field": "estado",
+        "count": 1
+      },
+      {
+        "field": "upid",
+        "count": 1
+      },
+      {
+        "field": "tipo_intervencion",
+        "count": 1
+      },
+      {
+        "field": "upid/bpin/identificador",
+        "count": 1
+      },
+      {
+        "field": "direccion",
+        "count": 1
+      }
+    ],
+    "top_violated_rules": [
+      {
+        "rule_id": "CO001",
+        "count": 5
+      },
+      {
+        "rule_id": "CO003",
+        "count": 1
+      },
+      {
+        "rule_id": "CO006",
+        "count": 1
+      }
+    ],
+    "affected_records": [],
+    "affected_records_count": 0,
+    "status": "EXCELLENT",
+    "requires_attention": false,
+    "created_at": "2025-11-20T03:10:08.169508",
+    "updated_at": "2025-11-20T03:10:08.169508"
+  }
+]
