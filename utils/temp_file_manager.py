@@ -243,6 +243,8 @@ def process_in_memory(
         return result
     except Exception as e:
         print(f"❌ Error processing data in memory: {e}")
+        import traceback
+        traceback.print_exc()
         return None
 
 

@@ -7,31 +7,56 @@ Key features include:
 
 - Support for reference fields that can be lists or strings (referencia_proceso, referencia_contrato, url_proceso)
 - Functional programming approach with composable transformations
+- Comprehensive geospatial processing and validation
+- Spatial intersections with administrative boundaries
+- Coordinate validation and correction
+- Date standardization and validation
+- Semantic normalization (estados, tipos de intervención)
+- Title case conversion for Spanish text
 - Comprehensive error handling and data validation
+- Automatic metrics generation and quality reporting
+- GeoJSON export with proper coordinate format
 - Clean, maintainable code without duplication
 
 Author: AI Assistant
-Version: 3.0 (Simplified - removed geospatial processing)
+Version: 4.0 (Complete - Full geospatial pipeline with validation)
 """
 
 import os
 import sys
 import pandas as pd
+import geopandas as gpd
 import json
 import numpy as np
+import re
+import unicodedata
 from typing import Optional, Dict, List, Any, Tuple, Union, Callable
-from datetime import datetime
+from datetime import datetime, timedelta
 from functools import reduce, partial, wraps
 from pathlib import Path
+from shapely.geometry import Point
+from difflib import get_close_matches
 
-# Add utils to path for temp file manager
+# Add utils and extraction_app to path
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'utils'))
+sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'extraction_app'))
+
 try:
     from temp_file_manager import process_in_memory, TempFileManager
 except ImportError:
     # Fallback in case of import issues
     process_in_memory = None
     TempFileManager = None
+
+# Import data extraction function for Google Drive
+try:
+    from data_extraction_unidades_proyecto import extract_unidades_proyecto_data
+    EXTRACTION_AVAILABLE = True
+except ImportError as e:
+    print(f"⚠️ Warning: Could not import extraction module: {e}")
+    print("   Falling back to file-based processing")
+    extract_unidades_proyecto_data = None
+    EXTRACTION_AVAILABLE = False
 
 
 # Functional programming utilities
@@ -522,6 +547,188 @@ def clean_data_types(df: pd.DataFrame) -> pd.DataFrame:
     return pipe(df, *cleaning_functions)
 
 
+# Semantic data cleaning functions
+def normalize_estado_values(df: pd.DataFrame) -> pd.DataFrame:
+    """Normalize estado values to standardized labels with business rules.
+    
+    Business Rules:
+    - Only three valid states: "En Alistamiento", "En Ejecución", "Terminado"
+    - If avance_obra is 0 (cero, (cero), (0), 0, 0.0, etc.), set estado to 'En Alistamiento'
+    - If avance_obra is 100%, set estado to 'Terminado'
+    - Otherwise, normalize estado based on text patterns
+    - Unknown states are normalized to the closest valid state or default to 'En Ejecución'
+    """
+    if 'estado' in df.columns:
+        result_df = df.copy()
+        
+        # Track unknown states for reporting
+        unknown_states = set()
+        
+        # Standardize all estado values (case-insensitive)
+        def standardize_estado(row):
+            val = row.get('estado')
+            avance_obra = row.get('avance_obra')
+            
+            # REGLA DE NEGOCIO 1: Si avance_obra es cero, establecer "En alistamiento"
+            if avance_obra is not None:
+                try:
+                    avance_numeric = float(str(avance_obra).strip().replace(',', '.').replace('cero', '0').replace('(', '').replace(')', ''))
+                    
+                    # Si es exactamente 0, es alistamiento
+                    if avance_numeric == 0.0:
+                        return 'En alistamiento'
+                    
+                    # Si es 100 o más, está terminado
+                    if avance_numeric >= 100.0:
+                        return 'Terminado'
+                    
+                    # Si tiene avance pero no hay estado válido, está en ejecución
+                    if avance_numeric > 0.0 and avance_numeric < 100.0:
+                        if pd.isna(val) or val is None or str(val).strip() == '':
+                            return 'En ejecución'
+                        
+                except (ValueError, TypeError):
+                    pass
+            
+            # Si no hay valor de estado, determinar por avance_obra
+            if pd.isna(val) or val is None or str(val).strip() == '':
+                # Si no hay avance_obra, asumir alistamiento
+                if pd.isna(avance_obra) or avance_obra is None:
+                    return 'En alistamiento'
+                return 'En ejecución'  # Tiene avance pero sin estado
+            
+            val_str = str(val).strip().lower()
+            
+            # Map all variations to standard values (mantener capitalización estándar)
+            if 'socializaci' in val_str or 'alistamiento' in val_str or 'planeaci' in val_str or 'preparaci' in val_str or 'por iniciar' in val_str:
+                return 'En alistamiento'
+            elif 'ejecuci' in val_str or 'proceso' in val_str or 'construcci' in val_str or 'desarrollo' in val_str:
+                return 'En ejecución'
+            elif 'finalizado' in val_str or 'terminado' in val_str or 'completado' in val_str or 'concluido' in val_str or 'entregado' in val_str or 'liquidaci' in val_str:
+                return 'Terminado'
+            else:
+                # Log unknown state for reporting
+                unknown_states.add(val_str)
+                
+                # Default to 'En ejecución' for unknown states (most common case)
+                # unless avance suggests otherwise
+                try:
+                    if avance_obra is not None:
+                        avance_numeric = float(str(avance_obra).strip().replace(',', '.'))
+                        if avance_numeric >= 100:
+                            return 'Terminado'
+                        elif avance_numeric == 0:
+                            return 'En alistamiento'
+                except:
+                    pass
+                
+                return 'En ejecución'  # Default state
+        
+        result_df['estado'] = result_df.apply(standardize_estado, axis=1)
+        
+        # Report unknown states found
+        if unknown_states:
+            print(f"⚠️ WARNING: Found {len(unknown_states)} unknown estado values that were normalized:")
+            for state in sorted(unknown_states):
+                count = (df['estado'].astype(str).str.lower() == state).sum()
+                print(f"   - '{state}' ({count} occurrences)")
+        
+        # Validate that only valid states remain
+        valid_states = {'En alistamiento', 'En ejecución', 'Terminado'}
+        final_states = set(result_df['estado'].dropna().unique())
+        invalid_final = final_states - valid_states
+        
+        if invalid_final:
+            print(f"❌ ERROR: Invalid estados still present after normalization: {invalid_final}")
+        else:
+            print(f"✓ Estados normalizados exitosamente. Estados válidos: {sorted(final_states)}")
+            for state in sorted(final_states):
+                count = (result_df['estado'] == state).sum()
+                print(f"   - '{state}': {count} registros")
+        
+        return result_df
+    return df
+
+
+def normalize_tipo_intervencion_values(df: pd.DataFrame) -> pd.DataFrame:
+    """Normalize tipo_intervencion values to standardized labels."""
+    if 'tipo_intervencion' in df.columns:
+        result_df = df.copy()
+        
+        # Standardize all tipo_intervencion values (case-insensitive)
+        def standardize_tipo_intervencion(val):
+            if pd.isna(val) or val is None:
+                return val
+            
+            val_str = str(val).strip().lower()
+            
+            # Map all variations to standard values
+            if ('adecuacion' in val_str or 'mantenimiento' in val_str) and 'rehabilitaci' not in val_str:
+                return 'Adecuaciones y Mantenimientos'
+            elif 'rehabilitaci' in val_str or 'reforzamiento' in val_str:
+                return 'Rehabilitación - Reforzamiento'
+            elif 'obra nueva' in val_str or 'nueva' in val_str:
+                return 'Obra nueva'
+            else:
+                # Return original if no match (preserve unknown types)
+                return val
+        
+        result_df['tipo_intervencion'] = result_df['tipo_intervencion'].apply(standardize_tipo_intervencion)
+        return result_df
+    return df
+
+
+def title_case_spanish(text: str) -> str:
+    """Convert text to title case following Spanish conventions."""
+    if pd.isna(text) or text is None or str(text).strip() == '':
+        return text
+    
+    text = str(text).strip()
+    
+    connectors = {
+        'a', 'ante', 'bajo', 'con', 'contra', 'de', 'del', 'desde', 'durante',
+        'e', 'el', 'en', 'entre', 'hacia', 'hasta', 'la', 'las', 'lo', 'los',
+        'mediante', 'para', 'por', 'según', 'sin', 'sobre', 'tras', 'y', 'o', 'u', 'mi'
+    }
+    
+    acronyms = {
+        'ie', 'i.e', 'i.e.', 'ips', 'eps', 'uts', 'cad', 'secop', 'bpin', 'upid',
+        'tic', 'tio', 'rrhh', 'pqrs', 'sst', 'covid', 'onu', 'oit', 'dian',
+        'dane', 'dnp', 'sgr', 'poa', 'poai', 'iva', 'nit', 'rut', 'sisben'
+    }
+    
+    words = text.split()
+    result = []
+    
+    for i, word in enumerate(words):
+        word_lower = word.lower().replace('.', '')
+        
+        if word_lower in acronyms:
+            result.append(word.upper())
+        elif i > 0 and word_lower in connectors:
+            result.append(word.lower())
+        else:
+            result.append(word.capitalize())
+    
+    return ' '.join(result)
+
+
+def apply_title_case_to_text_fields(df: pd.DataFrame) -> pd.DataFrame:
+    """Apply title case to relevant text columns.
+    
+    NOTE: Does NOT apply title case to 'estado' and 'tipo_intervencion' 
+    as these fields have standardized values that must maintain exact capitalization.
+    """
+    columns_to_transform = ['nombre_up', 'nombre_up_detalle', 'direccion', 'tipo_equipamiento', 'identificador']
+    result_df = df.copy()
+    
+    for col in columns_to_transform:
+        if col in result_df.columns:
+            result_df[col] = result_df[col].apply(title_case_spanish)
+    
+    return result_df
+
+
 def load_json_data(file_path: str) -> Optional[pd.DataFrame]:
     """Load JSON data and convert to DataFrame."""
     try:
@@ -539,21 +746,52 @@ def load_json_data(file_path: str) -> Optional[pd.DataFrame]:
 
 def unidades_proyecto_transformer(
     data_directory: str = "app_inputs/unidades_proyecto_input", 
-    data: Optional[Union[List[Dict], pd.DataFrame]] = None
-) -> Optional[pd.DataFrame]:
+    data: Optional[Union[List[Dict], pd.DataFrame]] = None,
+    use_extraction: bool = True
+) -> Optional[gpd.GeoDataFrame]:
     """
     Transform project units data using functional programming approach.
-    Can work with either file-based data or in-memory data for better flexibility.
+    Can work with either file-based data, in-memory data, or Google Drive extraction.
     
     Args:
         data_directory: Path to the directory containing JSON files (fallback)
         data: Optional in-memory data to process directly
+        use_extraction: If True, attempts to extract fresh data from Google Drive (default: True)
         
     Returns:
-        DataFrame with processed unidades de proyecto data or None if failed
+        GeoDataFrame with processed unidades de proyecto data or None if failed
     """
     
-    # If data is provided in memory, process it directly (no temp files needed)
+    # Priority 1: Try to extract fresh data from Google Drive
+    if use_extraction and data is None and EXTRACTION_AVAILABLE and extract_unidades_proyecto_data is not None:
+        try:
+            print("=" * 80)
+            print("EXTRACTING FRESH DATA FROM GOOGLE DRIVE")
+            print("=" * 80)
+            print()
+            
+            df = extract_unidades_proyecto_data()
+            
+            if df is not None and not df.empty:
+                print()
+                print(f"✓ Extracted {len(df):,} records from Google Drive")
+                print(f"✓ Total columns: {len(df.columns)}")
+                print()
+                
+                if process_in_memory:
+                    return process_in_memory(df, _process_unidades_proyecto_dataframe)
+                else:
+                    return _process_unidades_proyecto_dataframe(df)
+            else:
+                print("⚠️ Extraction returned empty data, falling back to file-based processing")
+                
+        except Exception as e:
+            print(f"⚠️ Error during Google Drive extraction: {e}")
+            print("   Falling back to file-based processing")
+            import traceback
+            traceback.print_exc()
+    
+    # Priority 2: If data is provided in memory, process it directly
     if data is not None:
         print("🚀 Processing data in memory (no temporary files)")
         if isinstance(data, list):
@@ -564,9 +802,12 @@ def unidades_proyecto_transformer(
             print(f"❌ Unsupported data type: {type(data)}")
             return None
         
-        return process_in_memory(df, _process_unidades_proyecto_dataframe)
+        if process_in_memory:
+            return process_in_memory(df, _process_unidades_proyecto_dataframe)
+        else:
+            return _process_unidades_proyecto_dataframe(df)
     
-    # Fallback to file-based processing if no in-memory data provided
+    # Priority 3: Fallback to file-based processing
     print(f"📁 Processing data from files in: {data_directory}")
     current_dir = os.path.dirname(os.path.abspath(__file__))
     directory_path = os.path.join(current_dir, data_directory)
@@ -628,7 +869,793 @@ def print_data_summary(original_df: pd.DataFrame, processed_df: pd.DataFrame) ->
         print(f"  {col_type.title()} columns: {metrics[key]}")
 
 
-def _process_unidades_proyecto_dataframe(df: pd.DataFrame) -> pd.DataFrame:
+def convert_to_geodataframe(df: pd.DataFrame) -> gpd.GeoDataFrame:
+    """Convert DataFrame to GeoDataFrame with proper geometry."""
+    if 'lat' not in df.columns or 'lon' not in df.columns:
+        print("⚠ Warning: lat/lon columns not found, skipping geodataframe conversion")
+        return df
+    
+    gdf = df.copy()
+    
+    def safe_convert_to_float(value):
+        if pd.isna(value) or value is None:
+            return None
+        try:
+            return float(str(value).strip())
+        except (ValueError, TypeError):
+            return None
+    
+    gdf['lat_numeric'] = gdf['lat'].apply(safe_convert_to_float)
+    gdf['lon_numeric'] = gdf['lon'].apply(safe_convert_to_float)
+    
+    valid_coords = gdf['lat_numeric'].notna() & gdf['lon_numeric'].notna()
+    
+    if valid_coords.sum() == 0:
+        print("⚠ No valid coordinates found")
+        return df
+    
+    gdf.loc[valid_coords, 'geometry'] = gdf.loc[valid_coords].apply(
+        lambda row: Point(row['lon_numeric'], row['lat_numeric']), axis=1
+    )
+    
+    gdf = gpd.GeoDataFrame(gdf, geometry='geometry', crs='EPSG:4326')
+    gdf.drop(columns=['lat_numeric', 'lon_numeric'], inplace=True, errors='ignore')
+    
+    print(f"✓ GeoDataFrame created: {valid_coords.sum()} geometries")
+    return gdf
+
+
+def fix_coordinate_format(coord_value, coord_type='lat'):
+    """Fix coordinate format ensuring proper structure."""
+    if pd.isna(coord_value) or coord_value is None:
+        return None
+    
+    try:
+        coord_str = str(coord_value).strip().replace(' ', '').replace(',', '.')
+        coord_float = float(coord_str)
+        
+        if coord_type == 'lat':
+            if 3.0 <= coord_float <= 4.0:
+                return round(coord_float, 10)
+            elif 0 < coord_float < 1:
+                return round(3.0 + coord_float, 10)
+        elif coord_type == 'lon':
+            if -77.0 <= coord_float <= -76.0:
+                return round(coord_float, 10)
+            elif 76.0 < coord_float < 77.0:
+                return round(-coord_float, 10)
+            elif 0 < coord_float < 1:
+                return round(-76.0 - coord_float, 10)
+    except (ValueError, TypeError):
+        pass
+    
+    return None
+
+
+def correct_coordinate_formats(gdf: gpd.GeoDataFrame) -> gpd.GeoDataFrame:
+    """Correct coordinate formats for Cali region."""
+    if 'lat' not in gdf.columns or 'lon' not in gdf.columns:
+        return gdf
+    
+    result_gdf = gdf.copy()
+    result_gdf['lat'] = result_gdf['lat'].apply(lambda x: fix_coordinate_format(x, 'lat'))
+    result_gdf['lon'] = result_gdf['lon'].apply(lambda x: fix_coordinate_format(x, 'lon'))
+    
+    valid_coords = result_gdf['lat'].notna() & result_gdf['lon'].notna()
+    
+    if valid_coords.sum() > 0:
+        result_gdf.loc[valid_coords, 'geometry'] = result_gdf.loc[valid_coords].apply(
+            lambda row: Point(row['lon'], row['lat']), axis=1
+        )
+        result_gdf = gpd.GeoDataFrame(result_gdf, geometry='geometry', crs='EPSG:4326')
+    
+    print(f"✓ Coordinates corrected: {valid_coords.sum()} valid")
+    return result_gdf
+
+
+def create_final_geometry(gdf: gpd.GeoDataFrame) -> gpd.GeoDataFrame:
+    """Create final geometry and remove lat/lon columns."""
+    if 'lat' not in gdf.columns or 'lon' not in gdf.columns:
+        return gdf
+    
+    result_gdf = gdf.copy()
+    valid_coords = result_gdf['lat'].notna() & result_gdf['lon'].notna()
+    
+    if valid_coords.sum() > 0:
+        # Note: Store as lat, lon in geometry for later spatial ops
+        result_gdf.loc[valid_coords, 'geometry'] = result_gdf.loc[valid_coords].apply(
+            lambda row: Point(row['lat'], row['lon']), axis=1
+        )
+        result_gdf = gpd.GeoDataFrame(result_gdf, geometry='geometry', crs='EPSG:4326')
+    
+    result_gdf.drop(columns=['lat', 'lon'], inplace=True, errors='ignore')
+    print(f"✓ Final geometry created, lat/lon columns removed")
+    return result_gdf
+
+
+def perform_spatial_intersection(gdf: gpd.GeoDataFrame, basemap_name: str, output_column: str) -> gpd.GeoDataFrame:
+    """Perform spatial intersection with basemap."""
+    current_dir = Path(__file__).parent.parent
+    basemap_path = current_dir / 'basemaps' / f'{basemap_name}.geojson'
+    
+    if not basemap_path.exists():
+        print(f"⚠ Basemap not found: {basemap_path}")
+        return gdf
+    
+    basemap_gdf = gpd.read_file(basemap_path)
+    
+    if gdf.crs != basemap_gdf.crs:
+        basemap_gdf = basemap_gdf.to_crs(gdf.crs)
+    
+    gdf_temp = gdf.copy()
+    valid_geom = gdf_temp['geometry'].notna()
+    
+    if valid_geom.sum() == 0:
+        gdf[output_column] = None
+        return gdf
+    
+    # Swap coordinates for spatial operations: Point(lat, lon) -> Point(lon, lat)
+    gdf_temp.loc[valid_geom, 'geometry'] = gdf_temp.loc[valid_geom, 'geometry'].apply(
+        lambda geom: Point(geom.y, geom.x) if geom else None
+    )
+    
+    column_name = 'barrio_vereda' if 'barrio_vereda' in basemap_gdf.columns else 'comuna_corregimiento'
+    gdf_joined = gpd.sjoin(gdf_temp, basemap_gdf[['geometry', column_name]], how='left', predicate='within')
+    
+    gdf[output_column] = gdf_joined[f'{column_name}_right'] if f'{column_name}_right' in gdf_joined.columns else gdf_joined.get(column_name)
+    
+    if 'index_right' in gdf.columns:
+        gdf.drop(columns=['index_right'], inplace=True)
+    
+    print(f"✓ Spatial intersection completed: {output_column} ({gdf[output_column].notna().sum()} assigned)")
+    return gdf
+
+
+def normalize_text(text):
+    """Normalize text by removing accents and converting to uppercase."""
+    if pd.isna(text) or text is None:
+        return ""
+    text = str(text).strip()
+    text = unicodedata.normalize('NFD', text)
+    text = ''.join(char for char in text if unicodedata.category(char) != 'Mn')
+    return ' '.join(text.upper().split())
+
+
+def normalize_comuna_value(value):
+    """Normalize comuna values to standard format."""
+    if pd.isna(value) or value is None or value == "":
+        return None
+    
+    text = str(value).strip().upper()
+    
+    if text.startswith("COMUNA"):
+        parts = text.split()
+        if len(parts) >= 2:
+            try:
+                num = int(parts[1])
+                if num > 22:
+                    return "RURAL"
+                elif num < 10:
+                    return f"COMUNA {num:02d}"
+                else:
+                    return f"COMUNA {num}"
+            except ValueError:
+                pass
+    
+    return value
+
+
+def find_best_match(value, standard_values, threshold=0.6):
+    """Find best matching value from standard values."""
+    if pd.isna(value) or value is None or value == "":
+        return None
+    
+    normalized_value = normalize_text(value)
+    normalized_standards = {normalize_text(std): std for std in standard_values if pd.notna(std)}
+    
+    matches = get_close_matches(normalized_value, normalized_standards.keys(), n=1, cutoff=threshold)
+    
+    if matches:
+        return normalized_standards[matches[0]]
+    
+    return None
+
+
+def normalize_administrative_values(gdf: gpd.GeoDataFrame) -> gpd.GeoDataFrame:
+    """Normalize all comuna and barrio columns to match standard basemap values exactly."""
+    current_dir = Path(__file__).parent.parent
+    
+    # Load standard values from basemaps
+    barrios_path = current_dir / 'basemaps' / 'barrios_veredas.geojson'
+    comunas_path = current_dir / 'basemaps' / 'comunas_corregimientos.geojson'
+    
+    standard_barrios = []
+    standard_comunas = []
+    
+    if barrios_path.exists():
+        barrios_gdf = gpd.read_file(barrios_path)
+        standard_barrios = barrios_gdf['barrio_vereda'].dropna().unique().tolist()
+        print(f"  Loaded {len(standard_barrios)} standard barrios/veredas from basemap")
+    
+    if comunas_path.exists():
+        comunas_gdf = gpd.read_file(comunas_path)
+        standard_comunas = comunas_gdf['comuna_corregimiento'].dropna().unique().tolist()
+        print(f"  Loaded {len(standard_comunas)} standard comunas/corregimientos from basemap")
+    
+    result_gdf = gdf.copy()
+    
+    # All comuna columns to normalize (including spatial intersection results)
+    comuna_columns = ['comuna_corregimiento', 'comuna_corregimiento_2']
+    # All barrio columns to normalize (including spatial intersection results)
+    barrio_columns = ['barrio_vereda', 'barrio_vereda_2']
+    
+    # Normalize all comuna columns
+    for col in comuna_columns:
+        if col in result_gdf.columns and len(standard_comunas) > 0:
+            normalized_count = 0
+            for idx in result_gdf.index:
+                original = result_gdf.at[idx, col]
+                if pd.notna(original):
+                    # First apply comuna normalization rules
+                    normalized = normalize_comuna_value(original)
+                    # Then find best match from standard values
+                    best_match = find_best_match(normalized, standard_comunas, threshold=0.7)
+                    if best_match:
+                        if best_match != original:
+                            normalized_count += 1
+                        result_gdf.at[idx, col] = best_match
+            if normalized_count > 0:
+                print(f"  Normalized {normalized_count} values in '{col}' to standard basemap values")
+    
+    # Normalize all barrio columns
+    for col in barrio_columns:
+        if col in result_gdf.columns and len(standard_barrios) > 0:
+            normalized_count = 0
+            for idx in result_gdf.index:
+                original = result_gdf.at[idx, col]
+                if pd.notna(original):
+                    # Find best match from standard values
+                    best_match = find_best_match(original, standard_barrios, threshold=0.7)
+                    if best_match:
+                        if best_match != original:
+                            normalized_count += 1
+                        result_gdf.at[idx, col] = best_match
+            if normalized_count > 0:
+                print(f"  Normalized {normalized_count} values in '{col}' to standard basemap values")
+    
+    print("✓ Administrative values normalized to basemap standards")
+    return result_gdf
+
+
+def create_validation_column(gdf: gpd.GeoDataFrame) -> gpd.GeoDataFrame:
+    """Create fuera_rango validation column."""
+    if 'comuna_corregimiento_2' not in gdf.columns or 'barrio_vereda_2' not in gdf.columns:
+        return gdf
+    
+    result_gdf = gdf.copy()
+    result_gdf['fuera_rango'] = None
+    
+    valid_geom = result_gdf['geometry'].notna()
+    
+    comuna_matches = (
+        result_gdf['comuna_corregimiento'].notna() & 
+        result_gdf['comuna_corregimiento_2'].notna() &
+        (result_gdf['comuna_corregimiento'] == result_gdf['comuna_corregimiento_2'])
+    )
+    
+    barrio_matches = (
+        result_gdf['barrio_vereda'].notna() & 
+        result_gdf['barrio_vereda_2'].notna() &
+        (result_gdf['barrio_vereda'] == result_gdf['barrio_vereda_2'])
+    )
+    
+    aceptable = valid_geom & (comuna_matches | barrio_matches)
+    fuera_rango = valid_geom & ~(comuna_matches | barrio_matches)
+    
+    result_gdf.loc[aceptable, 'fuera_rango'] = 'ACEPTABLE'
+    result_gdf.loc[fuera_rango, 'fuera_rango'] = 'FUERA DE RANGO'
+    
+    print(f"✓ Validation column created: {aceptable.sum()} ACEPTABLE, {fuera_rango.sum()} FUERA DE RANGO")
+    return result_gdf
+
+
+def parse_date(date_value):
+    """Parse various date formats and return standardized datetime."""
+    if pd.isna(date_value) or date_value is None:
+        return None
+    
+    if isinstance(date_value, datetime):
+        return date_value
+    
+    date_str = str(date_value).strip()
+    
+    if date_str == '' or date_str.lower() in ['nan', 'none', 'null']:
+        return None
+    
+    # Reject values that are clearly not dates (contain letters, are too long, etc.)
+    # Dates should be numeric or contain only date separators
+    if len(date_str) > 50:  # Dates shouldn't be this long
+        return None
+    
+    # Check if it contains too many alphabetic characters (like barrio names)
+    alpha_count = sum(c.isalpha() for c in date_str)
+    if alpha_count > 3:  # Allow for month abbreviations like "Jan", "Feb"
+        return None
+    
+    # Try Excel serial date
+    try:
+        date_num = float(date_str)
+        if 40000 <= date_num <= 60000:
+            excel_epoch = datetime(1899, 12, 30)
+            return excel_epoch + timedelta(days=date_num)
+    except (ValueError, TypeError):
+        pass
+    
+    # Try common date patterns
+    patterns = [
+        (r'(\d{2})/(\d{2})/(\d{4})', 'DMY'),
+        (r'(\d{2})-(\d{2})-(\d{4})', 'DMY'),
+        (r'(\d{4})/(\d{2})/(\d{2})', 'YMD'),
+        (r'(\d{4})-(\d{2})-(\d{2})', 'YMD'),
+    ]
+    
+    for pattern, format_type in patterns:
+        match = re.search(pattern, date_str)
+        if match:
+            groups = match.groups()
+            try:
+                if format_type == 'YMD':
+                    year, month, day = int(groups[0]), int(groups[1]), int(groups[2])
+                else:
+                    day, month, year = int(groups[0]), int(groups[1]), int(groups[2])
+                
+                if 1 <= day <= 31 and 1 <= month <= 12 and 1900 <= year <= 2100:
+                    return datetime(year, month, day)
+            except (ValueError, TypeError):
+                continue
+    
+    # Last resort: pandas
+    try:
+        return pd.to_datetime(date_str, errors='coerce')
+    except:
+        return None
+
+
+def standardize_dates(gdf: gpd.GeoDataFrame) -> gpd.GeoDataFrame:
+    """Standardize fecha_inicio and fecha_fin."""
+    result_gdf = gdf.copy()
+    
+    # Only process if the column exists and contains actual date-like values
+    if 'fecha_inicio' in result_gdf.columns:
+        # Check if the column actually contains date-like values
+        sample_values = result_gdf['fecha_inicio'].dropna().head(10)
+        if len(sample_values) > 0:
+            # Apply parse_date which now validates the content
+            result_gdf['fecha_inicio_std'] = result_gdf['fecha_inicio'].apply(parse_date)
+            valid_count = result_gdf['fecha_inicio_std'].notna().sum()
+            print(f"✓ fecha_inicio standardized: {valid_count} valid")
+            
+            # Warn if conversion rate is very low (possible wrong column)
+            total_non_null = result_gdf['fecha_inicio'].notna().sum()
+            if total_non_null > 0 and valid_count / total_non_null < 0.1:
+                print(f"  ⚠️ Warning: Low conversion rate ({valid_count}/{total_non_null}), column may not contain dates")
+    
+    if 'fecha_fin' in result_gdf.columns:
+        # Check if the column actually contains date-like values
+        sample_values = result_gdf['fecha_fin'].dropna().head(10)
+        if len(sample_values) > 0:
+            result_gdf['fecha_fin_std'] = result_gdf['fecha_fin'].apply(parse_date)
+            valid_count = result_gdf['fecha_fin_std'].notna().sum()
+            print(f"✓ fecha_fin standardized: {valid_count} valid")
+            
+            # Warn if conversion rate is very low
+            total_non_null = result_gdf['fecha_fin'].notna().sum()
+            if total_non_null > 0 and valid_count / total_non_null < 0.1:
+                print(f"  ⚠️ Warning: Low conversion rate ({valid_count}/{total_non_null}), column may not contain dates")
+    
+    return result_gdf
+
+
+def export_to_geojson(gdf: gpd.GeoDataFrame, output_dir: Path) -> Path:
+    """Export GeoDataFrame to GeoJSON with lon, lat format (will be converted to lat, lon during Firebase load)."""
+    output_dir.mkdir(exist_ok=True, parents=True)
+    output_file = output_dir / 'unidades_proyecto_transformed.geojson'
+    
+    gdf_export = gdf.copy()
+    
+    # Ensure all string columns are properly encoded in UTF-8
+    for col in gdf_export.columns:
+        if col != 'geometry' and gdf_export[col].dtype == 'object':
+            # Process each value individually
+            for idx in gdf_export.index:
+                val = gdf_export.at[idx, col]
+                # Check if it's a scalar value first, not an array or list
+                if not isinstance(val, (list, np.ndarray)):
+                    if pd.notna(val) and isinstance(val, str):
+                        try:
+                            # Ensure proper UTF-8 encoding
+                            gdf_export.at[idx, col] = val.encode('utf-8', errors='replace').decode('utf-8')
+                        except:
+                            pass  # Keep original value if encoding fails
+    
+    # Convert geometry to standard lon, lat format (GeoJSON standard)
+    # Note: Firebase load will convert to [lat, lon] for Next.js/API compatibility
+    for idx in gdf_export.index:
+        geom = gdf_export.at[idx, 'geometry']
+        if pd.notna(geom) and geom is not None:
+            try:
+                gdf_export.at[idx, 'geometry'] = Point(geom.y, geom.x)
+            except:
+                pass  # Keep original geometry if conversion fails
+    
+    # Convert datetime to string (only for actual datetime columns)
+    for col in ['fecha_inicio_std', 'fecha_fin_std']:
+        if col in gdf_export.columns:
+            for idx in gdf_export.index:
+                val = gdf_export.at[idx, col]
+                if pd.notna(val) and hasattr(val, 'isoformat'):
+                    gdf_export.at[idx, col] = val.isoformat()
+    
+    # Export with explicit UTF-8 encoding
+    gdf_export.to_file(output_file, driver='GeoJSON', encoding='utf-8')
+    print(f"✓ GeoJSON exported: {output_file.name} ({output_file.stat().st_size / 1024:.2f} KB)")
+    return output_file
+
+
+def convert_to_native_types(obj):
+    """Recursively convert numpy types to native Python types."""
+    if isinstance(obj, dict):
+        return {key: convert_to_native_types(value) for key, value in obj.items()}
+    elif isinstance(obj, list):
+        return [convert_to_native_types(item) for item in obj]
+    elif isinstance(obj, (np.integer, np.int64, np.int32)):
+        return int(obj)
+    elif isinstance(obj, (np.floating, np.float64, np.float32)):
+        return float(obj)
+    elif isinstance(obj, np.ndarray):
+        return obj.tolist()
+    else:
+        return obj
+
+
+def generate_metrics_log(gdf: gpd.GeoDataFrame, original_df: pd.DataFrame, output_dir: Path) -> Tuple[Dict, Path]:
+    """Generate comprehensive metrics log."""
+    metrics = {
+        "execution_timestamp": datetime.now().isoformat(),
+        "process_name": "Transformación de Unidades de Proyecto",
+        "version": "4.0",
+        "data_loading": {
+            "total_records_loaded": len(original_df),
+            "total_columns_loaded": len(original_df.columns)
+        },
+        "data_transformation": {
+            "total_records_transformed": len(gdf),
+            "total_columns_final": len(gdf.columns),
+            "upid_generated": gdf['upid'].notna().sum() if 'upid' in gdf.columns else 0
+        },
+        "geospatial_processing": {
+            "records_with_geometry": gdf['geometry'].notna().sum() if 'geometry' in gdf.columns else 0,
+            "records_without_geometry": gdf['geometry'].isna().sum() if 'geometry' in gdf.columns else len(gdf)
+        },
+        "validation": {
+            "fuera_rango_aceptable": (gdf['fuera_rango'] == 'ACEPTABLE').sum() if 'fuera_rango' in gdf.columns else 0,
+            "fuera_rango_invalid": (gdf['fuera_rango'] == 'FUERA DE RANGO').sum() if 'fuera_rango' in gdf.columns else 0
+        },
+        "date_processing": {
+            "fecha_inicio_valid": gdf['fecha_inicio_std'].notna().sum() if 'fecha_inicio_std' in gdf.columns else 0,
+            "fecha_fin_valid": gdf['fecha_fin_std'].notna().sum() if 'fecha_fin_std' in gdf.columns else 0
+        },
+        "summary": {
+            "data_quality_score": round((gdf['fuera_rango'] == 'ACEPTABLE').sum() / len(gdf) * 100, 2) if 'fuera_rango' in gdf.columns and len(gdf) > 0 else 0,
+            "geometry_completeness": round(gdf['geometry'].notna().sum() / len(gdf) * 100, 2) if 'geometry' in gdf.columns and len(gdf) > 0 else 0
+        }
+    }
+    
+    # Convert numpy types to native Python types for JSON serialization
+    metrics = convert_to_native_types(metrics)
+    
+    # Save metrics with timestamp
+    output_dir.mkdir(exist_ok=True, parents=True)
+    timestamp_str = datetime.now().strftime("%Y%m%d_%H%M%S")
+    metrics_file = output_dir / f'transformation_metrics_{timestamp_str}.json'
+    
+    with open(metrics_file, 'w', encoding='utf-8') as f:
+        json.dump(metrics, f, ensure_ascii=False, indent=2)
+    
+    print(f"✓ Metrics saved: {metrics_file.name}")
+    return metrics, metrics_file
+
+
+def generate_analysis_report(metrics_file: Path, gdf: gpd.GeoDataFrame) -> Dict[str, Path]:
+    """
+    Generate comprehensive analysis and recommendations report.
+    
+    Args:
+        metrics_file: Path to the metrics JSON file
+        gdf: Processed GeoDataFrame
+        
+    Returns:
+        Dictionary with paths to generated reports
+    """
+    print("\n" + "="*80)
+    print("GENERANDO REPORTE DE ANÁLISIS Y RECOMENDACIONES")
+    print("="*80)
+    print()
+    
+    # Load metrics
+    with open(metrics_file, 'r', encoding='utf-8') as f:
+        metrics_data = json.load(f)
+    
+    print(f"✓ Métricas cargadas desde: {metrics_file.name}")
+    print()
+    
+    # Extract key metrics
+    total_records = metrics_data.get('data_transformation', {}).get('total_records_transformed', 0)
+    quality_score = metrics_data.get('summary', {}).get('data_quality_score', 0)
+    geometry_completeness = metrics_data.get('summary', {}).get('geometry_completeness', 0)
+    
+    records_with_geometry = metrics_data.get('geospatial_processing', {}).get('records_with_geometry', 0)
+    acceptable_records = metrics_data.get('validation', {}).get('fuera_rango_aceptable', 0)
+    invalid_records = metrics_data.get('validation', {}).get('fuera_rango_invalid', 0)
+    date_valid_inicio = metrics_data.get('date_processing', {}).get('fecha_inicio_valid', 0)
+    
+    date_completeness = round((date_valid_inicio / total_records * 100), 2) if total_records > 0 else 0
+    
+    # Calculate quality levels
+    geometry_quality = "EXCELENTE" if geometry_completeness >= 95 else "BUENA" if geometry_completeness >= 85 else "REGULAR" if geometry_completeness >= 70 else "DEFICIENTE"
+    spatial_quality = "EXCELENTE" if quality_score >= 90 else "BUENA" if quality_score >= 75 else "REGULAR" if quality_score >= 60 else "DEFICIENTE"
+    date_quality = "EXCELENTE" if date_completeness >= 95 else "BUENA" if date_completeness >= 80 else "REGULAR" if date_completeness >= 60 else "DEFICIENTE"
+    
+    # Generate recommendations
+    recommendations = []
+    
+    if geometry_completeness < 95:
+        missing_geom = total_records - records_with_geometry
+        recommendations.append({
+            "categoria": "Datos Geoespaciales",
+            "prioridad": "ALTA",
+            "issue": f"{missing_geom} registros ({100-geometry_completeness:.1f}%) sin coordenadas geográficas",
+            "impacto": "Limita la capacidad de análisis espacial y visualización en mapas",
+            "recomendacion": "Implementar proceso de geocodificación para registros sin coordenadas usando direcciones disponibles"
+        })
+    
+    if invalid_records > 0:
+        invalid_percentage = (invalid_records / total_records) * 100
+        recommendations.append({
+            "categoria": "Validación Espacial",
+            "prioridad": "ALTA" if invalid_percentage > 20 else "MEDIA",
+            "issue": f"{invalid_records} registros ({invalid_percentage:.1f}%) con inconsistencias entre ubicación y datos administrativos",
+            "impacto": "Coordenadas no coinciden con comuna/barrio declarado, indica posibles errores de georreferenciación",
+            "recomendacion": "Revisar y corregir coordenadas de registros FUERA DE RANGO mediante validación manual o re-geocodificación"
+        })
+    
+    if date_completeness < 85:
+        missing_dates = total_records - date_valid_inicio
+        recommendations.append({
+            "categoria": "Datos Temporales",
+            "prioridad": "MEDIA",
+            "issue": f"{missing_dates} registros ({100-date_completeness:.1f}%) sin fecha de inicio",
+            "impacto": "Dificulta análisis temporal y seguimiento de cronogramas",
+            "recomendacion": "Completar fechas faltantes consultando fuentes primarias (SECOP, documentos contractuales)"
+        })
+    
+    # Build comprehensive report
+    report = {
+        "metadata": {
+            "titulo": "Reporte de Análisis y Recomendaciones - Transformación de Unidades de Proyecto",
+            "version": "1.0",
+            "fecha_generacion": datetime.now().isoformat(),
+            "fecha_ejecucion_etl": metrics_data.get('execution_timestamp'),
+            "archivo_metricas": str(metrics_file.name)
+        },
+        "resumen_ejecutivo": {
+            "total_registros": total_records,
+            "calidad_global": {
+                "score": quality_score,
+                "nivel": spatial_quality,
+                "interpretacion": f"{'Excelente calidad' if quality_score >= 90 else 'Buena calidad' if quality_score >= 75 else 'Calidad aceptable' if quality_score >= 60 else 'Requiere mejoras significativas'}"
+            },
+            "indicadores_clave": {
+                "completitud_geometrica": {
+                    "porcentaje": geometry_completeness,
+                    "nivel": geometry_quality,
+                    "registros_con_geometria": records_with_geometry,
+                    "registros_sin_geometria": total_records - records_with_geometry
+                },
+                "completitud_temporal": {
+                    "porcentaje": date_completeness,
+                    "nivel": date_quality,
+                    "registros_con_fechas": date_valid_inicio,
+                    "registros_sin_fechas": total_records - date_valid_inicio
+                },
+                "validacion_espacial": {
+                    "registros_aceptables": acceptable_records,
+                    "registros_invalidos": invalid_records,
+                    "porcentaje_aceptable": quality_score,
+                    "registros_fuera_limites": 0
+                }
+            }
+        },
+        "analisis_detallado": {
+            "procesamiento_datos": {
+                "registros_cargados": metrics_data.get('data_loading', {}).get('total_records_loaded', 0),
+                "registros_transformados": total_records,
+                "columnas_finales": metrics_data.get('data_transformation', {}).get('total_columns_final', 0),
+                "upid_generados": metrics_data.get('data_transformation', {}).get('upid_generated', 0)
+            },
+            "procesamiento_geoespacial": {
+                "registros_geocodificados": records_with_geometry,
+                "registros_sin_geocodificar": total_records - records_with_geometry,
+                "sistema_coordenadas": "EPSG:4326"
+            }
+        },
+        "recomendaciones": recommendations,
+        "acciones_prioritarias": [
+            {
+                "prioridad": i+1,
+                "accion": rec["recomendacion"],
+                "registros_afectados": int(rec["issue"].split()[0]) if rec["issue"].split()[0].isdigit() else 0,
+                "impacto_esperado": rec["impacto"]
+            }
+            for i, rec in enumerate(recommendations[:5])
+        ],
+        "metricas_calidad": {
+            "completitud": {
+                "geometrica": geometry_completeness,
+                "temporal": date_completeness
+            },
+            "consistencia": {
+                "espacial": quality_score
+            }
+        }
+    }
+    
+    # Save JSON report with timestamp
+    report_output_dir = metrics_file.parent.parent / 'reports'
+    report_output_dir.mkdir(exist_ok=True, parents=True)
+    
+    timestamp_str = datetime.now().strftime("%Y%m%d_%H%M%S")
+    report_json_file = report_output_dir / f'analisis_recomendaciones_{timestamp_str}.json'
+    
+    with open(report_json_file, 'w', encoding='utf-8') as f:
+        json.dump(report, f, ensure_ascii=False, indent=2)
+    
+    print(f"✓ Reporte JSON guardado: {report_json_file.name}")
+    print(f"  Tamaño: {report_json_file.stat().st_size / 1024:.2f} KB")
+    print()
+    
+    # Generate Markdown report
+    md_lines = [
+        "# Reporte de Análisis y Recomendaciones",
+        "## Transformación de Unidades de Proyecto",
+        "",
+        f"**Fecha de Generación:** {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}  ",
+        f"**Versión:** {report['metadata']['version']}  ",
+        f"**Archivo de Métricas:** `{report['metadata']['archivo_metricas']}`",
+        "",
+        "---",
+        "",
+        "## 📊 Resumen Ejecutivo",
+        "",
+        f"**Total de Registros Procesados:** {report['resumen_ejecutivo']['total_registros']:,}",
+        "",
+        "### Calidad Global",
+        f"- **Score de Calidad:** {report['resumen_ejecutivo']['calidad_global']['score']:.1f}% ({report['resumen_ejecutivo']['calidad_global']['nivel']})",
+        f"- **Interpretación:** {report['resumen_ejecutivo']['calidad_global']['interpretacion']}",
+        "",
+        "### Indicadores Clave",
+        "",
+        "#### 🗺️ Completitud Geométrica",
+        f"- **Nivel:** {report['resumen_ejecutivo']['indicadores_clave']['completitud_geometrica']['nivel']}",
+        f"- **Porcentaje:** {report['resumen_ejecutivo']['indicadores_clave']['completitud_geometrica']['porcentaje']:.1f}%",
+        f"- **Con Geometría:** {report['resumen_ejecutivo']['indicadores_clave']['completitud_geometrica']['registros_con_geometria']:,} registros",
+        f"- **Sin Geometría:** {report['resumen_ejecutivo']['indicadores_clave']['completitud_geometrica']['registros_sin_geometria']:,} registros",
+        "",
+        "#### 📅 Completitud Temporal",
+        f"- **Nivel:** {report['resumen_ejecutivo']['indicadores_clave']['completitud_temporal']['nivel']}",
+        f"- **Porcentaje:** {report['resumen_ejecutivo']['indicadores_clave']['completitud_temporal']['porcentaje']:.1f}%",
+        f"- **Con Fechas:** {report['resumen_ejecutivo']['indicadores_clave']['completitud_temporal']['registros_con_fechas']:,} registros",
+        f"- **Sin Fechas:** {report['resumen_ejecutivo']['indicadores_clave']['completitud_temporal']['registros_sin_fechas']:,} registros",
+        "",
+        "#### ✅ Validación Espacial",
+        f"- **Registros Aceptables:** {report['resumen_ejecutivo']['indicadores_clave']['validacion_espacial']['registros_aceptables']:,} ({report['resumen_ejecutivo']['indicadores_clave']['validacion_espacial']['porcentaje_aceptable']:.1f}%)",
+        f"- **Registros Inválidos:** {report['resumen_ejecutivo']['indicadores_clave']['validacion_espacial']['registros_invalidos']:,}",
+        "",
+        "---",
+        "",
+        "## 📈 Análisis Detallado",
+        "",
+        "### Procesamiento de Datos",
+        f"- Registros cargados: {report['analisis_detallado']['procesamiento_datos']['registros_cargados']:,}",
+        f"- Registros transformados: {report['analisis_detallado']['procesamiento_datos']['registros_transformados']:,}",
+        f"- Columnas finales: {report['analisis_detallado']['procesamiento_datos']['columnas_finales']}",
+        f"- UPID generados: {report['analisis_detallado']['procesamiento_datos']['upid_generados']:,}",
+        "",
+        "### Procesamiento Geoespacial",
+        f"- Geocodificados: {report['analisis_detallado']['procesamiento_geoespacial']['registros_geocodificados']:,}",
+        f"- Sin geocodificar: {report['analisis_detallado']['procesamiento_geoespacial']['registros_sin_geocodificar']:,}",
+        f"- Sistema de coordenadas: `{report['analisis_detallado']['procesamiento_geoespacial']['sistema_coordenadas']}`",
+        "",
+        "---",
+        "",
+        "## 🎯 Recomendaciones",
+        ""
+    ]
+    
+    for i, rec in enumerate(report['recomendaciones'], 1):
+        priority_emoji = "🔴" if rec['prioridad'] == "ALTA" else "🟡" if rec['prioridad'] == "MEDIA" else "🟢"
+        md_lines.extend([
+            f"### {i}. {rec['categoria']} {priority_emoji}",
+            f"**Prioridad:** {rec['prioridad']}  ",
+            f"**Problema:** {rec['issue']}  ",
+            f"**Impacto:** {rec['impacto']}  ",
+            f"**Recomendación:** {rec['recomendacion']}",
+            ""
+        ])
+    
+    if report['acciones_prioritarias']:
+        md_lines.extend([
+            "---",
+            "",
+            "## ⚡ Acciones Prioritarias",
+            ""
+        ])
+        
+        for action in report['acciones_prioritarias']:
+            md_lines.extend([
+                f"### Prioridad {action['prioridad']}",
+                f"**Acción:** {action['accion']}  ",
+                f"**Registros Afectados:** {action['registros_afectados']:,}  ",
+                f"**Impacto Esperado:** {action['impacto_esperado']}",
+                ""
+            ])
+    
+    md_lines.extend([
+        "---",
+        "",
+        "## 📊 Métricas de Calidad",
+        "",
+        "### Completitud",
+        f"- **Geométrica:** {report['metricas_calidad']['completitud']['geometrica']:.1f}%",
+        f"- **Temporal:** {report['metricas_calidad']['completitud']['temporal']:.1f}%",
+        "",
+        "### Consistencia",
+        f"- **Espacial:** {report['metricas_calidad']['consistencia']['espacial']:.1f}%",
+        "",
+        "---",
+        "",
+        f"*Reporte generado automáticamente - {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}*"
+    ])
+    
+    # Save Markdown report with timestamp
+    report_md_file = report_output_dir / f'analisis_recomendaciones_{timestamp_str}.md'
+    with open(report_md_file, 'w', encoding='utf-8') as f:
+        f.write('\n'.join(md_lines))
+    
+    print(f"✓ Reporte Markdown guardado: {report_md_file.name}")
+    print(f"  Tamaño: {report_md_file.stat().st_size / 1024:.2f} KB")
+    print()
+    
+    print("=" * 80)
+    print("✓ GENERACIÓN DE REPORTES COMPLETADA")
+    print("=" * 80)
+    print()
+    print(f"📂 Archivos generados:")
+    print(f"   - JSON: {report_json_file}")
+    print(f"   - Markdown: {report_md_file}")
+    print()
+    print(f"📊 Resumen:")
+    print(f"   - Calidad Global: {quality_score:.1f}% ({spatial_quality})")
+    print(f"   - Recomendaciones: {len(recommendations)}")
+    print(f"   - Acciones Prioritarias: {len(report['acciones_prioritarias'])}")
+    
+    return {
+        'json': report_json_file,
+        'markdown': report_md_file
+    }
+
+
+def _process_unidades_proyecto_dataframe(df: pd.DataFrame) -> gpd.GeoDataFrame:
     """
     Internal function to process unidades proyecto dataframe using functional pipeline.
     This function can be used with both file-based and in-memory processing.
@@ -637,36 +1664,87 @@ def _process_unidades_proyecto_dataframe(df: pd.DataFrame) -> pd.DataFrame:
         df: Input dataframe to process
         
     Returns:
-        Processed dataframe
+        Processed GeoDataFrame
     """
     print("\n" + "="*60)
     print("PROCESSING UNIDADES DE PROYECTO DATA")
     print("="*60)
     
-    # Create processing pipeline using functional composition
-    # Order is important: upid generation MUST be first to ensure unique IDs
-    processing_pipeline = compose(
+    # Drop unnecessary columns first
+    df_clean = df.copy()
+    df_clean.drop(columns=['MicroTIO', 'dataframe', 'microtio', 'centros_gravedad'], inplace=True, errors='ignore')
+    
+    # Phase 1: Basic data cleaning and transformation
+    print("\n[Phase 1: Basic Transformation]")
+    basic_pipeline = compose(
         lambda df: generate_upid_for_records(df),
         lambda df: add_computed_columns(df),
-        lambda df: clean_data_types(df)
+        lambda df: clean_data_types(df),
+        lambda df: normalize_estado_values(df),
+        lambda df: normalize_tipo_intervencion_values(df),
+        lambda df: apply_title_case_to_text_fields(df)
     )
+    df_transformed = basic_pipeline(df_clean)
     
-    # Apply the complete processing pipeline
-    print("Applying functional processing pipeline...")
-    processed_df = processing_pipeline(df)
+    # Phase 2: Geospatial processing
+    print("\n[Phase 2: Geospatial Processing]")
+    gdf = convert_to_geodataframe(df_transformed)
     
-    print(f"✓ Processing completed: {len(processed_df)} rows, {len(processed_df.columns)} columns")
+    if isinstance(gdf, gpd.GeoDataFrame):
+        gdf = correct_coordinate_formats(gdf)
+        gdf = create_final_geometry(gdf)
+        
+        # Phase 3: Spatial intersections
+        print("\n[Phase 3: Spatial Intersections]")
+        gdf = perform_spatial_intersection(gdf, 'barrios_veredas', 'barrio_vereda_2')
+        gdf = perform_spatial_intersection(gdf, 'comunas_corregimientos', 'comuna_corregimiento_2')
+        
+        # Phase 4: Normalization and validation
+        print("\n[Phase 4: Normalization & Validation]")
+        gdf = normalize_administrative_values(gdf)
+        gdf = create_validation_column(gdf)
     
-    # Print comprehensive summary
-    print_data_summary(df, processed_df)
+    # Phase 5: Date standardization
+    print("\n[Phase 5: Date Standardization]")
+    gdf = standardize_dates(gdf)
     
-    return processed_df
+    # Phase 6: Export and metrics
+    print("\n[Phase 6: Export & Metrics]")
+    current_dir = Path(__file__).parent.parent
+    output_dir = current_dir / 'app_outputs'
+    logs_dir = output_dir / 'logs'
+    
+    output_file = export_to_geojson(gdf, output_dir)
+    metrics, metrics_file = generate_metrics_log(gdf, df, logs_dir)
+    
+    # Generate comprehensive analysis and recommendations report
+    report_files = generate_analysis_report(metrics_file, gdf)
+    
+    print(f"\n✓ Processing completed: {len(gdf)} rows, {len(gdf.columns)} columns")
+    print(f"✓ Quality score: {metrics['summary']['data_quality_score']:.1f}%")
+    print(f"✓ Geometry completeness: {metrics['summary']['geometry_completeness']:.1f}%")
+    print(f"\n📁 Output files:")
+    print(f"   - GeoJSON: {output_file}")
+    print(f"   - Metrics: {metrics_file}")
+    print(f"   - Report (JSON): {report_files['json']}")
+    print(f"   - Report (Markdown): {report_files['markdown']}")
+    
+    return gdf
 
 
-def transform_and_save_unidades_proyecto() -> Optional[pd.DataFrame]:
+def transform_and_save_unidades_proyecto(
+    data: Optional[pd.DataFrame] = None, 
+    use_extraction: bool = True,
+    upload_to_s3: bool = True
+) -> Optional[gpd.GeoDataFrame]:
     """
     Main function to transform and save unidades de proyecto data.
     Implements complete functional pipeline for transformation and output generation.
+    
+    Args:
+        data: Optional DataFrame with extracted data (if provided, skips extraction)
+        use_extraction: If True and data is None, extracts from Google Drive
+        upload_to_s3: If True, uploads outputs to S3 after transformation
     """
     try:
         print("="*80)
@@ -674,19 +1752,62 @@ def transform_and_save_unidades_proyecto() -> Optional[pd.DataFrame]:
         print("="*80)
         
         # Transform the data using functional pipeline
-        df_processed = unidades_proyecto_transformer()
+        # Pass data and use_extraction to avoid duplicate extraction
+        gdf_processed = unidades_proyecto_transformer(data=data, use_extraction=use_extraction)
         
-        if df_processed is not None:
+        if gdf_processed is not None:
             print("\n" + "="*60)
             print("TRANSFORMATION COMPLETED SUCCESSFULLY")
             print("="*60)
             
-            # Display sample data
-            print(f"\nSample processed data:")
-            print(df_processed.head(2).to_string())
-            print(f"\nTotal columns: {len(df_processed.columns)}")
+            # Display summary
+            print(f"\nTotal records: {len(gdf_processed):,}")
+            print(f"Total columns: {len(gdf_processed.columns)}")
             
-            return df_processed
+            if isinstance(gdf_processed, gpd.GeoDataFrame):
+                print(f"Geometries: {gdf_processed['geometry'].notna().sum():,}")
+                if 'fuera_rango' in gdf_processed.columns:
+                    print(f"Quality (ACEPTABLE): {(gdf_processed['fuera_rango'] == 'ACEPTABLE').sum():,}")
+            
+            # Upload to S3 if requested
+            if upload_to_s3:
+                try:
+                    print("\n" + "="*80)
+                    print("UPLOADING OUTPUTS TO S3")
+                    print("="*80)
+                    
+                    # Import S3Uploader
+                    sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'utils'))
+                    from s3_uploader import S3Uploader
+                    
+                    # Initialize uploader
+                    uploader = S3Uploader("aws_credentials.json")
+                    
+                    # Upload all outputs
+                    current_dir = Path(__file__).parent.parent
+                    output_dir = current_dir / 'app_outputs'
+                    
+                    upload_results = uploader.upload_all_outputs(
+                        output_dir=output_dir,
+                        upload_data=True,
+                        upload_logs=True,
+                        upload_reports=True
+                    )
+                    
+                    print("\n" + "="*80)
+                    print("S3 UPLOAD COMPLETED")
+                    print("="*80)
+                    
+                except Exception as e:
+                    print("\n" + "="*80)
+                    print("S3 UPLOAD FAILED")
+                    print("="*80)
+                    print(f"✗ Error uploading to S3: {e}")
+                    import traceback
+                    traceback.print_exc()
+                    print("\n⚠️ Transformation was successful, but S3 upload failed")
+            
+            return gdf_processed
         
         else:
             print("Error: Data transformation failed")
@@ -701,7 +1822,6 @@ def transform_and_save_unidades_proyecto() -> Optional[pd.DataFrame]:
 
 def main():
     """Main function for testing the transformer."""
-    # Just run the main transformation without robustness tests
     return transform_and_save_unidades_proyecto()
 
 
@@ -711,16 +1831,85 @@ if __name__ == "__main__":
     """
     print("Starting unidades de proyecto transformation process...")
     
-    # Run the complete transformation pipeline with robustness tests
-    df_result = main()
+    # Run the complete transformation pipeline
+    gdf_result = main()
     
-    if df_result is not None:
+    if gdf_result is not None:
         print("\n" + "="*60)
         print("TRANSFORMATION PIPELINE COMPLETED")
         print("="*60)
-        print(f"✓ Processed data: {len(df_result)} records")
-        print(f"✓ Total columns: {len(df_result.columns)}")
+        print(f"✓ Processed data: {len(gdf_result):,} records")
+        print(f"✓ Total columns: {len(gdf_result.columns)}")
+        
+        if isinstance(gdf_result, gpd.GeoDataFrame):
+            print(f"✓ GeoDataFrame type: {type(gdf_result).__name__}")
+            print(f"✓ Geometries: {gdf_result['geometry'].notna().sum():,}")
+        
         print(f"✓ Data transformation completed successfully")
+        
+        # Upload outputs to S3
+        try:
+            print("\n" + "="*80)
+            print("UPLOADING OUTPUTS TO S3")
+            print("="*80)
+            
+            # Import S3Uploader
+            sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'utils'))
+            from s3_uploader import S3Uploader
+            
+            # Initialize uploader
+            uploader = S3Uploader("aws_credentials.json")
+            
+            # Upload all outputs
+            current_dir = Path(__file__).parent.parent
+            output_dir = current_dir / 'app_outputs'
+            
+            upload_results = uploader.upload_all_outputs(
+                output_dir=output_dir,
+                upload_data=True,
+                upload_logs=True,
+                upload_reports=True
+            )
+            
+            print("\n" + "="*80)
+            print("S3 UPLOAD COMPLETED")
+            print("="*80)
+            
+            # Load data to Firebase/Firestore
+            try:
+                print("\n" + "="*80)
+                print("LOADING DATA TO FIREBASE/FIRESTORE")
+                print("="*80)
+                
+                # Import the loading module
+                sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'load_app'))
+                from data_loading_unidades_proyecto import load_unidades_proyecto_to_firebase
+                
+                # Execute the loading from S3 (uses default: /current compressed version)
+                success = load_unidades_proyecto_to_firebase(
+                    use_s3=True,
+                    batch_size=100
+                )
+                
+                if success:
+                    print("\n✅ Datos cargados exitosamente a Firebase/Firestore")
+                else:
+                    print("\n⚠️ No se pudieron cargar los datos a Firebase/Firestore")
+                    
+            except Exception as load_error:
+                print(f"\n⚠️ Error al cargar datos a Firebase: {load_error}")
+                print("Datos guardados en S3, pero no se cargaron a Firestore")
+                import traceback
+                traceback.print_exc()
+            
+        except Exception as e:
+            print("\n" + "="*80)
+            print("S3 UPLOAD FAILED")
+            print("="*80)
+            print(f"✗ Error uploading to S3: {e}")
+            import traceback
+            traceback.print_exc()
+            print("\n⚠️ Transformation was successful, but S3 upload failed")
         
     else:
         print("\n" + "="*60)

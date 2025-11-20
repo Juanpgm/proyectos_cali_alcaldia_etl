@@ -85,8 +85,9 @@ BATCH_SIZE = int(os.getenv('FIRESTORE_BATCH_SIZE', '500'))
 TIMEOUT = int(os.getenv('FIRESTORE_TIMEOUT', '30'))
 
 # Google Drive configuration
+# Usar scopes amplios para evitar problemas con ADC
 DRIVE_SCOPES = [
-    'https://www.googleapis.com/auth/drive.readonly'
+    'https://www.googleapis.com/auth/drive'
 ]
 
 # Drive folder configuration (desde variables de entorno)
@@ -202,41 +203,70 @@ def test_connection() -> bool:
 # Funciones para Google Drive
 @lru_cache(maxsize=1)
 @secure_log
-def get_drive_service():
+def get_drive_service(user_email: Optional[str] = None):
     """
     Obtiene el servicio de Google Drive autenticado.
-    Utiliza Application Default Credentials (ADC).
+    Soporta Domain-Wide Delegation si se proporciona user_email.
+    
+    Args:
+        user_email: Email del usuario de Google Workspace a impersonar (opcional)
+                   Solo funciona si Domain-Wide Delegation está habilitado
+    
+    Returns:
+        Servicio de Google Drive autenticado o None si falla
     """
     global _drive_service
     
-    if _drive_service:
+    # Si ya hay un servicio y no se requiere delegación, reutilizarlo
+    if _drive_service and not user_email:
         return _drive_service
     
     try:
-        # Opción 1: Service Account (más seguro para producción)
+        # Opción 1: Service Account con Domain-Wide Delegation (si user_email está presente)
         if SERVICE_ACCOUNT_FILE and os.path.exists(SERVICE_ACCOUNT_FILE):
             from google.oauth2 import service_account
+            
             credentials_obj = service_account.Credentials.from_service_account_file(
                 SERVICE_ACCOUNT_FILE,
                 scopes=DRIVE_SCOPES
             )
-            _drive_service = build('drive', 'v3', credentials=credentials_obj)
-            print("✅ Google Drive autenticado con Service Account")
-            return _drive_service
+            
+            # Aplicar Domain-Wide Delegation si se proporciona user_email
+            if user_email:
+                try:
+                    credentials_obj = credentials_obj.with_subject(user_email)
+                    service = build('drive', 'v3', credentials=credentials_obj)
+                    print(f"✅ Google Drive autenticado con Domain-Wide Delegation")
+                    print(f"   Delegando al usuario: {user_email}")
+                    return service
+                except Exception as e:
+                    print(f"❌ Error con Domain-Wide Delegation: {e}")
+                    print(f"💡 Verifica que Domain-Wide Delegation esté configurado correctamente")
+                    print(f"   Consulta: CONFIGURACION_DOMAIN_WIDE_DELEGATION.md")
+                    return None
+            else:
+                # Service Account sin delegación (para Shared Drives)
+                _drive_service = build('drive', 'v3', credentials=credentials_obj)
+                print("✅ Google Drive autenticado con Service Account")
+                print("💡 Para carpetas personales: usa Domain-Wide Delegation")
+                print("💡 Para Shared Drives: asegúrate de compartir con el Service Account")
+                return _drive_service
         
-        # Opción 2: Application Default Credentials
+        # Opción 2: Application Default Credentials (fallback)
         try:
-            credentials_obj, project = default(scopes=DRIVE_SCOPES)
+            credentials_obj, project = default()
             _drive_service = build('drive', 'v3', credentials=credentials_obj)
             print("✅ Google Drive autenticado con ADC")
+            print("⚠️  Nota: ADC puede no tener scopes de Drive configurados")
             return _drive_service
         except Exception as e:
             if not SECURE_LOGGING:
-                print(f"❌ Error con ADC: {e}")
+                print(f"⚠️  Error con ADC: {e}")
         
         print("💡 Opciones de autenticación:")
-        print("   1. Service Account: configura SERVICE_ACCOUNT_FILE en .env")
-        print("   2. ADC (WIF): gcloud auth application-default login --scopes=https://www.googleapis.com/auth/drive.readonly")
+        print("   1. Service Account con Domain-Wide Delegation: configura SERVICE_ACCOUNT_FILE + GOOGLE_WORKSPACE_USER_EMAIL")
+        print("   2. Service Account con Shared Drive: configura SERVICE_ACCOUNT_FILE y comparte Shared Drive")
+        print("   3. ADC: gcloud auth application-default login")
         return None
         
     except Exception as e:
@@ -267,7 +297,9 @@ def list_excel_files_in_folder(folder_id: str) -> List[Dict[str, str]]:
         results = service.files().list(
             q=query,
             fields="files(id, name, mimeType)",
-            pageSize=100
+            pageSize=100,
+            supportsAllDrives=True,
+            includeItemsFromAllDrives=True
         ).execute()
         
         files = results.get('files', [])
@@ -328,6 +360,104 @@ def download_excel_file(file_id: str, file_name: str) -> Optional[io.BytesIO]:
     except Exception as e:
         if not SECURE_LOGGING:
             print(f"❌ Error descargando archivo '{file_name}': {e}")
+        return None
+
+
+@secure_log
+def upload_file_to_drive(
+    file_buffer: io.BytesIO,
+    filename: str,
+    folder_id: str,
+    mime_type: str = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+) -> Optional[Dict[str, str]]:
+    """
+    Sube un archivo a Google Drive desde un buffer en memoria.
+    Si el archivo ya existe, lo reemplaza (actualiza).
+    
+    Args:
+        file_buffer: Buffer con el contenido del archivo
+        filename: Nombre del archivo en Drive
+        folder_id: ID de la carpeta destino en Drive
+        mime_type: Tipo MIME del archivo (default: Excel .xlsx)
+        
+    Returns:
+        Dict con información del archivo subido (id, name, webViewLink) o None si falla
+    """
+    try:
+        from googleapiclient.http import MediaIoBaseUpload
+        
+        service = get_drive_service()
+        if not service:
+            return None
+        
+        # Verificar si el archivo ya existe en la carpeta
+        existing_file_id = None
+        try:
+            query = f"name='{filename}' and '{folder_id}' in parents and trashed=false"
+            results = service.files().list(
+                q=query,
+                fields='files(id, name)',
+                pageSize=1,
+                supportsAllDrives=True,
+                includeItemsFromAllDrives=True
+            ).execute()
+            
+            files = results.get('files', [])
+            if files:
+                existing_file_id = files[0]['id']
+                if not SECURE_LOGGING:
+                    name_display = filename[:50] + "..." if len(filename) > 50 else filename
+                    print(f"📝 Archivo existe, actualizando: {name_display}")
+        except Exception as e:
+            if not SECURE_LOGGING:
+                print(f"⚠️  No se pudo verificar archivo existente: {e}")
+        
+        # Crear MediaIoBaseUpload desde el buffer
+        file_buffer.seek(0)  # Asegurar que estamos al inicio del buffer
+        media = MediaIoBaseUpload(
+            file_buffer,
+            mimetype=mime_type,
+            resumable=True
+        )
+        
+        if existing_file_id:
+            # Actualizar archivo existente
+            file = service.files().update(
+                fileId=existing_file_id,
+                media_body=media,
+                fields='id, name, webViewLink',
+                supportsAllDrives=True
+            ).execute()
+            
+            name_display = filename[:50] + "..." if len(filename) > 50 else filename
+            print(f"✅ Archivo actualizado en Drive: {name_display}")
+        else:
+            # Crear nuevo archivo
+            file_metadata = {
+                'name': filename,
+                'parents': [folder_id]
+            }
+            file = service.files().create(
+                body=file_metadata,
+                media_body=media,
+                fields='id, name, webViewLink',
+                supportsAllDrives=True
+            ).execute()
+            
+            name_display = filename[:50] + "..." if len(filename) > 50 else filename
+            print(f"✅ Archivo subido a Drive: {name_display}")
+        
+        return {
+            'id': file.get('id'),
+            'name': file.get('name'),
+            'webViewLink': file.get('webViewLink')
+        }
+        
+    except Exception as e:
+        if not SECURE_LOGGING:
+            print(f"❌ Error subiendo archivo '{filename}': {e}")
+            import traceback
+            traceback.print_exc()
         return None
 
 

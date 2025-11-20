@@ -1,103 +1,217 @@
-# �️ ETL Pipeline - Proyectos Cali Alcaldía
+# 🏗️ ETL Pipeline - Proyectos Cali Alcaldía
 
-Pipeline automatizado de **Extracción, Transformación y Carga (ETL)** para datos de unidades de proyecto de la Alcaldía de Cali. Implementa programación funcional, carga incremental y ejecución automatizada con GitHub Actions.
+Pipeline automatizado de **Extracción, Transformación y Carga (ETL)** para datos de unidades de proyecto de la Alcaldía de Cali. Implementa programación funcional, arquitectura 100% serverless y upsert inteligente.
 
 ## 🎯 Características Principales
 
-- **🔄 Automatización Completa**: Ejecución automática 2 veces al día (8:00 AM y 4:00 PM COT)
-- **⚡ Carga Incremental**: Solo procesa datos nuevos o modificados
-- **🔐 Seguridad**: Credenciales encriptadas con GitHub Secrets
-- **📊 Monitoreo**: Health checks automáticos y reportes detallados
-- **🎮 Control Manual**: Ejecutar pipeline manualmente cuando sea necesario
+- **☁️ 100% Serverless**: Cloud Functions + S3 + Firestore (sin servidores que mantener)
+- **⚡ Upsert Inteligente**: Solo actualiza documentos que realmente cambiaron (MD5 hash comparison)
+- **🔐 Seguridad**: Credenciales AWS en Secret Manager, Service Accounts con permisos mínimos
+- **📊 Monitoreo**: Logs detallados en Cloud Functions, métricas en GCP Console
+- **🎮 Trigger Flexible**: Manual (HTTP), automático (Cloud Scheduler), o desde pipeline
 - **🏗️ Programación Funcional**: Código limpio, eficiente y reutilizable
+- **📦 Storage en S3**: Datos transformados, logs y reportes en AWS S3
+- **🔥 Firestore**: 3 colecciones (datos, logs, reportes) con upsert inteligente
 
 ## 🚀 Inicio Rápido
 
-### 1. Configuración Inicial
+### 1. Configuración AWS S3
 
-```bash
-# Clonar repositorio
-git clone https://github.com/Juanpgm/proyectos_cali_alcaldia_etl.git
-cd proyectos_cali_alcaldia_etl
-
-# Instalar dependencias
-pip install -r requirements.txt
-
-# Configurar repositorio
-python fix_repository.py
+```powershell
+# Configurar credenciales AWS
+.\setup_aws_quick.ps1
 ```
 
-### 2. Configurar Secrets
+### 2. Desplegar Cloud Functions (GCP)
 
-Sigue la guía detallada en [`.github/SECRETS_SETUP.md`](.github/SECRETS_SETUP.md) para configurar:
+```powershell
+cd cloud_functions
+.\setup_cloud_functions.ps1 -ProjectId "tu-proyecto-gcp"
+```
 
-- Service Account de Google Cloud
-- Acceso a Firebase Firestore
-- Permisos de Google Sheets
+### 3. Ejecutar Pipeline Completo
 
-### 3. Ejecutar Pipeline Local
+```powershell
+# Activar entorno virtual
+.\env\Scripts\Activate.ps1
 
-````bash
-# Ejecutar pipeline completo
-cd pipelines
-python unidades_proyecto_pipeline.py
+# Opción A: Transformación + Upload S3 + Trigger Manual Firestore
+python transformation_app\data_transformation_unidades_proyecto.py
+Invoke-WebRequest -Uri "https://REGION-PROJECT.cloudfunctions.net/manual-trigger-unidades-proyecto" -Method POST
 
-```bash
-# Los datos están en Firebase Firestore
-# Proyecto: dev-test-e778d
-# Colección: proyectos_presupuestales
-````
+# Opción B: Transformación + Upload S3 + Auto-trigger Firestore
+$env:TRIGGER_CLOUD_FUNCTION = "true"
+$env:CLOUD_FUNCTION_URL = "https://REGION-PROJECT.cloudfunctions.net/load-unidades-proyecto"
+python transformation_app\data_transformation_unidades_proyecto.py
+```
+
+### 4. Verificar Resultados
+
+```powershell
+# Verificar S3
+aws s3 ls s3://unidades-proyecto-documents/up-geodata/
+
+# Ver logs Cloud Function
+gcloud functions logs read load-unidades-proyecto --region=us-central1 --limit=20
+
+# Verificar Firestore
+gcloud firestore collections list
+```
+
+**📖 Guía Completa:** [`docs/SERVERLESS_PIPELINE_GUIDE.md`](./docs/SERVERLESS_PIPELINE_GUIDE.md)  
+**⚡ Quick Reference:** [`cloud_functions/QUICK_REFERENCE.md`](./cloud_functions/QUICK_REFERENCE.md)
 
 ## 📚 Documentación
 
 ### [📖 Documentación Completa](./docs/)
 
-- [🔐 Configuración Firebase con Workload Identity](./docs/firebase-workload-identity-setup.md)
-- [⚡ Setup Rápido](./docs/quick-setup.md)
+- **[🚀 Guía Pipeline Serverless](./docs/SERVERLESS_PIPELINE_GUIDE.md)** ← **NUEVO: Setup completo ETL serverless**
+- [⚡ Quick Reference](./cloud_functions/QUICK_REFERENCE.md) - Comandos esenciales
+- [☁️ Cloud Functions README](./cloud_functions/README.md) - Detalles técnicos
+- [🔐 Configuración Firebase](./docs/firebase-workload-identity-setup.md)
+- [📦 Setup AWS S3](./docs/S3_SETUP_GUIDE.md)
 
-## 🏗️ Estructura del Proyecto
+## 🏗️ Arquitectura Serverless
 
 ```
-├── database/               # Configuración de Firebase
-│   └── config.py          # Setup con Workload Identity Federation
-├── load_app/              # Carga de datos
-│   └── data_loading_bp.py # Carga de proyectos presupuestales
-├── transformation_app/    # Transformación de datos
-├── extraction_app/       # Extracción de datos
-├── docs/                 # Documentación
-└── requirements.txt      # Dependencias
+Google Sheets
+    ↓ extraction_app/
+    ↓ data_extraction_unidades_proyecto.py
+GeoJSON Raw
+    ↓ transformation_app/
+    ↓ data_transformation_unidades_proyecto.py
+    ↓ utils/s3_uploader.py
+AWS S3 (unidades-proyecto-documents)
+    ├── /up-geodata/
+    ├── /logs/
+    └── /reports/
+        ↓ Cloud Functions (GCP)
+        ↓ • Reads from S3
+        ↓ • AWS creds from Secret Manager
+        ↓ • MD5 hash comparison (upsert)
+Firebase Firestore
+    ├── unidades_proyecto
+    ├── unidades_proyecto_transformation_logs
+    └── unidades_proyecto_transformation_reports
 ```
 
-## 🔧 Tecnologías
+### Estructura de Código
 
-- **Base de datos:** Firebase Firestore
-- **Autenticación:** Workload Identity Federation
-- **Lenguaje:** Python 3.12+
-- **Cloud:** Google Cloud Platform
+```
+├── cloud_functions/          # ← NUEVO: Cloud Functions serverless
+│   ├── main.py              # Entry points (HTTP triggers)
+│   ├── utils.py             # S3Handler, FirestoreHandler, DataTransformer
+│   ├── requirements.txt     # Dependencies
+│   └── setup_cloud_functions.ps1  # Setup automatizado
+├── transformation_app/      # Transformación + upload S3
+│   └── data_transformation_unidades_proyecto.py
+├── extraction_app/          # Extracción Google Sheets
+│   └── data_extraction_unidades_proyecto.py
+├── utils/                   # Utilidades compartidas
+│   └── s3_uploader.py       # Upload a S3 después de transformación
+├── docs/                    # Documentación completa
+│   └── SERVERLESS_PIPELINE_GUIDE.md  # ← Guía principal
+├── aws_credentials.json     # Credenciales AWS (gitignored)
+└── requirements.txt         # Dependencias Python
+```
+
+## 🔧 Stack Tecnológico
+
+### Backend & Cloud
+
+- **Python 3.11+:** Lenguaje principal
+- **Google Cloud Functions (Gen 2):** Serverless compute
+- **Firebase Firestore:** NoSQL database con upsert inteligente
+- **AWS S3:** Object storage para datos transformados, logs y reportes
+- **GCP Secret Manager:** Almacenamiento seguro de credenciales AWS
+
+### Librerías Python
+
+- **geopandas:** Procesamiento geoespacial
+- **boto3:** SDK AWS para S3
+- **firebase-admin:** SDK Firebase para Firestore
+- **pandas:** Manipulación de datos
+
+### Seguridad
+
+- **Secret Manager:** Credenciales AWS (sin archivos locales en Cloud Functions)
+- **Service Accounts:** Permisos mínimos necesarios
+- **IAM Policies:** Control de acceso granular
 
 ## 📊 Estado del Proyecto
 
-- ✅ Configuración Firebase con Workload Identity Federation
-- ✅ Carga de proyectos presupuestales (1,254 registros)
-- ✅ Verificación automática de datos
-- 🔄 Extracción y transformación de datos (en desarrollo)
+### ✅ Completado
 
-## 🛠️ Configuración Local
+- ✅ Extracción desde Google Sheets
+- ✅ Transformación completa con validación geoespacial
+- ✅ Upload automático a S3 después de transformación
+- ✅ Cloud Functions serverless con upsert inteligente
+- ✅ Secret Manager para credenciales AWS
+- ✅ Trigger manual y automático (Cloud Scheduler)
+- ✅ 3 colecciones Firestore (datos, logs, reportes)
+- ✅ Mapeo de campos según especificaciones
+- ✅ Comparación MD5 para evitar escrituras innecesarias
 
-1. **Clonar repositorio**
-2. **Instalar dependencias:** `pip install -r requirements.txt`
-3. **Configurar Firebase:** Ver [documentación](./docs/firebase-workload-identity-setup.md)
-4. **Probar configuración:** `python database/config.py`
+### 📈 Datos en Producción
+
+- **Unidades de Proyecto:** 1,641 registros geoespaciales
+- **Campos:** 65 columnas (upid, comuna_corregimiento, barrio_vereda, fechas, geometría, etc.)
+- **Actualización:** Diaria automática (2:00 AM) o manual vía HTTP
+- **Storage:** S3 + Firestore
+
+## 💰 Costos Estimados
+
+### Google Cloud Platform
+
+- **Cloud Functions:** <$1/mes (1 ejecución diaria, 512MB, ~30s)
+- **Secret Manager:** Gratis (primeros 6 secrets)
+- **Firestore:** Gratis (dentro de cuota gratuita)
+- **Cloud Scheduler:** Gratis (primeros 3 jobs)
+
+### AWS
+
+- **S3 Storage:** <$0.50/mes (~500MB de datos)
+- **S3 Requests:** Gratis (pocas operaciones PUT/GET)
+
+**Total:** <$2/mes
+
+## 🛠️ Mantenimiento
+
+### Logs y Monitoreo
+
+```powershell
+# Ver logs Cloud Functions
+gcloud functions logs read load-unidades-proyecto --region=us-central1 --limit=50
+
+# Ver métricas en GCP Console
+# https://console.cloud.google.com/functions
+
+# Verificar S3
+aws s3 ls s3://unidades-proyecto-documents/ --recursive --human-readable
+```
+
+### Actualizaciones
+
+```powershell
+# Re-deploy después de cambios en código
+cd cloud_functions
+.\setup_cloud_functions.ps1
+```
 
 ## 🔐 Seguridad
 
-Este proyecto usa **Workload Identity Federation** en lugar de archivos de claves de cuenta de servicio, siguiendo las mejores prácticas de seguridad de Google Cloud.
+### Credenciales
 
-## 📈 Datos Disponibles
+- **AWS:** Almacenadas en GCP Secret Manager (no en código)
+- **GCP:** Service Account con permisos mínimos (secretAccessor, datastore.user)
+- **Firestore:** Reglas de seguridad configuradas
 
-- **Proyectos Presupuestales:** 1,254 registros
-- **Campos:** BPIN, nombre, centro gestor, programa, etc.
-- **Actualización:** En tiempo real via ETL
+### Best Practices
+
+- ✅ No hay archivos de credenciales en repositorio
+- ✅ `.gitignore` incluye `aws_credentials.json`
+- ✅ Secret Manager con automatic replication
+- ✅ Service Accounts con least privilege principle
 
 ## 🆘 Soporte
 

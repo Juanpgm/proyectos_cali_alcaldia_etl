@@ -93,6 +93,11 @@ sheets-service-account.json
 secrets/
 config/credentials/
 
+# AWS credentials (NEVER commit these)
+aws_credentials.json
+.aws/
+*.pem
+
 # Firebase
 .firebase/
 firebase-debug.log

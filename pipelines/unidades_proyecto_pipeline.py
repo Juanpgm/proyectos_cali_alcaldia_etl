@@ -344,14 +344,21 @@ def run_extraction() -> Optional[pd.DataFrame]:
 
 @log_step("TRANSFORMACIÓN DE DATOS")
 @safe_execute
-def run_transformation() -> Optional[pd.DataFrame]:
+def run_transformation(extracted_data: Optional[pd.DataFrame] = None) -> Optional[pd.DataFrame]:
     """
     Ejecuta el proceso de transformación de datos.
+    
+    Args:
+        extracted_data: DataFrame con datos ya extraídos (evita extracción duplicada)
     
     Returns:
         DataFrame con los datos transformados o None si falla
     """
-    return transform_and_save_unidades_proyecto()
+    # Si hay datos extraídos, pasarlos a la transformación y desactivar extracción
+    if extracted_data is not None:
+        return transform_and_save_unidades_proyecto(data=extracted_data, use_extraction=False, upload_to_s3=True)
+    else:
+        return transform_and_save_unidades_proyecto(upload_to_s3=True)
 
 
 @log_step("VERIFICACIÓN INCREMENTAL")
@@ -410,25 +417,30 @@ def verify_and_prepare_incremental_load(
 
 @log_step("CARGA INCREMENTAL A FIREBASE")
 @safe_execute
-def run_incremental_load(incremental_geojson_path: str, collection_name: str = "unidades_proyecto") -> bool:
+def run_incremental_load(incremental_geojson_path: str, collection_name: str = "unidades_proyecto", use_s3: bool = True) -> bool:
     """
-    Ejecuta la carga incremental a Firebase.
+    Ejecuta la carga incremental a Firebase desde S3 o archivo local.
     
     Args:
-        incremental_geojson_path: Ruta al GeoJSON con solo los cambios
+        incremental_geojson_path: Ruta al GeoJSON con solo los cambios (fallback si S3 falla)
         collection_name: Nombre de la colección en Firebase
+        use_s3: Si True, intenta cargar desde S3 primero (default: True)
         
     Returns:
         True si la carga fue exitosa, False en caso contrario
     """
-    if not incremental_geojson_path or not os.path.exists(incremental_geojson_path):
-        print("❌ Archivo GeoJSON incremental no disponible")
-        return False
+    if not use_s3:
+        # Modo legacy: solo archivo local
+        if not incremental_geojson_path or not os.path.exists(incremental_geojson_path):
+            print("❌ Archivo GeoJSON incremental no disponible")
+            return False
     
     return load_unidades_proyecto_to_firebase(
         input_file=incremental_geojson_path,
         collection_name=collection_name,
-        batch_size=100
+        batch_size=100,
+        use_s3=use_s3,
+        s3_key="up-geodata/unidades_proyecto_transformed/current/unidades_proyecto_transformed.geojson.gz"  # Usar versión CURRENT desde S3
     )
 
 
@@ -483,8 +495,8 @@ def create_unidades_proyecto_pipeline() -> Callable[[], Dict[str, Any]]:
             results['extraction_success'] = True
             results['records_processed'] = len(extraction_result) if extraction_result is not None else 0
             
-            # PASO 2: Transformación
-            transformation_result = run_transformation()
+            # PASO 2: Transformación (pasar datos extraídos para evitar duplicación)
+            transformation_result = run_transformation(extracted_data=extraction_result)
             if transformation_result is None or (hasattr(transformation_result, 'empty') and transformation_result.empty):
                 results['errors'].append("Fallo en transformación de datos")
                 return results

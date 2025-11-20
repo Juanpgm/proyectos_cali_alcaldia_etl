@@ -1,0 +1,62 @@
+{
+  "timestamp": "2025-11-18T11:20:33.492587",
+  "total_tests": 3,
+  "passed_tests": 3,
+  "failed_tests": 0,
+  "warnings": 0,
+  "details": [
+    {
+      "test_name": "estado_avance_consistency",
+      "passed": true,
+      "timestamp": "2025-11-18T11:20:33.494585",
+      "total_records": 6,
+      "inconsistencies": [],
+      "warnings": [],
+      "summary": {
+        "zero_avance_count": 2,
+        "partial_avance_count": 2,
+        "complete_avance_count": 2,
+        "estado_distribution": {
+          "En Alistamiento": 2,
+          "En Ejecución": 2,
+          "Terminado": 2
+        },
+        "consistency_rate": "100.00%"
+      }
+    },
+    {
+      "test_name": "avance_obra_numeric",
+      "passed": true,
+      "timestamp": "2025-11-18T11:20:33.495585",
+      "total_records": 6,
+      "numeric_errors": [],
+      "range_errors": [],
+      "statistics": {
+        "mean": 54.166666666666664,
+        "median": 62.5,
+        "std": 45.87119648174295,
+        "min": 0.0,
+        "max": 100.0,
+        "q25": 12.5,
+        "q75": 93.75
+      }
+    },
+    {
+      "test_name": "estado_valid_values",
+      "passed": "True",
+      "timestamp": "2025-11-18T11:20:33.495585",
+      "total_records": 6,
+      "valid_values": [
+        "En Alistamiento",
+        "En Ejecución",
+        "Terminado"
+      ],
+      "invalid_values": [],
+      "distribution": {
+        "En Alistamiento": 2,
+        "En Ejecución": 2,
+        "Terminado": 2
+      }
+    }
+  ]
+}

@@ -249,6 +249,7 @@ def standardize_data_structure(df: pd.DataFrame) -> pd.DataFrame:
     """
     Standardize data structure while preserving ALL original columns.
     Uses functional approach to add standardized column aliases.
+    Detects and fixes percentage values stored as decimals (divided by 100).
     """
     # Create a copy to avoid mutations
     standardized_df = df.copy()
@@ -273,6 +274,50 @@ def standardize_data_structure(df: pd.DataFrame) -> pd.DataFrame:
     for source_col, target_col in column_mapping.items():
         if source_col in standardized_df.columns and target_col not in standardized_df.columns:
             standardized_df[target_col] = standardized_df[source_col]
+    
+    # FIX: Detect and correct percentage values stored as decimals (0.01 instead of 1)
+    # This happens in some Excel files where percentages are stored divided by 100
+    percentage_columns = ['avance_obra', 'avance_fisico_obra']
+    
+    for col in percentage_columns:
+        if col in standardized_df.columns:
+            # First convert to numeric, coercing errors to NaN
+            standardized_df[col] = pd.to_numeric(standardized_df[col], errors='coerce')
+            
+            # Smart detection: check if ANY values are in decimal format (0.XX instead of XX%)
+            # This handles mixed data from different Excel sources
+            non_zero_values = standardized_df[col].dropna()
+            non_zero_values = non_zero_values[non_zero_values != 0]
+            
+            if len(non_zero_values) > 0:
+                # Check if there are values between 0 and 1 (excluding 0)
+                # These are likely percentages stored as decimals
+                decimal_values = non_zero_values[(non_zero_values > 0) & (non_zero_values <= 1.0)]
+                
+                if len(decimal_values) > 0:
+                    # We have values that look like decimals (0.XX)
+                    # Check if there are also values > 1 (normal percentages)
+                    normal_values = non_zero_values[non_zero_values > 1.0]
+                    
+                    if len(normal_values) > 0:
+                        # Mixed format: some decimals, some normal percentages
+                        # Only multiply the decimal values by 100
+                        print(f"⚠️  Detected MIXED percentage formats in '{col}'")
+                        print(f"   - Decimal values (0-1): {len(decimal_values)}")
+                        print(f"   - Normal values (>1): {len(normal_values)}")
+                        print(f"   Multiplying decimal values by 100")
+                        
+                        # Create a mask for values that need correction
+                        mask = (standardized_df[col] > 0) & (standardized_df[col] <= 1.0)
+                        standardized_df.loc[mask, col] = standardized_df.loc[mask, col] * 100
+                        
+                        print(f"   ✓ Corrected {mask.sum()} values")
+                    else:
+                        # All non-zero values are decimals
+                        print(f"⚠️  All percentage values are decimals in '{col}' (max={decimal_values.max():.4f})")
+                        print(f"   Multiplying all values by 100")
+                        standardized_df[col] = standardized_df[col] * 100
+                        print(f"   ✓ Corrected: new max = {standardized_df[col].max():.2f}")
     
     # Ensure required columns exist with default values (only if they don't exist)
     required_defaults = {
@@ -381,6 +426,16 @@ def create_extraction_pipeline() -> Callable[[str], Optional[pd.DataFrame]]:
                 if df is not None and not df.empty:
                     # Normalize column names
                     df = normalize_dataframe_columns(df)
+                    
+                    # CRITICAL FIX: Add nombre_centro_gestor from filename if not present
+                    # Extract centro gestor name from filename (remove .xlsx/.xls extension)
+                    centro_gestor = file_name.replace('.xlsx', '').replace('.xls', '').strip()
+                    
+                    # Only add if column doesn't exist or has null values
+                    if 'nombre_centro_gestor' not in df.columns or df['nombre_centro_gestor'].isna().all():
+                        df['nombre_centro_gestor'] = centro_gestor
+                        print(f"   ✓ Added nombre_centro_gestor: '{centro_gestor}'")
+                    
                     dataframes.append(df)
                 else:
                     print(f"   ⚠️  Skipping empty or invalid file")

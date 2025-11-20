@@ -21,6 +21,84 @@ from database.config import get_firestore_client, secure_log
 from tqdm import tqdm
 
 
+# Geometry processing utilities
+def clean_2d_coordinates(coords: List[Any]) -> List[float]:
+    """
+    Clean a single coordinate pair to 2D [lon, lat] format.
+    
+    Args:
+        coords: Coordinate array (may have 2D or 3D values)
+        
+    Returns:
+        2D coordinate pair [lon, lat] rounded to 8 decimals
+    """
+    if len(coords) >= 2:
+        return [round(float(coords[0]), 8), round(float(coords[1]), 8)]
+    return None
+
+
+def serialize_geometry_coordinates(geom_type: str, coords: Any) -> Any:
+    """
+    Serialize geometry coordinates to GeoJSON standard format.
+    Handles all geometry types with proper nesting levels.
+    Returns native arrays for Firebase compatibility (not JSON strings).
+    
+    Args:
+        geom_type: GeoJSON geometry type
+        coords: Raw coordinates from GeoJSON
+        
+    Returns:
+        Cleaned coordinates in standard GeoJSON format
+    """
+    if not coords:
+        return None
+    
+    try:
+        if geom_type == 'Point':
+            # Point: [lon, lat]
+            return clean_2d_coordinates(coords)
+        
+        elif geom_type == 'LineString':
+            # LineString: [[lon, lat], [lon, lat], ...]
+            return [clean_2d_coordinates(c) for c in coords if len(c) >= 2]
+        
+        elif geom_type == 'Polygon':
+            # Polygon: [[[lon, lat], ...], ...] (array of rings)
+            return [
+                [clean_2d_coordinates(c) for c in ring if len(c) >= 2]
+                for ring in coords
+            ]
+        
+        elif geom_type == 'MultiPoint':
+            # MultiPoint: [[lon, lat], [lon, lat], ...]
+            return [clean_2d_coordinates(c) for c in coords if len(c) >= 2]
+        
+        elif geom_type == 'MultiLineString':
+            # MultiLineString: [[[lon, lat], ...], [[lon, lat], ...], ...]
+            return [
+                [clean_2d_coordinates(c) for c in line if len(c) >= 2]
+                for line in coords
+            ]
+        
+        elif geom_type == 'MultiPolygon':
+            # MultiPolygon: [[[[lon, lat], ...], ...], ...]
+            return [
+                [
+                    [clean_2d_coordinates(c) for c in ring if len(c) >= 2]
+                    for ring in polygon
+                ]
+                for polygon in coords
+            ]
+        
+        else:
+            # Unknown geometry type - return as-is
+            return coords
+    
+    except Exception as e:
+        print(f"Warning: Error serializing {geom_type} coordinates: {e}")
+        return None
+
+
 # Functional programming utilities
 def compose(*functions: Callable) -> Callable:
     """Compose multiple functions into a single function."""
@@ -55,12 +133,14 @@ def safe_execute(func: Callable, fallback_value: Any = None) -> Callable:
 
 
 # Firebase data preparation functions
-def serialize_for_firebase(value: Any) -> Any:
+def serialize_for_firebase(value: Any, field_name: str = None) -> Any:
     """
     Serialize values for Firebase storage, handling lists and complex types.
+    Preserves data quality from transformation phase.
     
     Args:
         value: Value to serialize
+        field_name: Optional field name for context-aware serialization
         
     Returns:
         Firebase-compatible value
@@ -98,8 +178,97 @@ def serialize_for_firebase(value: Any) -> Any:
         return float(value)
     elif isinstance(value, bool):
         return bool(value)
+    elif isinstance(value, str):
+        # CRITICAL: Preserve string values as-is (don't alter normalized states, etc.)
+        str_value = value.strip()
+        
+        # Only try to parse as datetime if field name suggests it's a date
+        if field_name and ('fecha' in field_name.lower() or 'date' in field_name.lower()):
+            # Check if it's an ISO datetime string and convert to date only
+            if 'T' in str_value or ' 00:00:00' in str_value:
+                try:
+                    # Try to parse as datetime and return only the date part
+                    dt = pd.to_datetime(str_value)
+                    return dt.strftime('%Y-%m-%d')
+                except:
+                    pass
+        
+        return str_value
     else:
+        # Convert to string as last resort
         return str(value)
+
+
+def normalize_estado_value(estado_value: Any, avance_obra: Any = None) -> Optional[str]:
+    """
+    Normalize estado value to one of the three valid states.
+    This ensures data quality at the loading stage as a safety net.
+    
+    Valid estados:
+    - "En alistamiento"
+    - "En ejecución"
+    - "Terminado"
+    
+    Args:
+        estado_value: Raw estado value from data
+        avance_obra: Optional avance_obra value for business rule logic
+        
+    Returns:
+        Normalized estado value or None
+    """
+    if estado_value is None:
+        return None
+    
+    # Handle pandas NA/NaN
+    try:
+        if pd.isna(estado_value):
+            return None
+    except (TypeError, ValueError):
+        pass
+    
+    # Convert to string and normalize
+    val_str = str(estado_value).strip().lower()
+    
+    if val_str == '' or val_str in ['nan', 'none', 'null']:
+        return None
+    
+    # REGLA DE NEGOCIO 1: Si avance_obra es cero, establecer "En alistamiento"
+    if avance_obra is not None:
+        try:
+            avance_numeric = float(str(avance_obra).strip().replace(',', '.').replace('cero', '0').replace('(', '').replace(')', ''))
+            
+            # Si es exactamente 0, es alistamiento
+            if avance_numeric == 0.0:
+                return 'En alistamiento'
+            
+            # Si es 100 o más, está terminado
+            if avance_numeric >= 100.0:
+                return 'Terminado'
+                
+        except (ValueError, TypeError):
+            pass
+    
+    # Map all variations to standard values
+    if 'socializaci' in val_str or 'alistamiento' in val_str or 'planeaci' in val_str or 'preparaci' in val_str or 'por iniciar' in val_str:
+        return 'En alistamiento'
+    elif 'ejecuci' in val_str or 'proceso' in val_str or 'construcci' in val_str or 'desarrollo' in val_str:
+        return 'En ejecución'
+    elif 'finalizado' in val_str or 'terminado' in val_str or 'completado' in val_str or 'concluido' in val_str or 'entregado' in val_str or 'liquidaci' in val_str:
+        return 'Terminado'
+    else:
+        # Default to 'En ejecución' for unknown states
+        # unless avance suggests otherwise
+        try:
+            if avance_obra is not None:
+                avance_numeric = float(str(avance_obra).strip().replace(',', '.'))
+                if avance_numeric >= 100:
+                    return 'Terminado'
+                elif avance_numeric == 0:
+                    return 'En alistamiento'
+        except:
+            pass
+        
+        return 'En ejecución'  # Default state
 
 
 @safe_execute
@@ -107,6 +276,10 @@ def prepare_document_data(feature: Dict[str, Any]) -> Optional[Dict[str, Any]]:
     """
     Prepare a single feature for Firebase document storage with robust serialization.
     Converts GeoJSON feature to Firebase-compatible document.
+    
+    Estructura compatible con el estándar de la API:
+    - Atributos (properties) a nivel raíz del documento
+    - Geometry como campo separado con coordenadas [lat, lon]
     
     Args:
         feature: GeoJSON feature object
@@ -121,31 +294,79 @@ def prepare_document_data(feature: Dict[str, Any]) -> Optional[Dict[str, Any]]:
     properties = feature.get('properties', {})
     geometry = feature.get('geometry')
     
-    # Serialize properties for Firebase compatibility (filter out invalid keys)
-    serialized_properties = {}
+    # Convert geometry to GeoJSON standard format (2D coordinates only)
+    # Compatible con Firebase y frontend Next.js
+    # - Solo coordenadas 2D: [longitude, latitude]
+    # - Sin elevación (z-coordinate)
+    # - Formato consistente para todos los tipos de geometría
+    # - Point usa array nativo, otros tipos usan JSON string (límite de Firebase)
+    geometry_field = None
+    if geometry:
+        geom_type = geometry.get('type')
+        coords = geometry.get('coordinates', [])
+        
+        # Usar helper de serialización para limpiar coordenadas
+        clean_coords = serialize_geometry_coordinates(geom_type, coords)
+        
+        if clean_coords is not None:
+            # Firebase solo permite 1 nivel de anidamiento en arrays
+            # Point: array directo [lon, lat] - OK
+            # LineString/Polygon/Multi*: JSON string (Next.js puede parsear)
+            if geom_type == 'Point':
+                # Point puede usar array nativo
+                geometry_field = {
+                    'type': geom_type,
+                    'coordinates': clean_coords
+                }
+            else:
+                # Otros tipos: serializar coordinates como JSON string
+                geometry_field = {
+                    'type': geom_type,
+                    'coordinates': json.dumps(clean_coords, separators=(',', ':'))
+                }
+    
+    # Serialize properties for Firebase compatibility (flatten to root level)
+    document_data = {}
     for key, value in properties.items():
         # Skip invalid keys (empty strings, None, or whitespace-only strings)
         if not key or not isinstance(key, str) or not key.strip():
             continue
         # Use clean key (remove any whitespace)
         clean_key = key.strip()
-        serialized_properties[clean_key] = serialize_for_firebase(value)
+        # Pass field name for context-aware serialization
+        document_data[clean_key] = serialize_for_firebase(value, field_name=clean_key)
     
-    # Create document data
-    document_data = {
-        'type': 'Feature',
-        'geometry': geometry,  # Keep full GeoJSON geometry
-        'properties': serialized_properties,
-        'created_at': datetime.now().isoformat(),
-        'updated_at': datetime.now().isoformat()
-    }
+    # CRITICAL: Normalize estado value as safety net (even if already normalized in transformation)
+    # This ensures data quality regardless of data source
+    if 'estado' in document_data:
+        original_estado = document_data['estado']
+        avance_obra = document_data.get('avance_obra')
+        normalized_estado = normalize_estado_value(original_estado, avance_obra)
+        
+        if normalized_estado != original_estado and original_estado is not None:
+            print(f"  ℹ️  Estado normalizado: '{original_estado}' → '{normalized_estado}'")
+        
+        document_data['estado'] = normalized_estado
+    
+    # VALIDATION: Verify estado is valid (final check)
+    if 'estado' in document_data and document_data['estado'] is not None:
+        valid_estados = {'En alistamiento', 'En ejecución', 'Terminado'}
+        current_estado = document_data['estado']
+        if current_estado not in valid_estados:
+            print(f"❌ ERROR: Invalid estado after normalization: '{current_estado}'")
+            # This should never happen if normalize_estado_value works correctly
+    
+    # Add geometry as separate field (not nested in properties)
+    # Store as GeoJSON object: {type: 'Point', coordinates: [lat, lon]}
+    document_data['geometry'] = geometry_field
     
     # Add metadata
-    if geometry:
-        document_data['geometry_type'] = geometry.get('type')
+    document_data['created_at'] = datetime.now().isoformat()
+    document_data['updated_at'] = datetime.now().isoformat()
+    
+    if geometry_field and isinstance(geometry_field, dict):
         document_data['has_geometry'] = True
     else:
-        document_data['geometry_type'] = None
         document_data['has_geometry'] = False
     
     return document_data
@@ -233,7 +454,8 @@ def create_batches(features: List[Dict[str, Any]], batch_size: int = 100) -> Lis
 @curry
 def process_batch(collection_name: str, batch_index: int, batch: List[Dict[str, Any]]) -> Dict[str, Any]:
     """
-    Process a single batch of features to Firebase.
+    Process a single batch of features to Firebase with selective field updates.
+    Only updates fields that have changed, using upid as unique identifier.
     
     Args:
         collection_name: Firebase collection name
@@ -252,6 +474,9 @@ def process_batch(collection_name: str, batch_index: int, batch: List[Dict[str, 
     successful_writes = 0
     failed_writes = 0
     errors = []
+    new_records = 0
+    updated_records = 0
+    unchanged_records = 0
     
     # Use Firestore batch for efficient writes
     firebase_batch = db.batch()
@@ -264,24 +489,78 @@ def process_batch(collection_name: str, batch_index: int, batch: List[Dict[str, 
                 errors.append(f"Invalid feature: missing identifier")
                 continue
             
-            # Prepare document data
-            document_data = prepare_document_data(feature)
-            if not document_data:
-                failed_writes += 1
-                errors.append(f"Failed to prepare document data")
-                continue
-            
-            # Get document ID
+            # Get document ID (upid)
             doc_id = get_document_id(feature)
             if not doc_id:
                 failed_writes += 1
                 errors.append(f"Failed to generate document ID")
                 continue
             
-            # Add to batch
+            # Prepare new document data
+            new_document_data = prepare_document_data(feature)
+            if not new_document_data:
+                failed_writes += 1
+                errors.append(f"Failed to prepare document data")
+                continue
+            
+            # Check if document exists
             doc_ref = collection_ref.document(doc_id)
-            firebase_batch.set(doc_ref, document_data)
-            successful_writes += 1
+            existing_doc = doc_ref.get()
+            
+            if existing_doc.exists:
+                # Document exists - check for changes
+                existing_data = existing_doc.to_dict()
+                
+                # Compare all fields at root level (exclude metadata fields)
+                metadata_fields = {'created_at', 'updated_at'}
+                data_changed = False
+                
+                # CRITICAL: Always check geometry field specifically
+                # This ensures geometry is updated even if other fields match
+                existing_geometry = existing_data.get('geometry')
+                new_geometry = new_document_data.get('geometry')
+                
+                # Detect geometry changes (None vs list, or different coordinates)
+                geometry_changed = False
+                if existing_geometry != new_geometry:
+                    # Check if it's truly different (not just type difference)
+                    if existing_geometry is None and new_geometry is not None:
+                        geometry_changed = True
+                    elif existing_geometry is not None and new_geometry is None:
+                        geometry_changed = True
+                    elif existing_geometry != new_geometry:
+                        geometry_changed = True
+                
+                # Check for changes in any field
+                all_keys = set(existing_data.keys()) | set(new_document_data.keys())
+                for key in all_keys:
+                    if key in metadata_fields:
+                        continue
+                    
+                    existing_value = existing_data.get(key)
+                    new_value = new_document_data.get(key)
+                    
+                    if existing_value != new_value:
+                        data_changed = True
+                        break
+                
+                # Update if any changes detected (including geometry)
+                if data_changed or geometry_changed:
+                    # Update document preserving created_at
+                    new_document_data['updated_at'] = datetime.now().isoformat()
+                    new_document_data['created_at'] = existing_data.get('created_at', datetime.now().isoformat())
+                    firebase_batch.set(doc_ref, new_document_data)
+                    updated_records += 1
+                    successful_writes += 1
+                else:
+                    # No changes detected
+                    unchanged_records += 1
+            else:
+                # New document
+                new_document_data['created_at'] = datetime.now().isoformat()
+                firebase_batch.set(doc_ref, new_document_data)
+                new_records += 1
+                successful_writes += 1
             
         except Exception as e:
             failed_writes += 1
@@ -295,6 +574,9 @@ def process_batch(collection_name: str, batch_index: int, batch: List[Dict[str, 
             'batch_index': batch_index,
             'processed': successful_writes,
             'failed': failed_writes,
+            'new_records': new_records,
+            'updated_records': updated_records,
+            'unchanged_records': unchanged_records,
             'errors': errors[:5]  # Limit error list
         }
     except Exception as e:
@@ -303,25 +585,66 @@ def process_batch(collection_name: str, batch_index: int, batch: List[Dict[str, 
             'batch_index': batch_index,
             'error': f"Batch commit failed: {str(e)}",
             'processed': 0,
-            'failed': len(batch)
+            'failed': len(batch),
+            'new_records': 0,
+            'updated_records': 0,
+            'unchanged_records': 0
         }
 
 
-def load_geojson_file(file_path: str) -> Optional[Dict[str, Any]]:
+def load_geojson_file(file_path: str, use_s3: bool = True, s3_key: str = None) -> Optional[Dict[str, Any]]:
     """
-    Load GeoJSON file from the transformation output.
+    Load GeoJSON file from S3 or local filesystem.
     
     Args:
-        file_path: Path to the GeoJSON file
+        file_path: Path to the GeoJSON file (used if use_s3=False or S3 fails)
+        use_s3: Whether to try loading from S3 first (default: True)
+        s3_key: S3 key to use (default: up-geodata/unidades_proyecto_transformed/current/unidades_proyecto_transformed.geojson.gz)
         
     Returns:
         GeoJSON FeatureCollection or None if failed
     """
+    geojson_data = None
+    
+    # Try loading from S3 first if enabled
+    if use_s3:
+        try:
+            # Import S3 downloader
+            sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+            from utils.s3_downloader import S3Downloader
+            
+            # Default S3 key if not provided - use CURRENT compressed version (latest)
+            if s3_key is None:
+                s3_key = "up-geodata/unidades_proyecto_transformed/current/unidades_proyecto_transformed.geojson.gz"
+            
+            print(f"🌐 Attempting to load from S3...")
+            downloader = S3Downloader("aws_credentials.json")
+            geojson_data = downloader.read_json_from_s3(s3_key)
+            
+            if geojson_data:
+                # Validate GeoJSON structure
+                if geojson_data.get('type') != 'FeatureCollection':
+                    print(f"✗ Invalid GeoJSON from S3: not a FeatureCollection")
+                    geojson_data = None
+                else:
+                    features = geojson_data.get('features', [])
+                    print(f"✓ Loaded GeoJSON from S3")
+                    print(f"  - Features: {len(features)}")
+                    return geojson_data
+            else:
+                print(f"⚠️ Could not load from S3, falling back to local file")
+                
+        except Exception as e:
+            print(f"⚠️ S3 loading failed: {e}")
+            print(f"   Falling back to local file")
+    
+    # Fallback to local file if S3 failed or disabled
     try:
         if not os.path.exists(file_path):
             print(f"✗ File not found: {file_path}")
             return None
         
+        print(f"📁 Loading from local file: {file_path}")
         with open(file_path, 'r', encoding='utf-8') as f:
             geojson_data = json.load(f)
         
@@ -381,7 +704,7 @@ def upload_to_firebase(geojson_data: Dict[str, Any], collection_name: str = "uni
     # Create batches
     batches = create_batches(valid_features, batch_size)
     
-    # Initialize results tracking
+    # Initialize results tracking with selective update stats
     results = {
         'total_features': len(features),
         'valid_features': len(valid_features),
@@ -391,6 +714,9 @@ def upload_to_firebase(geojson_data: Dict[str, Any], collection_name: str = "uni
         'failed_batches': 0,
         'total_uploaded': 0,
         'total_failed': 0,
+        'new_records': 0,
+        'updated_records': 0,
+        'unchanged_records': 0,
         'start_time': datetime.now(),
         'errors': []
     }
@@ -400,6 +726,7 @@ def upload_to_firebase(geojson_data: Dict[str, Any], collection_name: str = "uni
     
     # Process batches with progress bar
     print(f"\nUploading {len(valid_features)} features in {len(batches)} batches...")
+    print("Using selective field updates based on upid...")
     
     with tqdm(total=len(batches), desc="Uploading batches") as pbar:
         for i, batch in enumerate(batches):
@@ -413,6 +740,9 @@ def upload_to_firebase(geojson_data: Dict[str, Any], collection_name: str = "uni
                 results['successful_batches'] += 1
                 results['total_uploaded'] += batch_result.get('processed', 0)
                 results['total_failed'] += batch_result.get('failed', 0)
+                results['new_records'] += batch_result.get('new_records', 0)
+                results['updated_records'] += batch_result.get('updated_records', 0)
+                results['unchanged_records'] += batch_result.get('unchanged_records', 0)
             else:
                 results['failed_batches'] += 1
                 results['total_failed'] += len(batch)
@@ -420,8 +750,9 @@ def upload_to_firebase(geojson_data: Dict[str, Any], collection_name: str = "uni
             
             # Update progress bar
             pbar.set_postfix({
-                'uploaded': results['total_uploaded'],
-                'failed': results['total_failed']
+                'new': results['new_records'],
+                'updated': results['updated_records'],
+                'unchanged': results['unchanged_records']
             })
             pbar.update(1)
             
@@ -459,7 +790,9 @@ def print_upload_summary(results: Dict[str, Any]):
     print(f"  ✗ Failed batches: {results['failed_batches']}")
     
     print(f"\n📤 Upload Results:")
-    print(f"  ✓ Successfully uploaded: {results['total_uploaded']}")
+    print(f"  ➕ New records: {results['new_records']}")
+    print(f"  🔄 Updated records: {results['updated_records']}")
+    print(f"  ✅ Unchanged records: {results['unchanged_records']}")
     print(f"  ✗ Failed uploads: {results['total_failed']}")
     print(f"  📈 Success rate: {(results['total_uploaded'] / results['valid_features'] * 100):.1f}%")
     
@@ -481,7 +814,9 @@ def print_upload_summary(results: Dict[str, Any]):
 def load_unidades_proyecto_to_firebase(
     input_file: str = None,
     collection_name: str = "unidades_proyecto",
-    batch_size: int = 100
+    batch_size: int = 100,
+    use_s3: bool = True,
+    s3_key: str = None
 ) -> bool:
     """
     Main function to load unidades de proyecto data to Firebase.
@@ -490,6 +825,8 @@ def load_unidades_proyecto_to_firebase(
         input_file: Path to GeoJSON file (optional, uses default if None)
         collection_name: Firebase collection name
         batch_size: Batch size for uploads (optimized for Firebase)
+        use_s3: Whether to load from S3 (default: True)
+        s3_key: S3 key if using S3 (default: up-geodata/unidades_proyecto_transformed/current/unidades_proyecto_transformed.geojson.gz)
         
     Returns:
         True if upload was successful, False otherwise
@@ -499,25 +836,26 @@ def load_unidades_proyecto_to_firebase(
         print("UNIDADES DE PROYECTO FIREBASE LOADING")
         print("="*80)
         
-        # Determine input file path
+        # Determine input file path (used as fallback if S3 fails)
         if input_file is None:
             # Use default path from transformation output
             current_dir = os.path.dirname(os.path.abspath(__file__))
             project_root = os.path.dirname(current_dir)
             input_file = os.path.join(
                 project_root,
-                "transformation_app",
                 "app_outputs",
-                "unidades_proyecto_outputs",
-                "unidades_proyecto.geojson"
+                "unidades_proyecto_transformed.geojson"
             )
         
-        print(f"Input file: {input_file}")
+        print(f"Source: {'S3 (with local fallback)' if use_s3 else 'Local file'}")
+        if use_s3:
+            print(f"S3 Key: {s3_key or 'up-geodata/unidades_proyecto_transformed/current/unidades_proyecto_transformed.geojson.gz'}")
+        print(f"Fallback file: {input_file}")
         print(f"Collection: {collection_name}")
         print(f"Batch size: {batch_size}")
         
-        # Load GeoJSON data
-        geojson_data = load_geojson_file(input_file)
+        # Load GeoJSON data (from S3 or local)
+        geojson_data = load_geojson_file(input_file, use_s3=use_s3, s3_key=s3_key)
         if not geojson_data:
             print("✗ Failed to load GeoJSON data")
             return False
