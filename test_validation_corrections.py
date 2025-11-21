@@ -50,10 +50,23 @@ def test_validation_rules():
         print("   ❌ ERROR - 'Obra nueva' NO está incluida")
         return False
     
-    if 'Construcción Nueva' in validator.VALID_TIPOS_INTERVENCION:
-        print("   ✅ CORRECTO - 'Construcción Nueva' incluida como alias")
+    # Test 2.1: Verificar que se cargaron las categorías adicionales
+    print("\n📋 Test 2.1: Categorías adicionales cargadas")
+    
+    if validator.VALID_CLASE_UP:
+        print(f"   ✅ CORRECTO - Clase UP cargada ({len(validator.VALID_CLASE_UP)} valores)")
     else:
-        print("   ⚠️  ADVERTENCIA - 'Construcción Nueva' no incluida")
+        print("   ⚠️  ADVERTENCIA - Clase UP no cargada")
+    
+    if validator.VALID_TIPO_EQUIPAMIENTO:
+        print(f"   ✅ CORRECTO - Tipo Equipamiento cargado ({len(validator.VALID_TIPO_EQUIPAMIENTO)} valores)")
+    else:
+        print("   ⚠️  ADVERTENCIA - Tipo Equipamiento no cargado")
+    
+    if validator.VALID_FUENTE_FINANCIACION:
+        print(f"   ✅ CORRECTO - Fuente Financiación cargada ({len(validator.VALID_FUENTE_FINANCIACION)} valores)")
+    else:
+        print("   ⚠️  ADVERTENCIA - Fuente Financiación no cargada")
     
     # Test 3: Validar registro con "Obra nueva"
     print("\n📋 Test 3: Validación de registro con 'Obra nueva'")

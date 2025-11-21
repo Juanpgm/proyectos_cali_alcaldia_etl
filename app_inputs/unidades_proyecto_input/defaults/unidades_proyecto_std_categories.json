@@ -1,0 +1,65 @@
+{
+  "estado": [
+    "En alistamiento",
+    "En ejecución",
+    "Inaugurado",
+    "Suspendido",
+    "Terminado"
+  ],
+  "clase_up": [
+    "Adquisición predial",
+    "Demarcación vial",
+    "Dotaciones",
+    "Espacio Público",
+    "Estudios y diseños",
+    "Interventoria",
+    "Obra vial",
+    "Obras de Arte (civil)",
+    "Obras equipamientos",
+    "Subsidios"
+  ],
+  "tipo_equipamiento": [
+    "Adquisición predios",
+    "Bibliotecas",
+    "CAD",
+    "CALIS",
+    "Canchas",
+    "Casa de Justicia",
+    "Centro Cultural",
+    "Eco parques",
+    "Estaciones MIO",
+    "Estaciones de policia",
+    "Fuentes y monumentos",
+    "IPS",
+    "Infraestructura cultural",
+    "Infraestructura de servicios publicos",
+    "Infraestructura recreativa",
+    "Infraestructura recreo deportiva",
+    "Infraestructura vial",
+    "Instituciones Educativas",
+    "Jardines",
+    "Parques y zonas verdes",
+    "Reducción del riesgo",
+    "Señalización vial",
+    "UTS",
+    "Vivienda mejoramiento",
+    "Vivienda nueva"
+  ],
+  "tipo_intervencion": [
+    "Adecuaciones",
+    "Demolición",
+    "Estudios y diseños",
+    "Inyección de capital",
+    "Mantenimiento",
+    "Obra nueva",
+    "Rehabilitación / Reforzamiento"
+  ],
+  "fuente_financiacion": [
+    "Cooperación Internacional - donaciones",
+    "Empréstito",
+    "Ingresos con destinación específica",
+    "Ingresos libre destinación",
+    "Otros créditos (vigencias anteriores)",
+    "Presupuesto Participativo"
+  ]
+}

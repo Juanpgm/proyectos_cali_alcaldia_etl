@@ -112,16 +112,40 @@ class DataQualityValidator:
     Implementa todas las reglas de validación basadas en ISO 19157.
     """
     
-    # Valores válidos para campos categóricos (SEGÚN DATOS REALES DE UNIDADES DE PROYECTO)
-    VALID_ESTADOS = {'En alistamiento', 'En ejecución', 'Terminado'}
-    VALID_TIPOS_INTERVENCION = {
-        'Obra nueva',  # Valor común en datos reales
-        'Construcción Nueva',  # Alias permitido
-        'Adecuaciones y Mantenimientos', 
-        'Mejoramiento', 
-        'Rehabilitación', 
-        'Ampliación'
-    }
+    @staticmethod
+    def _load_standard_categories():
+        """Load standard categories from JSON file."""
+        try:
+            import os
+            from pathlib import Path
+            
+            # Try to find the JSON file relative to this script
+            current_dir = Path(__file__).parent.parent
+            categories_path = current_dir / 'app_inputs' / 'unidades_proyecto_input' / 'defaults' / 'unidades_proyecto_std_categories.json'
+            
+            if categories_path.exists():
+                with open(categories_path, 'r', encoding='utf-8') as f:
+                    return json.load(f)
+            else:
+                print(f"⚠️ Warning: Could not find categories file at {categories_path}")
+                return {}
+        except Exception as e:
+            print(f"⚠️ Warning: Could not load standard categories: {e}")
+            return {}
+    
+    # Load standard categories from JSON
+    _STANDARD_CATEGORIES = _load_standard_categories.__func__()
+    
+    # Valores válidos para campos categóricos (cargados desde JSON)
+    VALID_ESTADOS = set(_STANDARD_CATEGORIES.get('estado', ['En alistamiento', 'En ejecución', 'Terminado', 'Suspendido', 'Inaugurado']))
+    VALID_TIPOS_INTERVENCION = set(_STANDARD_CATEGORIES.get('tipo_intervencion', [
+        'Adecuaciones', 'Demolición', 'Estudios y diseños', 'Inyección de capital',
+        'Mantenimiento', 'Obra nueva', 'Rehabilitación / Reforzamiento'
+    ]))
+    VALID_CLASE_UP = set(_STANDARD_CATEGORIES.get('clase_up', []))
+    VALID_TIPO_EQUIPAMIENTO = set(_STANDARD_CATEGORIES.get('tipo_equipamiento', []))
+    VALID_FUENTE_FINANCIACION = set(_STANDARD_CATEGORIES.get('fuente_financiacion', []))
+    
     VALID_PLATAFORMAS = {'SECOP I', 'SECOP II', 'Contratación Directa', 'Otro'}
     VALID_UNIDADES = {'UND', 'M2', 'ML', 'M3', 'KM', 'HA', 'GLB'}
     
@@ -215,6 +239,14 @@ class DataQualityValidator:
             QualityDimension.LOGICAL_CONSISTENCY,
             SeverityLevel.HIGH,
             'El año debe ser un valor numérico de 4 dígitos en rango razonable (2020-2030)'
+        )
+        
+        rules['LC008'] = ValidationRule(
+            'LC008',
+            'Registro completamente duplicado',
+            QualityDimension.LOGICAL_CONSISTENCY,
+            SeverityLevel.CRITICAL,
+            'No deben existir registros con valores idénticos en todos los campos clave'
         )
         
         # ==================== COMPLETITUD ====================
@@ -367,6 +399,30 @@ class DataQualityValidator:
         
         rules['TA007'] = ValidationRule(
             'TA007',
+            'Clase UP válida',
+            QualityDimension.THEMATIC_ACCURACY,
+            SeverityLevel.HIGH,
+            'La clase de unidad de proyecto debe ser uno de los valores estándar'
+        )
+        
+        rules['TA008'] = ValidationRule(
+            'TA008',
+            'Tipo de equipamiento válido',
+            QualityDimension.THEMATIC_ACCURACY,
+            SeverityLevel.MEDIUM,
+            'El tipo de equipamiento debe ser uno de los valores estándar'
+        )
+        
+        rules['TA009'] = ValidationRule(
+            'TA009',
+            'Fuente de financiación válida',
+            QualityDimension.THEMATIC_ACCURACY,
+            SeverityLevel.HIGH,
+            'La fuente de financiación debe ser uno de los valores estándar'
+        )
+        
+        rules['TA010'] = ValidationRule(
+            'TA010',
             'Centro gestor reconocido',
             QualityDimension.THEMATIC_ACCURACY,
             SeverityLevel.MEDIUM,
@@ -590,7 +646,8 @@ class DataQualityValidator:
         ano = record.get('ano')
         if ano is not None:
             try:
-                ano_num = int(ano)
+                # Convertir a float primero para manejar "2024.0", luego a int
+                ano_num = int(float(ano))
                 if ano_num < 2020 or ano_num > 2030:
                     issues.append(QualityIssue(
                         self.rules['LC007'],
@@ -601,6 +658,7 @@ class DataQualityValidator:
                         'Verificar y corregir el año del proyecto'
                     ))
             except (ValueError, TypeError):
+                # Solo reportar si realmente no es numérico
                 issues.append(QualityIssue(
                     self.rules['LC007'],
                     'ano',
@@ -864,6 +922,51 @@ class DataQualityValidator:
                     'Verificar y corregir la URL del proceso'
                 ))
         
+        # TA007: Clase UP válida
+        clase_up = record.get('clase_up')
+        if clase_up and self.VALID_CLASE_UP and clase_up not in self.VALID_CLASE_UP:
+            similar = self._find_similar_value(clase_up, self.VALID_CLASE_UP)
+            suggestion = f'¿Quisiste decir "{similar}"?' if similar else f'Usar una de: {", ".join(sorted(self.VALID_CLASE_UP)[:5])}...'
+            
+            issues.append(QualityIssue(
+                self.rules.get('TA007', self.rules['TA002']),  # Fallback to TA002 if not defined
+                'clase_up',
+                clase_up,
+                'Valor válido de clase_up',
+                f'Clase UP no estándar: "{clase_up}"',
+                suggestion
+            ))
+        
+        # TA008: Tipo de equipamiento válido
+        tipo_equipamiento = record.get('tipo_equipamiento')
+        if tipo_equipamiento and self.VALID_TIPO_EQUIPAMIENTO and tipo_equipamiento not in self.VALID_TIPO_EQUIPAMIENTO:
+            similar = self._find_similar_value(tipo_equipamiento, self.VALID_TIPO_EQUIPAMIENTO)
+            suggestion = f'¿Quisiste decir "{similar}"?' if similar else f'Usar uno de los valores estándar'
+            
+            issues.append(QualityIssue(
+                self.rules.get('TA008', self.rules['TA002']),  # Fallback to TA002 if not defined
+                'tipo_equipamiento',
+                tipo_equipamiento,
+                'Valor válido de tipo_equipamiento',
+                f'Tipo de equipamiento no estándar: "{tipo_equipamiento}"',
+                suggestion
+            ))
+        
+        # TA009: Fuente de financiación válida
+        fuente_financiacion = record.get('fuente_financiacion')
+        if fuente_financiacion and self.VALID_FUENTE_FINANCIACION and fuente_financiacion not in self.VALID_FUENTE_FINANCIACION:
+            similar = self._find_similar_value(fuente_financiacion, self.VALID_FUENTE_FINANCIACION)
+            suggestion = f'¿Quisiste decir "{similar}"?' if similar else f'Usar una de: {", ".join(sorted(self.VALID_FUENTE_FINANCIACION)[:3])}...'
+            
+            issues.append(QualityIssue(
+                self.rules.get('TA009', self.rules['TA002']),  # Fallback to TA002 if not defined
+                'fuente_financiacion',
+                fuente_financiacion,
+                'Valor válido de fuente_financiacion',
+                f'Fuente de financiación no estándar: "{fuente_financiacion}"',
+                suggestion
+            ))
+        
         # TA006: Comuna/Corregimiento reconocido (usando validación existente)
         comuna_val = record.get('comunas_corregimientos_val')
         if comuna_val == 'REVISAR' or comuna_val == 'ERROR':
@@ -1037,6 +1140,7 @@ def validate_geojson(geojson_path: str, verbose: bool = True) -> Dict[str, Any]:
         Diccionario con reporte de calidad completo
     """
     import json
+    import hashlib
     
     if verbose:
         print(f"\n{'='*80}")
@@ -1061,12 +1165,41 @@ def validate_geojson(geojson_path: str, verbose: bool = True) -> Dict[str, Any]:
     all_issues = []
     records_with_issues = 0
     
+    # Detectar duplicados completos
+    record_hashes = {}
+    duplicate_groups = []
+    
     for idx, feature in enumerate(features):
         if verbose and (idx + 1) % 100 == 0:
             print(f"  Validados: {idx + 1}/{len(features)}")
         
         properties = feature.get('properties', {})
         geometry = feature.get('geometry')
+        
+        # Calcular hash del registro completo para detectar duplicados
+        # Excluir campos que son únicos por diseño (upid, processed_timestamp, etc.)
+        hash_fields = {
+            k: v for k, v in properties.items() 
+            if k not in ['upid', 'processed_timestamp', 'created_at', 'updated_at', 'has_geometry', 'geometry_type']
+            and v is not None
+        }
+        record_hash = hashlib.md5(
+            json.dumps(hash_fields, sort_keys=True, default=str).encode('utf-8')
+        ).hexdigest()
+        
+        if record_hash in record_hashes:
+            # Duplicado encontrado
+            record_hashes[record_hash].append({
+                'index': idx,
+                'upid': properties.get('upid'),
+                'nombre_up': properties.get('nombre_up')
+            })
+        else:
+            record_hashes[record_hash] = [{
+                'index': idx,
+                'upid': properties.get('upid'),
+                'nombre_up': properties.get('nombre_up')
+            }]
         
         # Convertir geometría a shapely si existe
         shapely_geom = None
@@ -1090,43 +1223,93 @@ def validate_geojson(geojson_path: str, verbose: bool = True) -> Dict[str, Any]:
                 'record_index': idx
             } for issue in issues])
     
-    # Generar estadísticas
-    stats = _generate_quality_statistics(all_issues, len(features))
+    # Procesar duplicados detectados
+    for record_hash, duplicates in record_hashes.items():
+        if len(duplicates) > 1:
+            duplicate_groups.append(duplicates)
+            # Crear issue de duplicado para cada registro duplicado
+            for dup in duplicates:
+                other_upids = [d['upid'] for d in duplicates if d['index'] != dup['index']]
+                all_issues.append({
+                    'rule_id': 'LC008',
+                    'rule_name': 'Registro completamente duplicado',
+                    'dimension': QualityDimension.LOGICAL_CONSISTENCY.value,
+                    'severity': SeverityLevel.CRITICAL.value,
+                    'field_name': 'registro_completo',
+                    'current_value': f"Registro #{dup['index']}",
+                    'expected_value': 'Registro único',
+                    'details': f"Registro completamente duplicado. Duplicados con: {', '.join(other_upids)}",
+                    'suggestion': 'Eliminar o fusionar registros duplicados',
+                    'detected_at': datetime.now().isoformat(),
+                    'upid': dup['upid'],
+                    'nombre_up': dup['nombre_up'],
+                    'nombre_centro_gestor': None,
+                    'record_index': dup['index'],
+                    'duplicate_group_size': len(duplicates)
+                })
+            records_with_issues += len(duplicates)  # Ajustar contador
+    
+    # Generar estadísticas mejoradas
+    stats = _generate_quality_statistics(all_issues, len(features), len(duplicate_groups))
     
     if verbose:
         print(f"\n✅ Validación completada")
         print(f"\n📊 RESUMEN:")
         print(f"  Total de registros: {len(features)}")
+        print(f"  Registros únicos: {len(features) - sum(len(g) - 1 for g in duplicate_groups)}")
         print(f"  Registros con problemas: {records_with_issues} ({records_with_issues/len(features)*100:.1f}%)")
-        print(f"  Total de problemas: {len(all_issues)}")
+        print(f"  Total de problemas detectados: {len(all_issues)}")
+        if duplicate_groups:
+            print(f"  ⚠️  Grupos de duplicados: {len(duplicate_groups)} ({sum(len(g) for g in duplicate_groups)} registros afectados)")
         print(f"\n  Por severidad:")
         for severity, count in stats['by_severity'].items():
-            print(f"    {severity}: {count}")
+            emoji = {'CRITICAL': '🔴', 'HIGH': '🟠', 'MEDIUM': '🟡', 'LOW': '🔵', 'INFO': '⚪'}.get(severity, '')
+            print(f"    {emoji} {severity}: {count}")
         print(f"\n  Por dimensión ISO 19157:")
         for dimension, count in stats['by_dimension'].items():
             print(f"    {dimension}: {count}")
+        print(f"\n  Top 5 problemas más frecuentes:")
+        for rule_id, rule_info in list(stats['top_issues'].items())[:5]:
+            print(f"    {rule_id}: {rule_info['count']} ocurrencias - {rule_info['name']}")
     
     return {
         'total_records': len(features),
+        'unique_records': len(features) - sum(len(g) - 1 for g in duplicate_groups),
+        'duplicate_groups': len(duplicate_groups),
+        'duplicate_records': sum(len(g) for g in duplicate_groups),
         'records_with_issues': records_with_issues,
+        'records_without_issues': len(features) - records_with_issues,
         'total_issues': len(all_issues),
         'issues': all_issues,
+        'duplicate_details': duplicate_groups,
         'statistics': stats,
         'validated_at': datetime.now().isoformat()
     }
 
 
-def _generate_quality_statistics(issues: List[Dict], total_records: int) -> Dict[str, Any]:
-    """Genera estadísticas de calidad."""
+def _generate_quality_statistics(issues: List[Dict], total_records: int, duplicate_groups: int = 0) -> Dict[str, Any]:
+    """Genera estadísticas de calidad mejoradas y más comprensibles."""
     stats = {
         'by_severity': {},
         'by_dimension': {},
         'by_rule': {},
         'by_field': {},
-        'quality_score': 0
+        'top_issues': {},
+        'quality_score': 0,
+        'quality_rating': '',
+        'total_records': total_records,
+        'records_affected_percentage': 0,
+        'duplicate_groups': duplicate_groups
     }
     
+    # Contador de registros únicos afectados
+    affected_records = set()
+    
     for issue in issues:
+        # Rastrear registros afectados
+        if 'upid' in issue and issue['upid']:
+            affected_records.add(issue['upid'])
+        
         # Por severidad
         severity = issue['severity']
         stats['by_severity'][severity] = stats['by_severity'].get(severity, 0) + 1
@@ -1135,28 +1318,72 @@ def _generate_quality_statistics(issues: List[Dict], total_records: int) -> Dict
         dimension = issue['dimension']
         stats['by_dimension'][dimension] = stats['by_dimension'].get(dimension, 0) + 1
         
-        # Por regla
+        # Por regla (con información adicional)
         rule_id = issue['rule_id']
-        stats['by_rule'][rule_id] = stats['by_rule'].get(rule_id, 0) + 1
+        if rule_id not in stats['by_rule']:
+            stats['by_rule'][rule_id] = {
+                'count': 0,
+                'name': issue.get('rule_name', rule_id),
+                'severity': issue['severity'],
+                'dimension': issue['dimension']
+            }
+        stats['by_rule'][rule_id]['count'] += 1
         
         # Por campo
         field = issue['field_name']
         if field:
-            stats['by_field'][field] = stats['by_field'].get(field, 0) + 1
+            if field not in stats['by_field']:
+                stats['by_field'][field] = {
+                    'count': 0,
+                    'issues': []
+                }
+            stats['by_field'][field]['count'] += 1
+            if issue['rule_id'] not in stats['by_field'][field]['issues']:
+                stats['by_field'][field]['issues'].append(issue['rule_id'])
     
-    # Calcular score de calidad (0-100)
-    # Penalizaciones por severidad
+    # Calcular top issues (más frecuentes)
+    sorted_rules = sorted(stats['by_rule'].items(), key=lambda x: x[1]['count'], reverse=True)
+    stats['top_issues'] = dict(sorted_rules)
+    
+    # Calcular porcentaje de registros afectados
+    stats['records_affected'] = len(affected_records)
+    stats['records_affected_percentage'] = (len(affected_records) / total_records * 100) if total_records > 0 else 0
+    
+    # Calcular score de calidad (0-100) mejorado
+    # Penalizaciones por severidad (más realistas)
     penalties = {
-        'CRITICAL': 10,
-        'HIGH': 5,
-        'MEDIUM': 2,
-        'LOW': 1,
+        'CRITICAL': 5,   # Reducido de 10 para ser más realista
+        'HIGH': 3,       # Reducido de 5
+        'MEDIUM': 1,     # Reducido de 2
+        'LOW': 0.5,      # Reducido de 1
         'INFO': 0
     }
     
     total_penalty = sum(stats['by_severity'].get(sev, 0) * pen for sev, pen in penalties.items())
-    max_penalty = total_records * 10  # Máximo si todos tuvieran un CRITICAL
+    max_penalty = total_records * 5  # Máximo si todos tuvieran un CRITICAL
     
-    stats['quality_score'] = max(0, 100 - (total_penalty / max_penalty * 100)) if max_penalty > 0 else 100
+    if max_penalty > 0:
+        stats['quality_score'] = max(0, 100 - (total_penalty / max_penalty * 100))
+    else:
+        stats['quality_score'] = 100
+    
+    # Asignar rating cualitativo
+    score = stats['quality_score']
+    if score >= 90:
+        stats['quality_rating'] = 'EXCELENTE'
+    elif score >= 75:
+        stats['quality_rating'] = 'BUENA'
+    elif score >= 60:
+        stats['quality_rating'] = 'ACEPTABLE'
+    elif score >= 40:
+        stats['quality_rating'] = 'REGULAR'
+    else:
+        stats['quality_rating'] = 'DEFICIENTE'
+    
+    # Estadísticas adicionales útiles
+    stats['issues_per_record'] = len(issues) / total_records if total_records > 0 else 0
+    stats['critical_issues'] = stats['by_severity'].get('CRITICAL', 0)
+    stats['high_issues'] = stats['by_severity'].get('HIGH', 0)
+    stats['actionable_issues'] = stats['critical_issues'] + stats['high_issues']  # Issues que deben corregirse
     
     return stats

@@ -53,8 +53,15 @@ def test_estado_normalization():
             'Por iniciar',
             'Otro valor extraño',
             
-            # Invalid/unknown states
+            # Special values (should be preserved as-is)
             'Suspendido',
+            'SUSPENDIDO',
+            'suspendido',
+            'Inaugurado',
+            'INAUGURADO',
+            'inaugurado',
+            
+            # Invalid/unknown states
             'Cancelado',
             'En revisión',
         ],
@@ -64,7 +71,8 @@ def test_estado_normalization():
             0, 50, 100, 50,  # Variations
             0, 0, 0, 50, 50, 100, 100, 100,  # Partial matches
             None, 0, 0, 0, 0, 50,  # Edge cases
-            50, 0, 50  # Invalid states
+            50, 50, 50, 100, 100, 100,  # Special values (should be preserved)
+            0, 50  # Invalid states
         ]
     }
     
@@ -97,7 +105,8 @@ def test_estado_normalization():
     # Validation
     print("VALIDATION:")
     print("-" * 80)
-    valid_states = {'En alistamiento', 'En ejecución', 'Terminado'}
+    # Include special values in valid states
+    valid_states = {'En alistamiento', 'En ejecución', 'Terminado', 'Suspendido', 'Inaugurado'}
     unique_states = set(df_normalized['estado'].dropna().unique())
     
     print(f"Unique states after normalization: {sorted(unique_states)}")
@@ -118,10 +127,33 @@ def test_estado_normalization():
         print(f"✅ PASS: All estados are valid!")
         print()
         print("Distribution:")
-        for state in sorted(valid_states):
+        for state in sorted(unique_states):
             count = (df_normalized['estado'] == state).sum()
             percentage = (count / len(df_normalized)) * 100
             print(f"  - {state}: {count} ({percentage:.1f}%)")
+        
+        # Special validation: Check that special values are preserved
+        print()
+        print("Special values validation:")
+        suspendido_count = (df_normalized['estado'] == 'Suspendido').sum()
+        inaugurado_count = (df_normalized['estado'] == 'Inaugurado').sum()
+        
+        # Count how many should be preserved (case-insensitive)
+        expected_suspendido = sum(1 for s in test_data['estado'] if isinstance(s, str) and s.lower() == 'suspendido')
+        expected_inaugurado = sum(1 for s in test_data['estado'] if isinstance(s, str) and s.lower() == 'inaugurado')
+        
+        if suspendido_count == expected_suspendido:
+            print(f"  ✅ 'Suspendido' preserved correctly: {suspendido_count}/{expected_suspendido}")
+        else:
+            print(f"  ❌ 'Suspendido' not preserved: {suspendido_count}/{expected_suspendido}")
+            return False
+            
+        if inaugurado_count == expected_inaugurado:
+            print(f"  ✅ 'Inaugurado' preserved correctly: {inaugurado_count}/{expected_inaugurado}")
+        else:
+            print(f"  ❌ 'Inaugurado' not preserved: {inaugurado_count}/{expected_inaugurado}")
+            return False
+        
         return True
 
 if __name__ == "__main__":

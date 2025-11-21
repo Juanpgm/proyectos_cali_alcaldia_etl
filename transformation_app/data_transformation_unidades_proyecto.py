@@ -41,6 +41,22 @@ from difflib import get_close_matches
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'utils'))
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'extraction_app'))
 
+# Load standard categories from JSON
+def load_standard_categories() -> Dict[str, List[str]]:
+    """Load standard categories from JSON file."""
+    current_dir = Path(__file__).parent.parent
+    categories_path = current_dir / 'app_inputs' / 'unidades_proyecto_input' / 'defaults' / 'unidades_proyecto_std_categories.json'
+    
+    try:
+        with open(categories_path, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    except Exception as e:
+        print(f"⚠️ Warning: Could not load standard categories: {e}")
+        return {}
+
+# Global variable to cache standard categories
+STANDARD_CATEGORIES = load_standard_categories()
+
 try:
     from temp_file_manager import process_in_memory, TempFileManager
 except ImportError:
@@ -93,14 +109,6 @@ def safe_transform(func: Callable, fallback_value: Any = None) -> Callable:
 
 
 # Functional data cleaning utilities
-def clean_numeric_column(df: pd.DataFrame, column_name: str, default_value: float = 0.0) -> pd.DataFrame:
-    """Clean a numeric column using functional approach."""
-    if column_name in df.columns:
-        df = df.copy()
-        df[column_name] = pd.to_numeric(df[column_name], errors='coerce').fillna(default_value)
-    return df
-
-
 def clean_monetary_column(df: pd.DataFrame, column_name: str, as_integer: bool = False) -> pd.DataFrame:
     """Clean a monetary column using functional approach with robust type handling."""
     if column_name in df.columns:
@@ -136,29 +144,6 @@ def clean_monetary_column(df: pd.DataFrame, column_name: str, as_integer: bool =
             df[column_name] = df[column_name].astype('int64')
         
     return df
-
-
-def apply_functional_cleaning(df: pd.DataFrame, monetary_cols: List[str], numeric_cols: List[str], integer_monetary_cols: List[str] = None) -> pd.DataFrame:
-    """Apply data cleaning using functional composition."""
-    result_df = df.copy()
-    
-    if integer_monetary_cols is None:
-        integer_monetary_cols = []
-    
-    # Apply monetary cleaning (as integers)
-    for col in integer_monetary_cols:
-        result_df = clean_monetary_column(result_df, col, as_integer=True)
-    
-    # Apply monetary cleaning (with decimals)
-    for col in monetary_cols:
-        if col not in integer_monetary_cols:
-            result_df = clean_monetary_column(result_df, col, as_integer=False)
-    
-    # Apply numeric cleaning
-    for col in numeric_cols:
-        result_df = clean_numeric_column(result_df, col)
-    
-    return result_df
 
 
 def normalize_column_names(columns):
@@ -457,20 +442,19 @@ def clean_numeric_column_safe(df: pd.DataFrame, column: str) -> pd.DataFrame:
 
 
 def clean_integer_column(df: pd.DataFrame, column: str) -> pd.DataFrame:
-    """Clean a single integer column using functional approach - converts to integers without decimals."""
+    """Clean a single integer column - converts to integers without decimals."""
     if column in df.columns:
         result_df = df.copy()
-        # First convert to numeric, then to integer (removing decimals)
-        result_df[column] = pd.to_numeric(result_df[column], errors='coerce').fillna(0.0).astype(int)
+        # Convert to numeric, then to integer (removing decimals)
+        result_df[column] = pd.to_numeric(result_df[column], errors='coerce').fillna(0).astype('int64')
         return result_df
     return df
 
 
 def clean_bpin_column(df: pd.DataFrame) -> pd.DataFrame:
-    """Clean BPIN column specifically - keeps as string for alphanumeric codes or converts to integer."""
+    """Clean BPIN column - keeps as string for alphanumeric codes or converts to integer."""
     if 'bpin' in df.columns:
         result_df = df.copy()
-        # Try to convert to numeric, but if it fails, keep as string (for alphanumeric BPIN codes)
         def process_bpin(value):
             if pd.isna(value) or value is None:
                 return None
@@ -480,7 +464,9 @@ def clean_bpin_column(df: pd.DataFrame) -> pd.DataFrame:
             # Try to convert to integer if it's purely numeric
             if str_value.replace('.', '').replace(',', '').isdigit():
                 try:
-                    return int(float(str_value.replace(',', '.')))
+                    # Remove any separators and convert directly to int
+                    clean_num = str_value.replace('.', '').replace(',', '')
+                    return int(clean_num)
                 except (ValueError, TypeError):
                     return str_value
             else:
@@ -492,15 +478,6 @@ def clean_bpin_column(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
-def clean_boolean_column(df: pd.DataFrame, column: str) -> pd.DataFrame:
-    """Clean a single boolean column using functional approach."""
-    if column in df.columns:
-        result_df = df.copy()
-        result_df[column] = result_df[column].astype(bool)
-        return result_df
-    return df
-
-
 def clean_data_types(df: pd.DataFrame) -> pd.DataFrame:
     """Clean and standardize data types using functional composition."""
     
@@ -508,11 +485,10 @@ def clean_data_types(df: pd.DataFrame) -> pd.DataFrame:
     text_columns = ['nickname_detalle', 'direccion', 'descripcion_intervencion', 'identificador', 'nickname']
     # Variables monetarias que deben ser enteros (sin decimales)  
     integer_monetary_columns = ['presupuesto_base', 'ppto_base']
-    # Variables numéricas enteras
-    integer_columns = ['bpin']
+    # Variables numéricas enteras (sin decimales)
+    integer_columns = ['bpin', 'ano']
     # Variables numéricas que pueden tener decimales
     decimal_columns = ['avance_obra', 'avance_fisico_obra']
-    boolean_columns = ['centros_gravedad']
     
     # Create cleaning pipeline
     cleaning_functions = []
@@ -535,10 +511,6 @@ def clean_data_types(df: pd.DataFrame) -> pd.DataFrame:
     # Add decimal column cleaners (allows decimals)
     for col in decimal_columns:
         cleaning_functions.append(partial(clean_numeric_column_safe, column=col))
-        
-    # Add boolean column cleaners
-    for col in boolean_columns:
-        cleaning_functions.append(partial(clean_boolean_column, column=col))
     
     # Add BPIN column cleaner
     cleaning_functions.append(clean_bpin_column)
@@ -552,15 +524,18 @@ def normalize_estado_values(df: pd.DataFrame) -> pd.DataFrame:
     """Normalize estado values to standardized labels with business rules.
     
     Business Rules:
-    - Only three valid states: "En Alistamiento", "En Ejecución", "Terminado"
-    - If avance_obra is 0 (cero, (cero), (0), 0, 0.0, etc.), set estado to 'En Alistamiento'
+    - Valid states from JSON: "En alistamiento", "En ejecución", "Terminado", "Suspendido", "Inaugurado"
+    - Special values "Suspendido" and "Inaugurado" are preserved as-is (no modification)
+    - If avance_obra is 0, set estado to 'En alistamiento'
     - If avance_obra is 100%, set estado to 'Terminado'
-    - Otherwise, normalize estado based on text patterns
-    - Unknown states are normalized to the closest valid state or default to 'En Ejecución'
+    - Otherwise, normalize estado based on text patterns for the three main states
+    - Unknown states are normalized to the closest valid state or default to 'En ejecución'
     """
     if 'estado' in df.columns:
         result_df = df.copy()
         
+        # Get standard estado values from JSON
+        standard_estados = set(STANDARD_CATEGORIES.get('estado', []))
         # Track unknown states for reporting
         unknown_states = set()
         
@@ -569,7 +544,34 @@ def normalize_estado_values(df: pd.DataFrame) -> pd.DataFrame:
             val = row.get('estado')
             avance_obra = row.get('avance_obra')
             
-            # REGLA DE NEGOCIO 1: Si avance_obra es cero, establecer "En alistamiento"
+            # Si no hay valor de estado, determinar por avance_obra
+            if pd.isna(val) or val is None or str(val).strip() == '':
+                # Si no hay avance_obra, asumir alistamiento
+                if pd.isna(avance_obra) or avance_obra is None:
+                    return 'En alistamiento'
+                # Determinar por avance_obra
+                try:
+                    avance_numeric = float(str(avance_obra).strip().replace(',', '.').replace('cero', '0').replace('(', '').replace(')', ''))
+                    if avance_numeric == 0.0:
+                        return 'En alistamiento'
+                    elif avance_numeric >= 100.0:
+                        return 'Terminado'
+                    else:
+                        return 'En ejecución'
+                except (ValueError, TypeError):
+                    return 'En alistamiento'
+            
+            val_str = str(val).strip()
+            val_lower = val_str.lower()
+            
+            # PRIORIDAD 1: Preservar valores especiales (sin modificar)
+            # Buscar coincidencia exacta (case-insensitive) con valores especiales
+            for std_estado in standard_estados:
+                if std_estado.lower() in ['suspendido', 'inaugurado']:
+                    if val_lower == std_estado.lower():
+                        return std_estado  # Devolver con capitalización estándar
+            
+            # PRIORIDAD 2: Aplicar lógica de avance_obra para los tres estados principales
             if avance_obra is not None:
                 try:
                     avance_numeric = float(str(avance_obra).strip().replace(',', '.').replace('cero', '0').replace('(', '').replace(')', ''))
@@ -582,36 +584,23 @@ def normalize_estado_values(df: pd.DataFrame) -> pd.DataFrame:
                     if avance_numeric >= 100.0:
                         return 'Terminado'
                     
-                    # Si tiene avance pero no hay estado válido, está en ejecución
-                    if avance_numeric > 0.0 and avance_numeric < 100.0:
-                        if pd.isna(val) or val is None or str(val).strip() == '':
-                            return 'En ejecución'
-                        
+                    # Si tiene avance entre 0 y 100, continuar con normalización
+                    
                 except (ValueError, TypeError):
                     pass
             
-            # Si no hay valor de estado, determinar por avance_obra
-            if pd.isna(val) or val is None or str(val).strip() == '':
-                # Si no hay avance_obra, asumir alistamiento
-                if pd.isna(avance_obra) or avance_obra is None:
-                    return 'En alistamiento'
-                return 'En ejecución'  # Tiene avance pero sin estado
-            
-            val_str = str(val).strip().lower()
-            
-            # Map all variations to standard values (mantener capitalización estándar)
-            if 'socializaci' in val_str or 'alistamiento' in val_str or 'planeaci' in val_str or 'preparaci' in val_str or 'por iniciar' in val_str:
+            # PRIORIDAD 3: Normalizar basado en patrones de texto para los tres estados principales
+            if 'socializaci' in val_lower or 'alistamiento' in val_lower or 'planeaci' in val_lower or 'preparaci' in val_lower or 'por iniciar' in val_lower:
                 return 'En alistamiento'
-            elif 'ejecuci' in val_str or 'proceso' in val_str or 'construcci' in val_str or 'desarrollo' in val_str:
+            elif 'ejecuci' in val_lower or 'proceso' in val_lower or 'construcci' in val_lower or 'desarrollo' in val_lower:
                 return 'En ejecución'
-            elif 'finalizado' in val_str or 'terminado' in val_str or 'completado' in val_str or 'concluido' in val_str or 'entregado' in val_str or 'liquidaci' in val_str:
+            elif 'finalizado' in val_lower or 'terminado' in val_lower or 'completado' in val_lower or 'concluido' in val_lower or 'entregado' in val_lower or 'liquidaci' in val_lower:
                 return 'Terminado'
             else:
                 # Log unknown state for reporting
                 unknown_states.add(val_str)
                 
-                # Default to 'En ejecución' for unknown states (most common case)
-                # unless avance suggests otherwise
+                # Default basado en avance_obra si está disponible
                 try:
                     if avance_obra is not None:
                         avance_numeric = float(str(avance_obra).strip().replace(',', '.'))
@@ -630,13 +619,12 @@ def normalize_estado_values(df: pd.DataFrame) -> pd.DataFrame:
         if unknown_states:
             print(f"⚠️ WARNING: Found {len(unknown_states)} unknown estado values that were normalized:")
             for state in sorted(unknown_states):
-                count = (df['estado'].astype(str).str.lower() == state).sum()
+                count = (df['estado'].astype(str) == state).sum()
                 print(f"   - '{state}' ({count} occurrences)")
         
         # Validate that only valid states remain
-        valid_states = {'En alistamiento', 'En ejecución', 'Terminado'}
         final_states = set(result_df['estado'].dropna().unique())
-        invalid_final = final_states - valid_states
+        invalid_final = final_states - standard_estados
         
         if invalid_final:
             print(f"❌ ERROR: Invalid estados still present after normalization: {invalid_final}")
@@ -650,32 +638,97 @@ def normalize_estado_values(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
-def normalize_tipo_intervencion_values(df: pd.DataFrame) -> pd.DataFrame:
-    """Normalize tipo_intervencion values to standardized labels."""
-    if 'tipo_intervencion' in df.columns:
-        result_df = df.copy()
+def validate_and_normalize_category(value: Any, category_name: str, threshold: float = 0.7) -> Optional[str]:
+    """Validate and normalize a categorical value using fuzzy matching.
+    
+    Args:
+        value: The value to validate
+        category_name: Name of the category in STANDARD_CATEGORIES
+        threshold: Minimum similarity score for fuzzy matching (0.0-1.0)
         
-        # Standardize all tipo_intervencion values (case-insensitive)
-        def standardize_tipo_intervencion(val):
-            if pd.isna(val) or val is None:
-                return val
-            
-            val_str = str(val).strip().lower()
-            
-            # Map all variations to standard values
-            if ('adecuacion' in val_str or 'mantenimiento' in val_str) and 'rehabilitaci' not in val_str:
-                return 'Adecuaciones y Mantenimientos'
-            elif 'rehabilitaci' in val_str or 'reforzamiento' in val_str:
-                return 'Rehabilitación - Reforzamiento'
-            elif 'obra nueva' in val_str or 'nueva' in val_str:
-                return 'Obra nueva'
-            else:
-                # Return original if no match (preserve unknown types)
-                return val
+    Returns:
+        Standardized value or None if value is null
+    """
+    if pd.isna(value) or value is None or str(value).strip() == '':
+        return None
+    
+    val_str = str(value).strip()
+    standard_values = STANDARD_CATEGORIES.get(category_name, [])
+    
+    if not standard_values:
+        print(f"⚠️ Warning: No standard values found for category '{category_name}'")
+        return val_str
+    
+    # Check for exact match (case-insensitive)
+    for std_val in standard_values:
+        if val_str.lower() == std_val.lower():
+            return std_val  # Return with standard capitalization
+    
+    # Try fuzzy matching
+    matches = get_close_matches(val_str, standard_values, n=1, cutoff=threshold)
+    if matches:
+        return matches[0]
+    
+    # No match found - return original value
+    return val_str
+
+
+def normalize_categorical_column(df: pd.DataFrame, column_name: str, threshold: float = 0.7) -> pd.DataFrame:
+    """Normalize a categorical column using standard categories from JSON.
+    
+    Args:
+        df: DataFrame to process
+        column_name: Name of the column to normalize
+        threshold: Minimum similarity score for fuzzy matching
         
-        result_df['tipo_intervencion'] = result_df['tipo_intervencion'].apply(standardize_tipo_intervencion)
+    Returns:
+        DataFrame with normalized column
+    """
+    if column_name not in df.columns:
+        return df
+    
+    result_df = df.copy()
+    
+    # Track normalization statistics
+    total_values = result_df[column_name].notna().sum()
+    changed_values = 0
+    unknown_values = set()
+    
+    # Get standard values for this category
+    standard_values = set(STANDARD_CATEGORIES.get(column_name, []))
+    
+    if not standard_values:
+        print(f"⚠️ Warning: No standard values found for '{column_name}', skipping normalization")
         return result_df
-    return df
+    
+    # Normalize each value
+    for idx in result_df.index:
+        original_val = result_df.at[idx, column_name]
+        if pd.notna(original_val) and original_val is not None:
+            normalized_val = validate_and_normalize_category(original_val, column_name, threshold)
+            
+            if normalized_val != original_val:
+                result_df.at[idx, column_name] = normalized_val
+                changed_values += 1
+            
+            # Track unknown values (not in standard list)
+            if normalized_val not in standard_values:
+                unknown_values.add(f"{original_val} -> {normalized_val}")
+    
+    # Report results
+    print(f"✓ Normalized '{column_name}':")
+    print(f"   - Total values: {total_values}")
+    print(f"   - Changed: {changed_values}")
+    print(f"   - Unknown: {len(unknown_values)}")
+    
+    if unknown_values:
+        print(f"   ⚠️ Values not matching standard categories:")
+        for unknown in sorted(unknown_values)[:5]:  # Show first 5
+            print(f"      - {unknown}")
+        if len(unknown_values) > 5:
+            print(f"      ... and {len(unknown_values) - 5} more")
+    
+    return result_df
 
 
 def title_case_spanish(text: str) -> str:
@@ -832,41 +885,6 @@ def unidades_proyecto_transformer(
     
     # Process using the internal function
     return _process_unidades_proyecto_dataframe(df_unidades_proyecto)
-
-
-def print_data_summary(original_df: pd.DataFrame, processed_df: pd.DataFrame) -> None:
-    """
-    Print comprehensive data transformation summary using functional approach.
-    
-    Args:
-        original_df: Original dataframe before processing
-        processed_df: Processed dataframe after transformation
-    """
-    print("\n" + "="*60)
-    print("DATA TRANSFORMATION SUMMARY")
-    print("="*60)
-    
-    # Calculate metrics using functional approach
-    metrics = {
-        'rows': len(processed_df),
-        'total_columns': len(processed_df.columns),
-        'original_columns_preserved': len([col for col in original_df.columns if col in processed_df.columns]),
-        'new_computed_columns': len([col for col in processed_df.columns if col not in original_df.columns]),
-        'text_columns': len([col for col in processed_df.columns if processed_df[col].dtype == 'object']),
-        'numeric_columns': len([col for col in processed_df.columns if pd.api.types.is_numeric_dtype(processed_df[col])]),
-        'boolean_columns': len([col for col in processed_df.columns if processed_df[col].dtype == 'bool'])
-    }
-    
-    # Print summary using functional formatting
-    print(f"\nUnidades de Proyecto:")
-    for key, value in metrics.items():
-        formatted_key = key.replace('_', ' ').title()
-        print(f"  {formatted_key}: {value}")
-    
-    print(f"\nColumn summary:")
-    for col_type in ['text', 'numeric', 'boolean']:
-        key = f"{col_type}_columns"
-        print(f"  {col_type.title()} columns: {metrics[key]}")
 
 
 def convert_to_geodataframe(df: pd.DataFrame) -> gpd.GeoDataFrame:
@@ -1681,7 +1699,10 @@ def _process_unidades_proyecto_dataframe(df: pd.DataFrame) -> gpd.GeoDataFrame:
         lambda df: add_computed_columns(df),
         lambda df: clean_data_types(df),
         lambda df: normalize_estado_values(df),
-        lambda df: normalize_tipo_intervencion_values(df),
+        lambda df: normalize_categorical_column(df, 'clase_up', threshold=0.75),
+        lambda df: normalize_categorical_column(df, 'tipo_equipamiento', threshold=0.75),
+        lambda df: normalize_categorical_column(df, 'tipo_intervencion', threshold=0.75),
+        lambda df: normalize_categorical_column(df, 'fuente_financiacion', threshold=0.75),
         lambda df: apply_title_case_to_text_fields(df)
     )
     df_transformed = basic_pipeline(df_clean)

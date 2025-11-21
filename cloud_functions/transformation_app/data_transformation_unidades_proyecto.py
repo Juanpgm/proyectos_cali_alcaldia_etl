@@ -457,20 +457,19 @@ def clean_numeric_column_safe(df: pd.DataFrame, column: str) -> pd.DataFrame:
 
 
 def clean_integer_column(df: pd.DataFrame, column: str) -> pd.DataFrame:
-    """Clean a single integer column using functional approach - converts to integers without decimals."""
+    """Clean a single integer column - converts to integers without decimals."""
     if column in df.columns:
         result_df = df.copy()
-        # First convert to numeric, then to integer (removing decimals)
-        result_df[column] = pd.to_numeric(result_df[column], errors='coerce').fillna(0.0).astype(int)
+        # Convert to numeric, then to integer (removing decimals)
+        result_df[column] = pd.to_numeric(result_df[column], errors='coerce').fillna(0).astype('int64')
         return result_df
     return df
 
 
 def clean_bpin_column(df: pd.DataFrame) -> pd.DataFrame:
-    """Clean BPIN column specifically - keeps as string for alphanumeric codes or converts to integer."""
+    """Clean BPIN column - keeps as string for alphanumeric codes or converts to integer."""
     if 'bpin' in df.columns:
         result_df = df.copy()
-        # Try to convert to numeric, but if it fails, keep as string (for alphanumeric BPIN codes)
         def process_bpin(value):
             if pd.isna(value) or value is None:
                 return None
@@ -480,7 +479,9 @@ def clean_bpin_column(df: pd.DataFrame) -> pd.DataFrame:
             # Try to convert to integer if it's purely numeric
             if str_value.replace('.', '').replace(',', '').isdigit():
                 try:
-                    return int(float(str_value.replace(',', '.')))
+                    # Remove any separators and convert directly to int
+                    clean_num = str_value.replace('.', '').replace(',', '')
+                    return int(clean_num)
                 except (ValueError, TypeError):
                     return str_value
             else:
@@ -508,11 +509,10 @@ def clean_data_types(df: pd.DataFrame) -> pd.DataFrame:
     text_columns = ['nickname_detalle', 'direccion', 'descripcion_intervencion', 'identificador', 'nickname']
     # Variables monetarias que deben ser enteros (sin decimales)  
     integer_monetary_columns = ['presupuesto_base', 'ppto_base']
-    # Variables numéricas enteras
-    integer_columns = ['bpin']
+    # Variables numéricas enteras (sin decimales)
+    integer_columns = ['bpin', 'ano']
     # Variables numéricas que pueden tener decimales
     decimal_columns = ['avance_obra', 'avance_fisico_obra']
-    boolean_columns = ['centros_gravedad']
     
     # Create cleaning pipeline
     cleaning_functions = []
@@ -535,10 +535,6 @@ def clean_data_types(df: pd.DataFrame) -> pd.DataFrame:
     # Add decimal column cleaners (allows decimals)
     for col in decimal_columns:
         cleaning_functions.append(partial(clean_numeric_column_safe, column=col))
-        
-    # Add boolean column cleaners
-    for col in boolean_columns:
-        cleaning_functions.append(partial(clean_boolean_column, column=col))
     
     # Add BPIN column cleaner
     cleaning_functions.append(clean_bpin_column)

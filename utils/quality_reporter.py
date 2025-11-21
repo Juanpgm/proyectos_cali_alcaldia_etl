@@ -712,17 +712,17 @@ class QualityReporter:
         error_rates = [c.get('error_rate', 0) for c in centro_reports]
         issue_counts = [c.get('total_issues', 0) for c in centro_reports]
         
-        # Crear opciones de filtrado
+        # Crear opciones de filtrado (filtrar None y valores nulos)
         filter_options = {
-            'severities': sorted(list(all_severities), 
+            'severities': sorted([x for x in all_severities if x], 
                                 key=lambda x: ['CRITICAL', 'HIGH', 'MEDIUM', 'LOW'].index(x) 
                                 if x in ['CRITICAL', 'HIGH', 'MEDIUM', 'LOW'] else 999),
-            'dimensions': sorted(list(all_dimensions)),
-            'priorities': sorted(list(all_priorities)),
-            'statuses': sorted(list(all_statuses)),
-            'centros_gestores': sorted(list(all_centros_gestores)),
-            'rule_ids': sorted(list(all_rule_ids)),
-            'field_names': sorted(list(all_field_names))
+            'dimensions': sorted([x for x in all_dimensions if x]),
+            'priorities': sorted([x for x in all_priorities if x]),
+            'statuses': sorted([x for x in all_statuses if x]),
+            'centros_gestores': sorted([x for x in all_centros_gestores if x]),
+            'rule_ids': sorted([x for x in all_rule_ids if x]),
+            'field_names': sorted([x for x in all_field_names if x])
         }
         
         # Crear configuración de rangos (para sliders, gráficas)
