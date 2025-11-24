@@ -1274,6 +1274,76 @@ def standardize_dates(gdf: gpd.GeoDataFrame) -> gpd.GeoDataFrame:
     return result_gdf
 
 
+def add_frente_activo(gdf: gpd.GeoDataFrame) -> gpd.GeoDataFrame:
+    """
+    Agrega la columna 'frente_activo' basada en condiciones de estado, clase_up, 
+    tipo_equipamiento y tipo_intervencion.
+    
+    Lógica:
+    - 'Frente activo': registros en 'En ejecución' + clase_up en ('Obras equipamientos', 'Obra vial', 'Espacio Público')
+      y excluyendo tipo_equipamiento ('Vivienda mejoramiento', 'Vivienda nueva', 'Adquisición de predios', 'Señalización vial')
+      y excluyendo tipo_intervencion ('Mantenimiento', 'Estudios y diseños', 'Transferencia directa')
+    - 'Inactivo': mismas condiciones pero con estado 'Suspendido'
+    - 'No aplica': todos los demás casos
+    """
+    result_gdf = gdf.copy()
+    
+    # Inicializar columna con 'No aplica' por defecto
+    result_gdf['frente_activo'] = 'No aplica'
+    
+    # Definir listas de valores a excluir
+    tipos_equipamiento_excluidos = [
+        'Vivienda mejoramiento', 
+        'Vivienda nueva', 
+        'Adquisición de predios', 
+        'Señalización vial'
+    ]
+    
+    tipos_intervencion_excluidos = [
+        'Mantenimiento', 
+        'Estudios y diseños', 
+        'Transferencia directa'
+    ]
+    
+    # Definir clases válidas para frente activo
+    clases_validas = ['Obras equipamientos', 'Obra vial', 'Espacio Público']
+    
+    # Condiciones base para frente activo (sin considerar el estado todavía)
+    # Filtro 1: clase_up debe estar en las clases válidas
+    condicion_clase = result_gdf['clase_up'].isin(clases_validas) if 'clase_up' in result_gdf.columns else pd.Series([False] * len(result_gdf))
+    
+    # Filtro 2: tipo_equipamiento NO debe estar en la lista de excluidos
+    condicion_tipo_equipamiento = ~result_gdf['tipo_equipamiento'].isin(tipos_equipamiento_excluidos) if 'tipo_equipamiento' in result_gdf.columns else pd.Series([True] * len(result_gdf))
+    
+    # Filtro 3: tipo_intervencion NO debe estar en la lista de excluidos
+    condicion_tipo_intervencion = ~result_gdf['tipo_intervencion'].isin(tipos_intervencion_excluidos) if 'tipo_intervencion' in result_gdf.columns else pd.Series([True] * len(result_gdf))
+    
+    # Combinar todas las condiciones base
+    condiciones_base = condicion_clase & condicion_tipo_equipamiento & condicion_tipo_intervencion
+    
+    # Aplicar lógica según estado
+    if 'estado' in result_gdf.columns:
+        # Frente activo: condiciones base + estado 'En ejecución'
+        frente_activo_mask = condiciones_base & (result_gdf['estado'] == 'En ejecución')
+        result_gdf.loc[frente_activo_mask, 'frente_activo'] = 'Frente activo'
+        
+        # Inactivo: condiciones base + estado 'Suspendido'
+        inactivo_mask = condiciones_base & (result_gdf['estado'] == 'Suspendido')
+        result_gdf.loc[inactivo_mask, 'frente_activo'] = 'Inactivo'
+    
+    # Reportar estadísticas
+    frente_activo_count = (result_gdf['frente_activo'] == 'Frente activo').sum()
+    inactivo_count = (result_gdf['frente_activo'] == 'Inactivo').sum()
+    no_aplica_count = (result_gdf['frente_activo'] == 'No aplica').sum()
+    
+    print(f"✓ Columna 'frente_activo' agregada:")
+    print(f"   - Frente activo: {frente_activo_count} registros")
+    print(f"   - Inactivo: {inactivo_count} registros")
+    print(f"   - No aplica: {no_aplica_count} registros")
+    
+    return result_gdf
+
+
 def export_to_geojson(gdf: gpd.GeoDataFrame, output_dir: Path) -> Path:
     """Export GeoDataFrame to GeoJSON with lon, lat format (will be converted to lat, lon during Firebase load)."""
     output_dir.mkdir(exist_ok=True, parents=True)
@@ -1728,6 +1798,10 @@ def _process_unidades_proyecto_dataframe(df: pd.DataFrame) -> gpd.GeoDataFrame:
     # Phase 5: Date standardization
     print("\n[Phase 5: Date Standardization]")
     gdf = standardize_dates(gdf)
+    
+    # Phase 5.5: Add frente_activo column
+    print("\n[Phase 5.5: Frente Activo]")
+    gdf = add_frente_activo(gdf)
     
     # Phase 6: Export and metrics
     print("\n[Phase 6: Export & Metrics]")

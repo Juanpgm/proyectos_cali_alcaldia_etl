@@ -504,6 +504,80 @@ def process_puntos_estrategicos(shapefile_path):
 
 
 # ============================================================================
+# AGREGAR COLUMNA FRENTE_ACTIVO
+# ============================================================================
+
+def add_frente_activo(gdf):
+    """
+    Agrega la columna 'frente_activo' basada en condiciones de estado, clase_obra, 
+    tipo_equipamiento y tipo_intervencion.
+    
+    Lógica:
+    - 'Frente activo': registros en 'En ejecución' + clase_obra en ('Obras equipamientos', 'Obra vial', 'Espacio Público')
+      y excluyendo tipo_equipamiento ('Vivienda mejoramiento', 'Vivienda nueva', 'Adquisición de predios', 'Señalización vial')
+      y excluyendo tipo_intervencion ('Mantenimiento', 'Estudios y diseños', 'Transferencia directa')
+    - 'Inactivo': mismas condiciones pero con estado 'Suspendido'
+    - 'No aplica': todos los demás casos
+    """
+    result_gdf = gdf.copy()
+    
+    # Inicializar columna con 'No aplica' por defecto
+    result_gdf['frente_activo'] = 'No aplica'
+    
+    # Definir listas de valores a excluir
+    tipos_equipamiento_excluidos = [
+        'Vivienda mejoramiento', 
+        'Vivienda nueva', 
+        'Adquisición de predios', 
+        'Señalización vial'
+    ]
+    
+    tipos_intervencion_excluidos = [
+        'Mantenimiento', 
+        'Estudios y diseños', 
+        'Transferencia directa'
+    ]
+    
+    # Definir clases válidas para frente activo (usar clase_obra en infraestructura)
+    clases_validas = ['Obras equipamientos', 'Obra vial', 'Obra Vial', 'Espacio Público']
+    
+    # Condiciones base para frente activo (sin considerar el estado todavía)
+    # Filtro 1: clase_obra debe estar en las clases válidas
+    condicion_clase = result_gdf['clase_obra'].isin(clases_validas) if 'clase_obra' in result_gdf.columns else pd.Series([False] * len(result_gdf))
+    
+    # Filtro 2: tipo_equipamiento NO debe estar en la lista de excluidos
+    condicion_tipo_equipamiento = ~result_gdf['tipo_equipamiento'].isin(tipos_equipamiento_excluidos) if 'tipo_equipamiento' in result_gdf.columns else pd.Series([True] * len(result_gdf))
+    
+    # Filtro 3: tipo_intervencion NO debe estar en la lista de excluidos
+    condicion_tipo_intervencion = ~result_gdf['tipo_intervencion'].isin(tipos_intervencion_excluidos) if 'tipo_intervencion' in result_gdf.columns else pd.Series([True] * len(result_gdf))
+    
+    # Combinar todas las condiciones base
+    condiciones_base = condicion_clase & condicion_tipo_equipamiento & condicion_tipo_intervencion
+    
+    # Aplicar lógica según estado
+    if 'estado' in result_gdf.columns:
+        # Frente activo: condiciones base + estado 'En ejecución'
+        frente_activo_mask = condiciones_base & (result_gdf['estado'] == 'En ejecución')
+        result_gdf.loc[frente_activo_mask, 'frente_activo'] = 'Frente activo'
+        
+        # Inactivo: condiciones base + estado 'Suspendido'
+        inactivo_mask = condiciones_base & (result_gdf['estado'] == 'Suspendido')
+        result_gdf.loc[inactivo_mask, 'frente_activo'] = 'Inactivo'
+    
+    # Reportar estadísticas
+    frente_activo_count = (result_gdf['frente_activo'] == 'Frente activo').sum()
+    inactivo_count = (result_gdf['frente_activo'] == 'Inactivo').sum()
+    no_aplica_count = (result_gdf['frente_activo'] == 'No aplica').sum()
+    
+    print(f"\n✓ Columna 'frente_activo' agregada:")
+    print(f"   - Frente activo: {frente_activo_count} registros")
+    print(f"   - Inactivo: {inactivo_count} registros")
+    print(f"   - No aplica: {no_aplica_count} registros")
+    
+    return result_gdf
+
+
+# ============================================================================
 # GENERACIÓN DEL GEOJSON
 # ============================================================================
 
@@ -591,6 +665,7 @@ def export_to_geojson(gdf_combined, output_path):
                 "estado": row['estado'],
                 "fecha_fin": row['fecha_fin'],
                 "fecha_inicio": row['fecha_inicio'],
+                "frente_activo": row['frente_activo'],
                 "fuente_financiacion": row['fuente_financiacion'],
                 "identificador": row['identificador'],
                 "nombre_centro_gestor": row['nombre_centro_gestor'],
@@ -682,6 +757,12 @@ def main():
     completeness = (1 - gdf_combined.isnull().sum() / len(gdf_combined)) * 100
     print(f"  - Campos con >= 90% completos: {(completeness >= 90).sum()}")
     print(f"  - Campos con < 50% completos: {(completeness < 50).sum()}")
+    
+    # Agregar columna frente_activo antes de exportar
+    print("\n" + "="*80)
+    print("AGREGANDO COLUMNA FRENTE_ACTIVO")
+    print("="*80)
+    gdf_combined = add_frente_activo(gdf_combined)
     
     # Exportar a GeoJSON
     export_to_geojson(gdf_combined, OUTPUT_FILE)
