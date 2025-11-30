@@ -163,7 +163,10 @@ class QualityReporter:
         })
         
         for issue in issues:
-            centro = issue.get('nombre_centro_gestor', 'Sin Centro Gestor')
+            centro = issue.get('nombre_centro_gestor')
+            # Manejar valores None, vacíos o solo espacios
+            if not centro or str(centro).strip() == '':
+                centro = 'Sin Centro Gestor Asignado'
             upid = issue.get('upid')
             
             centros_map[centro]['issues'].append(issue)
@@ -379,6 +382,9 @@ class QualityReporter:
             'system_status': self._classify_system_status(global_quality_score),
             'requires_immediate_action': global_severity.get('CRITICAL', 0) > 0,
             
+            # Comparación con reporte anterior (se llenará después)
+            'comparison_with_previous': None,
+            
             # Metadata
             'created_at': self.report_timestamp,
             'updated_at': self.report_timestamp,
@@ -395,6 +401,25 @@ class QualityReporter:
             ]
         }
         
+        return summary_doc
+    
+    def add_comparison_to_summary(
+        self, 
+        summary_doc: Dict[str, Any], 
+        comparison: Dict[str, Any]
+    ) -> Dict[str, Any]:
+        """
+        Agrega la comparación con el reporte anterior al summary.
+        
+        Args:
+            summary_doc: Documento summary actual
+            comparison: Comparación calculada
+            
+        Returns:
+            Summary con comparación incluida
+        """
+        summary_doc['comparison_with_previous'] = comparison
+        summary_doc['updated_at'] = datetime.now().isoformat()
         return summary_doc
     
     def export_to_json(

@@ -201,13 +201,15 @@ def serialize_for_firebase(value: Any, field_name: str = None) -> Any:
 
 def normalize_estado_value(estado_value: Any, avance_obra: Any = None) -> Optional[str]:
     """
-    Normalize estado value to one of the three valid states.
+    Normalize estado value to one of the valid states.
     This ensures data quality at the loading stage as a safety net.
     
     Valid estados:
     - "En alistamiento"
     - "En ejecución"
     - "Terminado"
+    - "Suspendido" (se preserva sin modificar)
+    - "Inaugurado" (se preserva sin modificar)
     
     Args:
         estado_value: Raw estado value from data
@@ -227,12 +229,17 @@ def normalize_estado_value(estado_value: Any, avance_obra: Any = None) -> Option
         pass
     
     # Convert to string and normalize
-    val_str = str(estado_value).strip().lower()
+    val_str = str(estado_value).strip()
+    val_lower = val_str.lower()
     
-    if val_str == '' or val_str in ['nan', 'none', 'null']:
+    if val_lower == '' or val_lower in ['nan', 'none', 'null']:
         return None
     
-    # REGLA DE NEGOCIO 1: Si avance_obra es cero, establecer "En alistamiento"
+    # PRIORIDAD 1: Preservar estados especiales (Suspendido e Inaugurado) - NO MODIFICAR
+    if val_lower in {'suspendido', 'inaugurado'}:
+        return val_lower.title()  # Retorna "Suspendido" o "Inaugurado"
+    
+    # REGLA DE NEGOCIO 2: Si avance_obra es cero, establecer "En alistamiento"
     if avance_obra is not None:
         try:
             avance_numeric = float(str(avance_obra).strip().replace(',', '.').replace('cero', '0').replace('(', '').replace(')', ''))
@@ -249,11 +256,11 @@ def normalize_estado_value(estado_value: Any, avance_obra: Any = None) -> Option
             pass
     
     # Map all variations to standard values
-    if 'socializaci' in val_str or 'alistamiento' in val_str or 'planeaci' in val_str or 'preparaci' in val_str or 'por iniciar' in val_str:
+    if 'socializaci' in val_lower or 'alistamiento' in val_lower or 'planeaci' in val_lower or 'preparaci' in val_lower or 'por iniciar' in val_lower:
         return 'En alistamiento'
-    elif 'ejecuci' in val_str or 'proceso' in val_str or 'construcci' in val_str or 'desarrollo' in val_str:
+    elif 'ejecuci' in val_lower or 'proceso' in val_lower or 'construcci' in val_lower or 'desarrollo' in val_lower:
         return 'En ejecución'
-    elif 'finalizado' in val_str or 'terminado' in val_str or 'completado' in val_str or 'concluido' in val_str or 'entregado' in val_str or 'liquidaci' in val_str:
+    elif 'finalizado' in val_lower or 'terminado' in val_lower or 'completado' in val_lower or 'concluido' in val_lower or 'entregado' in val_lower or 'liquidaci' in val_lower:
         return 'Terminado'
     else:
         # Default to 'En ejecución' for unknown states
@@ -350,7 +357,7 @@ def prepare_document_data(feature: Dict[str, Any]) -> Optional[Dict[str, Any]]:
     
     # VALIDATION: Verify estado is valid (final check)
     if 'estado' in document_data and document_data['estado'] is not None:
-        valid_estados = {'En alistamiento', 'En ejecución', 'Terminado'}
+        valid_estados = {'En alistamiento', 'En ejecución', 'Terminado', 'Suspendido', 'Inaugurado'}
         current_estado = document_data['estado']
         if current_estado not in valid_estados:
             print(f"❌ ERROR: Invalid estado after normalization: '{current_estado}'")

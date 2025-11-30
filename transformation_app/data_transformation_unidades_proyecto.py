@@ -441,12 +441,110 @@ def clean_numeric_column_safe(df: pd.DataFrame, column: str) -> pd.DataFrame:
     return df
 
 
+def clean_avance_obra_column(df: pd.DataFrame, column: str = 'avance_obra') -> pd.DataFrame:
+    """Clean avance_obra column - removes special characters and ensures 2 decimal places.
+    
+    Handles:
+    - Percentage signs (%)
+    - Parentheses ()
+    - Commas as decimal separators
+    - Text like 'cero'
+    - Spaces and other special characters
+    
+    Returns values rounded to 2 decimal places.
+    """
+    if column not in df.columns:
+        return df
+    
+    result_df = df.copy()
+    
+    def clean_avance_value(val):
+        if pd.isna(val) or val is None:
+            return 0.0
+        
+        # Convertir a string
+        val_str = str(val).strip().lower()
+        
+        # Manejar valores vacíos
+        if val_str in ['', 'nan', 'none', 'null']:
+            return 0.0
+        
+        # Reemplazar texto especial
+        val_str = val_str.replace('cero', '0')
+        
+        # Eliminar caracteres especiales: %, $, paréntesis, espacios
+        val_str = val_str.replace('%', '')
+        val_str = val_str.replace('$', '')
+        val_str = val_str.replace('(', '')
+        val_str = val_str.replace(')', '')
+        val_str = val_str.replace(' ', '')
+        
+        # Reemplazar coma por punto (formato decimal europeo)
+        val_str = val_str.replace(',', '.')
+        
+        # Eliminar cualquier caracter no numérico excepto punto (incluye signo negativo)
+        val_str = ''.join(c for c in val_str if c.isdigit() or c == '.')
+        
+        # Manejar múltiples puntos (tomar solo el primero)
+        if val_str.count('.') > 1:
+            parts = val_str.split('.')
+            val_str = parts[0] + '.' + ''.join(parts[1:])
+        
+        # Convertir a número
+        try:
+            numeric_val = float(val_str) if val_str else 0.0
+            # Redondear a 2 decimales
+            return round(numeric_val, 2)
+        except ValueError:
+            return 0.0
+    
+    result_df[column] = result_df[column].apply(clean_avance_value)
+    
+    # Verificar valores fuera de rango (0-100)
+    out_of_range = result_df[(result_df[column] < 0) | (result_df[column] > 100)]
+    if len(out_of_range) > 0:
+        print(f"⚠️  Advertencia: {len(out_of_range)} valores de '{column}' fuera del rango 0-100")
+        # Limitar valores al rango 0-100
+        result_df[column] = result_df[column].clip(0, 100)
+    
+    print(f"✓ Columna '{column}' limpiada: valores numéricos con 2 decimales (rango 0-100)")
+    
+    return result_df
+
+
 def clean_integer_column(df: pd.DataFrame, column: str) -> pd.DataFrame:
-    """Clean a single integer column - converts to integers without decimals."""
+    """Clean a single integer column - converts to integers without decimals.
+    
+    For 'ano' column, validates that values are valid years (2024-2030).
+    """
     if column in df.columns:
         result_df = df.copy()
         # Convert to numeric, then to integer (removing decimals)
         result_df[column] = pd.to_numeric(result_df[column], errors='coerce').fillna(0).astype('int64')
+        
+        # Validación específica para columna 'ano'
+        if column == 'ano':
+            valid_years = [2024, 2025, 2026, 2027, 2028, 2029, 2030]
+            
+            # Contar años inválidos
+            invalid_mask = ~result_df[column].isin(valid_years + [0])
+            invalid_count = invalid_mask.sum()
+            
+            if invalid_count > 0:
+                print(f"⚠️  Advertencia: {invalid_count} registros con años fuera del rango válido (2024-2030)")
+            
+            # Asignar año por defecto (2024) a valores inválidos
+            result_df.loc[invalid_mask, column] = 2024
+            
+            # Verificar valores cero
+            zero_mask = result_df[column] == 0
+            zero_count = zero_mask.sum()
+            if zero_count > 0:
+                print(f"⚠️  Advertencia: {zero_count} registros sin año, asignando 2024")
+                result_df.loc[zero_mask, column] = 2024
+            
+            print(f"✓ Columna 'ano' validada: todos los valores son enteros entre 2024-2030")
+        
         return result_df
     return df
 
@@ -510,7 +608,11 @@ def clean_data_types(df: pd.DataFrame) -> pd.DataFrame:
     
     # Add decimal column cleaners (allows decimals)
     for col in decimal_columns:
-        cleaning_functions.append(partial(clean_numeric_column_safe, column=col))
+        # Usar limpieza específica para avance_obra y avance_fisico_obra
+        if col in ['avance_obra', 'avance_fisico_obra']:
+            cleaning_functions.append(partial(clean_avance_obra_column, column=col))
+        else:
+            cleaning_functions.append(partial(clean_numeric_column_safe, column=col))
     
     # Add BPIN column cleaner
     cleaning_functions.append(clean_bpin_column)
@@ -539,6 +641,9 @@ def normalize_estado_values(df: pd.DataFrame) -> pd.DataFrame:
         # Track unknown states for reporting
         unknown_states = set()
         
+        # Estados especiales que NUNCA deben modificarse
+        PRESERVED_STATES = {'Suspendido', 'Inaugurado'}
+        
         # Standardize all estado values (case-insensitive)
         def standardize_estado(row):
             val = row.get('estado')
@@ -564,12 +669,9 @@ def normalize_estado_values(df: pd.DataFrame) -> pd.DataFrame:
             val_str = str(val).strip()
             val_lower = val_str.lower()
             
-            # PRIORIDAD 1: Preservar valores especiales (sin modificar)
-            # Buscar coincidencia exacta (case-insensitive) con valores especiales
-            for std_estado in standard_estados:
-                if std_estado.lower() in ['suspendido', 'inaugurado']:
-                    if val_lower == std_estado.lower():
-                        return std_estado  # Devolver con capitalización estándar
+            # PRIORIDAD 1: Preservar valores especiales (sin modificar) - RETORNAR INMEDIATAMENTE
+            if val_str in PRESERVED_STATES or val_lower in {'suspendido', 'inaugurado'}:
+                return val_lower.title()  # Retorna "Suspendido" o "Inaugurado"
             
             # PRIORIDAD 2: Aplicar lógica de avance_obra para los tres estados principales
             if avance_obra is not None:

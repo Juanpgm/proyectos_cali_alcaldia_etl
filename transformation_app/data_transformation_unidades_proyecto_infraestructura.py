@@ -60,7 +60,7 @@ COLUMNS_DTYPES = {
     'estado': 'category',
     'presupuesto_base': 'int64',
     'avance_obra': 'float64',
-    'ano': 'object',
+    'ano': 'int64',
     'fecha_inicio': 'object',
     'fecha_fin': 'object',
     'plataforma': 'category',
@@ -91,16 +91,61 @@ def format_comuna(text):
     return text
 
 
+def clean_ano_column(gdf: gpd.GeoDataFrame) -> gpd.GeoDataFrame:
+    """Limpia y valida la columna 'ano' para asegurar valores enteros de año válidos (2024-2030).
+    
+    Args:
+        gdf: GeoDataFrame con columna 'ano'
+        
+    Returns:
+        GeoDataFrame con columna 'ano' validada y limpia
+    """
+    if 'ano' not in gdf.columns:
+        return gdf
+    
+    result_gdf = gdf.copy()
+    
+    # Convertir a numérico y eliminar decimales
+    result_gdf['ano'] = pd.to_numeric(result_gdf['ano'], errors='coerce')
+    
+    # Redondear y convertir a entero
+    result_gdf['ano'] = result_gdf['ano'].fillna(0).round(0).astype('int64')
+    
+    # Validar rango de años válidos (2024-2030)
+    valid_years = [2024, 2025, 2026, 2027, 2028, 2029, 2030]
+    
+    # Contar años inválidos antes de la corrección
+    invalid_count = (~result_gdf['ano'].isin(valid_years + [0])).sum()
+    if invalid_count > 0:
+        print(f"⚠️  Advertencia: {invalid_count} registros con años fuera del rango válido (2024-2030)")
+    
+    # Asignar año por defecto (2024) a valores inválidos
+    result_gdf.loc[~result_gdf['ano'].isin(valid_years), 'ano'] = 2024
+    
+    # Verificar resultado
+    zero_count = (result_gdf['ano'] == 0).sum()
+    if zero_count > 0:
+        print(f"⚠️  Advertencia: {zero_count} registros sin año, asignando 2024")
+        result_gdf.loc[result_gdf['ano'] == 0, 'ano'] = 2024
+    
+    print(f"✓ Columna 'ano' validada: todos los valores son enteros entre 2024-2030")
+    
+    return result_gdf
+
+
 def normalize_estado_values(df: pd.DataFrame) -> pd.DataFrame:
     """
-    Normaliza valores de estado a los 3 estándares válidos.
+    Normaliza valores de estado a los estándares válidos.
     
     Estados válidos:
     - "En alistamiento"
     - "En ejecución"
     - "Terminado"
+    - "Suspendido" (se preserva sin modificar)
+    - "Inaugurado" (se preserva sin modificar)
     
     Reglas de negocio:
+    - Los estados "Suspendido" e "Inaugurado" se preservan tal cual
     - Si avance_obra = 0 → "En alistamiento"
     - Si avance_obra >= 100 → "Terminado"
     - Si 0 < avance_obra < 100 → "En ejecución"
@@ -112,9 +157,19 @@ def normalize_estado_values(df: pd.DataFrame) -> pd.DataFrame:
     result_df = df.copy()
     unknown_states = set()
     
+    # Estados especiales que se preservan sin modificar
+    PRESERVED_STATES = ['suspendido', 'inaugurado']
+    
     def standardize_estado(row):
         val = row.get('estado')
         avance_obra = row.get('avance_obra')
+        
+        # VERIFICAR PRIMERO si es un estado especial que debe preservarse
+        if val is not None and not pd.isna(val):
+            val_lower = str(val).strip().lower()
+            if val_lower in PRESERVED_STATES:
+                # Retornar con formato correcto (primera letra mayúscula)
+                return val_lower.title()
         
         # REGLA DE NEGOCIO 1: Si avance_obra es cero, establecer "En alistamiento"
         if avance_obra is not None:
@@ -175,7 +230,7 @@ def normalize_estado_values(df: pd.DataFrame) -> pd.DataFrame:
             print(f"   - '{state}' ({count} occurrences)")
     
     # Validate that only valid states remain
-    valid_states = {'En alistamiento', 'En ejecución', 'Terminado'}
+    valid_states = {'En alistamiento', 'En ejecución', 'Terminado', 'Suspendido', 'Inaugurado'}
     final_states = set(result_df['estado'].dropna().unique())
     invalid_final = final_states - valid_states
     
@@ -254,6 +309,9 @@ def process_grupo_operativo(shapefile_path):
             except:
                 pass
     
+    # Limpiar y validar columna 'ano'
+    gdf = clean_ano_column(gdf)
+    
     # Estandarizar mayúsculas/minúsculas
     text_cols = ["identificador", "nombre_up_detalle", "tipo_intervencion", "estado", "fuente_financiacion"]
     for col in text_cols:
@@ -265,10 +323,35 @@ def process_grupo_operativo(shapefile_path):
     gdf['presupuesto_base'] = gdf['presupuesto_base'].str.replace(',', '.', regex=False)
     gdf['presupuesto_base'] = pd.to_numeric(gdf['presupuesto_base'])
     
-    # Limpiar avance_obra
-    gdf['avance_obra'] = gdf['avance_obra'].astype(str).str.replace('%', '', regex=False)
-    gdf['avance_obra'] = gdf['avance_obra'].str.split(',').str[0]
-    gdf['avance_obra'] = pd.to_numeric(gdf['avance_obra'])
+    # Limpiar avance_obra - eliminar caracteres especiales y asegurar 2 decimales
+    def clean_avance_value(val):
+        if pd.isna(val) or val is None:
+            return 0.0
+        val_str = str(val).strip().lower()
+        if val_str in ['', 'nan', 'none', 'null']:
+            return 0.0
+        # Reemplazar texto especial
+        val_str = val_str.replace('cero', '0')
+        # Eliminar caracteres especiales: %, $, paréntesis, espacios
+        val_str = val_str.replace('%', '').replace('$', '').replace('(', '').replace(')', '').replace(' ', '')
+        # Reemplazar coma por punto (formato decimal europeo)
+        val_str = val_str.replace(',', '.')
+        # Eliminar cualquier caracter no numérico excepto punto (incluye signo negativo)
+        val_str = ''.join(c for c in val_str if c.isdigit() or c == '.')
+        # Manejar múltiples puntos
+        if val_str.count('.') > 1:
+            parts = val_str.split('.')
+            val_str = parts[0] + '.' + ''.join(parts[1:])
+        try:
+            numeric_val = float(val_str) if val_str else 0.0
+            return round(numeric_val, 2)  # Redondear a 2 decimales
+        except ValueError:
+            return 0.0
+    
+    gdf['avance_obra'] = gdf['avance_obra'].apply(clean_avance_value)
+    # Limitar valores al rango 0-100
+    gdf['avance_obra'] = gdf['avance_obra'].clip(0, 100)
+    print(f"✓ Columna 'avance_obra' limpiada: valores numéricos con 2 decimales (rango 0-100)")
     
     # Imputar valores
     gdf['clase_obra'] = "Obra Vial"
@@ -351,6 +434,9 @@ def process_participativo_urbano(shapefile_path):
                 gdf[col] = gdf[col].astype(dtype)
             except:
                 pass
+    
+    # Limpiar y validar columna 'ano'
+    gdf = clean_ano_column(gdf)
     
     # Estandarizar mayúsculas/minúsculas
     text_cols = ["identificador", "nombre_up_detalle", "tipo_intervencion", "estado", "fuente_financiacion"]
@@ -461,6 +547,9 @@ def process_puntos_estrategicos(shapefile_path):
                 gdf[col] = gdf[col].astype(dtype)
             except:
                 pass
+    
+    # Limpiar y validar columna 'ano'
+    gdf = clean_ano_column(gdf)
     
     # Estandarizar mayúsculas/minúsculas
     text_cols = ["identificador", "nombre_up_detalle", "tipo_intervencion", "estado", "fuente_financiacion"]

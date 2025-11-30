@@ -73,6 +73,130 @@ def fetch_all_data_from_firebase(collection_name: str = "unidades_proyecto") -> 
         return None
 
 
+def get_previous_summary_from_firebase() -> Optional[Dict[str, Any]]:
+    """
+    Obtiene el summary del reporte de calidad anterior de Firebase.
+    
+    Returns:
+        Summary anterior o None si no existe
+    """
+    try:
+        db = get_firestore_client()
+        if not db:
+            return None
+        
+        # Buscar el documento más reciente en la colección de summaries
+        summaries = (
+            db.collection('unidades_proyecto_quality_control_summary')
+            .order_by('created_at', direction='DESCENDING')
+            .limit(1)
+            .stream()
+        )
+        
+        for doc in summaries:
+            return doc.to_dict()
+        
+        return None
+        
+    except Exception as e:
+        print(f"⚠️ No se pudo obtener summary anterior: {e}")
+        return None
+
+
+def calculate_comparison(current: Dict[str, Any], previous: Optional[Dict[str, Any]]) -> Dict[str, Any]:
+    """
+    Calcula la diferencia entre el reporte actual y el anterior.
+    
+    Args:
+        current: Métricas del reporte actual
+        previous: Métricas del reporte anterior (puede ser None)
+        
+    Returns:
+        Diccionario con las comparaciones
+    """
+    if not previous:
+        return {
+            'has_previous': False,
+            'previous_report_id': None,
+            'previous_timestamp': None,
+            'changes': {}
+        }
+    
+    def calc_change(curr_val, prev_val, higher_is_better=True):
+        """Calcula el cambio entre dos valores."""
+        if prev_val is None or curr_val is None:
+            return {'value': curr_val, 'previous': prev_val, 'change': None, 'trend': 'neutral'}
+        
+        change = curr_val - prev_val
+        if change > 0:
+            trend = 'improved' if higher_is_better else 'worsened'
+        elif change < 0:
+            trend = 'worsened' if higher_is_better else 'improved'
+        else:
+            trend = 'stable'
+        
+        return {
+            'value': curr_val,
+            'previous': prev_val,
+            'change': round(change, 2),
+            'change_percentage': round((change / prev_val * 100), 2) if prev_val != 0 else 0,
+            'trend': trend
+        }
+    
+    # Comparar métricas principales
+    comparison = {
+        'has_previous': True,
+        'previous_report_id': previous.get('report_id'),
+        'previous_timestamp': previous.get('created_at'),
+        'changes': {
+            'quality_score': calc_change(
+                current.get('global_quality_score', 0),
+                previous.get('global_quality_score', 0),
+                higher_is_better=True
+            ),
+            'error_rate': calc_change(
+                current.get('error_rate', 0),
+                previous.get('error_rate', 0),
+                higher_is_better=False
+            ),
+            'total_issues': calc_change(
+                current.get('total_issues_found', 0),
+                previous.get('total_issues_found', 0),
+                higher_is_better=False
+            ),
+            'records_with_issues': calc_change(
+                current.get('records_with_issues', 0),
+                previous.get('records_with_issues', 0),
+                higher_is_better=False
+            ),
+            'total_records': calc_change(
+                current.get('total_records_validated', 0),
+                previous.get('total_records_validated', 0),
+                higher_is_better=True
+            ),
+            'centros_require_attention': calc_change(
+                current.get('centros_require_attention', 0),
+                previous.get('centros_require_attention', 0),
+                higher_is_better=False
+            )
+        },
+        'severity_changes': {}
+    }
+    
+    # Comparar distribución por severidad
+    curr_severity = current.get('severity_distribution', {})
+    prev_severity = previous.get('severity_distribution', {})
+    
+    for severity in ['CRITICAL', 'HIGH', 'MEDIUM', 'LOW', 'INFO']:
+        comparison['severity_changes'][severity] = calc_change(
+            curr_severity.get(severity, 0),
+            prev_severity.get(severity, 0),
+            higher_is_better=False
+        )
+    
+    return comparison
+
+
 def run_quality_control_on_firebase_data(
     collection_name: str = "unidades_proyecto",
     enable_firebase_upload: bool = True,
@@ -168,6 +292,24 @@ def run_quality_control_on_firebase_data(
             validation_result['total_records'],
             validation_result['statistics']
         )
+        
+        # Obtener reporte anterior y calcular comparación
+        try:
+            previous_summary = get_previous_summary_from_firebase()
+            if previous_summary:
+                comparison = calculate_comparison(summary_report, previous_summary)
+                summary_report = reporter.add_comparison_to_summary(summary_report, comparison)
+                if verbose:
+                    print(f"\n📊 Comparación con reporte anterior:")
+                    print(f"   - Reporte anterior: {previous_summary.get('report_id', 'N/A')}")
+                    print(f"   - Cambio en Quality Score: {comparison.get('quality_score', {}).get('change', 0):+.2f}%")
+                    print(f"   - Tendencia: {comparison.get('overall_trend', 'N/A')}")
+            else:
+                if verbose:
+                    print(f"\n📊 Sin reporte anterior para comparar (primer reporte)")
+        except Exception as e:
+            if verbose:
+                print(f"\n⚠️ Error al calcular comparación: {e}")
         
         # Metadata categórica (para componentes Next.js)
         categorical_metadata = reporter.generate_categorical_metadata(

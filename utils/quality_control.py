@@ -510,6 +510,11 @@ class DataQualityValidator:
         """Valida consistencia lógica."""
         issues = []
         
+        # Estados especiales que tienen sus propias reglas y no siguen la lógica estándar
+        # Inaugurado: proyecto terminado que fue inaugurado oficialmente (avance debe ser 100%)
+        # Suspendido: proyecto pausado (puede tener cualquier avance)
+        ESTADOS_ESPECIALES = {'Inaugurado', 'Suspendido'}
+        
         # LC001: Congruencia estado vs avance
         estado = record.get('estado')
         avance = record.get('avance_obra')
@@ -518,35 +523,60 @@ class DataQualityValidator:
             try:
                 avance_num = float(avance)
                 
-                # Verificar congruencia
-                # CORRECCIÓN: 0% con "En alistamiento" es válido, no es error
-                if avance_num == 0 and estado not in ['En alistamiento']:
-                    issues.append(QualityIssue(
-                        self.rules['LC001'],
-                        'estado',
-                        estado,
-                        'En alistamiento',
-                        f'Avance de obra es 0% pero estado es "{estado}"',
-                        'Cambiar estado a "En alistamiento"'
-                    ))
-                elif avance_num == 100 and estado != 'Terminado':
-                    issues.append(QualityIssue(
-                        self.rules['LC001'],
-                        'estado',
-                        estado,
-                        'Terminado',
-                        f'Avance de obra es 100% pero estado es "{estado}"',
-                        'Cambiar estado a "Terminado"'
-                    ))
-                elif 0 < avance_num < 100 and estado == 'En alistamiento':
-                    issues.append(QualityIssue(
-                        self.rules['LC001'],
-                        'estado',
-                        estado,
-                        'En ejecución',
-                        f'Avance de obra es {avance_num}% pero estado es "En alistamiento"',
-                        'Cambiar estado a "En ejecución"'
-                    ))
+                # Los estados especiales tienen reglas diferentes
+                if estado in ESTADOS_ESPECIALES:
+                    # Inaugurado debe tener avance 100%
+                    if estado == 'Inaugurado' and avance_num != 100:
+                        issues.append(QualityIssue(
+                            self.rules['LC001'],
+                            'avance_obra',
+                            avance_num,
+                            100,
+                            f'Estado es "Inaugurado" pero avance de obra es {avance_num}%',
+                            'Ajustar avance a 100% o cambiar estado'
+                        ))
+                    # Suspendido puede tener cualquier avance - no genera error
+                    # Si está en ESTADOS_ESPECIALES, NO continuar con validación normal
+                else:
+                    # Estados normales: En alistamiento, En ejecución, Terminado
+                    if avance_num == 0 and estado not in ['En alistamiento']:
+                        issues.append(QualityIssue(
+                            self.rules['LC001'],
+                            'estado',
+                            estado,
+                            'En alistamiento',
+                            f'Avance de obra es 0% pero estado es "{estado}"',
+                            'Cambiar estado a "En alistamiento"'
+                        ))
+                    elif avance_num == 100 and estado not in ['Terminado', 'Inaugurado']:
+                        # Solo error si no es Terminado ni Inaugurado
+                        issues.append(QualityIssue(
+                            self.rules['LC001'],
+                            'estado',
+                            estado,
+                            'Terminado',
+                            f'Avance de obra es 100% pero estado es "{estado}"',
+                            'Cambiar estado a "Terminado"'
+                        ))
+                    elif 0 < avance_num < 100 and estado == 'En alistamiento':
+                        issues.append(QualityIssue(
+                            self.rules['LC001'],
+                            'estado',
+                            estado,
+                            'En ejecución',
+                            f'Avance de obra es {avance_num}% pero estado es "En alistamiento"',
+                            'Cambiar estado a "En ejecución"'
+                        ))
+                    elif estado == 'Terminado' and avance_num < 100:
+                        # Estado Terminado pero avance no es 100%
+                        issues.append(QualityIssue(
+                            self.rules['LC001'],
+                            'avance_obra',
+                            avance_num,
+                            100,
+                            f'Estado es "Terminado" pero avance de obra es {avance_num}%',
+                            'Ajustar avance a 100% o cambiar estado a "En ejecución"'
+                        ))
             except (ValueError, TypeError):
                 pass  # Se maneja en LC003
         
@@ -1192,13 +1222,15 @@ def validate_geojson(geojson_path: str, verbose: bool = True) -> Dict[str, Any]:
             record_hashes[record_hash].append({
                 'index': idx,
                 'upid': properties.get('upid'),
-                'nombre_up': properties.get('nombre_up')
+                'nombre_up': properties.get('nombre_up'),
+                'nombre_centro_gestor': properties.get('nombre_centro_gestor')
             })
         else:
             record_hashes[record_hash] = [{
                 'index': idx,
                 'upid': properties.get('upid'),
-                'nombre_up': properties.get('nombre_up')
+                'nombre_up': properties.get('nombre_up'),
+                'nombre_centro_gestor': properties.get('nombre_centro_gestor')
             }]
         
         # Convertir geometría a shapely si existe
@@ -1243,7 +1275,7 @@ def validate_geojson(geojson_path: str, verbose: bool = True) -> Dict[str, Any]:
                     'detected_at': datetime.now().isoformat(),
                     'upid': dup['upid'],
                     'nombre_up': dup['nombre_up'],
-                    'nombre_centro_gestor': None,
+                    'nombre_centro_gestor': dup.get('nombre_centro_gestor'),
                     'record_index': dup['index'],
                     'duplicate_group_size': len(duplicates)
                 })
@@ -1349,21 +1381,43 @@ def _generate_quality_statistics(issues: List[Dict], total_records: int, duplica
     stats['records_affected'] = len(affected_records)
     stats['records_affected_percentage'] = (len(affected_records) / total_records * 100) if total_records > 0 else 0
     
-    # Calcular score de calidad (0-100) mejorado
-    # Penalizaciones por severidad (más realistas)
-    penalties = {
-        'CRITICAL': 5,   # Reducido de 10 para ser más realista
-        'HIGH': 3,       # Reducido de 5
-        'MEDIUM': 1,     # Reducido de 2
-        'LOW': 0.5,      # Reducido de 1
-        'INFO': 0
+    # Calcular score de calidad (0-100) - Nueva fórmula más realista
+    # Basada en el porcentaje de registros sin problemas críticos/altos
+    # Más enfocada en la proporción de registros "limpios" vs "problemáticos"
+    
+    # Contar registros únicos por nivel de severidad máxima
+    records_by_max_severity = {}
+    for upid in affected_records:
+        record_issues = [i for i in issues if i.get('upid') == upid]
+        if record_issues:
+            # Encontrar la severidad máxima de ese registro
+            severities_order = ['CRITICAL', 'HIGH', 'MEDIUM', 'LOW', 'INFO']
+            max_sev = 'INFO'
+            for issue in record_issues:
+                sev = issue.get('severity', 'INFO')
+                if severities_order.index(sev) < severities_order.index(max_sev):
+                    max_sev = sev
+            records_by_max_severity[max_sev] = records_by_max_severity.get(max_sev, 0) + 1
+    
+    # Penalizaciones por registro según su peor problema
+    severity_weights = {
+        'CRITICAL': 1.0,   # Registro totalmente penalizado
+        'HIGH': 0.7,       # 70% penalizado
+        'MEDIUM': 0.3,     # 30% penalizado
+        'LOW': 0.1,        # 10% penalizado
+        'INFO': 0.0        # No penaliza
     }
     
-    total_penalty = sum(stats['by_severity'].get(sev, 0) * pen for sev, pen in penalties.items())
-    max_penalty = total_records * 5  # Máximo si todos tuvieran un CRITICAL
+    # Calcular penalización total basada en registros, no en issues
+    total_weighted_records = sum(
+        records_by_max_severity.get(sev, 0) * weight 
+        for sev, weight in severity_weights.items()
+    )
     
-    if max_penalty > 0:
-        stats['quality_score'] = max(0, 100 - (total_penalty / max_penalty * 100))
+    # El score es el porcentaje de "calidad" (registros no penalizados)
+    if total_records > 0:
+        penalty_ratio = total_weighted_records / total_records
+        stats['quality_score'] = round(max(0, (1 - penalty_ratio) * 100), 2)
     else:
         stats['quality_score'] = 100
     
