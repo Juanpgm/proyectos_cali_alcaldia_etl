@@ -458,6 +458,9 @@ class QualityControlFirebaseLoader:
             'iso_standard': report.get('iso_standard'),
             'dimensions_evaluated': report.get('dimensions_evaluated', []),
             
+            # Comparación con reporte anterior
+            'comparison_with_previous': report.get('comparison_with_previous'),
+            
             # Timestamps
             'created_at': report.get('created_at'),
             'updated_at': datetime.now().isoformat()

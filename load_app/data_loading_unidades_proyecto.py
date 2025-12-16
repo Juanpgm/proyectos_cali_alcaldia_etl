@@ -133,6 +133,18 @@ def safe_execute(func: Callable, fallback_value: Any = None) -> Callable:
 
 
 # Firebase data preparation functions
+# Campos que SIEMPRE deben guardarse como números decimales (float)
+NUMERIC_FLOAT_FIELDS = {
+    'avance_obra', 'presupuesto_base', 'valor_contrato', 'valor_ejecutado',
+    'latitud', 'longitud', 'area', 'longitud_metros', 'ancho'
+}
+
+# Campos que SIEMPRE deben guardarse como números enteros (int)
+NUMERIC_INT_FIELDS = {
+    'ano', 'cantidad', 'bpin'
+}
+
+
 def serialize_for_firebase(value: Any, field_name: str = None) -> Any:
     """
     Serialize values for Firebase storage, handling lists and complex types.
@@ -148,7 +160,44 @@ def serialize_for_firebase(value: Any, field_name: str = None) -> Any:
     if value is None:
         return None
     
-    # Handle numpy arrays and lists first
+    # Check for scalar NA values first
+    try:
+        if pd.isna(value):
+            return None
+    except (TypeError, ValueError):
+        # pd.isna can fail on some types, continue processing
+        pass
+    
+    # CRITICAL: Handle numeric fields BEFORE string conversion
+    # Campos que deben ser float (decimal)
+    if field_name and field_name.lower() in NUMERIC_FLOAT_FIELDS:
+        try:
+            # Limpiar y convertir a float
+            if isinstance(value, str):
+                clean_value = value.strip().replace(',', '.').replace('%', '').replace('(', '').replace(')', '')
+                if clean_value.lower() in ['', 'nan', 'none', 'null', 'cero']:
+                    return 0.0
+                return float(clean_value)
+            elif isinstance(value, (int, float, np.int64, np.int32, np.float64, np.float32)):
+                return float(value)
+        except (ValueError, TypeError):
+            return 0.0  # Default para campos numéricos
+    
+    # Campos que deben ser int (entero)
+    if field_name and field_name.lower() in NUMERIC_INT_FIELDS:
+        try:
+            if isinstance(value, str):
+                clean_value = value.strip().replace(',', '').replace('.0', '')
+                if clean_value.lower() in ['', 'nan', 'none', 'null']:
+                    return 0
+                # Intentar convertir a int (puede tener decimales)
+                return int(float(clean_value))
+            elif isinstance(value, (int, float, np.int64, np.int32, np.float64, np.float32)):
+                return int(value)
+        except (ValueError, TypeError):
+            return 0  # Default para campos enteros
+    
+    # Handle numpy arrays and lists
     if isinstance(value, (list, np.ndarray)):
         # Convert to list if numpy array
         if isinstance(value, np.ndarray):
@@ -160,14 +209,6 @@ def serialize_for_firebase(value: Any, field_name: str = None) -> Any:
     if hasattr(value, '__len__') and not isinstance(value, (str, bytes)):
         # For other sequence types, convert to string
         return str(value)
-    
-    # Check for scalar NA values
-    try:
-        if pd.isna(value):
-            return None
-    except (TypeError, ValueError):
-        # pd.isna can fail on some types, continue processing
-        pass
     
     if isinstance(value, dict):
         # Convert dicts to strings for Firebase
