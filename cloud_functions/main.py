@@ -183,3 +183,10 @@ def manual_trigger(request):
             'error': str(e),
             'timestamp': datetime.now().isoformat()
         }), 500
+
+
+# ========== NOTIFICATION TRIGGERS ==========
+# These functions are intended to be deployed as Background Cloud Functions (Firestore Triggers)
+# They are not HTTP functions.
+
+from notifications import on_unidades_proyecto_write, on_contrato_write

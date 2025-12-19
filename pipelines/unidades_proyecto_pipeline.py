@@ -9,10 +9,18 @@ Incluye verificación incremental para cargar solo datos nuevos o modificados.
 Funcionalidades:
 - Extracción de datos desde Google Sheets con autenticación segura
 - Transformación de datos con procesamiento geoespacial
-- Verificación de cambios contra Firebase (carga incremental)
+- Verificación de cambios contra Firebase (carga incremental optimizada)
 - Carga batch optimizada a Firebase Firestore
 - Logging detallado y manejo de errores
 - Compatible con GitHub Actions para automatización
+
+Mejoras implementadas (Diciembre 2024):
+- ✅ Función de hash mejorada con normalización de listas y coordenadas
+- ✅ Paginación en get_existing_firebase_data para datasets grandes (1000 docs/lote)
+- ✅ Parámetro use_extraction explícito en todas las llamadas
+- ✅ Tiempo de espera dinámico basado en cantidad de registros actualizados
+- ✅ Manejo de errores mejorado con logging completo (no silenciado)
+- ✅ Eliminada lógica duplicada de detección de cambios (centralizada en pipeline)
 """
 
 import os
@@ -121,6 +129,7 @@ def calculate_record_hash(record: Dict[str, Any]) -> str:
     """
     Calcula un hash único para un registro para detectar cambios.
     Maneja tanto features GeoJSON como documentos de Firebase.
+    Normaliza listas y coordenadas para comparación consistente.
     
     Args:
         record: Diccionario con los datos del registro (GeoJSON feature o documento Firebase)
@@ -149,17 +158,47 @@ def calculate_record_hash(record: Dict[str, Any]) -> str:
             'geometry': geometry
         }
     
-    # Excluir campos de metadata que cambian automáticamente
-    excluded_fields = ['created_at', 'updated_at', 'processed_timestamp', 
-                      'has_geometry', 'geometry_type']
+    # Excluir campos de metadata que cambian automáticamente (lista ampliada)
+    excluded_fields = [
+        'created_at', 'updated_at', 'processed_timestamp', 
+        'has_geometry', 'geometry_type', 'report_id', 'quality_score',
+        'validation_timestamp', 'last_modified', 'sync_timestamp'
+    ]
     
     # Limpiar las propiedades de campos de metadata
     if 'properties' in hash_data and hash_data['properties']:
-        cleaned_properties = {
-            k: v for k, v in hash_data['properties'].items() 
-            if k not in excluded_fields and v is not None
-        }
+        cleaned_properties = {}
+        for k, v in hash_data['properties'].items():
+            if k not in excluded_fields and v is not None:
+                # Normalizar listas (ordenar para comparación consistente)
+                if isinstance(v, list):
+                    # Convertir a strings y ordenar
+                    v = sorted([str(item) for item in v if item is not None])
+                cleaned_properties[k] = v
         hash_data['properties'] = cleaned_properties
+    
+    # Normalizar coordenadas de geometría (redondear a 8 decimales)
+    if 'geometry' in hash_data and hash_data['geometry']:
+        geometry = hash_data['geometry']
+        if isinstance(geometry, dict) and 'coordinates' in geometry:
+            coords = geometry['coordinates']
+            geom_type = geometry.get('type', '')
+            
+            def round_coord(coord):
+                """Redondea una coordenada a 8 decimales."""
+                if isinstance(coord, (int, float)):
+                    return round(float(coord), 8)
+                elif isinstance(coord, list):
+                    return [round_coord(c) for c in coord]
+                return coord
+            
+            # Normalizar coordenadas según tipo de geometría
+            if coords is not None:
+                normalized_coords = round_coord(coords)
+                hash_data['geometry'] = {
+                    'type': geom_type,
+                    'coordinates': normalized_coords
+                }
     
     # Convertir a JSON string ordenado para hash consistente
     record_str = json.dumps(hash_data, sort_keys=True, default=str)
@@ -169,17 +208,23 @@ def calculate_record_hash(record: Dict[str, Any]) -> str:
 
 
 @safe_execute
-def get_existing_firebase_data(collection_name: str = "unidades_proyecto") -> Dict[str, Dict[str, Any]]:
+def get_existing_firebase_data(
+    collection_name: str = "unidades_proyecto",
+    batch_size: int = 1000
+) -> Dict[str, Dict[str, Any]]:
     """
-    Obtiene los datos existentes en Firebase para comparación.
+    Obtiene los datos existentes en Firebase para comparación con paginación.
+    Procesa en lotes para evitar problemas de memoria con datasets grandes.
     
     Args:
         collection_name: Nombre de la colección en Firebase
+        batch_size: Tamaño de lote para paginación (default: 1000)
         
     Returns:
         Diccionario con {doc_id: {data_hash, last_updated}} o {} si falla
     """
     print(f"🔍 Obteniendo datos existentes de Firebase colección '{collection_name}'...")
+    print(f"   Usando paginación con lotes de {batch_size} documentos")
     
     try:
         db = get_firestore_client()
@@ -191,29 +236,57 @@ def get_existing_firebase_data(collection_name: str = "unidades_proyecto") -> Di
         
         # Obtener solo los campos necesarios para comparación (más eficiente)
         existing_data = {}
-        
-        docs = collection_ref.stream()
         doc_count = 0
+        batch_count = 0
         
-        for doc in docs:
-            doc_data = doc.to_dict()
-            
-            # Calcular hash de los datos existentes
-            data_hash = calculate_record_hash(doc_data)
-            
-            existing_data[doc.id] = {
-                'hash': data_hash,
-                'updated_at': doc_data.get('updated_at'),
-                'properties': doc_data.get('properties', {})
-            }
-            
-            doc_count += 1
+        # Procesar en lotes usando paginación
+        last_doc = None
         
-        print(f"✅ Obtenidos {doc_count} registros existentes de Firebase")
+        while True:
+            # Construir query con paginación
+            if last_doc:
+                query = collection_ref.limit(batch_size).start_after(last_doc)
+            else:
+                query = collection_ref.limit(batch_size)
+            
+            # Obtener documentos del lote actual
+            docs = list(query.stream())
+            
+            if not docs:
+                break  # No hay más documentos
+            
+            batch_count += 1
+            print(f"   Procesando lote {batch_count} ({len(docs)} documentos)...")
+            
+            # Procesar documentos del lote
+            for doc in docs:
+                doc_data = doc.to_dict()
+                
+                # Calcular hash de los datos existentes
+                data_hash = calculate_record_hash(doc_data)
+                
+                existing_data[doc.id] = {
+                    'hash': data_hash,
+                    'updated_at': doc_data.get('updated_at'),
+                    'properties': doc_data.get('properties', {})
+                }
+                
+                doc_count += 1
+            
+            # Guardar último documento para paginación
+            last_doc = docs[-1]
+            
+            # Si obtuvimos menos documentos que el tamaño de lote, terminamos
+            if len(docs) < batch_size:
+                break
+        
+        print(f"✅ Obtenidos {doc_count} registros existentes de Firebase ({batch_count} lotes)")
         return existing_data
         
     except Exception as e:
         print(f"❌ Error obteniendo datos de Firebase: {e}")
+        import traceback
+        traceback.print_exc()
         return {}
 
 
@@ -365,9 +438,18 @@ def run_transformation(extracted_data: Optional[pd.DataFrame] = None) -> Optiona
     """
     # Si hay datos extraídos, pasarlos a la transformación y desactivar extracción
     if extracted_data is not None:
-        return transform_and_save_unidades_proyecto(data=extracted_data, use_extraction=False, upload_to_s3=True)
+        return transform_and_save_unidades_proyecto(
+            data=extracted_data, 
+            use_extraction=False,  # Datos ya extraídos, no extraer de nuevo
+            upload_to_s3=True
+        )
     else:
-        return transform_and_save_unidades_proyecto(upload_to_s3=True)
+        # No hay datos previos, activar extracción dentro de la transformación
+        return transform_and_save_unidades_proyecto(
+            data=None,
+            use_extraction=True,  # Explícito: extraer dentro de la función
+            upload_to_s3=True
+        )
 
 
 @log_step("TRANSFORMACIÓN DE INFRAESTRUCTURA")
@@ -694,8 +776,9 @@ def create_unidades_proyecto_pipeline() -> Callable[[], Dict[str, Any]]:
                     if os.path.exists(incremental_path):
                         os.remove(incremental_path)
                         print(f"🗑️ Archivo temporal eliminado: {os.path.basename(incremental_path)}")
-                except:
-                    pass
+                except Exception as cleanup_error:
+                    print(f"⚠️ No se pudo eliminar archivo temporal: {cleanup_error}")
+                    # No es crítico, continuar ejecución
                     
             else:
                 print("✅ No hay cambios para cargar - datos actualizados")
@@ -709,11 +792,20 @@ def create_unidades_proyecto_pipeline() -> Callable[[], Dict[str, Any]]:
                 print("📊 PASO 5: CONTROL DE CALIDAD (DATOS COMPLETOS)")
                 print("="*60)
                 
-                # Esperar 3 segundos para que Firebase complete conversiones internas
-                print("\n⏳ Esperando 3 segundos para que Firebase complete conversiones...")
-                import time
-                time.sleep(3)
-                print("   ✓ Continuando con análisis de calidad\n")
+                # Esperar que Firebase complete conversiones internas
+                # El tiempo depende de si hubo cambios y cuántos
+                records_uploaded = results.get('records_uploaded', 0)
+                if records_uploaded > 0:
+                    # Calcular tiempo de espera basado en cantidad de registros
+                    # Mínimo 2 segundos, máximo 10 segundos
+                    wait_time = min(10, max(2, records_uploaded // 100))
+                    print(f"\n⏳ Esperando {wait_time}s para que Firebase complete conversiones...")
+                    print(f"   ({records_uploaded} registros actualizados)")
+                    import time
+                    time.sleep(wait_time)
+                    print("   ✓ Continuando con análisis de calidad\n")
+                else:
+                    print("\n⏩ Sin cambios recientes, continuando inmediatamente...\n")
                 
                 quality_result = run_quality_control_on_firebase_data(
                     collection_name=collection_name,

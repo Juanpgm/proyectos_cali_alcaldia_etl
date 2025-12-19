@@ -30,9 +30,17 @@ def download_to_excel():
             if geom and isinstance(geom, dict):
                 data['has_geometry'] = True
                 data['geometry_type'] = geom.get('type', 'Unknown')
+                # Guardar coordenadas como string
+                if 'coordinates' in geom:
+                    data['coordinates'] = str(geom.get('coordinates'))
             else:
                 data['has_geometry'] = False
                 data['geometry_type'] = None
+        
+        # Convertir listas y diccionarios anidados a strings para Excel
+        for key, value in list(data.items()):
+            if isinstance(value, (list, dict)):
+                data[key] = str(value)
         
         records.append(data)
     

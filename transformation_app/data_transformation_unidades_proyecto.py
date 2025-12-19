@@ -74,6 +74,29 @@ except ImportError as e:
     extract_unidades_proyecto_data = None
     EXTRACTION_AVAILABLE = False
 
+# Import geospatial clustering module
+try:
+    # Try relative import first (when used as module)
+    from .geospatial_clustering import (
+        agrupar_datos_geoespacial,
+        convert_unidades_to_dataframe
+    )
+    CLUSTERING_AVAILABLE = True
+except (ImportError, ValueError):
+    try:
+        # Try direct import (when run as script)
+        from geospatial_clustering import (
+            agrupar_datos_geoespacial,
+            convert_unidades_to_dataframe
+        )
+        CLUSTERING_AVAILABLE = True
+    except ImportError as e:
+        print(f"⚠️ Warning: Could not import clustering module: {e}")
+        print("   Falling back to simple UPID generation")
+        agrupar_datos_geoespacial = None
+        convert_unidades_to_dataframe = None
+        CLUSTERING_AVAILABLE = False
+
 
 # Functional programming utilities
 def compose(*functions: Callable) -> Callable:
@@ -343,8 +366,11 @@ def process_reference_columns(df: pd.DataFrame) -> pd.DataFrame:
 
 
 # Pure functions for data processing
-def generate_upid_for_records(df: pd.DataFrame) -> pd.DataFrame:
+def generate_upid_for_records_simple(df: pd.DataFrame) -> pd.DataFrame:
     """
+    LEGACY: Simple UPID generation (one UPID per row).
+    This function is kept for backward compatibility or if clustering is disabled.
+    
     Generate unique upid (Unidades de Proyecto ID) with format UNP-# for records without upid.
     Preserves existing upid values and ensures no duplicates.
     
@@ -396,13 +422,64 @@ def generate_upid_for_records(df: pd.DataFrame) -> pd.DataFrame:
             next_consecutive += 1
             new_upids_count += 1
     
-    print(f"✓ UPID Generation:")
+    print(f"✓ UPID Generation (Simple):")
     print(f"  - Existing upids preserved: {len(existing_upids) - new_upids_count}")
     print(f"  - New upids generated: {new_upids_count}")
     print(f"  - Total upids: {len(existing_upids)}")
     print(f"  - Next available number: UNP-{next_consecutive}")
     
     return result_df
+
+
+def generate_upid_for_records(df: pd.DataFrame, use_clustering: bool = True) -> pd.DataFrame:
+    """
+    NEW: Generate UPIDs using geospatial clustering (recommended).
+    
+    Groups interventions into project units based on physical location and textual similarity,
+    then assigns UPIDs to the consolidated units. Each UPID represents a distinct project unit
+    that can contain multiple interventions.
+    
+    Features:
+    - DBSCAN clustering for nearby locations (< 20m)
+    - Fuzzy matching for records without GPS coordinates
+    - Subsidios exclusion (each subsidy is independent)
+    - nombre_up_detalle differentiation (different details = different units)
+    
+    Args:
+        df: DataFrame with intervention data
+        use_clustering: If True, uses geospatial clustering; if False, uses simple generation
+        
+    Returns:
+        DataFrame with upid column and n_intervenciones populated
+    """
+    if not use_clustering or not CLUSTERING_AVAILABLE:
+        print("⚠️ Clustering disabled or unavailable, using simple UPID generation")
+        return generate_upid_for_records_simple(df)
+    
+    print(f"\n{'='*80}")
+    print(f"🌍 GENERATING UPIDs WITH GEOSPATIAL CLUSTERING")
+    print(f"{'='*80}")
+    
+    try:
+        # Aplicar clustering geoespacial
+        unidades_dict = agrupar_datos_geoespacial(df)
+        
+        # Convertir de vuelta a DataFrame plano
+        df_with_upids = convert_unidades_to_dataframe(unidades_dict)
+        
+        print(f"\n✅ Clustering completado:")
+        print(f"   • Unidades de proyecto: {df_with_upids['upid'].nunique()}")
+        print(f"   • Intervenciones totales: {len(df_with_upids)}")
+        print(f"   • Promedio intervenciones/unidad: {len(df_with_upids) / df_with_upids['upid'].nunique():.2f}")
+        
+        return df_with_upids
+        
+    except Exception as e:
+        print(f"❌ Error en clustering geoespacial: {e}")
+        import traceback
+        traceback.print_exc()
+        print("\n⚠️ Fallback to simple UPID generation")
+        return generate_upid_for_records_simple(df)
 
 
 def add_computed_columns(df: pd.DataFrame) -> pd.DataFrame:
@@ -1093,6 +1170,156 @@ def create_final_geometry(gdf: gpd.GeoDataFrame) -> gpd.GeoDataFrame:
     return result_gdf
 
 
+def consolidate_coordinates_by_upid(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Consolida y valida coordenadas (lat/lon) a nivel de unidad de proyecto.
+    Después del clustering, múltiples intervenciones comparten el mismo UPID.
+    Esta función:
+    1. Valida y corrige formatos de coordenadas
+    2. Detecta y corrige coordenadas invertidas
+    3. Consolida coordenadas por UPID
+    DEBE ejecutarse ANTES de create_final_geometry().
+    
+    Args:
+        df: DataFrame con lat/lon y UPIDs
+        
+    Returns:
+        DataFrame con lat/lon validadas y consolidadas por UPID
+    """
+    if 'upid' not in df.columns:
+        print("⚠️ No hay columna 'upid', saltando consolidación de coordenadas")
+        return df
+    
+    if 'lat' not in df.columns or 'lon' not in df.columns:
+        print("⚠️ No hay columnas 'lat' y 'lon', saltando consolidación de coordenadas")
+        return df
+    
+    result_df = df.copy()
+    
+    print(f"\n🔗 Consolidando coordenadas (lat/lon) por UPID...")
+    
+    # PASO 1: Validar y corregir coordenadas usando CoordinateValidator
+    from utils.coordinate_validator import CoordinateValidator
+    
+    validator = CoordinateValidator(verbose=True)
+    
+    # Agrupar por UPID y validar coordenadas
+    upid_coord_map = {}
+    
+    for upid in result_df['upid'].unique():
+        if pd.isna(upid):
+            continue
+        
+        # Obtener todas las filas con este UPID
+        upid_mask = result_df['upid'] == upid
+        upid_group = result_df[upid_mask]
+        
+        # Tomar la primera coordenada del grupo (puede ser inválida aún)
+        first_row = upid_group.iloc[0]
+        lat_original = first_row.get('lat')
+        lon_original = first_row.get('lon')
+        
+        # Validar y corregir
+        lat_corrected, lon_corrected, metadata = validator.validate_and_correct_coordinate(
+            lat_original, lon_original, str(upid)
+        )
+        
+        upid_coord_map[upid] = {
+            'lat': lat_corrected,
+            'lon': lon_corrected,
+            'is_valid': metadata['is_valid'],
+            'corrections': ','.join(metadata['corrections_applied']) if metadata['corrections_applied'] else None,
+            'warnings': ','.join(metadata['warnings']) if metadata['warnings'] else None
+        }
+    
+    # PASO 2: Aplicar las coordenadas corregidas a todas las filas del mismo UPID
+    for upid, coords in upid_coord_map.items():
+        upid_mask = result_df['upid'] == upid
+        result_df.loc[upid_mask, 'lat'] = coords['lat']
+        result_df.loc[upid_mask, 'lon'] = coords['lon']
+    
+    # PASO 3: Imprimir estadísticas
+    unique_upids = result_df['upid'].nunique()
+    upids_with_coords = len([c for c in upid_coord_map.values() if c['lat'] is not None and c['lon'] is not None])
+    upids_with_valid_coords = len([c for c in upid_coord_map.values() if c['is_valid']])
+    
+    stats = validator.get_statistics()
+    
+    print(f"\n   ✅ Coordenadas consolidadas:")
+    print(f"      • Unidades totales: {unique_upids}")
+    print(f"      • Unidades con coordenadas: {upids_with_coords}")
+    print(f"      • Unidades con coordenadas válidas: {upids_with_valid_coords}")
+    print(f"      • Cobertura: {upids_with_coords/unique_upids*100:.1f}%")
+    
+    if stats['inverted_coords_fixed'] > 0:
+        print(f"\n   🔧 Correcciones aplicadas:")
+        print(f"      • Coordenadas invertidas: {stats['inverted_coords_fixed']}")
+        print(f"      • Separadores decimales: {stats['decimal_separator_fixed']}")
+    
+    if stats['out_of_range_cali'] > 0:
+        print(f"\n   ⚠️  Advertencias:")
+        print(f"      • Unidades fuera de Cali: {stats['out_of_range_cali']}")
+    
+    return result_df
+
+
+def consolidate_geometry_by_upid(gdf: gpd.GeoDataFrame) -> gpd.GeoDataFrame:
+    """
+    [LEGACY] Consolida geometrías a nivel de unidad de proyecto.
+    NOTA: Esta función es redundante si consolidate_coordinates_by_upid() se ejecutó correctamente.
+    Se mantiene por compatibilidad pero debería ejecutarse consolidate_coordinates_by_upid() antes de create_final_geometry().
+    
+    Args:
+        gdf: GeoDataFrame con geometrías individuales y UPIDs
+        
+    Returns:
+        GeoDataFrame con geometrías consolidadas por UPID
+    """
+    if 'upid' not in gdf.columns:
+        print("⚠️ No hay columna 'upid', saltando consolidación de geometría")
+        return gdf
+    
+    result_gdf = gdf.copy()
+    
+    print(f"\n🔗 Consolidando geometrías por UPID...")
+    
+    # Agrupar por UPID y tomar la primera geometría válida de cada grupo
+    upid_geometry_map = {}
+    
+    for upid in result_gdf['upid'].unique():
+        if pd.isna(upid):
+            continue
+        
+        # Obtener todas las filas con este UPID
+        upid_mask = result_gdf['upid'] == upid
+        upid_group = result_gdf[upid_mask]
+        
+        # Tomar la primera geometría válida del grupo
+        valid_geoms = upid_group[upid_group['geometry'].notna()]
+        
+        if len(valid_geoms) > 0:
+            # Usar la primera geometría válida
+            upid_geometry_map[upid] = valid_geoms.iloc[0]['geometry']
+        else:
+            upid_geometry_map[upid] = None
+    
+    # Aplicar la geometría consolidada a todas las filas del mismo UPID
+    for upid, geometry in upid_geometry_map.items():
+        upid_mask = result_gdf['upid'] == upid
+        result_gdf.loc[upid_mask, 'geometry'] = geometry
+    
+    # Contar cuántas unidades tienen geometría
+    unique_upids = result_gdf['upid'].nunique()
+    upids_with_geom = len([g for g in upid_geometry_map.values() if g is not None])
+    
+    print(f"   ✅ Geometrías consolidadas:")
+    print(f"      • Unidades totales: {unique_upids}")
+    print(f"      • Unidades con geometría: {upids_with_geom}")
+    print(f"      • Cobertura: {upids_with_geom/unique_upids*100:.1f}%")
+    
+    return result_gdf
+
+
 def perform_spatial_intersection(gdf: gpd.GeoDataFrame, basemap_name: str, output_column: str) -> gpd.GeoDataFrame:
     """Perform spatial intersection with basemap."""
     current_dir = Path(__file__).parent.parent
@@ -1142,42 +1369,46 @@ def normalize_text(text):
 
 
 def normalize_comuna_value(value):
-    """Normalize comuna values to standard format."""
+    """Normalize comuna values to match basemap format exactly: 'COMUNA 01', 'COMUNA 02', etc."""
     if pd.isna(value) or value is None or value == "":
         return None
     
     text = str(value).strip().upper()
     
-    if text.startswith("COMUNA"):
-        parts = text.split()
-        if len(parts) >= 2:
-            try:
-                num = int(parts[1])
-                if num > 22:
-                    return "RURAL"
-                elif num < 10:
-                    return f"COMUNA {num:02d}"
-                else:
-                    return f"COMUNA {num}"
-            except ValueError:
-                pass
+    # Manejar variaciones de "Comuna X" o "COMUNA X"
+    if "COMUNA" in text:
+        # Extraer el número de la comuna
+        import re
+        match = re.search(r'\d+', text)
+        if match:
+            num = int(match.group())
+            # SIEMPRE usar formato con dos dígitos: COMUNA 01, COMUNA 02, etc.
+            return f"COMUNA {num:02d}"
     
+    # Si no es una comuna, devolver el valor original sin modificar
     return value
 
 
 def find_best_match(value, standard_values, threshold=0.6):
-    """Find best matching value from standard values."""
+    """Find best matching value from standard values using exact and fuzzy matching."""
     if pd.isna(value) or value is None or value == "":
         return None
     
+    # Primero intentar coincidencia exacta (ignora mayús/minús y espacios extra)
     normalized_value = normalize_text(value)
     normalized_standards = {normalize_text(std): std for std in standard_values if pd.notna(std)}
     
-    matches = get_close_matches(normalized_value, normalized_standards.keys(), n=1, cutoff=threshold)
+    # Coincidencia exacta normalizada
+    if normalized_value in normalized_standards:
+        return normalized_standards[normalized_value]
+    
+    # Si no hay coincidencia exacta, usar fuzzy matching con threshold más alto
+    matches = get_close_matches(normalized_value, normalized_standards.keys(), n=1, cutoff=max(threshold, 0.85))
     
     if matches:
         return normalized_standards[matches[0]]
     
+    # Si no se encuentra coincidencia, devolver None para que el valor original se preserve
     return None
 
 
@@ -1231,17 +1462,28 @@ def normalize_administrative_values(gdf: gpd.GeoDataFrame) -> gpd.GeoDataFrame:
     for col in barrio_columns:
         if col in result_gdf.columns and len(standard_barrios) > 0:
             normalized_count = 0
+            no_match_count = 0
             for idx in result_gdf.index:
                 original = result_gdf.at[idx, col]
                 if pd.notna(original):
+                    # Limpiar saltos de línea y espacios extra
+                    cleaned = str(original).replace('\n', ' ').strip()
+                    cleaned = ' '.join(cleaned.split())
+                    
                     # Find best match from standard values
-                    best_match = find_best_match(original, standard_barrios, threshold=0.7)
+                    best_match = find_best_match(cleaned, standard_barrios, threshold=0.85)
                     if best_match:
                         if best_match != original:
                             normalized_count += 1
                         result_gdf.at[idx, col] = best_match
+                    else:
+                        # Si no hay match, limpiar el valor pero mantenerlo
+                        result_gdf.at[idx, col] = cleaned
+                        no_match_count += 1
             if normalized_count > 0:
                 print(f"  Normalized {normalized_count} values in '{col}' to standard basemap values")
+            if no_match_count > 0:
+                print(f"  ⚠️  {no_match_count} values in '{col}' not found in basemap (kept original)")
     
     print("✓ Administrative values normalized to basemap standards")
     return result_gdf
@@ -1446,16 +1688,125 @@ def add_frente_activo(gdf: gpd.GeoDataFrame) -> gpd.GeoDataFrame:
     return result_gdf
 
 
+def restructure_by_upid(gdf: gpd.GeoDataFrame) -> gpd.GeoDataFrame:
+    """
+    Reestructura el GeoDataFrame para que cada feature represente una unidad de proyecto.
+    Las intervenciones se agrupan en un array dentro de properties.
+    Geometry se mantiene solo a nivel de unidad de proyecto.
+    
+    Args:
+        gdf: GeoDataFrame con una fila por intervención
+        
+    Returns:
+        GeoDataFrame con una fila por unidad de proyecto
+    """
+    print(f"\n🔄 Reestructurando GeoJSON por unidades de proyecto...")
+    
+    # Campos a nivel de unidad de proyecto (no varían por intervención)
+    unidad_fields = [
+        'upid', 'n_intervenciones', 'nombre_up', 'nombre_up_detalle',
+        'nombre_centro_gestor', 'direccion', 'tipo_equipamiento', 'clase_up',
+        'comuna_corregimiento', 'comuna_corregimiento_2',
+        'barrio_vereda', 'barrio_vereda_2',
+        'identificador', 'bpin', 'centros_gravedad',
+        'geometry'
+    ]
+    
+    # Campos a nivel de intervención (varían por cada intervención)
+    intervencion_fields = [
+        'intervencion_id', 'referencia_proceso', 'referencia_contrato', 'url_proceso',
+        'bpin', 'estado', 'tipo_intervencion', 'fuente_financiacion',
+        'presupuesto_base', 'ano', 'avance_obra', 'avance_financiero',
+        'fecha_inicio', 'fecha_fin', 'fecha_inicio_std', 'fecha_fin_std',
+        'frente_activo', 'fuera_rango', 'processed_timestamp'
+    ]
+    
+    unidades_list = []
+    
+    for upid in gdf['upid'].unique():
+        if pd.isna(upid):
+            continue
+        
+        # Filtrar todas las intervenciones de esta unidad
+        upid_mask = gdf['upid'] == upid
+        upid_group = gdf[upid_mask]
+        
+        # Crear registro de unidad
+        unidad = {}
+        
+        # Tomar campos de unidad del primer registro (son iguales para todos)
+        first_row = upid_group.iloc[0]
+        for field in unidad_fields:
+            if field in gdf.columns:
+                unidad[field] = first_row[field]
+        
+        # Crear array de intervenciones
+        intervenciones = []
+        for idx, row in upid_group.iterrows():
+            intervencion = {}
+            for field in intervencion_fields:
+                if field in gdf.columns:
+                    valor = row[field]
+                    # Convertir tipos numpy a tipos nativos Python
+                    if isinstance(valor, (list, np.ndarray)):
+                        # Es un array o lista
+                        if isinstance(valor, np.ndarray):
+                            intervencion[field] = valor.tolist()
+                        else:
+                            intervencion[field] = valor
+                    elif isinstance(valor, (np.integer, np.int64, np.int32)):
+                        intervencion[field] = int(valor)
+                    elif isinstance(valor, (np.floating, np.float64, np.float32)):
+                        if pd.isna(valor):
+                            intervencion[field] = None
+                        else:
+                            intervencion[field] = float(valor)
+                    elif pd.notna(valor):
+                        intervencion[field] = valor
+                    else:
+                        intervencion[field] = None
+            
+            intervenciones.append(intervencion)
+        
+        # Agregar array de intervenciones a la unidad
+        unidad['intervenciones'] = intervenciones
+        unidades_list.append(unidad)
+    
+    # Crear nuevo GeoDataFrame con estructura de unidades
+    gdf_unidades = gpd.GeoDataFrame(unidades_list, crs=gdf.crs)
+    
+    print(f"   ✅ Estructura reestructurada:")
+    print(f"      • Unidades de proyecto: {len(gdf_unidades)}")
+    print(f"      • Unidades con geometry: {gdf_unidades['geometry'].notna().sum()}")
+    print(f"      • Total intervenciones: {sum(len(u['intervenciones']) for u in unidades_list)}")
+    
+    return gdf_unidades
+
+
 def export_to_geojson(gdf: gpd.GeoDataFrame, output_dir: Path) -> Path:
     """Export GeoDataFrame to GeoJSON with lon, lat format (will be converted to lat, lon during Firebase load)."""
     output_dir.mkdir(exist_ok=True, parents=True)
     output_file = output_dir / 'unidades_proyecto_transformed.geojson'
     
-    gdf_export = gdf.copy()
+    # Reestructurar: una feature por unidad de proyecto (no por intervención)
+    gdf_restructured = restructure_by_upid(gdf)
+    
+    gdf_export = gdf_restructured.copy()
+    
+    # Convertir la columna 'intervenciones' (lista de dicts) a JSON string para exportación
+    # GeoPandas no maneja correctamente listas de diccionarios complejos
+    if 'intervenciones' in gdf_export.columns:
+        import json
+        for idx in gdf_export.index:
+            intervenciones = gdf_export.at[idx, 'intervenciones']
+            if isinstance(intervenciones, list):
+                # Mantener como lista (GeoJSON lo manejará en properties)
+                # Solo asegurar que esté serializable
+                gdf_export.at[idx, 'intervenciones'] = intervenciones
     
     # Ensure all string columns are properly encoded in UTF-8
     for col in gdf_export.columns:
-        if col != 'geometry' and gdf_export[col].dtype == 'object':
+        if col != 'geometry' and col != 'intervenciones' and gdf_export[col].dtype == 'object':
             # Process each value individually
             for idx in gdf_export.index:
                 val = gdf_export.at[idx, col]
@@ -1486,8 +1837,82 @@ def export_to_geojson(gdf: gpd.GeoDataFrame, output_dir: Path) -> Path:
                 if pd.notna(val) and hasattr(val, 'isoformat'):
                     gdf_export.at[idx, col] = val.isoformat()
     
-    # Export with explicit UTF-8 encoding
-    gdf_export.to_file(output_file, driver='GeoJSON', encoding='utf-8')
+    # Construir GeoJSON manualmente para manejar correctamente arrays de intervenciones
+    import json
+    
+    features = []
+    for idx, row in gdf_export.iterrows():
+        # Crear feature
+        feature = {
+            "type": "Feature",
+            "geometry": None,
+            "properties": {}
+        }
+        
+        # Agregar geometry si existe
+        geom = row.get('geometry')
+        if pd.notna(geom) and geom is not None:
+            try:
+                # Convertir a formato GeoJSON (lon, lat)
+                # En shapely: geom.x es longitud, geom.y es latitud
+                # GeoJSON requiere [lon, lat], por lo tanto [x, y]
+                feature['geometry'] = {
+                    "type": "Point",
+                    "coordinates": [geom.x, geom.y]  # lon, lat
+                }
+            except:
+                feature['geometry'] = None
+        
+        # Agregar properties
+        for col in gdf_export.columns:
+            if col != 'geometry':
+                valor = row[col]
+                
+                # Manejar diferentes tipos de datos
+                if col == 'intervenciones':
+                    # Las intervenciones ya están como lista de dicts
+                    # Convertir fechas en intervenciones a string
+                    intervenciones_clean = []
+                    if isinstance(valor, list):
+                        for interv in valor:
+                            if isinstance(interv, dict):
+                                interv_clean = {}
+                                for k, v in interv.items():
+                                    if hasattr(v, 'isoformat'):  # datetime
+                                        interv_clean[k] = v.isoformat()
+                                    else:
+                                        interv_clean[k] = v
+                                intervenciones_clean.append(interv_clean)
+                            else:
+                                intervenciones_clean.append(interv)
+                        feature['properties'][col] = intervenciones_clean
+                    else:
+                        feature['properties'][col] = []
+                elif isinstance(valor, (list, np.ndarray)):
+                    feature['properties'][col] = valor.tolist() if isinstance(valor, np.ndarray) else valor
+                elif isinstance(valor, (np.integer, np.int64, np.int32)):
+                    feature['properties'][col] = int(valor)
+                elif isinstance(valor, (np.floating, np.float64, np.float32)):
+                    feature['properties'][col] = None if pd.isna(valor) else float(valor)
+                elif hasattr(valor, 'isoformat'):  # datetime
+                    feature['properties'][col] = valor.isoformat()
+                elif pd.isna(valor):
+                    feature['properties'][col] = None
+                else:
+                    feature['properties'][col] = valor
+        
+        features.append(feature)
+    
+    # Construir estructura GeoJSON
+    geojson_data = {
+        "type": "FeatureCollection",
+        "features": features
+    }
+    
+    # Escribir a archivo con UTF-8
+    with open(output_file, 'w', encoding='utf-8') as f:
+        json.dump(geojson_data, f, ensure_ascii=False, indent=2)
+    
     print(f"✓ GeoJSON exported: {output_file.name} ({output_file.stat().st_size / 1024:.2f} KB)")
     return output_file
 
@@ -1878,6 +2303,9 @@ def _process_unidades_proyecto_dataframe(df: pd.DataFrame) -> gpd.GeoDataFrame:
         lambda df: apply_title_case_to_text_fields(df)
     )
     df_transformed = basic_pipeline(df_clean)
+    
+    # Phase 1.5: Consolidate coordinates by UPID (BEFORE creating geometry)
+    df_transformed = consolidate_coordinates_by_upid(df_transformed)
     
     # Phase 2: Geospatial processing
     print("\n[Phase 2: Geospatial Processing]")

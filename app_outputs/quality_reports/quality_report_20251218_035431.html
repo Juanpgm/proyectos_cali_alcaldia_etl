@@ -1,0 +1,616 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporte de Calidad - Unidades de Proyecto</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 {
+            color: #2d3748;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .header .subtitle {
+            color: #718096;
+            font-size: 1.1em;
+        }
+        
+        .header .metadata {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 2px solid #e2e8f0;
+            color: #718096;
+            font-size: 0.9em;
+        }
+        
+        .score-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .score-card .score {
+            font-size: 5em;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        
+        .score-card .rating {
+            font-size: 2em;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .card h3 {
+            color: #2d3748;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .card .value {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+        
+        .card .label {
+            color: #718096;
+            font-size: 0.9em;
+        }
+        
+        .section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        .section h2 {
+            color: #2d3748;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        .severity-bar {
+            margin-bottom: 15px;
+        }
+        
+        .severity-bar .label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            font-size: 0.9em;
+        }
+        
+        .severity-bar .bar {
+            height: 30px;
+            border-radius: 5px;
+            position: relative;
+            overflow: hidden;
+            background: #e2e8f0;
+        }
+        
+        .severity-bar .fill {
+            height: 100%;
+            transition: width 0.5s ease;
+            display: flex;
+            align-items: center;
+            padding-left: 10px;
+            color: white;
+            font-weight: 600;
+        }
+        
+        .issue-item {
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            background: #f7fafc;
+            border-left: 4px solid #667eea;
+        }
+        
+        .issue-item .rule {
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 5px;
+        }
+        
+        .issue-item .count {
+            color: #667eea;
+            font-weight: bold;
+        }
+        
+        .issue-item .severity {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: 600;
+            color: white;
+            margin-left: 10px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        th {
+            background: #667eea;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        tr:hover {
+            background: #f7fafc;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+        
+        .badge-critical { background: #dc3545; color: white; }
+        .badge-high { background: #fd7e14; color: white; }
+        .badge-medium { background: #ffc107; color: #000; }
+        .badge-low { background: #0d6efd; color: white; }
+        .badge-info { background: #6c757d; color: white; }
+        
+        .progress-circle {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: conic-gradient(
+                #667eea 0deg 0.0deg,
+                #e2e8f0 0.0deg 360deg
+            );
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px auto;
+            position: relative;
+        }
+        
+        .progress-circle::before {
+            content: '';
+            position: absolute;
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            background: white;
+        }
+        
+        .progress-circle .score-text {
+            position: relative;
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        .alert {
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid;
+        }
+        
+        .alert-danger {
+            background: #fee;
+            border-color: #dc3545;
+            color: #721c24;
+        }
+        
+        .alert-warning {
+            background: #fff3cd;
+            border-color: #ffc107;
+            color: #856404;
+        }
+        
+        .alert-success {
+            background: #d4edda;
+            border-color: #28a745;
+            color: #155724;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .container {
+                max-width: 100%;
+            }
+            
+            .card:hover {
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>📊 Reporte de Calidad de Datos</h1>
+            <div class="subtitle">Unidades de Proyecto - Sistema ETL Cali</div>
+            <div class="metadata">
+                <strong>Archivo:</strong> unidades_proyecto_transformed.geojson<br>
+                <strong>Fecha de validación:</strong> 18/12/2025 03:54:31<br>
+                <strong>Estándar:</strong> ISO 19157 - Calidad de Datos Geográficos
+            </div>
+        </div>
+        
+        <!-- Score Card -->
+        <div class="score-card">
+            <div style="font-size: 1.5em; margin-bottom: 10px;">Puntuación Global de Calidad</div>
+            <div class="score">0<span style="font-size: 0.5em;">/100</span></div>
+            <div class="rating">DEFICIENTE</div>
+            <div style="margin-top: 20px; font-size: 1.1em; opacity: 0.9;">
+                ❌ Calidad deficiente. Se requiere una revisión exhaustiva y corrección de problemas.
+            </div>
+        </div>
+        
+        <!-- Quick Stats -->
+        <div class="grid">
+            <div class="card">
+                <h3>Total de Registros</h3>
+                <div class="value">1,573</div>
+                <div class="label">Unidades de proyecto</div>
+            </div>
+            
+            <div class="card">
+                <h3>Registros con Problemas</h3>
+                <div class="value" style="color: #fd7e14;">1,573</div>
+                <div class="label">100.0% del total</div>
+            </div>
+            
+            <div class="card">
+                <h3>Problemas Detectados</h3>
+                <div class="value" style="color: #dc3545;">9,447</div>
+                <div class="label">6.01 promedio por registro</div>
+            </div>
+            
+            <div class="card">
+                <h3>Problemas Críticos</h3>
+                <div class="value" style="color: #dc3545;">7867</div>
+                <div class="label">Requieren atención inmediata</div>
+            </div>
+        </div>
+        
+        <!-- Alertas -->
+        
+        <div class="alert alert-danger">
+            <strong>⚠️ Atención:</strong> Se detectaron 7867 problemas críticos que requieren corrección inmediata.
+        </div>
+        
+        <div class="alert alert-warning">
+            <strong>📌 Nota:</strong> Hay 9444 problemas de alta prioridad (críticos + altos) que deben ser atendidos.
+        </div>
+        
+        
+        <!-- Distribución por Severidad -->
+        <div class="section">
+            <h2>📈 Distribución por Severidad</h2>
+            
+        <div class="severity-bar">
+            <div class="label">
+                <span><strong>🔴 CRITICAL</strong></span>
+                <span>7,867 (83.3%)</span>
+            </div>
+            <div class="bar">
+                <div class="fill" style="width: 83.27511379273844%; background: #dc3545;">
+                    7867
+                </div>
+            </div>
+        </div>
+        
+        <div class="severity-bar">
+            <div class="label">
+                <span><strong>🟠 HIGH</strong></span>
+                <span>1,577 (16.7%)</span>
+            </div>
+            <div class="bar">
+                <div class="fill" style="width: 16.693130094209803%; background: #fd7e14;">
+                    1577
+                </div>
+            </div>
+        </div>
+        
+        <div class="severity-bar">
+            <div class="label">
+                <span><strong>🟡 MEDIUM</strong></span>
+                <span>3 (0.0%)</span>
+            </div>
+            <div class="bar">
+                <div class="fill" style="width: 0.031756113051762465%; background: #ffc107;">
+                    
+                </div>
+            </div>
+        </div>
+        
+        </div>
+        
+        <!-- Dimensiones ISO 19157 -->
+        <div class="section">
+            <h2>🎯 Dimensiones de Calidad (ISO 19157)</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Dimensión</th>
+                        <th>Problemas</th>
+                        <th>Porcentaje</th>
+                        <th>Barra</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+        <tr>
+            <td><strong>Completitud</strong></td>
+            <td>7,877</td>
+            <td>83.4%</td>
+            <td>
+                <div style="background: #e2e8f0; border-radius: 5px; height: 20px; overflow: hidden;">
+                    <div style="width: 83.38096750291098%; background: #667eea; height: 100%;"></div>
+                </div>
+            </td>
+        </tr>
+        
+        <tr>
+            <td><strong>Exactitud Posicional</strong></td>
+            <td>1,567</td>
+            <td>16.6%</td>
+            <td>
+                <div style="background: #e2e8f0; border-radius: 5px; height: 20px; overflow: hidden;">
+                    <div style="width: 16.58727638403726%; background: #667eea; height: 100%;"></div>
+                </div>
+            </td>
+        </tr>
+        
+        <tr>
+            <td><strong>Exactitud Temática</strong></td>
+            <td>3</td>
+            <td>0.0%</td>
+            <td>
+                <div style="background: #e2e8f0; border-radius: 5px; height: 20px; overflow: hidden;">
+                    <div style="width: 0.031756113051762465%; background: #667eea; height: 100%;"></div>
+                </div>
+            </td>
+        </tr>
+        
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- Top 10 Problemas -->
+        <div class="section">
+            <h2>🔍 Top 10 Problemas Más Frecuentes</h2>
+            
+        <div class="issue-item">
+            <div class="rule">
+                1. CO001 - Campos obligatorios presentes
+                <span class="badge badge-critical">CRITICAL</span>
+            </div>
+            <div>
+                <span class="count">7,867 ocurrencias</span>
+                <span style="color: #718096; margin-left: 15px;">Dimensión: Completitud</span>
+            </div>
+        </div>
+        
+        <div class="issue-item">
+            <div class="rule">
+                2. PA001 - Coordenadas dentro del bounding box de Cali
+                <span class="badge badge-high">HIGH</span>
+            </div>
+            <div>
+                <span class="count">1,566 ocurrencias</span>
+                <span style="color: #718096; margin-left: 15px;">Dimensión: Exactitud Posicional</span>
+            </div>
+        </div>
+        
+        <div class="issue-item">
+            <div class="rule">
+                3. CO002 - Geometría presente cuando se espera
+                <span class="badge badge-high">HIGH</span>
+            </div>
+            <div>
+                <span class="count">6 ocurrencias</span>
+                <span style="color: #718096; margin-left: 15px;">Dimensión: Completitud</span>
+            </div>
+        </div>
+        
+        <div class="issue-item">
+            <div class="rule">
+                4. CO006 - Dirección presente
+                <span class="badge badge-high">HIGH</span>
+            </div>
+            <div>
+                <span class="count">4 ocurrencias</span>
+                <span style="color: #718096; margin-left: 15px;">Dimensión: Completitud</span>
+            </div>
+        </div>
+        
+        <div class="issue-item">
+            <div class="rule">
+                5. TA008 - Tipo de equipamiento válido
+                <span class="badge badge-medium">MEDIUM</span>
+            </div>
+            <div>
+                <span class="count">3 ocurrencias</span>
+                <span style="color: #718096; margin-left: 15px;">Dimensión: Exactitud Temática</span>
+            </div>
+        </div>
+        
+        <div class="issue-item">
+            <div class="rule">
+                6. PA003 - Coordenadas válidas (no cero ni extremos)
+                <span class="badge badge-high">HIGH</span>
+            </div>
+            <div>
+                <span class="count">1 ocurrencias</span>
+                <span style="color: #718096; margin-left: 15px;">Dimensión: Exactitud Posicional</span>
+            </div>
+        </div>
+        
+        </div>
+        
+        <!-- Problemas por Campo -->
+        <div class="section">
+            <h2>📋 Problemas por Campo</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Campo</th>
+                        <th>Problemas</th>
+                        <th>Tipos de Problemas</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+        <tr>
+            <td><code>estado</code></td>
+            <td><strong>1,573</strong></td>
+            <td><span style="color: #718096; font-size: 0.9em;">CO001</span></td>
+        </tr>
+        
+        <tr>
+            <td><code>nombre_centro_gestor</code></td>
+            <td><strong>1,573</strong></td>
+            <td><span style="color: #718096; font-size: 0.9em;">CO001</span></td>
+        </tr>
+        
+        <tr>
+            <td><code>tipo_intervencion</code></td>
+            <td><strong>1,573</strong></td>
+            <td><span style="color: #718096; font-size: 0.9em;">CO001</span></td>
+        </tr>
+        
+        <tr>
+            <td><code>ano</code></td>
+            <td><strong>1,573</strong></td>
+            <td><span style="color: #718096; font-size: 0.9em;">CO001</span></td>
+        </tr>
+        
+        <tr>
+            <td><code>avance_obra</code></td>
+            <td><strong>1,573</strong></td>
+            <td><span style="color: #718096; font-size: 0.9em;">CO001</span></td>
+        </tr>
+        
+        <tr>
+            <td><code>geometry</code></td>
+            <td><strong>1,573</strong></td>
+            <td><span style="color: #718096; font-size: 0.9em;">CO002, PA001, PA003</span></td>
+        </tr>
+        
+        <tr>
+            <td><code>direccion</code></td>
+            <td><strong>4</strong></td>
+            <td><span style="color: #718096; font-size: 0.9em;">CO006</span></td>
+        </tr>
+        
+        <tr>
+            <td><code>tipo_equipamiento</code></td>
+            <td><strong>3</strong></td>
+            <td><span style="color: #718096; font-size: 0.9em;">TA008</span></td>
+        </tr>
+        
+        <tr>
+            <td><code>nombre_up</code></td>
+            <td><strong>1</strong></td>
+            <td><span style="color: #718096; font-size: 0.9em;">CO001</span></td>
+        </tr>
+        
+        <tr>
+            <td><code>comuna_corregimiento</code></td>
+            <td><strong>1</strong></td>
+            <td><span style="color: #718096; font-size: 0.9em;">CO001</span></td>
+        </tr>
+        
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- Registros Duplicados -->
+        
+        
+        <!-- Footer -->
+        <div class="section" style="text-align: center; color: #718096;">
+            <p>Reporte generado automáticamente por el Sistema ETL de Unidades de Proyecto</p>
+            <p style="margin-top: 10px; font-size: 0.9em;">
+                © 2024-2025 Alcaldía de Cali - Todos los derechos reservados
+            </p>
+        </div>
+    </div>
+</body>
+</html>

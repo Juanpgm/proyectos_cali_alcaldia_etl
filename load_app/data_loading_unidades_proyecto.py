@@ -2,6 +2,16 @@
 """
 Firebase data loading module for project units (unidades de proyecto) with batch processing.
 Implements functional programming patterns for clean, scalable, and efficient Firebase loading.
+
+Mejoras implementadas (Diciembre 2024):
+- ✅ Eliminada lógica duplicada de detección de cambios
+- ✅ Simplificada función process_batch (el pipeline ya filtra cambios)
+- ✅ Mejor performance al no re-verificar cambios en cada documento
+- ✅ Preservación correcta de created_at y updated_at timestamps
+
+Nota: Este módulo asume que el pipeline ya ha filtrado los datos que necesitan
+actualizarse. Por lo tanto, simplemente escribe todos los documentos recibidos
+sin verificar cambios nuevamente, evitando redundancia y mejorando performance.
 """
 
 import os
@@ -141,7 +151,7 @@ NUMERIC_FLOAT_FIELDS = {
 
 # Campos que SIEMPRE deben guardarse como números enteros (int)
 NUMERIC_INT_FIELDS = {
-    'ano', 'cantidad', 'bpin'
+    'ano', 'cantidad', 'bpin', 'n_intervenciones'
 }
 
 
@@ -194,6 +204,11 @@ def serialize_for_firebase(value: Any, field_name: str = None) -> Any:
                 return int(float(clean_value))
             elif isinstance(value, (int, float, np.int64, np.int32, np.float64, np.float32)):
                 return int(value)
+            elif isinstance(value, bool):
+                return int(value)
+            else:
+                # Intentar convertir cualquier otro tipo a int
+                return int(value)
         except (ValueError, TypeError):
             return 0  # Default para campos enteros
     
@@ -202,7 +217,25 @@ def serialize_for_firebase(value: Any, field_name: str = None) -> Any:
         # Convert to list if numpy array
         if isinstance(value, np.ndarray):
             value = value.tolist()
-        # Handle reference lists properly
+        
+        # SPECIAL CASE: Preserve intervenciones as array of dicts (not strings)
+        if field_name == 'intervenciones':
+            result = []
+            for item in value:
+                if item is None or (isinstance(item, float) and pd.isna(item)):
+                    continue
+                # Preserve dicts as-is for intervenciones
+                if isinstance(item, dict):
+                    # Recursively serialize dict contents
+                    serialized_item = {}
+                    for k, v in item.items():
+                        serialized_item[k] = serialize_for_firebase(v, field_name=k)
+                    result.append(serialized_item)
+                else:
+                    result.append(str(item))
+            return result
+        
+        # Handle reference lists properly (convert to strings)
         return [str(item) for item in value if item is not None and not (isinstance(item, float) and pd.isna(item))]
     
     # Check for pandas NA/NaN for scalar values only
@@ -497,13 +530,14 @@ def create_batches(features: List[Dict[str, Any]], batch_size: int = 100) -> Lis
 @curry
 def process_batch(collection_name: str, batch_index: int, batch: List[Dict[str, Any]]) -> Dict[str, Any]:
     """
-    Process a single batch of features to Firebase with selective field updates.
-    Only updates fields that have changed, using upid as unique identifier.
+    Process a single batch of features to Firebase.
+    Assumes the pipeline has already filtered for changes, so this function
+    simply writes/updates all received documents without re-checking.
     
     Args:
         collection_name: Firebase collection name
         batch_index: Index of current batch
-        batch: List of features to process
+        batch: List of features to process (already filtered by pipeline)
         
     Returns:
         Dict with batch processing results
@@ -519,7 +553,6 @@ def process_batch(collection_name: str, batch_index: int, batch: List[Dict[str, 
     errors = []
     new_records = 0
     updated_records = 0
-    unchanged_records = 0
     
     # Use Firestore batch for efficient writes
     firebase_batch = db.batch()
@@ -539,69 +572,30 @@ def process_batch(collection_name: str, batch_index: int, batch: List[Dict[str, 
                 errors.append(f"Failed to generate document ID")
                 continue
             
-            # Prepare new document data
-            new_document_data = prepare_document_data(feature)
-            if not new_document_data:
+            # Prepare document data
+            document_data = prepare_document_data(feature)
+            if not document_data:
                 failed_writes += 1
                 errors.append(f"Failed to prepare document data")
                 continue
             
-            # Check if document exists
+            # Check if document exists (quick check for preserving created_at)
             doc_ref = collection_ref.document(doc_id)
             existing_doc = doc_ref.get()
             
             if existing_doc.exists:
-                # Document exists - check for changes
+                # Document exists - update it (pipeline already filtered changes)
                 existing_data = existing_doc.to_dict()
-                
-                # Compare all fields at root level (exclude metadata fields)
-                metadata_fields = {'created_at', 'updated_at'}
-                data_changed = False
-                
-                # CRITICAL: Always check geometry field specifically
-                # This ensures geometry is updated even if other fields match
-                existing_geometry = existing_data.get('geometry')
-                new_geometry = new_document_data.get('geometry')
-                
-                # Detect geometry changes (None vs list, or different coordinates)
-                geometry_changed = False
-                if existing_geometry != new_geometry:
-                    # Check if it's truly different (not just type difference)
-                    if existing_geometry is None and new_geometry is not None:
-                        geometry_changed = True
-                    elif existing_geometry is not None and new_geometry is None:
-                        geometry_changed = True
-                    elif existing_geometry != new_geometry:
-                        geometry_changed = True
-                
-                # Check for changes in any field
-                all_keys = set(existing_data.keys()) | set(new_document_data.keys())
-                for key in all_keys:
-                    if key in metadata_fields:
-                        continue
-                    
-                    existing_value = existing_data.get(key)
-                    new_value = new_document_data.get(key)
-                    
-                    if existing_value != new_value:
-                        data_changed = True
-                        break
-                
-                # Update if any changes detected (including geometry)
-                if data_changed or geometry_changed:
-                    # Update document preserving created_at
-                    new_document_data['updated_at'] = datetime.now().isoformat()
-                    new_document_data['created_at'] = existing_data.get('created_at', datetime.now().isoformat())
-                    firebase_batch.set(doc_ref, new_document_data)
-                    updated_records += 1
-                    successful_writes += 1
-                else:
-                    # No changes detected
-                    unchanged_records += 1
+                document_data['updated_at'] = datetime.now().isoformat()
+                document_data['created_at'] = existing_data.get('created_at', datetime.now().isoformat())
+                firebase_batch.set(doc_ref, document_data)
+                updated_records += 1
+                successful_writes += 1
             else:
                 # New document
-                new_document_data['created_at'] = datetime.now().isoformat()
-                firebase_batch.set(doc_ref, new_document_data)
+                document_data['created_at'] = datetime.now().isoformat()
+                document_data['updated_at'] = datetime.now().isoformat()
+                firebase_batch.set(doc_ref, document_data)
                 new_records += 1
                 successful_writes += 1
             
@@ -619,7 +613,6 @@ def process_batch(collection_name: str, batch_index: int, batch: List[Dict[str, 
             'failed': failed_writes,
             'new_records': new_records,
             'updated_records': updated_records,
-            'unchanged_records': unchanged_records,
             'errors': errors[:5]  # Limit error list
         }
     except Exception as e:
@@ -630,8 +623,7 @@ def process_batch(collection_name: str, batch_index: int, batch: List[Dict[str, 
             'processed': 0,
             'failed': len(batch),
             'new_records': 0,
-            'updated_records': 0,
-            'unchanged_records': 0
+            'updated_records': 0
         }
 
 
@@ -759,7 +751,6 @@ def upload_to_firebase(geojson_data: Dict[str, Any], collection_name: str = "uni
         'total_failed': 0,
         'new_records': 0,
         'updated_records': 0,
-        'unchanged_records': 0,
         'start_time': datetime.now(),
         'errors': []
     }
@@ -785,7 +776,6 @@ def upload_to_firebase(geojson_data: Dict[str, Any], collection_name: str = "uni
                 results['total_failed'] += batch_result.get('failed', 0)
                 results['new_records'] += batch_result.get('new_records', 0)
                 results['updated_records'] += batch_result.get('updated_records', 0)
-                results['unchanged_records'] += batch_result.get('unchanged_records', 0)
             else:
                 results['failed_batches'] += 1
                 results['total_failed'] += len(batch)
@@ -794,8 +784,7 @@ def upload_to_firebase(geojson_data: Dict[str, Any], collection_name: str = "uni
             # Update progress bar
             pbar.set_postfix({
                 'new': results['new_records'],
-                'updated': results['updated_records'],
-                'unchanged': results['unchanged_records']
+                'updated': results['updated_records']
             })
             pbar.update(1)
             
@@ -835,7 +824,6 @@ def print_upload_summary(results: Dict[str, Any]):
     print(f"\n📤 Upload Results:")
     print(f"  ➕ New records: {results['new_records']}")
     print(f"  🔄 Updated records: {results['updated_records']}")
-    print(f"  ✅ Unchanged records: {results['unchanged_records']}")
     print(f"  ✗ Failed uploads: {results['total_failed']}")
     print(f"  📈 Success rate: {(results['total_uploaded'] / results['valid_features'] * 100):.1f}%")
     

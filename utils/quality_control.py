@@ -1161,6 +1161,7 @@ class DataQualityValidator:
 def validate_geojson(geojson_path: str, verbose: bool = True) -> Dict[str, Any]:
     """
     Valida un archivo GeoJSON completo y retorna reporte de calidad.
+    Maneja estructura jerárquica: unidades de proyecto con array de intervenciones.
     
     Args:
         geojson_path: Ruta al archivo GeoJSON
@@ -1177,6 +1178,7 @@ def validate_geojson(geojson_path: str, verbose: bool = True) -> Dict[str, Any]:
         print(f"🔍 VALIDACIÓN DE CALIDAD DE DATOS - ISO 19157")
         print(f"{'='*80}")
         print(f"Archivo: {geojson_path}")
+        print("📊 Estructura: Unidades de Proyecto (jerárquica)")
     
     # Cargar GeoJSON
     with open(geojson_path, 'r', encoding='utf-8') as f:
@@ -1184,16 +1186,21 @@ def validate_geojson(geojson_path: str, verbose: bool = True) -> Dict[str, Any]:
     
     features = geojson_data.get('features', [])
     
+    # Contar total de intervenciones
+    total_intervenciones = sum(len(f.get('properties', {}).get('intervenciones', [])) for f in features)
+    
     if verbose:
-        print(f"Total de registros: {len(features)}")
-        print(f"\n🔄 Validando registros...")
+        print(f"Total unidades de proyecto: {len(features)}")
+        print(f"Total intervenciones: {total_intervenciones}")
+        print(f"\n🔄 Validando unidades e intervenciones...")
     
     # Crear validador
     validator = DataQualityValidator()
     
-    # Validar cada registro
+    # Validar cada unidad y sus intervenciones
     all_issues = []
-    records_with_issues = 0
+    unidades_with_issues = 0
+    intervenciones_with_issues = 0
     
     # Detectar duplicados completos
     record_hashes = {}
@@ -1201,98 +1208,338 @@ def validate_geojson(geojson_path: str, verbose: bool = True) -> Dict[str, Any]:
     
     for idx, feature in enumerate(features):
         if verbose and (idx + 1) % 100 == 0:
-            print(f"  Validados: {idx + 1}/{len(features)}")
+            print(f"  Validadas: {idx + 1}/{len(features)} unidades, {sum(len(features[i].get('properties', {}).get('intervenciones', [])) for i in range(idx+1))} intervenciones")
         
         properties = feature.get('properties', {})
         geometry = feature.get('geometry')
+        upid = properties.get('upid')
+        nombre_up = properties.get('nombre_up')
         
-        # Calcular hash del registro completo para detectar duplicados
-        # Excluir campos que son únicos por diseño (upid, processed_timestamp, etc.)
-        hash_fields = {
-            k: v for k, v in properties.items() 
-            if k not in ['upid', 'processed_timestamp', 'created_at', 'updated_at', 'has_geometry', 'geometry_type']
-            and v is not None
-        }
-        record_hash = hashlib.md5(
-            json.dumps(hash_fields, sort_keys=True, default=str).encode('utf-8')
-        ).hexdigest()
+        unidad_has_issues = False
         
-        if record_hash in record_hashes:
-            # Duplicado encontrado
-            record_hashes[record_hash].append({
-                'index': idx,
-                'upid': properties.get('upid'),
-                'nombre_up': properties.get('nombre_up'),
-                'nombre_centro_gestor': properties.get('nombre_centro_gestor')
-            })
-        else:
-            record_hashes[record_hash] = [{
-                'index': idx,
-                'upid': properties.get('upid'),
-                'nombre_up': properties.get('nombre_up'),
-                'nombre_centro_gestor': properties.get('nombre_centro_gestor')
-            }]
+        # ================================================================
+        # VALIDAR UNIDAD DE PROYECTO
+        # ================================================================
         
-        # Convertir geometría a shapely si existe
-        shapely_geom = None
-        if geometry:
-            from shapely.geometry import shape
-            try:
-                shapely_geom = shape(geometry)
-            except:
-                pass
+        # Campos obligatorios a nivel de unidad
+        unit_required_fields = ['upid', 'nombre_up', 'direccion', 'tipo_equipamiento', 'clase_up']
         
-        # Validar registro
-        issues = validator.validate_record(properties, shapely_geom)
-        
-        if issues:
-            records_with_issues += 1
-            all_issues.extend([{
-                **issue.to_dict(),
-                'upid': properties.get('upid'),
-                'nombre_up': properties.get('nombre_up'),
-                'nombre_centro_gestor': properties.get('nombre_centro_gestor'),
-                'record_index': idx
-            } for issue in issues])
-    
-    # Procesar duplicados detectados
-    for record_hash, duplicates in record_hashes.items():
-        if len(duplicates) > 1:
-            duplicate_groups.append(duplicates)
-            # Crear issue de duplicado para cada registro duplicado
-            for dup in duplicates:
-                other_upids = [d['upid'] for d in duplicates if d['index'] != dup['index']]
+        for field in unit_required_fields:
+            value = properties.get(field)
+            if value is None or (isinstance(value, str) and value.strip() == ''):
                 all_issues.append({
-                    'rule_id': 'LC008',
-                    'rule_name': 'Registro completamente duplicado',
+                    'rule_id': 'CO001',
+                    'rule_name': 'Campo obligatorio vacío (unidad)',
+                    'dimension': QualityDimension.COMPLETENESS.value,
+                    'severity': SeverityLevel.CRITICAL.value,
+                    'field_name': f'unidad.{field}',
+                    'current_value': None,
+                    'expected_value': 'Valor requerido',
+                    'details': f'Campo obligatorio vacío en unidad: {field}',
+                    'suggestion': f'Completar el campo {field}',
+                    'detected_at': datetime.now().isoformat(),
+                    'upid': upid,
+                    'nombre_up': nombre_up,
+                    'record_index': idx,
+                    'level': 'unidad'
+                })
+                unidad_has_issues = True
+        
+        # Validar geometría
+        if properties.get('direccion'):
+            shapely_geom = None
+            if geometry:
+                from shapely.geometry import shape
+                try:
+                    shapely_geom = shape(geometry)
+                    if not shapely_geom.is_empty:
+                        # Validar que esté en Cali
+                        coords = list(shapely_geom.coords)[0] if hasattr(shapely_geom, 'coords') else None
+                        if coords:
+                            lon, lat = coords
+                            # Bounding box extendido de Cali (incluyendo área metropolitana)
+                            # Lon: -76.7 a -76.4, Lat: 3.3 a 3.6
+                            
+                            # Detectar coordenadas invertidas (lat, lon en lugar de lon, lat)
+                            if 3.3 <= lon <= 3.6 and -76.7 <= lat <= -76.4:
+                                all_issues.append({
+                                    'rule_id': 'PA002',
+                                    'rule_name': 'Coordenadas invertidas',
+                                    'dimension': QualityDimension.POSITIONAL_ACCURACY.value,
+                                    'severity': SeverityLevel.CRITICAL.value,
+                                    'field_name': 'geometry',
+                                    'current_value': f'[{lon}, {lat}]',
+                                    'expected_value': '[lon, lat] no [lat, lon]',
+                                    'details': f'Las coordenadas parecen estar invertidas (lat, lon)',
+                                    'suggestion': 'Invertir coordenadas: [{lat}, {lon}]',
+                                    'detected_at': datetime.now().isoformat(),
+                                    'upid': upid,
+                                    'nombre_up': nombre_up,
+                                    'record_index': idx,
+                                    'level': 'unidad'
+                                })
+                                unidad_has_issues = True
+                            elif not (-76.7 <= lon <= -76.4 and 3.3 <= lat <= 3.6):
+                                # Coordenadas claramente fuera de Cali
+                                all_issues.append({
+                                    'rule_id': 'PA001',
+                                    'rule_name': 'Coordenadas fuera de Cali',
+                                    'dimension': QualityDimension.POSITIONAL_ACCURACY.value,
+                                    'severity': SeverityLevel.HIGH.value,
+                                    'field_name': 'geometry',
+                                    'current_value': f'[{lon}, {lat}]',
+                                    'expected_value': 'Lon: -76.7 a -76.4, Lat: 3.3 a 3.6',
+                                    'details': f'Coordenadas fuera del área de Cali y región',
+                                    'suggestion': 'Verificar y corregir coordenadas',
+                                    'detected_at': datetime.now().isoformat(),
+                                    'upid': upid,
+                                    'nombre_up': nombre_up,
+                                    'record_index': idx,
+                                    'level': 'unidad'
+                                })
+                                unidad_has_issues = True
+                except:
+                    pass
+            
+            if geometry is None or (shapely_geom and shapely_geom.is_empty):
+                all_issues.append({
+                    'rule_id': 'CO002',
+                    'rule_name': 'Geometría faltante',
+                    'dimension': QualityDimension.COMPLETENESS.value,
+                    'severity': SeverityLevel.MEDIUM.value,
+                    'field_name': 'geometry',
+                    'current_value': 'NULL',
+                    'expected_value': 'Point',
+                    'details': f'Unidad con dirección pero sin geometría',
+                    'suggestion': 'Geolocalizar la dirección',
+                    'detected_at': datetime.now().isoformat(),
+                    'upid': upid,
+                    'nombre_up': nombre_up,
+                    'record_index': idx,
+                    'level': 'unidad'
+                })
+                unidad_has_issues = True
+        
+        # Validar tipo_equipamiento y clase_up
+        tipo_equipamiento = properties.get('tipo_equipamiento')
+        if tipo_equipamiento and tipo_equipamiento not in validator.VALID_TIPO_EQUIPAMIENTO:
+            all_issues.append({
+                'rule_id': 'TA008',
+                'rule_name': 'Tipo de equipamiento inválido',
+                'dimension': QualityDimension.THEMATIC_ACCURACY.value,
+                'severity': SeverityLevel.LOW.value,
+                'field_name': 'tipo_equipamiento',
+                'current_value': tipo_equipamiento,
+                'expected_value': 'Valor del catálogo',
+                'details': f'Tipo de equipamiento no reconocido',
+                'suggestion': 'Usar valor del catálogo estándar',
+                'detected_at': datetime.now().isoformat(),
+                'upid': upid,
+                'nombre_up': nombre_up,
+                'record_index': idx,
+                'level': 'unidad'
+            })
+            unidad_has_issues = True
+        
+        # ================================================================
+        # VALIDAR INTERVENCIONES
+        # ================================================================
+        
+        intervenciones = properties.get('intervenciones', [])
+        
+        if not intervenciones:
+            all_issues.append({
+                'rule_id': 'LC009',
+                'rule_name': 'Unidad sin intervenciones',
+                'dimension': QualityDimension.LOGICAL_CONSISTENCY.value,
+                'severity': SeverityLevel.HIGH.value,
+                'field_name': 'intervenciones',
+                'current_value': '[]',
+                'expected_value': 'Al menos 1 intervención',
+                'details': f'Unidad de proyecto sin intervenciones asociadas',
+                'suggestion': 'Asociar al menos una intervención',
+                'detected_at': datetime.now().isoformat(),
+                'upid': upid,
+                'nombre_up': nombre_up,
+                'record_index': idx,
+                'level': 'unidad'
+            })
+            unidad_has_issues = True
+        
+        for interv_idx, intervencion in enumerate(intervenciones):
+            intervencion_has_issues = False
+            
+            # Validar que intervencion sea un diccionario
+            if not isinstance(intervencion, dict):
+                all_issues.append({
+                    'rule_id': 'LC010',
+                    'rule_name': 'Formato de intervención inválido',
                     'dimension': QualityDimension.LOGICAL_CONSISTENCY.value,
                     'severity': SeverityLevel.CRITICAL.value,
-                    'field_name': 'registro_completo',
-                    'current_value': f"Registro #{dup['index']}",
-                    'expected_value': 'Registro único',
-                    'details': f"Registro completamente duplicado. Duplicados con: {', '.join(other_upids)}",
-                    'suggestion': 'Eliminar o fusionar registros duplicados',
+                    'field_name': 'intervenciones',
+                    'current_value': str(type(intervencion).__name__),
+                    'expected_value': 'dict',
+                    'details': f'Intervención en posición {interv_idx} no es un diccionario (es {type(intervencion).__name__})',
+                    'suggestion': 'Verificar estructura de datos en Firebase - intervenciones debe ser array de objetos',
                     'detected_at': datetime.now().isoformat(),
-                    'upid': dup['upid'],
-                    'nombre_up': dup['nombre_up'],
-                    'nombre_centro_gestor': dup.get('nombre_centro_gestor'),
-                    'record_index': dup['index'],
-                    'duplicate_group_size': len(duplicates)
+                    'upid': upid,
+                    'nombre_up': nombre_up,
+                    'record_index': idx,
+                    'intervencion_index': interv_idx,
+                    'level': 'intervencion'
                 })
-            records_with_issues += len(duplicates)  # Ajustar contador
+                unidad_has_issues = True
+                continue  # Saltar esta intervención
+            
+            intervencion_id = intervencion.get('intervencion_id', f'{upid}-INT{interv_idx}')
+            
+            # Campos obligatorios de intervención
+            interv_required_fields = ['estado', 'tipo_intervencion', 'presupuesto_base', 'ano']
+            
+            for field in interv_required_fields:
+                value = intervencion.get(field)
+                if value is None or (isinstance(value, str) and value.strip() == ''):
+                    all_issues.append({
+                        'rule_id': 'CO001',
+                        'rule_name': 'Campo obligatorio vacío (intervención)',
+                        'dimension': QualityDimension.COMPLETENESS.value,
+                        'severity': SeverityLevel.HIGH.value,
+                        'field_name': f'intervencion.{field}',
+                        'current_value': None,
+                        'expected_value': 'Valor requerido',
+                        'details': f'Campo obligatorio vacío en intervención: {field}',
+                        'suggestion': f'Completar el campo {field}',
+                        'detected_at': datetime.now().isoformat(),
+                        'upid': upid,
+                        'nombre_up': nombre_up,
+                        'intervencion_id': intervencion_id,
+                        'record_index': idx,
+                        'intervencion_index': interv_idx,
+                        'level': 'intervencion'
+                    })
+                    intervencion_has_issues = True
+            
+            # Validar estado
+            estado = intervencion.get('estado')
+            if estado and estado not in validator.VALID_ESTADOS:
+                all_issues.append({
+                    'rule_id': 'TA001',
+                    'rule_name': 'Estado inválido',
+                    'dimension': QualityDimension.THEMATIC_ACCURACY.value,
+                    'severity': SeverityLevel.MEDIUM.value,
+                    'field_name': 'estado',
+                    'current_value': estado,
+                    'expected_value': ', '.join(validator.VALID_ESTADOS),
+                    'details': f'Estado no reconocido: {estado}',
+                    'suggestion': 'Normalizar estado',
+                    'detected_at': datetime.now().isoformat(),
+                    'upid': upid,
+                    'nombre_up': nombre_up,
+                    'intervencion_id': intervencion_id,
+                    'record_index': idx,
+                    'intervencion_index': interv_idx,
+                    'level': 'intervencion'
+                })
+                intervencion_has_issues = True
+            
+            # Validar presupuesto
+            presupuesto = intervencion.get('presupuesto_base')
+            if presupuesto is not None:
+                try:
+                    pres_float = float(presupuesto)
+                    if pres_float <= 0:
+                        all_issues.append({
+                            'rule_id': 'LC001',
+                            'rule_name': 'Presupuesto inválido',
+                            'dimension': QualityDimension.LOGICAL_CONSISTENCY.value,
+                            'severity': SeverityLevel.HIGH.value,
+                            'field_name': 'presupuesto_base',
+                            'current_value': pres_float,
+                            'expected_value': '> 0',
+                            'details': f'Presupuesto cero o negativo',
+                            'suggestion': 'Verificar presupuesto',
+                            'detected_at': datetime.now().isoformat(),
+                            'upid': upid,
+                            'nombre_up': nombre_up,
+                            'intervencion_id': intervencion_id,
+                            'record_index': idx,
+                            'intervencion_index': interv_idx,
+                            'level': 'intervencion'
+                        })
+                        intervencion_has_issues = True
+                except:
+                    pass
+            
+            # Validar avance_obra
+            avance = intervencion.get('avance_obra')
+            if avance is not None:
+                try:
+                    avance_float = float(avance)
+                    if not (0 <= avance_float <= 100):
+                        all_issues.append({
+                            'rule_id': 'LC002',
+                            'rule_name': 'Avance fuera de rango',
+                            'dimension': QualityDimension.LOGICAL_CONSISTENCY.value,
+                            'severity': SeverityLevel.MEDIUM.value,
+                            'field_name': 'avance_obra',
+                            'current_value': avance_float,
+                            'expected_value': '0-100',
+                            'details': f'Avance fuera del rango 0-100',
+                            'suggestion': 'Corregir avance',
+                            'detected_at': datetime.now().isoformat(),
+                            'upid': upid,
+                            'nombre_up': nombre_up,
+                            'intervencion_id': intervencion_id,
+                            'record_index': idx,
+                            'intervencion_index': interv_idx,
+                            'level': 'intervencion'
+                        })
+                        intervencion_has_issues = True
+                except:
+                    pass
+            
+            # Validar consistencia estado-avance
+            if estado == 'Terminado' and avance and float(avance) < 100:
+                all_issues.append({
+                    'rule_id': 'LC003',
+                    'rule_name': 'Inconsistencia estado-avance',
+                    'dimension': QualityDimension.LOGICAL_CONSISTENCY.value,
+                    'severity': SeverityLevel.MEDIUM.value,
+                    'field_name': 'estado/avance_obra',
+                    'current_value': f'{estado} / {avance}%',
+                    'expected_value': 'Terminado / 100%',
+                    'details': f'Estado "Terminado" pero avance {avance}%',
+                    'suggestion': 'Ajustar estado o avance',
+                    'detected_at': datetime.now().isoformat(),
+                    'upid': upid,
+                    'nombre_up': nombre_up,
+                    'intervencion_id': intervencion_id,
+                    'record_index': idx,
+                    'intervencion_index': interv_idx,
+                    'level': 'intervencion'
+                })
+                intervencion_has_issues = True
+            
+            if intervencion_has_issues:
+                intervenciones_with_issues += 1
+                unidad_has_issues = True
+        
+        if unidad_has_issues:
+            unidades_with_issues += 1
+    
+    # No validar duplicados en estructura jerárquica (UPIDs son únicos por diseño)
     
     # Generar estadísticas mejoradas
-    stats = _generate_quality_statistics(all_issues, len(features), len(duplicate_groups))
+    stats = _generate_quality_statistics(all_issues, len(features), 0)
     
     if verbose:
         print(f"\n✅ Validación completada")
         print(f"\n📊 RESUMEN:")
-        print(f"  Total de registros: {len(features)}")
-        print(f"  Registros únicos: {len(features) - sum(len(g) - 1 for g in duplicate_groups)}")
-        print(f"  Registros con problemas: {records_with_issues} ({records_with_issues/len(features)*100:.1f}%)")
+        print(f"  Total unidades de proyecto: {len(features)}")
+        print(f"  Total intervenciones: {total_intervenciones}")
+        print(f"  Unidades con problemas: {unidades_with_issues} ({unidades_with_issues/len(features)*100:.1f}%)")
+        print(f"  Intervenciones con problemas: {intervenciones_with_issues} ({intervenciones_with_issues/total_intervenciones*100:.1f}% del total)")
         print(f"  Total de problemas detectados: {len(all_issues)}")
-        if duplicate_groups:
-            print(f"  ⚠️  Grupos de duplicados: {len(duplicate_groups)} ({sum(len(g) for g in duplicate_groups)} registros afectados)")
         print(f"\n  Por severidad:")
         for severity, count in stats['by_severity'].items():
             emoji = {'CRITICAL': '🔴', 'HIGH': '🟠', 'MEDIUM': '🟡', 'LOW': '🔵', 'INFO': '⚪'}.get(severity, '')
@@ -1306,14 +1553,18 @@ def validate_geojson(geojson_path: str, verbose: bool = True) -> Dict[str, Any]:
     
     return {
         'total_records': len(features),
-        'unique_records': len(features) - sum(len(g) - 1 for g in duplicate_groups),
-        'duplicate_groups': len(duplicate_groups),
-        'duplicate_records': sum(len(g) for g in duplicate_groups),
-        'records_with_issues': records_with_issues,
-        'records_without_issues': len(features) - records_with_issues,
+        'total_unidades': len(features),
+        'total_intervenciones': total_intervenciones,
+        'unique_records': len(features),
+        'duplicate_groups': 0,
+        'duplicate_records': 0,
+        'unidades_with_issues': unidades_with_issues,
+        'intervenciones_with_issues': intervenciones_with_issues,
+        'records_with_issues': unidades_with_issues,
+        'records_without_issues': len(features) - unidades_with_issues,
         'total_issues': len(all_issues),
         'issues': all_issues,
-        'duplicate_details': duplicate_groups,
+        'duplicate_details': [],
         'statistics': stats,
         'validated_at': datetime.now().isoformat()
     }

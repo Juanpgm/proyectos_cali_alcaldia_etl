@@ -1,0 +1,20 @@
+{
+  "resumen": {
+    "total_anterior": 1695,
+    "total_actual": 1695,
+    "upids_nuevos": 0,
+    "upids_eliminados": 0,
+    "upids_mantenidos": 1695,
+    "upids_con_cambios": 0,
+    "upids_con_cambios_intervenciones": 0
+  },
+  "detalle": {
+    "upids_nuevos": [],
+    "upids_eliminados": [],
+    "cambios_en_unidades": [],
+    "cambios_en_intervenciones": []
+  },
+  "timestamp_anterior": "20251216_231020",
+  "archivo_anterior": "unidades_proyecto_20251216_231020.json",
+  "timestamp_comparacion": "2025-12-16T23:10:21.102910"
+}
