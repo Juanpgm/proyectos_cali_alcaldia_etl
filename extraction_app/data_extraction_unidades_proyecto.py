@@ -96,11 +96,11 @@ def read_excel_file_to_dataframe(file_buffer: io.BytesIO, file_name: str) -> Opt
         df = pd.read_excel(file_buffer, engine='openpyxl', dtype=dtype_spec)
         
         if df.empty:
-            print(f"⚠️  Archivo vacío: {file_name}")
+            print(f"[WARNING]  Archivo vacío: {file_name}")
             return None
         
         name_display = file_name[:30] + "..." if len(file_name) > 30 else file_name
-        print(f"✅ Leído: {name_display} ({len(df)} filas, {len(df.columns)} columnas)")
+        print(f"[OK] Leído: {name_display} ({len(df)} filas, {len(df.columns)} columnas)")
         return df
         
     except Exception as e:
@@ -118,14 +118,14 @@ def read_excel_file_to_dataframe(file_buffer: io.BytesIO, file_name: str) -> Opt
             df = pd.read_excel(file_buffer, engine='xlrd', dtype=dtype_spec)
             
             if df.empty:
-                print(f"⚠️  Archivo vacío: {file_name}")
+                print(f"[WARNING]  Archivo vacío: {file_name}")
                 return None
             
             name_display = file_name[:30] + "..." if len(file_name) > 30 else file_name
-            print(f"✅ Leído (xlrd): {name_display} ({len(df)} filas, {len(df.columns)} columnas)")
+            print(f"[OK] Leído (xlrd): {name_display} ({len(df)} filas, {len(df.columns)} columnas)")
             return df
         except Exception as e2:
-            print(f"❌ Error leyendo {file_name}: {e}")
+            print(f"[ERROR] Error leyendo {file_name}: {e}")
             print(f"   También falló con xlrd: {e2}")
             return None
 
@@ -142,7 +142,7 @@ def get_excel_files_from_drive(folder_id: str) -> List[Dict[str, Any]]:
         Lista de diccionarios con información de archivos
     """
     if not folder_id:
-        print("❌ No se proporcionó ID de carpeta de Drive")
+        print("[ERROR] No se proporcionó ID de carpeta de Drive")
         return []
     
     files = list_excel_files_in_folder(folder_id)
@@ -183,6 +183,7 @@ def filter_empty_rows(data: List[List[str]]) -> List[List[str]]:
 def normalize_dataframe_columns(df: pd.DataFrame) -> pd.DataFrame:
     """
     Normaliza los nombres de columnas de un DataFrame.
+    También normaliza coordenadas con formato europeo (comas decimales).
     
     Args:
         df: DataFrame con columnas a normalizar
@@ -199,6 +200,35 @@ def normalize_dataframe_columns(df: pd.DataFrame) -> pd.DataFrame:
     # Reemplazar valores vacíos con NaN
     df_copy = df_copy.replace('', pd.NA)
     
+    # CRÍTICO: Normalizar coordenadas con formato europeo (comas → puntos)
+    # Las coordenadas pueden venir como strings con comas decimales: "3,479621"
+    coord_columns = [col for col in df_copy.columns if col in ['lat', 'lon', 'latitud', 'longitud']]
+    
+    for col in coord_columns:
+        if col in df_copy.columns:
+            # Función de conversión segura
+            def convert_european_decimal(value):
+                if pd.isna(value) or value == '' or value is None:
+                    return None
+                # Si ya es numérico, retornar tal cual
+                if isinstance(value, (int, float)):
+                    return value
+                # Convertir a string y reemplazar comas por puntos
+                str_val = str(value).strip()
+                if str_val == '' or str_val.lower() in ['nan', 'none', 'null']:
+                    return None
+                # Reemplazar coma por punto
+                str_val = str_val.replace(',', '.')
+                # Intentar convertir a float
+                try:
+                    return float(str_val)
+                except (ValueError, TypeError):
+                    return None
+            
+            # Aplicar conversión
+            df_copy[col] = df_copy[col].apply(convert_european_decimal)
+            print(f"[CONFIG] Columna '{col}' normalizada: comas → puntos decimales")
+    
     return df_copy
 
 
@@ -213,20 +243,20 @@ def concatenate_dataframes(dataframes: List[pd.DataFrame]) -> pd.DataFrame:
         DataFrame concatenado con todos los datos
     """
     if not dataframes:
-        print("⚠️  No hay DataFrames para concatenar")
+        print("[WARNING]  No hay DataFrames para concatenar")
         return pd.DataFrame()
     
     # Filtrar DataFrames vacíos
     valid_dfs = [df for df in dataframes if not df.empty]
     
     if not valid_dfs:
-        print("⚠️  Todos los DataFrames están vacíos")
+        print("[WARNING]  Todos los DataFrames están vacíos")
         return pd.DataFrame()
     
     # Concatenar verticalmente (axis=0)
     concatenated = pd.concat(valid_dfs, axis=0, ignore_index=True)
     
-    print(f"✅ Concatenados {len(valid_dfs)} DataFrames:")
+    print(f"[OK] Concatenados {len(valid_dfs)} DataFrames:")
     print(f"   - Total de filas: {len(concatenated)}")
     print(f"   - Total de columnas: {len(concatenated.columns)}")
     
@@ -258,7 +288,7 @@ def standardize_data_structure(df: pd.DataFrame) -> pd.DataFrame:
     if '' in standardized_df.columns:
         # Rename empty column to 'nombre_centro_gestor'
         standardized_df = standardized_df.rename(columns={'': 'nombre_centro_gestor'})
-        print(f"✓ Renamed empty column to 'nombre_centro_gestor'")
+        print(f"[OK] Renamed empty column to 'nombre_centro_gestor'")
     
     # Column standardization mapping
     column_mapping = {
@@ -302,7 +332,7 @@ def standardize_data_structure(df: pd.DataFrame) -> pd.DataFrame:
                     if len(normal_values) > 0:
                         # Mixed format: some decimals, some normal percentages
                         # Only multiply the decimal values by 100
-                        print(f"⚠️  Detected MIXED percentage formats in '{col}'")
+                        print(f"[WARNING]  Detected MIXED percentage formats in '{col}'")
                         print(f"   - Decimal values (0-1): {len(decimal_values)}")
                         print(f"   - Normal values (>1): {len(normal_values)}")
                         print(f"   Multiplying decimal values by 100")
@@ -311,13 +341,44 @@ def standardize_data_structure(df: pd.DataFrame) -> pd.DataFrame:
                         mask = (standardized_df[col] > 0) & (standardized_df[col] <= 1.0)
                         standardized_df.loc[mask, col] = standardized_df.loc[mask, col] * 100
                         
-                        print(f"   ✓ Corrected {mask.sum()} values")
+                        print(f"   [OK] Corrected {mask.sum()} values")
                     else:
                         # All non-zero values are decimals
-                        print(f"⚠️  All percentage values are decimals in '{col}' (max={decimal_values.max():.4f})")
+                        print(f"[WARNING]  All percentage values are decimals in '{col}' (max={decimal_values.max():.4f})")
                         print(f"   Multiplying all values by 100")
                         standardized_df[col] = standardized_df[col] * 100
-                        print(f"   ✓ Corrected: new max = {standardized_df[col].max():.2f}")
+                        print(f"   [OK] Corrected: new max = {standardized_df[col].max():.2f}")
+    
+    # CRÍTICO: Normalizar coordenadas nuevamente después de concatenación
+    # Pandas puede cambiar los tipos al concatenar DataFrames
+    coord_columns = [col for col in standardized_df.columns if col in ['lat', 'lon', 'latitud', 'longitud']]
+    
+    for col in coord_columns:
+        if col in standardized_df.columns:
+            # Función de conversión segura (misma que en normalize_dataframe_columns)
+            def convert_european_decimal(value):
+                if pd.isna(value) or value == '' or value is None:
+                    return None
+                # Si ya es numérico, retornar tal cual
+                if isinstance(value, (int, float)):
+                    return value
+                # Convertir a string y reemplazar comas por puntos
+                str_val = str(value).strip()
+                if str_val == '' or str_val.lower() in ['nan', 'none', 'null']:
+                    return None
+                # Reemplazar coma por punto
+                str_val = str_val.replace(',', '.')
+                # Intentar convertir a float
+                try:
+                    return float(str_val)
+                except (ValueError, TypeError):
+                    return None
+            
+            # Aplicar conversión
+            standardized_df[col] = standardized_df[col].apply(convert_european_decimal)
+            # Forzar tipo numérico float64
+            standardized_df[col] = standardized_df[col].astype('float64')
+            print(f"[CONFIG] Post-concatenación: Columna '{col}' normalizada a float64")
     
     # Ensure required columns exist with default values (only if they don't exist)
     required_defaults = {
@@ -335,9 +396,9 @@ def standardize_data_structure(df: pd.DataFrame) -> pd.DataFrame:
     if 'bpin' not in standardized_df.columns:
         # Only create if it doesn't exist - never overwrite
         standardized_df['bpin'] = None
-        print(f"⚠️  Warning: No BPIN column found in data")
+        print(f"[WARNING]  Warning: No BPIN column found in data")
     
-    print(f"✓ Data standardization complete: {len(standardized_df.columns)} columns")
+    print(f"[OK] Data standardization complete: {len(standardized_df.columns)} columns")
     return standardized_df
 
 
@@ -360,7 +421,7 @@ def save_as_json(data: pd.DataFrame, output_path: str) -> bool:
             json.dump(json_data, f, indent=2, ensure_ascii=False, default=str)
         
         file_size = os.path.getsize(output_path) / 1024  # Size in KB
-        print(f"✓ JSON saved: {os.path.basename(output_path)} ({len(json_data)} records, {file_size:.1f} KB)")
+        print(f"[OK] JSON saved: {os.path.basename(output_path)} ({len(json_data)} records, {file_size:.1f} KB)")
         return True
     
     except Exception as e:
@@ -389,9 +450,9 @@ def create_extraction_pipeline() -> Callable[[str], Optional[pd.DataFrame]]:
             service = get_drive_service()
             if not service:
                 print("✗ Authentication failed")
-                print("🔧 Run: gcloud auth application-default login --scopes=https://www.googleapis.com/auth/drive.readonly")
+                print("[CONFIG] Run: gcloud auth application-default login --scopes=https://www.googleapis.com/auth/drive.readonly")
                 return None
-            print("✓ Authentication successful with Workload Identity")
+            print("[OK] Authentication successful with Workload Identity")
             
             # Step 2: List Excel files in Drive folder
             print(f"\n2. Listing Excel files in Drive folder...")
@@ -403,7 +464,7 @@ def create_extraction_pipeline() -> Callable[[str], Optional[pd.DataFrame]]:
                 print("✗ No Excel files found in folder")
                 return None
             
-            print(f"✓ Found {len(excel_files)} Excel files")
+            print(f"[OK] Found {len(excel_files)} Excel files")
             
             # Step 3: Download and read each Excel file
             print(f"\n3. Downloading and reading Excel files...")
@@ -418,7 +479,7 @@ def create_extraction_pipeline() -> Callable[[str], Optional[pd.DataFrame]]:
                 # Download file to memory
                 file_buffer = download_excel_file(file_id, file_name)
                 if not file_buffer:
-                    print(f"   ⚠️  Skipping file due to download error")
+                    print(f"   [WARNING]  Skipping file due to download error")
                     continue
                 
                 # Read Excel to DataFrame
@@ -434,11 +495,11 @@ def create_extraction_pipeline() -> Callable[[str], Optional[pd.DataFrame]]:
                     # Only add if column doesn't exist or has null values
                     if 'nombre_centro_gestor' not in df.columns or df['nombre_centro_gestor'].isna().all():
                         df['nombre_centro_gestor'] = centro_gestor
-                        print(f"   ✓ Added nombre_centro_gestor: '{centro_gestor}'")
+                        print(f"   [OK] Added nombre_centro_gestor: '{centro_gestor}'")
                     
                     dataframes.append(df)
                 else:
-                    print(f"   ⚠️  Skipping empty or invalid file")
+                    print(f"   [WARNING]  Skipping empty or invalid file")
             
             if not dataframes:
                 print("\n✗ No valid data extracted from any file")
@@ -456,7 +517,7 @@ def create_extraction_pipeline() -> Callable[[str], Optional[pd.DataFrame]]:
             print(f"\n5. Standardizing data structure...")
             final_df = standardize_data_structure(combined_df)
             
-            print(f"\n✓ Extraction completed successfully!")
+            print(f"\n[OK] Extraction completed successfully!")
             print(f"   - Files processed: {len(dataframes)}")
             print(f"   - Total rows: {len(final_df)}")
             print(f"   - Total columns: {len(final_df.columns)}")
@@ -491,10 +552,10 @@ def extract_unidades_proyecto_data(
         folder_id = DRIVE_FOLDER_ID
     
     if not folder_id:
-        print("❌ No folder ID provided and DRIVE_FOLDER_ID not configured")
+        print("[ERROR] No folder ID provided and DRIVE_FOLDER_ID not configured")
         return None
     
-    print("🚀 Extracting data from Google Drive Excel files directly to memory")
+    print("[START] Extracting data from Google Drive Excel files directly to memory")
     
     # Create extraction pipeline
     extract_data = create_extraction_pipeline()
@@ -503,7 +564,7 @@ def extract_unidades_proyecto_data(
     df = extract_data(folder_id)
     
     if df is not None:
-        print(f"\n✓ Extraction completed successfully!")
+        print(f"\n[OK] Extraction completed successfully!")
         print(f"  - Records extracted: {len(df)}")
         print(f"  - Data ready for in-memory processing")
         return df
@@ -531,7 +592,7 @@ def extract_and_save_unidades_proyecto(
         folder_id = DRIVE_FOLDER_ID
     
     if not folder_id:
-        print("❌ No folder ID provided and DRIVE_FOLDER_ID not configured")
+        print("[ERROR] No folder ID provided and DRIVE_FOLDER_ID not configured")
         return None
     
     # Create extraction pipeline
@@ -549,7 +610,7 @@ def extract_and_save_unidades_proyecto(
         success = save_as_json(df, json_path)
         
         if success:
-            print(f"\n✓ Extraction completed successfully!")
+            print(f"\n[OK] Extraction completed successfully!")
             print(f"  - Records extracted: {len(df)}")
             # Mostrar solo el nombre del archivo, no la ruta completa por seguridad
             print(f"  - JSON file: {os.path.basename(json_path)}")
@@ -569,13 +630,13 @@ def log_pipeline_step(step_name: str) -> Callable:
     def decorator(func: Callable) -> Callable:
         @wraps(func)
         def wrapper(*args, **kwargs):
-            print(f"📊 {step_name}...")
+            print(f"[DATA] {step_name}...")
             result = func(*args, **kwargs)
             if result is not None:
                 if isinstance(result, pd.DataFrame):
-                    print(f"✓ {step_name}: {len(result)} rows, {len(result.columns)} columns")
+                    print(f"[OK] {step_name}: {len(result)} rows, {len(result.columns)} columns")
                 else:
-                    print(f"✓ {step_name}: completed")
+                    print(f"[OK] {step_name}: completed")
             else:
                 print(f"✗ {step_name}: failed")
             return result
@@ -596,9 +657,9 @@ if __name__ == "__main__":
         print("\n" + "="*60)
         print("EXTRACTION COMPLETED SUCCESSFULLY")
         print("="*60)
-        print(f"✓ Extracted data: {len(df_result)} records")
-        print(f"✓ Columns: {len(df_result.columns)}")
-        print(f"✓ JSON file saved in: transformation_app/app_inputs/unidades_proyecto_input/")
+        print(f"[OK] Extracted data: {len(df_result)} records")
+        print(f"[OK] Columns: {len(df_result.columns)}")
+        print(f"[OK] JSON file saved in: transformation_app/app_inputs/unidades_proyecto_input/")
         
         # Show sample of the extracted data
         print(f"\nSample data (first 2 records):")

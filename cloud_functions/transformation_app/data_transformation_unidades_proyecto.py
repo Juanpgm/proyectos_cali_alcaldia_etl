@@ -203,9 +203,9 @@ def clean_monetary_value(value):
         # Handle different decimal formats
         # Case 1: European format with dots as thousands separators (155.521.600)
         if '.' in cleaned and ',' not in cleaned:
-            # Check if it's likely thousands separators (multiple dots or number after last dot > 2 digits)
+            # Check if it's likely thousands separators (multiple dots or number after last dot equals 3 digits)
             parts = cleaned.split('.')
-            if len(parts) > 2 or (len(parts) == 2 and len(parts[1]) > 2):
+            if len(parts) > 2 or (len(parts) == 2 and len(parts[1]) == 3):
                 # Treat as thousands separators, remove all dots
                 cleaned = cleaned.replace('.', '')
         

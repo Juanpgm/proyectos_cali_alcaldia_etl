@@ -4,10 +4,10 @@ Firebase data loading module for project units (unidades de proyecto) with batch
 Implements functional programming patterns for clean, scalable, and efficient Firebase loading.
 
 Mejoras implementadas (Diciembre 2024):
-- ✅ Eliminada lógica duplicada de detección de cambios
-- ✅ Simplificada función process_batch (el pipeline ya filtra cambios)
-- ✅ Mejor performance al no re-verificar cambios en cada documento
-- ✅ Preservación correcta de created_at y updated_at timestamps
+- [OK] Eliminada lógica duplicada de detección de cambios
+- [OK] Simplificada función process_batch (el pipeline ya filtra cambios)
+- [OK] Mejor performance al no re-verificar cambios en cada documento
+- [OK] Preservación correcta de created_at y updated_at timestamps
 
 Nota: Este módulo asume que el pipeline ya ha filtrado los datos que necesitan
 actualizarse. Por lo tanto, simplemente escribe todos los documentos recibidos
@@ -23,6 +23,7 @@ from typing import Dict, List, Any, Optional, Callable
 from functools import reduce, partial, wraps
 from datetime import datetime
 import time
+import hashlib
 
 # Add the project root to Python path
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -145,13 +146,14 @@ def safe_execute(func: Callable, fallback_value: Any = None) -> Callable:
 # Firebase data preparation functions
 # Campos que SIEMPRE deben guardarse como números decimales (float)
 NUMERIC_FLOAT_FIELDS = {
-    'avance_obra', 'presupuesto_base', 'valor_contrato', 'valor_ejecutado',
+    'avance_obra', 'valor_ejecutado',
     'latitud', 'longitud', 'area', 'longitud_metros', 'ancho'
 }
 
 # Campos que SIEMPRE deben guardarse como números enteros (int)
+# CRÍTICO: presupuesto_base debe ser int para evitar pérdida de precisión con valores grandes
 NUMERIC_INT_FIELDS = {
-    'ano', 'cantidad', 'bpin', 'n_intervenciones'
+    'ano', 'cantidad', 'bpin', 'n_intervenciones', 'presupuesto_base', 'valor_contrato'
 }
 
 
@@ -434,12 +436,22 @@ def prepare_document_data(feature: Dict[str, Any]) -> Optional[Dict[str, Any]]:
         valid_estados = {'En alistamiento', 'En ejecución', 'Terminado', 'Suspendido', 'Inaugurado'}
         current_estado = document_data['estado']
         if current_estado not in valid_estados:
-            print(f"❌ ERROR: Invalid estado after normalization: '{current_estado}'")
+            print(f"[ERROR] ERROR: Invalid estado after normalization: '{current_estado}'")
             # This should never happen if normalize_estado_value works correctly
     
     # Add geometry as separate field (not nested in properties)
     # Store as GeoJSON object: {type: 'Point', coordinates: [lat, lon]}
     document_data['geometry'] = geometry_field
+    
+    # Calculate and store hash for incremental change detection
+    # This hash is used to detect if the document has changed
+    import hashlib
+    record_for_hash = {
+        'properties': properties,
+        'geometry': geometry
+    }
+    record_str = json.dumps(record_for_hash, sort_keys=True, default=str)
+    document_data['_hash'] = hashlib.md5(record_str.encode('utf-8')).hexdigest()
     
     # Add metadata
     document_data['created_at'] = datetime.now().isoformat()
@@ -523,7 +535,7 @@ def create_batches(features: List[Dict[str, Any]], batch_size: int = 100) -> Lis
         batch = features[i:i + batch_size]
         batches.append(batch)
     
-    print(f"✓ Created {len(batches)} batches with {batch_size} documents each")
+    print(f"[OK] Created {len(batches)} batches with {batch_size} documents each")
     return batches
 
 
@@ -579,7 +591,7 @@ def process_batch(collection_name: str, batch_index: int, batch: List[Dict[str, 
                 errors.append(f"Failed to prepare document data")
                 continue
             
-            # Check if document exists (quick check for preserving created_at)
+            # Check if document exists (quick check for preserving created_at and geometry)
             doc_ref = collection_ref.document(doc_id)
             existing_doc = doc_ref.get()
             
@@ -588,6 +600,27 @@ def process_batch(collection_name: str, batch_index: int, batch: List[Dict[str, 
                 existing_data = existing_doc.to_dict()
                 document_data['updated_at'] = datetime.now().isoformat()
                 document_data['created_at'] = existing_data.get('created_at', datetime.now().isoformat())
+                
+                # CRÍTICO: Preservar geometry existente si el nuevo dato no tiene geometry
+                geometry_was_preserved = False
+                if 'geometry' not in document_data or not document_data.get('geometry'):
+                    existing_geometry = existing_data.get('geometry')
+                    if existing_geometry:
+                        document_data['geometry'] = existing_geometry
+                        geometry_was_preserved = True
+                        print(f"      [PRESERVE] Geometry preserved for {doc_id}")
+                
+                # Si se preservó la geometría, recalcular el hash con la geometría restaurada
+                if geometry_was_preserved:
+                    # Reconstruir el feature para calcular hash correcto
+                    feature_for_hash = {
+                        'properties': {k: v for k, v in document_data.items() 
+                                     if k not in ['geometry', 'created_at', 'updated_at', '_hash', 'has_geometry']},
+                        'geometry': document_data.get('geometry')
+                    }
+                    record_str = json.dumps(feature_for_hash, sort_keys=True, default=str)
+                    document_data['_hash'] = hashlib.md5(record_str.encode('utf-8')).hexdigest()
+                
                 firebase_batch.set(doc_ref, document_data)
                 updated_records += 1
                 successful_writes += 1
@@ -663,14 +696,14 @@ def load_geojson_file(file_path: str, use_s3: bool = True, s3_key: str = None) -
                     geojson_data = None
                 else:
                     features = geojson_data.get('features', [])
-                    print(f"✓ Loaded GeoJSON from S3")
+                    print(f"[OK] Loaded GeoJSON from S3")
                     print(f"  - Features: {len(features)}")
                     return geojson_data
             else:
-                print(f"⚠️ Could not load from S3, falling back to local file")
+                print(f"[WARNING] Could not load from S3, falling back to local file")
                 
         except Exception as e:
-            print(f"⚠️ S3 loading failed: {e}")
+            print(f"[WARNING] S3 loading failed: {e}")
             print(f"   Falling back to local file")
     
     # Fallback to local file if S3 failed or disabled
@@ -679,7 +712,7 @@ def load_geojson_file(file_path: str, use_s3: bool = True, s3_key: str = None) -
             print(f"✗ File not found: {file_path}")
             return None
         
-        print(f"📁 Loading from local file: {file_path}")
+        print(f"[FILE] Loading from local file: {file_path}")
         with open(file_path, 'r', encoding='utf-8') as f:
             geojson_data = json.load(f)
         
@@ -691,7 +724,7 @@ def load_geojson_file(file_path: str, use_s3: bool = True, s3_key: str = None) -
         features = geojson_data.get('features', [])
         file_size_kb = os.path.getsize(file_path) / 1024
         
-        print(f"✓ Loaded GeoJSON file: {os.path.basename(file_path)}")
+        print(f"[OK] Loaded GeoJSON file: {os.path.basename(file_path)}")
         print(f"  - Features: {len(features)}")
         print(f"  - File size: {file_size_kb:.1f} KB")
         
@@ -811,35 +844,35 @@ def print_upload_summary(results: Dict[str, Any]):
     print("FIREBASE UPLOAD SUMMARY")
     print("="*60)
     
-    print(f"📊 Processing Results:")
-    print(f"  ✓ Total features processed: {results['total_features']}")
-    print(f"  ✓ Valid features: {results['valid_features']}")
+    print(f"[DATA] Processing Results:")
+    print(f"  [OK] Total features processed: {results['total_features']}")
+    print(f"  [OK] Valid features: {results['valid_features']}")
     print(f"  ✗ Invalid features: {results['invalid_features']}")
     
     print(f"\n📦 Batch Processing:")
-    print(f"  ✓ Total batches: {results['total_batches']}")
-    print(f"  ✓ Successful batches: {results['successful_batches']}")
+    print(f"  [OK] Total batches: {results['total_batches']}")
+    print(f"  [OK] Successful batches: {results['successful_batches']}")
     print(f"  ✗ Failed batches: {results['failed_batches']}")
     
-    print(f"\n📤 Upload Results:")
-    print(f"  ➕ New records: {results['new_records']}")
-    print(f"  🔄 Updated records: {results['updated_records']}")
+    print(f"\n[OUT] Upload Results:")
+    print(f"  [+] New records: {results['new_records']}")
+    print(f"  [SYNC] Updated records: {results['updated_records']}")
     print(f"  ✗ Failed uploads: {results['total_failed']}")
-    print(f"  📈 Success rate: {(results['total_uploaded'] / results['valid_features'] * 100):.1f}%")
+    print(f"  [STATS] Success rate: {(results['total_uploaded'] / results['valid_features'] * 100):.1f}%")
     
-    print(f"\n⏱️ Performance:")
-    print(f"  ⏳ Duration: {results['duration']:.2f} seconds")
-    print(f"  🚀 Upload rate: {results['upload_rate']:.1f} documents/second")
+    print(f"\n[TIME] Performance:")
+    print(f"  [WAIT] Duration: {results['duration']:.2f} seconds")
+    print(f"  [START] Upload rate: {results['upload_rate']:.1f} documents/second")
     
     if results['errors']:
-        print(f"\n⚠️ Sample Errors (showing first 5):")
+        print(f"\n[WARNING] Sample Errors (showing first 5):")
         for i, error in enumerate(results['errors'][:5], 1):
             print(f"  {i}. {error}")
     
     if results['success']:
-        print(f"\n✅ Upload completed successfully!")
+        print(f"\n[OK] Upload completed successfully!")
     else:
-        print(f"\n❌ Upload failed or partially completed.")
+        print(f"\n[ERROR] Upload failed or partially completed.")
 
 
 def load_unidades_proyecto_to_firebase(
@@ -927,10 +960,10 @@ if __name__ == "__main__":
         print("\n" + "="*60)
         print("FIREBASE LOADING COMPLETED SUCCESSFULLY")
         print("="*60)
-        print("✅ All unidades de proyecto data uploaded to Firebase")
+        print("[OK] All unidades de proyecto data uploaded to Firebase")
         
     else:
         print("\n" + "="*60)
         print("FIREBASE LOADING FAILED")
         print("="*60)
-        print("❌ Could not upload unidades de proyecto data to Firebase")
+        print("[ERROR] Could not upload unidades de proyecto data to Firebase")

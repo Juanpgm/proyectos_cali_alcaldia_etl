@@ -51,7 +51,7 @@ def load_standard_categories() -> Dict[str, List[str]]:
         with open(categories_path, 'r', encoding='utf-8') as f:
             return json.load(f)
     except Exception as e:
-        print(f"⚠️ Warning: Could not load standard categories: {e}")
+        print(f"[WARNING] Warning: Could not load standard categories: {e}")
         return {}
 
 # Global variable to cache standard categories
@@ -69,7 +69,7 @@ try:
     from data_extraction_unidades_proyecto import extract_unidades_proyecto_data
     EXTRACTION_AVAILABLE = True
 except ImportError as e:
-    print(f"⚠️ Warning: Could not import extraction module: {e}")
+    print(f"[WARNING] Warning: Could not import extraction module: {e}")
     print("   Falling back to file-based processing")
     extract_unidades_proyecto_data = None
     EXTRACTION_AVAILABLE = False
@@ -91,7 +91,7 @@ except (ImportError, ValueError):
         )
         CLUSTERING_AVAILABLE = True
     except ImportError as e:
-        print(f"⚠️ Warning: Could not import clustering module: {e}")
+        print(f"[WARNING] Warning: Could not import clustering module: {e}")
         print("   Falling back to simple UPID generation")
         agrupar_datos_geoespacial = None
         convert_unidades_to_dataframe = None
@@ -133,11 +133,20 @@ def safe_transform(func: Callable, fallback_value: Any = None) -> Callable:
 
 # Functional data cleaning utilities
 def clean_monetary_column(df: pd.DataFrame, column_name: str, as_integer: bool = False) -> pd.DataFrame:
-    """Clean a monetary column using functional approach with robust type handling."""
+    """Clean a monetary column using functional approach with robust type handling.
+    
+    Args:
+        df: DataFrame to clean
+        column_name: Name of the monetary column to clean
+        as_integer: If True, converts to int64 (no decimals). If False, keeps as float64 with 2 decimals.
+    
+    Returns:
+        Cleaned DataFrame with monetary column properly formatted
+    """
     if column_name in df.columns:
         df = df.copy()
         
-        print(f"Cleaning monetary column: {column_name}")
+        print(f"Cleaning monetary column: {column_name} (as_integer={as_integer})")
         
         # Apply the cleaning function to all values
         df[column_name] = df[column_name].apply(clean_monetary_value)
@@ -149,8 +158,17 @@ def clean_monetary_column(df: pd.DataFrame, column_name: str, as_integer: bool =
         negative_mask = df[column_name] < 0
         if negative_mask.any():
             negative_count = negative_mask.sum()
-            print(f"  Warning: Found {negative_count} negative values in {column_name}, converting to 0.00")
+            print(f"  Warning: Found {negative_count} negative values in {column_name}, converting to 0")
             df.loc[negative_mask, column_name] = 0.0
+        
+        # Convert to integer if requested (removes all decimals)
+        if as_integer:
+            df[column_name] = df[column_name].round(0).astype('int64')
+            print(f"  [OK] Converted to int64 (no decimals)")
+        else:
+            # Keep as float but ensure consistent precision
+            df[column_name] = df[column_name].round(2).astype('float64')
+            print(f"  [OK] Kept as float64 (2 decimals)")
         
         # Report statistics
         positive_values = (df[column_name] > 0).sum()
@@ -161,10 +179,6 @@ def clean_monetary_column(df: pd.DataFrame, column_name: str, as_integer: bool =
         print(f"    Positive values: {positive_values}")
         print(f"    Zero values: {zero_values}")
         print(f"    Total values: {total_values}")
-        
-        # Convert to integer if requested (removes decimals)
-        if as_integer:
-            df[column_name] = df[column_name].astype('int64')
         
     return df
 
@@ -211,9 +225,9 @@ def clean_monetary_value(value):
         # Handle different decimal formats
         # Case 1: European format with dots as thousands separators (155.521.600)
         if '.' in cleaned and ',' not in cleaned:
-            # Check if it's likely thousands separators (multiple dots or number after last dot > 2 digits)
+            # Check if it's likely thousands separators (multiple dots or number after last dot equals 3 digits)
             parts = cleaned.split('.')
-            if len(parts) > 2 or (len(parts) == 2 and len(parts[1]) > 2):
+            if len(parts) > 2 or (len(parts) == 2 and len(parts[1]) == 3):
                 # Treat as thousands separators, remove all dots
                 cleaned = cleaned.replace('.', '')
         
@@ -422,7 +436,7 @@ def generate_upid_for_records_simple(df: pd.DataFrame) -> pd.DataFrame:
             next_consecutive += 1
             new_upids_count += 1
     
-    print(f"✓ UPID Generation (Simple):")
+    print(f"[OK] UPID Generation (Simple):")
     print(f"  - Existing upids preserved: {len(existing_upids) - new_upids_count}")
     print(f"  - New upids generated: {new_upids_count}")
     print(f"  - Total upids: {len(existing_upids)}")
@@ -453,7 +467,7 @@ def generate_upid_for_records(df: pd.DataFrame, use_clustering: bool = True) -> 
         DataFrame with upid column and n_intervenciones populated
     """
     if not use_clustering or not CLUSTERING_AVAILABLE:
-        print("⚠️ Clustering disabled or unavailable, using simple UPID generation")
+        print("[WARNING] Clustering disabled or unavailable, using simple UPID generation")
         return generate_upid_for_records_simple(df)
     
     print(f"\n{'='*80}")
@@ -467,7 +481,7 @@ def generate_upid_for_records(df: pd.DataFrame, use_clustering: bool = True) -> 
         # Convertir de vuelta a DataFrame plano
         df_with_upids = convert_unidades_to_dataframe(unidades_dict)
         
-        print(f"\n✅ Clustering completado:")
+        print(f"\n[OK] Clustering completado:")
         print(f"   • Unidades de proyecto: {df_with_upids['upid'].nunique()}")
         print(f"   • Intervenciones totales: {len(df_with_upids)}")
         print(f"   • Promedio intervenciones/unidad: {len(df_with_upids) / df_with_upids['upid'].nunique():.2f}")
@@ -475,10 +489,10 @@ def generate_upid_for_records(df: pd.DataFrame, use_clustering: bool = True) -> 
         return df_with_upids
         
     except Exception as e:
-        print(f"❌ Error en clustering geoespacial: {e}")
+        print(f"[ERROR] Error en clustering geoespacial: {e}")
         import traceback
         traceback.print_exc()
-        print("\n⚠️ Fallback to simple UPID generation")
+        print("\n[WARNING] Fallback to simple UPID generation")
         return generate_upid_for_records_simple(df)
 
 
@@ -494,7 +508,7 @@ def add_computed_columns(df: pd.DataFrame) -> pd.DataFrame:
     for col, default_value in new_columns.items():
         result_df[col] = default_value
     
-    print(f"✓ Added computed columns: {list(new_columns.keys())}")
+    print(f"[OK] Added computed columns: {list(new_columns.keys())}")
     return result_df
 
 
@@ -519,7 +533,7 @@ def clean_numeric_column_safe(df: pd.DataFrame, column: str) -> pd.DataFrame:
 
 
 def clean_avance_obra_column(df: pd.DataFrame, column: str = 'avance_obra') -> pd.DataFrame:
-    """Clean avance_obra column - removes special characters and ensures 2 decimal places.
+    """Clean avance_obra column - removes special characters and ensures exactly 2 decimal places.
     
     Handles:
     - Percentage signs (%)
@@ -528,7 +542,7 @@ def clean_avance_obra_column(df: pd.DataFrame, column: str = 'avance_obra') -> p
     - Text like 'cero'
     - Spaces and other special characters
     
-    Returns values rounded to 2 decimal places.
+    Returns values rounded to exactly 2 decimal places, always as float.
     """
     if column not in df.columns:
         return df
@@ -537,14 +551,21 @@ def clean_avance_obra_column(df: pd.DataFrame, column: str = 'avance_obra') -> p
     
     def clean_avance_value(val):
         if pd.isna(val) or val is None:
-            return 0.0
+            return 0.00
+        
+        # Si ya es numérico, procesarlo directamente
+        if isinstance(val, (int, float)):
+            numeric_val = float(val)
+            # Limitar al rango 0-100
+            numeric_val = max(0.0, min(100.0, numeric_val))
+            return round(numeric_val, 2)
         
         # Convertir a string
         val_str = str(val).strip().lower()
         
         # Manejar valores vacíos
         if val_str in ['', 'nan', 'none', 'null']:
-            return 0.0
+            return 0.00
         
         # Reemplazar texto especial
         val_str = val_str.replace('cero', '0')
@@ -559,32 +580,40 @@ def clean_avance_obra_column(df: pd.DataFrame, column: str = 'avance_obra') -> p
         # Reemplazar coma por punto (formato decimal europeo)
         val_str = val_str.replace(',', '.')
         
-        # Eliminar cualquier caracter no numérico excepto punto (incluye signo negativo)
-        val_str = ''.join(c for c in val_str if c.isdigit() or c == '.')
+        # Eliminar cualquier caracter no numérico excepto punto y signo negativo
+        val_str = ''.join(c for c in val_str if c.isdigit() or c == '.' or c == '-')
         
         # Manejar múltiples puntos (tomar solo el primero)
         if val_str.count('.') > 1:
             parts = val_str.split('.')
             val_str = parts[0] + '.' + ''.join(parts[1:])
         
+        # Manejar casos vacíos después de limpieza
+        if not val_str or val_str in ['.', '-', '-.']:
+            return 0.00
+        
         # Convertir a número
         try:
-            numeric_val = float(val_str) if val_str else 0.0
-            # Redondear a 2 decimales
+            numeric_val = float(val_str)
+            # Limitar al rango 0-100
+            numeric_val = max(0.0, min(100.0, numeric_val))
+            # Redondear a exactamente 2 decimales
             return round(numeric_val, 2)
         except ValueError:
-            return 0.0
+            return 0.00
     
     result_df[column] = result_df[column].apply(clean_avance_value)
     
-    # Verificar valores fuera de rango (0-100)
+    # Asegurar que la columna sea float64
+    result_df[column] = result_df[column].astype('float64')
+    
+    # Verificar valores fuera de rango (0-100) - debería ser 0 después de la limpieza
     out_of_range = result_df[(result_df[column] < 0) | (result_df[column] > 100)]
     if len(out_of_range) > 0:
-        print(f"⚠️  Advertencia: {len(out_of_range)} valores de '{column}' fuera del rango 0-100")
-        # Limitar valores al rango 0-100
-        result_df[column] = result_df[column].clip(0, 100)
+        print(f"[WARNING]  Advertencia: {len(out_of_range)} valores de '{column}' fuera del rango 0-100 fueron ajustados")
+        result_df[column] = result_df[column].clip(0, 100).round(2)
     
-    print(f"✓ Columna '{column}' limpiada: valores numéricos con 2 decimales (rango 0-100)")
+    print(f"[OK] Columna '{column}' limpiada: valores numéricos con 2 decimales (rango 0-100)")
     
     return result_df
 
@@ -608,7 +637,7 @@ def clean_integer_column(df: pd.DataFrame, column: str) -> pd.DataFrame:
             invalid_count = invalid_mask.sum()
             
             if invalid_count > 0:
-                print(f"⚠️  Advertencia: {invalid_count} registros con años fuera del rango válido (2024-2030)")
+                print(f"[WARNING]  Advertencia: {invalid_count} registros con años fuera del rango válido (2024-2030)")
             
             # Asignar año por defecto (2024) a valores inválidos
             result_df.loc[invalid_mask, column] = 2024
@@ -617,10 +646,10 @@ def clean_integer_column(df: pd.DataFrame, column: str) -> pd.DataFrame:
             zero_mask = result_df[column] == 0
             zero_count = zero_mask.sum()
             if zero_count > 0:
-                print(f"⚠️  Advertencia: {zero_count} registros sin año, asignando 2024")
+                print(f"[WARNING]  Advertencia: {zero_count} registros sin año, asignando 2024")
                 result_df.loc[zero_mask, column] = 2024
             
-            print(f"✓ Columna 'ano' validada: todos los valores son enteros entre 2024-2030")
+            print(f"[OK] Columna 'ano' validada: todos los valores son enteros entre 2024-2030")
         
         return result_df
     return df
@@ -796,7 +825,7 @@ def normalize_estado_values(df: pd.DataFrame) -> pd.DataFrame:
         
         # Report unknown states found
         if unknown_states:
-            print(f"⚠️ WARNING: Found {len(unknown_states)} unknown estado values that were normalized:")
+            print(f"[WARNING] WARNING: Found {len(unknown_states)} unknown estado values that were normalized:")
             for state in sorted(unknown_states):
                 count = (df['estado'].astype(str) == state).sum()
                 print(f"   - '{state}' ({count} occurrences)")
@@ -806,9 +835,9 @@ def normalize_estado_values(df: pd.DataFrame) -> pd.DataFrame:
         invalid_final = final_states - standard_estados
         
         if invalid_final:
-            print(f"❌ ERROR: Invalid estados still present after normalization: {invalid_final}")
+            print(f"[ERROR] ERROR: Invalid estados still present after normalization: {invalid_final}")
         else:
-            print(f"✓ Estados normalizados exitosamente. Estados válidos: {sorted(final_states)}")
+            print(f"[OK] Estados normalizados exitosamente. Estados válidos: {sorted(final_states)}")
             for state in sorted(final_states):
                 count = (result_df['estado'] == state).sum()
                 print(f"   - '{state}': {count} registros")
@@ -835,7 +864,7 @@ def validate_and_normalize_category(value: Any, category_name: str, threshold: f
     standard_values = STANDARD_CATEGORIES.get(category_name, [])
     
     if not standard_values:
-        print(f"⚠️ Warning: No standard values found for category '{category_name}'")
+        print(f"[WARNING] Warning: No standard values found for category '{category_name}'")
         return val_str
     
     # Check for exact match (case-insensitive)
@@ -877,7 +906,7 @@ def normalize_categorical_column(df: pd.DataFrame, column_name: str, threshold: 
     standard_values = set(STANDARD_CATEGORIES.get(column_name, []))
     
     if not standard_values:
-        print(f"⚠️ Warning: No standard values found for '{column_name}', skipping normalization")
+        print(f"[WARNING] Warning: No standard values found for '{column_name}', skipping normalization")
         return result_df
     
     # Normalize each value
@@ -895,13 +924,13 @@ def normalize_categorical_column(df: pd.DataFrame, column_name: str, threshold: 
                 unknown_values.add(f"{original_val} -> {normalized_val}")
     
     # Report results
-    print(f"✓ Normalized '{column_name}':")
+    print(f"[OK] Normalized '{column_name}':")
     print(f"   - Total values: {total_values}")
     print(f"   - Changed: {changed_values}")
     print(f"   - Unknown: {len(unknown_values)}")
     
     if unknown_values:
-        print(f"   ⚠️ Values not matching standard categories:")
+        print(f"   [WARNING] Values not matching standard categories:")
         for unknown in sorted(unknown_values)[:5]:  # Show first 5
             print(f"      - {unknown}")
         if len(unknown_values) > 5:
@@ -968,7 +997,7 @@ def load_json_data(file_path: str) -> Optional[pd.DataFrame]:
             data = json.load(f)
         
         df = pd.DataFrame(data)
-        print(f"✓ Loaded {len(df)} records from {os.path.basename(file_path)}")
+        print(f"[OK] Loaded {len(df)} records from {os.path.basename(file_path)}")
         return df
     
     except Exception as e:
@@ -1006,8 +1035,8 @@ def unidades_proyecto_transformer(
             
             if df is not None and not df.empty:
                 print()
-                print(f"✓ Extracted {len(df):,} records from Google Drive")
-                print(f"✓ Total columns: {len(df.columns)}")
+                print(f"[OK] Extracted {len(df):,} records from Google Drive")
+                print(f"[OK] Total columns: {len(df.columns)}")
                 print()
                 
                 if process_in_memory:
@@ -1015,23 +1044,23 @@ def unidades_proyecto_transformer(
                 else:
                     return _process_unidades_proyecto_dataframe(df)
             else:
-                print("⚠️ Extraction returned empty data, falling back to file-based processing")
+                print("[WARNING] Extraction returned empty data, falling back to file-based processing")
                 
         except Exception as e:
-            print(f"⚠️ Error during Google Drive extraction: {e}")
+            print(f"[WARNING] Error during Google Drive extraction: {e}")
             print("   Falling back to file-based processing")
             import traceback
             traceback.print_exc()
     
     # Priority 2: If data is provided in memory, process it directly
     if data is not None:
-        print("🚀 Processing data in memory (no temporary files)")
+        print("[START] Processing data in memory (no temporary files)")
         if isinstance(data, list):
             df = pd.DataFrame(data)
         elif isinstance(data, pd.DataFrame):
             df = data.copy()
         else:
-            print(f"❌ Unsupported data type: {type(data)}")
+            print(f"[ERROR] Unsupported data type: {type(data)}")
             return None
         
         if process_in_memory:
@@ -1040,7 +1069,7 @@ def unidades_proyecto_transformer(
             return _process_unidades_proyecto_dataframe(df)
     
     # Priority 3: Fallback to file-based processing
-    print(f"📁 Processing data from files in: {data_directory}")
+    print(f"[FILE] Processing data from files in: {data_directory}")
     current_dir = os.path.dirname(os.path.abspath(__file__))
     directory_path = os.path.join(current_dir, data_directory)
     
@@ -1067,7 +1096,7 @@ def unidades_proyecto_transformer(
 
 
 def convert_to_geodataframe(df: pd.DataFrame) -> gpd.GeoDataFrame:
-    """Convert DataFrame to GeoDataFrame with proper geometry."""
+    """Convert DataFrame to GeoDataFrame with proper geometry validation."""
     if 'lat' not in df.columns or 'lon' not in df.columns:
         print("⚠ Warning: lat/lon columns not found, skipping geodataframe conversion")
         return df
@@ -1075,30 +1104,63 @@ def convert_to_geodataframe(df: pd.DataFrame) -> gpd.GeoDataFrame:
     gdf = df.copy()
     
     def safe_convert_to_float(value):
+        """Convierte valor a float, validando que sea numérico."""
         if pd.isna(value) or value is None:
             return None
         try:
-            return float(str(value).strip())
+            val_str = str(value).strip()
+            if val_str in ['', 'nan', 'None', 'null']:
+                return None
+            return float(val_str)
         except (ValueError, TypeError):
             return None
     
+    # Convertir lat/lon a numéricos
     gdf['lat_numeric'] = gdf['lat'].apply(safe_convert_to_float)
     gdf['lon_numeric'] = gdf['lon'].apply(safe_convert_to_float)
     
-    valid_coords = gdf['lat_numeric'].notna() & gdf['lon_numeric'].notna()
+    # Validar que están en rangos válidos para Cali
+    def is_valid_lat(lat):
+        if lat is None or pd.isna(lat):
+            return False
+        return 3.0 <= lat <= 4.0  # Rango válido para Cali
+    
+    def is_valid_lon(lon):
+        if lon is None or pd.isna(lon):
+            return False
+        return -77.0 <= lon <= -76.0  # Rango válido para Cali
+    
+    # Aplicar validaciones
+    valid_lat = gdf['lat_numeric'].apply(is_valid_lat)
+    valid_lon = gdf['lon_numeric'].apply(is_valid_lon)
+    valid_coords = valid_lat & valid_lon
+    
+    # Reportar coordenadas inválidas
+    invalid_count = (~valid_coords).sum()
+    if invalid_count > 0:
+        print(f"[WARNING]  Advertencia: {invalid_count} registros con coordenadas inválidas o fuera de rango")
+        invalid_lats = gdf[~valid_lat & gdf['lat_numeric'].notna()]['lat_numeric'].unique()
+        invalid_lons = gdf[~valid_lon & gdf['lon_numeric'].notna()]['lon_numeric'].unique()
+        if len(invalid_lats) > 0:
+            print(f"   Latitudes fuera de rango (3.0-4.0): {invalid_lats[:5]}")
+        if len(invalid_lons) > 0:
+            print(f"   Longitudes fuera de rango (-77.0 a -76.0): {invalid_lons[:5]}")
     
     if valid_coords.sum() == 0:
         print("⚠ No valid coordinates found")
+        gdf.drop(columns=['lat_numeric', 'lon_numeric'], inplace=True, errors='ignore')
         return df
     
+    # Crear geometría solo para coordenadas válidas en formato GeoJSON estándar: Point(lon, lat)
     gdf.loc[valid_coords, 'geometry'] = gdf.loc[valid_coords].apply(
         lambda row: Point(row['lon_numeric'], row['lat_numeric']), axis=1
     )
     
+    # Convertir a GeoDataFrame
     gdf = gpd.GeoDataFrame(gdf, geometry='geometry', crs='EPSG:4326')
     gdf.drop(columns=['lat_numeric', 'lon_numeric'], inplace=True, errors='ignore')
     
-    print(f"✓ GeoDataFrame created: {valid_coords.sum()} geometries")
+    print(f"[OK] GeoDataFrame created: {valid_coords.sum()} valid geometries ({valid_coords.sum()/len(gdf)*100:.1f}%)")
     return gdf
 
 
@@ -1146,27 +1208,61 @@ def correct_coordinate_formats(gdf: gpd.GeoDataFrame) -> gpd.GeoDataFrame:
         )
         result_gdf = gpd.GeoDataFrame(result_gdf, geometry='geometry', crs='EPSG:4326')
     
-    print(f"✓ Coordinates corrected: {valid_coords.sum()} valid")
+    print(f"[OK] Coordinates corrected: {valid_coords.sum()} valid")
     return result_gdf
 
 
 def create_final_geometry(gdf: gpd.GeoDataFrame) -> gpd.GeoDataFrame:
-    """Create final geometry and remove lat/lon columns."""
+    """Create final geometry and PRESERVE lat/lon columns with validation.
+    
+    IMPORTANTE: 
+    - Las columnas lat/lon se mantienen para uso posterior
+    - Valida que la geometría sea consistente con lat/lon
+    - Reconstruye geometría si es necesaria
+    """
     if 'lat' not in gdf.columns or 'lon' not in gdf.columns:
+        print("[WARNING] Warning: lat/lon columns not found")
         return gdf
     
     result_gdf = gdf.copy()
-    valid_coords = result_gdf['lat'].notna() & result_gdf['lon'].notna()
     
-    if valid_coords.sum() > 0:
-        # Note: Store as lat, lon in geometry for later spatial ops
-        result_gdf.loc[valid_coords, 'geometry'] = result_gdf.loc[valid_coords].apply(
-            lambda row: Point(row['lat'], row['lon']), axis=1
-        )
-        result_gdf = gpd.GeoDataFrame(result_gdf, geometry='geometry', crs='EPSG:4326')
+    # Validar coordenadas
+    valid_lat = result_gdf['lat'].notna() & (result_gdf['lat'].apply(lambda x: isinstance(x, (int, float)) and 3.0 <= x <= 4.0))
+    valid_lon = result_gdf['lon'].notna() & (result_gdf['lon'].apply(lambda x: isinstance(x, (int, float)) and -77.0 <= x <= -76.0))
+    valid_coords = valid_lat & valid_lon
     
-    result_gdf.drop(columns=['lat', 'lon'], inplace=True, errors='ignore')
-    print(f"✓ Final geometry created, lat/lon columns removed")
+    if valid_coords.sum() == 0:
+        print("[WARNING] No valid coordinates found in lat/lon columns")
+        return result_gdf
+    
+    # Crear/actualizar geometría para coordenadas válidas en formato GeoJSON: Point(lon, lat)
+    result_gdf.loc[valid_coords, 'geometry'] = result_gdf.loc[valid_coords].apply(
+        lambda row: Point(row['lon'], row['lat']), axis=1
+    )
+    
+    # Asegurar que es GeoDataFrame
+    result_gdf = gpd.GeoDataFrame(result_gdf, geometry='geometry', crs='EPSG:4326')
+    
+    # Validar consistencia entre geometry y lat/lon
+    inconsistent = 0
+    for idx in result_gdf[valid_coords].index:
+        geom = result_gdf.at[idx, 'geometry']
+        lat = result_gdf.at[idx, 'lat']
+        lon = result_gdf.at[idx, 'lon']
+        if geom is not None and pd.notna(geom):
+            # Verificar que geometry coincide con lat/lon (con tolerancia de 0.000001)
+            if abs(geom.x - lon) > 0.000001 or abs(geom.y - lat) > 0.000001:
+                inconsistent += 1
+                # Corregir geometría
+                result_gdf.at[idx, 'geometry'] = Point(lon, lat)
+    
+    if inconsistent > 0:
+        print(f"[WARNING]  {inconsistent} geometrías reconstruidas por inconsistencia con lat/lon")
+    
+    # [OK] CRÍTICO: NO eliminar lat/lon - se necesitan para reestructuración posterior
+    print(f"[OK] Final geometry validated: {valid_coords.sum()} valid geometries ({valid_coords.sum()/len(result_gdf)*100:.1f}%)")
+    print(f"  - lat/lon columns preserved for export")
+    
     return result_gdf
 
 
@@ -1187,11 +1283,11 @@ def consolidate_coordinates_by_upid(df: pd.DataFrame) -> pd.DataFrame:
         DataFrame con lat/lon validadas y consolidadas por UPID
     """
     if 'upid' not in df.columns:
-        print("⚠️ No hay columna 'upid', saltando consolidación de coordenadas")
+        print("[WARNING] No hay columna 'upid', saltando consolidación de coordenadas")
         return df
     
     if 'lat' not in df.columns or 'lon' not in df.columns:
-        print("⚠️ No hay columnas 'lat' y 'lon', saltando consolidación de coordenadas")
+        print("[WARNING] No hay columnas 'lat' y 'lon', saltando consolidación de coordenadas")
         return df
     
     result_df = df.copy()
@@ -1245,19 +1341,19 @@ def consolidate_coordinates_by_upid(df: pd.DataFrame) -> pd.DataFrame:
     
     stats = validator.get_statistics()
     
-    print(f"\n   ✅ Coordenadas consolidadas:")
+    print(f"\n   [OK] Coordenadas consolidadas:")
     print(f"      • Unidades totales: {unique_upids}")
     print(f"      • Unidades con coordenadas: {upids_with_coords}")
     print(f"      • Unidades con coordenadas válidas: {upids_with_valid_coords}")
     print(f"      • Cobertura: {upids_with_coords/unique_upids*100:.1f}%")
     
     if stats['inverted_coords_fixed'] > 0:
-        print(f"\n   🔧 Correcciones aplicadas:")
+        print(f"\n   [CONFIG] Correcciones aplicadas:")
         print(f"      • Coordenadas invertidas: {stats['inverted_coords_fixed']}")
         print(f"      • Separadores decimales: {stats['decimal_separator_fixed']}")
     
     if stats['out_of_range_cali'] > 0:
-        print(f"\n   ⚠️  Advertencias:")
+        print(f"\n   [WARNING]  Advertencias:")
         print(f"      • Unidades fuera de Cali: {stats['out_of_range_cali']}")
     
     return result_df
@@ -1276,7 +1372,7 @@ def consolidate_geometry_by_upid(gdf: gpd.GeoDataFrame) -> gpd.GeoDataFrame:
         GeoDataFrame con geometrías consolidadas por UPID
     """
     if 'upid' not in gdf.columns:
-        print("⚠️ No hay columna 'upid', saltando consolidación de geometría")
+        print("[WARNING] No hay columna 'upid', saltando consolidación de geometría")
         return gdf
     
     result_gdf = gdf.copy()
@@ -1312,7 +1408,7 @@ def consolidate_geometry_by_upid(gdf: gpd.GeoDataFrame) -> gpd.GeoDataFrame:
     unique_upids = result_gdf['upid'].nunique()
     upids_with_geom = len([g for g in upid_geometry_map.values() if g is not None])
     
-    print(f"   ✅ Geometrías consolidadas:")
+    print(f"   [OK] Geometrías consolidadas:")
     print(f"      • Unidades totales: {unique_upids}")
     print(f"      • Unidades con geometría: {upids_with_geom}")
     print(f"      • Cobertura: {upids_with_geom/unique_upids*100:.1f}%")
@@ -1338,23 +1434,35 @@ def perform_spatial_intersection(gdf: gpd.GeoDataFrame, basemap_name: str, outpu
     valid_geom = gdf_temp['geometry'].notna()
     
     if valid_geom.sum() == 0:
+        print(f"⚠ No valid geometries for spatial intersection: {output_column}")
         gdf[output_column] = None
         return gdf
     
-    # Swap coordinates for spatial operations: Point(lat, lon) -> Point(lon, lat)
-    gdf_temp.loc[valid_geom, 'geometry'] = gdf_temp.loc[valid_geom, 'geometry'].apply(
-        lambda geom: Point(geom.y, geom.x) if geom else None
-    )
+    # Las geometrías ya están en formato correcto Point(lon, lat)
+    # NO intercambiar coordenadas - usar geometrías tal como están
     
     column_name = 'barrio_vereda' if 'barrio_vereda' in basemap_gdf.columns else 'comuna_corregimiento'
-    gdf_joined = gpd.sjoin(gdf_temp, basemap_gdf[['geometry', column_name]], how='left', predicate='within')
     
-    gdf[output_column] = gdf_joined[f'{column_name}_right'] if f'{column_name}_right' in gdf_joined.columns else gdf_joined.get(column_name)
+    # Realizar spatial join con las geometrías válidas
+    gdf_joined = gpd.sjoin(gdf_temp[valid_geom], basemap_gdf[['geometry', column_name]], how='left', predicate='within')
+    
+    # Asignar resultados solo a las filas con geometría válida
+    if f'{column_name}_right' in gdf_joined.columns:
+        gdf.loc[valid_geom, output_column] = gdf_joined[f'{column_name}_right'].values
+    elif column_name in gdf_joined.columns:
+        gdf.loc[valid_geom, output_column] = gdf_joined[column_name].values
+    else:
+        gdf[output_column] = None
+    
+    # Rellenar con None las filas sin geometría
+    gdf.loc[~valid_geom, output_column] = None
     
     if 'index_right' in gdf.columns:
         gdf.drop(columns=['index_right'], inplace=True)
     
-    print(f"✓ Spatial intersection completed: {output_column} ({gdf[output_column].notna().sum()} assigned)")
+    assigned_count = gdf[output_column].notna().sum()
+    print(f"[OK] Spatial intersection completed: {output_column} ({assigned_count} assigned)")
+    
     return gdf
 
 
@@ -1483,9 +1591,9 @@ def normalize_administrative_values(gdf: gpd.GeoDataFrame) -> gpd.GeoDataFrame:
             if normalized_count > 0:
                 print(f"  Normalized {normalized_count} values in '{col}' to standard basemap values")
             if no_match_count > 0:
-                print(f"  ⚠️  {no_match_count} values in '{col}' not found in basemap (kept original)")
+                print(f"  [WARNING]  {no_match_count} values in '{col}' not found in basemap (kept original)")
     
-    print("✓ Administrative values normalized to basemap standards")
+    print("[OK] Administrative values normalized to basemap standards")
     return result_gdf
 
 
@@ -1517,7 +1625,7 @@ def create_validation_column(gdf: gpd.GeoDataFrame) -> gpd.GeoDataFrame:
     result_gdf.loc[aceptable, 'fuera_rango'] = 'ACEPTABLE'
     result_gdf.loc[fuera_rango, 'fuera_rango'] = 'FUERA DE RANGO'
     
-    print(f"✓ Validation column created: {aceptable.sum()} ACEPTABLE, {fuera_rango.sum()} FUERA DE RANGO")
+    print(f"[OK] Validation column created: {aceptable.sum()} ACEPTABLE, {fuera_rango.sum()} FUERA DE RANGO")
     return result_gdf
 
 
@@ -1595,12 +1703,12 @@ def standardize_dates(gdf: gpd.GeoDataFrame) -> gpd.GeoDataFrame:
             # Apply parse_date which now validates the content
             result_gdf['fecha_inicio_std'] = result_gdf['fecha_inicio'].apply(parse_date)
             valid_count = result_gdf['fecha_inicio_std'].notna().sum()
-            print(f"✓ fecha_inicio standardized: {valid_count} valid")
+            print(f"[OK] fecha_inicio standardized: {valid_count} valid")
             
             # Warn if conversion rate is very low (possible wrong column)
             total_non_null = result_gdf['fecha_inicio'].notna().sum()
             if total_non_null > 0 and valid_count / total_non_null < 0.1:
-                print(f"  ⚠️ Warning: Low conversion rate ({valid_count}/{total_non_null}), column may not contain dates")
+                print(f"  [WARNING] Warning: Low conversion rate ({valid_count}/{total_non_null}), column may not contain dates")
     
     if 'fecha_fin' in result_gdf.columns:
         # Check if the column actually contains date-like values
@@ -1608,12 +1716,110 @@ def standardize_dates(gdf: gpd.GeoDataFrame) -> gpd.GeoDataFrame:
         if len(sample_values) > 0:
             result_gdf['fecha_fin_std'] = result_gdf['fecha_fin'].apply(parse_date)
             valid_count = result_gdf['fecha_fin_std'].notna().sum()
-            print(f"✓ fecha_fin standardized: {valid_count} valid")
+            print(f"[OK] fecha_fin standardized: {valid_count} valid")
             
             # Warn if conversion rate is very low
             total_non_null = result_gdf['fecha_fin'].notna().sum()
             if total_non_null > 0 and valid_count / total_non_null < 0.1:
-                print(f"  ⚠️ Warning: Low conversion rate ({valid_count}/{total_non_null}), column may not contain dates")
+                print(f"  [WARNING] Warning: Low conversion rate ({valid_count}/{total_non_null}), column may not contain dates")
+    
+    return result_gdf
+
+
+def infer_missing_categorical_values(gdf: gpd.GeoDataFrame) -> gpd.GeoDataFrame:
+    """
+    Infiere valores faltantes de clase_up y tipo_equipamiento basándose en
+    nombre_centro_gestor, nombre_up y nombre_up_detalle cuando están ausentes (NaN).
+    
+    Esta función es crítica para que la detección de frentes activos funcione
+    correctamente con datos incompletos.
+    
+    Reglas de inferencia:
+    1. Si nombre_up contiene "IPS" y tipo_equipamiento es NaN:
+       → tipo_equipamiento = "IPS"
+       → clase_up = "Obras equipamientos" (si también es NaN)
+    
+    2. Si nombre_centro_gestor = "Secretaría de Salud Pública":
+       → clase_up = "Obras equipamientos" (si es NaN)
+       → tipo_equipamiento = "IPS" (si es NaN y no se infirió en regla 1)
+    
+    Args:
+        gdf: GeoDataFrame con los datos
+        
+    Returns:
+        GeoDataFrame con valores inferidos
+    """
+    result_gdf = gdf.copy()
+    
+    # Asegurar que las columnas existen
+    if 'clase_up' not in result_gdf.columns:
+        result_gdf['clase_up'] = None
+    if 'tipo_equipamiento' not in result_gdf.columns:
+        result_gdf['tipo_equipamiento'] = None
+    
+    # Contador de inferencias
+    inferencias = {
+        'tipo_equipamiento_ips': 0,
+        'clase_up_ips': 0,
+        'clase_up_salud': 0,
+        'tipo_equipamiento_salud': 0
+    }
+    
+    # Regla 1: Detectar IPS por nombre_up
+    if 'nombre_up' in result_gdf.columns:
+        # Buscar registros que contengan "IPS" en nombre_up (case-insensitive)
+        mask_ips_nombre = (
+            result_gdf['nombre_up'].fillna('').str.upper().str.contains('IPS', regex=False) &
+            (result_gdf['tipo_equipamiento'].isna() | (result_gdf['tipo_equipamiento'] == ''))
+        )
+        
+        if mask_ips_nombre.sum() > 0:
+            result_gdf.loc[mask_ips_nombre, 'tipo_equipamiento'] = 'IPS'
+            inferencias['tipo_equipamiento_ips'] = mask_ips_nombre.sum()
+            
+            # También asignar clase_up si está vacío
+            mask_clase_ips = mask_ips_nombre & (
+                result_gdf['clase_up'].isna() | 
+                (result_gdf['clase_up'] == '')
+            )
+            if mask_clase_ips.sum() > 0:
+                result_gdf.loc[mask_clase_ips, 'clase_up'] = 'Obras equipamientos'
+                inferencias['clase_up_ips'] = mask_clase_ips.sum()
+    
+    # Regla 2: Secretaría de Salud Pública (para casos que no se cubrieron con regla 1)
+    if 'nombre_centro_gestor' in result_gdf.columns:
+        mask_salud_publica = (
+            (result_gdf['nombre_centro_gestor'] == 'Secretaría de Salud Pública') &
+            (result_gdf['clase_up'].isna() | (result_gdf['clase_up'] == ''))
+        )
+        
+        if mask_salud_publica.sum() > 0:
+            result_gdf.loc[mask_salud_publica, 'clase_up'] = 'Obras equipamientos'
+            inferencias['clase_up_salud'] = mask_salud_publica.sum()
+            
+            # También inferir tipo_equipamiento si está vacío (y no se infirió como IPS)
+            mask_tipo_vacio = mask_salud_publica & (
+                result_gdf['tipo_equipamiento'].isna() | 
+                (result_gdf['tipo_equipamiento'] == '')
+            )
+            if mask_tipo_vacio.sum() > 0:
+                result_gdf.loc[mask_tipo_vacio, 'tipo_equipamiento'] = 'IPS'
+                inferencias['tipo_equipamiento_salud'] = mask_tipo_vacio.sum()
+    
+    # Reportar inferencias realizadas
+    total_inferencias = sum(inferencias.values())
+    if total_inferencias > 0:
+        print(f"[OK] Valores categóricos inferidos:")
+        if inferencias['tipo_equipamiento_ips'] > 0:
+            print(f"   - tipo_equipamiento 'IPS' detectado por nombre: {inferencias['tipo_equipamiento_ips']} registros")
+        if inferencias['clase_up_ips'] > 0:
+            print(f"   - clase_up 'Obras equipamientos' para registros IPS: {inferencias['clase_up_ips']} registros")
+        if inferencias['clase_up_salud'] > 0:
+            print(f"   - clase_up 'Obras equipamientos' para Salud Pública: {inferencias['clase_up_salud']} registros")
+        if inferencias['tipo_equipamiento_salud'] > 0:
+            print(f"   - tipo_equipamiento 'IPS' para Salud Pública: {inferencias['tipo_equipamiento_salud']} registros")
+    else:
+        print("[OK] No se requirieron inferencias de valores categóricos")
     
     return result_gdf
 
@@ -1680,7 +1886,7 @@ def add_frente_activo(gdf: gpd.GeoDataFrame) -> gpd.GeoDataFrame:
     inactivo_count = (result_gdf['frente_activo'] == 'Inactivo').sum()
     no_aplica_count = (result_gdf['frente_activo'] == 'No aplica').sum()
     
-    print(f"✓ Columna 'frente_activo' agregada:")
+    print(f"[OK] Columna 'frente_activo' agregada:")
     print(f"   - Frente activo: {frente_activo_count} registros")
     print(f"   - Inactivo: {inactivo_count} registros")
     print(f"   - No aplica: {no_aplica_count} registros")
@@ -1700,7 +1906,7 @@ def restructure_by_upid(gdf: gpd.GeoDataFrame) -> gpd.GeoDataFrame:
     Returns:
         GeoDataFrame con una fila por unidad de proyecto
     """
-    print(f"\n🔄 Reestructurando GeoJSON por unidades de proyecto...")
+    print(f"\n[SYNC] Reestructurando GeoJSON por unidades de proyecto...")
     
     # Campos a nivel de unidad de proyecto (no varían por intervención)
     unidad_fields = [
@@ -1709,6 +1915,7 @@ def restructure_by_upid(gdf: gpd.GeoDataFrame) -> gpd.GeoDataFrame:
         'comuna_corregimiento', 'comuna_corregimiento_2',
         'barrio_vereda', 'barrio_vereda_2',
         'identificador', 'bpin', 'centros_gravedad',
+        'lat', 'lon',  # [OK] CRÍTICO: Preservar coordenadas lat/lon
         'geometry'
     ]
     
@@ -1738,7 +1945,52 @@ def restructure_by_upid(gdf: gpd.GeoDataFrame) -> gpd.GeoDataFrame:
         first_row = upid_group.iloc[0]
         for field in unidad_fields:
             if field in gdf.columns:
-                unidad[field] = first_row[field]
+                valor = first_row[field]
+                
+                # Preservar lat/lon si son numéricos (sin validar rango aquí)
+                # Es mejor preservar coordenadas que perderlas completamente
+                # Si no están disponibles como columnas, extraerlas de geometry
+                if field == 'lat':
+                    if pd.notna(valor) and isinstance(valor, (int, float)):
+                        unidad[field] = float(valor)
+                    elif 'geometry' in first_row:
+                        # Intentar extraer de geometry
+                        geom = first_row.get('geometry')
+                        if pd.notna(geom) and geom is not None and hasattr(geom, 'y'):
+                            unidad[field] = float(geom.y)
+                        else:
+                            unidad[field] = None
+                    else:
+                        unidad[field] = None
+                elif field == 'lon':
+                    if pd.notna(valor) and isinstance(valor, (int, float)):
+                        unidad[field] = float(valor)
+                    elif 'geometry' in first_row:
+                        # Intentar extraer de geometry
+                        geom = first_row.get('geometry')
+                        if pd.notna(geom) and geom is not None and hasattr(geom, 'x'):
+                            unidad[field] = float(geom.x)
+                        else:
+                            unidad[field] = None
+                    else:
+                        unidad[field] = None
+                # Preservar geometry siempre que sea válida (sin validar rango)
+                elif field == 'geometry':
+                    if pd.notna(valor) and valor is not None and hasattr(valor, 'x') and hasattr(valor, 'y'):
+                        # Preservar geometry siempre que tenga coordenadas
+                        # La validación de rango se hace en el campo 'fuera_rango'
+                        unidad[field] = valor
+                    else:
+                        # Si no hay geometry pero hay lat/lon, intentar reconstruir aquí
+                        lat = first_row.get('lat') if 'lat' in first_row else None
+                        lon = first_row.get('lon') if 'lon' in first_row else None
+                        if pd.notna(lat) and pd.notna(lon) and isinstance(lat, (int, float)) and isinstance(lon, (int, float)):
+                            from shapely.geometry import Point
+                            unidad[field] = Point(float(lon), float(lat))
+                        else:
+                            unidad[field] = None
+                else:
+                    unidad[field] = valor
         
         # Crear array de intervenciones
         intervenciones = []
@@ -1747,8 +1999,29 @@ def restructure_by_upid(gdf: gpd.GeoDataFrame) -> gpd.GeoDataFrame:
             for field in intervencion_fields:
                 if field in gdf.columns:
                     valor = row[field]
-                    # Convertir tipos numpy a tipos nativos Python
-                    if isinstance(valor, (list, np.ndarray)):
+                    
+                    # Manejo especial para presupuesto_base (siempre entero, sin decimales)
+                    if field == 'presupuesto_base':
+                        if pd.isna(valor) or valor is None:
+                            intervencion[field] = 0
+                        else:
+                            try:
+                                intervencion[field] = int(float(valor))
+                            except (ValueError, TypeError):
+                                intervencion[field] = 0
+                    
+                    # Manejo especial para avance_obra (máximo 2 decimales)
+                    elif field == 'avance_obra':
+                        if pd.isna(valor) or valor is None:
+                            intervencion[field] = 0.0
+                        else:
+                            try:
+                                intervencion[field] = round(float(valor), 2)
+                            except (ValueError, TypeError):
+                                intervencion[field] = 0.0
+                    
+                    # Convertir tipos numpy a tipos nativos Python (otros campos)
+                    elif isinstance(valor, (list, np.ndarray)):
                         # Es un array o lista
                         if isinstance(valor, np.ndarray):
                             intervencion[field] = valor.tolist()
@@ -1770,21 +2043,94 @@ def restructure_by_upid(gdf: gpd.GeoDataFrame) -> gpd.GeoDataFrame:
         
         # Agregar array de intervenciones a la unidad
         unidad['intervenciones'] = intervenciones
+        
+        # Agregar métricas agregadas a nivel de unidad (para consultas frontend)
+        # Estas son SUM de todas las intervenciones de la unidad
+        presupuestos = [i.get('presupuesto_base', 0) for i in intervenciones if i.get('presupuesto_base', 0) > 0]
+        unidad['presupuesto_base'] = sum(presupuestos) if presupuestos else 0
+        
+        # Avance promedio ponderado por presupuesto (o promedio simple si no hay presupuestos)
+        avances_con_ppto = [(i.get('avance_obra', 0), i.get('presupuesto_base', 0)) 
+                            for i in intervenciones 
+                            if i.get('presupuesto_base', 0) > 0]
+        if avances_con_ppto:
+            total_ppto = sum(p for _, p in avances_con_ppto)
+            if total_ppto > 0:
+                unidad['avance_obra'] = sum(a * p for a, p in avances_con_ppto) / total_ppto
+            else:
+                avances = [i.get('avance_obra', 0) for i in intervenciones]
+                unidad['avance_obra'] = sum(avances) / len(avances) if avances else 0.0
+        else:
+            avances = [i.get('avance_obra', 0) for i in intervenciones]
+            unidad['avance_obra'] = sum(avances) / len(avances) if avances else 0.0
+        
+        # Redondear avance a 2 decimales
+        unidad['avance_obra'] = round(unidad['avance_obra'], 2)
+        
         unidades_list.append(unidad)
     
     # Crear nuevo GeoDataFrame con estructura de unidades
     gdf_unidades = gpd.GeoDataFrame(unidades_list, crs=gdf.crs)
     
-    print(f"   ✅ Estructura reestructurada:")
+    # Validar consistencia entre geometry y lat/lon
+    geometries_validas = gdf_unidades['geometry'].notna().sum()
+    coords_validas = (gdf_unidades['lat'].notna() & gdf_unidades['lon'].notna()).sum()
+    
+    # Reconstruir geometría si falta pero hay lat/lon válidas
+    # También actualizar lat/lon si faltan pero hay geometry válida
+    geometrias_reconstruidas = 0
+    coords_reconstruidas = 0
+    
+    for idx in gdf_unidades.index:
+        geom = gdf_unidades.at[idx, 'geometry']
+        lat = gdf_unidades.at[idx, 'lat']
+        lon = gdf_unidades.at[idx, 'lon']
+        
+        # Caso 1: No hay geometría pero hay coordenadas -> crear geometría
+        if (geom is None or pd.isna(geom)) and pd.notna(lat) and pd.notna(lon):
+            if isinstance(lat, (int, float)) and isinstance(lon, (int, float)):
+                gdf_unidades.at[idx, 'geometry'] = Point(float(lon), float(lat))
+                geometrias_reconstruidas += 1
+        
+        # Caso 2: Hay geometría pero no hay lat/lon -> extraer de geometría
+        elif pd.notna(geom) and hasattr(geom, 'x') and hasattr(geom, 'y'):
+            if pd.isna(lat) or not isinstance(lat, (int, float)):
+                gdf_unidades.at[idx, 'lat'] = float(geom.y)
+                coords_reconstruidas += 1
+            if pd.isna(lon) or not isinstance(lon, (int, float)):
+                gdf_unidades.at[idx, 'lon'] = float(geom.x)
+                if pd.isna(lat) or not isinstance(lat, (int, float)):
+                    # Solo contar una vez por registro
+                    pass
+                else:
+                    coords_reconstruidas += 1
+    
+    if geometrias_reconstruidas > 0:
+        print(f"   [CONFIG] {geometrias_reconstruidas} geometrías reconstruidas desde lat/lon")
+    if coords_reconstruidas > 0:
+        print(f"   [CONFIG] {coords_reconstruidas} coordenadas lat/lon extraídas desde geometry")
+    
+    # Actualizar estadísticas después de reconstrucción
+    geometries_validas_final = gdf_unidades['geometry'].notna().sum()
+    coords_validas_final = (gdf_unidades['lat'].notna() & gdf_unidades['lon'].notna()).sum()
+    
+    print(f"   [OK] Estructura reestructurada:")
     print(f"      • Unidades de proyecto: {len(gdf_unidades)}")
-    print(f"      • Unidades con geometry: {gdf_unidades['geometry'].notna().sum()}")
+    print(f"      • Unidades con geometry válida: {geometries_validas_final}")
+    print(f"      • Unidades con lat/lon válidas: {coords_validas_final}")
     print(f"      • Total intervenciones: {sum(len(u['intervenciones']) for u in unidades_list)}")
     
     return gdf_unidades
 
 
 def export_to_geojson(gdf: gpd.GeoDataFrame, output_dir: Path) -> Path:
-    """Export GeoDataFrame to GeoJSON with lon, lat format (will be converted to lat, lon during Firebase load)."""
+    """Export GeoDataFrame to GeoJSON ensuring geometry is valid for map visualization.
+    
+    IMPORTANTE:
+    - Las columnas lat/lon NO se incluyen en properties (solo en geometry)
+    - La geometría se valida y reconstruye si es necesario
+    - Formato GeoJSON estándar: [lon, lat] para visualización en mapas
+    """
     output_dir.mkdir(exist_ok=True, parents=True)
     output_file = output_dir / 'unidades_proyecto_transformed.geojson'
     
@@ -1792,6 +2138,25 @@ def export_to_geojson(gdf: gpd.GeoDataFrame, output_dir: Path) -> Path:
     gdf_restructured = restructure_by_upid(gdf)
     
     gdf_export = gdf_restructured.copy()
+    
+    # [OK] CRÍTICO: Asegurar que todas las geometrías sean válidas antes de exportar
+    # Si hay lat/lon pero no geometry, reconstruir (sin validar rango estricto)
+    geometries_reconstruidas = 0
+    for idx in gdf_export.index:
+        geom = gdf_export.at[idx, 'geometry']
+        lat = gdf_export.at[idx, 'lat'] if 'lat' in gdf_export.columns else None
+        lon = gdf_export.at[idx, 'lon'] if 'lon' in gdf_export.columns else None
+        
+        # Si no hay geometry válida pero hay coordenadas, reconstruir
+        if (geom is None or pd.isna(geom) or not hasattr(geom, 'x')) and pd.notna(lat) and pd.notna(lon):
+            if isinstance(lat, (int, float)) and isinstance(lon, (int, float)):
+                gdf_export.at[idx, 'geometry'] = Point(float(lon), float(lat))
+                geometries_reconstruidas += 1
+    
+    if geometries_reconstruidas > 0:
+        print(f"   [CONFIG] {geometries_reconstruidas} geometrías reconstruidas desde lat/lon")
+    
+    gdf_export = gpd.GeoDataFrame(gdf_export, geometry='geometry', crs='EPSG:4326')
     
     # Convertir la columna 'intervenciones' (lista de dicts) a JSON string para exportación
     # GeoPandas no maneja correctamente listas de diccionarios complejos
@@ -1819,15 +2184,9 @@ def export_to_geojson(gdf: gpd.GeoDataFrame, output_dir: Path) -> Path:
                         except:
                             pass  # Keep original value if encoding fails
     
-    # Convert geometry to standard lon, lat format (GeoJSON standard)
-    # Note: Firebase load will convert to [lat, lon] for Next.js/API compatibility
-    for idx in gdf_export.index:
-        geom = gdf_export.at[idx, 'geometry']
-        if pd.notna(geom) and geom is not None:
-            try:
-                gdf_export.at[idx, 'geometry'] = Point(geom.y, geom.x)
-            except:
-                pass  # Keep original geometry if conversion fails
+    # [OK] NO convertir/invertir geometry - ya está en formato correcto Point(lon, lat)
+    # La geometría se creó correctamente en create_final_geometry() como Point(lon, lat)
+    # Mantenerla tal cual para GeoJSON estándar
     
     # Convert datetime to string (only for actual datetime columns)
     for col in ['fecha_inicio_std', 'fecha_fin_std']:
@@ -1849,23 +2208,49 @@ def export_to_geojson(gdf: gpd.GeoDataFrame, output_dir: Path) -> Path:
             "properties": {}
         }
         
-        # Agregar geometry si existe
+        # Agregar geometry si existe (con validación y fallback a lat/lon)
         geom = row.get('geometry')
-        if pd.notna(geom) and geom is not None:
-            try:
-                # Convertir a formato GeoJSON (lon, lat)
-                # En shapely: geom.x es longitud, geom.y es latitud
-                # GeoJSON requiere [lon, lat], por lo tanto [x, y]
-                feature['geometry'] = {
-                    "type": "Point",
-                    "coordinates": [geom.x, geom.y]  # lon, lat
-                }
-            except:
-                feature['geometry'] = None
+        lat = row.get('lat')
+        lon = row.get('lon')
         
-        # Agregar properties
+        # Intentar usar geometry primero
+        if pd.notna(geom) and geom is not None and hasattr(geom, 'x') and hasattr(geom, 'y'):
+            try:
+                # Validar que las coordenadas estén en rangos válidos
+                if -77.0 <= geom.x <= -76.0 and 3.0 <= geom.y <= 4.0:
+                    # GeoJSON estándar: [lon, lat] = [x, y]
+                    feature['geometry'] = {
+                        "type": "Point",
+                        "coordinates": [geom.x, geom.y]  # lon, lat
+                    }
+                else:
+                    # Geometry fuera de rango, intentar con lat/lon
+                    if pd.notna(lat) and pd.notna(lon) and -77.0 <= lon <= -76.0 and 3.0 <= lat <= 4.0:
+                        feature['geometry'] = {
+                            "type": "Point",
+                            "coordinates": [lon, lat]  # lon, lat
+                        }
+            except Exception as e:
+                # Error al procesar geometry, intentar con lat/lon
+                if pd.notna(lat) and pd.notna(lon) and -77.0 <= lon <= -76.0 and 3.0 <= lat <= 4.0:
+                    feature['geometry'] = {
+                        "type": "Point",
+                        "coordinates": [lon, lat]  # lon, lat
+                    }
+        # Si no hay geometry válida, usar lat/lon directamente
+        elif pd.notna(lat) and pd.notna(lon):
+            try:
+                if -77.0 <= lon <= -76.0 and 3.0 <= lat <= 4.0:
+                    feature['geometry'] = {
+                        "type": "Point",
+                        "coordinates": [lon, lat]  # lon, lat
+                    }
+            except:
+                pass  # Sin geometría válida
+        
+        # Agregar properties (INCLUIR lat/lon como campos redundantes para análisis)
         for col in gdf_export.columns:
-            if col != 'geometry':
+            if col not in ['geometry']:  # Solo excluir geometry, incluir lat/lon
                 valor = row[col]
                 
                 # Manejar diferentes tipos de datos
@@ -1913,7 +2298,27 @@ def export_to_geojson(gdf: gpd.GeoDataFrame, output_dir: Path) -> Path:
     with open(output_file, 'w', encoding='utf-8') as f:
         json.dump(geojson_data, f, ensure_ascii=False, indent=2)
     
-    print(f"✓ GeoJSON exported: {output_file.name} ({output_file.stat().st_size / 1024:.2f} KB)")
+    # Calcular estadísticas de geometrías exportadas
+    features_con_geometry = sum(1 for f in features if f['geometry'] is not None)
+    features_sin_geometry = len(features) - features_con_geometry
+    
+    # Validar que las geometrías sean visualizables (coordenadas en rangos válidos)
+    geometrias_visualizables = 0
+    for f in features:
+        if f['geometry'] is not None and 'coordinates' in f['geometry']:
+            coords = f['geometry']['coordinates']
+            if len(coords) == 2:
+                lon, lat = coords
+                if -77.0 <= lon <= -76.0 and 3.0 <= lat <= 4.0:
+                    geometrias_visualizables += 1
+    
+    print(f"[OK] GeoJSON exported: {output_file.name} ({output_file.stat().st_size / 1024:.2f} KB)")
+    print(f"  - Total features: {len(features)}")
+    print(f"  - Con geometría: {features_con_geometry} ({features_con_geometry/len(features)*100:.1f}%)")
+    print(f"  - Geometrías visualizables en mapa: {geometrias_visualizables} ({geometrias_visualizables/len(features)*100:.1f}%)")
+    print(f"  - Sin geometría: {features_sin_geometry}")
+    print(f"  [OK] Columnas lat/lon INCLUIDAS en properties como campos redundantes")
+    
     return output_file
 
 
@@ -1977,7 +2382,7 @@ def generate_metrics_log(gdf: gpd.GeoDataFrame, original_df: pd.DataFrame, outpu
     with open(metrics_file, 'w', encoding='utf-8') as f:
         json.dump(metrics, f, ensure_ascii=False, indent=2)
     
-    print(f"✓ Metrics saved: {metrics_file.name}")
+    print(f"[OK] Metrics saved: {metrics_file.name}")
     return metrics, metrics_file
 
 
@@ -2001,7 +2406,7 @@ def generate_analysis_report(metrics_file: Path, gdf: gpd.GeoDataFrame) -> Dict[
     with open(metrics_file, 'r', encoding='utf-8') as f:
         metrics_data = json.load(f)
     
-    print(f"✓ Métricas cargadas desde: {metrics_file.name}")
+    print(f"[OK] Métricas cargadas desde: {metrics_file.name}")
     print()
     
     # Extract key metrics
@@ -2135,7 +2540,7 @@ def generate_analysis_report(metrics_file: Path, gdf: gpd.GeoDataFrame) -> Dict[
     with open(report_json_file, 'w', encoding='utf-8') as f:
         json.dump(report, f, ensure_ascii=False, indent=2)
     
-    print(f"✓ Reporte JSON guardado: {report_json_file.name}")
+    print(f"[OK] Reporte JSON guardado: {report_json_file.name}")
     print(f"  Tamaño: {report_json_file.stat().st_size / 1024:.2f} KB")
     print()
     
@@ -2150,7 +2555,7 @@ def generate_analysis_report(metrics_file: Path, gdf: gpd.GeoDataFrame) -> Dict[
         "",
         "---",
         "",
-        "## 📊 Resumen Ejecutivo",
+        "## [DATA] Resumen Ejecutivo",
         "",
         f"**Total de Registros Procesados:** {report['resumen_ejecutivo']['total_registros']:,}",
         "",
@@ -2172,13 +2577,13 @@ def generate_analysis_report(metrics_file: Path, gdf: gpd.GeoDataFrame) -> Dict[
         f"- **Con Fechas:** {report['resumen_ejecutivo']['indicadores_clave']['completitud_temporal']['registros_con_fechas']:,} registros",
         f"- **Sin Fechas:** {report['resumen_ejecutivo']['indicadores_clave']['completitud_temporal']['registros_sin_fechas']:,} registros",
         "",
-        "#### ✅ Validación Espacial",
+        "#### [OK] Validación Espacial",
         f"- **Registros Aceptables:** {report['resumen_ejecutivo']['indicadores_clave']['validacion_espacial']['registros_aceptables']:,} ({report['resumen_ejecutivo']['indicadores_clave']['validacion_espacial']['porcentaje_aceptable']:.1f}%)",
         f"- **Registros Inválidos:** {report['resumen_ejecutivo']['indicadores_clave']['validacion_espacial']['registros_invalidos']:,}",
         "",
         "---",
         "",
-        "## 📈 Análisis Detallado",
+        "## [STATS] Análisis Detallado",
         "",
         "### Procesamiento de Datos",
         f"- Registros cargados: {report['analisis_detallado']['procesamiento_datos']['registros_cargados']:,}",
@@ -2193,7 +2598,7 @@ def generate_analysis_report(metrics_file: Path, gdf: gpd.GeoDataFrame) -> Dict[
         "",
         "---",
         "",
-        "## 🎯 Recomendaciones",
+        "## [SUCCESS] Recomendaciones",
         ""
     ]
     
@@ -2228,7 +2633,7 @@ def generate_analysis_report(metrics_file: Path, gdf: gpd.GeoDataFrame) -> Dict[
     md_lines.extend([
         "---",
         "",
-        "## 📊 Métricas de Calidad",
+        "## [DATA] Métricas de Calidad",
         "",
         "### Completitud",
         f"- **Geométrica:** {report['metricas_calidad']['completitud']['geometrica']:.1f}%",
@@ -2247,19 +2652,19 @@ def generate_analysis_report(metrics_file: Path, gdf: gpd.GeoDataFrame) -> Dict[
     with open(report_md_file, 'w', encoding='utf-8') as f:
         f.write('\n'.join(md_lines))
     
-    print(f"✓ Reporte Markdown guardado: {report_md_file.name}")
+    print(f"[OK] Reporte Markdown guardado: {report_md_file.name}")
     print(f"  Tamaño: {report_md_file.stat().st_size / 1024:.2f} KB")
     print()
     
     print("=" * 80)
-    print("✓ GENERACIÓN DE REPORTES COMPLETADA")
+    print("[OK] GENERACIÓN DE REPORTES COMPLETADA")
     print("=" * 80)
     print()
     print(f"📂 Archivos generados:")
     print(f"   - JSON: {report_json_file}")
     print(f"   - Markdown: {report_md_file}")
     print()
-    print(f"📊 Resumen:")
+    print(f"[DATA] Resumen:")
     print(f"   - Calidad Global: {quality_score:.1f}% ({spatial_quality})")
     print(f"   - Recomendaciones: {len(recommendations)}")
     print(f"   - Acciones Prioritarias: {len(report['acciones_prioritarias'])}")
@@ -2329,6 +2734,10 @@ def _process_unidades_proyecto_dataframe(df: pd.DataFrame) -> gpd.GeoDataFrame:
     print("\n[Phase 5: Date Standardization]")
     gdf = standardize_dates(gdf)
     
+    # Phase 5.4: Infer missing categorical values
+    print("\n[Phase 5.4: Inferencia de Valores Categóricos]")
+    gdf = infer_missing_categorical_values(gdf)
+    
     # Phase 5.5: Add frente_activo column
     print("\n[Phase 5.5: Frente Activo]")
     gdf = add_frente_activo(gdf)
@@ -2345,10 +2754,10 @@ def _process_unidades_proyecto_dataframe(df: pd.DataFrame) -> gpd.GeoDataFrame:
     # Generate comprehensive analysis and recommendations report
     report_files = generate_analysis_report(metrics_file, gdf)
     
-    print(f"\n✓ Processing completed: {len(gdf)} rows, {len(gdf.columns)} columns")
-    print(f"✓ Quality score: {metrics['summary']['data_quality_score']:.1f}%")
-    print(f"✓ Geometry completeness: {metrics['summary']['geometry_completeness']:.1f}%")
-    print(f"\n📁 Output files:")
+    print(f"\n[OK] Processing completed: {len(gdf)} rows, {len(gdf.columns)} columns")
+    print(f"[OK] Quality score: {metrics['summary']['data_quality_score']:.1f}%")
+    print(f"[OK] Geometry completeness: {metrics['summary']['geometry_completeness']:.1f}%")
+    print(f"\n[FILE] Output files:")
     print(f"   - GeoJSON: {output_file}")
     print(f"   - Metrics: {metrics_file}")
     print(f"   - Report (JSON): {report_files['json']}")
@@ -2412,11 +2821,14 @@ def transform_and_save_unidades_proyecto(
                     current_dir = Path(__file__).parent.parent
                     output_dir = current_dir / 'app_outputs'
                     
+                    # CRÍTICO: NO eliminar GeoJSON después de subir a S3
+                    # El pipeline necesita el archivo para verificación incremental y carga a Firebase
                     upload_results = uploader.upload_all_outputs(
                         output_dir=output_dir,
                         upload_data=True,
                         upload_logs=True,
-                        upload_reports=True
+                        upload_reports=True,
+                        delete_data_after_upload=False  # NO eliminar GeoJSON (pipeline lo necesita)
                     )
                     
                     print("\n" + "="*80)
@@ -2430,7 +2842,7 @@ def transform_and_save_unidades_proyecto(
                     print(f"✗ Error uploading to S3: {e}")
                     import traceback
                     traceback.print_exc()
-                    print("\n⚠️ Transformation was successful, but S3 upload failed")
+                    print("\n[WARNING] Transformation was successful, but S3 upload failed")
             
             return gdf_processed
         
@@ -2463,14 +2875,14 @@ if __name__ == "__main__":
         print("\n" + "="*60)
         print("TRANSFORMATION PIPELINE COMPLETED")
         print("="*60)
-        print(f"✓ Processed data: {len(gdf_result):,} records")
-        print(f"✓ Total columns: {len(gdf_result.columns)}")
+        print(f"[OK] Processed data: {len(gdf_result):,} records")
+        print(f"[OK] Total columns: {len(gdf_result.columns)}")
         
         if isinstance(gdf_result, gpd.GeoDataFrame):
-            print(f"✓ GeoDataFrame type: {type(gdf_result).__name__}")
-            print(f"✓ Geometries: {gdf_result['geometry'].notna().sum():,}")
+            print(f"[OK] GeoDataFrame type: {type(gdf_result).__name__}")
+            print(f"[OK] Geometries: {gdf_result['geometry'].notna().sum():,}")
         
-        print(f"✓ Data transformation completed successfully")
+        print(f"[OK] Data transformation completed successfully")
         
         # Upload outputs to S3
         try:
@@ -2517,12 +2929,12 @@ if __name__ == "__main__":
                 )
                 
                 if success:
-                    print("\n✅ Datos cargados exitosamente a Firebase/Firestore")
+                    print("\n[OK] Datos cargados exitosamente a Firebase/Firestore")
                 else:
-                    print("\n⚠️ No se pudieron cargar los datos a Firebase/Firestore")
+                    print("\n[WARNING] No se pudieron cargar los datos a Firebase/Firestore")
                     
             except Exception as load_error:
-                print(f"\n⚠️ Error al cargar datos a Firebase: {load_error}")
+                print(f"\n[WARNING] Error al cargar datos a Firebase: {load_error}")
                 print("Datos guardados en S3, pero no se cargaron a Firestore")
                 import traceback
                 traceback.print_exc()
@@ -2534,7 +2946,7 @@ if __name__ == "__main__":
             print(f"✗ Error uploading to S3: {e}")
             import traceback
             traceback.print_exc()
-            print("\n⚠️ Transformation was successful, but S3 upload failed")
+            print("\n[WARNING] Transformation was successful, but S3 upload failed")
         
     else:
         print("\n" + "="*60)

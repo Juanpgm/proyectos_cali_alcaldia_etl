@@ -1,0 +1,15 @@
+# Dependencias para Scraper Dashboard Cali
+# Instalar con: pip install -r requirements_scraper.txt
+
+# Dependencias básicas (REQUERIDAS)
+requests>=2.31.0
+pandas>=2.0.0
+openpyxl>=3.1.0
+
+# Dependencias avanzadas (OPCIONALES)
+beautifulsoup4>=4.12.0
+selenium>=4.15.0
+webdriver-manager>=4.0.0
+
+# Utilidades adicionales
+lxml>=4.9.0

@@ -15,12 +15,12 @@ Funcionalidades:
 - Compatible con GitHub Actions para automatización
 
 Mejoras implementadas (Diciembre 2024):
-- ✅ Función de hash mejorada con normalización de listas y coordenadas
-- ✅ Paginación en get_existing_firebase_data para datasets grandes (1000 docs/lote)
-- ✅ Parámetro use_extraction explícito en todas las llamadas
-- ✅ Tiempo de espera dinámico basado en cantidad de registros actualizados
-- ✅ Manejo de errores mejorado con logging completo (no silenciado)
-- ✅ Eliminada lógica duplicada de detección de cambios (centralizada en pipeline)
+- [OK] Función de hash mejorada con normalización de listas y coordenadas
+- [OK] Paginación en get_existing_firebase_data para datasets grandes (1000 docs/lote)
+- [OK] Parámetro use_extraction explícito en todas las llamadas
+- [OK] Tiempo de espera dinámico basado en cantidad de registros actualizados
+- [OK] Manejo de errores mejorado con logging completo (no silenciado)
+- [OK] Eliminada lógica duplicada de detección de cambios (centralizada en pipeline)
 """
 
 import os
@@ -80,7 +80,7 @@ def safe_execute(func: Callable, default_value: Any = None) -> Callable:
             result = func(*args, **kwargs)
             return result
         except Exception as e:
-            print(f"❌ Error en {func.__name__}: {e}")
+            print(f"[ERROR] Error en {func.__name__}: {e}")
             import traceback
             traceback.print_exc()
             return default_value
@@ -93,7 +93,7 @@ def log_step(step_name: str) -> Callable:
         @wraps(func)
         def wrapper(*args, **kwargs):
             print(f"\n{'='*60}")
-            print(f"📊 PASO: {step_name}")
+            print(f"[DATA] PASO: {step_name}")
             print(f"{'='*60}")
             start_time = datetime.now()
             
@@ -115,9 +115,9 @@ def log_step(step_name: str) -> Callable:
                     is_success = True  # Para otros tipos no nulos
             
             if is_success:
-                print(f"✅ {step_name} completado en {duration:.2f}s")
+                print(f"[OK] {step_name} completado en {duration:.2f}s")
             else:
-                print(f"❌ {step_name} falló después de {duration:.2f}s")
+                print(f"[ERROR] {step_name} falló después de {duration:.2f}s")
             
             return result
         return wrapper
@@ -162,7 +162,7 @@ def calculate_record_hash(record: Dict[str, Any]) -> str:
     excluded_fields = [
         'created_at', 'updated_at', 'processed_timestamp', 
         'has_geometry', 'geometry_type', 'report_id', 'quality_score',
-        'validation_timestamp', 'last_modified', 'sync_timestamp'
+        'validation_timestamp', 'last_modified', 'sync_timestamp', '_hash'
     ]
     
     # Limpiar las propiedades de campos de metadata
@@ -229,7 +229,7 @@ def get_existing_firebase_data(
     try:
         db = get_firestore_client()
         if not db:
-            print("❌ No se pudo conectar a Firebase")
+            print("[ERROR] No se pudo conectar a Firebase")
             return {}
         
         collection_ref = db.collection(collection_name)
@@ -262,8 +262,11 @@ def get_existing_firebase_data(
             for doc in docs:
                 doc_data = doc.to_dict()
                 
-                # Calcular hash de los datos existentes
-                data_hash = calculate_record_hash(doc_data)
+                # Usar hash guardado si existe, sino calcularlo
+                data_hash = doc_data.get('_hash')
+                if not data_hash:
+                    # Fallback: calcular hash si no existe en el documento
+                    data_hash = calculate_record_hash(doc_data)
                 
                 existing_data[doc.id] = {
                     'hash': data_hash,
@@ -280,11 +283,11 @@ def get_existing_firebase_data(
             if len(docs) < batch_size:
                 break
         
-        print(f"✅ Obtenidos {doc_count} registros existentes de Firebase ({batch_count} lotes)")
+        print(f"[OK] Obtenidos {doc_count} registros existentes de Firebase ({batch_count} lotes)")
         return existing_data
         
     except Exception as e:
-        print(f"❌ Error obteniendo datos de Firebase: {e}")
+        print(f"[ERROR] Error obteniendo datos de Firebase: {e}")
         import traceback
         traceback.print_exc()
         return {}
@@ -304,7 +307,7 @@ def compare_and_filter_changes(
     Returns:
         Tupla de (features_to_upload, change_summary)
     """
-    print(f"🔄 Comparando {len(new_features)} registros nuevos con {len(existing_data)} existentes...")
+    print(f"[SYNC] Comparando {len(new_features)} registros nuevos con {len(existing_data)} existentes...")
     
     features_to_upload = []
     change_summary = {
@@ -341,6 +344,17 @@ def compare_and_filter_changes(
             if doc_id in existing_data:
                 existing_hash = existing_data[doc_id]['hash']
                 
+                # NUEVO: Verificar integridad de geometry
+                new_has_geom = feature.get('geometry') is not None
+                existing_props = existing_data[doc_id].get('properties', {})
+                existing_has_geom = existing_props.get('geometry') is not None or existing_props.get('lat') is not None
+                
+                # Si el nuevo tiene geometry pero el existente no, forzar actualización
+                if new_has_geom and not existing_has_geom:
+                    features_to_upload.append(feature)
+                    change_summary['modified_records'] += 1
+                    continue
+                
                 if new_hash != existing_hash:
                     # Registro modificado
                     features_to_upload.append(feature)
@@ -354,16 +368,16 @@ def compare_and_filter_changes(
                 change_summary['new_records'] += 1
                 
         except Exception as e:
-            print(f"⚠️ Error comparando registro: {e}")
+            print(f"[WARNING] Error comparando registro: {e}")
             # En caso de error, incluir el registro para estar seguros
             features_to_upload.append(feature)
             change_summary['new_records'] += 1
     
-    print(f"📊 Resumen de cambios:")
-    print(f"  ➕ Nuevos: {change_summary['new_records']}")
-    print(f"  🔄 Modificados: {change_summary['modified_records']}")
-    print(f"  ✅ Sin cambios: {change_summary['unchanged_records']}")
-    print(f"  📤 Total a cargar: {len(features_to_upload)}")
+    print(f"[DATA] Resumen de cambios:")
+    print(f"  [+] Nuevos: {change_summary['new_records']}")
+    print(f"  [SYNC] Modificados: {change_summary['modified_records']}")
+    print(f"  [OK] Sin cambios: {change_summary['unchanged_records']}")
+    print(f"  [OUT] Total a cargar: {len(features_to_upload)}")
     
     return features_to_upload, change_summary
 
@@ -402,12 +416,12 @@ def create_incremental_geojson(
             json.dump(incremental_geojson, f, indent=2, ensure_ascii=False, default=str)
         
         file_size_kb = os.path.getsize(output_path) / 1024
-        print(f"💾 GeoJSON incremental guardado: {os.path.basename(output_path)} ({file_size_kb:.1f} KB)")
+        print(f"[SAVE] GeoJSON incremental guardado: {os.path.basename(output_path)} ({file_size_kb:.1f} KB)")
         
         return True
         
     except Exception as e:
-        print(f"❌ Error guardando GeoJSON incremental: {e}")
+        print(f"[ERROR] Error guardando GeoJSON incremental: {e}")
         return False
 
 
@@ -483,7 +497,7 @@ def verify_and_prepare_incremental_load(
     try:
         # Cargar GeoJSON completo
         if not os.path.exists(geojson_path):
-            print(f"❌ Archivo GeoJSON no encontrado: {geojson_path}")
+            print(f"[ERROR] Archivo GeoJSON no encontrado: {geojson_path}")
             return None, None
         
         with open(geojson_path, 'r', encoding='utf-8') as f:
@@ -491,7 +505,7 @@ def verify_and_prepare_incremental_load(
         
         new_features = geojson_data.get('features', [])
         if not new_features:
-            print("⚠️ No hay features en el GeoJSON")
+            print("[WARNING] No hay features en el GeoJSON")
             return None, None
         
         # Obtener datos existentes de Firebase
@@ -501,7 +515,7 @@ def verify_and_prepare_incremental_load(
         features_to_upload, change_summary = compare_and_filter_changes(new_features, existing_data)
         
         if not features_to_upload:
-            print("✅ No hay cambios para cargar. Todos los datos están actualizados.")
+            print("[OK] No hay cambios para cargar. Todos los datos están actualizados.")
             return None, change_summary
         
         # Crear GeoJSON incremental
@@ -514,36 +528,40 @@ def verify_and_prepare_incremental_load(
             return None, None
             
     except Exception as e:
-        print(f"❌ Error en verificación incremental: {e}")
+        print(f"[ERROR] Error en verificación incremental: {e}")
         return None, None
 
 
 @log_step("CARGA INCREMENTAL A FIREBASE")
 @safe_execute
-def run_incremental_load(incremental_geojson_path: str, collection_name: str = "unidades_proyecto", use_s3: bool = True) -> bool:
+def run_incremental_load(incremental_geojson_path: str, collection_name: str = "unidades_proyecto", use_s3: bool = False) -> bool:
     """
-    Ejecuta la carga incremental a Firebase desde S3 o archivo local.
+    Ejecuta la carga incremental a Firebase desde archivo local.
+    
+    IMPORTANTE: NO debe usar S3 porque el archivo incremental contiene solo los cambios
+    detectados, mientras que S3 tiene el archivo completo consolidado que sobrescribiría
+    geometrías existentes con valores vacíos.
     
     Args:
-        incremental_geojson_path: Ruta al GeoJSON con solo los cambios (fallback si S3 falla)
+        incremental_geojson_path: Ruta al GeoJSON con solo los cambios (REQUERIDO)
         collection_name: Nombre de la colección en Firebase
-        use_s3: Si True, intenta cargar desde S3 primero (default: True)
+        use_s3: SIEMPRE debe ser False para carga incremental (default: False)
         
     Returns:
         True si la carga fue exitosa, False en caso contrario
     """
-    if not use_s3:
-        # Modo legacy: solo archivo local
-        if not incremental_geojson_path or not os.path.exists(incremental_geojson_path):
-            print("❌ Archivo GeoJSON incremental no disponible")
-            return False
+    # Validar que existe el archivo incremental local
+    if not incremental_geojson_path or not os.path.exists(incremental_geojson_path):
+        print("[ERROR] Archivo GeoJSON incremental no disponible")
+        return False
     
+    # CRÍTICO: use_s3=False para cargar SOLO del archivo incremental local
     return load_unidades_proyecto_to_firebase(
         input_file=incremental_geojson_path,
         collection_name=collection_name,
         batch_size=100,
-        use_s3=use_s3,
-        s3_key="up-geodata/unidades_proyecto_transformed/current/unidades_proyecto_transformed.geojson.gz"  # Usar versión CURRENT desde S3
+        use_s3=False,  # NUNCA usar S3 para carga incremental
+        s3_key=None
     )
 
 
@@ -595,21 +613,21 @@ def run_quality_control(
         validation_result = validate_geojson(geojson_path, verbose=False)
         
         if not validation_result or 'issues' not in validation_result:
-            print("⚠️ No se pudieron generar reportes de calidad")
+            print("[WARNING] No se pudieron generar reportes de calidad")
             return None
         
-        print(f"  ✓ Validados: {validation_result['total_records']} registros")
-        print(f"  ✓ Problemas detectados: {validation_result['total_issues']}")
-        print(f"  ✓ Score de calidad: {validation_result['statistics']['quality_score']:.2f}/100")
+        print(f"  [OK] Validados: {validation_result['total_records']} registros")
+        print(f"  [OK] Problemas detectados: {validation_result['total_issues']}")
+        print(f"  [OK] Score de calidad: {validation_result['statistics']['quality_score']:.2f}/100")
         
         # 2. Generar reportes detallados
-        print(f"\n📊 Generando reportes detallados...")
+        print(f"\n[DATA] Generando reportes detallados...")
         
         reporter = QualityReporter()
         
         # Reporte por registro
         record_reports = reporter.generate_record_level_report(validation_result['issues'])
-        print(f"  ✓ Reportes por registro: {len(record_reports)}")
+        print(f"  [OK] Reportes por registro: {len(record_reports)}")
         
         # Contar registros totales por centro gestor
         import json
@@ -626,7 +644,7 @@ def run_quality_control(
             validation_result['issues'],
             total_by_centro
         )
-        print(f"  ✓ Reportes por centro gestor: {len(centro_reports)}")
+        print(f"  [OK] Reportes por centro gestor: {len(centro_reports)}")
         
         # Reporte resumen
         summary_report = reporter.generate_summary_report(
@@ -635,7 +653,7 @@ def run_quality_control(
             validation_result['total_records'],
             validation_result['statistics']
         )
-        print(f"  ✓ Reporte resumen generado")
+        print(f"  [OK] Reporte resumen generado")
         
         # 3. Cargar a Firebase (si está habilitado)
         if enable_firebase_upload:
@@ -647,7 +665,7 @@ def run_quality_control(
                 batch_size=100,
                 verbose=False
             )
-            print(f"  ✓ Cargados a Firebase: {firebase_stats.get('records_loaded', 0) + firebase_stats.get('centros_loaded', 0) + firebase_stats.get('summary_loaded', 0)} documentos")
+            print(f"  [OK] Cargados a Firebase: {firebase_stats.get('records_loaded', 0) + firebase_stats.get('centros_loaded', 0) + firebase_stats.get('summary_loaded', 0)} documentos")
         
         # 4. Exportar a S3 (si está habilitado)
         if enable_s3_upload:
@@ -661,9 +679,9 @@ def run_quality_control(
                     report_id=reporter.report_id,
                     verbose=False
                 )
-                print(f"  ✓ Exportados a S3: {s3_stats.get('files_uploaded', 0)} archivos")
+                print(f"  [OK] Exportados a S3: {s3_stats.get('files_uploaded', 0)} archivos")
             except Exception as e:
-                print(f"  ⚠️ No se pudo exportar a S3: {e}")
+                print(f"  [WARNING] No se pudo exportar a S3: {e}")
                 print(f"  ℹ️  Los reportes siguen disponibles en Firebase")
         
         # 5. Retornar estadísticas
@@ -679,7 +697,7 @@ def run_quality_control(
         }
         
     except Exception as e:
-        print(f"❌ Error en control de calidad: {e}")
+        print(f"[ERROR] Error en control de calidad: {e}")
         import traceback
         traceback.print_exc()
         return None
@@ -722,9 +740,9 @@ def create_unidades_proyecto_pipeline() -> Callable[[], Dict[str, Any]]:
         }
         
         try:
-            print("🚀 INICIANDO PIPELINE ETL UNIDADES DE PROYECTO")
+            print("[START] INICIANDO PIPELINE ETL UNIDADES DE PROYECTO")
             print("="*80)
-            print(f"⏰ Inicio: {pipeline_start.strftime('%Y-%m-%d %H:%M:%S')}")
+            print(f"[CLOCK] Inicio: {pipeline_start.strftime('%Y-%m-%d %H:%M:%S')}")
             print(f"🗂️ Colección destino: {collection_name}")
             
             # PASO 1: Extracción
@@ -747,10 +765,8 @@ def create_unidades_proyecto_pipeline() -> Callable[[], Dict[str, Any]]:
             # PASO 3: Verificación incremental
             geojson_path = os.path.join(
                 os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
-                "transformation_app",
                 "app_outputs",
-                "unidades_proyecto_outputs",
-                "unidades_proyecto.geojson"
+                "unidades_proyecto_transformed.geojson"
             )
             
             incremental_path, change_summary = verify_and_prepare_incremental_load(
@@ -775,13 +791,13 @@ def create_unidades_proyecto_pipeline() -> Callable[[], Dict[str, Any]]:
                 try:
                     if os.path.exists(incremental_path):
                         os.remove(incremental_path)
-                        print(f"🗑️ Archivo temporal eliminado: {os.path.basename(incremental_path)}")
+                        print(f"[DELETE] Archivo temporal eliminado: {os.path.basename(incremental_path)}")
                 except Exception as cleanup_error:
-                    print(f"⚠️ No se pudo eliminar archivo temporal: {cleanup_error}")
+                    print(f"[WARNING] No se pudo eliminar archivo temporal: {cleanup_error}")
                     # No es crítico, continuar ejecución
                     
             else:
-                print("✅ No hay cambios para cargar - datos actualizados")
+                print("[OK] No hay cambios para cargar - datos actualizados")
                 results['load_success'] = True  # No había nada que cargar
                 results['records_uploaded'] = 0
             
@@ -789,7 +805,7 @@ def create_unidades_proyecto_pipeline() -> Callable[[], Dict[str, Any]]:
             # (Se ejecuta DESPUÉS de la carga para validar el conjunto completo)
             if results['load_success']:
                 print(f"\n{'='*60}")
-                print("📊 PASO 5: CONTROL DE CALIDAD (DATOS COMPLETOS)")
+                print("[DATA] PASO 5: CONTROL DE CALIDAD (DATOS COMPLETOS)")
                 print("="*60)
                 
                 # Esperar que Firebase complete conversiones internas
@@ -799,13 +815,13 @@ def create_unidades_proyecto_pipeline() -> Callable[[], Dict[str, Any]]:
                     # Calcular tiempo de espera basado en cantidad de registros
                     # Mínimo 2 segundos, máximo 10 segundos
                     wait_time = min(10, max(2, records_uploaded // 100))
-                    print(f"\n⏳ Esperando {wait_time}s para que Firebase complete conversiones...")
+                    print(f"\n[WAIT] Esperando {wait_time}s para que Firebase complete conversiones...")
                     print(f"   ({records_uploaded} registros actualizados)")
                     import time
                     time.sleep(wait_time)
-                    print("   ✓ Continuando con análisis de calidad\n")
+                    print("   [OK] Continuando con análisis de calidad\n")
                 else:
-                    print("\n⏩ Sin cambios recientes, continuando inmediatamente...\n")
+                    print("\n[SKIP] Sin cambios recientes, continuando inmediatamente...\n")
                 
                 quality_result = run_quality_control_on_firebase_data(
                     collection_name=collection_name,
@@ -816,9 +832,9 @@ def create_unidades_proyecto_pipeline() -> Callable[[], Dict[str, Any]]:
                 
                 if quality_result:
                     results['quality_control'] = quality_result
-                    print(f"\n✅ Control de calidad completado")
+                    print(f"\n[OK] Control de calidad completado")
                 else:
-                    print(f"\n⚠️ Control de calidad falló, pero el pipeline continúa")
+                    print(f"\n[WARNING] Control de calidad falló, pero el pipeline continúa")
             
             # Calcular resultados finales
             pipeline_end = datetime.now()
@@ -830,6 +846,16 @@ def create_unidades_proyecto_pipeline() -> Callable[[], Dict[str, Any]]:
                 results['incremental_check_success'] and 
                 results['load_success']
             )
+            
+            # Limpiar archivo transformado si todo fue exitoso
+            # (ya está en S3 y en Firebase)
+            if results['success'] and os.path.exists(geojson_path):
+                try:
+                    os.remove(geojson_path)
+                    print(f"[DELETE] Archivo transformado local eliminado: {os.path.basename(geojson_path)}")
+                    print("   (Datos respaldados en S3 y cargados en Firebase)")
+                except Exception as cleanup_error:
+                    print(f"[WARNING] No se pudo eliminar archivo transformado: {cleanup_error}")
             
             return results
             
@@ -851,30 +877,30 @@ def print_pipeline_summary(results: Dict[str, Any]):
         results: Diccionario con los resultados del pipeline
     """
     print(f"\n{'='*80}")
-    print("📊 RESUMEN DEL PIPELINE ETL")
+    print("[DATA] RESUMEN DEL PIPELINE ETL")
     print("="*80)
     
     # Estado general
-    status_icon = "✅" if results['success'] else "❌"
+    status_icon = "[OK]" if results['success'] else "[ERROR]"
     print(f"{status_icon} Estado general: {'EXITOSO' if results['success'] else 'FALLIDO'}")
     
     # Tiempos
     if results['start_time']:
         start_time = datetime.fromisoformat(results['start_time'])
-        print(f"⏰ Inicio: {start_time.strftime('%Y-%m-%d %H:%M:%S')}")
+        print(f"[CLOCK] Inicio: {start_time.strftime('%Y-%m-%d %H:%M:%S')}")
     
     if results['end_time']:
         end_time = datetime.fromisoformat(results['end_time'])
-        print(f"🏁 Fin: {end_time.strftime('%Y-%m-%d %H:%M:%S')}")
+        print(f"[END] Fin: {end_time.strftime('%Y-%m-%d %H:%M:%S')}")
     
     if results['duration_seconds']:
         duration = results['duration_seconds']
         minutes = int(duration // 60)
         seconds = int(duration % 60)
-        print(f"⏱️ Duración: {minutes}m {seconds}s")
+        print(f"[TIME] Duración: {minutes}m {seconds}s")
     
     # Pasos del pipeline
-    print(f"\n🔄 Pasos ejecutados:")
+    print(f"\n[SYNC] Pasos ejecutados:")
     steps = [
         ("Extracción", results['extraction_success']),
         ("Transformación", results['transformation_success']),
@@ -883,37 +909,206 @@ def print_pipeline_summary(results: Dict[str, Any]):
     ]
     
     for step_name, success in steps:
-        icon = "✅" if success else "❌"
+        icon = "[OK]" if success else "[ERROR]"
         print(f"  {icon} {step_name}")
     
     # Estadísticas de datos
-    print(f"\n📈 Estadísticas:")
-    print(f"  📥 Registros procesados: {results.get('records_processed', 0)}")
-    print(f"  📤 Registros cargados: {results.get('records_uploaded', 0)}")
+    print(f"\n[STATS] Estadísticas:")
+    print(f"  [IN] Registros procesados: {results.get('records_processed', 0)}")
+    print(f"  [OUT] Registros cargados: {results.get('records_uploaded', 0)}")
     
     # Resumen de cambios
     if results.get('change_summary'):
         summary = results['change_summary']
-        print(f"\n🔄 Resumen de cambios:")
-        print(f"  ➕ Nuevos: {summary.get('new_records', 0)}")
-        print(f"  🔄 Modificados: {summary.get('modified_records', 0)}")
-        print(f"  ✅ Sin cambios: {summary.get('unchanged_records', 0)}")
+        print(f"\n[SYNC] Resumen de cambios:")
+        print(f"  [+] Nuevos: {summary.get('new_records', 0)}")
+        print(f"  [SYNC] Modificados: {summary.get('modified_records', 0)}")
+        print(f"  [OK] Sin cambios: {summary.get('unchanged_records', 0)}")
     
     # Errores
     if results.get('errors'):
-        print(f"\n❌ Errores encontrados:")
+        print(f"\n[ERROR] Errores encontrados:")
         for i, error in enumerate(results['errors'], 1):
             print(f"  {i}. {error}")
     
     # Mensaje final
     if results['success']:
-        print(f"\n🎉 Pipeline completado exitosamente!")
+        print(f"\n[DONE] Pipeline completado exitosamente!")
         if results.get('records_uploaded', 0) > 0:
-            print(f"✨ {results['records_uploaded']} registros actualizados en Firebase")
+            print(f"[INFO] {results['records_uploaded']} registros actualizados en Firebase")
         else:
-            print("✨ Todos los datos estaban actualizados")
+            print("[INFO] Todos los datos estaban actualizados")
     else:
-        print(f"\n💥 Pipeline falló. Revisa los errores arriba.")
+        print(f"\n[FAILED] Pipeline falló. Revisa los errores arriba.")
+    
+    print("="*80)
+
+
+def calculate_final_metrics(collection_name: str = "unidades_proyecto"):
+    """
+    Calcula y muestra métricas finales desde Firebase después de la carga.
+    
+    Args:
+        collection_name: Nombre de la colección en Firebase
+    """
+    try:
+        print(f"\n{'='*80}")
+        print("[DATA] MÉTRICAS FINALES (DESDE FIREBASE)")
+        print("="*80)
+        
+        db = get_firestore_client()
+        if not db:
+            print("[ERROR] No se pudo conectar a Firebase para calcular métricas")
+            return
+        
+        # Obtener todos los documentos
+        docs = list(db.collection(collection_name).stream())
+        
+        if not docs:
+            print("[WARNING] No hay documentos en Firebase")
+            return
+        
+        # Extraer datos de cada unidad de proyecto y sus intervenciones
+        total_upids = len(docs)
+        total_intervenciones = 0
+        presupuestos = []
+        avances = []
+        
+        for doc in docs:
+            data = doc.to_dict()
+            
+            # Las intervenciones están en un array dentro de cada UP
+            intervenciones = data.get('intervenciones', [])
+            total_intervenciones += len(intervenciones)
+            
+            # Procesar cada intervención
+            for interv in intervenciones:
+                # Recoger presupuestos
+                presupuesto = interv.get('presupuesto_base')
+                if presupuesto:
+                    try:
+                        if isinstance(presupuesto, str):
+                            presupuesto_clean = presupuesto.replace('$', '').replace(',', '').replace('.', '').strip()
+                            presupuesto_val = float(presupuesto_clean)
+                        else:
+                            presupuesto_val = float(presupuesto)
+                        
+                        if presupuesto_val > 0:
+                            presupuestos.append(presupuesto_val)
+                    except (ValueError, TypeError):
+                        pass
+                
+                # Recoger avances
+                avance = interv.get('avance_obra')
+                if avance is not None:
+                    try:
+                        if isinstance(avance, str):
+                            avance_clean = avance.replace('%', '').replace(',', '.').strip()
+                            avance_val = float(avance_clean)
+                        else:
+                            avance_val = float(avance)
+                        
+                        avances.append(avance_val)
+                    except (ValueError, TypeError):
+                        pass
+        
+        # Mostrar métricas
+        print(f"\n1. Número total de unidades de proyecto (UPIDs únicos): {total_upids}")
+        print(f"2. Número total de intervenciones: {total_intervenciones}")
+        
+        if presupuestos:
+            suma_presupuesto = sum(presupuestos)
+            print(f"3. Sumatoria de presupuesto_base: ${suma_presupuesto:,.2f}")
+            print(f"   (Basado en {len(presupuestos)} intervenciones con presupuesto válido)")
+        else:
+            print("3. Sumatoria de presupuesto_base: No hay datos válidos")
+        
+        if avances:
+            promedio_avance = sum(avances) / len(avances)
+            print(f"4. Promedio de avance_obra: {promedio_avance:.2f}%")
+            print(f"   (Basado en {len(avances)} intervenciones con avance válido)")
+        else:
+            print("4. Promedio de avance_obra: No hay datos válidos")
+        
+        print("="*80)
+        
+    except Exception as e:
+        print(f"[ERROR] Error calculando métricas finales: {e}")
+        import traceback
+        traceback.print_exc()
+
+
+def print_pipeline_summary(results: Dict[str, Any]):
+    """
+    Imprime un resumen detallado de los resultados del pipeline.
+    
+    Args:
+        results: Diccionario con los resultados del pipeline
+    """
+    print(f"\n{'='*80}")
+    print("[DATA] RESUMEN DEL PIPELINE ETL")
+    print("="*80)
+    
+    # Estado general
+    status_icon = "[OK]" if results['success'] else "[ERROR]"
+    print(f"{status_icon} Estado general: {'EXITOSO' if results['success'] else 'FALLIDO'}")
+    
+    # Tiempos
+    if results['start_time']:
+        start_time = datetime.fromisoformat(results['start_time'])
+        print(f"[CLOCK] Inicio: {start_time.strftime('%Y-%m-%d %H:%M:%S')}")
+    
+    if results['end_time']:
+        end_time = datetime.fromisoformat(results['end_time'])
+        print(f"[END] Fin: {end_time.strftime('%Y-%m-%d %H:%M:%S')}")
+    
+    if results['duration_seconds']:
+        duration = results['duration_seconds']
+        minutes = int(duration // 60)
+        seconds = int(duration % 60)
+        print(f"[TIME] Duración: {minutes}m {seconds}s")
+    
+    # Pasos del pipeline
+    print(f"\n[SYNC] Pasos ejecutados:")
+    steps = [
+        ("Extracción", results['extraction_success']),
+        ("Transformación", results['transformation_success']),
+        ("Verificación incremental", results['incremental_check_success']),
+        ("Carga a Firebase", results['load_success'])
+    ]
+    
+    for step_name, success in steps:
+        icon = "[OK]" if success else "[ERROR]"
+        print(f"  {icon} {step_name}")
+    
+    # Estadísticas de datos
+    print(f"\n[STATS] Estadísticas:")
+    print(f"  [IN] Registros procesados: {results.get('records_processed', 0)}")
+    print(f"  [OUT] Registros cargados: {results.get('records_uploaded', 0)}")
+    
+    # Resumen de cambios
+    if results.get('change_summary'):
+        summary = results['change_summary']
+        print(f"\n[SYNC] Resumen de cambios:")
+        print(f"  [+] Nuevos: {summary.get('new_records', 0)}")
+        print(f"  [SYNC] Modificados: {summary.get('modified_records', 0)}")
+        print(f"  [OK] Sin cambios: {summary.get('unchanged_records', 0)}")
+    
+    # Errores
+    if results.get('errors'):
+        print(f"\n[ERROR] Errores encontrados:")
+        for i, error in enumerate(results['errors'], 1):
+            print(f"  {i}. {error}")
+    
+    # Mensaje final
+    if results['success']:
+        print(f"\n[DONE] Pipeline completado exitosamente!")
+        if results.get('records_uploaded', 0) > 0:
+            print(f"[INFO] {results['records_uploaded']} registros actualizados en Firebase")
+        else:
+            print("[INFO] Todos los datos estaban actualizados")
+    else:
+        print(f"\n[FAILED] Pipeline falló. Revisa los errores arriba.")
     
     print("="*80)
 
@@ -935,6 +1130,10 @@ def run_unidades_proyecto_pipeline(collection_name: str = "unidades_proyecto") -
     # Mostrar resumen
     print_pipeline_summary(results)
     
+    # Calcular y mostrar métricas finales desde Firebase
+    if results['success']:
+        calculate_final_metrics(collection_name)
+    
     return results['success']
 
 
@@ -947,17 +1146,17 @@ if __name__ == "__main__":
     """
     Bloque de ejecución principal para probar el pipeline completo.
     """
-    print("🚀 Iniciando pipeline ETL de Unidades de Proyecto...")
+    print("[START] Iniciando pipeline ETL de Unidades de Proyecto...")
     
     # Ejecutar pipeline completo
     success = main()
     
     if success:
-        print("\n🎯 PIPELINE COMPLETADO EXITOSAMENTE")
-        print("✨ Datos de unidades de proyecto actualizados")
+        print("\n[SUCCESS] PIPELINE COMPLETADO EXITOSAMENTE")
+        print("[INFO] Datos de unidades de proyecto actualizados")
     else:
-        print("\n💥 PIPELINE FALLÓ")
-        print("🔧 Revisa los errores y logs anteriores")
+        print("\n[FAILED] PIPELINE FALLÓ")
+        print("[CONFIG] Revisa los errores y logs anteriores")
     
     # Código de salida para scripts automatizados
     sys.exit(0 if success else 1)

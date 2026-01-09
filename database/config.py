@@ -43,36 +43,36 @@ try:
     project_root = Path(__file__).parent.parent
     if current_branch == 'dev':
         env_path = project_root / '.env.dev'
-        print(f"🔧 Usando configuración de DESARROLLO (.env.dev)")
+        print("Usando configuracion de DESARROLLO (.env.dev)")
     elif current_branch == 'main':
         env_path = project_root / '.env.prod'
-        print(f"🔧 Usando configuración de PRODUCCIÓN (.env.prod)")
+        print("Usando configuracion de PRODUCCION (.env.prod)")
     else:
         # Para otras ramas, usar .env.dev como default
         env_path = project_root / '.env.dev'
-        print(f"⚠️  Rama '{current_branch}' no reconocida, usando .env.dev")
+        print(f"Rama '{current_branch}' no reconocida, usando .env.dev")
     
     # Cargar el archivo correspondiente
     if env_path.exists():
         load_dotenv(env_path)
-        print(f"✅ Variables de entorno cargadas desde {env_path.name}")
+        print(f"Variables de entorno cargadas desde {env_path.name}")
     else:
         # Fallback a .env genérico
         env_path = project_root / '.env'
         if env_path.exists():
             load_dotenv(env_path)
-            print(f"⚠️  Usando .env genérico (crea {env_path.parent / ('.env.dev' if current_branch == 'dev' else '.env.prod')})")
+            print(f"Usando .env generico (crea {env_path.parent / ('.env.dev' if current_branch == 'dev' else '.env.prod')})")
         else:
-            print(f"⚠️  No se encontró archivo de configuración {env_path}")
+            print(f"No se encontro archivo de configuracion {env_path}")
     
     # Siempre cargar .env.local al final (sobrescribe otras configuraciones)
     env_local_path = project_root / '.env.local'
     if env_local_path.exists():
         load_dotenv(env_local_path, override=True)
-        print(f"✅ Variables locales cargadas desde {env_local_path.name}")
+        print(f"Variables locales cargadas desde {env_local_path.name}")
             
 except ImportError:
-    print("⚠️  python-dotenv no instalado, usando variables de entorno del sistema")
+    print("python-dotenv no instalado, usando variables de entorno del sistema")
 
 # Variables globales para singletons
 _firebase_app = None
@@ -108,15 +108,15 @@ def secure_log(func: Callable) -> Callable:
     def wrapper(*args, **kwargs):
         if SECURE_LOGGING:
             func_name = func.__name__
-            print(f"🔧 Ejecutando: {func_name}")
+            print(f"[CONFIG] Ejecutando: {func_name}")
         try:
             result = func(*args, **kwargs)
             if SECURE_LOGGING:
-                print(f"✅ {func_name}: completado")
+                print(f"[OK] {func_name}: completado")
             return result
         except Exception as e:
             if SECURE_LOGGING:
-                print(f"❌ {func_name}: error (detalles omitidos por seguridad)")
+                print(f"[ERROR] {func_name}: error (detalles omitidos por seguridad)")
             raise
     return wrapper
 
@@ -140,10 +140,10 @@ def initialize_firebase() -> firebase_admin.App:
         # Usar Application Default Credentials (método seguro recomendado)
         cred = credentials.ApplicationDefault()
         _firebase_app = firebase_admin.initialize_app(cred, {'projectId': PROJECT_ID})
-        print(f"✅ Firebase inicializado: {PROJECT_ID}")
+        print(f"[OK] Firebase inicializado: {PROJECT_ID}")
         return _firebase_app
     except Exception as e:
-        print(f"❌ Error inicializando Firebase: {e}")
+        print(f"[ERROR] Error inicializando Firebase: {e}")
         print("� Ejecuta: gcloud auth application-default login")
         raise
 
@@ -168,7 +168,7 @@ def test_connection() -> bool:
         client = get_firestore_client()
         if not client:
             if not SECURE_LOGGING:
-                print("❌ No se pudo obtener cliente de Firestore")
+                print("[ERROR] No se pudo obtener cliente de Firestore")
             return False
         
         # Intentar una operación más simple primero
@@ -177,26 +177,26 @@ def test_connection() -> bool:
             test_ref = client.collection('_test_connection')
             if test_ref:
                 if not SECURE_LOGGING:
-                    print("✅ Conexión a Firestore verificada")
+                    print("[OK] Conexión a Firestore verificada")
                 return True
         except Exception as inner_e:
             if not SECURE_LOGGING:
-                print(f"❌ Error en verificación de conexión: {inner_e}")
+                print(f"[ERROR] Error en verificación de conexión: {inner_e}")
         
         # Si falla, intentar listar colecciones (método original)
         try:
             collections = list(client.collections())
             if not SECURE_LOGGING:
-                print(f"✅ Conexión a Firestore verificada - {len(collections)} colecciones encontradas")
+                print(f"[OK] Conexión a Firestore verificada - {len(collections)} colecciones encontradas")
             return True
         except Exception as inner_e:
             if not SECURE_LOGGING:
-                print(f"❌ Error listando colecciones: {inner_e}")
+                print(f"[ERROR] Error listando colecciones: {inner_e}")
             return False
             
     except Exception as e:
         if not SECURE_LOGGING:
-            print(f"❌ Error de conexión a Firebase: {e}")
+            print(f"[ERROR] Error de conexión a Firebase: {e}")
         return False
 
 
@@ -236,18 +236,18 @@ def get_drive_service(user_email: Optional[str] = None):
                 try:
                     credentials_obj = credentials_obj.with_subject(user_email)
                     service = build('drive', 'v3', credentials=credentials_obj)
-                    print(f"✅ Google Drive autenticado con Domain-Wide Delegation")
+                    print(f"[OK] Google Drive autenticado con Domain-Wide Delegation")
                     print(f"   Delegando al usuario: {user_email}")
                     return service
                 except Exception as e:
-                    print(f"❌ Error con Domain-Wide Delegation: {e}")
+                    print(f"[ERROR] Error con Domain-Wide Delegation: {e}")
                     print(f"💡 Verifica que Domain-Wide Delegation esté configurado correctamente")
                     print(f"   Consulta: CONFIGURACION_DOMAIN_WIDE_DELEGATION.md")
                     return None
             else:
                 # Service Account sin delegación (para Shared Drives)
                 _drive_service = build('drive', 'v3', credentials=credentials_obj)
-                print("✅ Google Drive autenticado con Service Account")
+                print("[OK] Google Drive autenticado con Service Account")
                 print("💡 Para carpetas personales: usa Domain-Wide Delegation")
                 print("💡 Para Shared Drives: asegúrate de compartir con el Service Account")
                 return _drive_service
@@ -256,12 +256,12 @@ def get_drive_service(user_email: Optional[str] = None):
         try:
             credentials_obj, project = default()
             _drive_service = build('drive', 'v3', credentials=credentials_obj)
-            print("✅ Google Drive autenticado con ADC")
-            print("⚠️  Nota: ADC puede no tener scopes de Drive configurados")
+            print("[OK] Google Drive autenticado con ADC")
+            print("[WARNING]  Nota: ADC puede no tener scopes de Drive configurados")
             return _drive_service
         except Exception as e:
             if not SECURE_LOGGING:
-                print(f"⚠️  Error con ADC: {e}")
+                print(f"[WARNING]  Error con ADC: {e}")
         
         print("💡 Opciones de autenticación:")
         print("   1. Service Account con Domain-Wide Delegation: configura SERVICE_ACCOUNT_FILE + GOOGLE_WORKSPACE_USER_EMAIL")
@@ -271,7 +271,7 @@ def get_drive_service(user_email: Optional[str] = None):
         
     except Exception as e:
         if not SECURE_LOGGING:
-            print(f"❌ Error autenticando Google Drive: {e}")
+            print(f"[ERROR] Error autenticando Google Drive: {e}")
         return None
 
 
@@ -305,10 +305,10 @@ def list_excel_files_in_folder(folder_id: str) -> List[Dict[str, str]]:
         files = results.get('files', [])
         
         if not files:
-            print(f"⚠️  No se encontraron archivos Excel en la carpeta")
+            print(f"[WARNING]  No se encontraron archivos Excel en la carpeta")
             return []
         
-        print(f"✅ Encontrados {len(files)} archivos Excel")
+        print(f"[OK] Encontrados {len(files)} archivos Excel")
         for file in files:
             # Mostrar solo nombre parcial por seguridad
             name_display = file['name'][:30] + "..." if len(file['name']) > 30 else file['name']
@@ -318,7 +318,7 @@ def list_excel_files_in_folder(folder_id: str) -> List[Dict[str, str]]:
         
     except Exception as e:
         if not SECURE_LOGGING:
-            print(f"❌ Error listando archivos: {e}")
+            print(f"[ERROR] Error listando archivos: {e}")
         return []
 
 
@@ -354,12 +354,12 @@ def download_excel_file(file_id: str, file_name: str) -> Optional[io.BytesIO]:
         
         file_buffer.seek(0)  # Volver al inicio del buffer
         name_display = file_name[:30] + "..." if len(file_name) > 30 else file_name
-        print(f"✅ Descargado: {name_display}")
+        print(f"[OK] Descargado: {name_display}")
         return file_buffer
         
     except Exception as e:
         if not SECURE_LOGGING:
-            print(f"❌ Error descargando archivo '{file_name}': {e}")
+            print(f"[ERROR] Error descargando archivo '{file_name}': {e}")
         return None
 
 
@@ -410,7 +410,7 @@ def upload_file_to_drive(
                     print(f"📝 Archivo existe, actualizando: {name_display}")
         except Exception as e:
             if not SECURE_LOGGING:
-                print(f"⚠️  No se pudo verificar archivo existente: {e}")
+                print(f"[WARNING]  No se pudo verificar archivo existente: {e}")
         
         # Crear MediaIoBaseUpload desde el buffer
         file_buffer.seek(0)  # Asegurar que estamos al inicio del buffer
@@ -430,7 +430,7 @@ def upload_file_to_drive(
             ).execute()
             
             name_display = filename[:50] + "..." if len(filename) > 50 else filename
-            print(f"✅ Archivo actualizado en Drive: {name_display}")
+            print(f"[OK] Archivo actualizado en Drive: {name_display}")
         else:
             # Crear nuevo archivo
             file_metadata = {
@@ -445,7 +445,7 @@ def upload_file_to_drive(
             ).execute()
             
             name_display = filename[:50] + "..." if len(filename) > 50 else filename
-            print(f"✅ Archivo subido a Drive: {name_display}")
+            print(f"[OK] Archivo subido a Drive: {name_display}")
         
         return {
             'id': file.get('id'),
@@ -455,7 +455,7 @@ def upload_file_to_drive(
         
     except Exception as e:
         if not SECURE_LOGGING:
-            print(f"❌ Error subiendo archivo '{filename}': {e}")
+            print(f"[ERROR] Error subiendo archivo '{filename}': {e}")
             import traceback
             traceback.print_exc()
         return None
@@ -472,7 +472,7 @@ def list_collections() -> List[str]:
         return collections
     except Exception as e:
         if not SECURE_LOGGING:
-            print(f"❌ Error listando colecciones: {e}")
+            print(f"[ERROR] Error listando colecciones: {e}")
         return []
 
 
@@ -486,7 +486,7 @@ def get_collection_count(collection_name: str) -> int:
         docs = list(collection_ref.stream())
         return len(docs)
     except Exception as e:
-        print(f"❌ Error contando documentos en {collection_name}: {e}")
+        print(f"[ERROR] Error contando documentos en {collection_name}: {e}")
         return 0
 
 
@@ -500,10 +500,10 @@ def create_collection_if_not_exists(collection_name: str) -> bool:
         if collection_name not in collections:
             print(f"📝 Colección '{collection_name}' se creará al insertar datos")
         else:
-            print(f"✅ Colección '{collection_name}' ya existe")
+            print(f"[OK] Colección '{collection_name}' ya existe")
         return True
     except Exception as e:
-        print(f"❌ Error verificando colección {collection_name}: {e}")
+        print(f"[ERROR] Error verificando colección {collection_name}: {e}")
         return False
 
 
@@ -516,42 +516,42 @@ def test_data_operations() -> bool:
         # Crear documento de prueba
         doc_ref = client.collection(test_collection).document("test_doc")
         doc_ref.set({"test": True, "timestamp": firestore.SERVER_TIMESTAMP})
-        print("✅ Escritura de prueba exitosa")
+        print("[OK] Escritura de prueba exitosa")
         
         # Leer documento de prueba
         doc = doc_ref.get()
         if doc.exists:
-            print("✅ Lectura de prueba exitosa")
+            print("[OK] Lectura de prueba exitosa")
             
             # Limpiar documento de prueba
             doc_ref.delete()
-            print("✅ Eliminación de prueba exitosa")
+            print("[OK] Eliminación de prueba exitosa")
             return True
         else:
-            print("❌ No se pudo leer el documento de prueba")
+            print("[ERROR] No se pudo leer el documento de prueba")
             return False
             
     except Exception as e:
-        print(f"❌ Error en operaciones de prueba: {e}")
+        print(f"[ERROR] Error en operaciones de prueba: {e}")
         return False
 
 
 def setup_firebase() -> bool:
     """Configuración completa de Firebase con verificación de carga de datos."""
     try:
-        print("🚀 Configurando Firebase...")
+        print("[START] Configurando Firebase...")
         # Mostrar PROJECT_ID de forma segura
         project_display = f"{PROJECT_ID[:8]}***" if PROJECT_ID and len(PROJECT_ID) > 8 else "[CONFIGURED]"
-        print(f"🔧 Proyecto: {project_display}")
+        print(f"[CONFIG] Proyecto: {project_display}")
         print(f"⚙️  Batch size: {BATCH_SIZE}")
-        print(f"⏱️  Timeout: {TIMEOUT}s")
+        print(f"[TIME]  Timeout: {TIMEOUT}s")
         
         if not test_connection():
             return False
             
-        print("\n📊 Probando operaciones de datos...")
+        print("\n[DATA] Probando operaciones de datos...")
         if not test_data_operations():
-            print("⚠️  Operaciones de datos fallaron, pero conexión básica funciona")
+            print("[WARNING]  Operaciones de datos fallaron, pero conexión básica funciona")
             return False
             
         collections = list_collections()
@@ -567,13 +567,13 @@ def setup_firebase() -> bool:
             if len(collections) > 3:
                 print(f"    - ... y {len(collections) - 3} más")
         
-        print("✅ Firebase listo para ETL")
+        print("[OK] Firebase listo para ETL")
         return True
         
     except Exception as e:
         # No mostrar el error completo por seguridad
         error_msg = str(e)[:50] + "..." if len(str(e)) > 50 else str(e)
-        print(f"❌ Error en configuración: {error_msg}")
+        print(f"[ERROR] Error en configuración: {error_msg}")
         return False
 
 
@@ -584,14 +584,14 @@ def show_system_info():
     print(f"🐍 Python: {platform.python_version()}")
     # No mostrar la ruta completa del directorio por seguridad
     current_dir = Path.cwd()
-    print(f"📁 Directorio: .../{current_dir.name}")
+    print(f"[FILE] Directorio: .../{current_dir.name}")
     
     # Mostrar PROJECT_ID de forma segura
     if PROJECT_ID:
         masked_project = f"{PROJECT_ID[:8]}***" if len(PROJECT_ID) > 8 else "[CONFIGURED]"
-        print(f"🔧 Project ID: {masked_project}")
+        print(f"[CONFIG] Project ID: {masked_project}")
     else:
-        print("🔧 Project ID: [NOT CONFIGURED]")
+        print("[CONFIG] Project ID: [NOT CONFIGURED]")
     
     # Verificar si gcloud está instalado
     import subprocess
@@ -602,9 +602,9 @@ def show_system_info():
             version_line = result.stdout.split('\n')[0]
             print(f"☁️  {version_line}")
         else:
-            print("⚠️  gcloud CLI no encontrado")
+            print("[WARNING]  gcloud CLI no encontrado")
     except (subprocess.TimeoutExpired, FileNotFoundError):
-        print("⚠️  gcloud CLI no instalado o no accesible")
+        print("[WARNING]  gcloud CLI no instalado o no accesible")
 
 
 # Ejecutar si se llama directamente
@@ -615,8 +615,8 @@ if __name__ == "__main__":
     
     success = setup_firebase()
     if success:
-        print("\n🎯 Configuración completada exitosamente")
-        print("💾 Sistema listo para cargar datos")
+        print("\n[SUCCESS] Configuración completada exitosamente")
+        print("[SAVE] Sistema listo para cargar datos")
     else:
-        print("\n💥 Configuración fallida")
-        print("🔧 Instala gcloud CLI y ejecuta: gcloud auth application-default login")
+        print("\n[FAILED] Configuración fallida")
+        print("[CONFIG] Instala gcloud CLI y ejecuta: gcloud auth application-default login")
