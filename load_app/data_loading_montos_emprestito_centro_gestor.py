@@ -127,9 +127,10 @@ def compare_and_filter_changes(
     }
     
     for record in new_records:
-        # Generar ID único basado en banco + centro_gestor + bp + año
-        doc_id = f"{record['banco']}_{record['bp']}_{record['anio']}"
-        doc_id = doc_id.replace(' ', '_').replace('/', '_').replace('.', '_')
+        # Generar ID único basado en banco + bp + año
+        # Incluimos banco porque un mismo BP puede tener asignaciones en diferentes bancos
+        doc_id = f"{record['nombre_banco']}_{record['bp']}_{record['anio']}"
+        doc_id = doc_id.replace(' ', '_').replace('/', '_').replace('.', '_').replace('-', '_')
         
         # Calcular hash del nuevo registro
         new_hash = calculate_record_hash(record)
@@ -162,7 +163,7 @@ def compare_and_filter_changes(
 
 def load_excel_data(file_path: str) -> pd.DataFrame:
     """
-    Carga datos desde archivo Excel.
+    Carga datos desde archivo Excel (Hoja1).
     
     Args:
         file_path: Ruta al archivo Excel
@@ -175,7 +176,18 @@ def load_excel_data(file_path: str) -> pd.DataFrame:
     if not os.path.exists(file_path):
         raise FileNotFoundError(f"No se encontró el archivo: {file_path}")
     
-    df = pd.read_excel(file_path)
+    # Leer específicamente la Hoja1 que contiene los datos detallados
+    df = pd.read_excel(file_path, sheet_name='Hoja1')
+    
+    # Eliminar filas vacías o totales
+    df = df.dropna(subset=['banco', 'bp', 'anio'])
+    
+    # Convertir todos los NaN en las columnas de montos a 0
+    columnas_montos = ['monto_programado_pago', 'monto_programado_adjudicacion']
+    for col in columnas_montos:
+        if col in df.columns:
+            df[col] = df[col].fillna(0)
+    
     print(f"✅ Cargados {len(df)} registros desde Excel")
     print(f"📋 Columnas: {df.columns.tolist()}")
     
@@ -198,12 +210,17 @@ def transform_data(df: pd.DataFrame) -> List[Dict[str, Any]]:
     timestamp = datetime.now().isoformat()
     
     for idx, row in df.iterrows():
+        # Los NaN ya fueron convertidos a 0 en la carga, pero validamos por seguridad
+        monto_pago = int(row['monto_programado_pago']) if pd.notna(row['monto_programado_pago']) else 0
+        monto_adjudicacion = int(row['monto_programado_adjudicacion']) if pd.notna(row['monto_programado_adjudicacion']) else 0
+        
         record = {
-            'banco': str(row['banco']).strip(),
+            'nombre_banco': str(row['banco']).strip(),
             'nombre_centro_gestor': str(row['nombre_centro_gestor']).strip(),
             'bp': str(row['bp']).strip(),
             'anio': int(row['anio']),
-            'monto_programado': float(row['monto_programado']),
+            'monto_programado_pago': monto_pago,
+            'monto_programado_adjudicacion': monto_adjudicacion,
             'created_at': timestamp,
             'updated_at': timestamp
         }
