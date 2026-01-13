@@ -41,6 +41,9 @@ from difflib import get_close_matches
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'utils'))
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'extraction_app'))
 
+# Import geometry coordinate extractor
+from utils.geometry_coordinate_extractor import extract_lat_lon_from_geometry
+
 # Load standard categories from JSON
 def load_standard_categories() -> Dict[str, List[str]]:
     """Load standard categories from JSON file."""
@@ -1096,9 +1099,39 @@ def unidades_proyecto_transformer(
 
 
 def convert_to_geodataframe(df: pd.DataFrame) -> gpd.GeoDataFrame:
-    """Convert DataFrame to GeoDataFrame with proper geometry validation."""
+    """Convert DataFrame to GeoDataFrame with proper geometry validation.
+    
+    Handles two scenarios:
+    1. DataFrame already has 'geometry' column (from GeoJSON) - preserves it
+    2. DataFrame has lat/lon columns - creates geometry from them
+    """
+    # SCENARIO 1: DataFrame already is a GeoDataFrame with geometry
+    if isinstance(df, gpd.GeoDataFrame) and 'geometry' in df.columns:
+        valid_geom = df['geometry'].notna().sum()
+        print(f"[OK] DataFrame already has geometry: {valid_geom} valid geometries ({valid_geom/len(df)*100:.1f}%)")
+        return df
+    
+    # SCENARIO 2: DataFrame has geometry column but isn't a GeoDataFrame yet
+    if 'geometry' in df.columns and not isinstance(df, gpd.GeoDataFrame):
+        # Check if geometry is valid Shapely geometry
+        has_valid_geom = False
+        try:
+            from shapely.geometry.base import BaseGeometry
+            sample_geom = df['geometry'].dropna().iloc[0] if len(df['geometry'].dropna()) > 0 else None
+            has_valid_geom = sample_geom is not None and isinstance(sample_geom, BaseGeometry)
+        except:
+            pass
+        
+        if has_valid_geom:
+            # Convert to GeoDataFrame preserving existing geometry
+            gdf = gpd.GeoDataFrame(df, geometry='geometry', crs='EPSG:4326')
+            valid_geom = gdf['geometry'].notna().sum()
+            print(f"[OK] Converted to GeoDataFrame preserving geometry: {valid_geom} valid ({valid_geom/len(gdf)*100:.1f}%)")
+            return gdf
+    
+    # SCENARIO 3: No geometry column or invalid - create from lat/lon
     if 'lat' not in df.columns or 'lon' not in df.columns:
-        print("⚠ Warning: lat/lon columns not found, skipping geodataframe conversion")
+        print("⚠ Warning: lat/lon columns not found, returning DataFrame without geometry")
         return df
     
     gdf = df.copy()
@@ -1160,7 +1193,7 @@ def convert_to_geodataframe(df: pd.DataFrame) -> gpd.GeoDataFrame:
     gdf = gpd.GeoDataFrame(gdf, geometry='geometry', crs='EPSG:4326')
     gdf.drop(columns=['lat_numeric', 'lon_numeric'], inplace=True, errors='ignore')
     
-    print(f"[OK] GeoDataFrame created: {valid_coords.sum()} valid geometries ({valid_coords.sum()/len(gdf)*100:.1f}%)")
+    print(f"[OK] GeoDataFrame created from lat/lon: {valid_coords.sum()} valid geometries ({valid_coords.sum()/len(gdf)*100:.1f}%)")
     return gdf
 
 
@@ -1976,19 +2009,28 @@ def restructure_by_upid(gdf: gpd.GeoDataFrame) -> gpd.GeoDataFrame:
                         unidad[field] = None
                 # Preservar geometry siempre que sea válida (sin validar rango)
                 elif field == 'geometry':
+                    # Primero intentar usar geometry del first_row
                     if pd.notna(valor) and valor is not None and hasattr(valor, 'x') and hasattr(valor, 'y'):
-                        # Preservar geometry siempre que tenga coordenadas
-                        # La validación de rango se hace en el campo 'fuera_rango'
                         unidad[field] = valor
                     else:
-                        # Si no hay geometry pero hay lat/lon, intentar reconstruir aquí
-                        lat = first_row.get('lat') if 'lat' in first_row else None
-                        lon = first_row.get('lon') if 'lon' in first_row else None
-                        if pd.notna(lat) and pd.notna(lon) and isinstance(lat, (int, float)) and isinstance(lon, (int, float)):
-                            from shapely.geometry import Point
-                            unidad[field] = Point(float(lon), float(lat))
-                        else:
-                            unidad[field] = None
+                        # Si no hay geometry en first_row, buscar en cualquier fila del grupo
+                        geometry_found = False
+                        for _, row_item in upid_group.iterrows():
+                            geom_val = row_item.get(field)
+                            if pd.notna(geom_val) and geom_val is not None and hasattr(geom_val, 'x') and hasattr(geom_val, 'y'):
+                                unidad[field] = geom_val
+                                geometry_found = True
+                                break
+                        
+                        if not geometry_found:
+                            # Si no hay geometry en ninguna fila, intentar reconstruir desde lat/lon
+                            lat = first_row.get('lat') if 'lat' in first_row else None
+                            lon = first_row.get('lon') if 'lon' in first_row else None
+                            if pd.notna(lat) and pd.notna(lon) and isinstance(lat, (int, float)) and isinstance(lon, (int, float)):
+                                from shapely.geometry import Point
+                                unidad[field] = Point(float(lon), float(lat))
+                            else:
+                                unidad[field] = None
                 else:
                     unidad[field] = valor
         
@@ -2045,27 +2087,32 @@ def restructure_by_upid(gdf: gpd.GeoDataFrame) -> gpd.GeoDataFrame:
         unidad['intervenciones'] = intervenciones
         
         # Agregar métricas agregadas a nivel de unidad (para consultas frontend)
-        # Estas son SUM de todas las intervenciones de la unidad
-        presupuestos = [i.get('presupuesto_base', 0) for i in intervenciones if i.get('presupuesto_base', 0) > 0]
-        unidad['presupuesto_base'] = sum(presupuestos) if presupuestos else 0
+        # CORRECCIÓN: Incluir TODAS las intervenciones (incluso con presupuesto = 0)
+        # presupuesto_base: SUMA de todos los presupuestos
+        presupuestos = [i.get('presupuesto_base', 0) for i in intervenciones]
+        unidad['presupuesto_base'] = sum(presupuestos)
         
-        # Avance promedio ponderado por presupuesto (o promedio simple si no hay presupuestos)
+        # avance_obra: Calcular promedio ponderado por presupuesto
+        # Si todas las intervenciones tienen presupuesto 0, usar promedio simple
+        # CORRECCIÓN: Solo considerar intervenciones con presupuesto > 0 para el ponderado
         avances_con_ppto = [(i.get('avance_obra', 0), i.get('presupuesto_base', 0)) 
                             for i in intervenciones 
-                            if i.get('presupuesto_base', 0) > 0]
+                            if i.get('presupuesto_base', 0) > 0 and i.get('avance_obra') is not None]
+        
         if avances_con_ppto:
+            # Promedio ponderado: (sum(avance * presupuesto)) / sum(presupuesto)
             total_ppto = sum(p for _, p in avances_con_ppto)
             if total_ppto > 0:
-                unidad['avance_obra'] = sum(a * p for a, p in avances_con_ppto) / total_ppto
+                avance_ponderado = sum(a * p for a, p in avances_con_ppto) / total_ppto
+                unidad['avance_obra'] = round(avance_ponderado, 2)
             else:
-                avances = [i.get('avance_obra', 0) for i in intervenciones]
-                unidad['avance_obra'] = sum(avances) / len(avances) if avances else 0.0
+                # Fallback: promedio simple si los presupuestos suman 0
+                avances = [a for a, _ in avances_con_ppto]
+                unidad['avance_obra'] = round(sum(avances) / len(avances), 2) if avances else 0.0
         else:
-            avances = [i.get('avance_obra', 0) for i in intervenciones]
-            unidad['avance_obra'] = sum(avances) / len(avances) if avances else 0.0
-        
-        # Redondear avance a 2 decimales
-        unidad['avance_obra'] = round(unidad['avance_obra'], 2)
+            # Si no hay intervenciones con presupuesto > 0, usar promedio simple de todas
+            avances = [i.get('avance_obra', 0) for i in intervenciones if i.get('avance_obra') is not None]
+            unidad['avance_obra'] = round(sum(avances) / len(avances), 2) if avances else 0.0
         
         unidades_list.append(unidad)
     
@@ -2715,6 +2762,12 @@ def _process_unidades_proyecto_dataframe(df: pd.DataFrame) -> gpd.GeoDataFrame:
     # Phase 2: Geospatial processing
     print("\n[Phase 2: Geospatial Processing]")
     gdf = convert_to_geodataframe(df_transformed)
+    
+    # CRITICAL FIX: Extract lat/lon from geometry if not present in properties
+    # This handles cases where GeoJSON has geometry but no explicit lat/lon fields
+    if isinstance(gdf, gpd.GeoDataFrame) and 'geometry' in gdf.columns:
+        print("\n[Phase 2.1: Extracting Coordinates from Geometry]")
+        gdf = extract_lat_lon_from_geometry(gdf)
     
     if isinstance(gdf, gpd.GeoDataFrame):
         gdf = correct_coordinate_formats(gdf)

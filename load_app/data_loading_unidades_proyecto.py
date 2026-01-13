@@ -408,6 +408,34 @@ def prepare_document_data(feature: Dict[str, Any]) -> Optional[Dict[str, Any]]:
                     'coordinates': json.dumps(clean_coords, separators=(',', ':'))
                 }
     
+    # CRÍTICO: Si no hay geometry pero hay lat/lon en properties, crear geometry
+    if not geometry_field:
+        lat = properties.get('lat')
+        lon = properties.get('lon')
+        
+        # Intentar convertir a numérico si son strings
+        if lat is not None and lon is not None:
+            try:
+                if isinstance(lat, str):
+                    lat = float(lat.replace(',', '.'))
+                else:
+                    lat = float(lat)
+                
+                if isinstance(lon, str):
+                    lon = float(lon.replace(',', '.'))
+                else:
+                    lon = float(lon)
+                
+                # Validar rangos (Cali, Colombia aproximadamente)
+                if 2.0 <= lat <= 5.0 and -78.0 <= lon <= -75.0:
+                    geometry_field = {
+                        'type': 'Point',
+                        'coordinates': [round(lon, 8), round(lat, 8)]
+                    }
+                    print(f"      [CREATE] Geometry creada desde lat/lon para documento")
+            except (ValueError, TypeError):
+                pass  # No se pudo convertir
+    
     # Serialize properties for Firebase compatibility (flatten to root level)
     document_data = {}
     for key, value in properties.items():

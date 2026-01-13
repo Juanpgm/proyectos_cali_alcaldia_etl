@@ -118,6 +118,7 @@ def calculate_fuzzy_similarity(text1: str, text2: str) -> float:
 def consolidate_coordinates(lats: pd.Series, lons: pd.Series) -> Tuple[float, float]:
     """
     Consolida coordenadas GPS tomando el promedio de valores no nulos.
+    Mejora: Valida que ambas coordenadas sean numéricas antes de promediar.
     
     Args:
         lats: Serie con latitudes
@@ -126,13 +127,29 @@ def consolidate_coordinates(lats: pd.Series, lons: pd.Series) -> Tuple[float, fl
     Returns:
         Tupla (lat_promedio, lon_promedio)
     """
-    lats_valid = lats.dropna()
-    lons_valid = lons.dropna()
+    # Filtrar valores nulos Y asegurar que sean numéricos
+    lats_valid = pd.to_numeric(lats, errors='coerce').dropna()
+    lons_valid = pd.to_numeric(lons, errors='coerce').dropna()
     
+    # Validar que tengamos coordenadas válidas
     if len(lats_valid) == 0 or len(lons_valid) == 0:
         return None, None
     
-    return round(lats_valid.mean(), 8), round(lons_valid.mean(), 8)
+    # Tomar el promedio y redondear
+    lat_avg = round(lats_valid.mean(), 8)
+    lon_avg = round(lons_valid.mean(), 8)
+    
+    # Validar que el resultado esté en rangos razonables (Cali, Colombia)
+    # Cali está aproximadamente en lat: 3.4, lon: -76.5
+    if not (2.0 <= lat_avg <= 5.0 and -78.0 <= lon_avg <= -75.0):
+        # Si está fuera de rango, buscar la primera coordenada válida individual
+        for lat, lon in zip(lats_valid, lons_valid):
+            if 2.0 <= lat <= 5.0 and -78.0 <= lon <= -75.0:
+                return round(lat, 8), round(lon, 8)
+        # Si ninguna es válida, devolver None
+        return None, None
+    
+    return lat_avg, lon_avg
 
 
 def create_geometry_from_coords(lat: float, lon: float) -> Dict[str, Any]:
