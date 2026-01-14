@@ -435,7 +435,10 @@ def agrupar_datos_geoespacial(df: pd.DataFrame) -> Dict[str, Dict]:
     - "Adquisición predial"
     - "Demarcación vial"
     
-    Cada registro con estas clases se mantiene como unidad individual (1 unidad = 1 intervención).
+    O registros de centro gestor:
+    - "Secretaría de Salud Pública" (cada IPS es una unidad independiente)
+    
+    Cada registro con estas características se mantiene como unidad individual (1 unidad = 1 intervención).
     
     Args:
         df: DataFrame con datos originales
@@ -453,11 +456,17 @@ def agrupar_datos_geoespacial(df: pd.DataFrame) -> Dict[str, Dict]:
     print(f"   • Registros sin coordenadas: {df['lat'].isna().sum()}")
     
     # Paso 0: Separar registros que NO se agrupan (cada uno es una unidad individual)
-    # - Subsidios
-    # - Adquisición predial
-    # - Demarcación vial
+    # Por clase_up:
     clases_no_agrupables = ['Subsidios', 'Adquisición predial', 'Demarcación vial']
-    mask_no_agrupables = df['clase_up'].isin(clases_no_agrupables)
+    mask_clase_no_agrupable = df['clase_up'].isin(clases_no_agrupables)
+    
+    # Por centro gestor (Salud Pública: cada IPS es independiente)
+    centros_no_agrupables = ['Secretaría de Salud Pública']
+    mask_centro_no_agrupable = df['nombre_centro_gestor'].isin(centros_no_agrupables)
+    
+    # Combinar ambas máscaras
+    mask_no_agrupables = mask_clase_no_agrupable | mask_centro_no_agrupable
+    
     df_no_agrupables = df[mask_no_agrupables].copy()
     df_agrupables = df[~mask_no_agrupables].copy()
     
@@ -467,6 +476,10 @@ def agrupar_datos_geoespacial(df: pd.DataFrame) -> Dict[str, Dict]:
         count = (df['clase_up'] == clase).sum()
         if count > 0:
             print(f"      - {clase}: {count}")
+    for centro in centros_no_agrupables:
+        count = (df['nombre_centro_gestor'] == centro).sum()
+        if count > 0:
+            print(f"      - {centro}: {count}")
     print(f"   • Registros agrupables: {len(df_agrupables)}")
     
     # Paso 1: Validar y corregir coordenadas usando CoordinateValidator
@@ -554,13 +567,14 @@ def agrupar_datos_geoespacial(df: pd.DataFrame) -> Dict[str, Dict]:
     print(f"   ✅ Unidades agrupables consolidadas: {len(unidades)}")
     
     # Paso 6: Procesar registros NO AGRUPABLES (cada uno es una unidad individual)
-    # Incluye: Subsidios, Adquisición predial, Demarcación vial
+    # Incluye:
+    # - Por clase_up: Subsidios, Adquisición predial, Demarcación vial
+    # - Por centro gestor: Secretaría de Salud Pública
     print(f"\n💰 Procesando registros no agrupables como unidades individuales...")
     
     no_agrupables_unidades = {}
     for idx, row in df_no_agrupables.iterrows():
         # Cada registro no agrupable es su propia unidad
-        clase = row.get('clase_up', 'NO_AGRUPABLE')
         cluster_id = f"INDIVIDUAL-{idx}"
         
         unidad = {}

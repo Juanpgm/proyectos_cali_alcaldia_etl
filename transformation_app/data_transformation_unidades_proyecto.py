@@ -1156,12 +1156,12 @@ def convert_to_geodataframe(df: pd.DataFrame) -> gpd.GeoDataFrame:
     def is_valid_lat(lat):
         if lat is None or pd.isna(lat):
             return False
-        return 3.0 <= lat <= 4.0  # Rango válido para Cali
+        return 2.5 <= lat <= 4.5  # Rango ampliado para Cali y área metropolitana
     
     def is_valid_lon(lon):
         if lon is None or pd.isna(lon):
             return False
-        return -77.0 <= lon <= -76.0  # Rango válido para Cali
+        return -77.5 <= lon <= -75.5  # Rango ampliado para Cali y área metropolitana
     
     # Aplicar validaciones
     valid_lat = gdf['lat_numeric'].apply(is_valid_lat)
@@ -1175,9 +1175,9 @@ def convert_to_geodataframe(df: pd.DataFrame) -> gpd.GeoDataFrame:
         invalid_lats = gdf[~valid_lat & gdf['lat_numeric'].notna()]['lat_numeric'].unique()
         invalid_lons = gdf[~valid_lon & gdf['lon_numeric'].notna()]['lon_numeric'].unique()
         if len(invalid_lats) > 0:
-            print(f"   Latitudes fuera de rango (3.0-4.0): {invalid_lats[:5]}")
+            print(f"   Latitudes fuera de rango (2.5-4.5): {invalid_lats[:5]}")
         if len(invalid_lons) > 0:
-            print(f"   Longitudes fuera de rango (-77.0 a -76.0): {invalid_lons[:5]}")
+            print(f"   Longitudes fuera de rango (-77.5 a -75.5): {invalid_lons[:5]}")
     
     if valid_coords.sum() == 0:
         print("⚠ No valid coordinates found")
@@ -1207,14 +1207,14 @@ def fix_coordinate_format(coord_value, coord_type='lat'):
         coord_float = float(coord_str)
         
         if coord_type == 'lat':
-            if 3.0 <= coord_float <= 4.0:
+            if 2.5 <= coord_float <= 4.5:
                 return round(coord_float, 10)
             elif 0 < coord_float < 1:
                 return round(3.0 + coord_float, 10)
         elif coord_type == 'lon':
-            if -77.0 <= coord_float <= -76.0:
+            if -77.5 <= coord_float <= -75.5:
                 return round(coord_float, 10)
-            elif 76.0 < coord_float < 77.0:
+            elif 75.5 < coord_float < 77.5:
                 return round(-coord_float, 10)
             elif 0 < coord_float < 1:
                 return round(-76.0 - coord_float, 10)
@@ -1259,9 +1259,9 @@ def create_final_geometry(gdf: gpd.GeoDataFrame) -> gpd.GeoDataFrame:
     
     result_gdf = gdf.copy()
     
-    # Validar coordenadas
-    valid_lat = result_gdf['lat'].notna() & (result_gdf['lat'].apply(lambda x: isinstance(x, (int, float)) and 3.0 <= x <= 4.0))
-    valid_lon = result_gdf['lon'].notna() & (result_gdf['lon'].apply(lambda x: isinstance(x, (int, float)) and -77.0 <= x <= -76.0))
+    # Validar coordenadas (rangos ampliados para mayor cobertura)
+    valid_lat = result_gdf['lat'].notna() & (result_gdf['lat'].apply(lambda x: isinstance(x, (int, float)) and 2.5 <= x <= 4.5))
+    valid_lon = result_gdf['lon'].notna() & (result_gdf['lon'].apply(lambda x: isinstance(x, (int, float)) and -77.5 <= x <= -75.5))
     valid_coords = valid_lat & valid_lon
     
     if valid_coords.sum() == 0:
@@ -2187,7 +2187,7 @@ def export_to_geojson(gdf: gpd.GeoDataFrame, output_dir: Path) -> Path:
     gdf_export = gdf_restructured.copy()
     
     # [OK] CRÍTICO: Asegurar que todas las geometrías sean válidas antes de exportar
-    # Si hay lat/lon pero no geometry, reconstruir (sin validar rango estricto)
+    # Si hay lat/lon pero no geometry, reconstruir con validación amplia
     geometries_reconstruidas = 0
     for idx in gdf_export.index:
         geom = gdf_export.at[idx, 'geometry']
@@ -2197,8 +2197,10 @@ def export_to_geojson(gdf: gpd.GeoDataFrame, output_dir: Path) -> Path:
         # Si no hay geometry válida pero hay coordenadas, reconstruir
         if (geom is None or pd.isna(geom) or not hasattr(geom, 'x')) and pd.notna(lat) and pd.notna(lon):
             if isinstance(lat, (int, float)) and isinstance(lon, (int, float)):
-                gdf_export.at[idx, 'geometry'] = Point(float(lon), float(lat))
-                geometries_reconstruidas += 1
+                # Validación amplia: rangos extendidos para incluir área metropolitana
+                if 2.5 <= lat <= 4.5 and -77.5 <= lon <= -75.5:
+                    gdf_export.at[idx, 'geometry'] = Point(float(lon), float(lat))
+                    geometries_reconstruidas += 1
     
     if geometries_reconstruidas > 0:
         print(f"   [CONFIG] {geometries_reconstruidas} geometrías reconstruidas desde lat/lon")
@@ -2263,8 +2265,8 @@ def export_to_geojson(gdf: gpd.GeoDataFrame, output_dir: Path) -> Path:
         # Intentar usar geometry primero
         if pd.notna(geom) and geom is not None and hasattr(geom, 'x') and hasattr(geom, 'y'):
             try:
-                # Validar que las coordenadas estén en rangos válidos
-                if -77.0 <= geom.x <= -76.0 and 3.0 <= geom.y <= 4.0:
+                # Validar que las coordenadas estén en rangos válidos (ampliados)
+                if -77.5 <= geom.x <= -75.5 and 2.5 <= geom.y <= 4.5:
                     # GeoJSON estándar: [lon, lat] = [x, y]
                     feature['geometry'] = {
                         "type": "Point",
@@ -2272,14 +2274,14 @@ def export_to_geojson(gdf: gpd.GeoDataFrame, output_dir: Path) -> Path:
                     }
                 else:
                     # Geometry fuera de rango, intentar con lat/lon
-                    if pd.notna(lat) and pd.notna(lon) and -77.0 <= lon <= -76.0 and 3.0 <= lat <= 4.0:
+                    if pd.notna(lat) and pd.notna(lon) and -77.5 <= lon <= -75.5 and 2.5 <= lat <= 4.5:
                         feature['geometry'] = {
                             "type": "Point",
                             "coordinates": [lon, lat]  # lon, lat
                         }
             except Exception as e:
                 # Error al procesar geometry, intentar con lat/lon
-                if pd.notna(lat) and pd.notna(lon) and -77.0 <= lon <= -76.0 and 3.0 <= lat <= 4.0:
+                if pd.notna(lat) and pd.notna(lon) and -77.5 <= lon <= -75.5 and 2.5 <= lat <= 4.5:
                     feature['geometry'] = {
                         "type": "Point",
                         "coordinates": [lon, lat]  # lon, lat
@@ -2287,7 +2289,7 @@ def export_to_geojson(gdf: gpd.GeoDataFrame, output_dir: Path) -> Path:
         # Si no hay geometry válida, usar lat/lon directamente
         elif pd.notna(lat) and pd.notna(lon):
             try:
-                if -77.0 <= lon <= -76.0 and 3.0 <= lat <= 4.0:
+                if -77.5 <= lon <= -75.5 and 2.5 <= lat <= 4.5:
                     feature['geometry'] = {
                         "type": "Point",
                         "coordinates": [lon, lat]  # lon, lat

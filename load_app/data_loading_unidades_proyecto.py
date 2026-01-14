@@ -426,8 +426,8 @@ def prepare_document_data(feature: Dict[str, Any]) -> Optional[Dict[str, Any]]:
                 else:
                     lon = float(lon)
                 
-                # Validar rangos (Cali, Colombia aproximadamente)
-                if 2.0 <= lat <= 5.0 and -78.0 <= lon <= -75.0:
+                # Validar rangos (Cali y área metropolitana, rangos ampliados)
+                if 2.5 <= lat <= 4.5 and -77.5 <= lon <= -75.5:
                     geometry_field = {
                         'type': 'Point',
                         'coordinates': [round(lon, 8), round(lat, 8)]

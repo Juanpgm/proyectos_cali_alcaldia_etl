@@ -31,6 +31,8 @@ from datetime import datetime
 from typing import Dict, List, Any, Optional, Tuple, Callable
 from functools import reduce, partial, wraps
 import hashlib
+import uuid
+import uuid
 
 # Agregar rutas necesarias al path
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -565,21 +567,149 @@ def run_incremental_load(incremental_geojson_path: str, collection_name: str = "
     )
 
 
-@log_step("CARGA INFRAESTRUCTURA A FIREBASE")
+@log_step("PREPARACIÓN DATOS INFRAESTRUCTURA")
 @safe_execute
-def run_load_infraestructura(collection_name: str = "unidades_proyecto") -> bool:
+def prepare_infraestructura_data(infraestructura_geojson_path: str) -> Tuple[Optional[str], Optional[Dict[str, int]]]:
     """
-    Ejecuta la carga de datos de infraestructura vial a Firebase.
+    Prepara los datos de infraestructura 2024-2025 para carga a Firebase.
+    Verifica compatibilidad con la estructura de la colección unidades_proyecto.
+    Genera UPIDs únicos para features sin identificador.
     
     Args:
+        infraestructura_geojson_path: Ruta al GeoJSON de infraestructura
+        
+    Returns:
+        Tupla de (ruta_geojson_preparado, estadísticas) o (None, None) si falla
+    """
+    try:
+        # Verificar que existe el archivo
+        if not os.path.exists(infraestructura_geojson_path):
+            print(f"[ERROR] Archivo no encontrado: {infraestructura_geojson_path}")
+            return None, None
+        
+        print(f"[DATA] Cargando GeoJSON de infraestructura...")
+        with open(infraestructura_geojson_path, 'r', encoding='utf-8') as f:
+            geojson_data = json.load(f)
+        
+        features = geojson_data.get('features', [])
+        if not features:
+            print("[WARNING] No hay features en el GeoJSON")
+            return None, None
+        
+        print(f"[DATA] Features encontrados: {len(features)}")
+        
+        # Estadísticas
+        stats = {
+            'total_features': len(features),
+            'with_upid': 0,
+            'generated_upid': 0,
+            'with_geometry': 0,
+            'with_bpin': 0,
+            'with_bp': 0
+        }
+        
+        # Procesar cada feature
+        for i, feature in enumerate(features):
+            properties = feature.get('properties', {})
+            
+            # Verificar geometría
+            if feature.get('geometry'):
+                stats['with_geometry'] += 1
+            
+            # Contar campos existentes
+            if properties.get('bpin'):
+                stats['with_bpin'] += 1
+            if properties.get('bp'):
+                stats['with_bp'] += 1
+            
+            # Verificar/generar UPID
+            upid = properties.get('upid')
+            
+            if upid and isinstance(upid, str) and upid.strip():
+                # Ya tiene UPID válido
+                stats['with_upid'] += 1
+            else:
+                # Generar UPID único basado en características del registro
+                # Formato: INF-{BPIN/BP}-{index} o INF-GEN-{uuid}
+                
+                bpin = properties.get('bpin')
+                bp = properties.get('bp')
+                
+                if bpin:
+                    # Usar BPIN si está disponible
+                    bpin_str = str(bpin).replace('.0', '').strip()
+                    upid = f"INF-BPIN-{bpin_str}-{i:04d}"
+                elif bp:
+                    # Usar BP si está disponible
+                    bp_str = str(bp).strip()
+                    upid = f"INF-{bp_str}-{i:04d}"
+                else:
+                    # Generar UUID único
+                    unique_id = str(uuid.uuid4())[:8]
+                    upid = f"INF-GEN-{unique_id}"
+                
+                # Asignar UPID generado
+                properties['upid'] = upid
+                stats['generated_upid'] += 1
+            
+            # Asegurar que tiene tipo_equipamiento
+            if not properties.get('tipo_equipamiento'):
+                properties['tipo_equipamiento'] = 'Vías'
+            
+            # Asegurar que tiene clase_up
+            if not properties.get('clase_up'):
+                properties['clase_up'] = 'Obra vial'
+            
+            # Actualizar el feature con properties modificados
+            feature['properties'] = properties
+        
+        # Guardar GeoJSON preparado
+        output_path = infraestructura_geojson_path.replace('.geojson', '_prepared.geojson')
+        with open(output_path, 'w', encoding='utf-8') as f:
+            json.dump(geojson_data, f, indent=2, ensure_ascii=False, default=str)
+        
+        # Mostrar estadísticas
+        print(f"\n[STATS] Estadísticas de preparación:")
+        print(f"  Total de features: {stats['total_features']}")
+        print(f"  Con geometría: {stats['with_geometry']}")
+        print(f"  Con UPID existente: {stats['with_upid']}")
+        print(f"  UPID generados: {stats['generated_upid']}")
+        print(f"  Con BPIN: {stats['with_bpin']}")
+        print(f"  Con BP: {stats['with_bp']}")
+        print(f"\n[SAVE] GeoJSON preparado guardado: {os.path.basename(output_path)}")
+        
+        return output_path, stats
+        
+    except Exception as e:
+        print(f"[ERROR] Error preparando datos de infraestructura: {e}")
+        import traceback
+        traceback.print_exc()
+        return None, None
+
+
+@log_step("CARGA INFRAESTRUCTURA A FIREBASE")
+@safe_execute
+def run_load_infraestructura(
+    prepared_geojson_path: str,
+    collection_name: str = "unidades_proyecto"
+) -> bool:
+    """
+    Ejecuta la carga de datos de infraestructura vial 2024-2025 a Firebase.
+    
+    Args:
+        prepared_geojson_path: Ruta al GeoJSON preparado con UPIDs
         collection_name: Nombre de la colección en Firebase
         
     Returns:
         True si la carga fue exitosa, False en caso contrario
     """
-    # El módulo de infraestructura carga desde context/unidades_proyecto.geojson
+    if not prepared_geojson_path or not os.path.exists(prepared_geojson_path):
+        print("[ERROR] GeoJSON preparado no disponible")
+        return False
+    
+    # Cargar usando el módulo existente
     return load_infraestructura_vial_to_firebase(
-        input_file=None,  # Usa ruta por defecto
+        input_file=prepared_geojson_path,
         collection_name=collection_name,
         batch_size=100
     )
@@ -801,22 +931,78 @@ def create_unidades_proyecto_pipeline() -> Callable[[], Dict[str, Any]]:
                 results['load_success'] = True  # No había nada que cargar
                 results['records_uploaded'] = 0
             
-            # PASO 5: Control de Calidad sobre datos COMPLETOS en Firebase
-            # (Se ejecuta DESPUÉS de la carga para validar el conjunto completo)
+            # PASO 5: Cargar datos de infraestructura 2024-2025
             if results['load_success']:
                 print(f"\n{'='*60}")
-                print("[DATA] PASO 5: CONTROL DE CALIDAD (DATOS COMPLETOS)")
+                print("[DATA] PASO 5: INTEGRACIÓN DATOS INFRAESTRUCTURA 2024-2025")
+                print("="*60)
+                
+                infraestructura_geojson = os.path.join(
+                    os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                    "app_outputs",
+                    "unidades_proyecto_infraestructura_outputs",
+                    "unidades_proyecto_infraestructura_2024_2025.geojson"
+                )
+                
+                if os.path.exists(infraestructura_geojson):
+                    # Preparar datos de infraestructura (generar UPIDs, validar)
+                    prepared_infra_path, infra_stats = prepare_infraestructura_data(
+                        infraestructura_geojson
+                    )
+                    
+                    if prepared_infra_path and infra_stats:
+                        results['infraestructura_prepared'] = True
+                        results['infraestructura_stats'] = infra_stats
+                        
+                        # Cargar datos preparados a Firebase
+                        infra_load_success = run_load_infraestructura(
+                            prepared_infra_path,
+                            collection_name
+                        )
+                        
+                        results['infraestructura_loaded'] = infra_load_success
+                        
+                        if infra_load_success:
+                            print(f"\n[OK] Datos de infraestructura integrados exitosamente")
+                            print(f"   {infra_stats['total_features']} registros de vías cargados")
+                        else:
+                            print(f"\n[WARNING] Fallo al cargar datos de infraestructura")
+                            results['errors'].append("Fallo en carga de infraestructura")
+                        
+                        # Limpiar archivo temporal preparado
+                        try:
+                            if os.path.exists(prepared_infra_path):
+                                os.remove(prepared_infra_path)
+                                print(f"[DELETE] Archivo temporal eliminado")
+                        except Exception as e:
+                            print(f"[WARNING] No se pudo eliminar archivo temporal: {e}")
+                    else:
+                        print(f"\n[WARNING] No se pudieron preparar datos de infraestructura")
+                        results['infraestructura_prepared'] = False
+                else:
+                    print(f"\n[WARNING] Archivo de infraestructura no encontrado")
+                    print(f"   Esperado en: {os.path.basename(infraestructura_geojson)}")
+                    results['infraestructura_prepared'] = False
+            
+            # PASO 6: Control de Calidad sobre datos COMPLETOS en Firebase
+            # (Se ejecuta DESPUÉS de todas las cargas para validar el conjunto completo)
+            if results['load_success']:
+                print(f"\n{'='*60}")
+                print("[DATA] PASO 6: CONTROL DE CALIDAD (DATOS COMPLETOS)")
                 print("="*60)
                 
                 # Esperar que Firebase complete conversiones internas
                 # El tiempo depende de si hubo cambios y cuántos
                 records_uploaded = results.get('records_uploaded', 0)
-                if records_uploaded > 0:
+                infra_features = results.get('infraestructura_stats', {}).get('total_features', 0)
+                total_uploaded = records_uploaded + infra_features
+                
+                if total_uploaded > 0:
                     # Calcular tiempo de espera basado en cantidad de registros
-                    # Mínimo 2 segundos, máximo 10 segundos
-                    wait_time = min(10, max(2, records_uploaded // 100))
+                    # Mínimo 3 segundos, máximo 15 segundos
+                    wait_time = min(15, max(3, total_uploaded // 100))
                     print(f"\n[WAIT] Esperando {wait_time}s para que Firebase complete conversiones...")
-                    print(f"   ({records_uploaded} registros actualizados)")
+                    print(f"   ({records_uploaded} registros estándar + {infra_features} registros infraestructura)")
                     import time
                     time.sleep(wait_time)
                     print("   [OK] Continuando con análisis de calidad\n")
