@@ -358,17 +358,19 @@ def prepare_document_data(feature: Dict[str, Any]) -> Optional[Dict[str, Any]]:
         clean_coords = serialize_geometry_coordinates(geom_type, coords)
         
         if clean_coords is not None:
-            # Firebase solo permite 1 nivel de anidamiento en arrays
-            # Point: array directo [lon, lat] - OK
-            # LineString/Polygon/Multi*: JSON string (Next.js puede parsear)
+            # CORRECCIÓN CRÍTICA: Firebase tiene límites con arrays muy anidados
+            # - Point: mantener como array nativo [lon, lat]
+            # - LineString/Polygon/Multi*: convertir a JSON string
+            # Esto evita el error "Property geometry contains an invalid nested entity"
             if geom_type == 'Point':
-                # Point puede usar array nativo
+                # Point: array nativo simple [lon, lat]
                 geometry_field = {
                     'type': geom_type,
                     'coordinates': clean_coords
                 }
             else:
-                # Otros tipos: serializar coordinates como JSON string
+                # LineString, Polygon, MultiPoint, MultiLineString, MultiPolygon:
+                # Serializar coordinates como JSON string para evitar límites de Firebase
                 geometry_field = {
                     'type': geom_type,
                     'coordinates': json.dumps(clean_coords, separators=(',', ':'))

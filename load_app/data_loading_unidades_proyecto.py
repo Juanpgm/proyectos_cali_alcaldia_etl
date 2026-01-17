@@ -384,7 +384,7 @@ def prepare_document_data(feature: Dict[str, Any]) -> Optional[Dict[str, Any]]:
     # - Formato consistente para todos los tipos de geometría
     # - Point usa array nativo, otros tipos usan JSON string (límite de Firebase)
     geometry_field = None
-    if geometry:
+    if geometry and geometry.get('type') and geometry.get('coordinates'):
         geom_type = geometry.get('type')
         coords = geometry.get('coordinates', [])
         
@@ -408,33 +408,13 @@ def prepare_document_data(feature: Dict[str, Any]) -> Optional[Dict[str, Any]]:
                     'coordinates': json.dumps(clean_coords, separators=(',', ':'))
                 }
     
-    # CRÍTICO: Si no hay geometry pero hay lat/lon en properties, crear geometry
-    if not geometry_field:
-        lat = properties.get('lat')
-        lon = properties.get('lon')
-        
-        # Intentar convertir a numérico si son strings
-        if lat is not None and lon is not None:
-            try:
-                if isinstance(lat, str):
-                    lat = float(lat.replace(',', '.'))
-                else:
-                    lat = float(lat)
-                
-                if isinstance(lon, str):
-                    lon = float(lon.replace(',', '.'))
-                else:
-                    lon = float(lon)
-                
-                # Validar rangos (Cali y área metropolitana, rangos ampliados)
-                if 2.5 <= lat <= 4.5 and -77.5 <= lon <= -75.5:
-                    geometry_field = {
-                        'type': 'Point',
-                        'coordinates': [round(lon, 8), round(lat, 8)]
-                    }
-                    print(f"      [CREATE] Geometry creada desde lat/lon para documento")
-            except (ValueError, TypeError):
-                pass  # No se pudo convertir
+    # NOTA: lat/lon ya NO están en properties del GeoJSON
+    # Las coordenadas se crean ÚNICAMENTE en geometry durante la transformación
+    # Este código ya no es necesario porque el GeoJSON tiene geometry correcta
+    # if not geometry_field:
+    #     lat = properties.get('lat')
+    #     lon = properties.get('lon')
+    #     ... (código comentado, ya no necesario)
     
     # Serialize properties for Firebase compatibility (flatten to root level)
     document_data = {}

@@ -792,10 +792,12 @@ def normalize_estado_values(df: pd.DataFrame) -> pd.DataFrame:
                         return 'En alistamiento'
                     
                     # Si es 100 o más, está terminado
-                    if avance_numeric >= 100.0:
+                    elif avance_numeric >= 100.0:
                         return 'Terminado'
                     
-                    # Si tiene avance entre 0 y 100, continuar con normalización
+                    # Si tiene avance entre 0 y 100, está en ejecución
+                    elif 0 < avance_numeric < 100.0:
+                        return 'En ejecución'
                     
                 except (ValueError, TypeError):
                     pass
@@ -1343,10 +1345,20 @@ def consolidate_coordinates_by_upid(df: pd.DataFrame) -> pd.DataFrame:
         upid_mask = result_df['upid'] == upid
         upid_group = result_df[upid_mask]
         
-        # Tomar la primera coordenada del grupo (puede ser inválida aún)
-        first_row = upid_group.iloc[0]
-        lat_original = first_row.get('lat')
-        lon_original = first_row.get('lon')
+        # CRÍTICO: Buscar la primera intervención con coordenadas válidas (no null)
+        # Muchas veces la primera intervención no tiene coordenadas pero otras sí
+        lat_original = None
+        lon_original = None
+        
+        for idx, row in upid_group.iterrows():
+            row_lat = row.get('lat')
+            row_lon = row.get('lon')
+            
+            # Verificar que no sean nulos
+            if pd.notna(row_lat) and pd.notna(row_lon):
+                lat_original = row_lat
+                lon_original = row_lon
+                break  # Usar la primera coordenada válida encontrada
         
         # Validar y corregir
         lat_corrected, lon_corrected, metadata = validator.validate_and_correct_coordinate(
@@ -2207,6 +2219,14 @@ def export_to_geojson(gdf: gpd.GeoDataFrame, output_dir: Path) -> Path:
     
     gdf_export = gpd.GeoDataFrame(gdf_export, geometry='geometry', crs='EPSG:4326')
     
+    # CRÍTICO: Eliminar columnas lat/lon del DataFrame
+    # Las coordenadas SOLO deben estar en geometry, NO en properties
+    columns_to_drop = ['lat', 'lon', 'latitud', 'longitud']
+    columns_dropped = [col for col in columns_to_drop if col in gdf_export.columns]
+    if columns_dropped:
+        gdf_export = gdf_export.drop(columns=columns_dropped)
+        print(f"   [CONFIG] Coordenadas eliminadas de properties: {columns_dropped}")
+    
     # Convertir la columna 'intervenciones' (lista de dicts) a JSON string para exportación
     # GeoPandas no maneja correctamente listas de diccionarios complejos
     if 'intervenciones' in gdf_export.columns:
@@ -2257,49 +2277,24 @@ def export_to_geojson(gdf: gpd.GeoDataFrame, output_dir: Path) -> Path:
             "properties": {}
         }
         
-        # Agregar geometry si existe (con validación y fallback a lat/lon)
+        # Agregar geometry SOLO desde el objeto geometry (ya no hay lat/lon en el DataFrame)
         geom = row.get('geometry')
-        lat = row.get('lat')
-        lon = row.get('lon')
         
-        # Intentar usar geometry primero
         if pd.notna(geom) and geom is not None and hasattr(geom, 'x') and hasattr(geom, 'y'):
             try:
-                # Validar que las coordenadas estén en rangos válidos (ampliados)
+                # Validar que las coordenadas estén en rangos válidos (ampliados para área metropolitana)
                 if -77.5 <= geom.x <= -75.5 and 2.5 <= geom.y <= 4.5:
                     # GeoJSON estándar: [lon, lat] = [x, y]
                     feature['geometry'] = {
                         "type": "Point",
-                        "coordinates": [geom.x, geom.y]  # lon, lat
+                        "coordinates": [round(geom.x, 8), round(geom.y, 8)]  # lon, lat
                     }
-                else:
-                    # Geometry fuera de rango, intentar con lat/lon
-                    if pd.notna(lat) and pd.notna(lon) and -77.5 <= lon <= -75.5 and 2.5 <= lat <= 4.5:
-                        feature['geometry'] = {
-                            "type": "Point",
-                            "coordinates": [lon, lat]  # lon, lat
-                        }
             except Exception as e:
-                # Error al procesar geometry, intentar con lat/lon
-                if pd.notna(lat) and pd.notna(lon) and -77.5 <= lon <= -75.5 and 2.5 <= lat <= 4.5:
-                    feature['geometry'] = {
-                        "type": "Point",
-                        "coordinates": [lon, lat]  # lon, lat
-                    }
-        # Si no hay geometry válida, usar lat/lon directamente
-        elif pd.notna(lat) and pd.notna(lon):
-            try:
-                if -77.5 <= lon <= -75.5 and 2.5 <= lat <= 4.5:
-                    feature['geometry'] = {
-                        "type": "Point",
-                        "coordinates": [lon, lat]  # lon, lat
-                    }
-            except:
                 pass  # Sin geometría válida
         
-        # Agregar properties (INCLUIR lat/lon como campos redundantes para análisis)
+        # Agregar properties (lat/lon ya fueron eliminadas del DataFrame)
         for col in gdf_export.columns:
-            if col not in ['geometry']:  # Solo excluir geometry, incluir lat/lon
+            if col != 'geometry':  # Solo excluir geometry
                 valor = row[col]
                 
                 # Manejar diferentes tipos de datos
@@ -2366,7 +2361,7 @@ def export_to_geojson(gdf: gpd.GeoDataFrame, output_dir: Path) -> Path:
     print(f"  - Con geometría: {features_con_geometry} ({features_con_geometry/len(features)*100:.1f}%)")
     print(f"  - Geometrías visualizables en mapa: {geometrias_visualizables} ({geometrias_visualizables/len(features)*100:.1f}%)")
     print(f"  - Sin geometría: {features_sin_geometry}")
-    print(f"  [OK] Columnas lat/lon INCLUIDAS en properties como campos redundantes")
+    print(f"  [OK] Coordenadas SOLO en geometry (lat/lon NO en properties)")
     
     return output_file
 

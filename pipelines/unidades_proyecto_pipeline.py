@@ -273,7 +273,8 @@ def get_existing_firebase_data(
                 existing_data[doc.id] = {
                     'hash': data_hash,
                     'updated_at': doc_data.get('updated_at'),
-                    'properties': doc_data.get('properties', {})
+                    'has_geometry': doc_data.get('has_geometry', False),
+                    'geometry': doc_data.get('geometry')
                 }
                 
                 doc_count += 1
@@ -346,16 +347,27 @@ def compare_and_filter_changes(
             if doc_id in existing_data:
                 existing_hash = existing_data[doc_id]['hash']
                 
-                # NUEVO: Verificar integridad de geometry
+                # CRÍTICO: Verificar integridad de geometry ANTES de comparar hashes
                 new_has_geom = feature.get('geometry') is not None
-                existing_props = existing_data[doc_id].get('properties', {})
-                existing_has_geom = existing_props.get('geometry') is not None or existing_props.get('lat') is not None
+                existing_has_geom = existing_data[doc_id].get('has_geometry', False)
+                existing_geometry = existing_data[doc_id].get('geometry')
                 
-                # Si el nuevo tiene geometry pero el existente no, forzar actualización
+                # Si el nuevo tiene geometry pero el existente no, FORZAR actualización
                 if new_has_geom and not existing_has_geom:
                     features_to_upload.append(feature)
                     change_summary['modified_records'] += 1
+                    print(f"[UPDATE] {doc_id}: Agregando geometry faltante")
                     continue
+                
+                # Si ambos tienen geometry pero la geometría es diferente, actualizar
+                if new_has_geom and existing_has_geom and existing_geometry:
+                    new_geom = feature.get('geometry')
+                    # Comparar si las geometrías son diferentes
+                    if new_geom.get('type') != existing_geometry.get('type'):
+                        features_to_upload.append(feature)
+                        change_summary['modified_records'] += 1
+                        print(f"[UPDATE] {doc_id}: Geometry tipo diferente")
+                        continue
                 
                 if new_hash != existing_hash:
                     # Registro modificado
@@ -433,11 +445,57 @@ def create_incremental_geojson(
 def run_extraction() -> Optional[pd.DataFrame]:
     """
     Ejecuta el proceso de extracción de datos desde Google Sheets.
+    Aplica normalización de coordenadas para asegurar formato correcto.
     
     Returns:
         DataFrame con los datos extraídos o None si falla
     """
-    return extract_and_save_unidades_proyecto()
+    df = extract_and_save_unidades_proyecto()
+    
+    if df is not None and not df.empty:
+        # CRÍTICO: Normalizar coordenadas después de extracción
+        # Algunas coordenadas pueden venir como strings con comas (formato europeo)
+        print("\n[CONFIG] Aplicando normalización de coordenadas post-extracción...")
+        
+        coord_columns = [col for col in df.columns if col in ['lat', 'lon', 'latitud', 'longitud']]
+        fixed_count = 0
+        
+        for col in coord_columns:
+            if col in df.columns:
+                # Función de conversión segura
+                def convert_coordinate(value):
+                    if pd.isna(value) or value is None:
+                        return None
+                    # Si ya es numérico, retornar tal cual
+                    if isinstance(value, (int, float)):
+                        return float(value)
+                    # Convertir string con coma a punto
+                    if isinstance(value, str):
+                        value = value.strip().replace(',', '.')
+                        if value == '' or value.lower() in ['nan', 'none', 'null']:
+                            return None
+                        try:
+                            return float(value)
+                        except (ValueError, TypeError):
+                            return None
+                    return None
+                
+                # Contar valores que necesitan conversión
+                before = df[col].apply(lambda x: isinstance(x, str) and ',' in str(x)).sum()
+                
+                # Aplicar conversión
+                df[col] = df[col].apply(convert_coordinate)
+                
+                if before > 0:
+                    fixed_count += before
+                    print(f"   - '{col}': {before} valores convertidos de string con coma a float")
+        
+        if fixed_count > 0:
+            print(f"[OK] {fixed_count} coordenadas normalizadas correctamente")
+        else:
+            print(f"[OK] Todas las coordenadas ya estaban en formato correcto")
+    
+    return df
 
 
 @log_step("TRANSFORMACIÓN DE DATOS")

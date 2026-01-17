@@ -11,11 +11,13 @@ Se ha integrado exitosamente el GeoJSON de infraestructura vial 2024-2025 al pip
 ### Funcionalidades Agregadas
 
 #### 1. Import de uuid
+
 ```python
 import uuid  # Para generar UPIDs únicos
 ```
 
 #### 2. Función `prepare_infraestructura_data()`
+
 - **Ubicación**: Línea ~567
 - **Propósito**: Prepara los datos de infraestructura para carga a Firebase
 - **Funcionalidades**:
@@ -32,6 +34,7 @@ import uuid  # Para generar UPIDs únicos
   - Guarda GeoJSON preparado con sufijo `_prepared.geojson`
 
 #### 3. Función `run_load_infraestructura()` actualizada
+
 - **Ubicación**: Línea ~658
 - **Propósito**: Carga los datos preparados a Firebase
 - **Cambios**: Ahora recibe la ruta del GeoJSON preparado como parámetro
@@ -39,9 +42,11 @@ import uuid  # Para generar UPIDs únicos
 ### Integración en el Pipeline Principal
 
 #### PASO 5: Integración Datos Infraestructura 2024-2025
+
 **Ubicación**: Después del PASO 4 (Carga incremental), línea ~934
 
 **Flujo de ejecución**:
+
 1. Verifica que existe el archivo de infraestructura
 2. Llama a `prepare_infraestructura_data()` para:
    - Validar estructura
@@ -56,6 +61,7 @@ import uuid  # Para generar UPIDs únicos
 5. Limpia archivos temporales
 
 #### PASO 6: Control de Calidad (actualizado)
+
 - Ahora espera tiempo dinámico basado en:
   - Registros estándar cargados
   - Registros de infraestructura cargados
@@ -76,6 +82,7 @@ El resumen del pipeline ahora incluye:
 ### Compatibilidad con Firebase
 
 ✅ **Verificado:**
+
 - Todos los features tienen `upid` único
 - Todos tienen `tipo_equipamiento = "Vías"`
 - Todos tienen `clase_up = "Obra vial"`
@@ -111,6 +118,7 @@ python pipelines\unidades_proyecto_pipeline.py
 ```
 
 El pipeline ejecutará automáticamente:
+
 1. Extracción de datos estándar
 2. Transformación de datos estándar
 3. Verificación incremental
@@ -129,6 +137,7 @@ El pipeline ejecutará automáticamente:
 ### Validación Pre-Carga
 
 Antes de cargar, el sistema valida:
+
 - ✅ Existencia del archivo GeoJSON
 - ✅ Formato válido del GeoJSON
 - ✅ Presencia de features
