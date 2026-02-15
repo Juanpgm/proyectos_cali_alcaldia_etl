@@ -544,7 +544,8 @@ def agrupar_datos_geoespacial(df: pd.DataFrame) -> Dict[str, Dict]:
         unidad['lat'] = lat_avg
         unidad['lon'] = lon_avg
         
-        # Crear lista de intervenciones (sin geometry, sin lat/lon)
+        # Crear lista de intervenciones
+        # CRÍTICO: Preservar lat/lon originales de cada intervención para evitar pérdida de coords
         intervenciones = []
         for idx, row in group.iterrows():
             intervencion = {}
@@ -558,6 +559,14 @@ def agrupar_datos_geoespacial(df: pd.DataFrame) -> Dict[str, Dict]:
                             intervencion[field] = valor
                     elif pd.notna(valor):
                         intervencion[field] = valor
+            
+            # PRESERVAR coordenadas originales de la intervención individual
+            # Solo si son válidas (no nulas)
+            lat_original = row.get('lat')
+            lon_original = row.get('lon')
+            if pd.notna(lat_original) and pd.notna(lon_original):
+                intervencion['lat_original'] = lat_original
+                intervencion['lon_original'] = lon_original
             
             intervenciones.append(intervencion)
         
@@ -667,6 +676,9 @@ def convert_unidades_to_dataframe(unidades: Dict[str, Dict]) -> pd.DataFrame:
     Convierte el diccionario de unidades jerárquico a un DataFrame plano
     para compatibilidad con el pipeline actual.
     
+    IMPORTANTE: Preserva coordenadas originales de intervenciones cuando están disponibles.
+    Solo usa coordenadas consolidadas del UPID como fallback.
+    
     Args:
         unidades: Diccionario de unidades con intervenciones
         
@@ -677,6 +689,9 @@ def convert_unidades_to_dataframe(unidades: Dict[str, Dict]) -> pd.DataFrame:
     
     for upid, unidad in unidades.items():
         # Campos de unidad (nivel superior)
+        lat_upid = unidad.get('lat')  # Coordenadas consolidadas del UPID
+        lon_upid = unidad.get('lon')
+        
         unidad_fields = {
             'upid': unidad.get('upid'),
             'n_intervenciones': unidad.get('n_intervenciones'),
@@ -685,14 +700,30 @@ def convert_unidades_to_dataframe(unidades: Dict[str, Dict]) -> pd.DataFrame:
             'comuna_corregimiento': unidad.get('comuna_corregimiento'),
             'barrio_vereda': unidad.get('barrio_vereda'),
             'direccion': unidad.get('direccion'),
-            'tipo_equipamiento': unidad.get('tipo_equipamiento'),
-            'lat': unidad.get('lat'),  # Mantener lat/lon para que pipeline cree geometry
-            'lon': unidad.get('lon')
+            'tipo_equipamiento': unidad.get('tipo_equipamiento')
         }
         
         # Crear una fila por cada intervención
         for intervencion in unidad.get('intervenciones', []):
-            record = {**unidad_fields, **intervencion}
+            # CRITICAL FIX: Usar coordenadas originales de la intervención si existen
+            # Solo usar coordenadas consolidadas del UPID como fallback
+            lat_original = intervencion.get('lat_original')
+            lon_original = intervencion.get('lon_original')
+            
+            # Prioridad: lat_original > lat_upid
+            lat_final = lat_original if pd.notna(lat_original) else lat_upid
+            lon_final = lon_original if pd.notna(lon_original) else lon_upid
+            
+            # Remover lat_original/lon_original de la intervencion para evitar duplicados
+            intervencion_clean = {k: v for k, v in intervencion.items() 
+                                 if k not in ['lat_original', 'lon_original']}
+            
+            record = {
+                **unidad_fields, 
+                'lat': lat_final,
+                'lon': lon_final,
+                **intervencion_clean
+            }
             records.append(record)
     
     df = pd.DataFrame(records)
@@ -701,5 +732,13 @@ def convert_unidades_to_dataframe(unidades: Dict[str, Dict]) -> pd.DataFrame:
     print(f"   • Filas (intervenciones): {len(df)}")
     print(f"   • Columnas: {len(df.columns)}")
     print(f"   • Unidades únicas: {df['upid'].nunique()}")
+    
+    # Diagnosticar coordenadas después de conversión
+    lat_notna = df['lat'].notna().sum()
+    lon_notna = df['lon'].notna().sum()
+    both_notna = (df['lat'].notna() & df['lon'].notna()).sum()
+    print(f"   • Filas con lat: {lat_notna}/{len(df)} ({lat_notna/len(df)*100:.1f}%)")
+    print(f"   • Filas con lon: {lon_notna}/{len(df)} ({lon_notna/len(df)*100:.1f}%)")
+    print(f"   • Filas con ambas coords: {both_notna}/{len(df)} ({both_notna/len(df)*100:.1f}%)")
     
     return df

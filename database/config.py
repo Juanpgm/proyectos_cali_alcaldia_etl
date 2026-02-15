@@ -80,7 +80,7 @@ _firestore_client = None
 _drive_service = None
 
 # Configuración centralizada desde variables de entorno
-PROJECT_ID = os.getenv('FIREBASE_PROJECT_ID', os.getenv('GOOGLE_CLOUD_PROJECT', 'dev-test-e778d'))
+PROJECT_ID = os.getenv('FIREBASE_PROJECT_ID', os.getenv('GOOGLE_CLOUD_PROJECT', 'calitrack-44403'))
 BATCH_SIZE = int(os.getenv('FIRESTORE_BATCH_SIZE', '500'))
 TIMEOUT = int(os.getenv('FIRESTORE_TIMEOUT', '30'))
 

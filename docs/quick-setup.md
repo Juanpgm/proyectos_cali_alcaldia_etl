@@ -18,7 +18,7 @@ brew install --cask google-cloud-sdk
 ### 2. Configurar proyecto
 
 ```bash
-gcloud config set project dev-test-e778d
+gcloud config set project calitrack-44403
 gcloud auth login
 gcloud auth application-default login
 ```
@@ -41,7 +41,7 @@ python database/config.py
 Archivo `.env` ya configurado:
 
 ```env
-FIREBASE_PROJECT_ID=dev-test-e778d
+FIREBASE_PROJECT_ID=calitrack-44403
 FIRESTORE_BATCH_SIZE=500
 FIRESTORE_TIMEOUT=30
 ```
@@ -64,6 +64,6 @@ Si ves este mensaje, todo está listo:
 
 ## 🔗 Enlaces Útiles
 
-- [Firebase Console](https://console.firebase.google.com/project/dev-test-e778d)
-- [Google Cloud Console](https://console.cloud.google.com/firestore?project=dev-test-e778d)
+- [Firebase Console](https://console.firebase.google.com/project/calitrack-44403)
+- [Google Cloud Console](https://console.cloud.google.com/firestore?project=calitrack-44403)
 - [Documentación completa](./firebase-workload-identity-setup.md)

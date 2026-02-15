@@ -31,7 +31,7 @@ class S3Handler:
     def _get_aws_credentials(self) -> Dict[str, str]:
         """Obtiene credenciales AWS desde Secret Manager."""
         try:
-            project_id = os.environ.get('GCP_PROJECT', 'dev-test-e778d')
+            project_id = os.environ.get('GCP_PROJECT', 'calitrack-44403')
             client = secretmanager.SecretManagerServiceClient()
             
             # Obtener credenciales desde Secret Manager

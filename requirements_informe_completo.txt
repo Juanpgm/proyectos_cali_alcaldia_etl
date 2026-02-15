@@ -1,0 +1,57 @@
+# Requisitos para Generador de Informe de Empréstito - Versión Completa
+# Alcaldía Distrital de Santiago de Cali
+
+# Core - Procesamiento de Datos
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Generación de Documentos
+python-docx>=0.8.11
+
+# Visualización y Gráficos
+matplotlib>=3.7.0
+seaborn>=0.12.0
+squarify>=0.4.3  # Para treemaps
+
+# Análisis Estadístico
+scipy>=1.10.0
+
+# Procesamiento de Imágenes
+Pillow>=9.5.0
+
+# Firebase / Base de Datos
+firebase-admin>=6.0.0
+
+# OCR y Procesamiento de PDFs (Opcional pero recomendado)
+PyMuPDF>=1.23.0  # fitz - Para extraer texto de PDFs
+pytesseract>=0.3.10  # OCR de imágenes
+
+# Utilidades
+python-dateutil>=2.8.2
+pytz>=2023.3
+
+# Opcional - Deep Research y Web Scraping
+# requests>=2.31.0
+# beautifulsoup4>=4.12.0
+
+# Desarrollo y Testing (Opcional)
+# pytest>=7.4.0
+# black>=23.0.0
+# flake8>=6.0.0
+
+# Notas de Instalación:
+# 
+# 1. Instalar todos los requisitos:
+#    pip install -r requirements_informe_completo.txt
+#
+# 2. Para usar pytesseract, también necesitas instalar Tesseract OCR:
+#    Windows: https://github.com/UB-Mannheim/tesseract/wiki
+#    Linux: sudo apt-get install tesseract-ocr
+#    Mac: brew install tesseract
+#
+# 3. Configurar credenciales de Firebase:
+#    - Colocar archivo de credenciales en: database/serviceAccountKey.json
+#    - O configurar variable de entorno: GOOGLE_APPLICATION_CREDENTIALS
+#
+# 4. Verificar instalación:
+#    python -c "import pandas; import matplotlib; import docx; print('OK')"

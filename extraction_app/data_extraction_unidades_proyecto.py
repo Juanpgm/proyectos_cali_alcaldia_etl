@@ -96,11 +96,17 @@ def read_excel_file_to_dataframe(file_buffer: io.BytesIO, file_name: str) -> Opt
         df = pd.read_excel(file_buffer, engine='openpyxl', dtype=dtype_spec)
         
         if df.empty:
-            print(f"[WARNING]  Archivo vacío: {file_name}")
+            print(f"[WARNING]  Archivo aparentemente vacío: {file_name} (0 filas)")
             return None
         
         name_display = file_name[:30] + "..." if len(file_name) > 30 else file_name
         print(f"[OK] Leído: {name_display} ({len(df)} filas, {len(df.columns)} columnas)")
+        
+        # Verificar que tenga al menos algunas filas de datos (no solo headers)
+        if len(df) < 2:
+            print(f"[WARNING]  Archivo con muy pocas filas: {file_name} ({len(df)} filas) - posible archivo de solo headers")
+            return None
+            
         return df
         
     except Exception as e:
@@ -118,11 +124,17 @@ def read_excel_file_to_dataframe(file_buffer: io.BytesIO, file_name: str) -> Opt
             df = pd.read_excel(file_buffer, engine='xlrd', dtype=dtype_spec)
             
             if df.empty:
-                print(f"[WARNING]  Archivo vacío: {file_name}")
+                print(f"[WARNING]  Archivo aparentemente vacío: {file_name} (0 filas)")
                 return None
             
             name_display = file_name[:30] + "..." if len(file_name) > 30 else file_name
             print(f"[OK] Leído (xlrd): {name_display} ({len(df)} filas, {len(df.columns)} columnas)")
+            
+            # Verificar que tenga al menos algunas filas de datos (no solo headers)
+            if len(df) < 2:
+                print(f"[WARNING]  Archivo con muy pocas filas: {file_name} ({len(df)} filas) - posible archivo de solo headers")
+                return None
+                
             return df
         except Exception as e2:
             print(f"[ERROR] Error leyendo {file_name}: {e}")
@@ -479,12 +491,16 @@ def create_extraction_pipeline() -> Callable[[str], Optional[pd.DataFrame]]:
                 # Download file to memory
                 file_buffer = download_excel_file(file_id, file_name)
                 if not file_buffer:
-                    print(f"   [WARNING]  Skipping file due to download error")
+                    print(f"   [ERROR]  Download failed for {file_name}")
                     continue
+                
+                print(f"   [OK] Downloaded {file_name} ({len(file_buffer.getvalue())} bytes)")
                 
                 # Read Excel to DataFrame
                 df = read_excel_file_to_dataframe(file_buffer, file_name)
                 if df is not None and not df.empty:
+                    print(f"   [OK] DataFrame created: {len(df)} rows, {len(df.columns)} columns")
+                    
                     # Normalize column names
                     df = normalize_dataframe_columns(df)
                     
@@ -497,9 +513,19 @@ def create_extraction_pipeline() -> Callable[[str], Optional[pd.DataFrame]]:
                         df['nombre_centro_gestor'] = centro_gestor
                         print(f"   [OK] Added nombre_centro_gestor: '{centro_gestor}'")
                     
+                    # Check for coordinates
+                    lat_cols = [col for col in df.columns if 'lat' in col.lower()]
+                    lon_cols = [col for col in df.columns if 'lon' in col.lower()]
+                    coord_count = 0
+                    if lat_cols and lon_cols:
+                        lat_col = lat_cols[0]
+                        lon_col = lon_cols[0]
+                        coord_count = df[lat_col].notna().sum() if lat_col in df.columns else 0
+                    
+                    print(f"   [INFO] Coordinates: {coord_count} rows with lat/lon data")
                     dataframes.append(df)
                 else:
-                    print(f"   [WARNING]  Skipping empty or invalid file")
+                    print(f"   [ERROR]  Failed to create DataFrame from {file_name} - df is None or empty")
             
             if not dataframes:
                 print("\n✗ No valid data extracted from any file")

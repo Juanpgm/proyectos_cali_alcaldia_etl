@@ -1,0 +1,36 @@
+Usando configuracion de PRODUCCION (.env.prod)
+Variables de entorno cargadas desde .env.prod
+Variables locales cargadas desde .env.local
+Usando configuracion de PRODUCCION (.env.prod)
+Variables de entorno cargadas desde .env.prod
+Variables locales cargadas desde .env.local
+[START] Iniciando pipeline ETL de Unidades de Proyecto...
+[START] INICIANDO PIPELINE ETL UNIDADES DE PROYECTO
+================================================================================
+[CLOCK] Inicio: 2026-01-26 11:31:50
+
+================================================================================
+[DATA] RESUMEN DEL PIPELINE ETL
+================================================================================
+[ERROR] Estado general: FALLIDO
+[CLOCK] Inicio: 2026-01-26 11:31:50
+[END] Fin: 2026-01-26 11:31:50
+
+[SYNC] Pasos ejecutados:
+  [ERROR] Extracci≤n
+  [ERROR] Transformaci≤n
+  [ERROR] Verificaci≤n incremental
+  [ERROR] Carga a Firebase
+
+[STATS] Estadφsticas:
+  [IN] Registros procesados: 0
+  [OUT] Registros cargados: 0
+
+[ERROR] Errores encontrados:
+  1. Error general del pipeline: 'charmap' codec can't encode characters in position 0-1: character maps to <undefined>
+
+[FAILED] Pipeline fall≤. Revisa los errores arriba.
+================================================================================
+
+[FAILED] PIPELINE FALL╙
+[CONFIG] Revisa los errores y logs anteriores

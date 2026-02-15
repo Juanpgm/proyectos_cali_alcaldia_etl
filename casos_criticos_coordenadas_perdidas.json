@@ -1,0 +1,41 @@
+[
+  {
+    "doc_id": "UNP-10",
+    "upid": "UNP-10",
+    "identificador": "Mantenimiento Bibliotecas",
+    "bpin": 2024760010215,
+    "nombre_centro_gestor": "Secretaría de Cultura",
+    "tipo_equipamiento": "Bibliotecas",
+    "clase_up": "Obras equipamientos",
+    "lat_origen": 3.520178,
+    "lon_origen": -76.569864,
+    "nombre_origen": "centro cultural la paz",
+    "direccion_origen": "Veresa el Rosario"
+  },
+  {
+    "doc_id": "UNP-103",
+    "upid": "UNP-103",
+    "identificador": "Mantenimiento Teatro Municipal Enrique Buenaventura",
+    "bpin": 2024760010224,
+    "nombre_centro_gestor": "Secretaría de Cultura",
+    "tipo_equipamiento": "Infraestructura cultural",
+    "clase_up": "Obras equipamientos",
+    "lat_origen": 3.449614650353628,
+    "lon_origen": -76.53590213562562,
+    "nombre_origen": "Teatro Municipal Enrique Buenaventura",
+    "direccion_origen": "Cra 5 No. 06-64"
+  },
+  {
+    "doc_id": "UNP-104",
+    "upid": "UNP-104",
+    "identificador": "Mantenimiento Bienes de Interes Cultural",
+    "bpin": 2020760010788,
+    "nombre_centro_gestor": "Secretaría de Cultura",
+    "tipo_equipamiento": "Parques y zonas verdes",
+    "clase_up": "Obras equipamientos",
+    "lat_origen": 3.4533421683913863,
+    "lon_origen": -76.53230973745336,
+    "nombre_origen": "Teatro Jorge Isaacs",
+    "direccion_origen": "Cra 3 No. 12-28"
+  }
+]

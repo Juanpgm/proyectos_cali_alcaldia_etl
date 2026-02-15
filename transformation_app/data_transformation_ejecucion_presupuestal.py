@@ -195,7 +195,7 @@ def apply_column_mappings(dfs: Dict[str, pd.DataFrame]) -> Dict[str, pd.DataFram
         'clasificacion_del_fondo': 'clasificacion_fondo',
         'ppto._disponible': 'ppto_disponible',
         'ppto._modificado': 'ppto_modificado',
-        'fondo_1': 'fondo',
+        'fondo_1': 'cod_fondo',  # Mapear fondo_1 a cod_fondo
         'clasificacion_del_fondo_1': 'clasificacion_fondo',
         'pospre_1': 'pospre',
         'pospre_1.1': 'nombre_pospre',
@@ -212,6 +212,14 @@ def apply_column_mappings(dfs: Dict[str, pd.DataFrame]) -> Dict[str, pd.DataFram
         for old_name, new_name in column_mappings.items():
             if old_name in df.columns:
                 df = df.rename(columns={old_name: new_name})
+        
+        # Asegurar que 'fondo' esté disponible (la normalización ya convierte "Fondo" -> "fondo")
+        # Si existe 'fondo', también crear 'cod_fondo' si no existe
+        if 'fondo' in df.columns and 'cod_fondo' not in df.columns:
+            df['cod_fondo'] = df['fondo']
+        # Si existe 'cod_fondo' pero no 'fondo', crear 'fondo'
+        elif 'cod_fondo' in df.columns and 'fondo' not in df.columns:
+            df['fondo'] = df['cod_fondo']
         
         dfs[df_name] = df
     
@@ -470,7 +478,7 @@ def convert_data_types(df: pd.DataFrame) -> pd.DataFrame:
     print("Convirtiendo tipos de datos...")
     
     # Columnas de códigos que deben ser enteros (excluir 'bp' ya que ahora es texto con formato BP + número)
-    codigo_columns = [col for col in df.columns if col.startswith('cod_') or col in ['bpin']]
+    codigo_columns = [col for col in df.columns if col.startswith('cod_') or col in ['bpin', 'fondo']]
     
     for col in tqdm(codigo_columns, desc="Convirtiendo códigos a enteros"):
         if col in df.columns:
@@ -499,10 +507,10 @@ def create_master_data(df: pd.DataFrame) -> pd.DataFrame:
     master_columns = [
         'bpin', 'bp', 'nombre_proyecto', 'nombre_actividad', 'programa_presupuestal',
         'cod_centro_gestor', 'nombre_centro_gestor', 'cod_area_funcional', 'nombre_area_funcional',
-        'cod_fondo', 'nombre_fondo', 'clasificacion_fondo', 'cod_pospre', 'nombre_pospre',
+        'fondo', 'cod_fondo', 'nombre_fondo', 'clasificacion_fondo', 'cod_pospre', 'nombre_pospre',
         'cod_dimension', 'nombre_dimension', 'cod_linea_estrategica', 'nombre_linea_estrategica',
         'cod_programa', 'nombre_programa', 'comuna', 'origen', 'anio', 'tipo_gasto',
-        'cod_sector', 'cod_producto', 'validador_cuipo'  # Cambiado sector y producto por cod_sector y cod_producto
+        'cod_sector', 'cod_producto', 'validador_cuipo'  # Incluye fondo y cod_fondo
     ]
     
     # Filtrar columnas que existen en el DataFrame
@@ -772,9 +780,9 @@ def main():
     print("Iniciando transformación optimizada de datos de ejecución presupuestal...")
     
     # Configurar directorios
-    current_dir = os.path.dirname(os.path.abspath(__file__))
-    input_dir = os.path.join(current_dir, "app_inputs", "ejecucion_presupuestal_input")
-    output_dir = os.path.join(current_dir, "app_outputs", "ejecucion_presupuestal_outputs")
+    current_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # Directorio raíz del proyecto
+    input_dir = os.path.join(current_dir, "app_inputs", "ejecucion_presupuestal")
+    output_dir = os.path.join(current_dir, "transformation_app", "app_outputs", "ejecucion_presupuestal_outputs")
     
     try:
         # 1. Cargar archivos Excel y CSV

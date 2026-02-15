@@ -25,13 +25,18 @@ Mejoras implementadas (Diciembre 2024):
 
 import os
 import sys
+import io
+
+# Configure stdout/stderr encoding to UTF-8 before any prints
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
+sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8', errors='replace')
+
 import json
 import pandas as pd
 from datetime import datetime
 from typing import Dict, List, Any, Optional, Tuple, Callable
 from functools import reduce, partial, wraps
 import hashlib
-import uuid
 import uuid
 
 # Agregar rutas necesarias al path
@@ -302,6 +307,17 @@ def compare_and_filter_changes(
 ) -> Tuple[List[Dict[str, Any]], Dict[str, int]]:
     """
     Compara datos nuevos con existentes y filtra solo los cambios.
+    
+    FLUJO DE GEOMETRÍA Y COORDENADAS:
+    =================================
+    1. La transformación crea GeoJSON con geometry válida en cada feature
+    2. Esta función compara TODA la geometría (incluyendo coordinates)
+    3. Si geometry es diferente → marca como MODIFIED
+    4. Si nuevo tiene geometry pero existente no → marca como MODIFIED (agregar geometry)
+    5. Si nuevo NO tiene geometry (None) → se respeta (puede ser eliminación intencional)
+    
+    IMPORTANTE: Esta función NO modifica geometrías, solo detecta cambios.
+    La lógica de carga respeta exactamente lo que se envía aquí.
     
     Args:
         new_features: Lista de features nuevos desde la transformación
@@ -597,6 +613,14 @@ def verify_and_prepare_incremental_load(
 def run_incremental_load(incremental_geojson_path: str, collection_name: str = "unidades_proyecto", use_s3: bool = False) -> bool:
     """
     Ejecuta la carga incremental a Firebase desde archivo local.
+    
+    FLUJO CRÍTICO DE GEOMETRÍA:
+    ===========================
+    1. El archivo incremental contiene SOLO los features que cambiaron
+    2. Cada feature tiene su geometry tal como viene de la transformación
+    3. Si geometry es None → se carga como None (eliminación intencional)
+    4. Si geometry tiene coordinates → se cargan las coordinates exactas
+    5. NO hay lógica de preservación automática - se respeta lo que viene del pipeline
     
     IMPORTANTE: NO debe usar S3 porque el archivo incremental contiene solo los cambios
     detectados, mientras que S3 tiene el archivo completo consolidado que sobrescribiría
@@ -931,7 +955,7 @@ def create_unidades_proyecto_pipeline() -> Callable[[], Dict[str, Any]]:
             print("[START] INICIANDO PIPELINE ETL UNIDADES DE PROYECTO")
             print("="*80)
             print(f"[CLOCK] Inicio: {pipeline_start.strftime('%Y-%m-%d %H:%M:%S')}")
-            print(f"🗂️ Colección destino: {collection_name}")
+            print(f"Coleccion destino: {collection_name}")
             
             # PASO 1: Extracción
             extraction_result = run_extraction()
@@ -1280,81 +1304,6 @@ def calculate_final_metrics(collection_name: str = "unidades_proyecto"):
         print(f"[ERROR] Error calculando métricas finales: {e}")
         import traceback
         traceback.print_exc()
-
-
-def print_pipeline_summary(results: Dict[str, Any]):
-    """
-    Imprime un resumen detallado de los resultados del pipeline.
-    
-    Args:
-        results: Diccionario con los resultados del pipeline
-    """
-    print(f"\n{'='*80}")
-    print("[DATA] RESUMEN DEL PIPELINE ETL")
-    print("="*80)
-    
-    # Estado general
-    status_icon = "[OK]" if results['success'] else "[ERROR]"
-    print(f"{status_icon} Estado general: {'EXITOSO' if results['success'] else 'FALLIDO'}")
-    
-    # Tiempos
-    if results['start_time']:
-        start_time = datetime.fromisoformat(results['start_time'])
-        print(f"[CLOCK] Inicio: {start_time.strftime('%Y-%m-%d %H:%M:%S')}")
-    
-    if results['end_time']:
-        end_time = datetime.fromisoformat(results['end_time'])
-        print(f"[END] Fin: {end_time.strftime('%Y-%m-%d %H:%M:%S')}")
-    
-    if results['duration_seconds']:
-        duration = results['duration_seconds']
-        minutes = int(duration // 60)
-        seconds = int(duration % 60)
-        print(f"[TIME] Duración: {minutes}m {seconds}s")
-    
-    # Pasos del pipeline
-    print(f"\n[SYNC] Pasos ejecutados:")
-    steps = [
-        ("Extracción", results['extraction_success']),
-        ("Transformación", results['transformation_success']),
-        ("Verificación incremental", results['incremental_check_success']),
-        ("Carga a Firebase", results['load_success'])
-    ]
-    
-    for step_name, success in steps:
-        icon = "[OK]" if success else "[ERROR]"
-        print(f"  {icon} {step_name}")
-    
-    # Estadísticas de datos
-    print(f"\n[STATS] Estadísticas:")
-    print(f"  [IN] Registros procesados: {results.get('records_processed', 0)}")
-    print(f"  [OUT] Registros cargados: {results.get('records_uploaded', 0)}")
-    
-    # Resumen de cambios
-    if results.get('change_summary'):
-        summary = results['change_summary']
-        print(f"\n[SYNC] Resumen de cambios:")
-        print(f"  [+] Nuevos: {summary.get('new_records', 0)}")
-        print(f"  [SYNC] Modificados: {summary.get('modified_records', 0)}")
-        print(f"  [OK] Sin cambios: {summary.get('unchanged_records', 0)}")
-    
-    # Errores
-    if results.get('errors'):
-        print(f"\n[ERROR] Errores encontrados:")
-        for i, error in enumerate(results['errors'], 1):
-            print(f"  {i}. {error}")
-    
-    # Mensaje final
-    if results['success']:
-        print(f"\n[DONE] Pipeline completado exitosamente!")
-        if results.get('records_uploaded', 0) > 0:
-            print(f"[INFO] {results['records_uploaded']} registros actualizados en Firebase")
-        else:
-            print("[INFO] Todos los datos estaban actualizados")
-    else:
-        print(f"\n[FAILED] Pipeline falló. Revisa los errores arriba.")
-    
-    print("="*80)
 
 
 def run_unidades_proyecto_pipeline(collection_name: str = "unidades_proyecto") -> bool:

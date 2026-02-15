@@ -1,0 +1,89 @@
+{
+  "metadata": {
+    "titulo": "Reporte de Análisis y Recomendaciones - Transformación de Unidades de Proyecto",
+    "version": "1.0",
+    "fecha_generacion": "2026-02-10T12:53:26.505321",
+    "fecha_ejecucion_etl": "2026-02-10T12:53:26.490571",
+    "archivo_metricas": "transformation_metrics_20260210_125326.json"
+  },
+  "resumen_ejecutivo": {
+    "total_registros": 1451,
+    "calidad_global": {
+      "score": 21.43,
+      "nivel": "DEFICIENTE",
+      "interpretacion": "Requiere mejoras significativas"
+    },
+    "indicadores_clave": {
+      "completitud_geometrica": {
+        "porcentaje": 25.71,
+        "nivel": "DEFICIENTE",
+        "registros_con_geometria": 373,
+        "registros_sin_geometria": 1078
+      },
+      "completitud_temporal": {
+        "porcentaje": 98.41,
+        "nivel": "EXCELENTE",
+        "registros_con_fechas": 1428,
+        "registros_sin_fechas": 23
+      },
+      "validacion_espacial": {
+        "registros_aceptables": 311,
+        "registros_invalidos": 62,
+        "porcentaje_aceptable": 21.43,
+        "registros_fuera_limites": 0
+      }
+    }
+  },
+  "analisis_detallado": {
+    "procesamiento_datos": {
+      "registros_cargados": 1451,
+      "registros_transformados": 1451,
+      "columnas_finales": 36,
+      "upid_generados": 1451
+    },
+    "procesamiento_geoespacial": {
+      "registros_geocodificados": 373,
+      "registros_sin_geocodificar": 1078,
+      "sistema_coordenadas": "EPSG:4326"
+    }
+  },
+  "recomendaciones": [
+    {
+      "categoria": "Datos Geoespaciales",
+      "prioridad": "ALTA",
+      "issue": "1078 registros (74.3%) sin coordenadas geográficas",
+      "impacto": "Limita la capacidad de análisis espacial y visualización en mapas",
+      "recomendacion": "Implementar proceso de geocodificación para registros sin coordenadas usando direcciones disponibles"
+    },
+    {
+      "categoria": "Validación Espacial",
+      "prioridad": "MEDIA",
+      "issue": "62 registros (4.3%) con inconsistencias entre ubicación y datos administrativos",
+      "impacto": "Coordenadas no coinciden con comuna/barrio declarado, indica posibles errores de georreferenciación",
+      "recomendacion": "Revisar y corregir coordenadas de registros FUERA DE RANGO mediante validación manual o re-geocodificación"
+    }
+  ],
+  "acciones_prioritarias": [
+    {
+      "prioridad": 1,
+      "accion": "Implementar proceso de geocodificación para registros sin coordenadas usando direcciones disponibles",
+      "registros_afectados": 1078,
+      "impacto_esperado": "Limita la capacidad de análisis espacial y visualización en mapas"
+    },
+    {
+      "prioridad": 2,
+      "accion": "Revisar y corregir coordenadas de registros FUERA DE RANGO mediante validación manual o re-geocodificación",
+      "registros_afectados": 62,
+      "impacto_esperado": "Coordenadas no coinciden con comuna/barrio declarado, indica posibles errores de georreferenciación"
+    }
+  ],
+  "metricas_calidad": {
+    "completitud": {
+      "geometrica": 25.71,
+      "temporal": 98.41
+    },
+    "consistencia": {
+      "espacial": 21.43
+    }
+  }
+}

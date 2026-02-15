@@ -1249,35 +1249,37 @@ def correct_coordinate_formats(gdf: gpd.GeoDataFrame) -> gpd.GeoDataFrame:
 
 def create_final_geometry(gdf: gpd.GeoDataFrame) -> gpd.GeoDataFrame:
     """Create final geometry and PRESERVE lat/lon columns with validation.
-    
-    IMPORTANTE: 
+
+    IMPORTANTE:
     - Las columnas lat/lon se mantienen para uso posterior
     - Valida que la geometría sea consistente con lat/lon
     - Reconstruye geometría si es necesaria
+    - Usa validación amplia para incluir área metropolitana
     """
     if 'lat' not in gdf.columns or 'lon' not in gdf.columns:
         print("[WARNING] Warning: lat/lon columns not found")
         return gdf
-    
+
     result_gdf = gdf.copy()
-    
-    # Validar coordenadas (rangos ampliados para mayor cobertura)
-    valid_lat = result_gdf['lat'].notna() & (result_gdf['lat'].apply(lambda x: isinstance(x, (int, float)) and 2.5 <= x <= 4.5))
-    valid_lon = result_gdf['lon'].notna() & (result_gdf['lon'].apply(lambda x: isinstance(x, (int, float)) and -77.5 <= x <= -75.5))
+
+    # Validar coordenadas con rangos EXPANDIDOS para área metropolitana
+    # Incluye Cali y alrededores (rangos más amplios que el validador de coordenadas)
+    valid_lat = result_gdf['lat'].notna() & (result_gdf['lat'].apply(lambda x: isinstance(x, (int, float)) and 2.0 <= x <= 5.0))
+    valid_lon = result_gdf['lon'].notna() & (result_gdf['lon'].apply(lambda x: isinstance(x, (int, float)) and -78.0 <= x <= -75.0))
     valid_coords = valid_lat & valid_lon
-    
+
     if valid_coords.sum() == 0:
         print("[WARNING] No valid coordinates found in lat/lon columns")
         return result_gdf
-    
+
     # Crear/actualizar geometría para coordenadas válidas en formato GeoJSON: Point(lon, lat)
     result_gdf.loc[valid_coords, 'geometry'] = result_gdf.loc[valid_coords].apply(
         lambda row: Point(row['lon'], row['lat']), axis=1
     )
-    
+
     # Asegurar que es GeoDataFrame
     result_gdf = gpd.GeoDataFrame(result_gdf, geometry='geometry', crs='EPSG:4326')
-    
+
     # Validar consistencia entre geometry y lat/lon
     inconsistent = 0
     for idx in result_gdf[valid_coords].index:
@@ -1290,14 +1292,14 @@ def create_final_geometry(gdf: gpd.GeoDataFrame) -> gpd.GeoDataFrame:
                 inconsistent += 1
                 # Corregir geometría
                 result_gdf.at[idx, 'geometry'] = Point(lon, lat)
-    
+
     if inconsistent > 0:
         print(f"[WARNING]  {inconsistent} geometrías reconstruidas por inconsistencia con lat/lon")
-    
+
     # [OK] CRÍTICO: NO eliminar lat/lon - se necesitan para reestructuración posterior
     print(f"[OK] Final geometry validated: {valid_coords.sum()} valid geometries ({valid_coords.sum()/len(result_gdf)*100:.1f}%)")
     print(f"  - lat/lon columns preserved for export")
-    
+
     return result_gdf
 
 
@@ -2135,6 +2137,21 @@ def restructure_by_upid(gdf: gpd.GeoDataFrame) -> gpd.GeoDataFrame:
     geometries_validas = gdf_unidades['geometry'].notna().sum()
     coords_validas = (gdf_unidades['lat'].notna() & gdf_unidades['lon'].notna()).sum()
     
+    print(f"   [DEBUG] Estadísticas PRE-reconstrucción:")
+    print(f"      • Geometrías válidas: {geometries_validas}/{len(gdf_unidades)}")
+    print(f"      • Coordenadas lat/lon válidas: {coords_validas}/{len(gdf_unidades)}")
+    
+    # Mostrar muestra de datos para debug
+    if len(gdf_unidades) > 0:
+        sample_idx = gdf_unidades.index[0]
+        sample_geom = gdf_unidades.at[sample_idx, 'geometry']
+        sample_lat = gdf_unidades.at[sample_idx, 'lat'] if 'lat' in gdf_unidades.columns else 'NO_COLUMN'
+        sample_lon = gdf_unidades.at[sample_idx, 'lon'] if 'lon' in gdf_unidades.columns else 'NO_COLUMN'
+        sample_upid = gdf_unidades.at[sample_idx, 'upid'] if 'upid' in gdf_unidades.columns else 'NO_UPID'
+        print(f"   [DEBUG] Muestra (UPID {sample_upid}):")
+        print(f"      • geometry: {sample_geom}")
+        print(f"      • lat: {sample_lat}, lon: {sample_lon}")
+    
     # Reconstruir geometría si falta pero hay lat/lon válidas
     # También actualizar lat/lon si faltan pero hay geometry válida
     geometrias_reconstruidas = 0
@@ -2199,7 +2216,7 @@ def export_to_geojson(gdf: gpd.GeoDataFrame, output_dir: Path) -> Path:
     gdf_export = gdf_restructured.copy()
     
     # [OK] CRÍTICO: Asegurar que todas las geometrías sean válidas antes de exportar
-    # Si hay lat/lon pero no geometry, reconstruir con validación amplia
+    # Si hay lat/lon pero no geometry, reconstruir con validación EXPANDIDA para área metropolitana
     geometries_reconstruidas = 0
     for idx in gdf_export.index:
         geom = gdf_export.at[idx, 'geometry']
@@ -2209,8 +2226,8 @@ def export_to_geojson(gdf: gpd.GeoDataFrame, output_dir: Path) -> Path:
         # Si no hay geometry válida pero hay coordenadas, reconstruir
         if (geom is None or pd.isna(geom) or not hasattr(geom, 'x')) and pd.notna(lat) and pd.notna(lon):
             if isinstance(lat, (int, float)) and isinstance(lon, (int, float)):
-                # Validación amplia: rangos extendidos para incluir área metropolitana
-                if 2.5 <= lat <= 4.5 and -77.5 <= lon <= -75.5:
+                # Validación EXPANDIDA: rangos extendidos para incluir área metropolitana completa
+                if 2.0 <= lat <= 5.0 and -78.0 <= lon <= -75.0:
                     gdf_export.at[idx, 'geometry'] = Point(float(lon), float(lat))
                     geometries_reconstruidas += 1
     
@@ -2219,13 +2236,12 @@ def export_to_geojson(gdf: gpd.GeoDataFrame, output_dir: Path) -> Path:
     
     gdf_export = gpd.GeoDataFrame(gdf_export, geometry='geometry', crs='EPSG:4326')
     
-    # CRÍTICO: Eliminar columnas lat/lon del DataFrame
-    # Las coordenadas SOLO deben estar en geometry, NO en properties
-    columns_to_drop = ['lat', 'lon', 'latitud', 'longitud']
-    columns_dropped = [col for col in columns_to_drop if col in gdf_export.columns]
-    if columns_dropped:
-        gdf_export = gdf_export.drop(columns=columns_dropped)
-        print(f"   [CONFIG] Coordenadas eliminadas de properties: {columns_dropped}")
+    # ✅ IMPORTANTE: MANTENER lat/lon en properties para recuperación posterior
+    # Las coordenadas deben estar en AMBOS lugares:
+    # 1. En geometry (para visualización SIG)
+    # 2. En properties (para acceso directo y validación)
+    # NO eliminar las columnas lat/lon - son necesarias para las propiedades
+    print(f"   [CONFIG] Coordenadas lat/lon MANTENIDAS en properties para acceso directo")
     
     # Convertir la columna 'intervenciones' (lista de dicts) a JSON string para exportación
     # GeoPandas no maneja correctamente listas de diccionarios complejos
@@ -2277,24 +2293,49 @@ def export_to_geojson(gdf: gpd.GeoDataFrame, output_dir: Path) -> Path:
             "properties": {}
         }
         
-        # Agregar geometry SOLO desde el objeto geometry (ya no hay lat/lon en el DataFrame)
+        # Primero, intentar agregar lat/lon desde las columnas del DataFrame
+        lat_from_df = row.get('lat') if 'lat' in row.index else None
+        lon_from_df = row.get('lon') if 'lon' in row.index else None
+        
+        # Agregar geometry desde el objeto geometry
         geom = row.get('geometry')
         
         if pd.notna(geom) and geom is not None and hasattr(geom, 'x') and hasattr(geom, 'y'):
             try:
-                # Validar que las coordenadas estén en rangos válidos (ampliados para área metropolitana)
-                if -77.5 <= geom.x <= -75.5 and 2.5 <= geom.y <= 4.5:
+                # Validar que las coordenadas estén en rangos válidos EXPANDIDOS (área metropolitana)
+                if -78.0 <= geom.x <= -75.0 and 2.0 <= geom.y <= 5.0:
                     # GeoJSON estándar: [lon, lat] = [x, y]
                     feature['geometry'] = {
                         "type": "Point",
                         "coordinates": [round(geom.x, 8), round(geom.y, 8)]  # lon, lat
                     }
+                    # ✅ IMPORTANTE: Agregar lat/lon a properties desde geometry
+                    feature['properties']['lat'] = round(geom.y, 8)
+                    feature['properties']['lon'] = round(geom.x, 8)
+                else:
+                    # Coordenadas fuera de rango - registrar para debug
+                    print(f"  ⚠️  UPID {row.get('upid', idx)}: Coordenadas fuera de rango válido: lon={geom.x:.6f}, lat={geom.y:.6f}")
             except Exception as e:
-                pass  # Sin geometría válida
+                print(f"  ⚠️  Error procesando geometry para UPID {row.get('upid', idx)}: {e}")
+        elif pd.notna(lat_from_df) and pd.notna(lon_from_df):
+            # Si no hay geometry válida pero hay lat/lon en el DataFrame, intentar crear geometry
+            try:
+                if isinstance(lat_from_df, (int, float)) and isinstance(lon_from_df, (int, float)):
+                    if -78.0 <= lon_from_df <= -75.0 and 2.0 <= lat_from_df <= 5.0:
+                        feature['geometry'] = {
+                            "type": "Point",
+                            "coordinates": [round(lon_from_df, 8), round(lat_from_df, 8)]
+                        }
+                        feature['properties']['lat'] = round(lat_from_df, 8)
+                        feature['properties']['lon'] = round(lon_from_df, 8)
+                    else:
+                        print(f"  ⚠️  UPID {row.get('upid', idx)}: lat/lon desde DF fuera de rango: lon={lon_from_df:.6f}, lat={lat_from_df:.6f}")
+            except Exception as e:
+                print(f"  ⚠️  Error creando geometry desde lat/lon para UPID {row.get('upid', idx)}: {e}")
         
-        # Agregar properties (lat/lon ya fueron eliminadas del DataFrame)
+        # Agregar properties (incluido lat/lon si está en el DataFrame)
         for col in gdf_export.columns:
-            if col != 'geometry':  # Solo excluir geometry
+            if col != 'geometry':  # Solo excluir geometry column
                 valor = row[col]
                 
                 # Manejar diferentes tipos de datos
@@ -2753,8 +2794,10 @@ def _process_unidades_proyecto_dataframe(df: pd.DataFrame) -> gpd.GeoDataFrame:
     )
     df_transformed = basic_pipeline(df_clean)
     
-    # Phase 1.5: Consolidate coordinates by UPID (BEFORE creating geometry)
-    df_transformed = consolidate_coordinates_by_upid(df_transformed)
+    # NOTA: NO consolidar coordenadas aquí porque ya se consolidaron en agrupar_datos_geoespacial
+    # durante generate_upid_for_records. Una segunda consolidación destruye las coords originales.
+    # Phase 1.5: Consolidate coordinates by UPID (DESHABILITADO - ya se hizo en clustering)
+    # df_transformed = consolidate_coordinates_by_upid(df_transformed)
     
     # Phase 2: Geospatial processing
     print("\n[Phase 2: Geospatial Processing]")

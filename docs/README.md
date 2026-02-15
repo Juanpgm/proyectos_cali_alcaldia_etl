@@ -21,7 +21,7 @@
 
 **Incluye:**
 
-- ✅ Comandos específicos para el proyecto `dev-test-e778d`
+- ✅ Comandos específicos para el proyecto `calitrack-44403`
 - ✅ Variables de entorno preconfiguradas
 - ✅ Verificación automática de la configuración
 

@@ -1,0 +1,7422 @@
+REPORTE DETALLADO: REGISTROS SIN GEOMETRY POR CENTRO GESTOR
+================================================================================
+
+
+================================================================================
+Secretaría de Vivienda Social y Habitat
+================================================================================
+Total de registros sin geometry: 705
+
+1. UPID: UNP-1000
+   Doc ID: UNP-1000
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+2. UPID: UNP-1001
+   Doc ID: UNP-1001
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+3. UPID: UNP-1002
+   Doc ID: UNP-1002
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+4. UPID: UNP-1003
+   Doc ID: UNP-1003
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+5. UPID: UNP-1004
+   Doc ID: UNP-1004
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+6. UPID: UNP-1005
+   Doc ID: UNP-1005
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+7. UPID: UNP-1006
+   Doc ID: UNP-1006
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+8. UPID: UNP-1007
+   Doc ID: UNP-1007
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+9. UPID: UNP-1008
+   Doc ID: UNP-1008
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+10. UPID: UNP-1009
+   Doc ID: UNP-1009
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+11. UPID: UNP-1010
+   Doc ID: UNP-1010
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+12. UPID: UNP-1011
+   Doc ID: UNP-1011
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+13. UPID: UNP-1012
+   Doc ID: UNP-1012
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+14. UPID: UNP-1013
+   Doc ID: UNP-1013
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+15. UPID: UNP-1014
+   Doc ID: UNP-1014
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+16. UPID: UNP-1015
+   Doc ID: UNP-1015
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+17. UPID: UNP-1016
+   Doc ID: UNP-1016
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+18. UPID: UNP-1017
+   Doc ID: UNP-1017
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+19. UPID: UNP-1018
+   Doc ID: UNP-1018
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+20. UPID: UNP-1019
+   Doc ID: UNP-1019
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+21. UPID: UNP-1020
+   Doc ID: UNP-1020
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+22. UPID: UNP-1021
+   Doc ID: UNP-1021
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+23. UPID: UNP-1022
+   Doc ID: UNP-1022
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+24. UPID: UNP-1023
+   Doc ID: UNP-1023
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+25. UPID: UNP-1024
+   Doc ID: UNP-1024
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+26. UPID: UNP-1025
+   Doc ID: UNP-1025
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+27. UPID: UNP-1026
+   Doc ID: UNP-1026
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+28. UPID: UNP-1027
+   Doc ID: UNP-1027
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+29. UPID: UNP-1028
+   Doc ID: UNP-1028
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+30. UPID: UNP-1029
+   Doc ID: UNP-1029
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+31. UPID: UNP-1030
+   Doc ID: UNP-1030
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+32. UPID: UNP-1031
+   Doc ID: UNP-1031
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+33. UPID: UNP-1032
+   Doc ID: UNP-1032
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+34. UPID: UNP-1033
+   Doc ID: UNP-1033
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+35. UPID: UNP-1034
+   Doc ID: UNP-1034
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+36. UPID: UNP-1035
+   Doc ID: UNP-1035
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+37. UPID: UNP-1036
+   Doc ID: UNP-1036
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+38. UPID: UNP-1037
+   Doc ID: UNP-1037
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+39. UPID: UNP-1038
+   Doc ID: UNP-1038
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+40. UPID: UNP-1039
+   Doc ID: UNP-1039
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+41. UPID: UNP-1040
+   Doc ID: UNP-1040
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+42. UPID: UNP-1041
+   Doc ID: UNP-1041
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+43. UPID: UNP-1042
+   Doc ID: UNP-1042
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+44. UPID: UNP-1043
+   Doc ID: UNP-1043
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+45. UPID: UNP-1044
+   Doc ID: UNP-1044
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+46. UPID: UNP-1045
+   Doc ID: UNP-1045
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+47. UPID: UNP-1046
+   Doc ID: UNP-1046
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+48. UPID: UNP-1047
+   Doc ID: UNP-1047
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+49. UPID: UNP-1048
+   Doc ID: UNP-1048
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+50. UPID: UNP-1049
+   Doc ID: UNP-1049
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+51. UPID: UNP-1050
+   Doc ID: UNP-1050
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+52. UPID: UNP-1051
+   Doc ID: UNP-1051
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+53. UPID: UNP-1052
+   Doc ID: UNP-1052
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+54. UPID: UNP-1053
+   Doc ID: UNP-1053
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+55. UPID: UNP-1054
+   Doc ID: UNP-1054
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+56. UPID: UNP-1055
+   Doc ID: UNP-1055
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+57. UPID: UNP-1056
+   Doc ID: UNP-1056
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+58. UPID: UNP-1057
+   Doc ID: UNP-1057
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+59. UPID: UNP-1058
+   Doc ID: UNP-1058
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+60. UPID: UNP-1059
+   Doc ID: UNP-1059
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+61. UPID: UNP-1060
+   Doc ID: UNP-1060
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+62. UPID: UNP-1061
+   Doc ID: UNP-1061
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+63. UPID: UNP-1062
+   Doc ID: UNP-1062
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+64. UPID: UNP-1063
+   Doc ID: UNP-1063
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+65. UPID: UNP-1064
+   Doc ID: UNP-1064
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+66. UPID: UNP-1065
+   Doc ID: UNP-1065
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+67. UPID: UNP-1066
+   Doc ID: UNP-1066
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+68. UPID: UNP-1067
+   Doc ID: UNP-1067
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+69. UPID: UNP-1068
+   Doc ID: UNP-1068
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+70. UPID: UNP-1069
+   Doc ID: UNP-1069
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+71. UPID: UNP-1070
+   Doc ID: UNP-1070
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+72. UPID: UNP-1071
+   Doc ID: UNP-1071
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+73. UPID: UNP-1072
+   Doc ID: UNP-1072
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+74. UPID: UNP-1073
+   Doc ID: UNP-1073
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+75. UPID: UNP-1074
+   Doc ID: UNP-1074
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+76. UPID: UNP-1075
+   Doc ID: UNP-1075
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+77. UPID: UNP-1076
+   Doc ID: UNP-1076
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+78. UPID: UNP-1077
+   Doc ID: UNP-1077
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+79. UPID: UNP-1078
+   Doc ID: UNP-1078
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+80. UPID: UNP-1079
+   Doc ID: UNP-1079
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+81. UPID: UNP-1080
+   Doc ID: UNP-1080
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+82. UPID: UNP-1081
+   Doc ID: UNP-1081
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+83. UPID: UNP-1082
+   Doc ID: UNP-1082
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+84. UPID: UNP-1083
+   Doc ID: UNP-1083
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+85. UPID: UNP-1084
+   Doc ID: UNP-1084
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+86. UPID: UNP-1085
+   Doc ID: UNP-1085
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+87. UPID: UNP-1086
+   Doc ID: UNP-1086
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+88. UPID: UNP-1087
+   Doc ID: UNP-1087
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+89. UPID: UNP-1088
+   Doc ID: UNP-1088
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+90. UPID: UNP-1089
+   Doc ID: UNP-1089
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+91. UPID: UNP-1090
+   Doc ID: UNP-1090
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+92. UPID: UNP-1091
+   Doc ID: UNP-1091
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+93. UPID: UNP-1092
+   Doc ID: UNP-1092
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+94. UPID: UNP-1093
+   Doc ID: UNP-1093
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+95. UPID: UNP-1094
+   Doc ID: UNP-1094
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+96. UPID: UNP-1095
+   Doc ID: UNP-1095
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+97. UPID: UNP-1096
+   Doc ID: UNP-1096
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+98. UPID: UNP-1097
+   Doc ID: UNP-1097
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+99. UPID: UNP-1098
+   Doc ID: UNP-1098
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+100. UPID: UNP-1099
+   Doc ID: UNP-1099
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+101. UPID: UNP-1100
+   Doc ID: UNP-1100
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+102. UPID: UNP-1101
+   Doc ID: UNP-1101
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+103. UPID: UNP-1102
+   Doc ID: UNP-1102
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+104. UPID: UNP-1103
+   Doc ID: UNP-1103
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+105. UPID: UNP-1104
+   Doc ID: UNP-1104
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+106. UPID: UNP-1105
+   Doc ID: UNP-1105
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+107. UPID: UNP-1106
+   Doc ID: UNP-1106
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+108. UPID: UNP-1107
+   Doc ID: UNP-1107
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+109. UPID: UNP-1108
+   Doc ID: UNP-1108
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+110. UPID: UNP-1109
+   Doc ID: UNP-1109
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+111. UPID: UNP-1110
+   Doc ID: UNP-1110
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+112. UPID: UNP-1111
+   Doc ID: UNP-1111
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+113. UPID: UNP-1112
+   Doc ID: UNP-1112
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+114. UPID: UNP-1113
+   Doc ID: UNP-1113
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+115. UPID: UNP-1114
+   Doc ID: UNP-1114
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+116. UPID: UNP-1115
+   Doc ID: UNP-1115
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+117. UPID: UNP-1116
+   Doc ID: UNP-1116
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+118. UPID: UNP-1117
+   Doc ID: UNP-1117
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+119. UPID: UNP-1118
+   Doc ID: UNP-1118
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+120. UPID: UNP-1119
+   Doc ID: UNP-1119
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+121. UPID: UNP-1120
+   Doc ID: UNP-1120
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+122. UPID: UNP-1121
+   Doc ID: UNP-1121
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+123. UPID: UNP-1122
+   Doc ID: UNP-1122
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+124. UPID: UNP-1123
+   Doc ID: UNP-1123
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+125. UPID: UNP-1124
+   Doc ID: UNP-1124
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+126. UPID: UNP-1125
+   Doc ID: UNP-1125
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+127. UPID: UNP-1126
+   Doc ID: UNP-1126
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+128. UPID: UNP-1127
+   Doc ID: UNP-1127
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+129. UPID: UNP-1128
+   Doc ID: UNP-1128
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+130. UPID: UNP-1129
+   Doc ID: UNP-1129
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+131. UPID: UNP-1130
+   Doc ID: UNP-1130
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+132. UPID: UNP-1131
+   Doc ID: UNP-1131
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+133. UPID: UNP-1132
+   Doc ID: UNP-1132
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+134. UPID: UNP-1133
+   Doc ID: UNP-1133
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+135. UPID: UNP-1134
+   Doc ID: UNP-1134
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+136. UPID: UNP-1135
+   Doc ID: UNP-1135
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+137. UPID: UNP-1136
+   Doc ID: UNP-1136
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+138. UPID: UNP-1137
+   Doc ID: UNP-1137
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+139. UPID: UNP-1138
+   Doc ID: UNP-1138
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+140. UPID: UNP-1139
+   Doc ID: UNP-1139
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+141. UPID: UNP-1140
+   Doc ID: UNP-1140
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+142. UPID: UNP-1141
+   Doc ID: UNP-1141
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+143. UPID: UNP-1142
+   Doc ID: UNP-1142
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+144. UPID: UNP-1143
+   Doc ID: UNP-1143
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+145. UPID: UNP-1144
+   Doc ID: UNP-1144
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+146. UPID: UNP-1145
+   Doc ID: UNP-1145
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+147. UPID: UNP-1146
+   Doc ID: UNP-1146
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+148. UPID: UNP-1147
+   Doc ID: UNP-1147
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+149. UPID: UNP-1148
+   Doc ID: UNP-1148
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+150. UPID: UNP-1149
+   Doc ID: UNP-1149
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+151. UPID: UNP-1150
+   Doc ID: UNP-1150
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+152. UPID: UNP-1151
+   Doc ID: UNP-1151
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+153. UPID: UNP-1152
+   Doc ID: UNP-1152
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+154. UPID: UNP-1153
+   Doc ID: UNP-1153
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+155. UPID: UNP-1154
+   Doc ID: UNP-1154
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+156. UPID: UNP-1155
+   Doc ID: UNP-1155
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+157. UPID: UNP-1156
+   Doc ID: UNP-1156
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+158. UPID: UNP-1157
+   Doc ID: UNP-1157
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+159. UPID: UNP-1158
+   Doc ID: UNP-1158
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+160. UPID: UNP-1159
+   Doc ID: UNP-1159
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+161. UPID: UNP-1160
+   Doc ID: UNP-1160
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+162. UPID: UNP-1161
+   Doc ID: UNP-1161
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+163. UPID: UNP-1162
+   Doc ID: UNP-1162
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+164. UPID: UNP-1163
+   Doc ID: UNP-1163
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+165. UPID: UNP-1164
+   Doc ID: UNP-1164
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+166. UPID: UNP-1165
+   Doc ID: UNP-1165
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+167. UPID: UNP-1166
+   Doc ID: UNP-1166
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+168. UPID: UNP-1167
+   Doc ID: UNP-1167
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+169. UPID: UNP-1168
+   Doc ID: UNP-1168
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+170. UPID: UNP-1169
+   Doc ID: UNP-1169
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+171. UPID: UNP-1170
+   Doc ID: UNP-1170
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+172. UPID: UNP-1171
+   Doc ID: UNP-1171
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+173. UPID: UNP-1172
+   Doc ID: UNP-1172
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+174. UPID: UNP-1173
+   Doc ID: UNP-1173
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+175. UPID: UNP-1174
+   Doc ID: UNP-1174
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+176. UPID: UNP-1175
+   Doc ID: UNP-1175
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+177. UPID: UNP-1176
+   Doc ID: UNP-1176
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+178. UPID: UNP-1177
+   Doc ID: UNP-1177
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+179. UPID: UNP-1178
+   Doc ID: UNP-1178
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+180. UPID: UNP-1179
+   Doc ID: UNP-1179
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+181. UPID: UNP-1180
+   Doc ID: UNP-1180
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+182. UPID: UNP-1181
+   Doc ID: UNP-1181
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+183. UPID: UNP-1182
+   Doc ID: UNP-1182
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+184. UPID: UNP-1183
+   Doc ID: UNP-1183
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+185. UPID: UNP-1184
+   Doc ID: UNP-1184
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+186. UPID: UNP-1185
+   Doc ID: UNP-1185
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+187. UPID: UNP-1186
+   Doc ID: UNP-1186
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+188. UPID: UNP-1187
+   Doc ID: UNP-1187
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+189. UPID: UNP-1188
+   Doc ID: UNP-1188
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+190. UPID: UNP-1189
+   Doc ID: UNP-1189
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+191. UPID: UNP-1190
+   Doc ID: UNP-1190
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+192. UPID: UNP-1191
+   Doc ID: UNP-1191
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+193. UPID: UNP-1192
+   Doc ID: UNP-1192
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+194. UPID: UNP-1193
+   Doc ID: UNP-1193
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+195. UPID: UNP-1194
+   Doc ID: UNP-1194
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+196. UPID: UNP-1195
+   Doc ID: UNP-1195
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+197. UPID: UNP-1196
+   Doc ID: UNP-1196
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+198. UPID: UNP-1197
+   Doc ID: UNP-1197
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+199. UPID: UNP-1198
+   Doc ID: UNP-1198
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+200. UPID: UNP-1199
+   Doc ID: UNP-1199
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+201. UPID: UNP-1200
+   Doc ID: UNP-1200
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+202. UPID: UNP-1201
+   Doc ID: UNP-1201
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+203. UPID: UNP-1202
+   Doc ID: UNP-1202
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+204. UPID: UNP-1203
+   Doc ID: UNP-1203
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+205. UPID: UNP-1204
+   Doc ID: UNP-1204
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+206. UPID: UNP-1205
+   Doc ID: UNP-1205
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+207. UPID: UNP-1206
+   Doc ID: UNP-1206
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+208. UPID: UNP-1207
+   Doc ID: UNP-1207
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+209. UPID: UNP-1208
+   Doc ID: UNP-1208
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+210. UPID: UNP-1209
+   Doc ID: UNP-1209
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+211. UPID: UNP-1210
+   Doc ID: UNP-1210
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+212. UPID: UNP-1211
+   Doc ID: UNP-1211
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+213. UPID: UNP-1212
+   Doc ID: UNP-1212
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+214. UPID: UNP-1213
+   Doc ID: UNP-1213
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+215. UPID: UNP-1214
+   Doc ID: UNP-1214
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+216. UPID: UNP-1215
+   Doc ID: UNP-1215
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+217. UPID: UNP-1216
+   Doc ID: UNP-1216
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+218. UPID: UNP-1217
+   Doc ID: UNP-1217
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+219. UPID: UNP-1218
+   Doc ID: UNP-1218
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+220. UPID: UNP-1219
+   Doc ID: UNP-1219
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+221. UPID: UNP-1220
+   Doc ID: UNP-1220
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+222. UPID: UNP-1221
+   Doc ID: UNP-1221
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+223. UPID: UNP-1222
+   Doc ID: UNP-1222
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+224. UPID: UNP-1223
+   Doc ID: UNP-1223
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+225. UPID: UNP-1224
+   Doc ID: UNP-1224
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+226. UPID: UNP-1225
+   Doc ID: UNP-1225
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+227. UPID: UNP-1226
+   Doc ID: UNP-1226
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+228. UPID: UNP-1227
+   Doc ID: UNP-1227
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+229. UPID: UNP-1228
+   Doc ID: UNP-1228
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+230. UPID: UNP-1229
+   Doc ID: UNP-1229
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+231. UPID: UNP-1230
+   Doc ID: UNP-1230
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+232. UPID: UNP-1231
+   Doc ID: UNP-1231
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+233. UPID: UNP-1232
+   Doc ID: UNP-1232
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+234. UPID: UNP-1233
+   Doc ID: UNP-1233
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+235. UPID: UNP-1234
+   Doc ID: UNP-1234
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+236. UPID: UNP-1235
+   Doc ID: UNP-1235
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+237. UPID: UNP-1236
+   Doc ID: UNP-1236
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+238. UPID: UNP-1237
+   Doc ID: UNP-1237
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+239. UPID: UNP-1238
+   Doc ID: UNP-1238
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+240. UPID: UNP-1239
+   Doc ID: UNP-1239
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+241. UPID: UNP-1240
+   Doc ID: UNP-1240
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+242. UPID: UNP-1241
+   Doc ID: UNP-1241
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+243. UPID: UNP-1242
+   Doc ID: UNP-1242
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+244. UPID: UNP-1243
+   Doc ID: UNP-1243
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+245. UPID: UNP-1244
+   Doc ID: UNP-1244
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+246. UPID: UNP-1245
+   Doc ID: UNP-1245
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+247. UPID: UNP-1246
+   Doc ID: UNP-1246
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+248. UPID: UNP-1247
+   Doc ID: UNP-1247
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+249. UPID: UNP-1248
+   Doc ID: UNP-1248
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+250. UPID: UNP-1249
+   Doc ID: UNP-1249
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+251. UPID: UNP-1250
+   Doc ID: UNP-1250
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+252. UPID: UNP-1251
+   Doc ID: UNP-1251
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+253. UPID: UNP-1252
+   Doc ID: UNP-1252
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+254. UPID: UNP-1253
+   Doc ID: UNP-1253
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+255. UPID: UNP-1254
+   Doc ID: UNP-1254
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+256. UPID: UNP-1255
+   Doc ID: UNP-1255
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+257. UPID: UNP-1256
+   Doc ID: UNP-1256
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+258. UPID: UNP-1257
+   Doc ID: UNP-1257
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+259. UPID: UNP-1258
+   Doc ID: UNP-1258
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+260. UPID: UNP-1259
+   Doc ID: UNP-1259
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+261. UPID: UNP-1260
+   Doc ID: UNP-1260
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+262. UPID: UNP-1261
+   Doc ID: UNP-1261
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+263. UPID: UNP-1262
+   Doc ID: UNP-1262
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+264. UPID: UNP-1263
+   Doc ID: UNP-1263
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+265. UPID: UNP-1264
+   Doc ID: UNP-1264
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+266. UPID: UNP-1265
+   Doc ID: UNP-1265
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+267. UPID: UNP-1266
+   Doc ID: UNP-1266
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+268. UPID: UNP-1267
+   Doc ID: UNP-1267
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+269. UPID: UNP-1268
+   Doc ID: UNP-1268
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+270. UPID: UNP-1269
+   Doc ID: UNP-1269
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+271. UPID: UNP-1270
+   Doc ID: UNP-1270
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+272. UPID: UNP-1271
+   Doc ID: UNP-1271
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+273. UPID: UNP-1272
+   Doc ID: UNP-1272
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+274. UPID: UNP-1273
+   Doc ID: UNP-1273
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+275. UPID: UNP-1274
+   Doc ID: UNP-1274
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+276. UPID: UNP-1275
+   Doc ID: UNP-1275
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+277. UPID: UNP-1276
+   Doc ID: UNP-1276
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+278. UPID: UNP-1277
+   Doc ID: UNP-1277
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+279. UPID: UNP-1278
+   Doc ID: UNP-1278
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+280. UPID: UNP-1279
+   Doc ID: UNP-1279
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+281. UPID: UNP-1280
+   Doc ID: UNP-1280
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+282. UPID: UNP-1281
+   Doc ID: UNP-1281
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+283. UPID: UNP-1282
+   Doc ID: UNP-1282
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+284. UPID: UNP-1283
+   Doc ID: UNP-1283
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+285. UPID: UNP-1284
+   Doc ID: UNP-1284
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+286. UPID: UNP-1285
+   Doc ID: UNP-1285
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+287. UPID: UNP-1286
+   Doc ID: UNP-1286
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+288. UPID: UNP-1287
+   Doc ID: UNP-1287
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+289. UPID: UNP-1288
+   Doc ID: UNP-1288
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+290. UPID: UNP-1289
+   Doc ID: UNP-1289
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+291. UPID: UNP-1290
+   Doc ID: UNP-1290
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+292. UPID: UNP-1291
+   Doc ID: UNP-1291
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+293. UPID: UNP-1292
+   Doc ID: UNP-1292
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+294. UPID: UNP-1293
+   Doc ID: UNP-1293
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+295. UPID: UNP-1294
+   Doc ID: UNP-1294
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+296. UPID: UNP-1295
+   Doc ID: UNP-1295
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+297. UPID: UNP-1296
+   Doc ID: UNP-1296
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+298. UPID: UNP-1297
+   Doc ID: UNP-1297
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+299. UPID: UNP-1298
+   Doc ID: UNP-1298
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+300. UPID: UNP-1299
+   Doc ID: UNP-1299
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+301. UPID: UNP-1300
+   Doc ID: UNP-1300
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+302. UPID: UNP-1301
+   Doc ID: UNP-1301
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+303. UPID: UNP-1302
+   Doc ID: UNP-1302
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+304. UPID: UNP-1303
+   Doc ID: UNP-1303
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+305. UPID: UNP-1304
+   Doc ID: UNP-1304
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+306. UPID: UNP-1305
+   Doc ID: UNP-1305
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+307. UPID: UNP-1306
+   Doc ID: UNP-1306
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+308. UPID: UNP-1307
+   Doc ID: UNP-1307
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+309. UPID: UNP-1308
+   Doc ID: UNP-1308
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+310. UPID: UNP-1309
+   Doc ID: UNP-1309
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+311. UPID: UNP-1310
+   Doc ID: UNP-1310
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+312. UPID: UNP-1311
+   Doc ID: UNP-1311
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+313. UPID: UNP-1312
+   Doc ID: UNP-1312
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+314. UPID: UNP-1313
+   Doc ID: UNP-1313
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+315. UPID: UNP-1314
+   Doc ID: UNP-1314
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+316. UPID: UNP-1315
+   Doc ID: UNP-1315
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+317. UPID: UNP-1316
+   Doc ID: UNP-1316
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+318. UPID: UNP-1317
+   Doc ID: UNP-1317
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+319. UPID: UNP-1318
+   Doc ID: UNP-1318
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+320. UPID: UNP-1319
+   Doc ID: UNP-1319
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+321. UPID: UNP-1320
+   Doc ID: UNP-1320
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+322. UPID: UNP-1321
+   Doc ID: UNP-1321
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+323. UPID: UNP-1322
+   Doc ID: UNP-1322
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+324. UPID: UNP-1323
+   Doc ID: UNP-1323
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+325. UPID: UNP-267
+   Doc ID: UNP-267
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+326. UPID: UNP-268
+   Doc ID: UNP-268
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+327. UPID: UNP-269
+   Doc ID: UNP-269
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+328. UPID: UNP-270
+   Doc ID: UNP-270
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+329. UPID: UNP-271
+   Doc ID: UNP-271
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+330. UPID: UNP-272
+   Doc ID: UNP-272
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+331. UPID: UNP-273
+   Doc ID: UNP-273
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+332. UPID: UNP-274
+   Doc ID: UNP-274
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+333. UPID: UNP-275
+   Doc ID: UNP-275
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+334. UPID: UNP-276
+   Doc ID: UNP-276
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+335. UPID: UNP-277
+   Doc ID: UNP-277
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+336. UPID: UNP-278
+   Doc ID: UNP-278
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+337. UPID: UNP-279
+   Doc ID: UNP-279
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+338. UPID: UNP-280
+   Doc ID: UNP-280
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+339. UPID: UNP-281
+   Doc ID: UNP-281
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+340. UPID: UNP-282
+   Doc ID: UNP-282
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+341. UPID: UNP-283
+   Doc ID: UNP-283
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+342. UPID: UNP-284
+   Doc ID: UNP-284
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+343. UPID: UNP-285
+   Doc ID: UNP-285
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+344. UPID: UNP-286
+   Doc ID: UNP-286
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+345. UPID: UNP-287
+   Doc ID: UNP-287
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+346. UPID: UNP-288
+   Doc ID: UNP-288
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+347. UPID: UNP-289
+   Doc ID: UNP-289
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+348. UPID: UNP-290
+   Doc ID: UNP-290
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+349. UPID: UNP-291
+   Doc ID: UNP-291
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+350. UPID: UNP-292
+   Doc ID: UNP-292
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+351. UPID: UNP-293
+   Doc ID: UNP-293
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+352. UPID: UNP-294
+   Doc ID: UNP-294
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+353. UPID: UNP-295
+   Doc ID: UNP-295
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+354. UPID: UNP-296
+   Doc ID: UNP-296
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+355. UPID: UNP-297
+   Doc ID: UNP-297
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+356. UPID: UNP-298
+   Doc ID: UNP-298
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+357. UPID: UNP-299
+   Doc ID: UNP-299
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+358. UPID: UNP-300
+   Doc ID: UNP-300
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+359. UPID: UNP-301
+   Doc ID: UNP-301
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+360. UPID: UNP-302
+   Doc ID: UNP-302
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+361. UPID: UNP-303
+   Doc ID: UNP-303
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+362. UPID: UNP-304
+   Doc ID: UNP-304
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+363. UPID: UNP-305
+   Doc ID: UNP-305
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+364. UPID: UNP-306
+   Doc ID: UNP-306
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+365. UPID: UNP-307
+   Doc ID: UNP-307
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+366. UPID: UNP-308
+   Doc ID: UNP-308
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+367. UPID: UNP-309
+   Doc ID: UNP-309
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+368. UPID: UNP-310
+   Doc ID: UNP-310
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+369. UPID: UNP-311
+   Doc ID: UNP-311
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+370. UPID: UNP-312
+   Doc ID: UNP-312
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+371. UPID: UNP-313
+   Doc ID: UNP-313
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+372. UPID: UNP-314
+   Doc ID: UNP-314
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+373. UPID: UNP-315
+   Doc ID: UNP-315
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+374. UPID: UNP-316
+   Doc ID: UNP-316
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+375. UPID: UNP-317
+   Doc ID: UNP-317
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+376. UPID: UNP-318
+   Doc ID: UNP-318
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+377. UPID: UNP-319
+   Doc ID: UNP-319
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+378. UPID: UNP-320
+   Doc ID: UNP-320
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+379. UPID: UNP-321
+   Doc ID: UNP-321
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+380. UPID: UNP-322
+   Doc ID: UNP-322
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+381. UPID: UNP-323
+   Doc ID: UNP-323
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+382. UPID: UNP-324
+   Doc ID: UNP-324
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+383. UPID: UNP-325
+   Doc ID: UNP-325
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+384. UPID: UNP-326
+   Doc ID: UNP-326
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+385. UPID: UNP-327
+   Doc ID: UNP-327
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+386. UPID: UNP-328
+   Doc ID: UNP-328
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+387. UPID: UNP-329
+   Doc ID: UNP-329
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+388. UPID: UNP-33
+   Doc ID: UNP-33
+   Nombre: N/A
+   Tipo: Canchas
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+389. UPID: UNP-330
+   Doc ID: UNP-330
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+390. UPID: UNP-331
+   Doc ID: UNP-331
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+391. UPID: UNP-332
+   Doc ID: UNP-332
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+392. UPID: UNP-333
+   Doc ID: UNP-333
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+393. UPID: UNP-334
+   Doc ID: UNP-334
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+394. UPID: UNP-335
+   Doc ID: UNP-335
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+395. UPID: UNP-336
+   Doc ID: UNP-336
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+396. UPID: UNP-337
+   Doc ID: UNP-337
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+397. UPID: UNP-338
+   Doc ID: UNP-338
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+398. UPID: UNP-339
+   Doc ID: UNP-339
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+399. UPID: UNP-340
+   Doc ID: UNP-340
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+400. UPID: UNP-341
+   Doc ID: UNP-341
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+401. UPID: UNP-342
+   Doc ID: UNP-342
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+402. UPID: UNP-343
+   Doc ID: UNP-343
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+403. UPID: UNP-344
+   Doc ID: UNP-344
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+404. UPID: UNP-345
+   Doc ID: UNP-345
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+405. UPID: UNP-346
+   Doc ID: UNP-346
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+406. UPID: UNP-347
+   Doc ID: UNP-347
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+407. UPID: UNP-348
+   Doc ID: UNP-348
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+408. UPID: UNP-349
+   Doc ID: UNP-349
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+409. UPID: UNP-350
+   Doc ID: UNP-350
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+410. UPID: UNP-351
+   Doc ID: UNP-351
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+411. UPID: UNP-352
+   Doc ID: UNP-352
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+412. UPID: UNP-353
+   Doc ID: UNP-353
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+413. UPID: UNP-354
+   Doc ID: UNP-354
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+414. UPID: UNP-355
+   Doc ID: UNP-355
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+415. UPID: UNP-356
+   Doc ID: UNP-356
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+416. UPID: UNP-357
+   Doc ID: UNP-357
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+417. UPID: UNP-358
+   Doc ID: UNP-358
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+418. UPID: UNP-359
+   Doc ID: UNP-359
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+419. UPID: UNP-360
+   Doc ID: UNP-360
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+420. UPID: UNP-361
+   Doc ID: UNP-361
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+421. UPID: UNP-362
+   Doc ID: UNP-362
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+422. UPID: UNP-363
+   Doc ID: UNP-363
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+423. UPID: UNP-364
+   Doc ID: UNP-364
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+424. UPID: UNP-365
+   Doc ID: UNP-365
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+425. UPID: UNP-366
+   Doc ID: UNP-366
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+426. UPID: UNP-367
+   Doc ID: UNP-367
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+427. UPID: UNP-368
+   Doc ID: UNP-368
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+428. UPID: UNP-369
+   Doc ID: UNP-369
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+429. UPID: UNP-370
+   Doc ID: UNP-370
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+430. UPID: UNP-371
+   Doc ID: UNP-371
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+431. UPID: UNP-372
+   Doc ID: UNP-372
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+432. UPID: UNP-373
+   Doc ID: UNP-373
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+433. UPID: UNP-374
+   Doc ID: UNP-374
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+434. UPID: UNP-375
+   Doc ID: UNP-375
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+435. UPID: UNP-376
+   Doc ID: UNP-376
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+436. UPID: UNP-377
+   Doc ID: UNP-377
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+437. UPID: UNP-378
+   Doc ID: UNP-378
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+438. UPID: UNP-379
+   Doc ID: UNP-379
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+439. UPID: UNP-380
+   Doc ID: UNP-380
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+440. UPID: UNP-381
+   Doc ID: UNP-381
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+441. UPID: UNP-382
+   Doc ID: UNP-382
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+442. UPID: UNP-383
+   Doc ID: UNP-383
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+443. UPID: UNP-384
+   Doc ID: UNP-384
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+444. UPID: UNP-385
+   Doc ID: UNP-385
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+445. UPID: UNP-386
+   Doc ID: UNP-386
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+446. UPID: UNP-388
+   Doc ID: UNP-388
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+447. UPID: UNP-389
+   Doc ID: UNP-389
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+448. UPID: UNP-390
+   Doc ID: UNP-390
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+449. UPID: UNP-391
+   Doc ID: UNP-391
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+450. UPID: UNP-392
+   Doc ID: UNP-392
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+451. UPID: UNP-393
+   Doc ID: UNP-393
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+452. UPID: UNP-394
+   Doc ID: UNP-394
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+453. UPID: UNP-395
+   Doc ID: UNP-395
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+454. UPID: UNP-396
+   Doc ID: UNP-396
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+455. UPID: UNP-397
+   Doc ID: UNP-397
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+456. UPID: UNP-398
+   Doc ID: UNP-398
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+457. UPID: UNP-399
+   Doc ID: UNP-399
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+458. UPID: UNP-400
+   Doc ID: UNP-400
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+459. UPID: UNP-401
+   Doc ID: UNP-401
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+460. UPID: UNP-402
+   Doc ID: UNP-402
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+461. UPID: UNP-403
+   Doc ID: UNP-403
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+462. UPID: UNP-404
+   Doc ID: UNP-404
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+463. UPID: UNP-405
+   Doc ID: UNP-405
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+464. UPID: UNP-406
+   Doc ID: UNP-406
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+465. UPID: UNP-407
+   Doc ID: UNP-407
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+466. UPID: UNP-408
+   Doc ID: UNP-408
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+467. UPID: UNP-409
+   Doc ID: UNP-409
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+468. UPID: UNP-410
+   Doc ID: UNP-410
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+469. UPID: UNP-411
+   Doc ID: UNP-411
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+470. UPID: UNP-412
+   Doc ID: UNP-412
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+471. UPID: UNP-413
+   Doc ID: UNP-413
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+472. UPID: UNP-414
+   Doc ID: UNP-414
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+473. UPID: UNP-415
+   Doc ID: UNP-415
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+474. UPID: UNP-416
+   Doc ID: UNP-416
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+475. UPID: UNP-417
+   Doc ID: UNP-417
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+476. UPID: UNP-418
+   Doc ID: UNP-418
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+477. UPID: UNP-419
+   Doc ID: UNP-419
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+478. UPID: UNP-420
+   Doc ID: UNP-420
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+479. UPID: UNP-421
+   Doc ID: UNP-421
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+480. UPID: UNP-422
+   Doc ID: UNP-422
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+481. UPID: UNP-423
+   Doc ID: UNP-423
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+482. UPID: UNP-424
+   Doc ID: UNP-424
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+483. UPID: UNP-425
+   Doc ID: UNP-425
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+484. UPID: UNP-426
+   Doc ID: UNP-426
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+485. UPID: UNP-427
+   Doc ID: UNP-427
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+486. UPID: UNP-428
+   Doc ID: UNP-428
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+487. UPID: UNP-429
+   Doc ID: UNP-429
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+488. UPID: UNP-430
+   Doc ID: UNP-430
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+489. UPID: UNP-431
+   Doc ID: UNP-431
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+490. UPID: UNP-432
+   Doc ID: UNP-432
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+491. UPID: UNP-433
+   Doc ID: UNP-433
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+492. UPID: UNP-434
+   Doc ID: UNP-434
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+493. UPID: UNP-435
+   Doc ID: UNP-435
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+494. UPID: UNP-436
+   Doc ID: UNP-436
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+495. UPID: UNP-437
+   Doc ID: UNP-437
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+496. UPID: UNP-438
+   Doc ID: UNP-438
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+497. UPID: UNP-439
+   Doc ID: UNP-439
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+498. UPID: UNP-440
+   Doc ID: UNP-440
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+499. UPID: UNP-441
+   Doc ID: UNP-441
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+500. UPID: UNP-442
+   Doc ID: UNP-442
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+501. UPID: UNP-443
+   Doc ID: UNP-443
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+502. UPID: UNP-444
+   Doc ID: UNP-444
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+503. UPID: UNP-445
+   Doc ID: UNP-445
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+504. UPID: UNP-446
+   Doc ID: UNP-446
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+505. UPID: UNP-447
+   Doc ID: UNP-447
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+506. UPID: UNP-448
+   Doc ID: UNP-448
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+507. UPID: UNP-449
+   Doc ID: UNP-449
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+508. UPID: UNP-450
+   Doc ID: UNP-450
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+509. UPID: UNP-451
+   Doc ID: UNP-451
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+510. UPID: UNP-452
+   Doc ID: UNP-452
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+511. UPID: UNP-453
+   Doc ID: UNP-453
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+512. UPID: UNP-454
+   Doc ID: UNP-454
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+513. UPID: UNP-455
+   Doc ID: UNP-455
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+514. UPID: UNP-456
+   Doc ID: UNP-456
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+515. UPID: UNP-457
+   Doc ID: UNP-457
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+516. UPID: UNP-458
+   Doc ID: UNP-458
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+517. UPID: UNP-459
+   Doc ID: UNP-459
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+518. UPID: UNP-460
+   Doc ID: UNP-460
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+519. UPID: UNP-461
+   Doc ID: UNP-461
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+520. UPID: UNP-462
+   Doc ID: UNP-462
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+521. UPID: UNP-463
+   Doc ID: UNP-463
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+522. UPID: UNP-464
+   Doc ID: UNP-464
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+523. UPID: UNP-465
+   Doc ID: UNP-465
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+524. UPID: UNP-466
+   Doc ID: UNP-466
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+525. UPID: UNP-467
+   Doc ID: UNP-467
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+526. UPID: UNP-468
+   Doc ID: UNP-468
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+527. UPID: UNP-469
+   Doc ID: UNP-469
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+528. UPID: UNP-470
+   Doc ID: UNP-470
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+529. UPID: UNP-471
+   Doc ID: UNP-471
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+530. UPID: UNP-472
+   Doc ID: UNP-472
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+531. UPID: UNP-473
+   Doc ID: UNP-473
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+532. UPID: UNP-474
+   Doc ID: UNP-474
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+533. UPID: UNP-475
+   Doc ID: UNP-475
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+534. UPID: UNP-476
+   Doc ID: UNP-476
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+535. UPID: UNP-477
+   Doc ID: UNP-477
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+536. UPID: UNP-478
+   Doc ID: UNP-478
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+537. UPID: UNP-479
+   Doc ID: UNP-479
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+538. UPID: UNP-480
+   Doc ID: UNP-480
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+539. UPID: UNP-481
+   Doc ID: UNP-481
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+540. UPID: UNP-482
+   Doc ID: UNP-482
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+541. UPID: UNP-483
+   Doc ID: UNP-483
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+542. UPID: UNP-484
+   Doc ID: UNP-484
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+543. UPID: UNP-485
+   Doc ID: UNP-485
+   Nombre: N/A
+   Tipo: Vivienda mejoramiento
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+544. UPID: UNP-488
+   Doc ID: UNP-488
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+545. UPID: UNP-489
+   Doc ID: UNP-489
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+546. UPID: UNP-597
+   Doc ID: UNP-597
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+547. UPID: UNP-841
+   Doc ID: UNP-841
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+548. UPID: UNP-842
+   Doc ID: UNP-842
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+549. UPID: UNP-843
+   Doc ID: UNP-843
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+550. UPID: UNP-844
+   Doc ID: UNP-844
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+551. UPID: UNP-845
+   Doc ID: UNP-845
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+552. UPID: UNP-846
+   Doc ID: UNP-846
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+553. UPID: UNP-847
+   Doc ID: UNP-847
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+554. UPID: UNP-848
+   Doc ID: UNP-848
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+555. UPID: UNP-849
+   Doc ID: UNP-849
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+556. UPID: UNP-850
+   Doc ID: UNP-850
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+557. UPID: UNP-851
+   Doc ID: UNP-851
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+558. UPID: UNP-852
+   Doc ID: UNP-852
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+559. UPID: UNP-853
+   Doc ID: UNP-853
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+560. UPID: UNP-854
+   Doc ID: UNP-854
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+561. UPID: UNP-855
+   Doc ID: UNP-855
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+562. UPID: UNP-856
+   Doc ID: UNP-856
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+563. UPID: UNP-857
+   Doc ID: UNP-857
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+564. UPID: UNP-858
+   Doc ID: UNP-858
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+565. UPID: UNP-859
+   Doc ID: UNP-859
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+566. UPID: UNP-860
+   Doc ID: UNP-860
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+567. UPID: UNP-861
+   Doc ID: UNP-861
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+568. UPID: UNP-862
+   Doc ID: UNP-862
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+569. UPID: UNP-863
+   Doc ID: UNP-863
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+570. UPID: UNP-864
+   Doc ID: UNP-864
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+571. UPID: UNP-865
+   Doc ID: UNP-865
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+572. UPID: UNP-866
+   Doc ID: UNP-866
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+573. UPID: UNP-867
+   Doc ID: UNP-867
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+574. UPID: UNP-868
+   Doc ID: UNP-868
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+575. UPID: UNP-869
+   Doc ID: UNP-869
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+576. UPID: UNP-870
+   Doc ID: UNP-870
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+577. UPID: UNP-871
+   Doc ID: UNP-871
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+578. UPID: UNP-872
+   Doc ID: UNP-872
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+579. UPID: UNP-873
+   Doc ID: UNP-873
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+580. UPID: UNP-874
+   Doc ID: UNP-874
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+581. UPID: UNP-875
+   Doc ID: UNP-875
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+582. UPID: UNP-876
+   Doc ID: UNP-876
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+583. UPID: UNP-877
+   Doc ID: UNP-877
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+584. UPID: UNP-878
+   Doc ID: UNP-878
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+585. UPID: UNP-879
+   Doc ID: UNP-879
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+586. UPID: UNP-880
+   Doc ID: UNP-880
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+587. UPID: UNP-881
+   Doc ID: UNP-881
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+588. UPID: UNP-882
+   Doc ID: UNP-882
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+589. UPID: UNP-883
+   Doc ID: UNP-883
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+590. UPID: UNP-884
+   Doc ID: UNP-884
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+591. UPID: UNP-885
+   Doc ID: UNP-885
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+592. UPID: UNP-886
+   Doc ID: UNP-886
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+593. UPID: UNP-887
+   Doc ID: UNP-887
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+594. UPID: UNP-888
+   Doc ID: UNP-888
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+595. UPID: UNP-889
+   Doc ID: UNP-889
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+596. UPID: UNP-890
+   Doc ID: UNP-890
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+597. UPID: UNP-891
+   Doc ID: UNP-891
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+598. UPID: UNP-892
+   Doc ID: UNP-892
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+599. UPID: UNP-893
+   Doc ID: UNP-893
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+600. UPID: UNP-894
+   Doc ID: UNP-894
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+601. UPID: UNP-895
+   Doc ID: UNP-895
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+602. UPID: UNP-896
+   Doc ID: UNP-896
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+603. UPID: UNP-897
+   Doc ID: UNP-897
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+604. UPID: UNP-898
+   Doc ID: UNP-898
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+605. UPID: UNP-899
+   Doc ID: UNP-899
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+606. UPID: UNP-900
+   Doc ID: UNP-900
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+607. UPID: UNP-901
+   Doc ID: UNP-901
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+608. UPID: UNP-902
+   Doc ID: UNP-902
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+609. UPID: UNP-903
+   Doc ID: UNP-903
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+610. UPID: UNP-904
+   Doc ID: UNP-904
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+611. UPID: UNP-905
+   Doc ID: UNP-905
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+612. UPID: UNP-906
+   Doc ID: UNP-906
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+613. UPID: UNP-907
+   Doc ID: UNP-907
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+614. UPID: UNP-908
+   Doc ID: UNP-908
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+615. UPID: UNP-909
+   Doc ID: UNP-909
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+616. UPID: UNP-910
+   Doc ID: UNP-910
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+617. UPID: UNP-911
+   Doc ID: UNP-911
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+618. UPID: UNP-912
+   Doc ID: UNP-912
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+619. UPID: UNP-913
+   Doc ID: UNP-913
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+620. UPID: UNP-914
+   Doc ID: UNP-914
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+621. UPID: UNP-915
+   Doc ID: UNP-915
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+622. UPID: UNP-916
+   Doc ID: UNP-916
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+623. UPID: UNP-917
+   Doc ID: UNP-917
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+624. UPID: UNP-918
+   Doc ID: UNP-918
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+625. UPID: UNP-919
+   Doc ID: UNP-919
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+626. UPID: UNP-920
+   Doc ID: UNP-920
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+627. UPID: UNP-921
+   Doc ID: UNP-921
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+628. UPID: UNP-922
+   Doc ID: UNP-922
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+629. UPID: UNP-923
+   Doc ID: UNP-923
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+630. UPID: UNP-924
+   Doc ID: UNP-924
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+631. UPID: UNP-925
+   Doc ID: UNP-925
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+632. UPID: UNP-926
+   Doc ID: UNP-926
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+633. UPID: UNP-927
+   Doc ID: UNP-927
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+634. UPID: UNP-928
+   Doc ID: UNP-928
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+635. UPID: UNP-929
+   Doc ID: UNP-929
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+636. UPID: UNP-930
+   Doc ID: UNP-930
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+637. UPID: UNP-931
+   Doc ID: UNP-931
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+638. UPID: UNP-932
+   Doc ID: UNP-932
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+639. UPID: UNP-933
+   Doc ID: UNP-933
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+640. UPID: UNP-934
+   Doc ID: UNP-934
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+641. UPID: UNP-935
+   Doc ID: UNP-935
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+642. UPID: UNP-936
+   Doc ID: UNP-936
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+643. UPID: UNP-937
+   Doc ID: UNP-937
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+644. UPID: UNP-938
+   Doc ID: UNP-938
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+645. UPID: UNP-939
+   Doc ID: UNP-939
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+646. UPID: UNP-940
+   Doc ID: UNP-940
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+647. UPID: UNP-941
+   Doc ID: UNP-941
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+648. UPID: UNP-942
+   Doc ID: UNP-942
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+649. UPID: UNP-943
+   Doc ID: UNP-943
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+650. UPID: UNP-944
+   Doc ID: UNP-944
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+651. UPID: UNP-945
+   Doc ID: UNP-945
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+652. UPID: UNP-946
+   Doc ID: UNP-946
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+653. UPID: UNP-947
+   Doc ID: UNP-947
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+654. UPID: UNP-948
+   Doc ID: UNP-948
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+655. UPID: UNP-949
+   Doc ID: UNP-949
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+656. UPID: UNP-950
+   Doc ID: UNP-950
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+657. UPID: UNP-951
+   Doc ID: UNP-951
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+658. UPID: UNP-952
+   Doc ID: UNP-952
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+659. UPID: UNP-953
+   Doc ID: UNP-953
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+660. UPID: UNP-954
+   Doc ID: UNP-954
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+661. UPID: UNP-955
+   Doc ID: UNP-955
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+662. UPID: UNP-956
+   Doc ID: UNP-956
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+663. UPID: UNP-957
+   Doc ID: UNP-957
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+664. UPID: UNP-958
+   Doc ID: UNP-958
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+665. UPID: UNP-959
+   Doc ID: UNP-959
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+666. UPID: UNP-960
+   Doc ID: UNP-960
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+667. UPID: UNP-961
+   Doc ID: UNP-961
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+668. UPID: UNP-962
+   Doc ID: UNP-962
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+669. UPID: UNP-963
+   Doc ID: UNP-963
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+670. UPID: UNP-964
+   Doc ID: UNP-964
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+671. UPID: UNP-965
+   Doc ID: UNP-965
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+672. UPID: UNP-966
+   Doc ID: UNP-966
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+673. UPID: UNP-967
+   Doc ID: UNP-967
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+674. UPID: UNP-968
+   Doc ID: UNP-968
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+675. UPID: UNP-969
+   Doc ID: UNP-969
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+676. UPID: UNP-970
+   Doc ID: UNP-970
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+677. UPID: UNP-971
+   Doc ID: UNP-971
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+678. UPID: UNP-972
+   Doc ID: UNP-972
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+679. UPID: UNP-973
+   Doc ID: UNP-973
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+680. UPID: UNP-974
+   Doc ID: UNP-974
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+681. UPID: UNP-975
+   Doc ID: UNP-975
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+682. UPID: UNP-976
+   Doc ID: UNP-976
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+683. UPID: UNP-977
+   Doc ID: UNP-977
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+684. UPID: UNP-978
+   Doc ID: UNP-978
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+685. UPID: UNP-979
+   Doc ID: UNP-979
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+686. UPID: UNP-980
+   Doc ID: UNP-980
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+687. UPID: UNP-981
+   Doc ID: UNP-981
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+688. UPID: UNP-982
+   Doc ID: UNP-982
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+689. UPID: UNP-983
+   Doc ID: UNP-983
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+690. UPID: UNP-984
+   Doc ID: UNP-984
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+691. UPID: UNP-985
+   Doc ID: UNP-985
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+692. UPID: UNP-986
+   Doc ID: UNP-986
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+693. UPID: UNP-987
+   Doc ID: UNP-987
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+694. UPID: UNP-988
+   Doc ID: UNP-988
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+695. UPID: UNP-989
+   Doc ID: UNP-989
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+696. UPID: UNP-990
+   Doc ID: UNP-990
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+697. UPID: UNP-991
+   Doc ID: UNP-991
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+698. UPID: UNP-992
+   Doc ID: UNP-992
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+699. UPID: UNP-993
+   Doc ID: UNP-993
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+700. UPID: UNP-994
+   Doc ID: UNP-994
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+701. UPID: UNP-995
+   Doc ID: UNP-995
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+702. UPID: UNP-996
+   Doc ID: UNP-996
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+703. UPID: UNP-997
+   Doc ID: UNP-997
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+704. UPID: UNP-998
+   Doc ID: UNP-998
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+705. UPID: UNP-999
+   Doc ID: UNP-999
+   Nombre: N/A
+   Tipo: Vivienda nueva
+   Clase UP: Subsidios
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+
+================================================================================
+Secretaría del Deporte y la Recreación
+================================================================================
+Total de registros sin geometry: 33
+
+1. UPID: UNP-46
+   Doc ID: UNP-46
+   Nombre: N/A
+   Tipo: Infraestructura recreo deportiva
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+2. UPID: UNP-47
+   Doc ID: UNP-47
+   Nombre: N/A
+   Tipo: Infraestructura recreo deportiva
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+3. UPID: UNP-48
+   Doc ID: UNP-48
+   Nombre: N/A
+   Tipo: Infraestructura recreo deportiva
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+4. UPID: UNP-49
+   Doc ID: UNP-49
+   Nombre: N/A
+   Tipo: Infraestructura recreo deportiva
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+5. UPID: UNP-50
+   Doc ID: UNP-50
+   Nombre: N/A
+   Tipo: Infraestructura recreo deportiva
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+6. UPID: UNP-51
+   Doc ID: UNP-51
+   Nombre: N/A
+   Tipo: Infraestructura recreo deportiva
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+7. UPID: UNP-52
+   Doc ID: UNP-52
+   Nombre: N/A
+   Tipo: Infraestructura recreo deportiva
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+8. UPID: UNP-53
+   Doc ID: UNP-53
+   Nombre: N/A
+   Tipo: Infraestructura recreo deportiva
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+9. UPID: UNP-54
+   Doc ID: UNP-54
+   Nombre: N/A
+   Tipo: Infraestructura recreo deportiva
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+10. UPID: UNP-56
+   Doc ID: UNP-56
+   Nombre: N/A
+   Tipo: Infraestructura recreo deportiva
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+11. UPID: UNP-57
+   Doc ID: UNP-57
+   Nombre: N/A
+   Tipo: Infraestructura recreo deportiva
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+12. UPID: UNP-58
+   Doc ID: UNP-58
+   Nombre: N/A
+   Tipo: Infraestructura recreo deportiva
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+13. UPID: UNP-59
+   Doc ID: UNP-59
+   Nombre: N/A
+   Tipo: Infraestructura recreo deportiva
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+14. UPID: UNP-60
+   Doc ID: UNP-60
+   Nombre: N/A
+   Tipo: Infraestructura recreo deportiva
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+15. UPID: UNP-61
+   Doc ID: UNP-61
+   Nombre: N/A
+   Tipo: Infraestructura recreo deportiva
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+16. UPID: UNP-62
+   Doc ID: UNP-62
+   Nombre: N/A
+   Tipo: Infraestructura recreo deportiva
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+17. UPID: UNP-63
+   Doc ID: UNP-63
+   Nombre: N/A
+   Tipo: Infraestructura recreo deportiva
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+18. UPID: UNP-64
+   Doc ID: UNP-64
+   Nombre: N/A
+   Tipo: Infraestructura recreo deportiva
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+19. UPID: UNP-65
+   Doc ID: UNP-65
+   Nombre: N/A
+   Tipo: Infraestructura recreo deportiva
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+20. UPID: UNP-67
+   Doc ID: UNP-67
+   Nombre: N/A
+   Tipo: Infraestructura recreo deportiva
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+21. UPID: UNP-68
+   Doc ID: UNP-68
+   Nombre: N/A
+   Tipo: Infraestructura recreo deportiva
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+22. UPID: UNP-69
+   Doc ID: UNP-69
+   Nombre: N/A
+   Tipo: Infraestructura recreo deportiva
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+23. UPID: UNP-70
+   Doc ID: UNP-70
+   Nombre: N/A
+   Tipo: Infraestructura recreo deportiva
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+24. UPID: UNP-71
+   Doc ID: UNP-71
+   Nombre: N/A
+   Tipo: Infraestructura recreo deportiva
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+25. UPID: UNP-72
+   Doc ID: UNP-72
+   Nombre: N/A
+   Tipo: Infraestructura recreo deportiva
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+26. UPID: UNP-73
+   Doc ID: UNP-73
+   Nombre: N/A
+   Tipo: Infraestructura recreo deportiva
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+27. UPID: UNP-74
+   Doc ID: UNP-74
+   Nombre: N/A
+   Tipo: Infraestructura recreo deportiva
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+28. UPID: UNP-75
+   Doc ID: UNP-75
+   Nombre: N/A
+   Tipo: Infraestructura recreo deportiva
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+29. UPID: UNP-76
+   Doc ID: UNP-76
+   Nombre: N/A
+   Tipo: Infraestructura recreo deportiva
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+30. UPID: UNP-78
+   Doc ID: UNP-78
+   Nombre: N/A
+   Tipo: Infraestructura recreo deportiva
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+31. UPID: UNP-79
+   Doc ID: UNP-79
+   Nombre: N/A
+   Tipo: Infraestructura recreo deportiva
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+32. UPID: UNP-80
+   Doc ID: UNP-80
+   Nombre: N/A
+   Tipo: Infraestructura recreo deportiva
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+33. UPID: UNP-81
+   Doc ID: UNP-81
+   Nombre: N/A
+   Tipo: Infraestructura recreo deportiva
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+
+================================================================================
+Secretaría de Bienestar Social
+================================================================================
+Total de registros sin geometry: 20
+
+1. UPID: UNP-24
+   Doc ID: UNP-24
+   Nombre: N/A
+   Tipo: UTS
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+2. UPID: UNP-25
+   Doc ID: UNP-25
+   Nombre: N/A
+   Tipo: UTS
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+3. UPID: UNP-26
+   Doc ID: UNP-26
+   Nombre: N/A
+   Tipo: UTS
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+4. UPID: UNP-27
+   Doc ID: UNP-27
+   Nombre: N/A
+   Tipo: UTS
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+5. UPID: UNP-28
+   Doc ID: UNP-28
+   Nombre: N/A
+   Tipo: UTS
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+6. UPID: UNP-29
+   Doc ID: UNP-29
+   Nombre: N/A
+   Tipo: UTS
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+7. UPID: UNP-30
+   Doc ID: UNP-30
+   Nombre: N/A
+   Tipo: UTS
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+8. UPID: UNP-31
+   Doc ID: UNP-31
+   Nombre: N/A
+   Tipo: UTS
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+9. UPID: UNP-32
+   Doc ID: UNP-32
+   Nombre: N/A
+   Tipo: UTS
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+10. UPID: UNP-34
+   Doc ID: UNP-34
+   Nombre: N/A
+   Tipo: UTS
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+11. UPID: UNP-35
+   Doc ID: UNP-35
+   Nombre: N/A
+   Tipo: UTS
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+12. UPID: UNP-36
+   Doc ID: UNP-36
+   Nombre: N/A
+   Tipo: UTS
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+13. UPID: UNP-37
+   Doc ID: UNP-37
+   Nombre: N/A
+   Tipo: UTS
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+14. UPID: UNP-38
+   Doc ID: UNP-38
+   Nombre: N/A
+   Tipo: UTS
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+15. UPID: UNP-39
+   Doc ID: UNP-39
+   Nombre: N/A
+   Tipo: UTS
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+16. UPID: UNP-40
+   Doc ID: UNP-40
+   Nombre: N/A
+   Tipo: UTS
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+17. UPID: UNP-41
+   Doc ID: UNP-41
+   Nombre: N/A
+   Tipo: UTS
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+18. UPID: UNP-42
+   Doc ID: UNP-42
+   Nombre: N/A
+   Tipo: UTS
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+19. UPID: UNP-43
+   Doc ID: UNP-43
+   Nombre: N/A
+   Tipo: None
+   Clase UP: Interventoria
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+20. UPID: UNP-45
+   Doc ID: UNP-45
+   Nombre: N/A
+   Tipo: None
+   Clase UP: None
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+
+================================================================================
+Unidad Administrativa Especial de Gestión de Bienes y Servicios
+================================================================================
+Total de registros sin geometry: 18
+
+1. UPID: UNP-100
+   Doc ID: UNP-100
+   Nombre: N/A
+   Tipo: Fuentes y monumentos
+   Clase UP: Obras de Arte (civil)
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+2. UPID: UNP-101
+   Doc ID: UNP-101
+   Nombre: N/A
+   Tipo: Fuentes y monumentos
+   Clase UP: Obras de Arte (civil)
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+3. UPID: UNP-102
+   Doc ID: UNP-102
+   Nombre: N/A
+   Tipo: Fuentes y monumentos
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+4. UPID: UNP-83
+   Doc ID: UNP-83
+   Nombre: N/A
+   Tipo: Fuentes y monumentos
+   Clase UP: Obras de Arte (civil)
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+5. UPID: UNP-84
+   Doc ID: UNP-84
+   Nombre: N/A
+   Tipo: Fuentes y monumentos
+   Clase UP: Obras de Arte (civil)
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+6. UPID: UNP-85
+   Doc ID: UNP-85
+   Nombre: N/A
+   Tipo: Fuentes y monumentos
+   Clase UP: Obras de Arte (civil)
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+7. UPID: UNP-86
+   Doc ID: UNP-86
+   Nombre: N/A
+   Tipo: Edificios Institucionales
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+8. UPID: UNP-87
+   Doc ID: UNP-87
+   Nombre: N/A
+   Tipo: Edificios Institucionales
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+9. UPID: UNP-89
+   Doc ID: UNP-89
+   Nombre: N/A
+   Tipo: Fuentes y monumentos
+   Clase UP: Obras de Arte (civil)
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+10. UPID: UNP-90
+   Doc ID: UNP-90
+   Nombre: N/A
+   Tipo: Fuentes y monumentos
+   Clase UP: Obras de Arte (civil)
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+11. UPID: UNP-91
+   Doc ID: UNP-91
+   Nombre: N/A
+   Tipo: Fuentes y monumentos
+   Clase UP: Obras de Arte (civil)
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+12. UPID: UNP-92
+   Doc ID: UNP-92
+   Nombre: N/A
+   Tipo: Fuentes y monumentos
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+13. UPID: UNP-93
+   Doc ID: UNP-93
+   Nombre: N/A
+   Tipo: Fuentes y monumentos
+   Clase UP: Obras de Arte (civil)
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+14. UPID: UNP-94
+   Doc ID: UNP-94
+   Nombre: N/A
+   Tipo: Fuentes y monumentos
+   Clase UP: Obras de Arte (civil)
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+15. UPID: UNP-95
+   Doc ID: UNP-95
+   Nombre: N/A
+   Tipo: Fuentes y monumentos
+   Clase UP: Obras de Arte (civil)
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+16. UPID: UNP-96
+   Doc ID: UNP-96
+   Nombre: N/A
+   Tipo: Adecuaciones y Mantenimientos
+   Clase UP: Obras de Arte (civil)
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+17. UPID: UNP-97
+   Doc ID: UNP-97
+   Nombre: N/A
+   Tipo: Fuentes y monumentos
+   Clase UP: Obras de Arte (civil)
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+18. UPID: UNP-98
+   Doc ID: UNP-98
+   Nombre: N/A
+   Tipo: Fuentes y monumentos
+   Clase UP: Obras de Arte (civil)
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+
+================================================================================
+Secretaría de Cultura
+================================================================================
+Total de registros sin geometry: 16
+
+1. UPID: UNP-10
+   Doc ID: UNP-10
+   Nombre: N/A
+   Tipo: Bibliotecas
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+2. UPID: UNP-103
+   Doc ID: UNP-103
+   Nombre: N/A
+   Tipo: Infraestructura cultural
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+3. UPID: UNP-104
+   Doc ID: UNP-104
+   Nombre: N/A
+   Tipo: Parques y zonas verdes
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+4. UPID: UNP-105
+   Doc ID: UNP-105
+   Nombre: N/A
+   Tipo: Bibliotecas
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+5. UPID: UNP-106
+   Doc ID: UNP-106
+   Nombre: N/A
+   Tipo: Bibliotecas
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+6. UPID: UNP-107
+   Doc ID: UNP-107
+   Nombre: N/A
+   Tipo: Bibliotecas
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+7. UPID: UNP-108
+   Doc ID: UNP-108
+   Nombre: N/A
+   Tipo: Bibliotecas
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+8. UPID: UNP-109
+   Doc ID: UNP-109
+   Nombre: N/A
+   Tipo: Bibliotecas
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+9. UPID: UNP-11
+   Doc ID: UNP-11
+   Nombre: N/A
+   Tipo: Bibliotecas
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+10. UPID: UNP-12
+   Doc ID: UNP-12
+   Nombre: N/A
+   Tipo: Bibliotecas
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+11. UPID: UNP-4
+   Doc ID: UNP-4
+   Nombre: N/A
+   Tipo: Bibliotecas
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+12. UPID: UNP-5
+   Doc ID: UNP-5
+   Nombre: N/A
+   Tipo: Infraestructura cultural
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+13. UPID: UNP-6
+   Doc ID: UNP-6
+   Nombre: N/A
+   Tipo: Eco parques
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+14. UPID: UNP-7
+   Doc ID: UNP-7
+   Nombre: N/A
+   Tipo: Bibliotecas
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+15. UPID: UNP-8
+   Doc ID: UNP-8
+   Nombre: N/A
+   Tipo: Bibliotecas
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+16. UPID: UNP-9
+   Doc ID: UNP-9
+   Nombre: N/A
+   Tipo: Bibliotecas
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+
+================================================================================
+Departamento Administrativo de Gestión del Medio Ambiente
+================================================================================
+Total de registros sin geometry: 10
+
+1. UPID: UNP-13
+   Doc ID: UNP-13
+   Nombre: N/A
+   Tipo: Parques y zonas verdes
+   Clase UP: Espacio Público
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+2. UPID: UNP-14
+   Doc ID: UNP-14
+   Nombre: N/A
+   Tipo: Parques y zonas verdes
+   Clase UP: Espacio Público
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+3. UPID: UNP-15
+   Doc ID: UNP-15
+   Nombre: N/A
+   Tipo: Parques y zonas verdes
+   Clase UP: Espacio Público
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+4. UPID: UNP-16
+   Doc ID: UNP-16
+   Nombre: N/A
+   Tipo: Parques y zonas verdes
+   Clase UP: Espacio Público
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+5. UPID: UNP-3
+   Doc ID: UNP-3
+   Nombre: N/A
+   Tipo: Parques y zonas verdes
+   Clase UP: Espacio Público
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+6. UPID: UNP-55
+   Doc ID: UNP-55
+   Nombre: N/A
+   Tipo: Parques y zonas verdes
+   Clase UP: Espacio Público
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+7. UPID: UNP-66
+   Doc ID: UNP-66
+   Nombre: N/A
+   Tipo: Parques y zonas verdes
+   Clase UP: Espacio Público
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+8. UPID: UNP-77
+   Doc ID: UNP-77
+   Nombre: N/A
+   Tipo: Parques y zonas verdes
+   Clase UP: Espacio Público
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+9. UPID: UNP-88
+   Doc ID: UNP-88
+   Nombre: N/A
+   Tipo: Parques y zonas verdes
+   Clase UP: Espacio Público
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+10. UPID: UNP-99
+   Doc ID: UNP-99
+   Nombre: N/A
+   Tipo: Parques y zonas verdes
+   Clase UP: Espacio Público
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+
+================================================================================
+Secretaría de Seguridad y Justicia
+================================================================================
+Total de registros sin geometry: 6
+
+1. UPID: UNP-17
+   Doc ID: UNP-17
+   Nombre: N/A
+   Tipo: CAD
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+2. UPID: UNP-18
+   Doc ID: UNP-18
+   Nombre: N/A
+   Tipo: Estaciones de policia
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+3. UPID: UNP-19
+   Doc ID: UNP-19
+   Nombre: N/A
+   Tipo: Casa de Justicia
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+4. UPID: UNP-20
+   Doc ID: UNP-20
+   Nombre: N/A
+   Tipo: Estaciones de policia
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+5. UPID: UNP-21
+   Doc ID: UNP-21
+   Nombre: N/A
+   Tipo: CAD
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+6. UPID: UNP-23
+   Doc ID: UNP-23
+   Nombre: N/A
+   Tipo: Casa de Justicia
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+
+================================================================================
+Secretaría de Movilidad
+================================================================================
+Total de registros sin geometry: 4
+
+1. UPID: UNP-523
+   Doc ID: UNP-523
+   Nombre: N/A
+   Tipo: Señalización vial
+   Clase UP: Demarcación vial
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+2. UPID: UNP-524
+   Doc ID: UNP-524
+   Nombre: N/A
+   Tipo: Señalización vial
+   Clase UP: Demarcación vial
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+3. UPID: UNP-525
+   Doc ID: UNP-525
+   Nombre: N/A
+   Tipo: Señalización vial
+   Clase UP: Demarcación vial
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+4. UPID: UNP-526
+   Doc ID: UNP-526
+   Nombre: N/A
+   Tipo: Señalización vial
+   Clase UP: Demarcación vial
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+
+================================================================================
+Secretaría de Educación
+================================================================================
+Total de registros sin geometry: 3
+
+1. UPID: UNP-1
+   Doc ID: UNP-1
+   Nombre: N/A
+   Tipo: Instituciones Educativas
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+2. UPID: UNP-2
+   Doc ID: UNP-2
+   Nombre: N/A
+   Tipo: Instituciones Educativas
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+3. UPID: UNP-22
+   Doc ID: UNP-22
+   Nombre: N/A
+   Tipo: Instituciones Educativas
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+
+================================================================================
+Secretaría de Desarrollo Territorial y Participación Ciudadana
+================================================================================
+Total de registros sin geometry: 1
+
+1. UPID: UNP-44
+   Doc ID: UNP-44
+   Nombre: N/A
+   Tipo: CALIS
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+
+
+================================================================================
+Secretaría de Paz y Cultura Ciudadana
+================================================================================
+Total de registros sin geometry: 1
+
+1. UPID: UNP-82
+   Doc ID: UNP-82
+   Nombre: N/A
+   Tipo: Infraestructura cultural
+   Clase UP: Obras equipamientos
+   Estado: N/A
+   has_geometry: False
+   geometry: None
+

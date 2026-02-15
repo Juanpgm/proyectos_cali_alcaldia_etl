@@ -36,16 +36,35 @@ from tqdm import tqdm
 def clean_2d_coordinates(coords: List[Any]) -> List[float]:
     """
     Clean a single coordinate pair to 2D [lon, lat] format.
+    CRÍTICO: Retorna None si las coordenadas son [0,0] o inválidas.
     
     Args:
         coords: Coordinate array (may have 2D or 3D values)
         
     Returns:
-        2D coordinate pair [lon, lat] rounded to 8 decimals
+        2D coordinate pair [lon, lat] rounded to 8 decimals, or None if invalid
     """
-    if len(coords) >= 2:
-        return [round(float(coords[0]), 8), round(float(coords[1]), 8)]
-    return None
+    if not coords or len(coords) < 2:
+        return None
+    
+    try:
+        lon = float(coords[0])
+        lat = float(coords[1])
+        
+        # CRÍTICO: Rechazar coordenadas [0, 0] - son placeholders inválidos
+        if lon == 0 and lat == 0:
+            return None
+        
+        # Validar rangos razonables para Cali, Colombia
+        # Latitud: 2.5 a 4.5
+        # Longitud: -77.5 a -75.5
+        if not (2.5 <= lat <= 4.5 and -77.5 <= lon <= -75.5):
+            # Coordenadas fuera del rango válido para Cali
+            return None
+        
+        return [round(lon, 8), round(lat, 8)]
+    except (ValueError, TypeError, IndexError):
+        return None
 
 
 def serialize_geometry_coordinates(geom_type: str, coords: Any) -> Any:
@@ -408,14 +427,6 @@ def prepare_document_data(feature: Dict[str, Any]) -> Optional[Dict[str, Any]]:
                     'coordinates': json.dumps(clean_coords, separators=(',', ':'))
                 }
     
-    # NOTA: lat/lon ya NO están en properties del GeoJSON
-    # Las coordenadas se crean ÚNICAMENTE en geometry durante la transformación
-    # Este código ya no es necesario porque el GeoJSON tiene geometry correcta
-    # if not geometry_field:
-    #     lat = properties.get('lat')
-    #     lon = properties.get('lon')
-    #     ... (código comentado, ya no necesario)
-    
     # Serialize properties for Firebase compatibility (flatten to root level)
     document_data = {}
     for key, value in properties.items():
@@ -609,25 +620,16 @@ def process_batch(collection_name: str, batch_index: int, batch: List[Dict[str, 
                 document_data['updated_at'] = datetime.now().isoformat()
                 document_data['created_at'] = existing_data.get('created_at', datetime.now().isoformat())
                 
-                # CRÍTICO: Preservar geometry existente si el nuevo dato no tiene geometry
-                geometry_was_preserved = False
-                if 'geometry' not in document_data or not document_data.get('geometry'):
-                    existing_geometry = existing_data.get('geometry')
-                    if existing_geometry:
-                        document_data['geometry'] = existing_geometry
-                        geometry_was_preserved = True
-                        print(f"      [PRESERVE] Geometry preserved for {doc_id}")
-                
-                # Si se preservó la geometría, recalcular el hash con la geometría restaurada
-                if geometry_was_preserved:
-                    # Reconstruir el feature para calcular hash correcto
-                    feature_for_hash = {
-                        'properties': {k: v for k, v in document_data.items() 
-                                     if k not in ['geometry', 'created_at', 'updated_at', '_hash', 'has_geometry']},
-                        'geometry': document_data.get('geometry')
-                    }
-                    record_str = json.dumps(feature_for_hash, sort_keys=True, default=str)
-                    document_data['_hash'] = hashlib.md5(record_str.encode('utf-8')).hexdigest()
+                # CRÍTICO: NUNCA sobrescribir geometry con None o vacío si el dato viene del pipeline incremental
+                # El pipeline ya detecta cambios de geometry, así que si el nuevo documento no tiene geometry
+                # es porque NO DEBERÍA tenerla (fue removida intencionalmente en la fuente de datos)
+                # 
+                # Lógica corregida:
+                # 1. Si nuevo tiene geometry válida → usar la nueva (puede ser una actualización)
+                # 2. Si nuevo NO tiene geometry pero existente SÍ tiene → ACTUALIZAR a None (cambio intencional)
+                # 3. Solo preservar si es explícitamente None en ambos casos
+                #
+                # Esta lógica respeta las decisiones del pipeline de verificación incremental
                 
                 firebase_batch.set(doc_ref, document_data)
                 updated_records += 1

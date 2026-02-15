@@ -1,20 +1,15 @@
 """
 Script para ver la estructura real del summary en Firebase
 """
-import firebase_admin
-from firebase_admin import credentials, firestore
+from database.config import get_firestore_client
 import json
-
-# Inicializar Firebase
-if not firebase_admin._apps:
-    cred = credentials.Certificate('target-credentials.json')
-    firebase_admin.initialize_app(cred)
-
-db = firestore.client()
 
 print('='*80)
 print('🔍 ESTRUCTURA REAL DEL SUMMARY EN FIREBASE')
 print('='*80)
+
+# Obtener cliente de Firebase usando configuración centralizada
+db = get_firestore_client()
 
 # Obtener TODOS los documentos de summary
 summary_docs = list(db.collection('unidades_proyecto_quality_control_summary').stream())

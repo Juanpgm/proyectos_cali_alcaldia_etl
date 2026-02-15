@@ -7,7 +7,6 @@ Este documento describe cómo configurar los secrets necesarios para que los Git
 ### 🔥 Firebase/Google Cloud
 
 1. **`GOOGLE_CLOUD_SERVICE_ACCOUNT_KEY`** (Requerido)
-
    - **Descripción**: JSON completo de la service account de Google Cloud
    - **Formato**: JSON string completo
    - **Cómo obtenerlo**:
@@ -36,12 +35,11 @@ Este documento describe cómo configurar los secrets necesarios para que los Git
 2. **`FIREBASE_PROJECT_ID`** (Requerido)
    - **Descripción**: ID del proyecto Firebase/Google Cloud
    - **Formato**: String simple (ej: `mi-proyecto-id`)
-   - **Ejemplo**: `dev-test-e778d`
+   - **Ejemplo**: `calitrack-44403`
 
 ### 📊 Google Sheets
 
 3. **`SHEETS_UNIDADES_PROYECTO_URL`** (Requerido)
-
    - **Descripción**: URL completa de la hoja de Google Sheets
    - **Formato**: URL completa
    - **Ejemplo**: `https://docs.google.com/spreadsheets/d/1ABC123.../edit`

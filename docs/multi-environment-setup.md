@@ -17,7 +17,7 @@ Este documento explica cómo está configurado el sistema para trabajar con múl
 
 El proyecto ahora soporta múltiples entornos Firebase para permitir desarrollo y pruebas sin afectar los datos de producción:
 
-- **Rama `main`**: Producción → `dev-test-e778d`
+- **Rama `main`**: Producción → `calitrack-44403`
 - **Rama `dev`**: Desarrollo → `calitrack-44403`
 
 ### ✨ Características
@@ -52,7 +52,7 @@ graph TD
     B -->|main| C[Cargar .env.prod]
     B -->|dev| D[Cargar .env.dev]
     B -->|otra| E[Cargar .env.dev por defecto]
-    C --> F[Conectar a dev-test-e778d]
+    C --> F[Conectar a calitrack-44403]
     D --> G[Conectar a calitrack-44403]
     E --> G
 ```
@@ -129,8 +129,8 @@ Configurar las siguientes variables en `.env.prod`:
 
 ```bash
 # Firebase - PRODUCCIÓN
-FIREBASE_PROJECT_ID=dev-test-e778d
-GOOGLE_CLOUD_PROJECT=dev-test-e778d
+FIREBASE_PROJECT_ID=calitrack-44403
+GOOGLE_CLOUD_PROJECT=calitrack-44403
 
 # ... (resto de configuraciones)
 
@@ -146,8 +146,8 @@ Para cada proyecto de Firebase, necesitas configurar las credenciales:
 # Para desarrollo (calitrack-44403)
 gcloud auth application-default login --project=calitrack-44403
 
-# Para producción (dev-test-e778d)
-gcloud auth application-default login --project=dev-test-e778d
+# Para producción (calitrack-44403)
+gcloud auth application-default login --project=calitrack-44403
 ```
 
 **Nota**: Las credenciales de Application Default se almacenan globalmente. El sistema usará las credenciales del proyecto configurado en el archivo `.env` correspondiente.
@@ -196,7 +196,7 @@ python pipelines/unidades_proyecto_pipeline.py
 ```bash
 # Trabajar en producción
 git checkout main
-# Automáticamente usará dev-test-e778d
+# Automáticamente usará calitrack-44403
 
 # Ejecutar pipelines en producción (¡con cuidado!)
 python pipelines/unidades_proyecto_pipeline.py
@@ -205,6 +205,7 @@ python pipelines/unidades_proyecto_pipeline.py
 ### 🧪 Flujo de Trabajo Recomendado
 
 1. **Desarrollo y Pruebas**
+
    ```bash
    git checkout dev
    # Hacer cambios y pruebas en calitrack-44403
@@ -212,20 +213,22 @@ python pipelines/unidades_proyecto_pipeline.py
    ```
 
 2. **Testing**
+
    ```bash
    # Ejecutar tests locales
    pytest
-   
+
    # Verificar comportamiento
    python pipelines/unidades_proyecto_pipeline.py
    ```
 
 3. **Deploy a Producción**
+
    ```bash
    # Cuando todo funcione correctamente
    git checkout main
    git merge dev
-   
+
    # Ejecutar en producción
    python pipelines/unidades_proyecto_pipeline.py
    ```
@@ -299,6 +302,7 @@ cp .env.example .env.dev
 **Problema**: El sistema no encuentra el archivo `.env.dev` o `.env.prod`
 
 **Solución**:
+
 ```bash
 # Verificar que estés en la rama correcta
 git branch
@@ -315,6 +319,7 @@ cp .env.example .env.dev  # o .env.prod
 **Problema**: No puedes conectarte a Firebase
 
 **Solución**:
+
 ```bash
 # Re-autenticar con gcloud
 gcloud auth application-default login --project=calitrack-44403
@@ -331,6 +336,7 @@ grep FIREBASE_PROJECT_ID .env.dev
 **Problema**: Los datos se están guardando en el proyecto equivocado
 
 **Verificación**:
+
 ```bash
 # 1. Verificar rama actual
 git branch
@@ -347,6 +353,7 @@ cat .env.dev  # o .env.prod
 **Problema**: El sistema carga `.env` genérico en lugar de `.env.dev`/`.env.prod`
 
 **Solución**:
+
 ```bash
 # Renombrar .env a .env.backup
 mv .env .env.backup
@@ -363,6 +370,7 @@ python -m database.config
 ```
 
 Salida esperada:
+
 ```
 🔧 Usando configuración de DESARROLLO (.env.dev)
 ✅ Variables de entorno cargadas desde .env.dev

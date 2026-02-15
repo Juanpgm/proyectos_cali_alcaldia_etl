@@ -1,23 +1,20 @@
 import geopandas as gpd
 import pandas as pd
 import json
-import firebase_admin
-from firebase_admin import credentials, firestore
+from database.config import get_firestore_client
 from shapely.geometry import Point, LineString, Polygon, MultiLineString, shape
 import os
 from datetime import datetime
 
 def initialize_firebase():
-    """Initialize Firebase connection"""
+    """Initialize Firebase connection using centralized config"""
     try:
-        firebase_admin.get_app()
-        print("✓ Firebase already initialized")
-    except ValueError:
-        cred = credentials.Certificate('target-credentials.json')
-        firebase_admin.initialize_app(cred)
-        print("✓ Firebase initialized successfully")
-    
-    return firestore.client()
+        client = get_firestore_client()
+        print("✓ Firebase initialized using centralized config")
+        return client
+    except Exception as e:
+        print(f"❌ Error initializing Firebase: {e}")
+        raise
 
 def load_territorios_geojson(geojson_path):
     """Load the territorios buffer polygons from GeoJSON file"""
