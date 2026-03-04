@@ -10,6 +10,9 @@ import os
 import sys
 import json
 import tempfile
+import subprocess
+import time
+import importlib.util
 from datetime import datetime
 from pathlib import Path
 from typing import Dict, Any
@@ -190,3 +193,106 @@ def manual_trigger(request):
 # They are not HTTP functions.
 
 from notifications import on_unidades_proyecto_write, on_contrato_write
+
+
+@functions_framework.http
+def etl_ejecucion_presupuestal(request):
+    """
+    Endpoint HTTP para ejecutar transformación + carga de ejecución presupuestal.
+
+    Query params opcionales:
+    - collection: nombre de colección destino en Firestore (default: ejecucion_presupuestal)
+    """
+    started = time.perf_counter()
+    collection_name = request.args.get("collection", "ejecucion_presupuestal") if request else "ejecucion_presupuestal"
+
+    result = {
+        "success": False,
+        "timestamp": datetime.now().isoformat(),
+        "function": "etl_ejecucion_presupuestal",
+        "collection": collection_name,
+        "pipeline_stages": {
+            "transformation": {"success": False, "duration_seconds": 0.0},
+            "load": {"success": False, "duration_seconds": 0.0, "records_uploaded": 0},
+        },
+        "errors": [],
+    }
+
+    try:
+        project_root = Path(__file__).resolve().parent.parent
+        transform_script = project_root / "transformation_app" / "data_transformation_ejecucion_presupuestal.py"
+
+        if not transform_script.exists():
+            result["errors"].append(f"Script de transformación no encontrado: {transform_script}")
+            return jsonify(result), 500
+
+        if str(project_root) not in sys.path:
+            sys.path.insert(0, str(project_root))
+
+        print("=" * 80)
+        print("🚀 INICIANDO ENDPOINT ETL EJECUCIÓN PRESUPUESTAL")
+        print(f"📚 Colección destino: {collection_name}")
+        print("=" * 80)
+
+        # 1) Transformación
+        transform_start = time.perf_counter()
+        transform_cmd = [sys.executable, str(transform_script)]
+        completed = subprocess.run(transform_cmd, cwd=str(project_root), check=False)
+        transform_duration = time.perf_counter() - transform_start
+
+        result["pipeline_stages"]["transformation"]["duration_seconds"] = round(transform_duration, 2)
+        result["pipeline_stages"]["transformation"]["success"] = completed.returncode == 0
+
+        if completed.returncode != 0:
+            result["errors"].append(f"Transformación falló con código {completed.returncode}")
+            return jsonify(result), 500
+
+        # Verificar output de transformación
+        output_dir = project_root / "transformation_app" / "app_outputs" / "ejecucion_presupuestal_outputs"
+        required = [
+            output_dir / "datos_caracteristicos_proyectos.json",
+            output_dir / "movimientos_presupuestales.json",
+            output_dir / "ejecucion_presupuestal.json",
+        ]
+
+        missing = [str(path) for path in required if (not path.exists() or path.stat().st_size == 0)]
+        if missing:
+            result["errors"].append("No se encontraron todos los archivos procesados requeridos")
+            result["errors"].extend(missing)
+            return jsonify(result), 500
+
+        # 2) Carga
+        load_start = time.perf_counter()
+        root_loader_path = project_root / "load_app" / "data_loading_bp.py"
+        if not root_loader_path.exists():
+            result["errors"].append(f"No se encontró loader raíz: {root_loader_path}")
+            return jsonify(result), 500
+
+        module_spec = importlib.util.spec_from_file_location("root_data_loading_bp", str(root_loader_path))
+        if module_spec is None or module_spec.loader is None:
+            result["errors"].append("No se pudo crear spec para root load_app/data_loading_bp.py")
+            return jsonify(result), 500
+
+        root_loader_module = importlib.util.module_from_spec(module_spec)
+        module_spec.loader.exec_module(root_loader_module)
+
+        load_result = root_loader_module.load_budget_projects_data(collection_name=collection_name)
+        load_duration = time.perf_counter() - load_start
+
+        result["pipeline_stages"]["load"]["duration_seconds"] = round(load_duration, 2)
+        if load_result and load_result.get("status") in {"success", "partial_success"}:
+            result["pipeline_stages"]["load"]["success"] = True
+            result["pipeline_stages"]["load"]["records_uploaded"] = int(load_result.get("records_processed", 0))
+        else:
+            result["errors"].append(f"Carga fallida: {load_result}")
+            return jsonify(result), 500
+
+        total_duration = time.perf_counter() - started
+        result["success"] = True
+        result["duration_seconds"] = round(total_duration, 2)
+
+        return jsonify(result), 200
+
+    except Exception as e:
+        result["errors"].append(str(e))
+        return jsonify(result), 500

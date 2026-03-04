@@ -8,6 +8,7 @@ desde archivos JSON transformados hacia Firebase Firestore.
 import json
 import os
 import sys
+import hashlib
 from typing import Dict, List, Any, Optional
 from datetime import datetime
 
@@ -96,6 +97,35 @@ def prepare_document_for_firestore(record: Dict[str, Any]) -> Dict[str, Any]:
     return prepared_record
 
 
+def resolve_document_id(record: Dict[str, Any]) -> Optional[str]:
+    """Resuelve un ID estable para permitir UPSERT."""
+    bpin = str(record.get('bpin', '')).strip()
+    if bpin:
+        return bpin
+
+    fallback_parts = [
+        str(record.get('bp', '')).strip(),
+        str(record.get('nombre_proyecto', '')).strip(),
+        str(record.get('nombre_actividad', '')).strip(),
+        str(record.get('anio', '')).strip(),
+        str(record.get('nombre_centro_gestor', '')).strip(),
+    ]
+    fallback_seed = "|".join(part for part in fallback_parts if part)
+    if not fallback_seed:
+        return None
+
+    fallback_hash = hashlib.md5(fallback_seed.encode('utf-8')).hexdigest()[:16]
+    return f"NO_BPIN_{fallback_hash}"
+
+
+def compute_payload_hash(record: Dict[str, Any]) -> str:
+    """Calcula hash estable del payload para detectar cambios reales."""
+    excluded_keys = {'fecha_carga', 'origen_archivo', 'payload_hash'}
+    clean_record = {k: v for k, v in record.items() if k not in excluded_keys}
+    raw = json.dumps(clean_record, sort_keys=True, ensure_ascii=False, default=str)
+    return hashlib.md5(raw.encode('utf-8')).hexdigest()
+
+
 def upload_data_to_firestore(data: List[Dict[str, Any]], collection_name: str = "proyectos_presupuestales") -> bool:
     """
     Carga los datos a Firestore usando lotes optimizados.
@@ -114,6 +144,9 @@ def upload_data_to_firestore(data: List[Dict[str, Any]], collection_name: str = 
         
         success_count = 0
         error_count = 0
+        skipped_count = 0
+        inserted_count = 0
+        updated_count = 0
         batch_size = 500  # Tamaño de lote optimizado para Firestore
         
         print(f"🚀 Iniciando carga de {len(data)} registros a Firestore...")
@@ -121,48 +154,89 @@ def upload_data_to_firestore(data: List[Dict[str, Any]], collection_name: str = 
         
         # Procesar registros en lotes
         for i in range(0, len(data), batch_size):
-            batch = client.batch()
             batch_data = data[i:i + batch_size]
             batch_errors = 0
-            
+
+            prepared_items: List[Dict[str, Any]] = []
+            refs_to_fetch = []
+
             for record in batch_data:
                 try:
-                    # Preparar documento para Firestore
                     prepared_record = prepare_document_for_firestore(record)
-                    
-                    # Usar BPIN como ID del documento (debe ser único)
-                    if 'bpin' not in prepared_record or not prepared_record['bpin']:
-                        print(f"⚠️  Registro sin BPIN válido, generando ID automático")
-                        doc_ref = collection_ref.document()
-                    else:
-                        doc_id = str(prepared_record['bpin']).strip()
-                        doc_ref = collection_ref.document(doc_id)
-                    
-                    # Agregar al batch
-                    batch.set(doc_ref, prepared_record)
-                    
+                    doc_id = resolve_document_id(prepared_record)
+                    if not doc_id:
+                        print("⚠️  Registro sin identificador estable, se omite para UPSERT")
+                        skipped_count += 1
+                        continue
+
+                    payload_hash = compute_payload_hash(prepared_record)
+                    prepared_record['payload_hash'] = payload_hash
+
+                    doc_ref = collection_ref.document(doc_id)
+                    prepared_items.append(
+                        {
+                            'doc_ref': doc_ref,
+                            'doc_id': doc_id,
+                            'payload_hash': payload_hash,
+                            'record': prepared_record,
+                        }
+                    )
+                    refs_to_fetch.append(doc_ref)
                 except Exception as e:
                     print(f"❌ Error preparando registro {record.get('bpin', 'N/A')}: {e}")
                     batch_errors += 1
-            
-            # Ejecutar el batch si hay documentos válidos
-            if len(batch_data) - batch_errors > 0:
+
+            if not prepared_items:
+                print(f"⚠️  Lote {i//batch_size + 1}: sin candidatos UPSERT")
+                error_count += batch_errors
+                continue
+
+            existing_docs = list(client.get_all(refs_to_fetch))
+            existing_hash_by_id = {}
+            for doc in existing_docs:
+                if doc.exists:
+                    doc_data = doc.to_dict() or {}
+                    existing_hash_by_id[doc.id] = doc_data.get('payload_hash')
+
+            batch = client.batch()
+            writes_in_batch = 0
+
+            for item in prepared_items:
+                current_hash = existing_hash_by_id.get(item['doc_id'])
+                if current_hash == item['payload_hash']:
+                    skipped_count += 1
+                    continue
+
+                batch.set(item['doc_ref'], item['record'])
+                writes_in_batch += 1
+
+                if item['doc_id'] in existing_hash_by_id:
+                    updated_count += 1
+                else:
+                    inserted_count += 1
+
+            if writes_in_batch > 0:
                 try:
                     batch.commit()
-                    batch_success = len(batch_data) - batch_errors
+                    batch_success = writes_in_batch
                     success_count += batch_success
                     error_count += batch_errors
-                    print(f"✅ Lote {i//batch_size + 1}: {batch_success} registros cargados")
-                    
+                    print(
+                        f"✅ Lote {i//batch_size + 1}: {batch_success} escritos "
+                        f"(insertados/actualizados), {batch_errors} errores, {skipped_count} sin cambios acumulados"
+                    )
                 except Exception as e:
                     print(f"❌ Error ejecutando lote {i//batch_size + 1}: {e}")
-                    error_count += len(batch_data)
+                    error_count += writes_in_batch + batch_errors
             else:
-                error_count += len(batch_data)
-                print(f"❌ Lote {i//batch_size + 1}: sin registros válidos para cargar")
+                error_count += batch_errors
+                print(f"⏭️  Lote {i//batch_size + 1}: sin cambios para aplicar")
         
         print(f"\n📈 Resumen de carga:")
-        print(f"   ✅ Registros exitosos: {success_count}")
+        print(f"   ✅ Registros escritos (insert/update): {success_count}")
+        print(f"   🆕 Insertados: {inserted_count}")
+        print(f"   🔄 Actualizados: {updated_count}")
+        print(f"   ⏭️ Sin cambios: {skipped_count}")
         print(f"   ❌ Registros con error: {error_count}")
         print(f"   📊 Total procesados: {len(data)}")
         print(f"   📋 Colección: {collection_name}")
@@ -224,7 +298,7 @@ def verify_data_upload(collection_name: str = "proyectos_presupuestales") -> Dic
         }
 
 
-def load_budget_projects_data() -> Optional[Dict[str, Any]]:
+def load_budget_projects_data(collection_name: str = "proyectos_presupuestales") -> Optional[Dict[str, Any]]:
     """
     Función principal para cargar datos de proyectos presupuestales a Firebase.
     
@@ -265,17 +339,17 @@ def load_budget_projects_data() -> Optional[Dict[str, Any]]:
             }
         
         # Cargar datos a Firestore
-        upload_success = upload_data_to_firestore(data)
+        upload_success = upload_data_to_firestore(data, collection_name=collection_name)
         
         # Verificar carga
-        verification_info = verify_data_upload()
+        verification_info = verify_data_upload(collection_name=collection_name)
         
         # Determinar estado final
         if upload_success and verification_info["verificacion_exitosa"]:
             return {
                 "status": "success",
                 "records_processed": len(data),
-                "collection": "proyectos_presupuestales",
+                "collection": collection_name,
                 "verification": verification_info
             }
         elif verification_info["verificacion_exitosa"]:
