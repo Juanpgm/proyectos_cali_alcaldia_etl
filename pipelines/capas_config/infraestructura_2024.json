@@ -1,0 +1,79 @@
+{
+  "shapefile_path": "app_inputs/unidades_proyecto_input/Infraestructura_2024.shp",
+
+  "columns_to_drop": [
+    "X_INICIA_1", "Y_INICIA_1", "X_FINAL_1", "Y_FINAL_1",
+    "Nompre_BP", "Id_1", "FID_1", "Barrio", "Comuna"
+  ],
+
+  "column_mapping": {
+    "Dirección": "direccion",
+    "Año": "anio",
+    "BPIN": "bpin",
+    "BP": "bp",
+    "VALOR_INTE": "presupuesto_base",
+    "Longitud": "cantidad",
+    "ESTADO": "estado",
+    "Tipo_Int_1": "tipo_intervencion",
+    "F__AVANCE": "avance_obra",
+    "Tipo_Grupo": "identificador",
+    "Tipo_Infra": "nombre_up",
+    "Tipo_Mezcl": "nombre_up_detalle"
+  },
+
+  "default_values": {
+    "unidad": "m",
+    "tipo_equipamiento": "Vías",
+    "clase_up": "Obra vial",
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "referencia_proceso": null,
+    "referencia_contrato": null,
+    "fuente_financiacion": null,
+    "fecha_inicio": null,
+    "fecha_fin": null,
+    "fecha_inauguracion": null,
+    "plataforma": null,
+    "url_proceso": null,
+    "descripcion_intervencion": null,
+    "observaciones": null
+  },
+
+  "text_capitalize_columns": [
+    "tipo_intervencion", "nombre_up", "nombre_up_detalle",
+    "identificador", "estado", "direccion"
+  ],
+
+  "replacements": {
+    "nombre_up": {
+      "No Reportado": "Vía Local",
+      "Via": "Vía"
+    }
+  },
+
+  "numeric_cleaning": {
+    "avance_obra": {
+      "strip": ["%"],
+      "comma_to_dot": true
+    },
+    "presupuesto_base": {
+      "strip": ["$", "."],
+      "comma_to_dot": true
+    },
+    "cantidad": {
+      "strip": [],
+      "comma_to_dot": false
+    }
+  },
+
+  "force_values": {
+    "estado": "Terminado"
+  },
+
+  "fillna_values": {
+    "tipo_intervencion": "Pavimento"
+  },
+
+  "anio_field": "anio",
+
+  "needs_crs_transform": false
+}

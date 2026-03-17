@@ -1,0 +1,71 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Configuración de Capa de Infraestructura",
+  "description": "Define cómo leer, transformar y mapear un shapefile de infraestructura al esquema estándar de unidades de proyecto.",
+  "type": "object",
+  "required": ["shapefile_path", "column_mapping", "default_values"],
+  "properties": {
+    "shapefile_path": {
+      "type": "string",
+      "description": "Ruta relativa al archivo .shp desde la raíz del proyecto."
+    },
+    "column_mapping": {
+      "type": "object",
+      "description": "Mapeo de columna origen (del shapefile) → columna destino (esquema estándar). Ej: {\"Tipo_Infra\": \"nombre_up\"}",
+      "additionalProperties": { "type": "string" }
+    },
+    "columns_to_drop": {
+      "type": "array",
+      "description": "Columnas del shapefile que se deben eliminar antes del mapeo.",
+      "items": { "type": "string" }
+    },
+    "default_values": {
+      "type": "object",
+      "description": "Campos con valor fijo para todos los registros de esta capa. Ej: {\"unidad\": \"m\", \"tipo_equipamiento\": \"Vías\"}",
+      "additionalProperties": {}
+    },
+    "text_capitalize_columns": {
+      "type": "array",
+      "description": "Columnas (nombre destino) a las cuales se les aplica capitalización (Title Case).",
+      "items": { "type": "string" }
+    },
+    "replacements": {
+      "type": "object",
+      "description": "Reemplazos de texto por columna (destino). Ej: {\"nombre_up\": {\"No Reportado\": \"Vía Local\"}}",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": { "type": "string" }
+      }
+    },
+    "numeric_cleaning": {
+      "type": "object",
+      "description": "Reglas de limpieza numérica por columna (destino). 'strip' lista caracteres a eliminar. 'comma_to_dot' convierte coma a punto.",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "strip": { "type": "array", "items": { "type": "string" } },
+          "comma_to_dot": { "type": "boolean" }
+        }
+      }
+    },
+    "force_values": {
+      "type": "object",
+      "description": "Valores forzados post-limpieza. Ej: {\"estado\": \"Terminado\"}",
+      "additionalProperties": {}
+    },
+    "fillna_values": {
+      "type": "object",
+      "description": "Valores por defecto para campos nulos. Ej: {\"tipo_intervencion\": \"Pavimento\"}",
+      "additionalProperties": {}
+    },
+    "anio_field": {
+      "type": "string",
+      "description": "Nombre de la columna (origen) que contiene el año. Se convierte a int."
+    },
+    "needs_crs_transform": {
+      "type": "boolean",
+      "description": "Si true, reproyecta a EPSG:4326 antes de procesar. Usar cuando el shapefile NO está en EPSG:4326.",
+      "default": false
+    }
+  }
+}

@@ -119,6 +119,7 @@ datasets/
 transformation_app/app_inputs/
 transformation_app/app_outputs/
 extraction_app/app_inputs/
+app_inputs/unidades_proyecto_input/
 
 # Legacy patterns (keeping for backward compatibility)
 transformation_app/app_outputs/**/temp_*

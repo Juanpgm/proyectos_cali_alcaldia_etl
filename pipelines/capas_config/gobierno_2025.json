@@ -1,0 +1,83 @@
+{
+  "shapefile_path": "app_inputs/unidades_proyecto_input/GO2025_Gobierno.shp",
+
+  "columns_to_drop": [
+    "Id", "COMUNA", "BARRIO",
+    "X_inicial", "Y_inicial", "X_final", "Y_final",
+    "X_centro", "Y_centro",
+    "Id_1", "MES", "Longitud",
+    "Nompre_BP", "VALOR_METR", "ESTADO_REP"
+  ],
+
+  "column_mapping": {
+    "DIRECCIÓN": "direccion",
+    "JERARQUIZ": "nombre_up",
+    "MEZCLA": "nombre_up_detalle",
+    "TIPO_INTER": "tipo_intervencion",
+    "FECHA_INCI": "fecha_inicio",
+    "FECHA_FIN": "fecha_fin",
+    "BPIN": "bpin",
+    "BP_CALCULA": "bp",
+    "VALOR_INTE": "presupuesto_base",
+    "METROS": "cantidad",
+    "ESTADO": "estado",
+    "__AVANCE": "avance_obra"
+  },
+
+  "default_values": {
+    "unidad": "m",
+    "tipo_equipamiento": "Vías",
+    "clase_up": "Obra vial",
+    "nombre_centro_gestor": "Secretaría de Infraestructura",
+    "anio": 2025,
+    "identificador": null,
+    "referencia_proceso": null,
+    "referencia_contrato": null,
+    "fuente_financiacion": null,
+    "fecha_inauguracion": null,
+    "plataforma": null,
+    "url_proceso": null,
+    "descripcion_intervencion": null,
+    "observaciones": null
+  },
+
+  "text_capitalize_columns": [
+    "tipo_intervencion", "nombre_up", "nombre_up_detalle",
+    "estado", "direccion"
+  ],
+
+  "replacements": {
+    "nombre_up": {
+      "No Reportado": "Vía Local",
+      "Via": "Vía",
+      "\r\n": ""
+    },
+    "tipo_intervencion": {
+      "\r\n": ""
+    }
+  },
+
+  "numeric_cleaning": {
+    "presupuesto_base": {
+      "strip": ["$", "."],
+      "comma_to_dot": true
+    },
+    "cantidad": {
+      "strip": [],
+      "comma_to_dot": false
+    }
+  },
+
+  "force_values": {
+    "estado": "Terminado",
+    "avance_obra": 100
+  },
+
+  "fillna_values": {
+    "tipo_intervencion": "Pavimento"
+  },
+
+  "anio_field": "anio",
+
+  "needs_crs_transform": true
+}
